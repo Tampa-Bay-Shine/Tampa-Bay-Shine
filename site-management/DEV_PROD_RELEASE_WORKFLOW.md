@@ -1,72 +1,54 @@
 
-# Dev / Production release workflow
+# Phase 2.5.8 — BookingKoala fallback release mode
 
-Use two Cloudflare Pages projects and two Git branches.
+Production transaction traffic is temporarily sent to:
 
-Development:
-- Pages project: `tampa-bay-shine-staging`
-- Branch: `cloudflare-staging`
-- URL: `https://tampa-bay-shine-staging.pages.dev`
-- Global `X-Robots-Tag: noindex`
-- Normal pushes deploy only to development.
+    https://tampabayshine.bookingkoala.com
 
-Production:
-- Pages project: `tampa-bay-shine`
-- Branch: `cloudflare-production`
-- Custom domain: `https://tampabayshine.com`
-- No global noindex.
-- BK routes point to `https://booking.tampabayshine.com`.
+The future custom BK host remains:
 
-Cloudflare production project settings:
-- Repository: `Tampa-Bay-Shine/Tampa-Bay-Shine`
-- Production branch: `cloudflare-production`
-- Framework: None
-- Build command: `exit 0`
-- Build output: `cloudflare-site`
+    https://booking.tampabayshine.com
 
-Keep the existing staging project connected to `cloudflare-staging`.
+The custom host is monitored but does not block a fallback-mode release.
+
+## Critical safety requirement
+
+Before moving `tampabayshine.com` to Cloudflare, make the original BookingKoala-hosted domain
+`tampabayshine.bookingkoala.com` the BookingKoala **Primary** domain if BookingKoala allows it.
+
+Why: BookingKoala says its Primary domain is used for dashboards and links in system email/SMS
+notifications. If the apex remains BK Primary after the apex is moved to Cloudflare, generated deep
+links may point at Cloudflare rather than BookingKoala.
+
+After changing BK Primary to the fallback domain, test admin login, customer login, provider app/session,
+recurring jobs, an actual email notification from owner@tampabayshine.com, a link inside that email,
+and an SMS notification link. Then set the corresponding manual gates to true.
 
 ## Gate
 
-From the repo:
-
     python.exe .\tools\migration_gate.py --repo . --phase staging
-
-GREEN means all automatic checks and recorded manual BK checks pass.
-YELLOW means automatic checks passed but a manual operational gate is still pending.
-RED means do not cut over.
-
-Manual gates are in:
-
-    site-management\release_gate_manual.json
-
-Only change a value to `true` after the test was actually performed.
 
 ## Promotion
 
-Prepare production locally, but do not push:
+Dry preparation only:
 
     python.exe .\tools\promote_cloudflare.py --repo .
 
-When ready to release:
+Actual production branch push:
 
     python.exe .\tools\promote_cloudflare.py --repo . --push
 
-The promotion script takes the exact tracked state of `cloudflare-staging`, creates/updates
-`cloudflare-production`, removes the staging-only global noindex header, rewrites BK transaction
-routes to `booking.tampabayshine.com`, commits, runs the production gate, and pushes only when
-`--push` was requested and the gate is GREEN.
+## Later switch to custom booking domain
 
-After launch:
+    python.exe .\tools\set_transaction_mode.py custom --repo .
+    git add site-management\release_targets.json
+    git commit -m "Switch production transactions to booking subdomain"
+    git push
 
-    python.exe .\tools\migration_gate.py --repo . --phase post-cutover
+Then rerun the staging gate and promote normally.
 
-## Normal development after launch
+## Dev / production separation
 
-    git switch cloudflare-staging
-    git pull origin cloudflare-staging
-
-Edit, validate, commit, and push. The staging Pages project updates. Production does not.
-
-Production changes only when the release script promotes an approved staging state to
-`cloudflare-production` and pushes that branch.
+Development stays on Cloudflare project `tampa-bay-shine-staging`, branch `cloudflare-staging`.
+Production stays on Cloudflare project `tampa-bay-shine`, branch `cloudflare-production`.
+Normal development pushes do not change production.
