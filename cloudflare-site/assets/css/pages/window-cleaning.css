@@ -86,3 +86,51 @@
         }
         @media (max-width:920px){#tbs-window-cleaning .hero-card,#tbs-window-cleaning .grid-3,#tbs-window-cleaning .grid-2{grid-template-columns:1fr}#tbs-window-cleaning .hero-points{grid-template-columns:1fr}#tbs-window-cleaning .hero-image{min-height:250px}#tbs-window-cleaning .wrap{padding:0 16px}#tbs-window-cleaning .card,#tbs-window-cleaning .hero-card{padding:20px}}
         @media (max-width:640px){#tbs-window-cleaning{line-height:1.55}#tbs-window-cleaning .breadcrumb{padding:14px 16px 0;font-size:.9rem}#tbs-window-cleaning .hero{padding:16px 0 8px}#tbs-window-cleaning .save-banner{grid-template-columns:1fr;gap:10px;padding:12px;border-radius:18px}#tbs-window-cleaning .save-label{width:100%;justify-content:center}#tbs-window-cleaning .save-offers{grid-template-columns:1fr;gap:8px}#tbs-window-cleaning .card,#tbs-window-cleaning .hero-card{border-radius:20px;padding:18px}#tbs-window-cleaning .cta-row{flex-direction:column}#tbs-window-cleaning .btn{width:100%}#tbs-window-cleaning .chip{width:100%}}
+
+/* Static window-cleaning results gallery.
+   Replaces the former BookingKoala/Bootstrap gallery so it remains fully styled
+   without BookingKoala runtime CSS or JavaScript. */
+#tbs-window-cleaning .results-gallery .card{
+  overflow:hidden;
+}
+#tbs-window-cleaning .results-gallery .muted{
+  margin-bottom:18px;
+}
+#tbs-window-cleaning .results-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+#tbs-window-cleaning .result-card{
+  margin:0;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+#tbs-window-cleaning .result-card img{
+  display:block;
+  width:100%;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+  background:#f3f4f6;
+}
+#tbs-window-cleaning .result-card figcaption{
+  padding:12px 14px 14px;
+  color:var(--ink);
+  font-size:.95rem;
+  font-weight:700;
+  line-height:1.35;
+}
+@media (max-width:920px){
+  #tbs-window-cleaning .results-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width:640px){
+  #tbs-window-cleaning .results-grid{
+    grid-template-columns:1fr;
+  }
+}
+
