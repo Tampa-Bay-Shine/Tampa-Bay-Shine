@@ -1,0 +1,82 @@
+
+from pathlib import Path
+import argparse,re,subprocess,sys
+
+DEV="cloudflare-staging"
+PROD="cloudflare-production"
+BOOKING="https://booking.tampabayshine.com"
+TX=["booknow","login","gift-card","referrals","floor-calculator"]
+
+def run(a,cwd,check=False):
+    p=subprocess.run(a,cwd=str(cwd),text=True,capture_output=True)
+    if check and p.returncode:
+        raise RuntimeError(" ".join(a)+"\n"+p.stdout+"\n"+p.stderr)
+    return p
+
+def branch(repo):
+    return run(["git","branch","--show-current"],repo).stdout.strip()
+
+def transform(repo):
+    site=repo/"cloudflare-site"
+    hp=site/"_headers"
+    lines=hp.read_text(encoding="utf-8").splitlines()
+    hp.write_text("\n".join(x for x in lines if not re.match(r"\s*X-Robots-Tag:\s*noindex\s*$",x,re.I)).rstrip()+"\n",encoding="utf-8")
+    rp=site/"_redirects"
+    out=[]
+    for line in rp.read_text(encoding="utf-8").splitlines():
+        s=line.strip()
+        hit=False
+        for r in TX:
+            if s.startswith(f"/{r} "):
+                parts=s.split()
+                code=parts[2] if len(parts)>2 else "302"
+                out.append(f"/{r} {BOOKING}/{r} {code}")
+                hit=True
+                break
+        if not hit: out.append(line)
+    rp.write_text("\n".join(out).rstrip()+"\n",encoding="utf-8")
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--repo",default=".")
+    ap.add_argument("--push",action="store_true")
+    a=ap.parse_args()
+    repo=Path(a.repo).resolve()
+    if branch(repo)!=DEV: raise SystemExit(f"Start on {DEV}; current={branch(repo)}")
+    if run(["git","status","--porcelain"],repo).stdout.strip(): raise SystemExit("Working tree must be clean.")
+
+    gate=repo/"tools"/"migration_gate.py"
+    p=subprocess.run([sys.executable,str(gate),"--repo",str(repo),"--phase","staging"],cwd=str(repo))
+    if p.returncode!=0: raise SystemExit("Staging gate is not GREEN. Stopped.")
+
+    run(["git","fetch","origin"],repo,True)
+    sha=run(["git","rev-parse",f"origin/{DEV}"],repo,True).stdout.strip()
+    local=run(["git","show-ref","--verify","--quiet",f"refs/heads/{PROD}"],repo).returncode==0
+    remote=run(["git","show-ref","--verify","--quiet",f"refs/remotes/origin/{PROD}"],repo).returncode==0
+
+    if local: run(["git","switch",PROD],repo,True)
+    elif remote: run(["git","switch","-c",PROD,"--track",f"origin/{PROD}"],repo,True)
+    else: run(["git","switch","-c",PROD,f"origin/{DEV}"],repo,True)
+
+    run(["git","read-tree","--reset","-u",f"origin/{DEV}"],repo,True)
+    transform(repo)
+    run(["git","add","-A"],repo,True)
+    if run(["git","diff","--cached","--quiet"],repo).returncode!=0:
+        run(["git","commit","-m",f"Promote staging {sha[:12]} to Cloudflare production"],repo,True)
+
+    p=subprocess.run([sys.executable,str(gate),"--repo",str(repo),"--phase","production"],cwd=str(repo))
+    if p.returncode!=0:
+        raise SystemExit("Production gate is not GREEN. Nothing pushed.")
+
+    if a.push:
+        args=["git","push","origin",PROD] if remote else ["git","push","-u","origin",PROD]
+        run(args,repo,True)
+        print("Pushed",PROD)
+    else:
+        print("Production branch prepared locally. NOT pushed.")
+
+    run(["git","switch",DEV],repo,True)
+    print("Returned to",DEV)
+
+if __name__=="__main__":
+    main()
