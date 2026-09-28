@@ -1,0 +1,434 @@
+#tbs-moveout-cost-guide-v2{
+          --royal:#0f0889;
+          --accent:#f4c613;
+          --ink:#0f172a;
+          --muted:#556070;
+          --soft:#f7f9ff;
+          --warm:#fffbea;
+          --border:#e5e9f4;
+          --max:1100px;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          background:#fff;
+          overflow-x:hidden;
+        }
+
+        #tbs-moveout-cost-guide-v2 *{
+          box-sizing:border-box;
+        }
+
+        #tbs-moveout-cost-guide-v2 img{
+          display:block;
+          max-width:100%;
+          height:auto;
+        }
+
+        #tbs-moveout-cost-guide-v2 h1,
+        #tbs-moveout-cost-guide-v2 h2,
+        #tbs-moveout-cost-guide-v2 h3{
+          margin:0 0 .65rem;
+          line-height:1.18;
+          font-weight:900;
+        }
+
+        #tbs-moveout-cost-guide-v2 h1{
+          color:#fff;
+          font-size:clamp(2rem,5vw,3.1rem);
+        }
+
+        #tbs-moveout-cost-guide-v2 h2{
+          color:var(--royal);
+          font-size:clamp(1.45rem,3vw,2rem);
+        }
+
+        #tbs-moveout-cost-guide-v2 h3{
+          font-size:1.08rem;
+        }
+
+        #tbs-moveout-cost-guide-v2 p{
+          margin:0 0 .9rem;
+        }
+
+        #tbs-moveout-cost-guide-v2 a{
+          color:var(--royal);
+          text-decoration:none;
+        }
+
+        #tbs-moveout-cost-guide-v2 a:hover{
+          text-decoration:underline;
+        }
+
+        #tbs-moveout-cost-guide-v2 .btn:hover,
+        #tbs-moveout-cost-guide-v2 .chip:hover{
+          text-decoration:none;
+        }
+
+        #tbs-moveout-cost-guide-v2 ul{
+          list-style:disc !important;
+          padding-left:22px !important;
+          margin:8px 0 15px !important;
+        }
+
+        #tbs-moveout-cost-guide-v2 li{
+          display:list-item !important;
+          margin:5px 0 !important;
+        }
+
+        #tbs-moveout-cost-guide-v2 a:focus-visible,
+        #tbs-moveout-cost-guide-v2 summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:3px;
+          border-radius:8px;
+        }
+
+        #tbs-moveout-cost-guide-v2 .container{
+          width:min(var(--max),calc(100% - 40px));
+          margin:0 auto;
+        }
+
+        #tbs-moveout-cost-guide-v2 .section{
+          padding:52px 0;
+        }
+
+        #tbs-moveout-cost-guide-v2 .section.soft{
+          background:var(--soft);
+          border-top:1px solid var(--border);
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-moveout-cost-guide-v2 .center{
+          text-align:center;
+        }
+
+        #tbs-moveout-cost-guide-v2 .muted{
+          color:var(--muted);
+        }
+
+        #tbs-moveout-cost-guide-v2 .eyebrow{
+          display:inline-flex;
+          margin-bottom:10px;
+          color:var(--royal);
+          font-size:.78rem;
+          font-weight:900;
+          letter-spacing:.08em;
+          text-transform:uppercase;
+        }
+
+        #tbs-moveout-cost-guide-v2 .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:50px;
+          padding:13px 19px;
+          border:2px solid transparent;
+          border-radius:13px;
+          font-weight:900;
+          text-align:center;
+        }
+
+        #tbs-moveout-cost-guide-v2 .btn-primary{
+          background:var(--accent);
+          color:#111!important;
+          box-shadow:0 9px 24px rgba(244,198,19,.25);
+        }
+
+        #tbs-moveout-cost-guide-v2 .btn-royal{
+          background:var(--royal);
+          color:#fff!important;
+        }
+
+        #tbs-moveout-cost-guide-v2 .btn-outline{
+          background:#fff;
+          color:var(--royal)!important;
+          border-color:var(--royal);
+        }
+
+        #tbs-moveout-cost-guide-v2 .actions{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          align-items:center;
+        }
+
+        #tbs-moveout-cost-guide-v2 .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:19px;
+          box-shadow:0 7px 22px rgba(15,23,42,.045);
+        }
+
+        #tbs-moveout-cost-guide-v2 .grid{
+          display:grid;
+          gap:16px;
+        }
+
+        #tbs-moveout-cost-guide-v2 .cols-2{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        #tbs-moveout-cost-guide-v2 .cols-3{
+          grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        /* BREADCRUMBS */
+
+        #tbs-moveout-cost-guide-v2 .breadcrumbs{
+          background:#fff;
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-moveout-cost-guide-v2 .breadcrumbs .container{
+          padding-top:11px;
+          padding-bottom:11px;
+        }
+
+        #tbs-moveout-cost-guide-v2 .breadcrumbs ol{
+          list-style:none!important;
+          padding:0!important;
+          margin:0!important;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          font-size:.9rem;
+          color:#64748b;
+        }
+
+        #tbs-moveout-cost-guide-v2 .breadcrumbs li{
+          display:block!important;
+          margin:0!important;
+        }
+
+        #tbs-moveout-cost-guide-v2 .breadcrumbs li+li::before{
+          content:"›";
+          margin-right:6px;
+          color:#94a3b8;
+        }
+
+        #tbs-moveout-cost-guide-v2 .breadcrumbs .current{
+          color:var(--ink);
+          font-weight:800;
+        }
+
+        /* HERO */
+
+        #tbs-moveout-cost-guide-v2 .hero{
+          position:relative;
+          min-height:530px;
+          display:flex;
+          align-items:flex-end;
+          overflow:hidden;
+          background:var(--royal);
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero-image{
+          position:absolute;
+          inset:0;
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero-image img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          object-position:center 55%;
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          background:linear-gradient(
+            90deg,
+            rgba(6,5,64,.95) 0%,
+            rgba(15,8,137,.82) 45%,
+            rgba(0,0,0,.27) 100%
+          );
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero-content{
+          position:relative;
+          z-index:2;
+          max-width:870px;
+          padding:56px 0;
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero .eyebrow{
+          color:#fff;
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero-lede{
+          color:#eef1ff;
+          font-size:clamp(1rem,2vw,1.18rem);
+        }
+
+        #tbs-moveout-cost-guide-v2 .hero-proof{
+          display:flex;
+          flex-wrap:wrap;
+          gap:8px;
+          margin-top:15px;
+        }
+
+        #tbs-moveout-cost-guide-v2 .proof{
+          display:inline-flex;
+          padding:6px 10px;
+          background:rgba(255,255,255,.12);
+          border:1px solid rgba(255,255,255,.22);
+          border-radius:999px;
+          color:#fff;
+          font-size:.85rem;
+          font-weight:800;
+        }
+
+        /* TABLE */
+
+        #tbs-moveout-cost-guide-v2 .table-wrap{
+          overflow-x:auto;
+        }
+
+        #tbs-moveout-cost-guide-v2 table{
+          width:100%;
+          border-collapse:separate;
+          border-spacing:0;
+          border:1px solid var(--border);
+          border-radius:13px;
+          overflow:hidden;
+          background:#fff;
+        }
+
+        #tbs-moveout-cost-guide-v2 th,
+        #tbs-moveout-cost-guide-v2 td{
+          padding:13px 14px;
+          text-align:left;
+          vertical-align:top;
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-moveout-cost-guide-v2 thead th{
+          background:var(--royal);
+          color:#fff;
+        }
+
+        #tbs-moveout-cost-guide-v2 tr:last-child th,
+        #tbs-moveout-cost-guide-v2 tr:last-child td{
+          border-bottom:none;
+        }
+
+        /* FACTORS */
+
+        #tbs-moveout-cost-guide-v2 .factor-card{
+          border-top:4px solid var(--royal);
+        }
+
+        #tbs-moveout-cost-guide-v2 .factor-number{
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          width:34px;
+          height:34px;
+          margin-bottom:10px;
+          border-radius:50%;
+          background:var(--royal);
+          color:#fff;
+          font-weight:900;
+        }
+
+        /* NOTICE */
+
+        #tbs-moveout-cost-guide-v2 .notice{
+          background:var(--warm);
+          border:1px solid #eedf8a;
+          border-left:5px solid var(--accent);
+          border-radius:15px;
+          padding:18px;
+        }
+
+        /* CHIPS */
+
+        #tbs-moveout-cost-guide-v2 .chips{
+          display:flex;
+          flex-wrap:wrap;
+          gap:9px;
+        }
+
+        #tbs-moveout-cost-guide-v2 .chip{
+          display:inline-flex;
+          padding:8px 11px;
+          background:#fff;
+          border:1px solid rgba(15,8,137,.18);
+          border-radius:999px;
+          color:var(--royal);
+          font-weight:800;
+        }
+
+        /* FAQ */
+
+        #tbs-moveout-cost-guide-v2 details.faq{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:13px 15px;
+          margin-bottom:10px;
+        }
+
+        #tbs-moveout-cost-guide-v2 details.faq summary{
+          cursor:pointer;
+          font-weight:900;
+        }
+
+        #tbs-moveout-cost-guide-v2 .faq-answer{
+          margin-top:8px;
+          color:var(--muted);
+        }
+
+        /* CTA */
+
+        #tbs-moveout-cost-guide-v2 .final-cta{
+          background:var(--royal);
+          color:#fff;
+          border-radius:20px;
+          padding:32px 24px;
+          text-align:center;
+        }
+
+        #tbs-moveout-cost-guide-v2 .final-cta h2{
+          color:#fff;
+        }
+
+        #tbs-moveout-cost-guide-v2 .final-cta p{
+          color:#eef1ff;
+        }
+
+        @media(max-width:900px){
+          #tbs-moveout-cost-guide-v2 .cols-3{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+        }
+
+        @media(max-width:600px){
+          #tbs-moveout-cost-guide-v2 .container{
+            width:calc(100% - 28px);
+          }
+
+          #tbs-moveout-cost-guide-v2 .section{
+            padding:40px 0;
+          }
+
+          #tbs-moveout-cost-guide-v2 .hero{
+            min-height:620px;
+          }
+
+          #tbs-moveout-cost-guide-v2 .actions{
+            flex-direction:column;
+            align-items:stretch;
+          }
+
+          #tbs-moveout-cost-guide-v2 .actions .btn{
+            width:100%;
+          }
+
+          #tbs-moveout-cost-guide-v2 .cols-2,
+          #tbs-moveout-cost-guide-v2 .cols-3{
+            grid-template-columns:1fr;
+          }
+        }

@@ -1,0 +1,105 @@
+/* ========== Tampa Bay Shine: About Page (BK drop-in) ========== */
+    #tbs-about{font-family:Arial, Helvetica, sans-serif;color:#0f172a;}
+    #tbs-about .tbs-container{max-width:1100px;margin:0 auto;padding:0 16px;}
+    #tbs-about .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+    /* Standard link styling (site-wide convention) */
+    #tbs-about a.tbs-link{color:#2563eb;text-decoration:none;font:inherit;}
+    #tbs-about a.tbs-link:hover{text-decoration:underline;}
+
+    /* Breadcrumbs (top-of-page, light and scan-friendly) */
+    #tbs-about .tbs-breadcrumbs{font-size:14px;line-height:1.4;margin:14px 0 0;}
+    #tbs-about .tbs-breadcrumbs a{color:#2563eb;text-decoration:none;font:inherit;}
+    #tbs-about .tbs-breadcrumbs a:hover{text-decoration:underline;}
+    #tbs-about .tbs-breadcrumbs .sep{padding:0 6px;color:#64748b;}
+
+    /* Hero */
+    #tbs-about .tbs-hero{margin:14px 0 18px;}
+    #tbs-about .tbs-hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;}
+    #tbs-about .tbs-hero-card{
+      position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(15,23,42,.10);
+      box-shadow:0 10px 26px rgba(0,0,0,.10);min-height:260px;
+    }
+    #tbs-about .tbs-hero-img{
+      width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02) contrast(1.02);
+    }
+    #tbs-about .tbs-hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(90deg, rgba(2,6,23,.72) 0%, rgba(2,6,23,.35) 55%, rgba(2,6,23,.10) 100%);
+    }
+    #tbs-about .tbs-hero-text{
+      position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+      padding:22px;color:#fff;
+    }
+    #tbs-about .tbs-hero-text h1{
+  margin:0 0 6px;
+  font-size:34px;
+  line-height:1.15;
+  color:#ffffff;
+}
+
+    #tbs-about .tbs-hero-text p{margin:0;font-size:16px;line-height:1.5;max-width:44ch;opacity:.96;}
+
+    #tbs-about .tbs-hero-side{
+      border-radius:18px;border:1px solid rgba(15,23,42,.10);background:#fff;
+      box-shadow:0 10px 26px rgba(0,0,0,.06);padding:18px;display:flex;flex-direction:column;gap:12px;
+    }
+    #tbs-about .tbs-kicker{font-weight:700;color:#0f172a;font-size:16px;}
+    #tbs-about .tbs-side-p{margin:0;color:#334155;line-height:1.6;font-size:15px;}
+    #tbs-about .tbs-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;}
+    #tbs-about .tbs-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;background:#f1f5f9;color:#0f172a;font-size:13px;font-weight:700;
+      border:1px solid rgba(15,23,42,.08);
+    }
+
+    /* Buttons */
+    #tbs-about a.tbs-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      padding:12px 16px;border-radius:14px;font-weight:800;line-height:1.1;
+      text-decoration:none !important;border:1px solid transparent;
+      box-shadow:0 6px 16px rgba(0,0,0,.10);
+      transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      white-space:nowrap;
+    }
+    #tbs-about a.tbs-btn:focus{outline:2px solid rgba(37,99,235,.35);outline-offset:2px;}
+    #tbs-about a.tbs-btn:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.14);}
+    #tbs-about .tbs-btn-primary{background:#0f0889;color:#fff;}
+    #tbs-about .tbs-btn-ghost{background:#fff;color:#0f172a;border-color:rgba(15,23,42,.18);}
+    #tbs-about .tbs-btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+
+    /* Sections */
+    #tbs-about .tbs-section{padding:18px 0;}
+    #tbs-about .tbs-section h2{margin:0 0 10px;font-size:24px;line-height:1.2;}
+    #tbs-about .tbs-muted{color:#475569;line-height:1.7;margin:0;}
+    #tbs-about .tbs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px;}
+    #tbs-about .tbs-card{
+      border-radius:18px;border:1px solid rgba(15,23,42,.10);background:#fff;
+      box-shadow:0 10px 26px rgba(0,0,0,.06);padding:16px;
+    }
+    #tbs-about .tbs-card h3{margin:0 0 6px;font-size:16px;line-height:1.25;}
+    #tbs-about .tbs-card p{margin:0;color:#334155;line-height:1.6;font-size:14.5px;}
+    #tbs-about .tbs-list{margin:10px 0 0;padding-left:18px;color:#334155;line-height:1.7;}
+    #tbs-about .tbs-list li{margin:6px 0;}
+
+    /* CTA strip */
+    #tbs-about .tbs-cta{
+      margin:14px 0 24px;border-radius:18px;
+      border:1px solid rgba(15,23,42,.10);
+      background:linear-gradient(135deg, rgba(15,8,137,.10), rgba(37,99,235,.08));
+      box-shadow:0 10px 26px rgba(0,0,0,.06);
+      padding:16px;
+    }
+    #tbs-about .tbs-cta-grid{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;}
+    #tbs-about .tbs-cta h2{margin:0 0 6px;font-size:22px;}
+    #tbs-about .tbs-cta p{margin:0;color:#334155;line-height:1.6;}
+    #tbs-about .tbs-cta-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      #tbs-about .tbs-hero-grid{grid-template-columns:1fr;}
+      #tbs-about .tbs-grid{grid-template-columns:1fr;}
+      #tbs-about .tbs-cta-grid{grid-template-columns:1fr;}
+      #tbs-about .tbs-cta-actions{justify-content:flex-start;}
+      #tbs-about .tbs-hero-text h1{font-size:30px;}
+    }

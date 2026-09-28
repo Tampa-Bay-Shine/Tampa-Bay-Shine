@@ -1,0 +1,136 @@
+#house-cleaning-ruskin{
+          --royal:#0f0889;
+          --accent:#f4c613;
+          --ink:#1b1b1b;
+          --muted:#4a4a4a;
+          --border:#e7e9f3;
+          --card:#ffffff;
+          --soft:#f7f8fe;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          isolation:isolate;
+        }
+        #house-cleaning-ruskin *{box-sizing:border-box}
+        #house-cleaning-ruskin .wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
+        #house-cleaning-ruskin h1,
+        #house-cleaning-ruskin h2,
+        #house-cleaning-ruskin h3{margin:0 0 12px;font-weight:800;letter-spacing:.2px}
+        #house-cleaning-ruskin h1{color:#0f172a;font-size:clamp(26px,4.8vw,42px);line-height:1.15}
+        #house-cleaning-ruskin h2{color:var(--royal);font-size:clamp(20px,3.6vw,30px)}
+        #house-cleaning-ruskin h3{color:#0f172a;font-size:clamp(16px,2.6vw,20px)}
+        #house-cleaning-ruskin p{margin:0 0 12px}
+        #house-cleaning-ruskin .muted{color:var(--muted)}
+        #house-cleaning-ruskin a:not(.btn):not(.pill):not(.card){color:#2563eb;text-decoration:none;font:inherit}
+        #house-cleaning-ruskin a:not(.btn):not(.pill):not(.card):hover{text-decoration:underline}
+        #house-cleaning-ruskin .thin{font-weight:400}
+
+        #house-cleaning-ruskin .btn{
+          display:inline-block;
+          font-weight:800;
+          padding:12px 18px;
+          border-radius:14px;
+          text-decoration:none!important;
+          transition:transform .05s ease,box-shadow .2s ease;
+          border:1px solid transparent;
+        }
+        #house-cleaning-ruskin .btn:active{transform:translateY(1px)}
+        #house-cleaning-ruskin .btn.royal{background:var(--royal);color:#fff;box-shadow:0 8px 22px rgba(15,8,137,.25)}
+        #house-cleaning-ruskin .btn.accent{background:var(--accent);color:#000;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+        #house-cleaning-ruskin .btn.phone{background:#fff;color:var(--royal);border:2px solid var(--royal)}
+
+        #house-cleaning-ruskin .hero{background:transparent;padding:0}
+        #house-cleaning-ruskin .hero-media{margin:0 auto;max-width:1100px;padding:32px 20px 12px}
+        #house-cleaning-ruskin .frame{
+          position:relative;
+          overflow:hidden;
+          border-radius:14px;
+          border:1px solid #e9ecff;
+          box-shadow:0 12px 30px rgba(15,8,137,.12);
+        }
+        #house-cleaning-ruskin .hero-media img{
+          display:block;
+          width:100%;
+          height:clamp(220px,45vh,420px);
+          object-fit:cover;
+          object-position:center 55%;
+        }
+        #house-cleaning-ruskin .overlay{
+          position:absolute;
+          inset:0;
+          display:flex;
+          align-items:flex-end;
+          background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.55) 100%);
+          padding:clamp(12px,2.8vw,20px);
+        }
+        #house-cleaning-ruskin .overlay *{color:#fff!important}
+        #house-cleaning-ruskin .overlay .btn.phone{color:var(--royal)!important;background:#fff!important;border:2px solid var(--royal)!important}
+
+        #house-cleaning-ruskin .caption{display:none;max-width:1100px;margin:0 auto;padding:0 20px 16px}
+        #house-cleaning-ruskin .caption h2{color:#0f172a;margin:0 0 6px;font-size:1.25rem;line-height:1.2}
+        #house-cleaning-ruskin .caption p{margin:0 0 8px;font-size:1rem;color:#334155}
+        @media (max-width:540px){
+          #house-cleaning-ruskin .overlay{display:flex}
+          #house-cleaning-ruskin .caption{display:block}
+          #house-cleaning-ruskin .hero-media img{height:clamp(220px,42vh,360px);object-position:center 60%}
+        }
+
+        #house-cleaning-ruskin .breadcrumbs ol{
+          list-style:none;
+          margin:0;
+          padding:0;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          align-items:center;
+          font-size:.95rem;
+          color:#475569;
+        }
+        #house-cleaning-ruskin .breadcrumbs li+li::before{
+          content:"›";
+          color:#94a3b8;
+          margin-right:6px;
+        }
+        #house-cleaning-ruskin .breadcrumbs a{color:#2563eb;text-decoration:none}
+        #house-cleaning-ruskin .breadcrumbs a:hover{text-decoration:underline}
+        #house-cleaning-ruskin .breadcrumbs .current{color:#0f172a;font-weight:700}
+
+        #house-cleaning-ruskin .grid{display:grid;gap:16px}
+        #house-cleaning-ruskin .cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+        #house-cleaning-ruskin .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+        #house-cleaning-ruskin .grid.auto{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+        #house-cleaning-ruskin .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:14px 18px;
+          box-shadow:0 4px 20px rgba(0,0,0,.04);
+        }
+        #house-cleaning-ruskin .panel{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px}
+        #house-cleaning-ruskin .table{
+          width:100%;
+          border-collapse:separate;
+          border-spacing:0;
+          overflow:hidden;
+          border:1px solid var(--border);
+          border-radius:12px;
+        }
+        #house-cleaning-ruskin .table th,
+        #house-cleaning-ruskin .table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+        #house-cleaning-ruskin .table thead th{background:#f7f8fe;font-weight:800}
+        #house-cleaning-ruskin .table tr:last-child td{border-bottom:0}
+        #house-cleaning-ruskin .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff}
+        #house-cleaning-ruskin .notice{
+          background:linear-gradient(180deg,rgba(15,8,137,.06) 0%,rgba(15,8,137,0) 100%);
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:12px 16px;
+        }
+        #house-cleaning-ruskin #breadcrumb{padding:16px 20px 0}
+        #house-cleaning-ruskin a:focus-visible,
+        #house-cleaning-ruskin .btn:focus-visible,
+        #house-cleaning-ruskin summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:2px;
+          border-radius:8px;
+        }

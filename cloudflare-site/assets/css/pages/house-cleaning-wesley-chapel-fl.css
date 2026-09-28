@@ -1,0 +1,184 @@
+#house-cleaning-wesley-chapel{
+          --royal:#0f0889;
+          --accent:#f4c613;
+          --ink:#0f172a;
+          --muted:#556070;
+          --border:#e9eef7;
+          --soft:#f7fbff;
+          --card:#fff;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          isolation:isolate;
+        }
+        #house-cleaning-wesley-chapel *{box-sizing:border-box}
+        #house-cleaning-wesley-chapel .wrap{max-width:1100px;margin:0 auto;padding:24px}
+        #house-cleaning-wesley-chapel .panel{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:24px;
+          box-shadow:0 4px 14px rgba(0,0,0,.06);
+          margin:18px 0;
+        }
+        #house-cleaning-wesley-chapel .panel.accent{background:var(--soft);border-color:#e6f0ff}
+        #house-cleaning-wesley-chapel h1,
+        #house-cleaning-wesley-chapel h2,
+        #house-cleaning-wesley-chapel h3{margin:0 0 10px;color:var(--ink);font-weight:900;letter-spacing:.2px}
+        #house-cleaning-wesley-chapel h1{font-size:clamp(1.75rem,4vw,2.65rem);line-height:1.12}
+        #house-cleaning-wesley-chapel h2{font-size:clamp(1.22rem,2.8vw,1.7rem)}
+        #house-cleaning-wesley-chapel h3{font-size:1.05rem}
+        #house-cleaning-wesley-chapel p,
+        #house-cleaning-wesley-chapel li{color:var(--ink)}
+        #house-cleaning-wesley-chapel .muted{color:var(--muted)}
+        #house-cleaning-wesley-chapel a:not(.btn):not(.tbs-btn):not([role="button"]){color:#0f0889;text-decoration:none;font:inherit}
+        #house-cleaning-wesley-chapel a:not(.btn):not(.tbs-btn):not([role="button"]):hover{text-decoration:underline}
+
+        #house-cleaning-wesley-chapel .breadcrumbs{background:#fff;border-bottom:1px solid var(--border)}
+        #house-cleaning-wesley-chapel .breadcrumbs .wrap{padding:12px 24px}
+        #house-cleaning-wesley-chapel .breadcrumbs ol{
+          list-style:none;
+          margin:0;
+          padding:0;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          align-items:center;
+          font-size:.95rem;
+          color:#475569;
+        }
+        #house-cleaning-wesley-chapel .breadcrumbs li{display:flex;align-items:center;gap:6px}
+        #house-cleaning-wesley-chapel .breadcrumbs li+li::before{content:"› ";color:#94a3b8}
+        #house-cleaning-wesley-chapel .breadcrumbs .current{color:#0f172a;font-weight:800}
+
+        #house-cleaning-wesley-chapel .hero{
+          position:relative;
+          overflow:hidden;
+          border-radius:16px;
+          border:1px solid #e9ecff;
+          box-shadow:0 12px 32px rgba(15,8,137,.10);
+          padding:0;
+          background:#fff;
+        }
+        #house-cleaning-wesley-chapel .hero-media{position:relative}
+        #house-cleaning-wesley-chapel .hero-media img{
+          display:block;
+          width:100%;
+          height:clamp(260px,46vh,450px);
+          object-fit:cover;
+          object-position:center 55%;
+        }
+        #house-cleaning-wesley-chapel .hero-media::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.36) 50%,rgba(0,0,0,.70) 100%);
+        }
+        #house-cleaning-wesley-chapel .hero-copy{
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:0;
+          padding:clamp(16px,3vw,28px);
+          max-width:860px;
+          z-index:2;
+        }
+        #house-cleaning-wesley-chapel .hero-copy *{color:#fff}
+        #house-cleaning-wesley-chapel .hero-copy .lead{
+          margin:0;
+          color:#eef2ff;
+          font-size:clamp(1rem,2.2vw,1.12rem);
+        }
+
+        #house-cleaning-wesley-chapel .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+        #house-cleaning-wesley-chapel .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          padding:12px 18px;
+          border-radius:999px;
+          border:1px solid transparent;
+          font-weight:900;
+          text-decoration:none;
+          line-height:1.1;
+          transition:transform .06s ease,box-shadow .2s ease;
+        }
+        #house-cleaning-wesley-chapel .btn:active{transform:translateY(1px)}
+        #house-cleaning-wesley-chapel .btn.royal{background:var(--royal);color:#fff;box-shadow:0 8px 22px rgba(15,8,137,.25)}
+        #house-cleaning-wesley-chapel .btn.accent{background:var(--accent);color:#000;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+        #house-cleaning-wesley-chapel .btn.ghost{background:#fff;color:var(--royal);border:2px solid var(--royal)}
+        #house-cleaning-wesley-chapel .hero-copy .btn.ghost{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.44)}
+
+        #house-cleaning-wesley-chapel .grid{display:grid;gap:14px}
+        #house-cleaning-wesley-chapel .cols-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+        #house-cleaning-wesley-chapel .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+        #house-cleaning-wesley-chapel .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:14px;
+          padding:16px;
+          box-shadow:0 4px 16px rgba(0,0,0,.04);
+        }
+        #house-cleaning-wesley-chapel .card h3{margin-top:0;color:#0f172a}
+        #house-cleaning-wesley-chapel .table-responsive{overflow:auto}
+        #house-cleaning-wesley-chapel table.compare{
+          width:100%;
+          border-collapse:separate;
+          border-spacing:0;
+          border:1px solid var(--border);
+          border-radius:12px;
+          overflow:hidden;
+          background:#fff;
+        }
+        #house-cleaning-wesley-chapel table.compare th,
+        #house-cleaning-wesley-chapel table.compare td{
+          padding:11px 12px;
+          border-bottom:1px solid var(--border);
+          text-align:left;
+          vertical-align:top;
+          font-size:.95rem;
+        }
+        #house-cleaning-wesley-chapel table.compare thead th{background:#f8fbff;font-weight:900}
+        #house-cleaning-wesley-chapel table.compare tr:last-child th,
+        #house-cleaning-wesley-chapel table.compare tr:last-child td{border-bottom:none}
+        #house-cleaning-wesley-chapel .pill-list{
+          list-style:none;
+          margin:0;
+          padding:0;
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+          gap:10px;
+        }
+        #house-cleaning-wesley-chapel .pill-list a{
+          display:block;
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:14px;
+          padding:12px 14px;
+          font-weight:900;
+          text-decoration:none;
+        }
+        #house-cleaning-wesley-chapel details{
+          border:1px solid var(--border);
+          border-radius:12px;
+          background:#fff;
+          padding:10px 14px;
+          margin-bottom:10px;
+        }
+        #house-cleaning-wesley-chapel summary{cursor:pointer;font-weight:900;color:#0f172a}
+        #house-cleaning-wesley-chapel a:focus-visible,
+        #house-cleaning-wesley-chapel .btn:focus-visible,
+        #house-cleaning-wesley-chapel summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:2px;
+          border-radius:8px;
+        }
+        @media(max-width:640px){
+          #house-cleaning-wesley-chapel .wrap{padding:18px 14px}
+          #house-cleaning-wesley-chapel .hero-copy{position:relative;background:#fff;padding:18px}
+          #house-cleaning-wesley-chapel .hero-copy *{color:var(--ink)}
+          #house-cleaning-wesley-chapel .hero-copy .lead{color:var(--muted)}
+          #house-cleaning-wesley-chapel .hero-media::after{display:none}
+          #house-cleaning-wesley-chapel .hero-copy .btn.ghost{background:#fff;color:var(--royal);border-color:var(--royal)}
+          #house-cleaning-wesley-chapel .btn{width:100%}
+        }

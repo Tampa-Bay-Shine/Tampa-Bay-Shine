@@ -1,0 +1,555 @@
+#tbs-standard{
+          --royal:#0f0889;
+          --royal-dark:#0b066d;
+          --accent:#f4c613;
+          --ink:#0f172a;
+          --muted:#556070;
+          --soft:#f7f9ff;
+          --border:#e5e9f4;
+          --promo:#fff8d9;
+          --radius:16px;
+          --max:1100px;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          background:#fff;
+          overflow-x:hidden;
+        }
+
+        #tbs-standard *{
+          box-sizing:border-box;
+        }
+
+        #tbs-standard img{
+          display:block;
+          max-width:100%;
+          height:auto;
+        }
+
+        #tbs-standard h1,
+        #tbs-standard h2,
+        #tbs-standard h3{
+          margin:0 0 .65rem;
+          font-weight:900;
+          line-height:1.18;
+        }
+
+        #tbs-standard h1{
+          color:#fff;
+          font-size:clamp(2rem,5vw,3.2rem);
+        }
+
+        #tbs-standard h2{
+          color:var(--royal);
+          font-size:clamp(1.45rem,3vw,2rem);
+        }
+
+        #tbs-standard h3{
+          color:var(--ink);
+          font-size:1.08rem;
+        }
+
+        #tbs-standard p{
+          margin:0 0 .9rem;
+        }
+
+        #tbs-standard a{
+          color:var(--royal);
+          text-decoration:none;
+        }
+
+        #tbs-standard a:hover{
+          text-decoration:underline;
+        }
+
+        #tbs-standard .btn:hover{
+          text-decoration:none;
+        }
+
+        #tbs-standard a:focus-visible,
+        #tbs-standard summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:3px;
+          border-radius:8px;
+        }
+
+        #tbs-standard .container{
+          width:min(var(--max),calc(100% - 40px));
+          margin:0 auto;
+        }
+
+        #tbs-standard .section{
+          padding:52px 0;
+        }
+
+        #tbs-standard .section.soft{
+          background:var(--soft);
+          border-top:1px solid var(--border);
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-standard .center{
+          text-align:center;
+        }
+
+        #tbs-standard .muted{
+          color:var(--muted);
+        }
+
+        #tbs-standard .eyebrow{
+          display:inline-flex;
+          margin-bottom:10px;
+          color:var(--royal);
+          font-size:.78rem;
+          font-weight:900;
+          letter-spacing:.08em;
+          text-transform:uppercase;
+        }
+
+        #tbs-standard .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:50px;
+          padding:13px 19px;
+          border-radius:13px;
+          border:2px solid transparent;
+          font-weight:900;
+          text-align:center;
+        }
+
+        #tbs-standard .btn-primary{
+          color:#111 !important;
+          background:var(--accent);
+          box-shadow:0 9px 24px rgba(244,198,19,.25);
+        }
+
+        #tbs-standard .btn-royal{
+          color:#fff !important;
+          background:var(--royal);
+        }
+
+        #tbs-standard .btn-outline{
+          background:#fff;
+          color:var(--royal) !important;
+          border-color:var(--royal);
+        }
+
+        #tbs-standard .actions{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          align-items:center;
+        }
+
+        #tbs-standard .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:var(--radius);
+          padding:18px;
+          box-shadow:0 7px 22px rgba(15,23,42,.045);
+        }
+
+        #tbs-standard .breadcrumbs{
+          border-bottom:1px solid var(--border);
+          background:#fff;
+        }
+
+        #tbs-standard .breadcrumbs .container{
+          padding-top:11px;
+          padding-bottom:11px;
+        }
+
+        #tbs-standard .breadcrumbs ol{
+          list-style:none;
+          margin:0;
+          padding:0;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          font-size:.9rem;
+          color:#64748b;
+        }
+
+        #tbs-standard .breadcrumbs li{
+          margin:0;
+        }
+
+        #tbs-standard .breadcrumbs li+li::before{
+          content:"›";
+          margin-right:6px;
+          color:#94a3b8;
+        }
+
+        #tbs-standard .breadcrumbs .current{
+          color:var(--ink);
+          font-weight:800;
+        }
+
+        /* HERO */
+        #tbs-standard .hero{
+          color:#fff;
+          background:
+            radial-gradient(circle at 78% 12%,rgba(244,198,19,.13),transparent 32%),
+            linear-gradient(180deg,var(--royal) 0%,var(--royal-dark) 100%);
+          padding:46px 0;
+        }
+
+        #tbs-standard .hero-grid{
+          display:grid;
+          grid-template-columns:1.08fr .92fr;
+          gap:30px;
+          align-items:center;
+        }
+
+        #tbs-standard .hero .eyebrow{
+          color:#fff;
+        }
+
+        #tbs-standard .hero-lede{
+          color:#eef1ff;
+          font-size:clamp(1rem,2vw,1.16rem);
+          max-width:680px;
+        }
+
+        #tbs-standard .hero-proof{
+          display:flex;
+          flex-wrap:wrap;
+          gap:8px;
+          margin-top:14px;
+        }
+
+        #tbs-standard .proof{
+          display:inline-flex;
+          padding:6px 10px;
+          border:1px solid rgba(255,255,255,.22);
+          border-radius:999px;
+          background:rgba(255,255,255,.11);
+          color:#fff;
+          font-size:.86rem;
+          font-weight:800;
+        }
+
+        #tbs-standard .offer-card{
+          background:#fff;
+          color:var(--ink);
+          border:2px solid var(--accent);
+          border-radius:18px;
+          padding:21px;
+          box-shadow:0 18px 42px rgba(0,0,0,.18);
+        }
+
+        #tbs-standard .offer-card h2{
+          font-size:clamp(1.4rem,3vw,1.9rem);
+        }
+
+        #tbs-standard .price-line{
+          display:flex;
+          flex-wrap:wrap;
+          align-items:flex-end;
+          gap:8px;
+          margin:13px 0;
+        }
+
+        #tbs-standard .price-big{
+          color:var(--royal);
+          font-weight:900;
+          font-size:2rem;
+          line-height:1;
+        }
+
+        #tbs-standard .coupon{
+          display:inline-block;
+          padding:5px 9px;
+          border-radius:8px;
+          background:var(--promo);
+          border:1px solid rgba(244,198,19,.75);
+          font-weight:900;
+          letter-spacing:.04em;
+        }
+
+        #tbs-standard .offer-terms{
+          border-top:1px solid var(--border);
+          margin-top:12px;
+          padding-top:9px;
+          font-size:.86rem;
+        }
+
+        #tbs-standard .offer-terms summary{
+          cursor:pointer;
+          color:var(--royal);
+          font-weight:900;
+        }
+
+        /* TRUST */
+        #tbs-standard .trust-grid{
+          display:grid;
+          grid-template-columns:repeat(5,minmax(0,1fr));
+          gap:12px;
+        }
+
+        #tbs-standard .trust-card{
+          text-align:center;
+        }
+
+        #tbs-standard .trust-card strong{
+          display:block;
+          color:var(--royal);
+          margin-bottom:3px;
+        }
+
+        /* GRIDS */
+        #tbs-standard .grid{
+          display:grid;
+          gap:14px;
+        }
+
+        #tbs-standard .cols-2{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        #tbs-standard .cols-3{
+          grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        #tbs-standard ul{
+          margin:0;
+          padding-left:20px;
+          list-style:disc;
+        }
+
+        #tbs-standard li{
+          margin:0 0 5px;
+        }
+
+        /* PRICING */
+        #tbs-standard .pricing-grid{
+          display:grid;
+          grid-template-columns:.9fr 1.1fr;
+          gap:18px;
+          align-items:start;
+        }
+
+        #tbs-standard .starting-price{
+          color:var(--royal);
+          font-size:2.25rem;
+          font-weight:900;
+          line-height:1;
+          margin:8px 0 12px;
+        }
+
+        #tbs-standard .intro-price{
+          background:var(--promo);
+          border-left:5px solid var(--accent);
+          border-radius:12px;
+          padding:13px;
+          margin-top:14px;
+        }
+
+        #tbs-standard .table-wrap{
+          overflow-x:auto;
+        }
+
+        #tbs-standard table{
+          width:100%;
+          border-collapse:separate;
+          border-spacing:0;
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:13px;
+          overflow:hidden;
+        }
+
+        #tbs-standard th,
+        #tbs-standard td{
+          padding:12px 14px;
+          text-align:left;
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-standard thead th{
+          color:#fff;
+          background:var(--royal);
+        }
+
+        #tbs-standard tr:last-child th,
+        #tbs-standard tr:last-child td{
+          border-bottom:none;
+        }
+
+        /* AREAS */
+        #tbs-standard .pill-row{
+          display:flex;
+          flex-wrap:wrap;
+          gap:9px;
+          margin-top:14px;
+        }
+
+        #tbs-standard .pill{
+          display:inline-flex;
+          padding:8px 11px;
+          border:1px solid rgba(15,8,137,.17);
+          border-radius:999px;
+          background:#fff;
+          color:var(--royal);
+          font-weight:800;
+        }
+
+        /* REVIEW */
+        #tbs-standard .review-grid{
+          display:grid;
+          grid-template-columns:.65fr 1.35fr;
+          gap:22px;
+          align-items:center;
+        }
+
+        #tbs-standard .rating-card{
+          text-align:center;
+          background:var(--royal);
+          color:#fff;
+          border-radius:18px;
+          padding:24px 18px;
+        }
+
+        #tbs-standard .rating-number{
+          font-size:2.6rem;
+          font-weight:900;
+          line-height:1;
+        }
+
+        #tbs-standard blockquote{
+          margin:0;
+          color:#334155;
+          font-size:1.03rem;
+        }
+
+        #tbs-standard blockquote footer{
+          margin-top:10px;
+          font-weight:900;
+        }
+
+        /* FAQ */
+        #tbs-standard details.faq{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:13px 15px;
+          margin-bottom:10px;
+        }
+
+        #tbs-standard details.faq summary{
+          cursor:pointer;
+          color:var(--ink);
+          font-weight:900;
+        }
+
+        #tbs-standard .faq-answer{
+          margin-top:8px;
+          color:var(--muted);
+        }
+
+        /* FINAL CTA */
+        #tbs-standard .final-cta{
+          background:var(--royal);
+          color:#fff;
+          border-radius:20px;
+          padding:32px 24px;
+          text-align:center;
+        }
+
+        #tbs-standard .final-cta h2{
+          color:#fff;
+        }
+
+        #tbs-standard .final-cta p{
+          color:#eef1ff;
+        }
+
+        #tbs-standard .mobile-book-bar{
+          display:none;
+        }
+
+        @media(max-width:900px){
+          #tbs-standard .hero-grid,
+          #tbs-standard .pricing-grid,
+          #tbs-standard .review-grid{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-standard .trust-grid{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+
+          #tbs-standard .cols-3{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+        }
+
+        @media(max-width:600px){
+          #tbs-standard{
+            padding-bottom:75px;
+          }
+
+          #tbs-standard .container{
+            width:calc(100% - 28px);
+          }
+
+          #tbs-standard .section{
+            padding:40px 0;
+          }
+
+          #tbs-standard .hero{
+            padding:34px 0;
+          }
+
+          #tbs-standard .trust-grid,
+          #tbs-standard .cols-2,
+          #tbs-standard .cols-3{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-standard .actions{
+            flex-direction:column;
+            align-items:stretch;
+          }
+
+          #tbs-standard .actions .btn{
+            width:100%;
+          }
+
+          #tbs-standard .mobile-book-bar{
+            display:flex;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:1100;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+            background:#fff;
+            border-top:1px solid var(--border);
+            box-shadow:0 -8px 26px rgba(15,23,42,.12);
+          }
+
+          #tbs-standard .mobile-book-copy{
+            font-size:.76rem;
+            line-height:1.25;
+            color:#334155;
+            font-weight:800;
+          }
+
+          #tbs-standard .mobile-book-copy strong{
+            display:block;
+            color:var(--royal);
+            font-size:.84rem;
+          }
+
+          #tbs-standard .mobile-book-bar .btn{
+            min-height:44px;
+            padding:9px 12px;
+            white-space:nowrap;
+            font-size:.84rem;
+          }
+        }

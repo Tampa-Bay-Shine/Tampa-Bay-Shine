@@ -1,0 +1,167 @@
+#gym-cleaning-tampa{
+        --royal:#0f0889;
+        --accent:#f4c613;
+        --ink:#111827;
+        --muted:#4b5563;
+        --border:#e5e7eb;
+        --card:#ffffff;
+        --soft:#f8fafc;
+        --shadow:0 10px 28px rgba(0,0,0,.08);
+        font-family:Arial,Helvetica,sans-serif;
+        color:var(--ink);
+        line-height:1.6;
+        isolation:isolate;
+        background:#fff;
+      }
+      #gym-cleaning-tampa *{box-sizing:border-box}
+      #gym-cleaning-tampa .wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
+      #gym-cleaning-tampa .section{padding-top:18px}
+      #gym-cleaning-tampa h1,#gym-cleaning-tampa h2,#gym-cleaning-tampa h3{margin:0 0 12px;font-weight:900;letter-spacing:.2px}
+      #gym-cleaning-tampa h1{color:#fff;font-size:clamp(1.65rem,1.1rem + 1.7vw,2.7rem);line-height:1.1;letter-spacing:-.01em;text-shadow:0 8px 22px rgba(0,0,0,.35)}
+      #gym-cleaning-tampa h2{color:var(--royal);font-size:clamp(1.35rem,3vw,2rem);line-height:1.18}
+      #gym-cleaning-tampa h3{color:#0f172a;font-size:1.08rem}
+      #gym-cleaning-tampa p{margin:0 0 12px}
+      #gym-cleaning-tampa .muted{color:var(--muted)}
+      #gym-cleaning-tampa ul{margin:0;padding-left:18px}
+      #gym-cleaning-tampa li{margin:0 0 6px}
+      #gym-cleaning-tampa a:not(.btn):not(.svc-card){color:var(--royal);text-decoration:none;font:inherit}
+      #gym-cleaning-tampa a:not(.btn):not(.svc-card):hover{text-decoration:underline}
+
+      #gym-cleaning-tampa .breadcrumbs{background:#fff;border-bottom:1px solid var(--border)}
+      #gym-cleaning-tampa .breadcrumbs .wrap{padding:12px 20px}
+      #gym-cleaning-tampa .breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.95rem;color:#475569}
+      #gym-cleaning-tampa .breadcrumbs li{display:flex;gap:6px;align-items:center}
+      #gym-cleaning-tampa .breadcrumbs li+li::before{content:"› ";color:#94a3b8}
+      #gym-cleaning-tampa .breadcrumbs .current{color:#0f172a;font-weight:800}
+
+      #gym-cleaning-tampa .hero{background:transparent;padding:0}
+      #gym-cleaning-tampa .hero-media{margin:0 auto;max-width:1100px;padding:36px 20px 12px}
+      #gym-cleaning-tampa .frame{
+        position:relative;
+        overflow:hidden;
+        border-radius:16px;
+        border:1px solid #e9ecff;
+        box-shadow:0 12px 30px rgba(15,8,137,.12);
+      }
+      #gym-cleaning-tampa .hero-media img{
+        display:block;
+        width:100%;
+        height:clamp(230px,45vh,430px);
+        object-fit:cover;
+        object-position:center 55%;
+      }
+      #gym-cleaning-tampa .overlay{
+        position:absolute;
+        inset:0;
+        display:flex;
+        align-items:flex-end;
+        background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.58) 100%);
+        padding:clamp(14px,3vw,22px);
+      }
+      #gym-cleaning-tampa .overlay .lead{color:#fff!important}
+      #gym-cleaning-tampa .lead{font-size:clamp(.98rem,2.4vw,1.08rem);max-width:760px}
+      #gym-cleaning-tampa .caption{display:none;max-width:1100px;margin:0 auto;padding:0 20px 16px}
+      #gym-cleaning-tampa .caption h2{color:#0f172a;margin:0 0 6px;font-size:1.25rem}
+      @media (max-width:540px){
+        #gym-cleaning-tampa .caption{display:block}
+        #gym-cleaning-tampa .hero-media img{height:clamp(220px,42vh,360px);object-position:center 60%}
+      }
+
+      #gym-cleaning-tampa .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+      #gym-cleaning-tampa .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-height:46px;
+        padding:12px 18px;
+        border-radius:14px;
+        font-weight:900;
+        text-decoration:none!important;
+        border:1px solid transparent;
+        box-shadow:0 6px 16px rgba(0,0,0,.10);
+        transition:transform .12s ease,box-shadow .12s ease,filter .12s ease;
+      }
+      #gym-cleaning-tampa .btn:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.14)}
+      #gym-cleaning-tampa .btn-primary{background:var(--royal);color:#fff!important}
+      #gym-cleaning-tampa .btn-accent{background:var(--accent);color:#111!important}
+      #gym-cleaning-tampa .btn-outline{background:#fff;color:var(--royal)!important;border:2px solid var(--royal)}
+      #gym-cleaning-tampa .overlay .btn-outline{background:#fff!important;color:var(--royal)!important}
+
+      #gym-cleaning-tampa .card{
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:16px;
+        padding:18px;
+        box-shadow:0 4px 14px rgba(0,0,0,.05);
+      }
+      #gym-cleaning-tampa .panel{
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:18px;
+        padding:22px;
+        box-shadow:var(--shadow);
+      }
+      #gym-cleaning-tampa .panel.soft{background:linear-gradient(180deg,rgba(15,8,137,.05),rgba(255,255,255,1))}
+      #gym-cleaning-tampa .grid{display:grid;gap:16px}
+      #gym-cleaning-tampa .cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+      #gym-cleaning-tampa .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+      #gym-cleaning-tampa .mini-kicker{
+        display:inline-flex;
+        align-items:center;
+        border-radius:999px;
+        padding:7px 11px;
+        margin-bottom:10px;
+        background:#eef2ff;
+        color:var(--royal);
+        font-weight:900;
+        font-size:.84rem;
+      }
+      #gym-cleaning-tampa .quote{
+        background:#fff;
+        border-left:4px solid var(--royal);
+        padding:12px 14px;
+        border-radius:10px;
+        margin:8px 0;
+      }
+      #gym-cleaning-tampa .svc-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+      #gym-cleaning-tampa .svc-card{
+        display:flex;
+        flex-direction:column;
+        text-decoration:none!important;
+        color:inherit;
+        border:1px solid var(--border);
+        border-radius:16px;
+        background:#fff;
+        overflow:hidden;
+        box-shadow:0 4px 14px rgba(0,0,0,.04);
+        transition:transform .06s ease,box-shadow .2s ease;
+      }
+      #gym-cleaning-tampa .svc-card:hover{box-shadow:0 10px 28px rgba(15,8,137,.12);transform:translateY(-2px)}
+      #gym-cleaning-tampa .svc-card .media img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+      #gym-cleaning-tampa .svc-card .body{padding:12px 12px 14px}
+      #gym-cleaning-tampa .svc-card .title{font-size:1rem;font-weight:900;color:var(--royal);text-align:center;margin:4px 0 6px}
+      #gym-cleaning-tampa .svc-card .desc{font-size:.9rem;color:#556070;text-align:center;margin:0}
+      #gym-cleaning-tampa details{border:1px solid var(--border);background:#fff;border-radius:14px;padding:12px 14px}
+      #gym-cleaning-tampa details+details{margin-top:10px}
+      #gym-cleaning-tampa summary{cursor:pointer;font-weight:900;color:#0f172a}
+      #gym-cleaning-tampa details div{margin-top:8px;color:var(--muted)}
+      #gym-cleaning-tampa .cta-strong{
+        background:linear-gradient(180deg,#0b0670 0%,#0b0670 40%,#0a0666 100%);
+        color:#fff;
+        text-align:center;
+        border-color:#0a0666;
+      }
+      #gym-cleaning-tampa .cta-strong h2{color:#fff}
+      #gym-cleaning-tampa .cta-strong .muted{color:#eef1ff}
+      #gym-cleaning-tampa a:focus-visible,
+      #gym-cleaning-tampa .btn:focus-visible,
+      #gym-cleaning-tampa summary:focus-visible{
+        outline:3px solid var(--accent);
+        outline-offset:2px;
+        border-radius:8px;
+      }
+      @media (max-width:640px){
+        #gym-cleaning-tampa .wrap{padding:30px 16px}
+        #gym-cleaning-tampa .cta-row{flex-direction:column}
+        #gym-cleaning-tampa .btn{width:100%}
+      }

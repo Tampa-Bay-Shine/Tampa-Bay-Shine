@@ -1,0 +1,235 @@
+a.tbs-btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+        padding:12px 18px;border-radius:14px;font-weight:700;line-height:1.1;
+        text-decoration:none !important;border:1px solid transparent;
+        box-shadow:0 6px 16px rgba(0,0,0,.10);
+        transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+        white-space:nowrap;
+      }
+      a.tbs-btn:focus{outline:2px solid rgba(37,99,235,.35);outline-offset:2px;}
+      a.tbs-btn:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.14);}
+      a.tbs-btn--primary{background:#0f0889;color:#fff;}
+      a.tbs-btn--secondary{background:#2563eb;color:#fff;}
+
+      /* Pretty, aligned hero title */
+      .tbs-hero-title{
+        margin:0 0 .5rem 0;
+        font-weight:800;
+        line-height:1.1;
+        letter-spacing:-0.01em;
+        font-size:clamp(1.65rem, 1.1rem + 1.6vw, 2.6rem);
+      }
+      .hero .overlay .tbs-hero-title{color:#fff;text-shadow:0 8px 22px rgba(0,0,0,.35);}
+
+      /* UX: outline CTA (if used) always readable on hero overlays */
+      a.tbs-btn--outline{
+        background:#fff;
+        color:#0f0889;
+        border:2px solid #0f0889;
+        box-shadow:0 6px 16px rgba(0,0,0,.08);
+      }
+      a.tbs-btn--outline:hover{box-shadow:0 10px 22px rgba(0,0,0,.14);}
+
+      .hero .overlay a.tbs-btn--outline,
+      .hero .overlay a.tbs-btn.tbs-btn--outline{
+        background:#fff !important;
+        color:#0f0889 !important;
+        border:2px solid #0f0889 !important;
+      }
+      .caption a.tbs-btn--outline,
+      .caption a.tbs-btn.tbs-btn--outline{
+        background:#fff !important;
+        color:#0f0889 !important;
+        border:2px solid #0f0889 !important;
+      }
+
+      /* Force CTA text colors */
+      a.tbs-btn--primary{ color:#fff !important; }
+      a.tbs-btn--secondary{ color:#fff !important; }
+      a.tbs-btn--outline{ color:#0f0889 !important; }
+
+      /* Strong CTA panel compatibility */
+      .panel.cta-strong .cta-row a.tbs-btn,
+      .wrap.panel.cta-strong .cta-row a.tbs-btn{
+        display:inline-flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        padding:12px 18px !important;
+        border-radius:14px !important;
+        font-weight:800 !important;
+        line-height:1.1 !important;
+        text-decoration:none !important;
+        border:1px solid transparent !important;
+        white-space:nowrap !important;
+      }
+      .panel.cta-strong .cta-row a.tbs-btn--primary,
+      .wrap.panel.cta-strong .cta-row a.tbs-btn--primary{
+        background:#0f0889 !important;
+        color:#fff !important;
+      }
+      .panel.cta-strong .cta-row a.tbs-btn--secondary,
+      .wrap.panel.cta-strong .cta-row a.tbs-btn--secondary{
+        background:#2563eb !important;
+        color:#fff !important;
+      }
+
+/* TBS standard link color (plain links only; exclude buttons) */
+      a:not(.tbs-btn):not(.btn):not([role="button"]){
+        color:#0f0889;
+        text-decoration:none;
+      }
+      a:not(.tbs-btn):not(.btn):not([role="button"]):hover{
+        text-decoration:underline;
+      }
+
+.tbs-airbnb-city{
+          --royal:#0f0889;
+          --accent:#f4c613;
+          --ink:#1b1b1b;
+          --muted:#4a4a4a;
+          --border:#e7e9f3;
+          --card:#ffffff;
+          --soft:#f7f8fe;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          isolation:isolate;
+        }
+        .tbs-airbnb-city *{box-sizing:border-box}
+        .tbs-airbnb-city .wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
+        .tbs-airbnb-city h1,.tbs-airbnb-city h2,.tbs-airbnb-city h3{margin:0 0 12px;font-weight:800;letter-spacing:.2px}
+        .tbs-airbnb-city h2{color:var(--royal);font-size:clamp(20px,3.6vw,30px)}
+        .tbs-airbnb-city h3{color:#0f172a;font-size:clamp(16px,2.6vw,20px)}
+        .tbs-airbnb-city p{margin:0 0 12px}
+        .tbs-airbnb-city .muted{color:var(--muted)}
+        .tbs-airbnb-city ul{margin:0;padding-left:18px}
+        .tbs-airbnb-city .thin{font-weight:400}
+
+        /* HERO */
+        .tbs-airbnb-city .hero{background:transparent;padding:0}
+        .tbs-airbnb-city .hero-media{margin:0 auto;max-width:1100px;padding:32px 20px 12px}
+        .tbs-airbnb-city .frame{
+          position:relative;
+          overflow:hidden;
+          border-radius:14px;
+          border:1px solid #e9ecff;
+          box-shadow:0 12px 30px rgba(15,8,137,.12);
+        }
+        .tbs-airbnb-city .hero-media img{
+          display:block;
+          width:100%;
+          height:clamp(220px,45vh,420px);
+          object-fit:cover;
+          object-position:center 55%;
+        }
+        .tbs-airbnb-city .overlay{
+          position:absolute;
+          inset:0;
+          display:flex;
+          align-items:flex-end;
+          background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.55) 100%);
+          padding:clamp(12px,2.8vw,20px);
+        }
+        .tbs-airbnb-city .overlay *{color:#fff!important}
+        .tbs-airbnb-city .overlay .lead{
+          margin:0 0 8px;
+          color:#eef2ff!important;
+          font-size:clamp(.95rem,2.6vw,1.05rem);
+        }
+        .tbs-airbnb-city .overlay .cta-row{
+          display:flex;
+          gap:10px;
+          flex-wrap:wrap;
+          margin-top:8px;
+        }
+
+        .tbs-airbnb-city .caption{
+          display:none;
+          max-width:1100px;
+          margin:0 auto;
+          padding:0 20px 16px;
+        }
+        .tbs-airbnb-city .caption p{
+          margin:0 0 8px;
+          font-size:1rem;
+          color:#334155;
+        }
+        @media (max-width:540px){
+          .tbs-airbnb-city .overlay{display:flex;}
+          .tbs-airbnb-city .caption{display:block}
+          .tbs-airbnb-city .hero-media img{
+            height:clamp(220px,42vh,360px);
+            object-position:center 60%;
+          }
+        }
+
+        /* Grid and cards */
+        .tbs-airbnb-city .grid{display:grid;gap:16px}
+        .tbs-airbnb-city .cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+        .tbs-airbnb-city .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+        .tbs-airbnb-city .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:14px;
+          padding:16px;
+          box-shadow:0 4px 12px rgba(0,0,0,.04);
+        }
+        .tbs-airbnb-city .panel{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:20px;
+        }
+
+        /* E-E-A-T strip */
+        .tbs-airbnb-city .eeat{
+          background:#f7fbff;
+          border:1px solid #e6f0ff;
+          border-radius:16px;
+        }
+        .tbs-airbnb-city .eeat .grid .card h3{margin-bottom:6px}
+
+        /* Review quotes */
+        .tbs-airbnb-city .quote{
+          background:#fff;
+          border-left:4px solid var(--royal);
+          padding:12px 14px;
+          border-radius:10px;
+          margin:8px 0;
+        }
+
+        /* CTA strong */
+        .tbs-airbnb-city .panel.cta-strong{
+          background:linear-gradient(180deg,#0b0670 0%,#0b0670 40%,#0a0666 100%);
+          border-color:#0a0666;
+          color:#ffffff;
+          text-align:center;
+        }
+        .tbs-airbnb-city .panel.cta-strong h2{color:#ffffff}
+        .tbs-airbnb-city .panel.cta-strong .muted{color:#eef1ff}
+        .tbs-airbnb-city .panel.cta-strong .cta-row{
+          display:flex;
+          gap:10px;
+          flex-wrap:wrap;
+          margin-top:10px;
+          justify-content:center;
+        }
+
+        .tbs-airbnb-city a:focus-visible,
+        .tbs-airbnb-city summary:focus-visible{
+          outline:3px solid #f4c613;
+          outline-offset:2px;
+          border-radius:6px;
+        }
+
+        .sr-only{
+          position:absolute!important;
+          width:1px!important;
+          height:1px!important;
+          padding:0!important;
+          margin:-1px!important;
+          overflow:hidden!important;
+          clip:rect(0,0,1px,1px)!important;
+          border:0!important;
+          white-space:nowrap!important;
+        }

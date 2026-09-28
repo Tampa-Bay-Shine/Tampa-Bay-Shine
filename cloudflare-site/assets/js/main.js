@@ -1,0 +1,12 @@
+(()=>{const b=document.querySelector('.nav-toggle'),n=document.querySelector('.site-nav');if(b&&n)b.addEventListener('click',()=>{const o=n.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false')})})();
+(()=>{const f=document.getElementById('sms-opt-in-form');if(!f)return;
+const care=document.getElementById('customer-care-consent'),marketing=document.getElementById('marketing-consent'),none=document.getElementById('no-text-consent');
+const gCare=document.getElementById('google-customer-care'),gMarketing=document.getElementById('google-marketing'),gNone=document.getElementById('google-no-text'),gUrl=document.getElementById('google-page-url');
+const started=document.getElementById('submission-started'),msg=document.getElementById('submission-message'),btn=document.getElementById('submit-button'),frame=document.getElementById('google-form-response');
+const show=(done)=>{if(!msg)return;msg.style.display='block';msg.innerHTML=done?'<h2>Thank You!</h2><p><strong>Your text messaging preferences have been submitted successfully.</strong></p><p>You do not need to submit this form again.</p>':'<h2>Thank You!</h2><p><strong>Your text messaging preferences are being submitted.</strong></p><p>Please do not submit this form again.</p>';};
+if(care)care.addEventListener('change',()=>{if(care.checked&&none)none.checked=false});
+if(marketing)marketing.addEventListener('change',()=>{if(marketing.checked&&none)none.checked=false});
+if(none)none.addEventListener('change',()=>{if(none.checked){if(care)care.checked=false;if(marketing)marketing.checked=false}});
+f.addEventListener('submit',()=>{if(gCare)gCare.value=care&&care.checked?'Yes':'No';if(gMarketing)gMarketing.value=marketing&&marketing.checked?'Yes':'No';if(gNone)gNone.value=none&&none.checked?'Yes':'No';if(gUrl)gUrl.value=window.location.href;if(started)started.value='yes';show(false);if(btn){btn.disabled=true;btn.textContent='Submitted - Thank You'}if(msg)msg.scrollIntoView({behavior:'smooth',block:'center'});});
+if(frame)frame.addEventListener('load',()=>{if(started&&started.value==='yes')show(true)});
+})();

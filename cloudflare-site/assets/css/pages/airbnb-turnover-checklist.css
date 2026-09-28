@@ -1,0 +1,225 @@
+#airbnb-turnover-checklist{
+          --royal:#0f0889;
+          --accent:#f4c613;
+          --link:#2563eb;
+          --ink:#0f172a;
+          --muted:#475467;
+          --soft:#f7fbff;
+          --border:#e7e9f3;
+          --card:#ffffff;
+          --shadow:0 8px 28px rgba(16,24,40,.08);
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          isolation:isolate;
+        }
+        #airbnb-turnover-checklist *{box-sizing:border-box}
+        #airbnb-turnover-checklist .wrap{max-width:1100px;width:100%;margin:0 auto;padding:24px}
+        #airbnb-turnover-checklist .panel{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          box-shadow:0 6px 18px rgba(0,0,0,.06);
+          padding:22px;
+          margin:18px auto;
+          width:100%;
+        }
+        #airbnb-turnover-checklist .panel.accent{
+          background:linear-gradient(180deg,rgba(15,8,137,.06) 0%,rgba(15,8,137,0) 100%);
+          border-color:#e9ecff;
+        }
+        #airbnb-turnover-checklist .center{text-align:center}
+        #airbnb-turnover-checklist .center-wrap{max-width:860px;margin:0 auto}
+        #airbnb-turnover-checklist h1,
+        #airbnb-turnover-checklist h2,
+        #airbnb-turnover-checklist h3{
+          margin:0 0 10px;
+          letter-spacing:.2px;
+          color:#0f172a;
+        }
+        #airbnb-turnover-checklist h1{font-size:clamp(1.5rem,3.8vw,2.35rem);font-weight:900}
+        #airbnb-turnover-checklist h2{font-size:clamp(1.25rem,2.8vw,1.7rem);font-weight:900}
+        #airbnb-turnover-checklist h3{font-size:1.05rem;font-weight:900}
+        #airbnb-turnover-checklist p,
+        #airbnb-turnover-checklist li{color:var(--ink)}
+        #airbnb-turnover-checklist .muted{color:var(--muted)}
+        #airbnb-turnover-checklist a:not(.btn):not(.chip):not(.bubble){color:var(--link);text-decoration:none;font:inherit}
+        #airbnb-turnover-checklist a:not(.btn):not(.chip):not(.bubble):hover{text-decoration:underline}
+
+        #airbnb-turnover-checklist .breadcrumbs{
+          background:#fff;
+          border-bottom:1px solid var(--border);
+        }
+        #airbnb-turnover-checklist .breadcrumbs .wrap{padding:12px 24px}
+        #airbnb-turnover-checklist .breadcrumbs ol{
+          list-style:none;
+          margin:0;
+          padding:0;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          align-items:center;
+          font-size:.95rem;
+          color:#475569;
+        }
+        #airbnb-turnover-checklist .breadcrumbs li{display:flex;align-items:center;gap:6px}
+        #airbnb-turnover-checklist .breadcrumbs li+li::before{content:"› ";color:#94a3b8}
+        #airbnb-turnover-checklist .breadcrumbs .current{color:#0f172a;font-weight:800}
+
+        #airbnb-turnover-checklist .hero{padding:0;overflow:hidden}
+        #airbnb-turnover-checklist .hero-media{position:relative}
+        #airbnb-turnover-checklist .hero-media img{
+          display:block;
+          width:100%;
+          height:clamp(240px,45vh,420px);
+          object-fit:cover;
+          object-position:center 55%;
+          border-radius:16px;
+        }
+        #airbnb-turnover-checklist .overlay{
+          position:absolute;
+          inset:0;
+          display:flex;
+          align-items:flex-end;
+          background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.62) 100%);
+          border-radius:16px;
+          padding:clamp(14px,2.8vw,24px);
+        }
+        #airbnb-turnover-checklist .overlay *{color:#fff!important}
+        #airbnb-turnover-checklist .tbs-hero-title{
+          margin:0 0 8px;
+          font-weight:900;
+          line-height:1.12;
+          letter-spacing:-.01em;
+          font-size:clamp(1.5rem,3.8vw,2.35rem);
+          text-shadow:0 8px 22px rgba(0,0,0,.35);
+        }
+        #airbnb-turnover-checklist .lead{
+          margin:0;
+          font-size:clamp(.98rem,2.5vw,1.08rem);
+          color:#eef2ff!important;
+        }
+        #airbnb-turnover-checklist .cta-row,
+        #airbnb-turnover-checklist .inline-actions{
+          display:flex;
+          gap:10px;
+          flex-wrap:wrap;
+          margin-top:12px;
+        }
+        #airbnb-turnover-checklist .center .cta-row,
+        #airbnb-turnover-checklist .center .inline-actions{justify-content:center}
+        #airbnb-turnover-checklist .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          gap:.5rem;
+          padding:12px 18px;
+          border-radius:14px;
+          font-weight:900;
+          line-height:1.1;
+          text-decoration:none!important;
+          border:1px solid transparent;
+          box-shadow:0 6px 16px rgba(0,0,0,.10);
+          transition:transform .12s ease,box-shadow .12s ease,filter .12s ease;
+        }
+        #airbnb-turnover-checklist .btn:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.14)}
+        #airbnb-turnover-checklist .btn-primary{background:var(--royal);color:#fff!important}
+        #airbnb-turnover-checklist .btn-accent{background:var(--accent);color:#000!important}
+        #airbnb-turnover-checklist .btn-outline{background:#fff;color:var(--royal)!important;border:2px solid var(--royal)}
+
+        #airbnb-turnover-checklist .grid{display:grid;gap:14px;width:100%;margin:0 auto}
+        @media(min-width:960px){#airbnb-turnover-checklist .grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+        @media(min-width:720px) and (max-width:959.98px){#airbnb-turnover-checklist .grid.cols-3{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:719.98px){#airbnb-turnover-checklist .grid.cols-3{grid-template-columns:1fr}}
+
+        #airbnb-turnover-checklist .task-card,
+        #airbnb-turnover-checklist article.panel{text-align:left}
+        #airbnb-turnover-checklist .checklist{list-style:none;padding:0;margin:0}
+        #airbnb-turnover-checklist .checklist li{
+          padding:.35rem .25rem;
+          display:flex;
+          align-items:flex-start;
+          gap:.55rem;
+        }
+        #airbnb-turnover-checklist .checklist input{margin-top:.25rem}
+        #airbnb-turnover-checklist .subnote{font-size:.95rem;color:var(--muted);margin:8px 0 0}
+
+        #airbnb-turnover-checklist .trust{
+          display:grid;
+          gap:12px;
+          grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+          text-align:left;
+        }
+        #airbnb-turnover-checklist .stat{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:14px;
+          padding:14px;
+          box-shadow:0 4px 16px rgba(0,0,0,.05);
+        }
+        #airbnb-turnover-checklist .stars{color:#f59e0b;letter-spacing:1px}
+
+        #airbnb-turnover-checklist .bubbles{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          justify-content:center;
+          width:100%;
+        }
+        #airbnb-turnover-checklist .bubble{
+          display:inline-flex;
+          align-items:center;
+          gap:8px;
+          padding:9px 13px;
+          border:1px solid #dbe7ff;
+          border-radius:999px;
+          background:#fff;
+          color:#1a56db;
+          font-weight:900;
+          text-decoration:none!important;
+          box-shadow:0 2px 10px rgba(26,86,219,.12);
+          transition:transform .06s ease,box-shadow .2s ease;
+        }
+        #airbnb-turnover-checklist .bubble:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(26,86,219,.18)}
+        #airbnb-turnover-checklist .bubble::before{content:"";width:7px;height:7px;border-radius:50%;background:#1a56db;display:inline-block}
+
+        #airbnb-turnover-checklist .resource-grid{
+          display:grid;
+          gap:14px;
+          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+          text-align:left;
+        }
+
+        #airbnb-turnover-checklist details{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:12px 14px;
+          margin:10px 0;
+          text-align:left;
+        }
+        #airbnb-turnover-checklist summary{font-weight:900;cursor:pointer}
+        #airbnb-turnover-checklist details div{margin-top:8px;color:var(--muted)}
+        #airbnb-turnover-checklist a:focus-visible,
+        #airbnb-turnover-checklist summary:focus-visible,
+        #airbnb-turnover-checklist input:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:2px;
+          border-radius:8px;
+        }
+
+        @media(max-width:540px){
+          #airbnb-turnover-checklist .overlay{
+            position:static;
+            display:block;
+            background:#0f0889;
+            border-radius:0 0 16px 16px;
+            padding:16px;
+          }
+          #airbnb-turnover-checklist .hero-media img{
+            height:clamp(220px,42vh,360px);
+            object-position:center 60%;
+            border-radius:16px 16px 0 0;
+          }
+          #airbnb-turnover-checklist .btn{width:100%;text-align:center}
+        }

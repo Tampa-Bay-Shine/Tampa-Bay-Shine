@@ -1,0 +1,532 @@
+#tbs-locations-v2{
+          --royal:#0f0889;
+          --royal-dark:#0b066d;
+          --accent:#f4c613;
+          --ink:#0f172a;
+          --muted:#556070;
+          --soft:#f7f9ff;
+          --border:#e5e9f4;
+          --max:1100px;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          background:#fff;
+          overflow-x:hidden;
+        }
+
+        #tbs-locations-v2 *{
+          box-sizing:border-box;
+        }
+
+        #tbs-locations-v2 img{
+          display:block;
+          width:100%;
+          height:auto;
+        }
+
+        #tbs-locations-v2 h1,
+        #tbs-locations-v2 h2,
+        #tbs-locations-v2 h3{
+          margin:0 0 .65rem;
+          line-height:1.18;
+          font-weight:900;
+        }
+
+        #tbs-locations-v2 h1{
+          color:#fff;
+          font-size:clamp(2rem,5vw,3.05rem);
+        }
+
+        #tbs-locations-v2 h2{
+          color:var(--royal);
+          font-size:clamp(1.45rem,3vw,2rem);
+        }
+
+        #tbs-locations-v2 h3{
+          font-size:1.1rem;
+          color:var(--ink);
+        }
+
+        #tbs-locations-v2 p{
+          margin:0 0 .9rem;
+        }
+
+        #tbs-locations-v2 a{
+          color:var(--royal);
+          text-decoration:none;
+        }
+
+        #tbs-locations-v2 a:hover{
+          text-decoration:underline;
+        }
+
+        #tbs-locations-v2 .btn:hover,
+        #tbs-locations-v2 .market-link:hover{
+          text-decoration:none;
+        }
+
+        #tbs-locations-v2 ul{
+          list-style:disc !important;
+          padding-left:22px !important;
+          margin:8px 0 15px !important;
+        }
+
+        #tbs-locations-v2 li{
+          display:list-item !important;
+          margin:5px 0 !important;
+        }
+
+        #tbs-locations-v2 a:focus-visible,
+        #tbs-locations-v2 summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:3px;
+          border-radius:8px;
+        }
+
+        #tbs-locations-v2 .container{
+          width:min(var(--max),calc(100% - 40px));
+          margin:0 auto;
+        }
+
+        #tbs-locations-v2 .section{
+          padding:52px 0;
+        }
+
+        #tbs-locations-v2 .section.soft{
+          background:var(--soft);
+          border-top:1px solid var(--border);
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-locations-v2 .center{
+          text-align:center;
+        }
+
+        #tbs-locations-v2 .muted{
+          color:var(--muted);
+        }
+
+        #tbs-locations-v2 .eyebrow{
+          display:inline-flex;
+          margin-bottom:10px;
+          color:var(--royal);
+          font-size:.78rem;
+          font-weight:900;
+          letter-spacing:.08em;
+          text-transform:uppercase;
+        }
+
+        #tbs-locations-v2 .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:50px;
+          padding:13px 19px;
+          border:2px solid transparent;
+          border-radius:13px;
+          font-weight:900;
+          text-align:center;
+        }
+
+        #tbs-locations-v2 .btn-primary{
+          background:var(--accent);
+          color:#111 !important;
+        }
+
+        #tbs-locations-v2 .btn-royal{
+          background:var(--royal);
+          color:#fff !important;
+        }
+
+        #tbs-locations-v2 .btn-outline{
+          background:#fff;
+          color:var(--royal) !important;
+          border-color:var(--royal);
+        }
+
+        #tbs-locations-v2 .actions{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          align-items:center;
+        }
+
+        #tbs-locations-v2 .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:19px;
+          box-shadow:0 7px 22px rgba(15,23,42,.045);
+        }
+
+        #tbs-locations-v2 .grid{
+          display:grid;
+          gap:16px;
+        }
+
+        #tbs-locations-v2 .cols-2{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        #tbs-locations-v2 .cols-3{
+          grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        /* BREADCRUMBS */
+
+        #tbs-locations-v2 .breadcrumbs{
+          background:#fff;
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-locations-v2 .breadcrumbs .container{
+          padding-top:11px;
+          padding-bottom:11px;
+        }
+
+        #tbs-locations-v2 .breadcrumbs ol{
+          list-style:none !important;
+          padding:0 !important;
+          margin:0 !important;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          font-size:.9rem;
+          color:#64748b;
+        }
+
+        #tbs-locations-v2 .breadcrumbs li{
+          display:block !important;
+          margin:0 !important;
+        }
+
+        #tbs-locations-v2 .breadcrumbs li+li::before{
+          content:"›";
+          margin-right:6px;
+          color:#94a3b8;
+        }
+
+        #tbs-locations-v2 .breadcrumbs .current{
+          color:var(--ink);
+          font-weight:800;
+        }
+
+        /* HERO */
+
+        #tbs-locations-v2 .hero{
+          position:relative;
+          min-height:430px;
+          display:flex;
+          align-items:flex-end;
+          overflow:hidden;
+          background:var(--royal);
+        }
+
+        #tbs-locations-v2 .hero-image{
+          position:absolute;
+          inset:0;
+        }
+
+        #tbs-locations-v2 .hero-image img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          object-position:center 55%;
+        }
+
+        #tbs-locations-v2 .hero::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          background:
+            linear-gradient(
+              90deg,
+              rgba(6,5,64,.90) 0%,
+              rgba(15,8,137,.72) 45%,
+              rgba(0,0,0,.25) 100%
+            );
+        }
+
+        #tbs-locations-v2 .hero-content{
+          position:relative;
+          z-index:2;
+          max-width:780px;
+          padding:52px 0;
+        }
+
+        #tbs-locations-v2 .hero .eyebrow{
+          color:#fff;
+        }
+
+        #tbs-locations-v2 .hero-lede{
+          color:#eef1ff;
+          font-size:clamp(1rem,2vw,1.16rem);
+        }
+
+        #tbs-locations-v2 .hero-proof{
+          display:flex;
+          flex-wrap:wrap;
+          gap:8px;
+          margin-top:14px;
+        }
+
+        #tbs-locations-v2 .proof{
+          display:inline-flex;
+          padding:6px 10px;
+          background:rgba(255,255,255,.12);
+          border:1px solid rgba(255,255,255,.22);
+          border-radius:999px;
+          color:#fff;
+          font-size:.85rem;
+          font-weight:800;
+        }
+
+        /* CUSTOMER PATHS */
+
+        #tbs-locations-v2 .path-grid{
+          display:grid;
+          grid-template-columns:repeat(2,minmax(0,1fr));
+          gap:18px;
+        }
+
+        #tbs-locations-v2 .path-card{
+          border-top:5px solid var(--royal);
+        }
+
+        #tbs-locations-v2 .path-card.commercial{
+          border-top-color:var(--accent);
+        }
+
+        /* MARKET CARDS */
+
+        #tbs-locations-v2 .market-grid{
+          display:grid;
+          grid-template-columns:repeat(2,minmax(0,1fr));
+          gap:16px;
+          margin-top:22px;
+        }
+
+        #tbs-locations-v2 .market-card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:19px;
+          box-shadow:0 7px 22px rgba(15,23,42,.045);
+        }
+
+        #tbs-locations-v2 .market-card h3{
+          color:var(--royal);
+          font-size:1.2rem;
+        }
+
+        #tbs-locations-v2 .market-links{
+          display:flex;
+          flex-wrap:wrap;
+          gap:7px;
+          margin-top:12px;
+        }
+
+        #tbs-locations-v2 .market-link{
+          display:inline-flex;
+          padding:7px 10px;
+          border:1px solid rgba(15,8,137,.16);
+          border-radius:999px;
+          background:#f8f9ff;
+          color:var(--royal);
+          font-size:.84rem;
+          font-weight:800;
+        }
+
+        #tbs-locations-v2 .market-link.primary{
+          background:var(--royal);
+          color:#fff;
+          border-color:var(--royal);
+        }
+
+        /* COVERAGE PILLS */
+
+        #tbs-locations-v2 .area-row{
+          display:flex;
+          flex-wrap:wrap;
+          justify-content:center;
+          gap:9px;
+          margin-top:18px;
+        }
+
+        #tbs-locations-v2 .area-pill{
+          display:inline-flex;
+          padding:9px 12px;
+          border:1px solid rgba(15,8,137,.16);
+          border-radius:999px;
+          background:#fff;
+          color:var(--royal);
+          font-weight:800;
+        }
+
+        /* TRUST */
+
+        #tbs-locations-v2 .trust-grid{
+          display:grid;
+          grid-template-columns:repeat(4,minmax(0,1fr));
+          gap:12px;
+        }
+
+        #tbs-locations-v2 .trust-card{
+          text-align:center;
+        }
+
+        #tbs-locations-v2 .trust-card strong{
+          display:block;
+          color:var(--royal);
+          margin-bottom:4px;
+        }
+
+        /* MAP */
+
+        #tbs-locations-v2 .map-card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:18px;
+          padding:18px;
+          box-shadow:0 10px 30px rgba(15,23,42,.07);
+        }
+
+        #tbs-locations-v2 .map-wrap{
+          width:100%;
+          overflow:hidden;
+          border-radius:13px;
+          border:1px solid var(--border);
+          background:#f8fafc;
+        }
+
+        #tbs-locations-v2 .map-wrap iframe{
+          display:block;
+          width:100%;
+          height:480px;
+          border:0;
+        }
+
+        /* FAQ */
+
+        #tbs-locations-v2 details.faq{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:13px 15px;
+          margin-bottom:10px;
+        }
+
+        #tbs-locations-v2 details.faq summary{
+          cursor:pointer;
+          font-weight:900;
+          color:var(--ink);
+        }
+
+        #tbs-locations-v2 .faq-answer{
+          margin-top:8px;
+          color:var(--muted);
+        }
+
+        /* FINAL CTA */
+
+        #tbs-locations-v2 .final-cta{
+          background:var(--royal);
+          border-radius:20px;
+          padding:32px 24px;
+          color:#fff;
+          text-align:center;
+        }
+
+        #tbs-locations-v2 .final-cta h2{
+          color:#fff;
+        }
+
+        #tbs-locations-v2 .final-cta p{
+          color:#eef1ff;
+        }
+
+        #tbs-locations-v2 .mobile-book-bar{
+          display:none;
+        }
+
+        @media(max-width:850px){
+          #tbs-locations-v2 .market-grid,
+          #tbs-locations-v2 .path-grid{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-locations-v2 .trust-grid{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+        }
+
+        @media(max-width:600px){
+          #tbs-locations-v2{
+            padding-bottom:75px;
+          }
+
+          #tbs-locations-v2 .container{
+            width:calc(100% - 28px);
+          }
+
+          #tbs-locations-v2 .section{
+            padding:40px 0;
+          }
+
+          #tbs-locations-v2 .hero{
+            min-height:520px;
+          }
+
+          #tbs-locations-v2 .actions{
+            flex-direction:column;
+            align-items:stretch;
+          }
+
+          #tbs-locations-v2 .actions .btn{
+            width:100%;
+          }
+
+          #tbs-locations-v2 .trust-grid{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-locations-v2 .map-wrap iframe{
+            height:380px;
+          }
+
+          #tbs-locations-v2 .mobile-book-bar{
+            display:flex;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:1100;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+            background:#fff;
+            border-top:1px solid var(--border);
+            box-shadow:0 -8px 26px rgba(15,23,42,.12);
+          }
+
+          #tbs-locations-v2 .mobile-book-copy{
+            font-size:.76rem;
+            line-height:1.25;
+            font-weight:800;
+            color:#334155;
+          }
+
+          #tbs-locations-v2 .mobile-book-copy strong{
+            display:block;
+            color:var(--royal);
+            font-size:.84rem;
+          }
+
+          #tbs-locations-v2 .mobile-book-bar .btn{
+            min-height:44px;
+            padding:9px 12px;
+            white-space:nowrap;
+            font-size:.84rem;
+          }
+        }

@@ -1,0 +1,57 @@
+#realtor-partners{
+          --ink:#0f172a;
+          --muted:#556070;
+          --border:#e9eef7;
+          --royal:#0f0889;
+          --accent:#f4c613;
+          --soft:#f7fbff;
+          font-family:Arial,Helvetica,sans-serif;
+          line-height:1.65;
+          color:var(--ink);
+          isolation:isolate;
+        }
+        #realtor-partners *{box-sizing:border-box}
+        #realtor-partners .wrap{max-width:1100px;margin:0 auto;padding:24px}
+        #realtor-partners a{color:#2563eb;text-decoration:none;font:inherit}
+        #realtor-partners a:hover{text-decoration:underline}
+        #realtor-partners a:focus-visible,
+        #realtor-partners summary:focus-visible,
+        #realtor-partners .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+        #realtor-partners .breadcrumbs{padding:12px 16px;border-radius:12px;background:#fff;border:1px solid var(--border);margin-top:18px}
+        #realtor-partners .breadcrumbs ol{list-style:none;display:flex;gap:6px;flex-wrap:wrap;padding:0;margin:0;font-size:.95rem;color:#475569}
+        #realtor-partners .breadcrumbs li[aria-hidden="true"]{color:#94a3b8}
+        #realtor-partners .panel{background:#fff;padding:22px;border-radius:16px;border:1px solid var(--border);margin:16px 0;box-shadow:0 4px 14px rgba(15,23,42,.04)}
+        #realtor-partners .panel.soft{background:var(--soft);border-color:#e6f0ff}
+        #realtor-partners h1{font-size:clamp(1.6rem,3.8vw,2.2rem);margin:0 0 10px;color:#0f172a;font-weight:900;letter-spacing:-.01em;line-height:1.15}
+        #realtor-partners h2{font-size:clamp(1.2rem,3vw,1.65rem);margin:0 0 10px;color:#0f172a;font-weight:900;letter-spacing:-.01em;line-height:1.25}
+        #realtor-partners h3{font-size:1.05rem;margin:0 0 8px;color:#0f172a;font-weight:900}
+        #realtor-partners p,#realtor-partners li{color:var(--ink)}
+        #realtor-partners .muted{color:var(--muted)}
+        #realtor-partners .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+        #realtor-partners .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:900;padding:12px 18px;border-radius:14px;text-decoration:none!important;border:1px solid transparent;cursor:pointer;transition:transform .05s ease,filter .15s ease;white-space:nowrap;min-height:46px}
+        #realtor-partners .btn:active{transform:translateY(1px)}
+        #realtor-partners .btn.royal{background:var(--royal);color:#fff}
+        #realtor-partners .btn.accent{background:var(--accent);color:#000}
+        #realtor-partners .btn.ghost{background:#fff;color:var(--royal);border:2px solid var(--royal)}
+        #realtor-partners .btn:hover{filter:brightness(.98)}
+        #realtor-partners .tbs-hero{isolation:isolate}
+        #realtor-partners .tbs-hero .hero-media{margin:0 auto;max-width:1100px;padding:36px 20px 10px}
+        #realtor-partners .tbs-hero .frame{position:relative;overflow:hidden;border-radius:14px;border:1px solid #e9ecff;box-shadow:0 12px 30px rgba(15,8,137,.12)}
+        #realtor-partners .tbs-hero .hero-media img{display:block;width:100%;height:clamp(220px,45vh,420px);object-fit:cover;object-position:center 55%}
+        #realtor-partners .tbs-hero .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.64) 100%);padding:clamp(12px,2.8vw,20px)}
+        #realtor-partners .tbs-hero .overlay *{color:#fff!important}
+        #realtor-partners .tbs-hero .lead{margin:0 0 10px;color:#eef2ff!important;font-size:clamp(.95rem,2.6vw,1.05rem);max-width:68ch}
+        #realtor-partners .grid{display:grid;gap:16px}
+        @media(min-width:920px){#realtor-partners .grid.cols-2{grid-template-columns:repeat(2,minmax(260px,1fr))}#realtor-partners .grid.cols-3{grid-template-columns:repeat(3,minmax(240px,1fr))}}
+        @media(max-width:919.98px){#realtor-partners .grid.cols-2,#realtor-partners .grid.cols-3{grid-template-columns:1fr}}
+        #realtor-partners .mini-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:14px 14px 12px;box-shadow:0 4px 12px rgba(15,23,42,.04)}
+        #realtor-partners .mini-card .title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 6px;font-weight:900;color:var(--royal)}
+        #realtor-partners .mini-card p{margin:0;color:#475569}
+        #realtor-partners .chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:10px 0 0}
+        #realtor-partners .chip{display:inline-flex;background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 12px;font-weight:900;color:#1f2757;text-decoration:none!important}
+        #realtor-partners .chip:hover{background:#fafbff;text-decoration:underline!important}
+        #realtor-partners details{border-radius:12px;border:1px solid #e2e8f0;padding:10px 12px;background:#fff}
+        #realtor-partners details+details{margin-top:10px}
+        #realtor-partners summary{cursor:pointer}
+        #realtor-partners .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,1px,1px)!important;border:0!important;white-space:nowrap!important}
+        @media(max-width:640px){#realtor-partners .btn{width:100%}#realtor-partners .wrap{padding:18px 14px}#realtor-partners .tbs-hero .hero-media{padding:26px 14px 8px}}

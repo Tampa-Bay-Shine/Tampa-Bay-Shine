@@ -1,0 +1,32 @@
+.tbs-careers{
+      --tb-blue:#0f0889;--tb-accent:#FFD23F;--tb-text:#1b1b1b;--tb-muted:#444;
+      font-family:Arial,Helvetica,sans-serif;color:var(--tb-text);line-height:1.6;isolation:isolate;
+    }
+    .tbs-careers *{box-sizing:border-box}
+    .tbs-careers .wrap{max-width:960px;margin:0 auto;padding:2rem 1rem}
+    .tbs-careers h1,.tbs-careers h2,.tbs-careers h3{margin:0 0 .6rem}
+    .tbs-careers h1{color:var(--tb-blue);font-size:2rem}
+    .tbs-careers h2{font-size:1.5rem}
+    .tbs-careers .muted{color:var(--tb-muted)}
+    .tbs-careers .grid{display:grid;gap:14px}
+    @media (min-width:820px){.tbs-careers .grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .tbs-careers .card{background:#fff;border:1px solid #e8e8ee;border-radius:12px;padding:16px}
+    .tbs-careers ul{padding-left:18px;margin:0}
+    .tbs-careers .badge{
+      display:inline-block;background:#eef2ff;border:1px solid #c7d2fe;color:var(--tb-blue);
+      border-radius:999px;padding:.28rem .65rem;font-size:.9rem;font-weight:700;line-height:1;white-space:nowrap;margin-right:.45rem
+    }
+    .tbs-careers .note-below{
+      margin-top:.6rem;font-size:.9rem;color:#0f0f0f;background:#fffbe6;border:1px solid #f5e6a3;border-radius:8px;padding:.5rem .6rem;display:inline-block
+    }
+    .tbs-careers .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-width:200px;padding:.7rem 1.1rem;border-radius:999px;
+      font-weight:700;border:none;cursor:pointer;text-decoration:none
+    }
+    .tbs-careers .btn-ghost{
+      background:#f7f7ff;color:var(--tb-blue);border:1px solid #e6e8ff;
+      display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1.1rem;border-radius:999px;font-weight:700;text-decoration:none
+    }
+    .tbs-careers .soft{background:rgba(15,8,137,0.06);border:1px solid #e9ecff;border-radius:12px}
+    .tbs-careers .hr{height:1px;background:#eee;margin:1rem 0}

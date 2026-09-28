@@ -1,0 +1,800 @@
+#tbs-home-v2{
+          --royal:#0f0889;
+          --royal-dark:#0b066d;
+          --accent:#f4c613;
+          --ink:#0f172a;
+          --muted:#556070;
+          --soft:#f7f9ff;
+          --line:#e6eaf4;
+          --success:#166534;
+          --success-bg:#f0fdf4;
+          --promo-bg:#fff8d9;
+          --radius:16px;
+          --max:1120px;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          background:#fff;
+          line-height:1.6;
+          overflow-x:hidden;
+        }
+
+        #tbs-home-v2 *{
+          box-sizing:border-box;
+        }
+
+        #tbs-home-v2 img{
+          display:block;
+          max-width:100%;
+          height:auto;
+        }
+
+        #tbs-home-v2 h1,
+        #tbs-home-v2 h2,
+        #tbs-home-v2 h3{
+          margin:0 0 .65rem;
+          color:var(--royal);
+          font-weight:900;
+          line-height:1.18;
+        }
+
+        #tbs-home-v2 h1{
+          font-size:clamp(2rem,5vw,3.45rem);
+        }
+
+        #tbs-home-v2 h2{
+          font-size:clamp(1.45rem,3vw,2.05rem);
+        }
+
+        #tbs-home-v2 h3{
+          font-size:1.08rem;
+        }
+
+        #tbs-home-v2 p{
+          margin:0 0 .9rem;
+        }
+
+        #tbs-home-v2 a{
+          color:#2563eb;
+          text-decoration:none;
+        }
+
+        #tbs-home-v2 a:hover{
+          text-decoration:underline;
+        }
+
+        #tbs-home-v2 .btn:hover{
+          text-decoration:none;
+        }
+
+        #tbs-home-v2 a:focus-visible,
+        #tbs-home-v2 button:focus-visible,
+        #tbs-home-v2 summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:3px;
+          border-radius:8px;
+        }
+
+        #tbs-home-v2 .container{
+          width:min(var(--max),calc(100% - 40px));
+          margin:0 auto;
+        }
+
+        #tbs-home-v2 .section{
+          padding:54px 0;
+        }
+
+        #tbs-home-v2 .section.soft{
+          background:var(--soft);
+          border-top:1px solid var(--line);
+          border-bottom:1px solid var(--line);
+        }
+
+        #tbs-home-v2 .center{
+          text-align:center;
+        }
+
+        #tbs-home-v2 .muted{
+          color:var(--muted);
+        }
+
+        #tbs-home-v2 .eyebrow{
+          display:inline-flex;
+          align-items:center;
+          gap:6px;
+          margin-bottom:10px;
+          font-size:.78rem;
+          font-weight:900;
+          letter-spacing:.09em;
+          text-transform:uppercase;
+          color:var(--royal);
+        }
+
+        #tbs-home-v2 .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:50px;
+          padding:13px 19px;
+          border-radius:13px;
+          border:2px solid transparent;
+          font-weight:900;
+          text-align:center;
+          cursor:pointer;
+        }
+
+        #tbs-home-v2 .btn-primary{
+          color:#000;
+          background:var(--accent);
+          box-shadow:0 10px 26px rgba(244,198,19,.28);
+        }
+
+        #tbs-home-v2 .btn-royal{
+          color:#fff;
+          background:var(--royal);
+          box-shadow:0 10px 24px rgba(15,8,137,.18);
+        }
+
+        #tbs-home-v2 .btn-outline{
+          color:var(--royal);
+          background:#fff;
+          border-color:var(--royal);
+        }
+
+        #tbs-home-v2 .btn-white{
+          background:#fff;
+          color:var(--royal);
+        }
+
+        #tbs-home-v2 .actions{
+          display:flex;
+          flex-wrap:wrap;
+          gap:11px;
+          align-items:center;
+        }
+
+        /* PROMO STRIP */
+        #tbs-home-v2 .promo-strip{
+          background:var(--accent);
+          color:#111;
+          text-align:center;
+          padding:10px 16px;
+          font-weight:900;
+          font-size:.96rem;
+        }
+
+        #tbs-home-v2 .promo-strip a{
+          color:#111;
+          text-decoration:underline;
+        }
+
+        /* TOP NAV */
+        #tbs-home-v2 .topbar{
+          position:sticky;
+          top:0;
+          z-index:1000;
+          background:rgba(255,255,255,.97);
+          border-bottom:1px solid var(--line);
+          box-shadow:0 8px 24px rgba(15,23,42,.05);
+          backdrop-filter:blur(10px);
+        }
+
+        #tbs-home-v2 .topbar-inner{
+          width:min(var(--max),calc(100% - 32px));
+          min-height:64px;
+          margin:0 auto;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:18px;
+        }
+
+        #tbs-home-v2 .brand{
+          color:var(--royal);
+          font-weight:900;
+          font-size:1.05rem;
+          white-space:nowrap;
+        }
+
+        #tbs-home-v2 .nav-links{
+          display:flex;
+          align-items:center;
+          gap:6px;
+          flex-wrap:wrap;
+          justify-content:flex-end;
+        }
+
+        #tbs-home-v2 .nav-links a:not(.btn){
+          padding:8px 9px;
+          color:var(--royal);
+          font-weight:800;
+          border-radius:9px;
+        }
+
+        #tbs-home-v2 .nav-links a:not(.btn):hover{
+          background:#eef2ff;
+          text-decoration:none;
+        }
+
+        /* HERO */
+        #tbs-home-v2 .hero{
+          background:
+            radial-gradient(circle at 80% 15%,rgba(244,198,19,.12),transparent 34%),
+            linear-gradient(180deg,#0f0889 0%,#0b066d 100%);
+          color:#fff;
+          padding:48px 0;
+        }
+
+        #tbs-home-v2 .hero-grid{
+          display:grid;
+          grid-template-columns:1.08fr .92fr;
+          gap:34px;
+          align-items:center;
+        }
+
+        #tbs-home-v2 .hero h1{
+          color:#fff;
+        }
+
+        #tbs-home-v2 .hero .lede{
+          color:#eef1ff;
+          font-size:clamp(1rem,2vw,1.18rem);
+          max-width:720px;
+        }
+
+        #tbs-home-v2 .offer-card{
+          background:#fff;
+          color:var(--ink);
+          border-radius:16px;
+          padding:18px;
+          margin:18px 0;
+          border:2px solid rgba(244,198,19,.8);
+          box-shadow:0 14px 32px rgba(0,0,0,.15);
+        }
+
+        #tbs-home-v2 .offer-card h2{
+          margin:0 0 6px;
+          font-size:clamp(1.35rem,3vw,1.85rem);
+        }
+
+        #tbs-home-v2 .offer-code{
+          display:inline-block;
+          background:var(--promo-bg);
+          border:1px solid rgba(244,198,19,.7);
+          padding:5px 10px;
+          border-radius:8px;
+          font-weight:900;
+          letter-spacing:.05em;
+        }
+
+        #tbs-home-v2 .offer-summary{
+          margin-top:9px;
+          color:#475569;
+          font-size:.88rem;
+          font-weight:700;
+        }
+
+        #tbs-home-v2 .offer-terms{
+          margin-top:10px;
+          border-top:1px solid var(--line);
+          padding-top:8px;
+          font-size:.87rem;
+        }
+
+        #tbs-home-v2 .offer-terms summary{
+          cursor:pointer;
+          color:var(--royal);
+          font-weight:900;
+        }
+
+        #tbs-home-v2 .hero-proof{
+          display:flex;
+          flex-wrap:wrap;
+          gap:8px;
+          margin-top:14px;
+        }
+
+        #tbs-home-v2 .proof-pill{
+          display:inline-flex;
+          align-items:center;
+          background:rgba(255,255,255,.12);
+          border:1px solid rgba(255,255,255,.22);
+          color:#fff;
+          border-radius:999px;
+          padding:6px 10px;
+          font-size:.88rem;
+          font-weight:800;
+        }
+
+        #tbs-home-v2 .hero-review{
+          margin-top:14px;
+          color:#fff;
+          font-weight:800;
+        }
+
+        #tbs-home-v2 .hero-review a{
+          color:#fff;
+          text-decoration:underline;
+        }
+
+        #tbs-home-v2 .hero-media{
+          border-radius:20px;
+          overflow:hidden;
+          border:1px solid rgba(255,255,255,.2);
+          box-shadow:0 20px 50px rgba(0,0,0,.22);
+          background:#fff;
+        }
+
+        #tbs-home-v2 .hero-media img{
+          width:100%;
+          aspect-ratio:16/11;
+          object-fit:cover;
+          object-position:center 55%;
+        }
+
+        #tbs-home-v2 .hero-media-caption{
+          padding:14px 16px;
+          color:var(--ink);
+          background:#fff;
+          font-size:.92rem;
+          font-weight:800;
+        }
+
+        /* GRIDS */
+        #tbs-home-v2 .trust-grid,
+        #tbs-home-v2 .price-grid,
+        #tbs-home-v2 .steps-grid,
+        #tbs-home-v2 .services-grid,
+        #tbs-home-v2 .benefits-grid{
+          display:grid;
+          gap:14px;
+        }
+
+        #tbs-home-v2 .trust-grid{
+          grid-template-columns:repeat(4,minmax(0,1fr));
+        }
+
+        #tbs-home-v2 .price-grid{
+          grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        #tbs-home-v2 .steps-grid{
+          grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        #tbs-home-v2 .services-grid{
+          grid-template-columns:repeat(5,minmax(0,1fr));
+        }
+
+        #tbs-home-v2 .benefits-grid{
+          grid-template-columns:repeat(4,minmax(0,1fr));
+        }
+
+        #tbs-home-v2 .card{
+          background:#fff;
+          border:1px solid var(--line);
+          border-radius:var(--radius);
+          padding:18px;
+          box-shadow:0 8px 24px rgba(15,23,42,.045);
+        }
+
+        #tbs-home-v2 .trust-card{
+          text-align:center;
+        }
+
+        #tbs-home-v2 .trust-card strong{
+          display:block;
+          color:var(--royal);
+          margin-bottom:4px;
+        }
+
+        /* PRICING */
+        #tbs-home-v2 .price-card{
+          position:relative;
+        }
+
+        #tbs-home-v2 .price{
+          font-size:1.7rem;
+          line-height:1;
+          color:var(--royal);
+          font-weight:900;
+          margin:9px 0;
+        }
+
+        #tbs-home-v2 .special-price{
+          margin-top:12px;
+          padding:10px;
+          background:var(--promo-bg);
+          border-radius:10px;
+          font-size:.9rem;
+          font-weight:800;
+        }
+
+        #tbs-home-v2 .price-note{
+          font-size:.82rem;
+          color:var(--muted);
+        }
+
+        /* HOW IT WORKS */
+        #tbs-home-v2 .step-number{
+          width:38px;
+          height:38px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          background:var(--royal);
+          color:#fff;
+          font-weight:900;
+          margin-bottom:10px;
+        }
+
+        /* DISCOUNTS */
+        #tbs-home-v2 .frequency-wrap{
+          max-width:680px;
+          margin:18px auto 0;
+          overflow-x:auto;
+        }
+
+        #tbs-home-v2 table{
+          width:100%;
+          border-collapse:separate;
+          border-spacing:0;
+          background:#fff;
+          border:1px solid var(--line);
+          border-radius:14px;
+          overflow:hidden;
+        }
+
+        #tbs-home-v2 th,
+        #tbs-home-v2 td{
+          padding:12px 14px;
+          text-align:left;
+          border-bottom:1px solid var(--line);
+        }
+
+        #tbs-home-v2 thead th{
+          background:var(--royal);
+          color:#fff;
+        }
+
+        #tbs-home-v2 tr:last-child th,
+        #tbs-home-v2 tr:last-child td{
+          border-bottom:none;
+        }
+
+        #tbs-home-v2 .one-time-offer{
+          max-width:800px;
+          margin:22px auto 0;
+          padding:16px 18px;
+          background:#fff;
+          border:1px solid rgba(244,198,19,.7);
+          border-left:5px solid var(--accent);
+          border-radius:14px;
+        }
+
+        /* SERVICE CARDS */
+        #tbs-home-v2 .service-card{
+          display:flex;
+          flex-direction:column;
+          min-height:100%;
+          color:inherit;
+        }
+
+        #tbs-home-v2 .service-card:hover{
+          text-decoration:none;
+          border-color:#cdd4f6;
+          box-shadow:0 12px 28px rgba(15,8,137,.09);
+        }
+
+        #tbs-home-v2 .service-label{
+          display:inline-flex;
+          width:max-content;
+          margin-bottom:8px;
+          padding:4px 8px;
+          border-radius:999px;
+          background:#eef2ff;
+          color:var(--royal);
+          font-size:.76rem;
+          font-weight:900;
+          text-transform:uppercase;
+        }
+
+        #tbs-home-v2 .service-card .cta{
+          margin-top:auto;
+          padding-top:10px;
+          color:var(--royal);
+          font-weight:900;
+        }
+
+        /* REVIEWS */
+        #tbs-home-v2 .review-panel{
+          display:grid;
+          grid-template-columns:.7fr 1.3fr;
+          gap:24px;
+          align-items:center;
+        }
+
+        #tbs-home-v2 .rating-box{
+          text-align:center;
+          background:var(--royal);
+          color:#fff;
+          border-radius:18px;
+          padding:26px 18px;
+        }
+
+        #tbs-home-v2 .rating-big{
+          font-size:2.6rem;
+          font-weight:900;
+          line-height:1;
+        }
+
+        #tbs-home-v2 .stars{
+          color:var(--accent);
+          letter-spacing:.12em;
+          font-size:1.25rem;
+          margin:7px 0;
+        }
+
+        #tbs-home-v2 blockquote{
+          margin:0;
+          font-size:1.04rem;
+          color:#334155;
+        }
+
+        #tbs-home-v2 blockquote footer{
+          margin-top:12px;
+          color:var(--royal);
+          font-weight:900;
+        }
+
+        /* COMMERCIAL */
+        #tbs-home-v2 .commercial-panel{
+          background:linear-gradient(135deg,#0f0889 0%,#1d2e95 100%);
+          color:#fff;
+          border-radius:20px;
+          padding:30px;
+        }
+
+        #tbs-home-v2 .commercial-panel h2,
+        #tbs-home-v2 .commercial-panel h3{
+          color:#fff;
+        }
+
+        #tbs-home-v2 .commercial-links{
+          display:flex;
+          flex-wrap:wrap;
+          gap:8px;
+          margin-top:14px;
+        }
+
+        #tbs-home-v2 .commercial-links a{
+          display:inline-flex;
+          padding:7px 10px;
+          border-radius:999px;
+          background:rgba(255,255,255,.12);
+          border:1px solid rgba(255,255,255,.2);
+          color:#fff;
+          font-weight:800;
+        }
+
+        /* AREAS */
+        #tbs-home-v2 .area-links{
+          display:flex;
+          flex-wrap:wrap;
+          justify-content:center;
+          gap:9px;
+          margin-top:16px;
+        }
+
+        #tbs-home-v2 .area-links a,
+        #tbs-home-v2 .area-pill{
+          display:inline-flex;
+          align-items:center;
+          padding:8px 11px;
+          border-radius:999px;
+          background:#fff;
+          border:1px solid var(--line);
+          color:var(--royal);
+          font-weight:800;
+        }
+
+        /* FAQ */
+        #tbs-home-v2 details.faq{
+          background:#fff;
+          border:1px solid var(--line);
+          border-radius:12px;
+          padding:13px 15px;
+          margin-bottom:10px;
+        }
+
+        #tbs-home-v2 details.faq summary{
+          cursor:pointer;
+          font-weight:900;
+          color:var(--ink);
+        }
+
+        #tbs-home-v2 details.faq .answer{
+          margin-top:8px;
+          color:var(--muted);
+        }
+
+        /* FINAL CTA */
+        #tbs-home-v2 .final-cta{
+          background:var(--royal);
+          color:#fff;
+          border-radius:20px;
+          padding:34px 24px;
+          text-align:center;
+        }
+
+        #tbs-home-v2 .final-cta h2{
+          color:#fff;
+        }
+
+        #tbs-home-v2 .final-cta p{
+          color:#eef1ff;
+        }
+
+        #tbs-home-v2 .resource-links{
+          margin-top:28px;
+          text-align:center;
+          font-size:.9rem;
+          color:var(--muted);
+        }
+
+        #tbs-home-v2 .resource-links a{
+          margin:0 6px;
+        }
+
+        /* MOBILE BOOK BAR */
+        #tbs-home-v2 .mobile-book-bar{
+          display:none;
+        }
+
+        /* TABLET */
+        @media(max-width:1000px){
+          #tbs-home-v2 .services-grid{
+            grid-template-columns:repeat(3,minmax(0,1fr));
+          }
+
+          #tbs-home-v2 .benefits-grid,
+          #tbs-home-v2 .trust-grid{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+        }
+
+        @media(max-width:820px){
+
+          #tbs-home-v2 .topbar-inner{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:8px;
+            padding:8px 0 10px;
+          }
+
+          #tbs-home-v2 .brand{
+            text-align:center;
+          }
+
+          #tbs-home-v2 .nav-links{
+            width:100%;
+            display:flex;
+            flex-wrap:nowrap;
+            overflow-x:auto;
+            justify-content:flex-start;
+            gap:6px;
+            padding-bottom:2px;
+            scrollbar-width:none;
+            -webkit-overflow-scrolling:touch;
+          }
+
+          #tbs-home-v2 .nav-links::-webkit-scrollbar{
+            display:none;
+          }
+
+          #tbs-home-v2 .nav-links a:not(.btn){
+            display:inline-flex;
+            flex:0 0 auto;
+            white-space:nowrap;
+            padding:7px 9px;
+            font-size:.86rem;
+          }
+
+          #tbs-home-v2 .nav-links .btn{
+            display:inline-flex;
+            flex:0 0 auto;
+            min-height:40px;
+            padding:8px 12px;
+            white-space:nowrap;
+            font-size:.86rem;
+          }
+
+          #tbs-home-v2 .hero-grid,
+          #tbs-home-v2 .review-panel{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-home-v2 .price-grid,
+          #tbs-home-v2 .steps-grid{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-home-v2 .services-grid{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+
+          #tbs-home-v2 .hero-media{
+            order:-1;
+          }
+        }
+
+        /* MOBILE */
+        @media(max-width:560px){
+
+          #tbs-home-v2{
+            padding-bottom:76px;
+          }
+
+          #tbs-home-v2 .container{
+            width:min(100% - 28px,var(--max));
+          }
+
+          #tbs-home-v2 .section{
+            padding:40px 0;
+          }
+
+          #tbs-home-v2 .hero{
+            padding:28px 0 36px;
+          }
+
+          #tbs-home-v2 .services-grid,
+          #tbs-home-v2 .benefits-grid,
+          #tbs-home-v2 .trust-grid{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-home-v2 .actions{
+            flex-direction:column;
+            align-items:stretch;
+          }
+
+          #tbs-home-v2 .actions .btn{
+            width:100%;
+          }
+
+          #tbs-home-v2 .mobile-book-bar{
+            display:flex;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:1100;
+            gap:10px;
+            align-items:center;
+            justify-content:space-between;
+            padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+            background:#fff;
+            border-top:1px solid var(--line);
+            box-shadow:0 -8px 26px rgba(15,23,42,.12);
+          }
+
+          #tbs-home-v2 .mobile-book-copy{
+            font-size:.76rem;
+            line-height:1.25;
+            color:#334155;
+            font-weight:800;
+          }
+
+          #tbs-home-v2 .mobile-book-copy strong{
+            color:var(--royal);
+            display:block;
+            font-size:.84rem;
+          }
+
+          #tbs-home-v2 .mobile-book-bar .btn{
+            min-height:44px;
+            padding:9px 13px;
+            font-size:.84rem;
+            white-space:nowrap;
+          }
+        }

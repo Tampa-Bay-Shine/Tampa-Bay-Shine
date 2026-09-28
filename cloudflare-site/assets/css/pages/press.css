@@ -1,0 +1,286 @@
+#tbs-press{
+          --tb-blue:#0212FA;
+          --tb-yellow:#FFD23F;
+          --tb-text:#1b1b1b;
+          --tb-muted:#4a4a4a;
+          --tb-bg:#ffffff;
+          --tb-border:#e9ecff;
+          --frame-shadow:0 8px 28px rgba(16,24,40,.08);
+          --max:1100px;
+          --pad:20px;
+          background:radial-gradient(circle at top left,#eef2ff 0,#ffffff 45%,#f9fafb 100%);
+          padding-bottom:24px;
+          color:var(--tb-text);
+          font-family:Arial,Helvetica,sans-serif;
+          line-height:1.6;
+          isolation:isolate;
+        }
+
+        #tbs-press *,
+        #tbs-press .press-grid,
+        #tbs-press .press-grid *{
+          box-sizing:border-box;
+        }
+
+        #tbs-press a{
+          color:#2563eb;
+          text-decoration:none;
+          font:inherit;
+        }
+
+        #tbs-press a:hover{
+          text-decoration:underline;
+        }
+
+        #tbs-press a:focus-visible,
+        #tbs-press .btn:focus-visible{
+          outline:3px solid var(--tb-yellow);
+          outline-offset:2px;
+          border-radius:8px;
+        }
+
+        #tbs-press .page{
+          color:var(--tb-text);
+          font-family:Arial,Helvetica,sans-serif;
+          line-height:1.6;
+        }
+
+        #tbs-press .inline-text{
+          white-space:normal !important;
+        }
+
+        #tbs-press .inline-text a,
+        #tbs-press .inline-text strong,
+        #tbs-press .inline-text b,
+        #tbs-press .inline-text em,
+        #tbs-press .inline-text span{
+          display:inline !important;
+          width:auto !important;
+          float:none !important;
+          margin:0 !important;
+          padding:0 !important;
+          line-height:inherit !important;
+        }
+
+        #tbs-press .breadcrumb{
+          font-size:.95rem;
+          color:#6b7280;
+          margin:8px auto 0;
+          max-width:var(--max);
+          padding:0 var(--pad);
+        }
+
+        #tbs-press #breadcrumb a{
+          color:#0f0889;
+        }
+
+        #tbs-press .hero-img-wrap{
+          max-width:var(--max);
+          margin:18px auto 0;
+          padding:0 var(--pad);
+        }
+
+        #tbs-press .hero-img{
+          background:#fff;
+          border:1px solid var(--tb-border);
+          border-radius:14px;
+          overflow:hidden;
+          position:relative;
+          max-width:640px;
+          margin:0 auto;
+          box-shadow:0 14px 40px rgba(15,8,137,.16);
+        }
+
+        #tbs-press .hero-img img{
+          display:block;
+          width:100%;
+          aspect-ratio:16/9;
+          object-fit:cover;
+          object-position:center 60%;
+        }
+
+        #tbs-press .hero-overlay{
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:0;
+          padding:14px 16px;
+          color:#fff;
+          background:linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.60) 100%);
+        }
+
+        #tbs-press .hero-title{
+          color:#fff;
+          margin:0 0 6px;
+          font-size:clamp(1.25rem,4.6vw,2rem);
+          line-height:1.15;
+          font-weight:900;
+        }
+
+        #tbs-press .hero-sub{
+          margin:0;
+          color:#eef2ff;
+          font-size:clamp(.95rem,3.4vw,1.05rem);
+          line-height:1.35;
+        }
+
+        @media(min-width:1024px){
+          #tbs-press .hero-img{
+            max-width:50%;
+          }
+
+          #tbs-press .hero-img img{
+            aspect-ratio:16/7;
+          }
+        }
+
+        #tbs-press .container{
+          max-width:var(--max);
+          margin:0 auto;
+          padding:20px;
+        }
+
+        #tbs-press .lead-note{
+          color:var(--tb-muted);
+          font-size:.96rem;
+          margin:10px 0 14px;
+          background:#ffffffcc;
+          border-radius:10px;
+          padding:10px 12px;
+          border:1px solid #e5e7eb;
+          box-shadow:0 6px 18px rgba(15,8,137,.06);
+        }
+
+        #tbs-press .cta-row{
+          display:flex;
+          gap:12px;
+          flex-wrap:wrap;
+        }
+
+        #tbs-press .btn{
+          display:inline-block;
+          border-radius:999px;
+          padding:12px 18px;
+          font-weight:700;
+          text-decoration:none;
+          box-shadow:0 8px 22px rgba(15,8,137,.16);
+          border:1px solid transparent;
+          transition:transform .05s ease, box-shadow .2s ease;
+        }
+
+        #tbs-press .btn-primary{
+          background:var(--tb-blue);
+          color:#fff;
+        }
+
+        #tbs-press .btn-accent{
+          background:var(--tb-yellow);
+          color:#000;
+        }
+
+        #tbs-press .btn-info{
+          background:#2563eb;
+          color:#fff;
+        }
+
+        #tbs-press .btn:hover{
+          transform:translateY(-1px);
+          box-shadow:0 12px 30px rgba(15,8,137,.22);
+          text-decoration:none;
+        }
+
+        #tbs-press .wrap{
+          max-width:var(--max);
+          margin:14px auto 0;
+          padding:0 var(--pad);
+        }
+
+        #tbs-press .section-title{
+          color:var(--tb-blue);
+          margin:0 0 8px;
+          font-size:1.4rem;
+          font-weight:700;
+        }
+
+        #tbs-press .section-note{
+          color:var(--tb-muted);
+          font-size:.95rem;
+          margin:0 0 10px;
+        }
+
+        #tbs-press .press-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+          gap:14px;
+          margin-top:10px;
+        }
+
+        #tbs-press .press-card{
+          background:#fff;
+          border:1px solid var(--tb-border);
+          border-radius:14px;
+          padding:12px 14px 14px;
+          box-shadow:0 4px 14px rgba(15,23,42,.06);
+          transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+
+        #tbs-press .press-card:hover{
+          box-shadow:0 14px 32px rgba(2,18,250,.18);
+          transform:translateY(-2px);
+          border-color:#c7d2fe;
+        }
+
+        #tbs-press .press-card h3{
+          margin:0 0 6px;
+          color:#0f172a;
+          font-size:1.05rem;
+          font-weight:800;
+        }
+
+        #tbs-press .press-meta{
+          font-size:.85rem;
+          color:#6b7280;
+          margin:0 0 6px;
+        }
+
+        #tbs-press .press-desc{
+          font-size:.95rem;
+          color:var(--tb-muted);
+          margin:0 0 8px;
+        }
+
+        #tbs-press .social-list{
+          list-style:none;
+          padding-left:0;
+          margin:8px 0 0;
+          line-height:1.9;
+          font-size:.98rem;
+        }
+
+        #tbs-press .cta-band{
+          max-width:var(--max);
+          margin:20px auto 24px;
+          text-align:center;
+          background:rgba(2,18,250,0.06);
+          border:1px solid var(--tb-border);
+          border-radius:12px;
+          padding:20px;
+          box-shadow:0 10px 26px rgba(15,23,42,.08);
+        }
+
+        #tbs-press .cta-title{
+          color:var(--tb-blue);
+          margin:0 0 8px;
+        }
+
+        #tbs-press .cta-muted{
+          color:var(--tb-muted);
+          margin:0 0 10px;
+        }
+
+        @media(max-width:640px){
+          #tbs-press .btn{
+            width:100%;
+            text-align:center;
+          }
+        }

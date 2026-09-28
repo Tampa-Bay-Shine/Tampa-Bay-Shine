@@ -1,0 +1,298 @@
+#medical-office-cleaning-tampa-page{
+          --royal:#0f0889;
+          --royal-2:#2418b6;
+          --accent:#f4c613;
+          --ink:#172033;
+          --muted:#5b667a;
+          --soft:#f7f8fe;
+          --border:#e4e8f4;
+          --radius:18px;
+          --shadow-sm:0 8px 24px rgba(15,8,137,.08);
+          --shadow-md:0 18px 40px rgba(15,8,137,.12);
+          color:var(--ink);
+          line-height:1.6;
+          font-family:Arial,Helvetica,sans-serif;
+          isolation:isolate;
+        }
+        #medical-office-cleaning-tampa-page *{box-sizing:border-box}
+        #medical-office-cleaning-tampa-page .wrap{max-width:1140px;margin:0 auto;padding:40px 20px}
+        #medical-office-cleaning-tampa-page h1,
+        #medical-office-cleaning-tampa-page h2,
+        #medical-office-cleaning-tampa-page h3{margin:0 0 12px;letter-spacing:.2px}
+        #medical-office-cleaning-tampa-page h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.08;color:#0f172a;font-weight:900}
+        #medical-office-cleaning-tampa-page h2{font-size:clamp(1.45rem,3vw,2rem);line-height:1.18;color:var(--royal);font-weight:900}
+        #medical-office-cleaning-tampa-page h3{font-size:clamp(1rem,2vw,1.2rem);line-height:1.25;color:#0f172a;font-weight:800}
+        #medical-office-cleaning-tampa-page p{margin:0 0 12px}
+        #medical-office-cleaning-tampa-page ul{margin:0;padding-left:20px}
+        #medical-office-cleaning-tampa-page li{margin:0 0 8px}
+        #medical-office-cleaning-tampa-page .muted{color:var(--muted)}
+        #medical-office-cleaning-tampa-page .section-note{max-width:74ch;color:#475569}
+
+        #medical-office-cleaning-tampa-page a:not(.btn):not([role="button"]){color:#2563eb;text-decoration:none;font:inherit}
+        #medical-office-cleaning-tampa-page a:not(.btn):not([role="button"]):hover{text-decoration:underline}
+        #medical-office-cleaning-tampa-page a:focus-visible,
+        #medical-office-cleaning-tampa-page summary:focus-visible,
+        #medical-office-cleaning-tampa-page .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+
+        #medical-office-cleaning-tampa-page .breadcrumbs{background:#fff;border-bottom:1px solid var(--border)}
+        #medical-office-cleaning-tampa-page .breadcrumbs .wrap{padding:12px 20px}
+        #medical-office-cleaning-tampa-page .breadcrumbs ol{
+          list-style:none;
+          margin:0;
+          padding:0;
+          display:flex;
+          gap:6px;
+          align-items:center;
+          flex-wrap:wrap;
+          font-size:.95rem;
+          color:#475569;
+        }
+        #medical-office-cleaning-tampa-page .breadcrumbs li{display:flex;align-items:center;gap:6px;margin:0}
+        #medical-office-cleaning-tampa-page .breadcrumbs li+li::before{content:"›";color:#94a3b8}
+        #medical-office-cleaning-tampa-page .breadcrumbs a{color:var(--royal)}
+        #medical-office-cleaning-tampa-page .breadcrumbs .current{color:#0f172a;font-weight:800}
+
+        #medical-office-cleaning-tampa-page .hero{padding:28px 0 6px;background:linear-gradient(180deg,#ffffff 0%,#f9faff 100%)}
+        #medical-office-cleaning-tampa-page .hero-grid{display:grid;gap:20px;align-items:center}
+        @media(min-width:980px){
+          #medical-office-cleaning-tampa-page .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr)}
+        }
+        #medical-office-cleaning-tampa-page .eyebrow{
+          display:inline-flex;
+          align-items:center;
+          gap:8px;
+          background:#eef2ff;
+          border:1px solid #d9def6;
+          color:var(--royal);
+          padding:8px 12px;
+          border-radius:999px;
+          font-size:.92rem;
+          font-weight:800;
+          margin-bottom:12px;
+        }
+        #medical-office-cleaning-tampa-page .lead{font-size:1.05rem;color:#334155;max-width:68ch}
+        #medical-office-cleaning-tampa-page .hero-points{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
+        #medical-office-cleaning-tampa-page .hero-points li{
+          display:grid;
+          grid-template-columns:24px 1fr;
+          gap:10px;
+          align-items:flex-start;
+          margin:0;
+        }
+        #medical-office-cleaning-tampa-page .check{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          width:24px;
+          height:24px;
+          border-radius:999px;
+          background:#e8f7ee;
+          color:#137a3b;
+          font-size:15px;
+          font-weight:900;
+          line-height:1;
+        }
+        #medical-office-cleaning-tampa-page .hero-actions,
+        #medical-office-cleaning-tampa-page .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+        #medical-office-cleaning-tampa-page .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:48px;
+          padding:12px 18px;
+          border-radius:14px;
+          font-weight:800;
+          text-decoration:none;
+          border:1px solid transparent;
+          transition:transform .05s ease,box-shadow .2s ease;
+        }
+        #medical-office-cleaning-tampa-page .btn:active{transform:translateY(1px)}
+        #medical-office-cleaning-tampa-page .btn.primary{background:var(--royal);color:#fff;box-shadow:0 10px 26px rgba(15,8,137,.2)}
+        #medical-office-cleaning-tampa-page .btn.accent{background:var(--accent);color:#111827;box-shadow:var(--shadow-sm)}
+        #medical-office-cleaning-tampa-page .btn.ghost{background:#fff;color:var(--royal);border-color:#cfd8f3}
+        #medical-office-cleaning-tampa-page .micro{font-size:.95rem;color:#5f6b81;margin-top:10px}
+
+        #medical-office-cleaning-tampa-page .hero-card{
+          position:relative;
+          overflow:hidden;
+          border-radius:22px;
+          border:1px solid #dfe5fb;
+          box-shadow:var(--shadow-md);
+          background:#fff;
+        }
+        #medical-office-cleaning-tampa-page .hero-card img{
+          display:block;
+          width:100%;
+          height:100%;
+          min-height:300px;
+          object-fit:cover;
+          object-position:center;
+        }
+        #medical-office-cleaning-tampa-page .hero-badges{
+          position:absolute;
+          left:16px;
+          right:16px;
+          bottom:16px;
+          display:flex;
+          gap:10px;
+          flex-wrap:wrap;
+        }
+        #medical-office-cleaning-tampa-page .hero-badge{
+          background:rgba(15,8,137,.82);
+          color:#fff;
+          border:1px solid rgba(255,255,255,.22);
+          padding:8px 12px;
+          border-radius:999px;
+          font-size:.86rem;
+          font-weight:800;
+          backdrop-filter:blur(4px);
+        }
+
+        #medical-office-cleaning-tampa-page .strip{padding:8px 0 0}
+        #medical-office-cleaning-tampa-page .strip-grid{display:grid;gap:12px}
+        @media(min-width:860px){#medical-office-cleaning-tampa-page .strip-grid{grid-template-columns:repeat(4,1fr)}}
+        #medical-office-cleaning-tampa-page .pill-card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:14px 16px;
+          box-shadow:0 8px 20px rgba(0,0,0,.04);
+        }
+        #medical-office-cleaning-tampa-page .pill-card strong{display:block;color:#0f172a}
+        #medical-office-cleaning-tampa-page .pill-card span{display:block;color:var(--muted);font-size:.95rem}
+
+        #medical-office-cleaning-tampa-page .grid{display:grid;gap:16px}
+        @media(min-width:900px){
+          #medical-office-cleaning-tampa-page .cols-2{grid-template-columns:repeat(2,1fr)}
+          #medical-office-cleaning-tampa-page .cols-3{grid-template-columns:repeat(3,1fr)}
+        }
+        #medical-office-cleaning-tampa-page .card,
+        #medical-office-cleaning-tampa-page .soft-card{
+          border-radius:18px;
+          padding:18px;
+        }
+        #medical-office-cleaning-tampa-page .card{
+          background:#fff;
+          border:1px solid var(--border);
+          box-shadow:0 8px 24px rgba(0,0,0,.04);
+        }
+        #medical-office-cleaning-tampa-page .soft-card{
+          background:var(--soft);
+          border:1px solid #dde4fb;
+        }
+
+        #medical-office-cleaning-tampa-page .facility{
+          display:grid;
+          gap:14px;
+          grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+          margin-top:18px;
+        }
+        #medical-office-cleaning-tampa-page .facility .fcard{
+          border:1px solid var(--border);
+          background:#fff;
+          border-radius:18px;
+          padding:18px;
+          box-shadow:0 8px 22px rgba(0,0,0,.045);
+        }
+        #medical-office-cleaning-tampa-page .service-list{display:grid;gap:12px;padding:0;margin:16px 0 0;list-style:none}
+        #medical-office-cleaning-tampa-page .service-list li{
+          display:grid;
+          grid-template-columns:24px 1fr;
+          gap:10px;
+          margin:0;
+        }
+        #medical-office-cleaning-tampa-page .steps{counter-reset:step}
+        #medical-office-cleaning-tampa-page .steps li{
+          list-style:none;
+          position:relative;
+          padding-left:56px;
+          min-height:42px;
+        }
+        #medical-office-cleaning-tampa-page .steps li::before{
+          counter-increment:step;
+          content:counter(step);
+          position:absolute;
+          left:0;
+          top:0;
+          width:36px;
+          height:36px;
+          border-radius:999px;
+          background:var(--royal);
+          color:#fff;
+          font-weight:900;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        }
+
+        #medical-office-cleaning-tampa-page .cta-band{
+          background:linear-gradient(135deg,var(--royal) 0%,var(--royal-2) 100%);
+          color:#fff;
+          border-radius:22px;
+          padding:24px;
+          box-shadow:var(--shadow-md);
+        }
+        #medical-office-cleaning-tampa-page .cta-band h2,
+        #medical-office-cleaning-tampa-page .cta-band p,
+        #medical-office-cleaning-tampa-page .cta-band li{color:#fff}
+        #medical-office-cleaning-tampa-page .cta-band a{color:#fff;text-decoration:underline}
+        #medical-office-cleaning-tampa-page .cta-band .btn.primary{background:#fff;color:var(--royal);text-decoration:none}
+        #medical-office-cleaning-tampa-page .cta-band .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35);text-decoration:none}
+
+        #medical-office-cleaning-tampa-page .citywrap{
+          background:#fffbea;
+          border:1px solid #f1da7c;
+          border-radius:18px;
+          padding:16px;
+          box-shadow:0 6px 18px rgba(0,0,0,.04);
+        }
+        #medical-office-cleaning-tampa-page .citylinks{
+          list-style:none;
+          padding:0;
+          margin:0;
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+          gap:10px;
+        }
+        #medical-office-cleaning-tampa-page .citylinks li{margin:0}
+        #medical-office-cleaning-tampa-page .citylinks a{
+          display:block;
+          padding:10px 12px;
+          border-radius:12px;
+          background:#fff;
+          border:1px solid #ece7bf;
+          color:#0f172a;
+          font-weight:800;
+          text-decoration:none;
+        }
+        #medical-office-cleaning-tampa-page .citylinks a:hover{border-color:#d7cf8b;text-decoration:none}
+
+        #medical-office-cleaning-tampa-page details{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:14px;
+          padding:14px 16px;
+        }
+        #medical-office-cleaning-tampa-page details+details{margin-top:10px}
+        #medical-office-cleaning-tampa-page summary{cursor:pointer;list-style:none;font-weight:800}
+        #medical-office-cleaning-tampa-page summary::-webkit-details-marker{display:none}
+        #medical-office-cleaning-tampa-page details p{margin-top:8px}
+
+        #medical-office-cleaning-tampa-page .mobile-cta{display:none}
+        @media(max-width:767.98px){
+          #medical-office-cleaning-tampa-page .wrap{padding:32px 16px}
+          #medical-office-cleaning-tampa-page .hero-actions .btn{flex:1 1 100%}
+          #medical-office-cleaning-tampa-page .mobile-cta{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:10px;
+            position:sticky;
+            bottom:0;
+            z-index:30;
+            padding:10px 12px;
+            background:rgba(255,255,255,.96);
+            backdrop-filter:blur(8px);
+            border-top:1px solid #dde4f3;
+          }
+          #medical-office-cleaning-tampa-page .mobile-cta .btn{min-height:50px}
+        }

@@ -1,0 +1,513 @@
+#tbs-airbnb-v2{
+          --royal:#0f0889;
+          --royal-dark:#0b066d;
+          --accent:#f4c613;
+          --ink:#0f172a;
+          --muted:#556070;
+          --soft:#f7f9ff;
+          --border:#e5e9f4;
+          --max:1100px;
+          font-family:Arial,Helvetica,sans-serif;
+          color:var(--ink);
+          line-height:1.6;
+          background:#fff;
+          overflow-x:hidden;
+        }
+
+        #tbs-airbnb-v2 *{
+          box-sizing:border-box;
+        }
+
+        #tbs-airbnb-v2 img{
+          display:block;
+          max-width:100%;
+          height:auto;
+        }
+
+        #tbs-airbnb-v2 h1,
+        #tbs-airbnb-v2 h2,
+        #tbs-airbnb-v2 h3{
+          margin:0 0 .65rem;
+          font-weight:900;
+          line-height:1.18;
+        }
+
+        #tbs-airbnb-v2 h1{
+          color:#fff;
+          font-size:clamp(2rem,5vw,3.15rem);
+        }
+
+        #tbs-airbnb-v2 h2{
+          color:var(--royal);
+          font-size:clamp(1.45rem,3vw,2rem);
+        }
+
+        #tbs-airbnb-v2 h3{
+          color:var(--ink);
+          font-size:1.1rem;
+        }
+
+        #tbs-airbnb-v2 p{
+          margin:0 0 .9rem;
+        }
+
+        #tbs-airbnb-v2 a{
+          color:var(--royal);
+          text-decoration:none;
+        }
+
+        #tbs-airbnb-v2 a:hover{
+          text-decoration:underline;
+        }
+
+        #tbs-airbnb-v2 .btn:hover,
+        #tbs-airbnb-v2 .city-link:hover{
+          text-decoration:none;
+        }
+
+        #tbs-airbnb-v2 ul{
+          list-style:disc !important;
+          padding-left:22px !important;
+          margin:8px 0 15px !important;
+        }
+
+        #tbs-airbnb-v2 li{
+          display:list-item !important;
+          margin:5px 0 !important;
+        }
+
+        #tbs-airbnb-v2 a:focus-visible,
+        #tbs-airbnb-v2 summary:focus-visible{
+          outline:3px solid var(--accent);
+          outline-offset:3px;
+          border-radius:8px;
+        }
+
+        #tbs-airbnb-v2 .container{
+          width:min(var(--max),calc(100% - 40px));
+          margin:0 auto;
+        }
+
+        #tbs-airbnb-v2 .section{
+          padding:52px 0;
+        }
+
+        #tbs-airbnb-v2 .section.soft{
+          background:var(--soft);
+          border-top:1px solid var(--border);
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-airbnb-v2 .center{
+          text-align:center;
+        }
+
+        #tbs-airbnb-v2 .muted{
+          color:var(--muted);
+        }
+
+        #tbs-airbnb-v2 .eyebrow{
+          display:inline-flex;
+          margin-bottom:10px;
+          color:var(--royal);
+          font-size:.78rem;
+          font-weight:900;
+          letter-spacing:.08em;
+          text-transform:uppercase;
+        }
+
+        #tbs-airbnb-v2 .btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:50px;
+          padding:13px 19px;
+          border:2px solid transparent;
+          border-radius:13px;
+          font-weight:900;
+          text-align:center;
+        }
+
+        #tbs-airbnb-v2 .btn-primary{
+          background:var(--accent);
+          color:#111 !important;
+          box-shadow:0 9px 24px rgba(244,198,19,.25);
+        }
+
+        #tbs-airbnb-v2 .btn-royal{
+          background:var(--royal);
+          color:#fff !important;
+        }
+
+        #tbs-airbnb-v2 .btn-outline{
+          background:#fff;
+          color:var(--royal) !important;
+          border-color:var(--royal);
+        }
+
+        #tbs-airbnb-v2 .actions{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          align-items:center;
+        }
+
+        #tbs-airbnb-v2 .card{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:19px;
+          box-shadow:0 7px 22px rgba(15,23,42,.045);
+        }
+
+        #tbs-airbnb-v2 .grid{
+          display:grid;
+          gap:16px;
+        }
+
+        #tbs-airbnb-v2 .cols-2{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        #tbs-airbnb-v2 .cols-3{
+          grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        /* BREADCRUMBS */
+
+        #tbs-airbnb-v2 .breadcrumbs{
+          background:#fff;
+          border-bottom:1px solid var(--border);
+        }
+
+        #tbs-airbnb-v2 .breadcrumbs .container{
+          padding-top:11px;
+          padding-bottom:11px;
+        }
+
+        #tbs-airbnb-v2 .breadcrumbs ol{
+          list-style:none !important;
+          padding:0 !important;
+          margin:0 !important;
+          display:flex;
+          flex-wrap:wrap;
+          gap:6px;
+          font-size:.9rem;
+          color:#64748b;
+        }
+
+        #tbs-airbnb-v2 .breadcrumbs li{
+          display:block !important;
+          margin:0 !important;
+        }
+
+        #tbs-airbnb-v2 .breadcrumbs li+li::before{
+          content:"›";
+          margin-right:6px;
+          color:#94a3b8;
+        }
+
+        #tbs-airbnb-v2 .breadcrumbs .current{
+          color:var(--ink);
+          font-weight:800;
+        }
+
+        /* HERO */
+
+        #tbs-airbnb-v2 .hero{
+          position:relative;
+          min-height:500px;
+          display:flex;
+          align-items:flex-end;
+          overflow:hidden;
+          background:var(--royal);
+        }
+
+        #tbs-airbnb-v2 .hero-image{
+          position:absolute;
+          inset:0;
+        }
+
+        #tbs-airbnb-v2 .hero-image img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          object-position:center;
+        }
+
+        #tbs-airbnb-v2 .hero::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          background:
+            linear-gradient(
+              90deg,
+              rgba(6,5,64,.92) 0%,
+              rgba(15,8,137,.77) 43%,
+              rgba(0,0,0,.26) 100%
+            );
+        }
+
+        #tbs-airbnb-v2 .hero-content{
+          position:relative;
+          z-index:2;
+          max-width:790px;
+          padding:52px 0;
+        }
+
+        #tbs-airbnb-v2 .hero .eyebrow{
+          color:#fff;
+        }
+
+        #tbs-airbnb-v2 .hero-lede{
+          color:#eef1ff;
+          font-size:clamp(1rem,2vw,1.17rem);
+        }
+
+        #tbs-airbnb-v2 .hero-proof{
+          display:flex;
+          flex-wrap:wrap;
+          gap:8px;
+          margin-top:15px;
+        }
+
+        #tbs-airbnb-v2 .proof{
+          display:inline-flex;
+          padding:6px 10px;
+          background:rgba(255,255,255,.12);
+          border:1px solid rgba(255,255,255,.22);
+          border-radius:999px;
+          color:#fff;
+          font-size:.85rem;
+          font-weight:800;
+        }
+
+        /* TURNOVER FEATURES */
+
+        #tbs-airbnb-v2 .feature-card{
+          border-top:4px solid var(--royal);
+        }
+
+        /* CITY CARDS */
+
+        #tbs-airbnb-v2 .city-grid{
+          display:grid;
+          grid-template-columns:repeat(3,minmax(0,1fr));
+          gap:16px;
+          margin-top:22px;
+        }
+
+        #tbs-airbnb-v2 .city-card{
+          display:flex;
+          flex-direction:column;
+          height:100%;
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:19px;
+          box-shadow:0 7px 22px rgba(15,23,42,.045);
+        }
+
+        #tbs-airbnb-v2 .city-card h3{
+          color:var(--royal);
+        }
+
+        #tbs-airbnb-v2 .city-link{
+          display:inline-flex;
+          margin-top:auto;
+          padding-top:8px;
+          color:var(--royal);
+          font-weight:900;
+        }
+
+        /* STEPS */
+
+        #tbs-airbnb-v2 .step{
+          position:relative;
+          padding-top:55px;
+        }
+
+        #tbs-airbnb-v2 .step-number{
+          position:absolute;
+          top:17px;
+          left:19px;
+          width:30px;
+          height:30px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          background:var(--royal);
+          color:#fff;
+          font-weight:900;
+        }
+
+        /* LOGISTICS */
+
+        #tbs-airbnb-v2 .logistics-card{
+          border-left:4px solid var(--accent);
+        }
+
+        /* HOST RESOURCE */
+
+        #tbs-airbnb-v2 .resource-callout{
+          background:var(--royal);
+          color:#fff;
+          border-radius:20px;
+          padding:30px;
+        }
+
+        #tbs-airbnb-v2 .resource-callout h2,
+        #tbs-airbnb-v2 .resource-callout h3,
+        #tbs-airbnb-v2 .resource-callout .eyebrow{
+          color:#fff;
+        }
+
+        #tbs-airbnb-v2 .resource-callout p{
+          color:#eef1ff;
+        }
+
+        /* TRUST */
+
+        #tbs-airbnb-v2 .trust-grid{
+          display:grid;
+          grid-template-columns:repeat(4,minmax(0,1fr));
+          gap:12px;
+        }
+
+        #tbs-airbnb-v2 .trust-card{
+          text-align:center;
+        }
+
+        #tbs-airbnb-v2 .trust-card strong{
+          display:block;
+          color:var(--royal);
+          margin-bottom:4px;
+        }
+
+        /* FAQ */
+
+        #tbs-airbnb-v2 details.faq{
+          background:#fff;
+          border:1px solid var(--border);
+          border-radius:12px;
+          padding:13px 15px;
+          margin-bottom:10px;
+        }
+
+        #tbs-airbnb-v2 details.faq summary{
+          cursor:pointer;
+          color:var(--ink);
+          font-weight:900;
+        }
+
+        #tbs-airbnb-v2 .faq-answer{
+          margin-top:8px;
+          color:var(--muted);
+        }
+
+        /* FINAL CTA */
+
+        #tbs-airbnb-v2 .final-cta{
+          background:var(--royal);
+          color:#fff;
+          border-radius:20px;
+          padding:32px 24px;
+          text-align:center;
+        }
+
+        #tbs-airbnb-v2 .final-cta h2{
+          color:#fff;
+        }
+
+        #tbs-airbnb-v2 .final-cta p{
+          color:#eef1ff;
+        }
+
+        #tbs-airbnb-v2 .mobile-book-bar{
+          display:none;
+        }
+
+        @media(max-width:900px){
+          #tbs-airbnb-v2 .city-grid{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+
+          #tbs-airbnb-v2 .cols-3{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+
+          #tbs-airbnb-v2 .trust-grid{
+            grid-template-columns:repeat(2,minmax(0,1fr));
+          }
+        }
+
+        @media(max-width:600px){
+          #tbs-airbnb-v2{
+            padding-bottom:75px;
+          }
+
+          #tbs-airbnb-v2 .container{
+            width:calc(100% - 28px);
+          }
+
+          #tbs-airbnb-v2 .section{
+            padding:40px 0;
+          }
+
+          #tbs-airbnb-v2 .hero{
+            min-height:570px;
+          }
+
+          #tbs-airbnb-v2 .actions{
+            flex-direction:column;
+            align-items:stretch;
+          }
+
+          #tbs-airbnb-v2 .actions .btn{
+            width:100%;
+          }
+
+          #tbs-airbnb-v2 .cols-2,
+          #tbs-airbnb-v2 .cols-3,
+          #tbs-airbnb-v2 .city-grid,
+          #tbs-airbnb-v2 .trust-grid{
+            grid-template-columns:1fr;
+          }
+
+          #tbs-airbnb-v2 .mobile-book-bar{
+            display:flex;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:1100;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+            background:#fff;
+            border-top:1px solid var(--border);
+            box-shadow:0 -8px 26px rgba(15,23,42,.12);
+          }
+
+          #tbs-airbnb-v2 .mobile-book-copy{
+            font-size:.76rem;
+            line-height:1.25;
+            color:#334155;
+            font-weight:800;
+          }
+
+          #tbs-airbnb-v2 .mobile-book-copy strong{
+            display:block;
+            color:var(--royal);
+            font-size:.84rem;
+          }
+
+          #tbs-airbnb-v2 .mobile-book-bar .btn{
+            min-height:44px;
+            padding:9px 12px;
+            white-space:nowrap;
+            font-size:.84rem;
+          }
+        }

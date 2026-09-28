@@ -1,0 +1,69 @@
+#post-construction-cleaning{
+        --royal:#0f0889; --accent:#f4c613; --ink:#111827; --muted:#4b5563;
+        --soft:#f8fafc; --card:#ffffff; --border:#e5e7eb; --ring:#e6f0ff;
+        --shadow:0 10px 28px rgba(0,0,0,.08); --radius:18px;
+        font-family:Arial,Helvetica,sans-serif; color:var(--ink); line-height:1.6; isolation:isolate;
+        background:linear-gradient(180deg,#fff 0%,#f8fafc 100%);
+      }
+      #post-construction-cleaning *{box-sizing:border-box}
+      #post-construction-cleaning .wrap{max-width:1100px;margin:0 auto;padding:28px 20px}
+      #post-construction-cleaning .panel{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin:18px auto}
+      #post-construction-cleaning .panel.accent{background:#f7fbff;border-color:var(--ring)}
+      #post-construction-cleaning .muted{color:var(--muted)}
+      #post-construction-cleaning h1,#post-construction-cleaning h2,#post-construction-cleaning h3{margin:0 0 10px;font-weight:900;letter-spacing:.1px}
+      #post-construction-cleaning h2{color:var(--royal);font-size:clamp(1.35rem,3vw,2rem);line-height:1.18}
+      #post-construction-cleaning h3{color:#0f172a;font-size:1.08rem}
+      #post-construction-cleaning p{margin:0 0 12px}
+      #post-construction-cleaning ul{margin:0;padding-left:20px}
+      #post-construction-cleaning li{margin:0 0 6px}
+      #post-construction-cleaning a:not(.btn):not(.svc-card):not(.chip){color:#0f0889;text-decoration:none;font:inherit}
+      #post-construction-cleaning a:not(.btn):not(.svc-card):not(.chip):hover{text-decoration:underline}
+
+      #post-construction-cleaning .breadcrumbs{background:#fff;border-bottom:1px solid var(--border)}
+      #post-construction-cleaning .breadcrumbs .wrap{padding:12px 20px}
+      #post-construction-cleaning .breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.95rem;color:#475569}
+      #post-construction-cleaning .breadcrumbs li{display:flex;gap:6px;align-items:center}
+      #post-construction-cleaning .breadcrumbs li+li::before{content:"›";color:#94a3b8}
+      #post-construction-cleaning .breadcrumbs .current{color:#0f172a;font-weight:800}
+
+      #post-construction-cleaning .btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;padding:12px 18px;border-radius:999px;font-weight:900;text-decoration:none!important;border:1px solid transparent;box-shadow:0 8px 22px rgba(0,0,0,.10);transition:transform .12s ease,box-shadow .12s ease}
+      #post-construction-cleaning .btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.14)}
+      #post-construction-cleaning .btn-primary{background:var(--royal);color:#fff!important}
+      #post-construction-cleaning .btn-secondary{background:var(--accent);color:#111!important}
+      #post-construction-cleaning .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+      #post-construction-cleaning .hero{background:transparent;padding:0}
+      #post-construction-cleaning .hero-media{max-width:1100px;margin:0 auto;padding:32px 20px 12px}
+      #post-construction-cleaning .frame{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--border);box-shadow:0 14px 34px rgba(15,8,137,.12)}
+      #post-construction-cleaning .hero-media img{display:block;width:100%;height:clamp(240px,45vh,430px);object-fit:cover;object-position:center 55%}
+      #post-construction-cleaning .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.62) 100%);padding:clamp(14px,3vw,24px)}
+      #post-construction-cleaning .overlay .hero-title,#post-construction-cleaning .overlay .lead{color:#fff!important;text-shadow:0 3px 14px rgba(0,0,0,.35)}
+      #post-construction-cleaning .hero-title{font-size:clamp(1.65rem,4vw,2.6rem);line-height:1.1;margin:0 0 8px;font-weight:900;letter-spacing:-.02em}
+      #post-construction-cleaning .lead{max-width:720px;font-size:clamp(1rem,2.2vw,1.12rem);margin:0}
+      #post-construction-cleaning .hero-intro{max-width:1100px;margin:0 auto;padding:0 20px 8px}
+
+      #post-construction-cleaning .grid{display:grid;gap:16px}
+      #post-construction-cleaning .cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+      #post-construction-cleaning .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+      #post-construction-cleaning .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:17px;box-shadow:0 4px 14px rgba(0,0,0,.045)}
+      #post-construction-cleaning .card strong{color:#0f172a}
+      #post-construction-cleaning .note{border-left:4px solid var(--royal);background:#fff;border-radius:12px;padding:14px;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+      #post-construction-cleaning .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+      #post-construction-cleaning .chip{display:inline-flex;align-items:center;justify-content:center;padding:9px 13px;border:1px solid rgba(15,8,137,.16);border-radius:999px;background:#fff;color:#0f0889;font-weight:800;text-decoration:none!important;box-shadow:0 4px 12px rgba(0,0,0,.04)}
+
+      #post-construction-cleaning .svc-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+      #post-construction-cleaning .svc-card{display:flex;flex-direction:column;text-decoration:none!important;color:inherit;border:1px solid var(--border);border-radius:16px;background:#fff;overflow:hidden;transition:transform .08s ease,box-shadow .2s ease}
+      #post-construction-cleaning .svc-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,8,137,.12)}
+      #post-construction-cleaning .svc-card .media img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+      #post-construction-cleaning .svc-card .body{padding:12px 14px 15px}
+      #post-construction-cleaning .svc-card .title{font-weight:900;color:var(--royal);text-align:center;margin:2px 0 6px}
+      #post-construction-cleaning .svc-card .desc{font-size:.92rem;color:#556070;text-align:center;margin:0}
+
+      #post-construction-cleaning details{border:1px solid var(--border);background:#fff;border-radius:14px;padding:12px 15px;margin:0 0 10px}
+      #post-construction-cleaning summary{cursor:pointer;font-weight:900;color:#0f172a}
+      #post-construction-cleaning details div{margin-top:8px;color:var(--muted)}
+      #post-construction-cleaning .cta-strong{background:linear-gradient(180deg,#0b0670 0%,#0a0666 100%);border-color:#0a0666;text-align:center}
+      #post-construction-cleaning .cta-strong h2,#post-construction-cleaning .cta-strong p{color:#fff!important}
+      #post-construction-cleaning a:focus-visible,#post-construction-cleaning summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+      @media(max-width:640px){#post-construction-cleaning .cta-row{flex-direction:column}#post-construction-cleaning .btn{width:100%}#post-construction-cleaning .panel{padding:18px}#post-construction-cleaning .wrap{padding:24px 16px}}
