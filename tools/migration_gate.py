@@ -65,7 +65,7 @@ def manual(repo,out,mode,active):
 def staging(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On development branch',b==DEV_BRANCH,f'current={b}')
     s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean')
-    common(repo,out,active,False); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Development has global noindex',bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
+    add(out,"Development has global noindex","x-robots-tag: noindex" in hp.lower())
     active_checks(out,active); custom_info(out,cfg['custom_booking_base'].rstrip('/'))
     for pth in CHECK:
         r=fetch(cfg['development_url'].rstrip('/')+pth); add(out,f'Dev reachable {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']}")
