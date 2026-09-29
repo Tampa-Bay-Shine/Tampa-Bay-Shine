@@ -29,4 +29,5 @@
 - [ ] Production deployment complete
 - [ ] Post-cutover gate GREEN
 - [ ] Live pages/assets spot-checked
+- [ ] Explicit IndexNow submission run after production deployment when warranted
 - [ ] Search Console/Bing follow-up when warranted

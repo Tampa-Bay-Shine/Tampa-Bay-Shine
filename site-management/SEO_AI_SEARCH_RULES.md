@@ -68,3 +68,26 @@ After material update batches:
 4. refresh sitemap
 5. check important URLs in Google Search Console and Bing Webmaster Tools
 6. rerun the existing AI-search benchmark periodically
+
+## IndexNow release procedure
+
+Hosting the root key file proves ownership, but does not itself notify search engines of changed URLs.
+
+Dry validation:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo .
+```
+
+After production is deployed and verified, submit the live production sitemap:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo . --live
+```
+
+The tool verifies the live key file, fetches the live sitemap, submits canonical production URLs to IndexNow, and stores a report under `reports/`. Use repeated `--url` arguments for a small set of changed URLs already present in the sitemap.
+
+Cloudflare Crawler Hints may also send IndexNow signals when enabled. The explicit tool provides a deterministic release-time submission and HTTP-status record.
+
+IndexNow does not replace Google Search Console. Keep the sitemap submitted to Google and use URL Inspection / Request Indexing for a small number of high-priority URLs when appropriate.
+
