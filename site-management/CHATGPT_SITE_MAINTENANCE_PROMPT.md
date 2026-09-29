@@ -84,7 +84,7 @@ TRACKING DOCUMENTATION:
 - When modifying CTAs, verify `tbs:conversion` behavior in addition to visual styling.
 
 ANALYTICS:
-- GA4 Measurement ID: G-CP3TF0CCQD.
+- GA4 Measurement ID: G-XK4CTL9KWM.
 - Google Ads tag ID: AW-17001979579.
 - Production host only; do not pollute staging analytics.
 - Preserve direct GA4 CTA events and existing `tbs:conversion` / dataLayer hooks.

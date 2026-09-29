@@ -1,7 +1,7 @@
 from pathlib import Path
 import argparse
 
-GA4="G-CP3TF0CCQD"
+GA4="G-XK4CTL9KWM"
 ADS="AW-17001979579"
 EVENTS=["booknow_click","phone_click","contact_click","commercial_quote_start","coupon_click","review_click"]
 DOMAINS=["tampabayshine.com","tampabayshine.bookingkoala.com","booking.tampabayshine.com"]
@@ -26,7 +26,7 @@ def main():
     for ev in EVENTS:
         if ev not in js: errors.append(f"main.js: missing {ev}")
     if "window.gtag('event'" not in js: errors.append("main.js: missing GA4 forwarding")
-    if "send_to:'G-CP3TF0CCQD'" not in js: errors.append("main.js: missing GA4 send_to target")
+    if "send_to:'G-XK4CTL9KWM'" not in js: errors.append("main.js: missing GA4 send_to target")
     if "new URL(h,location.href)" not in js: errors.append("main.js: transaction classifier must support absolute production URLs")
     print("TAMPA BAY SHINE ANALYTICS REGRESSION")
     print("="*40)
