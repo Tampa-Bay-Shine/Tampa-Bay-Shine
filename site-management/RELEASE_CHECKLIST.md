@@ -33,3 +33,13 @@
 - [ ] Live pages/assets spot-checked
 - [ ] Explicit IndexNow submission run after production deployment when warranted
 - [ ] Search Console/Bing follow-up when warranted
+
+## Analytics release checks
+
+When analytics, CTA markup, or shared JavaScript changes:
+- [ ] `python.exe .\tools\analytics_regression.py .` passes
+- [ ] staging does not initialize production Google Analytics
+- [ ] production initializes `window.gtag`
+- [ ] tracked CTA emits `tbs:conversion`
+- [ ] GA4 Realtime / DebugView receives the expected event
+- [ ] no PII appears in event parameters

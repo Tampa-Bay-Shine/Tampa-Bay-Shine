@@ -1,4 +1,4 @@
-﻿
+
 from pathlib import Path
 import argparse, json, re, ssl, subprocess, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
@@ -51,6 +51,14 @@ def common(repo,out,active,require_redirects):
         except Exception as e: add(out,'Ahrefs-style preflight readable',False,repr(e))
     else: add(out,'Ahrefs-style preflight report present',False,'Run Option 36 first.')
 
+def analytics_regression(repo,out):
+    tool=repo/'tools'/'analytics_regression.py'
+    if not tool.exists():
+        add(out,'analytics_regression.py present',False,'tools/analytics_regression.py missing')
+        return
+    p=cmd([sys.executable,str(tool),str(repo)],repo,120)
+    add(out,'analytics_regression.py passes',p.returncode==0,(p.stdout+p.stderr)[-2500:])
+
 def seo_regression(repo,out):
     tool=repo/'tools'/'seo_regression.py'
     if not tool.exists():
@@ -72,7 +80,7 @@ def manual(repo,out,mode,active):
     for k,label in checks.items(): add(out,label,d.get(k) is True,f'{k}={d.get(k,False)}; edit {p}','MANUAL')
 def staging(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On development branch',b==DEV_BRANCH,f'current={b}')
-    s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean'); seo_regression(repo,out)
+    s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean'); seo_regression(repo,out); analytics_regression(repo,out)
     add(out,"Development has global noindex","x-robots-tag: noindex" in (repo/SITE_DIR/"_headers").read_text(encoding="utf-8",errors="ignore").lower())
     active_checks(out,active); custom_info(out,cfg['custom_booking_base'].rstrip('/'))
     for pth in CHECK:
@@ -82,7 +90,7 @@ def staging(repo,out,cfg,active):
 def production(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On production branch',b==PROD_BRANCH,f'current={b}')
     s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean')
-    common(repo,out,active,True); seo_regression(repo,out); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
+    common(repo,out,active,True); seo_regression(repo,out); analytics_regression(repo,out); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
     active_checks(out,active); manual(repo,out,cfg['transaction_mode'],active)
 def postcut(repo,out,cfg,active):
     active_checks(out,active); prod=cfg['production_url'].rstrip('/')

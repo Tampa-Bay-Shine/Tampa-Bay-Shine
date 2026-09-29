@@ -143,3 +143,11 @@ The Standard Cleaning page is intentionally text/card-first and does not preload
 Do not add image preloads solely to satisfy an audit when the image is not rendered above the fold.
 
 The shared Quick Answer component uses explicit component-level button colors to protect contrast from older page-specific link styles.
+
+## Analytics-aware SEO/CRO
+
+Do not rename `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, or `review_click` without an intentional reporting migration.
+
+Do not add PII to analytics payloads.
+
+Run `python.exe .\tools\analytics_regression.py .` after modifying shared JavaScript, CTA destinations, or sitewide Google-tag setup.

@@ -82,3 +82,12 @@ TRACKING DOCUMENTATION:
 - `booknow_click` is a handoff signal, not proof of a completed BookingKoala booking.
 - Do not add PII to analytics payloads.
 - When modifying CTAs, verify `tbs:conversion` behavior in addition to visual styling.
+
+ANALYTICS:
+- GA4 Measurement ID: G-CP3TF0CCQD.
+- Google Ads tag ID: AW-17001979579.
+- Production host only; do not pollute staging analytics.
+- Preserve direct GA4 CTA events and existing `tbs:conversion` / dataLayer hooks.
+- `booknow_click` is not a completed booking.
+- Do not add PII to analytics events.
+- Read `site-management/ANALYTICS_IMPLEMENTATION.md` before changing analytics.

@@ -718,3 +718,13 @@ This is an instrumentation layer only. It does not install GA4/GTM and does not 
 Full definitions, payloads, GTM/GA4 setup guidance, testing steps, privacy rules, and BookingKoala attribution limitations are in `site-management/CONVERSION_TRACKING.md`.
 
 Do not treat `booknow_click` as a completed booking.
+
+## Analytics implementation
+
+Production analytics use GA4 `G-CP3TF0CCQD` and Google Ads tag `AW-17001979579`.
+
+The Google tag initializes only on the production hostname, so Cloudflare staging traffic is excluded. Existing CTA events are sent directly to GA4 while preserving the `tbs:conversion` CustomEvent/dataLayer hooks.
+
+Run `python.exe .\tools\analytics_regression.py .`.
+
+See `site-management/ANALYTICS_IMPLEMENTATION.md` for event definitions, cross-domain setup, key-event recommendations, Google Ads guidance, testing, and BookingKoala limitations.
