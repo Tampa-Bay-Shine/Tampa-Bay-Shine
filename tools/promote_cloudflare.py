@@ -24,7 +24,7 @@ def transform(repo,active):
     for r in TX:
         if r not in seen: out.append(f'/{r} {active}/{r} 302')
     rp.write_text('\n'.join(out).rstrip()+'\n',encoding='utf-8')
-    anchor_re=re.compile(r'(<a\\b[^>]*?\\bhref=)(["\\\'])(/(?:(?:'+TX_ALT+r'))(?:/)?(?:[?#][^"\\\']*)?)\\2',re.I)
+    anchor_re=re.compile(r'(<a\b[^>]*?\bhref=)(["\'])(/(?:(?:'+TX_ALT+r'))(?:/)?(?:[?#][^"\']*)?)\2',re.I)
     for html in site.rglob('*.html'):
         src=html.read_text(encoding='utf-8')
         def repl(m):

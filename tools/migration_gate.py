@@ -71,7 +71,7 @@ def transaction_anchor_checks(repo,out,active):
     site=repo/SITE_DIR
     internal=[]
     direct=0
-    pat=re.compile(r'<a\\b[^>]*?\\bhref=["\\\']([^"\\\']+)["\\\']',re.I)
+    pat=re.compile(r'<a\b[^>]*?\bhref=["\']([^"\']+)["\']',re.I)
     txset=set(TX)
     for html in site.rglob('*.html'):
         body=html.read_text(encoding='utf-8',errors='ignore')
