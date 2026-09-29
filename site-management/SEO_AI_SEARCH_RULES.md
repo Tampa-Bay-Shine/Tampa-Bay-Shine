@@ -68,3 +68,45 @@ After material update batches:
 4. refresh sitemap
 5. check important URLs in Google Search Console and Bing Webmaster Tools
 6. rerun the existing AI-search benchmark periodically
+
+## IndexNow release procedure
+
+Hosting the root key file proves ownership, but does not itself notify search engines of changed URLs.
+
+Dry validation:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo .
+```
+
+After production is deployed and verified, submit the live production sitemap:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo . --live
+```
+
+The tool verifies the live key file, fetches the live sitemap, submits canonical production URLs to IndexNow, and stores a report under `reports/`. Use repeated `--url` arguments for a small set of changed URLs already present in the sitemap.
+
+Cloudflare Crawler Hints may also send IndexNow signals when enabled. The explicit tool provides a deterministic release-time submission and HTTP-status record.
+
+IndexNow does not replace Google Search Console. Keep the sitemap submitted to Google and use URL Inspection / Request Indexing for a small number of high-priority URLs when appropriate.
+
+## Homepage and template regression rules
+For important landing pages and shared templates:
+- keep titles concise; use 60 characters as a practical review threshold, not a ranking rule
+- keep meta descriptions concise enough to avoid obvious SERP truncation
+- provide Open Graph image metadata and a Twitter/X card for intentional social sharing
+- preload the actual above-the-fold LCP image when it is stable and known
+- keep heading levels sequential; do not use heading tags merely for visual styling
+- provide a keyboard-accessible skip-to-content link on primary templates
+- retain HSTS, X-Frame-Options, Permissions-Policy, and the conservative CSP in `_headers`
+- do not chase keyword-density or text-to-HTML percentages as ranking targets; prioritize natural, useful copy
+- treat author/date/editorial-policy warnings in generic audit tools contextually; they are appropriate for editorial content, not automatically for service homepages
+- do not publish the service-area business address merely to satisfy an audit score
+- do not add social-share widgets solely to satisfy an automated audit
+- `@id`-only JSON-LD references are valid graph references and do not need a redundant `@type` solely to appease generic checkers
+- Cloudflare compression/HTTP3 should be verified from live response headers rather than inferred from a third-party audit warning
+
+Run:
+`python.exe .\tools\seo_regression.py .`
+after homepage/template SEO changes.

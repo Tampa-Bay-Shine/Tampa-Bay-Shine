@@ -314,6 +314,44 @@ Production push:
 python.exe .\tools\promote_cloudflare.py --repo . --push
 ```
 
+### `tools/seo_regression.py`
+
+Checks homepage/template SEO safeguards introduced from recurring external audits:
+
+```powershell
+python.exe .\tools\seo_regression.py .
+```
+
+It checks homepage title/description review thresholds, social image/card metadata, LCP image preload, skip-to-content behavior, heading-level continuity, JSON-LD syntax, and required security headers. Run it after homepage, shared-template, metadata, or `_headers` changes.
+
+### `tools/submit_indexnow.py`
+
+Validates the IndexNow setup and can explicitly submit the live production sitemap URLs.
+
+Dry run:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo .
+```
+
+Live submission, after production has deployed:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo . --live
+```
+
+Live mode verifies the production key file, fetches the live production sitemap, refuses staging/non-canonical hosts, submits to `https://api.indexnow.org/indexnow`, accepts HTTP 200 or 202, and writes a JSON report under `reports/`.
+
+To submit only selected sitemap URLs:
+
+```powershell
+python.exe .\tools\submit_indexnow.py --repo . --live `
+  --url /move-out-cleaning-tampa `
+  --url /move-out-cleaning-tampa-1
+```
+
+Selected URLs must already exist in the production sitemap. IndexNow acceptance confirms receipt, not guaranteed crawl timing, indexing, or ranking.
+
 ### `tools/set_transaction_mode.py`
 
 Fallback:
@@ -461,7 +499,7 @@ Do not delete/rotate it accidentally.
 
 Temporary files such as `live-sitemap.xml` and `indexnow-payload.json` are local working artifacts and should not be committed.
 
-After major content/URL changes, verify affected URLs in Google Search Console and Bing Webmaster Tools. Search-engine submission is outside this repository and a successful deployment does not itself guarantee reindexing.
+After a verified production deployment, run `python.exe .\tools\submit_indexnow.py --repo . --live` when an explicit IndexNow notification is warranted. Then verify important URLs in Google Search Console and Bing Webmaster Tools. A successful deployment or IndexNow acceptance does not guarantee reindexing.
 
 ---
 

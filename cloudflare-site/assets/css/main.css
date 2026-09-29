@@ -40,3 +40,23 @@
 .sms-optin-page .footer{border-top:1px solid #e2e8f0;margin-top:28px;padding-top:18px;color:var(--muted);font-size:13px;text-align:center}
 .sms-optin-page .hidden-frame{display:none;width:0;height:0;border:0}
 @media(max-width:600px){.sms-optin-page .card{padding:18px}}
+
+.skip-link{
+  position:fixed;
+  top:8px;
+  left:8px;
+  z-index:100000;
+  padding:10px 14px;
+  border-radius:8px;
+  background:#fff;
+  color:#001c7d;
+  font-weight:800;
+  box-shadow:0 4px 16px rgba(0,0,0,.22);
+  transform:translateY(-160%);
+  transition:transform .15s ease;
+}
+.skip-link:focus{
+  transform:translateY(0);
+  outline:3px solid #f4c613;
+  outline-offset:2px;
+}
