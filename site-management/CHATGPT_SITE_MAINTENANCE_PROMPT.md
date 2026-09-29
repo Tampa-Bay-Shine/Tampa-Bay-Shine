@@ -70,3 +70,8 @@ RELEASE MODEL:
 - run post-cutover gate after production deployment
 
 Return replacement files or a deterministic patch package, a concise change log, sitemap/schema implications, and exact validation/deployment commands.
+
+PRIORITY PAGE / CRO RULES:
+- Preserve visible answer-ready summaries, social image/card metadata, stable primary-image preload, and CTA hierarchy on priority pages.
+- Preserve first-party `tbs:conversion` click instrumentation in shared JavaScript.
+- Do not claim GA4/GTM or completed BookingKoala conversion tracking is active unless verified.

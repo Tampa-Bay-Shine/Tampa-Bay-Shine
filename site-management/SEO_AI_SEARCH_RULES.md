@@ -110,3 +110,12 @@ For important landing pages and shared templates:
 Run:
 `python.exe .\tools\seo_regression.py .`
 after homepage/template SEO changes.
+
+
+## Priority landing-page standard
+Priority commercial-intent pages should preserve a production canonical, unique title and meta description, one H1, a factual answer-ready summary near the top, Open Graph image metadata, a Twitter/X card, stable hero-image preload, clear CTA hierarchy, contextual internal links, and current `dateModified`/sitemap `lastmod` after material changes.
+
+Run `python.exe .\tools\seo_regression.py .` after changing a priority page.
+
+## Conversion measurement
+Shared JavaScript emits first-party CTA events and pushes them to `window.dataLayer` only when a data layer exists. Do not claim GA4/GTM or completed BookingKoala conversion measurement until explicitly configured and tested.

@@ -689,3 +689,12 @@ If a connected GitHub integration is read-only, use a generated ZIP/installer lo
 - `site-management/SSL_MIGRATION_GUIDE.md` — historical SSL/migration reference, not routine deployment procedure
 
 The root README is the primary operational runbook. Supporting documents should be kept consistent with it.
+
+- `site-management/SEO_AI_CRO_90_DAY_PLAN.md` — 90-day search, AI visibility, paid-search and conversion roadmap
+
+
+### Conversion event hooks
+
+`assets/js/main.js` emits `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click` as `tbs:conversion` browser events. If `window.dataLayer` exists, the same event object is pushed into it.
+
+These hooks do not install GA4/GTM and do not measure completed BookingKoala transactions. Those require separate measurement and cross-domain configuration.
