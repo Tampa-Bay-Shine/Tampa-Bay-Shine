@@ -58,3 +58,31 @@ The migration gate also runs the analytics regression in staging and production 
 
 ## Privacy
 Do not add names, email addresses, phone numbers, payment details, form values, or other PII to analytics payloads.
+
+## Cross-domain BookingKoala handoff
+
+Production promotion rewrites static transactional anchors from same-origin routes such as `/booknow` to the active BookingKoala base URL.
+
+Example:
+
+```text
+/booknow
+→ https://tampabayshine.bookingkoala.com/booknow
+```
+
+This is intentional. Google's linker needs the clicked anchor itself to be outbound to a configured linker domain so it can decorate the destination with `_gl` before navigation.
+
+Staging source HTML continues to use internal transaction routes. `tools/promote_cloudflare.py` performs the absolute-link rewrite only while generating `cloudflare-production`.
+
+The destination comes from `site-management/release_targets.json`; do not hard-code the fallback host across source page HTML.
+
+After production deployment:
+1. Click Book Now from `tampabayshine.com`.
+2. Confirm the BookingKoala navigation is decorated with `_gl`.
+3. Compare GA4 client IDs on both domains with:
+
+```javascript
+gtag('get', 'G-CP3TF0CCQD', 'client_id', console.log)
+```
+
+The client IDs should match. Matching identity continuity does not itself measure a completed booking.

@@ -697,7 +697,7 @@ The root README is the primary operational runbook. Supporting documents should 
 
 `assets/js/main.js` emits `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click` as `tbs:conversion` browser events. If `window.dataLayer` exists, the same event object is pushed into it.
 
-These hooks do not install GA4/GTM and do not measure completed BookingKoala transactions. Those require separate measurement and cross-domain configuration.
+GA4 is installed on production and these hooks are forwarded to GA4. They still do not measure completed BookingKoala transactions; BookingKoala completion measurement remains a separate requirement.
 
 ## Conversion tracking and analytics
 
@@ -713,7 +713,7 @@ Tracked events:
 
 Each qualifying click dispatches a browser `tbs:conversion` CustomEvent. If `window.dataLayer` exists, the same payload is pushed into it.
 
-This is an instrumentation layer only. It does not install GA4/GTM and does not persist data by itself.
+The first-party event layer is forwarded to the production GA4 implementation. The browser CustomEvent/dataLayer hooks remain vendor-neutral, while GA4 provides persistence/reporting.
 
 Full definitions, payloads, GTM/GA4 setup guidance, testing steps, privacy rules, and BookingKoala attribution limitations are in `site-management/CONVERSION_TRACKING.md`.
 
@@ -728,3 +728,13 @@ The Google tag initializes only on the production hostname, so Cloudflare stagin
 Run `python.exe .\tools\analytics_regression.py .`.
 
 See `site-management/ANALYTICS_IMPLEMENTATION.md` for event definitions, cross-domain setup, key-event recommendations, Google Ads guidance, testing, and BookingKoala limitations.
+
+## Cross-domain transaction links
+
+Staging HTML uses internal transaction routes (`/booknow`, `/login`, `/gift-card`, `/referrals`, `/floor-calculator`).
+
+During production promotion, `tools/promote_cloudflare.py` rewrites transactional `<a>` links to the active BookingKoala base URL from `site-management/release_targets.json`. This allows Google's linker to decorate outbound BookingKoala navigation for GA4 cross-domain identity continuity.
+
+The `_redirects` entries remain as fallback routes for manually entered/internal transaction URLs.
+
+Do not manually hard-code BookingKoala hosts across source HTML. Change transaction mode through the existing release-target workflow.
