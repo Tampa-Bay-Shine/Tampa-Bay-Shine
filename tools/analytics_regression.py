@@ -27,6 +27,7 @@ def main():
         if ev not in js: errors.append(f"main.js: missing {ev}")
     if "window.gtag('event'" not in js: errors.append("main.js: missing GA4 forwarding")
     if "send_to:'G-CP3TF0CCQD'" not in js: errors.append("main.js: missing GA4 send_to target")
+    if "new URL(h,location.href)" not in js: errors.append("main.js: transaction classifier must support absolute production URLs")
     print("TAMPA BAY SHINE ANALYTICS REGRESSION")
     print("="*40)
     print("HTML pages:",len(html))

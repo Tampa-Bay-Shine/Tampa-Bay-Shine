@@ -1,7 +1,7 @@
 
 from pathlib import Path
 import argparse,json,re,subprocess,sys
-DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator']
+DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator']; TX_ALT='|'.join(re.escape(x) for x in TX)
 def run(a,cwd,check=False):
     p=subprocess.run(a,cwd=str(cwd),text=True,capture_output=True)
     if check and p.returncode: raise RuntimeError(' '.join(a)+'\n'+p.stdout+'\n'+p.stderr)
@@ -24,6 +24,14 @@ def transform(repo,active):
     for r in TX:
         if r not in seen: out.append(f'/{r} {active}/{r} 302')
     rp.write_text('\n'.join(out).rstrip()+'\n',encoding='utf-8')
+    anchor_re=re.compile(r'(<a\\b[^>]*?\\bhref=)(["\\\'])(/(?:(?:'+TX_ALT+r'))(?:/)?(?:[?#][^"\\\']*)?)\\2',re.I)
+    for html in site.rglob('*.html'):
+        src=html.read_text(encoding='utf-8')
+        def repl(m):
+            return m.group(1)+m.group(2)+active+m.group(3)+m.group(2)
+        dst,n=anchor_re.subn(repl,src)
+        if n:
+            html.write_text(dst,encoding='utf-8')
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--repo',default='.'); ap.add_argument('--push',action='store_true'); a=ap.parse_args(); repo=Path(a.repo).resolve()
     if branch(repo)!=DEV: raise SystemExit(f'Start on {DEV}; current={branch(repo)}')

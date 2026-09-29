@@ -67,6 +67,24 @@ def seo_regression(repo,out):
     p=cmd([sys.executable,str(tool),str(repo)],repo,120)
     add(out,'seo_regression.py passes',p.returncode==0,(p.stdout+p.stderr)[-2500:])
 
+def transaction_anchor_checks(repo,out,active):
+    site=repo/SITE_DIR
+    internal=[]
+    direct=0
+    pat=re.compile(r'<a\\b[^>]*?\\bhref=["\\\']([^"\\\']+)["\\\']',re.I)
+    txset=set(TX)
+    for html in site.rglob('*.html'):
+        body=html.read_text(encoding='utf-8',errors='ignore')
+        for href in pat.findall(body):
+            path=href.split('?',1)[0].split('#',1)[0].rstrip('/') or '/'
+            if path in txset:
+                internal.append(f'{html.relative_to(site)} -> {href}')
+            if any(href.startswith(active+r) for r in TX):
+                direct+=1
+    add(out,'Production transaction anchors use direct active BK URLs',not internal,
+        '; '.join(internal[:12]) if internal else f'direct_links={direct}')
+    add(out,'Production has direct active BK transaction links',direct>0,f'direct_links={direct}')
+
 def active_checks(out,active):
     for pth in ['/','/login','/booknow','/gift-card','/referrals','/floor-calculator']:
         r=fetch(active+pth); add(out,f'Active BK target reachable {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']} {r['error']}".strip())
@@ -90,7 +108,7 @@ def staging(repo,out,cfg,active):
 def production(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On production branch',b==PROD_BRANCH,f'current={b}')
     s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean')
-    common(repo,out,active,True); seo_regression(repo,out); analytics_regression(repo,out); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
+    common(repo,out,active,True); seo_regression(repo,out); analytics_regression(repo,out); transaction_anchor_checks(repo,out,active); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
     active_checks(out,active); manual(repo,out,cfg['transaction_mode'],active)
 def postcut(repo,out,cfg,active):
     active_checks(out,active); prod=cfg['production_url'].rstrip('/')
