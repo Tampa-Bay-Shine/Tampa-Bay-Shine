@@ -75,3 +75,19 @@ PRIORITY PAGE / CRO RULES:
 - Preserve visible answer-ready summaries, social image/card metadata, stable primary-image preload, and CTA hierarchy on priority pages.
 - Preserve first-party `tbs:conversion` click instrumentation in shared JavaScript.
 - Do not claim GA4/GTM or completed BookingKoala conversion tracking is active unless verified.
+
+TRACKING DOCUMENTATION:
+- Read `site-management/CONVERSION_TRACKING.md` before changing CTA instrumentation.
+- Preserve existing event names and payload fields unless an intentional analytics migration is requested.
+- `booknow_click` is a handoff signal, not proof of a completed BookingKoala booking.
+- Do not add PII to analytics payloads.
+- When modifying CTAs, verify `tbs:conversion` behavior in addition to visual styling.
+
+ANALYTICS:
+- GA4 Measurement ID: G-CP3TF0CCQD.
+- Google Ads tag ID: AW-17001979579.
+- Production host only; do not pollute staging analytics.
+- Preserve direct GA4 CTA events and existing `tbs:conversion` / dataLayer hooks.
+- `booknow_click` is not a completed booking.
+- Do not add PII to analytics events.
+- Read `site-management/ANALYTICS_IMPLEMENTATION.md` before changing analytics.

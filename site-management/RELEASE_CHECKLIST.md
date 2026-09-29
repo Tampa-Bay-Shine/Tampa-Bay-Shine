@@ -1,6 +1,7 @@
 # Release Checklist
 
 ## Before commit
+- [ ] `seo_regression.py` passes for SEO/template/CRO changes
 - [ ] On `cloudflare-staging`
 - [ ] Pulled latest `origin/cloudflare-staging`
 - [ ] `validate_site.py` passes
@@ -16,6 +17,7 @@
 - [ ] Push `cloudflare-staging`
 
 ## Staging QA
+- [ ] CTA tracking events tested when CTA/shared JavaScript changed
 - [ ] Deployment complete
 - [ ] Changed URLs/assets return 200
 - [ ] Desktop/mobile QA
@@ -31,3 +33,13 @@
 - [ ] Live pages/assets spot-checked
 - [ ] Explicit IndexNow submission run after production deployment when warranted
 - [ ] Search Console/Bing follow-up when warranted
+
+## Analytics release checks
+
+When analytics, CTA markup, or shared JavaScript changes:
+- [ ] `python.exe .\tools\analytics_regression.py .` passes
+- [ ] staging does not initialize production Google Analytics
+- [ ] production initializes `window.gtag`
+- [ ] tracked CTA emits `tbs:conversion`
+- [ ] GA4 Realtime / DebugView receives the expected event
+- [ ] no PII appears in event parameters

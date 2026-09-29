@@ -698,3 +698,33 @@ The root README is the primary operational runbook. Supporting documents should 
 `assets/js/main.js` emits `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click` as `tbs:conversion` browser events. If `window.dataLayer` exists, the same event object is pushed into it.
 
 These hooks do not install GA4/GTM and do not measure completed BookingKoala transactions. Those require separate measurement and cross-domain configuration.
+
+## Conversion tracking and analytics
+
+The public site has first-party CTA instrumentation in `cloudflare-site/assets/js/main.js`.
+
+Tracked events:
+- `booknow_click`
+- `phone_click`
+- `contact_click`
+- `commercial_quote_start`
+- `coupon_click`
+- `review_click`
+
+Each qualifying click dispatches a browser `tbs:conversion` CustomEvent. If `window.dataLayer` exists, the same payload is pushed into it.
+
+This is an instrumentation layer only. It does not install GA4/GTM and does not persist data by itself.
+
+Full definitions, payloads, GTM/GA4 setup guidance, testing steps, privacy rules, and BookingKoala attribution limitations are in `site-management/CONVERSION_TRACKING.md`.
+
+Do not treat `booknow_click` as a completed booking.
+
+## Analytics implementation
+
+Production analytics use GA4 `G-CP3TF0CCQD` and Google Ads tag `AW-17001979579`.
+
+The Google tag initializes only on the production hostname, so Cloudflare staging traffic is excluded. Existing CTA events are sent directly to GA4 while preserving the `tbs:conversion` CustomEvent/dataLayer hooks.
+
+Run `python.exe .\tools\analytics_regression.py .`.
+
+See `site-management/ANALYTICS_IMPLEMENTATION.md` for event definitions, cross-domain setup, key-event recommendations, Google Ads guidance, testing, and BookingKoala limitations.

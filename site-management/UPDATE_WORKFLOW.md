@@ -41,3 +41,14 @@ Do not casually change transaction routes, `_headers`, `_redirects`, `/sms-opt-i
 ## Rollback
 
 Revert the bad staging commit, validate, push staging, and promote the corrected revision.
+
+## SEO / CRO shared-change checks
+
+For changes to priority landing pages, shared CSS, shared JavaScript, or conversion CTAs:
+1. preserve Quick Answer blocks and CTA hierarchy;
+2. preserve social metadata and stable hero-image preload rules;
+3. run `python.exe .\tools\seo_regression.py .`;
+4. verify conversion events in browser DevTools when CTA markup or `main.js` changes;
+5. preserve event names unless an intentional analytics migration is planned;
+6. update `CONVERSION_TRACKING.md` if event semantics or payloads change;
+7. after production, notify IndexNow only for materially changed canonical pages.
