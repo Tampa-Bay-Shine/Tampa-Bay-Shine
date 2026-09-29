@@ -1,39 +1,43 @@
-# Ongoing Page Update Workflow
+# Ongoing Site Update Workflow
 
-## Single-page update with ChatGPT
-1. Open the current HTML file under `cloudflare-site/<slug>/index.html`.
-2. If the page has page-specific CSS, also provide `cloudflare-site/assets/css/pages/<slug>.css`.
-3. Give those complete current files to ChatGPT.
-4. Tell ChatGPT to follow `site-management/CHATGPT_SITE_MAINTENANCE_PROMPT.md`.
-5. Describe the requested changes.
-6. Request complete replacement files, not snippets.
-7. Replace only the returned files.
-8. Run:
-   `python tools/validate_site.py cloudflare-site`
-9. For materially changed indexable pages, update sitemap lastmod:
-   `python tools/update_sitemap.py cloudflare-site /<slug>`
-10. Work on a branch, push, inspect the Cloudflare preview deployment, then merge.
+Use the root `README.md` as the primary runbook.
 
-## Updating several pages
-Provide ChatGPT the complete current HTML/CSS files for every affected page and request a ZIP preserving paths beneath `cloudflare-site/`. After extracting: validate, update sitemap lastmod, review `git diff`, push a feature branch, inspect the Pages preview, then merge.
+## Single page
 
-## Small edit directly in GitHub
-For a typo or tiny content edit, use GitHub's editor on a branch/PR, inspect the Pages preview, and merge after QA.
+1. Pull current `cloudflare-staging`.
+2. Edit `cloudflare-site/<slug>/index.html`.
+3. Edit page CSS only if needed.
+4. Preserve canonical, robots, schema, H1, internal links, shared navigation, and local assets.
+5. Run `validate_site.py`, `service_area_audit.py`, and `git diff --check`.
+6. Update sitemap lastmod for material indexable changes.
+7. Review diff.
+8. Commit.
+9. Run staging gate.
+10. Push staging.
+11. QA staging.
+12. Promote with `promote_cloudflare.py --push`.
+13. Run post-cutover gate.
 
-## Never overwrite accidentally
-Do not remove or alter without a specific reason:
-- canonical tag
-- title/meta description
-- robots directive
-- JSON-LD
-- visible H1
-- internal links
-- local image paths
-- shared header/footer
-- /assets/css/main.css
-- page-specific stylesheet
-- booking/account route behavior
-- SMS consent wording and Google Forms field names on /sms-opt-in
+## Multi-page/shared change
+
+Use the same flow, but inspect representative page types on desktop/mobile and test shared navigation plus transaction links.
+
+## New page
+
+Create `cloudflare-site/<slug>/index.html`, add relevant internal links, and add the URL to the sitemap only if indexable.
+
+## Rename/remove URL
+
+Create a redirect first, update internal links/schema/sitemap, then remove the old page.
+
+## ChatGPT-assisted work
+
+Use `site-management/CHATGPT_SITE_MAINTENANCE_PROMPT.md` and current files as authoritative.
+
+## Sensitive areas
+
+Do not casually change transaction routes, `_headers`, `_redirects`, `/sms-opt-in` consent/form behavior, IndexNow key, entity IDs, or DNS/Cloudflare infrastructure.
 
 ## Rollback
-Use Git history or Cloudflare's known-good deployment. Do not restore an old BookingKoala capture over newer GitHub content.
+
+Revert the bad staging commit, validate, push staging, and promote the corrected revision.
