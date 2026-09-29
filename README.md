@@ -314,6 +314,16 @@ Production push:
 python.exe .\tools\promote_cloudflare.py --repo . --push
 ```
 
+### `tools/seo_regression.py`
+
+Checks homepage/template SEO safeguards introduced from recurring external audits:
+
+```powershell
+python.exe .\tools\seo_regression.py .
+```
+
+It checks homepage title/description review thresholds, social image/card metadata, LCP image preload, skip-to-content behavior, heading-level continuity, JSON-LD syntax, and required security headers. Run it after homepage, shared-template, metadata, or `_headers` changes.
+
 ### `tools/submit_indexnow.py`
 
 Validates the IndexNow setup and can explicitly submit the live production sitemap URLs.
