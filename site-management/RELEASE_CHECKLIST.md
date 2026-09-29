@@ -1,19 +1,32 @@
 # Release Checklist
 
-- [ ] Work on a feature/content branch
-- [ ] Review git diff
-- [ ] Run `python tools/validate_site.py cloudflare-site`
-- [ ] Update sitemap lastmod for materially changed indexable pages
-- [ ] Open Cloudflare preview deployment
-- [ ] Desktop visual QA
-- [ ] Mobile visual QA
-- [ ] Test Book Now / Customer Login if shared navigation changed
-- [ ] Check title/meta/canonical/robots
-- [ ] Validate JSON-LD
-- [ ] Check internal links
-- [ ] Confirm no BookingKoala CDN/runtime leakage
-- [ ] Confirm changed page content exists in raw HTML
-- [ ] Merge
-- [ ] Confirm production Pages deployment
-- [ ] Spot-check production URL
-- [ ] Confirm sitemap remains accessible
+## Before commit
+- [ ] On `cloudflare-staging`
+- [ ] Pulled latest `origin/cloudflare-staging`
+- [ ] `validate_site.py` passes
+- [ ] `service_area_audit.py` passes
+- [ ] `git diff --check` is clean
+- [ ] Sitemap lastmod updated when appropriate
+- [ ] Git diff reviewed
+
+## Before staging push
+- [ ] Commit created
+- [ ] Working tree clean
+- [ ] Staging migration gate GREEN
+- [ ] Push `cloudflare-staging`
+
+## Staging QA
+- [ ] Deployment complete
+- [ ] Changed URLs/assets return 200
+- [ ] Desktop/mobile QA
+- [ ] Raw HTML contains important content
+- [ ] Metadata/canonical/robots/schema correct
+- [ ] Booking/account routes tested when relevant
+
+## Production
+- [ ] Staging commit exists on `origin/cloudflare-staging`
+- [ ] Run `promote_cloudflare.py --push`
+- [ ] Production deployment complete
+- [ ] Post-cutover gate GREEN
+- [ ] Live pages/assets spot-checked
+- [ ] Search Console/Bing follow-up when warranted

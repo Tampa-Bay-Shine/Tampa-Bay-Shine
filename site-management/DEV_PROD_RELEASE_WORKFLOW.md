@@ -1,54 +1,96 @@
+# Development and Production Release Workflow
 
-# Phase 2.5.8 — BookingKoala fallback release mode
+The root `README.md` is the primary operational runbook.
 
-Production transaction traffic is temporarily sent to:
+## Environments
 
-    https://tampabayshine.bookingkoala.com
+Staging:
+- branch `cloudflare-staging`
+- project `tampa-bay-shine-staging`
+- URL https://tampa-bay-shine-staging.pages.dev
+- global noindex required
 
-The future custom BK host remains:
+Production:
+- branch `cloudflare-production`
+- project `tampa-bay-shine`
+- URL https://tampabayshine.com
 
-    https://booking.tampabayshine.com
+## Standard release
 
-The custom host is monitored but does not block a fallback-mode release.
+```powershell
+git switch cloudflare-staging
+git pull origin cloudflare-staging
 
-## Critical safety requirement
+python.exe .\tools\validate_site.py .\cloudflare-site
+python.exe .\tools\service_area_audit.py --repo .
+git diff --check
 
-Before moving `tampabayshine.com` to Cloudflare, make the original BookingKoala-hosted domain
-`tampabayshine.bookingkoala.com` the BookingKoala **Primary** domain if BookingKoala allows it.
+# update lastmod if appropriate
+python.exe .\tools\update_sitemap.py .\cloudflare-site /slug
 
-Why: BookingKoala says its Primary domain is used for dashboards and links in system email/SMS
-notifications. If the apex remains BK Primary after the apex is moved to Cloudflare, generated deep
-links may point at Cloudflare rather than BookingKoala.
+git add .
+git commit -m "Describe the change"
 
-After changing BK Primary to the fallback domain, test admin login, customer login, provider app/session,
-recurring jobs, an actual email notification from owner@tampabayshine.com, a link inside that email,
-and an SMS notification link. Then set the corresponding manual gates to true.
+python.exe .\tools\migration_gate.py --repo . --phase staging
+git push origin cloudflare-staging
+```
 
-## Gate
+Wait for and QA staging, then:
 
-    python.exe .\tools\migration_gate.py --repo . --phase staging
+```powershell
+python.exe .\tools\promote_cloudflare.py --repo . --push
+```
 
-## Promotion
+After production deploys:
 
-Dry preparation only:
+```powershell
+python.exe .\tools\migration_gate.py --repo . --phase post-cutover
+```
 
-    python.exe .\tools\promote_cloudflare.py --repo .
+## Critical detail
 
-Actual production branch push:
+`promote_cloudflare.py` promotes `origin/cloudflare-staging`. Push staging before promotion.
 
-    python.exe .\tools\promote_cloudflare.py --repo . --push
+## Dry production preparation
 
-## Later switch to custom booking domain
+```powershell
+python.exe .\tools\promote_cloudflare.py --repo .
+```
 
-    python.exe .\tools\set_transaction_mode.py custom --repo .
-    git add site-management\release_targets.json
-    git commit -m "Switch production transactions to booking subdomain"
-    git push
+This prepares production locally but does not push it.
 
-Then rerun the staging gate and promote normally.
+## Transaction mode
 
-## Dev / production separation
+Current fallback target:
 
-Development stays on Cloudflare project `tampa-bay-shine-staging`, branch `cloudflare-staging`.
-Production stays on Cloudflare project `tampa-bay-shine`, branch `cloudflare-production`.
-Normal development pushes do not change production.
+```text
+https://tampabayshine.bookingkoala.com
+```
+
+Future custom target:
+
+```text
+https://booking.tampabayshine.com
+```
+
+Only switch after the custom host is healthy and BookingKoala manual gates are retested:
+
+```powershell
+python.exe .\tools\set_transaction_mode.py custom --repo .
+```
+
+To restore fallback:
+
+```powershell
+python.exe .\tools\set_transaction_mode.py fallback --repo .
+```
+
+Commit/push the config change on staging and promote normally.
+
+## Never
+
+- develop directly on `cloudflare-production`
+- remove staging noindex
+- manually copy only part of staging into production
+- promote an unpushed staging commit
+- switch BookingKoala mode solely because DNS resolves
