@@ -1,4 +1,4 @@
-
+﻿
 from pathlib import Path
 import argparse, json, re, ssl, subprocess, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
@@ -94,3 +94,4 @@ def main():
         if x['detail'] and (not x['ok'] or x['kind']=='INFO'): print('       '+x['detail'].replace('\n','\n       '))
     print('\nVERDICT:',verdict); dest=repo/'reports'/f'migration_gate_{a.phase}.json'; dest.parent.mkdir(exist_ok=True); dest.write_text(json.dumps({'generated_utc':datetime.now(timezone.utc).isoformat(),'phase':a.phase,'transaction_mode':cfg['transaction_mode'],'active_transaction_target':active,'verdict':verdict,'results':out},indent=2),encoding='utf-8'); print('Report:',dest); return 0 if verdict=='GREEN' else (2 if verdict=='YELLOW' else 1)
 if __name__=='__main__': raise SystemExit(main())
+
