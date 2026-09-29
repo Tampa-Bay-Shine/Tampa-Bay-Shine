@@ -1,7 +1,7 @@
 # Tampa Bay Shine Analytics Implementation
 
 ## Active identifiers
-- GA4 Measurement ID: `G-CP3TF0CCQD`
+- GA4 Measurement ID: `G-XK4CTL9KWM`
 - Google Ads tag ID: `AW-17001979579`
 
 ## Architecture
@@ -82,7 +82,7 @@ After production deployment:
 3. Compare GA4 client IDs on both domains with:
 
 ```javascript
-gtag('get', 'G-CP3TF0CCQD', 'client_id', console.log)
+gtag('get', 'G-XK4CTL9KWM', 'client_id', console.log)
 ```
 
 The client IDs should match. Matching identity continuity does not itself measure a completed booking.

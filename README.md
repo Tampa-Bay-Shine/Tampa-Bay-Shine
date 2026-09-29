@@ -721,7 +721,7 @@ Do not treat `booknow_click` as a completed booking.
 
 ## Analytics implementation
 
-Production analytics use GA4 `G-CP3TF0CCQD` and Google Ads tag `AW-17001979579`.
+Production analytics use GA4 `G-XK4CTL9KWM` and Google Ads tag `AW-17001979579`.
 
 The Google tag initializes only on the production hostname, so Cloudflare staging traffic is excluded. Existing CTA events are sent directly to GA4 while preserving the `tbs:conversion` CustomEvent/dataLayer hooks.
 
