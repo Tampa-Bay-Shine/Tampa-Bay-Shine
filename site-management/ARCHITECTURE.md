@@ -61,3 +61,15 @@ Preserve shared static header/footer, page-specific CSS, responsive layouts, and
 ## Functional boundary
 
 Cloudflare Pages serves public information. BookingKoala owns accounts, booking, payments, provider functions, and dashboards.
+
+## Analytics boundary
+
+The static Cloudflare site owns first-party CTA event generation in `assets/js/main.js`.
+
+It emits `tbs:conversion` browser events and optionally pushes the event payload into `window.dataLayer`.
+
+The site does not persist those events itself. GA4/GTM or another collector is a separate analytics layer.
+
+BookingKoala owns the transactional funnel. A marketing-site `booknow_click` is only a handoff signal; completed-booking attribution requires BookingKoala-side or cross-domain measurement.
+
+See `site-management/CONVERSION_TRACKING.md`.

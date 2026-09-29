@@ -1,6 +1,7 @@
 # Release Checklist
 
 ## Before commit
+- [ ] `seo_regression.py` passes for SEO/template/CRO changes
 - [ ] On `cloudflare-staging`
 - [ ] Pulled latest `origin/cloudflare-staging`
 - [ ] `validate_site.py` passes
@@ -16,6 +17,7 @@
 - [ ] Push `cloudflare-staging`
 
 ## Staging QA
+- [ ] CTA tracking events tested when CTA/shared JavaScript changed
 - [ ] Deployment complete
 - [ ] Changed URLs/assets return 200
 - [ ] Desktop/mobile QA

@@ -119,3 +119,27 @@ Run `python.exe .\tools\seo_regression.py .` after changing a priority page.
 
 ## Conversion measurement
 Shared JavaScript emits first-party CTA events and pushes them to `window.dataLayer` only when a data layer exists. Do not claim GA4/GTM or completed BookingKoala conversion measurement until explicitly configured and tested.
+
+## Pre-indexing enhancement set
+
+Priority landing pages currently use:
+- static server-delivered primary content;
+- unique title and meta description;
+- production canonical;
+- Open Graph image/title/description;
+- Twitter/X large-image card;
+- preload of the actual rendered above-the-fold hero image when present;
+- concise visible Quick Answer blocks near the top;
+- residential vs. commercial CTA hierarchy;
+- contextual internal links;
+- factual Organization / WebPage / Service / FAQ graph relationships;
+- material-change `dateModified` synchronization;
+- sitemap `lastmod` synchronization;
+- targeted IndexNow submission after verified production changes;
+- `tools/seo_regression.py` checks across the homepage plus priority landing pages.
+
+The Standard Cleaning page is intentionally text/card-first and does not preload a non-rendered hero image.
+
+Do not add image preloads solely to satisfy an audit when the image is not rendered above the fold.
+
+The shared Quick Answer component uses explicit component-level button colors to protect contrast from older page-specific link styles.

@@ -53,3 +53,17 @@ Shared site JavaScript should emit `booknow_click`, `phone_click`, `contact_clic
 
 ## Release discipline
 For material updates: validate locally, commit, run staging gate, push `cloudflare-staging`, QA staging, promote with `tools/promote_cloudflare.py --push`, run post-cutover, notify IndexNow for changed canonical URLs, and use Google Search Console URL Inspection selectively.
+
+## Measurement implementation status
+
+The site now has first-party CTA event instrumentation for `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click`.
+
+These events are emitted in the browser and are pushed to `window.dataLayer` when a data layer exists.
+
+Current status:
+- event-generation layer: implemented;
+- GA4/GTM collection: must be verified/configured separately;
+- BookingKoala `booking_start` / `booking_complete`: not measured by this marketing-site instrumentation;
+- revenue attribution: requires transactional/cross-domain measurement.
+
+See `site-management/CONVERSION_TRACKING.md`.
