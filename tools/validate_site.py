@@ -30,9 +30,15 @@ def main():
         route='/' if rel=='index.html' else '/'+p.parent.relative_to(root).as_posix()
 
         if not s.title or not s.title.get_text(strip=True): issues.append(f'{route}: missing title')
-        if not s.find('meta',attrs={'name':'description'}): issues.append(f'{route}: missing meta description')
-        c=s.find('link',rel='canonical')
-        if not c or not c.get('href','').startswith('https://tampabayshine.com'): issues.append(f'{route}: missing/invalid production canonical')
+        descriptions=s.find_all('meta',attrs={'name':'description'})
+        if not descriptions: issues.append(f'{route}: missing meta description')
+        elif len(descriptions)!=1: issues.append(f'{route}: meta description count={len(descriptions)}')
+        canonicals=s.find_all('link',rel='canonical')
+        if not canonicals: issues.append(f'{route}: missing production canonical')
+        elif len(canonicals)!=1: issues.append(f'{route}: canonical count={len(canonicals)}')
+        else:
+            c=canonicals[0]
+            if not c.get('href','').startswith('https://tampabayshine.com'): issues.append(f'{route}: missing/invalid production canonical')
         if not s.find('meta',attrs={'name':'robots'}): issues.append(f'{route}: missing robots')
         h1=len(s.find_all('h1'))
         if route not in {'/terms','/privacy-policy'} and h1!=1: warnings.append(f'{route}: H1 count={h1}')
