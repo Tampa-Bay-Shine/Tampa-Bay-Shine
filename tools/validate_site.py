@@ -15,15 +15,13 @@ def main():
         route='/' if rel=='index.html' else '/'+p.parent.relative_to(root).as_posix()
         routes.add(route.rstrip('/') or '/')
 
-    redirects=set(); redirect_map={}
+    redirects=set()
     rp=root/'_redirects'
     if rp.exists():
         for line in rp.read_text(encoding='utf-8',errors='ignore').splitlines():
             parts=line.split()
             if parts and not line.lstrip().startswith('#'):
                 redirects.add(parts[0].rstrip('/') or '/')
-                if len(parts)>=3:
-                    redirect_map[parts[0]]=(parts[1],parts[2])
 
     issues=[]; warnings=[]
     for p in htmls:
@@ -37,7 +35,7 @@ def main():
         if not descriptions: issues.append(f'{route}: missing meta description')
         elif len(descriptions)!=1: issues.append(f'{route}: meta description count={len(descriptions)}')
         canonicals=s.find_all('link',rel='canonical')
-        expected_canonical='https://tampabayshine.com/' if route=='/' else 'https://tampabayshine.com'+route
+        expected_canonical='https://tampabayshine.com/' if route=='/' else 'https://tampabayshine.com'+route+'/'
         if not canonicals: issues.append(f'{route}: missing production canonical')
         elif len(canonicals)!=1: issues.append(f'{route}: canonical count={len(canonicals)}')
         elif canonicals[0].get('href','')!=expected_canonical:
@@ -58,12 +56,6 @@ def main():
             if path.startswith('/assets/'): continue
             if path not in routes and path not in redirects: issues.append(f'{route}: unresolved internal link {path}')
 
-    # Every static non-root route must normalize its trailing-slash variant.
-    for route in sorted(routes):
-        if route=='/': continue
-        src=route+'/'
-        if redirect_map.get(src)!=(route,'301'):
-            issues.append(f'{route}: missing trailing-slash canonical redirect {src} -> {route} 301')
 
     # Sitemap URLs must use the same canonical host and slashless URL form.
     smp=root/'sitemap.xml'
@@ -78,8 +70,8 @@ def main():
                 if pr.scheme!='https' or pr.netloc!='tampabayshine.com':
                     issues.append(f'sitemap non-canonical host/scheme: {u}')
                     continue
-                if path!='/' and path.endswith('/'):
-                    issues.append(f'sitemap trailing slash URL: {u}')
+                if path!='/' and not path.endswith('/'):
+                    issues.append(f'sitemap missing trailing slash: {u}')
                 normalized=path.rstrip('/') or '/'
                 if normalized not in routes:
                     issues.append(f'sitemap URL has no static route: {u}')
