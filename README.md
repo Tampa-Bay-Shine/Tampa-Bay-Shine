@@ -730,6 +730,7 @@ If a connected GitHub integration is read-only, use a generated ZIP/installer lo
 
 The root README is the primary operational runbook. Supporting documents should be kept consistent with it.
 
+- `site-management/SEO_SECOND_PASS_2026-09-30.md` — second-pass answerability and internal-link cleanup while post-release recrawl is pending
 - `site-management/GSC_AUDIT_TOOLS.md` — Search Console index/performance audit purpose, OAuth setup, usage, outputs, and interpretation
 - `site-management/SEO_AI_CRO_90_DAY_PLAN.md` — 90-day search, AI visibility, paid-search and conversion roadmap
 
