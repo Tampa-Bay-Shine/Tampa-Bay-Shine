@@ -134,3 +134,21 @@
           outline-offset:2px;
           border-radius:8px;
         }
+
+/* South Tampa service-link cards: keep each link inside its grid cell. */
+#house-cleaning-south-tampa #south-tampa-service-links .grid.auto{
+  align-items:stretch;
+}
+#house-cleaning-south-tampa #south-tampa-service-links .grid.auto > li{
+  min-width:0;
+}
+#house-cleaning-south-tampa #south-tampa-service-links .grid.auto > li > a.card{
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-width:0;
+  height:100%;
+  box-sizing:border-box;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
