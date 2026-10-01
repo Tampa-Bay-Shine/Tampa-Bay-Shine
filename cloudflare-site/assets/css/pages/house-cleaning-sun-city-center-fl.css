@@ -152,3 +152,35 @@
   overflow-wrap:anywhere;
   word-break:normal;
 }
+
+/* Locality card UI standard: Services-style bold action cards. */
+#house-cleaning-sun-city-center .grid.auto > li > a.card{
+  justify-content:space-between;
+  gap:12px;
+  padding:14px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--royal);
+  font-weight:900;
+  line-height:1.35;
+  text-decoration:none;
+  box-shadow:none;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
+}
+#house-cleaning-sun-city-center .grid.auto > li > a.card::after{
+  content:"→";
+  flex:0 0 auto;
+  font-weight:900;
+}
+#house-cleaning-sun-city-center .grid.auto > li > a.card:hover{
+  text-decoration:none;
+  transform:translateY(-1px);
+  border-color:rgba(15,8,137,.28);
+  box-shadow:0 6px 18px rgba(15,8,137,.08);
+}
+#house-cleaning-sun-city-center .grid.auto > li > a.card:focus-visible{
+  text-decoration:none;
+  outline:3px solid rgba(37,99,235,.28);
+  outline-offset:2px;
+}
