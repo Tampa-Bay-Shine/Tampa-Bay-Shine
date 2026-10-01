@@ -134,3 +134,148 @@
           outline-offset:2px;
           border-radius:8px;
         }
+
+/* Locality card-grid containment: keep card links inside responsive grid cells. */
+#house-cleaning-south-tampa .grid.auto,#house-cleaning-downtown-tampa .grid.auto{
+  align-items:stretch;
+}
+#house-cleaning-south-tampa .grid.auto > li,#house-cleaning-downtown-tampa .grid.auto > li{
+  min-width:0;
+}
+#house-cleaning-south-tampa .grid.auto > li > a.card,#house-cleaning-downtown-tampa .grid.auto > li > a.card{
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-width:0;
+  height:100%;
+  box-sizing:border-box;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+/* Locality card UI standard: Services-style bold action cards. */
+#house-cleaning-south-tampa .grid.auto > li > a.card,#house-cleaning-downtown-tampa .grid.auto > li > a.card{
+  justify-content:space-between;
+  gap:12px;
+  padding:14px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--royal);
+  font-weight:900;
+  line-height:1.35;
+  text-decoration:none;
+  box-shadow:none;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
+}
+#house-cleaning-south-tampa .grid.auto > li > a.card::after,#house-cleaning-downtown-tampa .grid.auto > li > a.card::after{
+  content:"→";
+  flex:0 0 auto;
+  font-weight:900;
+}
+#house-cleaning-south-tampa .grid.auto > li > a.card:hover,#house-cleaning-downtown-tampa .grid.auto > li > a.card:hover{
+  text-decoration:none;
+  transform:translateY(-1px);
+  border-color:rgba(15,8,137,.28);
+  box-shadow:0 6px 18px rgba(15,8,137,.08);
+}
+#house-cleaning-south-tampa .grid.auto > li > a.card:focus-visible,#house-cleaning-downtown-tampa .grid.auto > li > a.card:focus-visible{
+  text-decoration:none;
+  outline:3px solid rgba(37,99,235,.28);
+  outline-offset:2px;
+}
+
+/* TBS_ACTION_CARD_STANDARD_V16 */
+#house-cleaning-south-tampa a.pill,#house-cleaning-downtown-tampa a.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 13px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--royal);
+  font-weight:900;
+  line-height:1.3;
+  text-decoration:none!important;
+  box-sizing:border-box;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
+}
+#house-cleaning-south-tampa a.pill::after,#house-cleaning-downtown-tampa a.pill::after{
+  content:"→";
+  flex:0 0 auto;
+  font-weight:900;
+}
+#house-cleaning-south-tampa a.pill:hover,#house-cleaning-downtown-tampa a.pill:hover{
+  text-decoration:none!important;
+  transform:translateY(-1px);
+  border-color:rgba(15,8,137,.28);
+  box-shadow:0 6px 18px rgba(15,8,137,.08);
+}
+#house-cleaning-south-tampa a.pill:focus-visible,#house-cleaning-downtown-tampa a.pill:focus-visible{
+  text-decoration:none!important;
+  outline:3px solid rgba(37,99,235,.28);
+  outline-offset:2px;
+}
+
+/* TBS_MOBILE_COMPARISON_V17 */
+@media (max-width: 640px){
+  /* Preserve the comparison data as a readable table, but let it scroll instead
+     of crushing four columns into the phone viewport. */
+  #house-cleaning-downtown-tampa #comparison{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  #house-cleaning-downtown-tampa #comparison .table{
+    min-width:720px;
+  }
+  #house-cleaning-downtown-tampa #comparison .table th,
+  #house-cleaning-downtown-tampa #comparison .table td{
+    min-width:150px;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+  #house-cleaning-downtown-tampa #comparison .table th:first-child,
+  #house-cleaning-downtown-tampa #comparison .table td:first-child{
+    min-width:145px;
+  }
+  #house-cleaning-downtown-tampa #comparison .table a.pill{
+    width:100%;
+    min-width:0;
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+}
+
+@media (max-width: 640px){
+  /* Preserve the comparison data as a readable table, but let it scroll instead
+     of crushing four columns into the phone viewport. */
+  #house-cleaning-south-tampa #comparison{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  #house-cleaning-south-tampa #comparison .table{
+    min-width:720px;
+  }
+  #house-cleaning-south-tampa #comparison .table th,
+  #house-cleaning-south-tampa #comparison .table td{
+    min-width:150px;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+  #house-cleaning-south-tampa #comparison .table th:first-child,
+  #house-cleaning-south-tampa #comparison .table td:first-child{
+    min-width:145px;
+  }
+  #house-cleaning-south-tampa #comparison .table a.pill{
+    width:100%;
+    min-width:0;
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+}

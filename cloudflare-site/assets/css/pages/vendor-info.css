@@ -181,3 +181,25 @@
         #tbs-vendor-pack .brand { align-items:flex-start; }
         #tbs-vendor-pack .btn { width: 100%; }
       }
+
+/* TBS_ACTION_CARD_STANDARD_V16 */
+.link-grid a.link-card{
+  position:relative;
+  text-decoration:none!important;
+}
+.link-grid a.link-card strong{
+  color:var(--royal);
+  font-weight:900;
+}
+.link-grid a.link-card strong::after{
+  content:" →";
+  font-weight:900;
+}
+.link-grid a.link-card:hover{
+  text-decoration:none!important;
+  transform:translateY(-1px);
+}
+.link-grid a.link-card:focus-visible{
+  outline:3px solid rgba(37,99,235,.28);
+  outline-offset:2px;
+}
