@@ -135,14 +135,14 @@
           border-radius:8px;
         }
 
-/* South Tampa service-link cards: keep each link inside its grid cell. */
-#house-cleaning-south-tampa #south-tampa-service-links .grid.auto{
+/* Locality card-grid containment: keep card links inside responsive grid cells. */
+#house-cleaning-south-tampa .grid.auto,#house-cleaning-downtown-tampa .grid.auto{
   align-items:stretch;
 }
-#house-cleaning-south-tampa #south-tampa-service-links .grid.auto > li{
+#house-cleaning-south-tampa .grid.auto > li,#house-cleaning-downtown-tampa .grid.auto > li{
   min-width:0;
 }
-#house-cleaning-south-tampa #south-tampa-service-links .grid.auto > li > a.card{
+#house-cleaning-south-tampa .grid.auto > li > a.card,#house-cleaning-downtown-tampa .grid.auto > li > a.card{
   display:flex;
   align-items:center;
   width:100%;

@@ -134,3 +134,21 @@
           outline-offset:2px;
           border-radius:8px;
         }
+
+/* Locality card-grid containment: keep card links inside responsive grid cells. */
+#house-cleaning-ruskin .grid.auto{
+  align-items:stretch;
+}
+#house-cleaning-ruskin .grid.auto > li{
+  min-width:0;
+}
+#house-cleaning-ruskin .grid.auto > li > a.card{
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-width:0;
+  height:100%;
+  box-sizing:border-box;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
