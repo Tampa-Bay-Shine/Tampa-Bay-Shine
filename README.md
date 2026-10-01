@@ -352,6 +352,46 @@ python.exe .\tools\submit_indexnow.py --repo . --live `
 
 Selected URLs must already exist in the production sitemap. IndexNow acceptance confirms receipt, not guaranteed crawl timing, indexing, or ranking.
 
+### `tools/gsc_index_audit.py`
+
+Purpose: audit the index state of every canonical URL in `cloudflare-site/sitemap.xml` using the Google Search Console URL Inspection API.
+
+Why it exists: the Search Console Pages report does not always make recent crawl timing obvious. This tool exposes Google's per-URL indexed-version fields, including `lastCrawlTime`, coverage state, fetch state, robots state, and Google/user canonicals, so Cloudflare migrations and later SEO releases can be verified page by page.
+
+First-time prerequisites are documented in `site-management/GSC_AUDIT_TOOLS.md`. Normal run:
+
+```powershell
+python.exe .\tools\gsc_index_audit.py
+```
+
+Use a deployment freshness baseline when needed:
+
+```powershell
+python.exe .\tools\gsc_index_audit.py --baseline 2026-09-28
+```
+
+Reports are written under `reports/gsc-index-audit/` and are intentionally ignored by Git. The API reports Google's indexed-version data; it is not equivalent to Search Console's live URL test.
+
+### `tools/gsc_performance_audit.py`
+
+Purpose: pull Search Console page, query, and query/page performance for a current period and the immediately preceding comparison period, then surface data-driven SEO opportunities.
+
+Why it exists: local/service optimization should be based on actual Search Console demand rather than generic keyword assumptions. The tool identifies query/page pairs in striking distance, low-CTR opportunities, page-level opportunity clusters, and queries that may warrant cannibalization review.
+
+Normal 90-day comparison:
+
+```powershell
+python.exe .\tools\gsc_performance_audit.py
+```
+
+Shorter comparison:
+
+```powershell
+python.exe .\tools\gsc_performance_audit.py --days 28
+```
+
+The generated `opportunity_score` is a local prioritization heuristic only; it is not a Google metric or ranking factor. Reports are written under `reports/gsc-performance/`.
+
 ### `tools/set_transaction_mode.py`
 
 Fallback:
@@ -690,6 +730,7 @@ If a connected GitHub integration is read-only, use a generated ZIP/installer lo
 
 The root README is the primary operational runbook. Supporting documents should be kept consistent with it.
 
+- `site-management/GSC_AUDIT_TOOLS.md` — Search Console index/performance audit purpose, OAuth setup, usage, outputs, and interpretation
 - `site-management/SEO_AI_CRO_90_DAY_PLAN.md` — 90-day search, AI visibility, paid-search and conversion roadmap
 
 
