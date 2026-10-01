@@ -223,3 +223,33 @@
   outline:3px solid rgba(37,99,235,.28);
   outline-offset:2px;
 }
+
+/* TBS_MOBILE_COMPARISON_V17 */
+@media (max-width: 640px){
+  /* Preserve the comparison data as a readable table, but let it scroll instead
+     of crushing four columns into the phone viewport. */
+  #house-cleaning-brandon #comparison{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  #house-cleaning-brandon #comparison .table{
+    min-width:720px;
+  }
+  #house-cleaning-brandon #comparison .table th,
+  #house-cleaning-brandon #comparison .table td{
+    min-width:150px;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+  #house-cleaning-brandon #comparison .table th:first-child,
+  #house-cleaning-brandon #comparison .table td:first-child{
+    min-width:145px;
+  }
+  #house-cleaning-brandon #comparison .table a.pill{
+    width:100%;
+    min-width:0;
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+}
