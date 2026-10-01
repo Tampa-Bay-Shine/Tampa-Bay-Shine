@@ -15,3 +15,11 @@
 
 /assets/js/*
   Cache-Control: public, max-age=0, must-revalidate
+
+/seo-dashboard
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: private, no-store
+
+/seo-dashboard/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: private, no-store

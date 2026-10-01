@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="en">
+<head><meta name="description" content="Private Tampa Bay Shine Google Search Console SEO performance and keyword tracking dashboard.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="canonical" href="https://tampabayshine.com/seo-dashboard/">
+<title>Tampa Bay Shine â€” GSC SEO Dashboard</title>
+<style>
+body{font:15px system-ui;margin:0;background:#f5f7fb;color:#172033}main{max-width:1200px;margin:auto;padding:28px}
+h1{margin:0}.muted{color:#687386}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+.card,section{background:white;border:1px solid #dfe5ef;border-radius:12px;padding:18px}.big{font-size:28px;font-weight:700}
+nav button{margin:0 8px 14px 0;padding:9px 13px}.tab{display:none}.tab.active{display:block}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px;border-bottom:1px solid #edf0f5}th{font-size:12px;text-transform:uppercase}
+.good{color:#087a42}.bad{color:#b42318}@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}table{font-size:12px}}
+</style></head><body><main>
+<h1>Tampa Bay Shine SEO Dashboard</h1><div class="muted" id="period">Google Search Console</div>
+<div class="cards">
+<div class="card"><div class="muted">Clicks</div><div class="big" id="clicks">â€”</div></div>
+<div class="card"><div class="muted">Impressions</div><div class="big" id="impressions">â€”</div></div>
+<div class="card"><div class="muted">CTR</div><div class="big" id="ctr">â€”</div></div>
+<div class="card"><div class="muted">Avg position</div><div class="big" id="position">â€”</div></div>
+</div>
+<nav><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<section id="tracked" class="tab active"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
+<section id="queries" class="tab"><h2>Top non-brand queries</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th></tr></thead><tbody></tbody></table></section>
+<section id="opps" class="tab"><h2>SEO opportunities</h2><table><thead><tr><th>Query</th><th>Position</th><th>Impressions</th><th>CTR</th><th>Flags</th><th>Page</th></tr></thead><tbody></tbody></table></section>
+<section id="cann" class="tab"><h2>Possible cannibalization</h2><table><thead><tr><th>Query</th><th>Pages</th><th>Impressions</th><th>Primary page</th><th>Secondary page</th></tr></thead><tbody></tbody></table></section>
+<p class="muted" id="note"></p>
+<script>
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const n=v=>v==null?"--":Number(v).toLocaleString(undefined,{maximumFractionDigits:2});
+const change=v=>v==null?"--":`<span class="${v>0?'good':v<0?'bad':''}">${v>0?'+':''}${n(v)}</span>`;
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.tab).classList.add("active")});
+fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+ if(!d.generated_at){document.getElementById("note").textContent="Run python.exe .\\tools\\gsc_dashboard.py to populate the dashboard.";return}
+ const s=d.summary||{}; clicks.textContent=n(s.clicks);impressions.textContent=n(s.impressions);ctr.textContent=n(s.ctr)+"%";position.textContent=n(s.position);
+ period.textContent=`GSC â€¢ ${d.period.start} to ${d.period.end} â€¢ generated ${new Date(d.generated_at).toLocaleString()}`;
+ document.querySelector("#tracked tbody").innerHTML=(d.tracked_keywords||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.current.position)}</td><td>${change(x.position_change)}</td><td>${n(x.current.impressions)}</td><td>${n(x.current.clicks)}</td><td>${n(x.current.ctr)}%</td><td>${esc(x.ranking_page||"--")}</td></tr>`).join("");
+ document.querySelector("#queries tbody").innerHTML=(d.top_queries||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.current_position)}</td><td>${change(x.position_improvement)}</td><td>${n(x.current_impressions)}</td><td>${n(x.current_clicks)}</td><td>${n(x.current_ctr_percent)}%</td></tr>`).join("");
+ document.querySelector("#opps tbody").innerHTML=(d.opportunities||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.position)}</td><td>${n(x.impressions)}</td><td>${n(x.ctr_percent)}%</td><td>${esc(x.flags)}</td><td>${esc(x.page)}</td></tr>`).join("");
+ document.querySelector("#cann tbody").innerHTML=(d.cannibalization||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.pages_with_impressions)}</td><td>${n(x.total_impressions)}</td><td>${esc(x.page_1)}</td><td>${esc(x.page_2)}</td></tr>`).join("");
+ note.textContent=d.limitations||"";
+}).catch(e=>{note.textContent="Dashboard data could not be loaded: "+e.message});
+</script></main></body></html>
+
+
