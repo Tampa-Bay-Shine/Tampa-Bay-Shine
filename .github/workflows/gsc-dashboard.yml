@@ -56,14 +56,19 @@ jobs:
           python tools/gsc_dashboard.py \
             --client-secret "$RUNNER_TEMP/tbs-gsc/client_secret.json" \
             --token "$RUNNER_TEMP/tbs-gsc/token.json" \
-            --out "cloudflare-site/seo-dashboard/data/gsc.json"
+            --out "cloudflare-site/seo-dashboard/data/gsc.json" \
+            --history-out "cloudflare-site/seo-dashboard/data/history.json"
 
       - name: Verify only dashboard data changed
         shell: bash
         run: |
           set -euo pipefail
 
-          unexpected="$(git status --porcelain | grep -v 'cloudflare-site/seo-dashboard/data/gsc.json' || true)"
+          unexpected="$(
+            git status --porcelain |
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history)\.json$' ||
+              true
+          )"
 
           if [ -n "$unexpected" ]; then
             echo "Unexpected repository changes detected:"
@@ -76,14 +81,17 @@ jobs:
         run: |
           set -euo pipefail
 
-          if git diff --quiet -- cloudflare-site/seo-dashboard/data/gsc.json; then
-            echo "GSC dashboard data has not changed."
+          git add \
+            cloudflare-site/seo-dashboard/data/gsc.json \
+            cloudflare-site/seo-dashboard/data/history.json
+
+          if git diff --cached --quiet; then
+            echo "GSC dashboard and history data have not changed."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add cloudflare-site/seo-dashboard/data/gsc.json
           git commit -m "Refresh GSC dashboard data"
           git push origin HEAD:seo-dashboard

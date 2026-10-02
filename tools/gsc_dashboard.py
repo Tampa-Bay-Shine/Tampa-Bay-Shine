@@ -735,6 +735,143 @@ def build_action_center(
         ),
     }
 
+
+def build_history_snapshot(payload):
+    """Create a compact daily historical snapshot from dashboard data."""
+    period = payload.get("period", {})
+    summary = payload.get("summary", {})
+
+    tracked = {}
+
+    for item in payload.get("tracked_keywords", []):
+        query = item.get("query")
+        current = item.get("current", {})
+
+        if not query:
+            continue
+
+        tracked[query] = {
+            "position": current.get("position"),
+            "impressions": current.get("impressions", 0),
+            "clicks": current.get("clicks", 0),
+            "ctr": current.get("ctr"),
+            "ranking_page": item.get("ranking_page"),
+        }
+
+    # Preserve only the most useful page-level movers rather than
+    # archiving the entire query/page GSC response every day.
+    pages = {}
+
+    page_movers = payload.get("page_movers", {})
+
+    for group in ("winners", "losers"):
+        for item in page_movers.get(group, []):
+            page = item.get("page")
+
+            if not page:
+                continue
+
+            pages[page] = {
+                "position": item.get("current_position"),
+                "impressions": item.get("current_impressions", 0),
+                "clicks": item.get("current_clicks", 0),
+                "impression_change": item.get("impression_change", 0),
+                "click_change": item.get("click_change", 0),
+                "position_change": item.get("position_change"),
+                "movement": item.get("movement"),
+                "confidence": item.get("confidence"),
+            }
+
+    action_center = payload.get("action_center", {})
+
+    return {
+        # Use the end of the GSC reporting period as the observation date.
+        # This avoids labeling lagged GSC data as if it represented today's
+        # search activity.
+        "date": period.get("end"),
+        "period_start": period.get("start"),
+        "period_end": period.get("end"),
+        "period_days": period.get("days", 28),
+        "summary": {
+            "clicks": summary.get("clicks", 0),
+            "impressions": summary.get("impressions", 0),
+            "ctr": summary.get("ctr", 0),
+            "position": summary.get("position"),
+        },
+        "actions": {
+            "high": action_center.get("counts", {}).get("high", 0),
+            "medium": action_center.get("counts", {}).get("medium", 0),
+            "low": action_center.get("counts", {}).get("low", 0),
+            "total": len(action_center.get("actions", [])),
+        },
+        "tracked_keywords": tracked,
+        "pages": pages,
+    }
+
+
+def update_history_file(history_path, payload, max_snapshots=400):
+    """Insert or replace one historical snapshot and keep history bounded."""
+    snapshot = build_history_snapshot(payload)
+    snapshot_date = snapshot.get("date")
+
+    if not snapshot_date:
+        raise ValueError("Dashboard payload does not contain a history snapshot date.")
+
+    history_path = Path(history_path)
+
+    history = {
+        "schema_version": 1,
+        "max_snapshots": max_snapshots,
+        "snapshots": [],
+    }
+
+    if history_path.exists():
+        try:
+            existing = json.loads(history_path.read_text(encoding="utf-8"))
+
+            if isinstance(existing, dict):
+                history.update(existing)
+
+        except (json.JSONDecodeError, OSError) as exc:
+            raise ValueError(
+                f"Could not read existing history file {history_path}: {exc}"
+            ) from exc
+
+    snapshots = history.get("snapshots", [])
+
+    if not isinstance(snapshots, list):
+        raise ValueError("History file snapshots value must be a list.")
+
+    # Idempotent daily update: replace the same GSC period-end date rather
+    # than creating duplicates when the generator is rerun.
+    snapshots = [
+        item
+        for item in snapshots
+        if item.get("date") != snapshot_date
+    ]
+
+    snapshots.append(snapshot)
+
+    snapshots.sort(key=lambda item: item.get("date") or "")
+
+    if len(snapshots) > max_snapshots:
+        snapshots = snapshots[-max_snapshots:]
+
+    history["schema_version"] = 1
+    history["max_snapshots"] = max_snapshots
+    history["snapshots"] = snapshots
+    history["latest_date"] = snapshots[-1]["date"] if snapshots else None
+    history["snapshot_count"] = len(snapshots)
+
+    history_path.parent.mkdir(parents=True, exist_ok=True)
+    history_path.write_text(
+        json.dumps(history, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    return history
+
+
 def fetch_period(service, site, days, lag, end_date):
     start, end, prev_start, prev_end = gsc.period(days, lag, end_date)
     cur_q = gsc.normalize_rows(gsc.fetch_rows(service, site, start, end, ["query"]), ["query"])
@@ -753,6 +890,11 @@ def main():
     ap.add_argument("--client-secret", default=str(Path.home()/".tbs-gsc"/"client_secret.json"))
     ap.add_argument("--token", default=str(Path.home()/".tbs-gsc"/"token.json"))
     ap.add_argument("--out", default=str(DEFAULT_OUT))
+    ap.add_argument(
+        "--history-out",
+        default=str(DEFAULT_OUT.parent / "history.json"),
+        help="Path to compact historical dashboard snapshots.",
+    )
     args = ap.parse_args()
 
     creds = gsc.get_credentials(Path(args.client_secret), Path(args.token))
@@ -868,6 +1010,15 @@ def main():
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    history_path = Path(args.history_out)
+    history = update_history_file(history_path, payload)
+
+    print(
+        f"History: {history_path} | "
+        f"{history['snapshot_count']} snapshots | "
+        f"latest {history['latest_date']}"
+    )
     print(f"Wrote GSC dashboard data to {out}")
     print(f"Period: {start} to {end}")
     print(f"Queries: {len(cq)} | Query/page rows: {len(cqp)}")

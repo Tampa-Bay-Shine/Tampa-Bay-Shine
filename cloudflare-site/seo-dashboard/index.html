@@ -513,6 +513,154 @@ td:first-child{
   }
 }
 
+
+/* Historical trends */
+
+.trend-summary{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.trend-summary-card,
+.trend-chart-card{
+  background:#fff;
+  border:1px solid #dbe5f0;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(15,23,42,.05);
+}
+
+.trend-summary-card{
+  padding:14px 16px;
+}
+
+.trend-summary-card .label{
+  color:#64748b;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.trend-summary-card .value{
+  display:block;
+  margin-top:5px;
+  color:#0f172a;
+  font-size:20px;
+  font-weight:800;
+}
+
+.trend-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:16px;
+}
+
+.trend-chart-card{
+  padding:16px;
+  min-width:0;
+}
+
+.trend-chart-card h3{
+  margin:0 0 3px;
+  color:#0f172a;
+  font-size:16px;
+}
+
+.trend-chart-meta{
+  color:#64748b;
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.trend-chart{
+  width:100%;
+  min-height:220px;
+}
+
+.trend-chart svg{
+  display:block;
+  width:100%;
+  height:auto;
+  overflow:visible;
+}
+
+.trend-axis{
+  stroke:#cbd5e1;
+  stroke-width:1;
+}
+
+.trend-grid-line{
+  stroke:#e2e8f0;
+  stroke-width:1;
+}
+
+.trend-line{
+  fill:none;
+  stroke:#1565c0;
+  stroke-width:3;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.trend-dot{
+  fill:#1565c0;
+  stroke:#fff;
+  stroke-width:2;
+}
+
+.trend-label{
+  fill:#64748b;
+  font-size:11px;
+}
+
+.trend-empty{
+  min-height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  border:1px dashed #cbd5e1;
+  border-radius:9px;
+  color:#64748b;
+  background:#f8fafc;
+}
+
+.trend-controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:22px 0 10px;
+}
+
+.trend-controls label{
+  font-weight:700;
+}
+
+.trend-controls select{
+  max-width:360px;
+  padding:8px 10px;
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+  background:#fff;
+  color:#0f172a;
+}
+
+#keyword-trend-card{
+  margin-top:12px;
+}
+
+@media(max-width:800px){
+  .trend-grid,
+  .trend-summary{
+    grid-template-columns:1fr;
+  }
+}
+
 /* Winners / losers presentation */
 
 #movers h3{
@@ -644,7 +792,7 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
 <section id="actions" class="tab active">
 <h2>SEO Action Center</h2>
 <p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes.</p>
@@ -676,6 +824,69 @@ td:first-child{
 </div>
 
 <div id="action-list" class="action-list"></div>
+</section>
+
+
+<section id="trends" class="tab">
+  <h2>SEO Trends</h2>
+  <p class="muted">
+    Historical Google Search Console snapshots collected by the dashboard.
+    Each point represents the 28-day reporting window ending on the date shown.
+  </p>
+
+  <div class="trend-summary">
+    <div class="trend-summary-card">
+      <span class="label">Snapshots</span>
+      <span class="value" id="trend-count">--</span>
+    </div>
+    <div class="trend-summary-card">
+      <span class="label">First observation</span>
+      <span class="value" id="trend-first">--</span>
+    </div>
+    <div class="trend-summary-card">
+      <span class="label">Latest observation</span>
+      <span class="value" id="trend-latest">--</span>
+    </div>
+  </div>
+
+  <div class="trend-grid">
+    <div class="trend-chart-card">
+      <h3>Clicks</h3>
+      <div class="trend-chart-meta">28-day rolling organic clicks</div>
+      <div id="trend-clicks" class="trend-chart"></div>
+    </div>
+
+    <div class="trend-chart-card">
+      <h3>Impressions</h3>
+      <div class="trend-chart-meta">28-day rolling search impressions</div>
+      <div id="trend-impressions" class="trend-chart"></div>
+    </div>
+
+    <div class="trend-chart-card">
+      <h3>CTR</h3>
+      <div class="trend-chart-meta">28-day rolling click-through rate</div>
+      <div id="trend-ctr" class="trend-chart"></div>
+    </div>
+
+    <div class="trend-chart-card">
+      <h3>Average position</h3>
+      <div class="trend-chart-meta">Lower position number is better</div>
+      <div id="trend-position" class="trend-chart"></div>
+    </div>
+  </div>
+
+  <div class="trend-controls">
+    <label for="keyword-trend-select">Tracked keyword:</label>
+    <select id="keyword-trend-select"></select>
+  </div>
+
+  <div id="keyword-trend-card" class="trend-chart-card">
+    <h3 id="keyword-trend-title">Tracked keyword position</h3>
+    <div class="trend-chart-meta">
+      28-day average Google Search Console position for the selected query
+    </div>
+    <div id="trend-keyword" class="trend-chart"></div>
+  </div>
 </section>
 
 <section id="tracked" class="tab"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
@@ -729,6 +940,227 @@ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
   document.getElementById(b.dataset.tab).classList.add("active");
   b.classList.add("active");
 });
+
+const trendEsc=(v)=>String(v??"")
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#39;");
+
+const trendDate=(value)=>{
+  if(!value)return "--";
+  const parts=String(value).split("-");
+  if(parts.length!==3)return value;
+  return `${Number(parts[1])}/${Number(parts[2])}/${parts[0]}`;
+};
+
+const trendNumber=(value,digits=1)=>{
+  const x=Number(value);
+  if(!Number.isFinite(x))return "--";
+  return x.toLocaleString(undefined,{
+    minimumFractionDigits:digits,
+    maximumFractionDigits:digits
+  });
+};
+
+function renderTrendChart(targetId,snapshots,valueFn,options={}){
+  const target=document.getElementById(targetId);
+  if(!target)return;
+
+  const points=(snapshots||[])
+    .map(s=>({
+      date:s.date,
+      value:Number(valueFn(s))
+    }))
+    .filter(p=>p.date && Number.isFinite(p.value));
+
+  if(points.length<2){
+    target.innerHTML=`
+      <div class="trend-empty">
+        Historical tracking is active. At least two reporting snapshots are
+        needed to draw a trend line. Current snapshots: ${points.length}.
+      </div>`;
+    return;
+  }
+
+  const width=640;
+  const height=250;
+  const left=54;
+  const right=18;
+  const top=18;
+  const bottom=42;
+  const plotW=width-left-right;
+  const plotH=height-top-bottom;
+
+  let values=points.map(p=>p.value);
+  let min=Math.min(...values);
+  let max=Math.max(...values);
+
+  if(min===max){
+    const pad=Math.abs(min)*0.1 || 1;
+    min-=pad;
+    max+=pad;
+  }else{
+    const pad=(max-min)*0.12;
+    min-=pad;
+    max+=pad;
+  }
+
+  const x=(i)=>left+(points.length===1?plotW/2:(i/(points.length-1))*plotW);
+  const y=(v)=>{
+    const ratio=(v-min)/(max-min);
+    return options.invert
+      ? top+(ratio*plotH)
+      : top+plotH-(ratio*plotH);
+  };
+
+  const format=options.format || ((v)=>trendNumber(v,1));
+
+  let grid="";
+  for(let i=0;i<=4;i++){
+    const gy=top+(plotH*(i/4));
+    const value=options.invert
+      ? min+((max-min)*(i/4))
+      : max-((max-min)*(i/4));
+
+    grid+=`
+      <line class="trend-grid-line"
+        x1="${left}" y1="${gy}"
+        x2="${width-right}" y2="${gy}"></line>
+      <text class="trend-label"
+        x="${left-8}" y="${gy+4}"
+        text-anchor="end">${trendEsc(format(value))}</text>`;
+  }
+
+  const coords=points.map((p,i)=>`${x(i)},${y(p.value)}`).join(" ");
+
+  const dots=points.map((p,i)=>`
+    <circle class="trend-dot"
+      cx="${x(i)}"
+      cy="${y(p.value)}"
+      r="4">
+      <title>${trendEsc(trendDate(p.date))}: ${trendEsc(format(p.value))}</title>
+    </circle>`).join("");
+
+  const first=points[0];
+  const last=points[points.length-1];
+
+  target.innerHTML=`
+    <svg viewBox="0 0 ${width} ${height}"
+      role="img"
+      aria-label="${trendEsc(options.label||"SEO historical trend")}">
+      ${grid}
+      <line class="trend-axis"
+        x1="${left}" y1="${top+plotH}"
+        x2="${width-right}" y2="${top+plotH}"></line>
+      <polyline class="trend-line" points="${coords}"></polyline>
+      ${dots}
+      <text class="trend-label"
+        x="${left}" y="${height-12}"
+        text-anchor="start">${trendEsc(trendDate(first.date))}</text>
+      <text class="trend-label"
+        x="${width-right}" y="${height-12}"
+        text-anchor="end">${trendEsc(trendDate(last.date))}</text>
+    </svg>`;
+}
+
+function renderHistory(history){
+  const snapshots=Array.isArray(history?.snapshots)
+    ? history.snapshots.slice().sort((a,b)=>
+        String(a.date||"").localeCompare(String(b.date||"")))
+    : [];
+
+  document.getElementById("trend-count").textContent=snapshots.length;
+  document.getElementById("trend-first").textContent=
+    snapshots.length ? trendDate(snapshots[0].date) : "--";
+  document.getElementById("trend-latest").textContent=
+    snapshots.length ? trendDate(snapshots[snapshots.length-1].date) : "--";
+
+  renderTrendChart(
+    "trend-clicks",
+    snapshots,
+    s=>s.summary?.clicks,
+    {label:"Organic clicks trend",format:v=>trendNumber(v,0)}
+  );
+
+  renderTrendChart(
+    "trend-impressions",
+    snapshots,
+    s=>s.summary?.impressions,
+    {label:"Organic impressions trend",format:v=>trendNumber(v,0)}
+  );
+
+  renderTrendChart(
+    "trend-ctr",
+    snapshots,
+    s=>s.summary?.ctr,
+    {label:"Organic CTR trend",format:v=>`${trendNumber(v,2)}%`}
+  );
+
+  renderTrendChart(
+    "trend-position",
+    snapshots,
+    s=>s.summary?.position,
+    {
+      label:"Average search position trend",
+      format:v=>trendNumber(v,1),
+      invert:true
+    }
+  );
+
+  const keywordSet=new Set();
+
+  snapshots.forEach(s=>{
+    Object.keys(s.tracked_keywords||{}).forEach(q=>keywordSet.add(q));
+  });
+
+  const keywords=[...keywordSet].sort((a,b)=>a.localeCompare(b));
+  const select=document.getElementById("keyword-trend-select");
+
+  select.innerHTML=keywords.length
+    ? keywords.map(q=>`<option value="${trendEsc(q)}">${trendEsc(q)}</option>`).join("")
+    : '<option value="">No tracked keyword history yet</option>';
+
+  const renderKeyword=()=>{
+    const query=select.value;
+    document.getElementById("keyword-trend-title").textContent=
+      query ? `${query} - position trend` : "Tracked keyword position";
+
+    renderTrendChart(
+      "trend-keyword",
+      snapshots,
+      s=>s.tracked_keywords?.[query]?.position,
+      {
+        label:`${query} position trend`,
+        format:v=>trendNumber(v,1),
+        invert:true
+      }
+    );
+  };
+
+  select.addEventListener("change",renderKeyword);
+  renderKeyword();
+}
+
+fetch("./data/history.json",{cache:"no-store"})
+  .then(r=>{
+    if(!r.ok)throw new Error(`History request failed: ${r.status}`);
+    return r.json();
+  })
+  .then(renderHistory)
+  .catch(err=>{
+    console.error(err);
+
+    ["trend-clicks","trend-impressions","trend-ctr","trend-position","trend-keyword"]
+      .forEach(id=>{
+        const el=document.getElementById(id);
+        if(el){
+          el.innerHTML='<div class="trend-empty">Historical data is not available yet.</div>';
+        }
+      });
+  });
+
 fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  if(!d.generated_at){document.getElementById("note").textContent="Run python.exe .\\tools\\gsc_dashboard.py to populate the dashboard.";return}
  const renderPeriod=(days)=>{
