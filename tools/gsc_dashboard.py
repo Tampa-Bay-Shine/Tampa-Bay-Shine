@@ -79,6 +79,233 @@ def summary_change(current, previous):
     }
 
 
+def aggregate_by_dimension(rows, dimension):
+    """Aggregate GSC rows to one row per query or page."""
+    grouped = {}
+
+    for row in rows:
+        key = row.get(dimension)
+        if not key:
+            continue
+
+        item = grouped.setdefault(key, {
+            dimension: key,
+            "clicks": 0.0,
+            "impressions": 0.0,
+            "_position_weight": 0.0,
+        })
+
+        clicks = float(row.get("clicks", 0) or 0)
+        impressions = float(row.get("impressions", 0) or 0)
+        position = row.get("position")
+
+        item["clicks"] += clicks
+        item["impressions"] += impressions
+
+        if position not in (None, "") and impressions > 0:
+            item["_position_weight"] += float(position) * impressions
+
+    result = []
+
+    for item in grouped.values():
+        impressions = item["impressions"]
+        clicks = item["clicks"]
+
+        item["ctr"] = clicks / impressions if impressions else 0.0
+        item["position"] = (
+            item["_position_weight"] / impressions
+            if impressions
+            else None
+        )
+
+        del item["_position_weight"]
+        result.append(item)
+
+    return result
+
+
+def build_movers(current_rows, previous_rows, dimensions, limit=25):
+    """Build 28-day SEO movers with confidence and movement classifications."""
+    compared = gsc.comparison_rows(current_rows, previous_rows, dimensions)
+    movers = []
+
+    for row in compared:
+        current_impressions = float(row.get("current_impressions", 0) or 0)
+        previous_impressions = float(row.get("previous_impressions", 0) or 0)
+        current_clicks = float(row.get("current_clicks", 0) or 0)
+        previous_clicks = float(row.get("previous_clicks", 0) or 0)
+
+        current_position = row.get("current_position")
+        previous_position = row.get("previous_position")
+        current_ctr = row.get("current_ctr_percent")
+        previous_ctr = row.get("previous_ctr_percent")
+
+        current_position = (
+            float(current_position)
+            if current_position not in (None, "")
+            else None
+        )
+        previous_position = (
+            float(previous_position)
+            if previous_position not in (None, "")
+            else None
+        )
+        current_ctr = (
+            float(current_ctr)
+            if current_ctr not in (None, "")
+            else None
+        )
+        previous_ctr = (
+            float(previous_ctr)
+            if previous_ctr not in (None, "")
+            else None
+        )
+
+        total_impressions = current_impressions + previous_impressions
+
+        # Five impressions is enough to retain a row for analysis, but
+        # confidence is exposed so the UI can distinguish noisy movement.
+        if total_impressions < 5:
+            continue
+
+        if total_impressions >= 50:
+            confidence = "high"
+        elif total_impressions >= 20:
+            confidence = "medium"
+        else:
+            confidence = "low"
+
+        position_change = (
+            round(previous_position - current_position, 2)
+            if current_position is not None and previous_position is not None
+            else None
+        )
+
+        impression_change = round(
+            current_impressions - previous_impressions, 2
+        )
+        click_change = round(
+            current_clicks - previous_clicks, 2
+        )
+
+        ctr_change = (
+            round(current_ctr - previous_ctr, 2)
+            if current_ctr is not None and previous_ctr is not None
+            else None
+        )
+
+        if previous_impressions > 0:
+            impression_pct_change = round(
+                (impression_change / previous_impressions) * 100, 2
+            )
+        else:
+            impression_pct_change = None
+
+        meaningful = (
+            abs(click_change) >= 1
+            or abs(impression_change) >= 5
+            or (
+                position_change is not None
+                and abs(position_change) >= 2
+                and total_impressions >= 10
+            )
+        )
+
+        if not meaningful:
+            continue
+
+        # Classify the dominant business-relevant movement instead of allowing
+        # a large position swing to hide a major visibility decline.
+        if click_change > 0:
+            movement = "winner"
+            reason = "Clicks increased"
+        elif click_change < 0:
+            movement = "loser"
+            reason = "Clicks decreased"
+        elif impression_change >= 5 and (position_change or 0) >= 0:
+            movement = "winner"
+            reason = "Visibility increased"
+        elif impression_change <= -5:
+            movement = "loser"
+            reason = "Visibility decreased"
+        elif position_change is not None and position_change >= 2:
+            movement = "winner"
+            reason = "Average position improved"
+        elif position_change is not None and position_change <= -2:
+            movement = "loser"
+            reason = "Average position declined"
+        else:
+            continue
+
+        # Score magnitude is for ordering only. Classification above determines
+        # whether the row is a winner or loser.
+        impact_score = (
+            abs(click_change) * 20
+            + abs(impression_change) * 0.25
+            + abs(position_change or 0) * min(total_impressions, 100) / 50
+        )
+
+        item = {dim: row.get(dim) for dim in dimensions}
+
+        item.update({
+            "movement": movement,
+            "reason": reason,
+            "confidence": confidence,
+            "current_clicks": current_clicks,
+            "previous_clicks": previous_clicks,
+            "click_change": click_change,
+            "current_impressions": current_impressions,
+            "previous_impressions": previous_impressions,
+            "impression_change": impression_change,
+            "impression_pct_change": impression_pct_change,
+            "current_ctr": current_ctr,
+            "previous_ctr": previous_ctr,
+            "ctr_change": ctr_change,
+            "current_position": current_position,
+            "previous_position": previous_position,
+            "position_change": position_change,
+            "impact_score": round(impact_score, 2),
+        })
+
+        movers.append(item)
+
+    confidence_order = {"high": 3, "medium": 2, "low": 1}
+
+    def sort_key(item):
+        return (
+            confidence_order[item["confidence"]],
+            item["impact_score"],
+        )
+
+    winners = sorted(
+        (x for x in movers if x["movement"] == "winner"),
+        key=sort_key,
+        reverse=True,
+    )[:limit]
+
+    losers = sorted(
+        (x for x in movers if x["movement"] == "loser"),
+        key=sort_key,
+        reverse=True,
+    )[:limit]
+
+    return {
+        "winners": winners,
+        "losers": losers,
+        "minimum_total_impressions": 5,
+        "confidence": {
+            "high": "50+ combined impressions",
+            "medium": "20-49 combined impressions",
+            "low": "5-19 combined impressions",
+        },
+        "method": (
+            "28-day current period versus previous 28 days. "
+            "Clicks take priority, followed by visibility and ranking movement. "
+            "Rows with fewer than 5 combined impressions are excluded."
+        ),
+    }
+
+
 def fetch_period(service, site, days, lag, end_date):
     start, end, prev_start, prev_end = gsc.period(days, lag, end_date)
     cur_q = gsc.normalize_rows(gsc.fetch_rows(service, site, start, end, ["query"]), ["query"])
@@ -177,6 +404,12 @@ def main():
     opportunities = gsc.build_opportunities(cqp, pqp, False)[:50]
     cannibal = gsc.build_cannibalization(cqp)[:50]
 
+    query_movers = build_movers(cq, pq, ["query"])
+
+    current_pages = aggregate_by_dimension(cqp, "page")
+    previous_pages = aggregate_by_dimension(pqp, "page")
+    page_movers = build_movers(current_pages, previous_pages, ["page"])
+
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "source": "Google Search Console",
@@ -190,6 +423,8 @@ def main():
         "top_queries": discovered,
         "opportunities": opportunities,
         "cannibalization": cannibal,
+        "query_movers": query_movers,
+        "page_movers": page_movers,
         "limitations": "GSC average position is impression-weighted performance data, not a deterministic live SERP rank. GSC does not provide competitor or Google Maps grid rankings."
     }
     out = Path(args.out)
