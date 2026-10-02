@@ -1,4 +1,4 @@
-name: Refresh GSC SEO Dashboard
+﻿name: Refresh GSC and GA4 SEO Dashboard
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: gsc-seo-dashboard-refresh
+  group: gsc-ga4-seo-dashboard-refresh
   cancel-in-progress: false
 
 jobs:
@@ -31,35 +31,60 @@ jobs:
       - name: Install Google API dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+          python -m pip install \
+            google-api-python-client \
+            google-auth-httplib2 \
+            google-auth-oauthlib \
+            google-analytics-data
 
-      - name: Create temporary GSC credentials
+      - name: Create temporary Google credentials
         shell: bash
         env:
           CLIENT_SECRET_B64: ${{ secrets.TBS_GSC_CLIENT_SECRET_B64 }}
-          TOKEN_B64: ${{ secrets.TBS_GSC_TOKEN_B64 }}
+          GSC_TOKEN_B64: ${{ secrets.TBS_GSC_TOKEN_B64 }}
+          GA4_TOKEN_B64: ${{ secrets.TBS_GA4_TOKEN_B64 }}
         run: |
           set -euo pipefail
 
-          if [ -z "$CLIENT_SECRET_B64" ] || [ -z "$TOKEN_B64" ]; then
-            echo "Required GSC secrets are missing."
+          if [ -z "$CLIENT_SECRET_B64" ] || \
+             [ -z "$GSC_TOKEN_B64" ] || \
+             [ -z "$GA4_TOKEN_B64" ]; then
+            echo "Required Google API secrets are missing."
             exit 1
           fi
 
           mkdir -p "$RUNNER_TEMP/tbs-gsc"
-          printf '%s' "$CLIENT_SECRET_B64" | base64 --decode > "$RUNNER_TEMP/tbs-gsc/client_secret.json"
-          printf '%s' "$TOKEN_B64" | base64 --decode > "$RUNNER_TEMP/tbs-gsc/token.json"
+          mkdir -p "$RUNNER_TEMP/tbs-ga4"
+
+          printf '%s' "$CLIENT_SECRET_B64" | \
+            base64 --decode > "$RUNNER_TEMP/tbs-gsc/client_secret.json"
+
+          printf '%s' "$GSC_TOKEN_B64" | \
+            base64 --decode > "$RUNNER_TEMP/tbs-gsc/token.json"
+
+          printf '%s' "$GA4_TOKEN_B64" | \
+            base64 --decode > "$RUNNER_TEMP/tbs-ga4/token.json"
 
           chmod 600 "$RUNNER_TEMP/tbs-gsc/client_secret.json"
           chmod 600 "$RUNNER_TEMP/tbs-gsc/token.json"
+          chmod 600 "$RUNNER_TEMP/tbs-ga4/token.json"
 
-      - name: Refresh dashboard data
+      - name: Refresh GSC dashboard data
         run: |
           python tools/gsc_dashboard.py \
             --client-secret "$RUNNER_TEMP/tbs-gsc/client_secret.json" \
             --token "$RUNNER_TEMP/tbs-gsc/token.json" \
             --out "cloudflare-site/seo-dashboard/data/gsc.json" \
             --history-out "cloudflare-site/seo-dashboard/data/history.json"
+
+      - name: Refresh GA4 dashboard data
+        run: |
+          python tools/ga4_dashboard.py \
+            --client-secret "$RUNNER_TEMP/tbs-gsc/client_secret.json" \
+            --token "$RUNNER_TEMP/tbs-ga4/token.json" \
+            --property "487638948" \
+            --out "cloudflare-site/seo-dashboard/data/ga4.json" \
+            --history-out "cloudflare-site/seo-dashboard/data/ga4-history.json"
 
       - name: Verify only dashboard data changed
         shell: bash
@@ -68,7 +93,7 @@ jobs:
 
           unexpected="$(
             git status --porcelain |
-              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history)\.json$' ||
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|ga4|ga4-history)\.json$' ||
               true
           )"
 
@@ -78,22 +103,24 @@ jobs:
             exit 1
           fi
 
-      - name: Commit refreshed GSC data
+      - name: Commit refreshed dashboard data
         shell: bash
         run: |
           set -euo pipefail
 
           git add \
             cloudflare-site/seo-dashboard/data/gsc.json \
-            cloudflare-site/seo-dashboard/data/history.json
+            cloudflare-site/seo-dashboard/data/history.json \
+            cloudflare-site/seo-dashboard/data/ga4.json \
+            cloudflare-site/seo-dashboard/data/ga4-history.json
 
           if git diff --cached --quiet; then
-            echo "GSC dashboard and history data have not changed."
+            echo "Dashboard data has not changed."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "Refresh GSC dashboard data"
+          git commit -m "Refresh SEO dashboard data"
           git push origin HEAD:seo-dashboard
