@@ -880,6 +880,244 @@ def fetch_period(service, site, days, lag, end_date):
     prev_qp = gsc.normalize_rows(gsc.fetch_rows(service, site, prev_start, prev_end, ["query", "page"]), ["query", "page"])
     return start, end, prev_start, prev_end, cur_q, prev_q, cur_qp, prev_qp
 
+def build_tracked_keywords(current_queries, current_query_pages, previous_queries=None):
+    """Build tracked-keyword metrics and strongest current ranking page."""
+    previous_queries = previous_queries or []
+
+    current = {
+        row["query"].lower(): row
+        for row in current_queries
+        if row.get("query")
+    }
+
+    previous = {
+        row["query"].lower(): row
+        for row in previous_queries
+        if row.get("query")
+    }
+
+    tracked = []
+
+    for keyword in TRACKED:
+        current_row = current.get(keyword)
+        previous_row = previous.get(keyword)
+
+        current_metrics = metrics(current_row)
+        previous_metrics = metrics(previous_row)
+
+        tracked.append({
+            "query": keyword,
+            "current": current_metrics,
+            "previous": previous_metrics,
+            "position_change": (
+                round(
+                    previous_metrics["position"] - current_metrics["position"],
+                    2,
+                )
+                if current_metrics["position"] is not None
+                and previous_metrics["position"] is not None
+                else None
+            ),
+        })
+
+    query_pages = {}
+
+    for row in current_query_pages:
+        query = row.get("query")
+
+        if not query:
+            continue
+
+        query_pages.setdefault(query.lower(), []).append(row)
+
+    for item in tracked:
+        rows = sorted(
+            query_pages.get(item["query"], []),
+            key=lambda row: -float(row.get("impressions", 0)),
+        )
+
+        item["ranking_page"] = rows[0].get("page") if rows else None
+
+    return tracked
+
+
+def backfill_history(
+    service,
+    site,
+    history_path,
+    backfill_days,
+    interval_days,
+    lag_days,
+    end_date=None,
+    max_snapshots=400,
+):
+    """Backfill compact 28-day GSC history using real historical API data."""
+    from datetime import date, datetime, timedelta
+
+    if backfill_days < 1:
+        raise ValueError("--backfill-days must be at least 1.")
+
+    if interval_days < 1:
+        raise ValueError("--backfill-interval must be at least 1.")
+
+    if end_date:
+        if isinstance(end_date, str):
+            latest_end = datetime.strptime(end_date, "%Y-%m-%d").date()
+        else:
+            latest_end = end_date
+    else:
+        latest_end = date.today() - timedelta(days=lag_days)
+
+    earliest_end = latest_end - timedelta(days=backfill_days - 1)
+
+    history_path = Path(history_path)
+
+    if history_path.exists():
+        history = json.loads(history_path.read_text(encoding="utf-8"))
+    else:
+        history = {
+            "schema_version": 1,
+            "max_snapshots": max_snapshots,
+            "snapshots": [],
+        }
+
+    if history.get("schema_version") != 1:
+        raise ValueError("Unsupported history schema_version.")
+
+    existing = {
+        item.get("date"): item
+        for item in history.get("snapshots", [])
+        if item.get("date")
+    }
+
+    end_dates = []
+    cursor = earliest_end
+
+    while cursor <= latest_end:
+        end_dates.append(cursor)
+        cursor += timedelta(days=interval_days)
+
+    # Always include the newest available GSC date even when the interval
+    # does not land exactly on it.
+    if not end_dates or end_dates[-1] != latest_end:
+        end_dates.append(latest_end)
+
+    print(
+        f"Backfilling {len(end_dates)} historical observations "
+        f"from {end_dates[0]} through {end_dates[-1]} "
+        f"at approximately {interval_days}-day intervals."
+    )
+
+    for index, snapshot_end in enumerate(end_dates, start=1):
+        period_start = snapshot_end - timedelta(days=27)
+
+        query_rows = gsc.normalize_rows(
+            gsc.fetch_rows(
+                service,
+                site,
+                period_start,
+                snapshot_end,
+                ["query"],
+            ),
+            ["query"],
+        )
+
+        query_page_rows = gsc.normalize_rows(
+            gsc.fetch_rows(
+                service,
+                site,
+                period_start,
+                snapshot_end,
+                ["query", "page"],
+            ),
+            ["query", "page"],
+        )
+
+        summary = aggregate(query_rows)
+
+        tracked = build_tracked_keywords(
+            query_rows,
+            query_page_rows,
+        )
+
+        tracked_history = {}
+
+        for item in tracked:
+            query = item.get("query")
+            current = item.get("current", {})
+
+            if not query:
+                continue
+
+            tracked_history[query] = {
+                "position": current.get("position"),
+                "impressions": current.get("impressions", 0),
+                "clicks": current.get("clicks", 0),
+                "ctr": current.get("ctr", 0),
+                "ranking_page": item.get("ranking_page"),
+            }
+
+        # Preserve fields from an existing same-date snapshot where
+        # appropriate, especially Action Center counts generated by the
+        # full daily dashboard build.
+        old = existing.get(snapshot_end.isoformat(), {})
+
+        snapshot = {
+            "date": snapshot_end.isoformat(),
+            "period_start": period_start.isoformat(),
+            "period_end": snapshot_end.isoformat(),
+            "period_days": 28,
+            "summary": summary,
+            "actions": old.get(
+                "actions",
+                {
+                    "high": None,
+                    "medium": None,
+                    "low": None,
+                    "total": None,
+                },
+            ),
+            "tracked_keywords": tracked_history,
+            "pages": old.get("pages", {}),
+        }
+
+        existing[snapshot["date"]] = snapshot
+
+        print(
+            f"[{index}/{len(end_dates)}] {snapshot['date']} | "
+            f"clicks={summary.get('clicks', 0)} | "
+            f"impressions={summary.get('impressions', 0)} | "
+            f"tracked={sum(1 for value in tracked_history.values() if value.get('impressions', 0) > 0)}"
+        )
+
+    snapshots = sorted(
+        existing.values(),
+        key=lambda item: item.get("date", ""),
+    )
+
+    if len(snapshots) > max_snapshots:
+        snapshots = snapshots[-max_snapshots:]
+
+    history = {
+        "schema_version": 1,
+        "max_snapshots": max_snapshots,
+        "snapshots": snapshots,
+    }
+
+    history_path.parent.mkdir(parents=True, exist_ok=True)
+    history_path.write_text(
+        json.dumps(history, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    print(
+        f"History backfill complete: {history_path} | "
+        f"{len(snapshots)} snapshots | "
+        f"{snapshots[0]['date'] if snapshots else '--'} to "
+        f"{snapshots[-1]['date'] if snapshots else '--'}"
+    )
+
+
 def main():
     ap = argparse.ArgumentParser(description="Build the Tampa Bay Shine GSC dashboard data.")
     ap.add_argument("--property", default=None)
@@ -895,11 +1133,40 @@ def main():
         default=str(DEFAULT_OUT.parent / "history.json"),
         help="Path to compact historical dashboard snapshots.",
     )
+    ap.add_argument(
+        "--backfill-history",
+        action="store_true",
+        help="Backfill real historical 28-day GSC snapshots and exit.",
+    )
+    ap.add_argument(
+        "--backfill-days",
+        type=int,
+        default=180,
+        help="Calendar span to backfill when --backfill-history is used.",
+    )
+    ap.add_argument(
+        "--backfill-interval",
+        type=int,
+        default=7,
+        help="Days between historical observations during backfill.",
+    )
     args = ap.parse_args()
 
     creds = gsc.get_credentials(Path(args.client_secret), Path(args.token))
     service, webmasters = gsc.build_services(creds)
     site = gsc.choose_property(webmasters, args.property, args.host)
+
+    if args.backfill_history:
+        backfill_history(
+            service=service,
+            site=site,
+            history_path=Path(args.history_out),
+            backfill_days=args.backfill_days,
+            interval_days=args.backfill_interval,
+            lag_days=args.lag_days,
+            end_date=args.end_date,
+        )
+        return
 
     periods = {}
     period_rows = {}
