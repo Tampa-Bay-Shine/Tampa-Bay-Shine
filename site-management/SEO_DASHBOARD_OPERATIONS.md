@@ -1,0 +1,267 @@
+﻿# Tampa Bay Shine SEO Dashboard and Analytics Operations Guide
+
+## Purpose
+
+Technical runbook for the Tampa Bay Shine SEO/analytics dashboard. It
+covers Google Search Console (GSC), Google Analytics 4 (GA4),
+BookingKoala conversion tracking, cross-domain measurement, automation,
+credentials, rotation, testing, troubleshooting, privacy, and change
+management.
+
+For the nontechnical guide, see
+`site-management/SEO_DASHBOARD_USER_GUIDE.md`.
+
+## Production dashboard
+
+-   Dashboard: https://seo.tampabayshine.com/
+-   Cloudflare Pages project: `tbs-seo-dashboard`
+-   Deployment branch: `seo-dashboard`
+-   Build output: `cloudflare-site/seo-dashboard`
+-   Access: Cloudflare Access
+
+The dashboard deploys separately from the public website.
+
+## Data architecture
+
+**GSC** measures Google visibility: impressions, clicks, CTR, average
+position, queries, pages, query/page combinations, and tracked-keyword
+trends. GSC does not report BookingKoala bookings and cannot reliably
+connect an individual query to an individual later booking.
+
+**GA4** measures activity after arrival: Organic Search sessions/users,
+engagement, booking starts, lead-intent events, and confirmed
+BookingKoala bookings.
+
+-   GA4 Property ID: `487638948`
+-   GA4 Measurement ID: `G-XK4CTL9KWM`
+-   Google Ads tag: `AW-17001979579`
+
+Primary funnel:
+
+`Google visibility -> Google click -> Organic Search session -> booking start -> confirmed BookingKoala booking`
+
+## Event definitions
+
+  -------------------------------------------------------------------------------
+  Event                      Meaning                      Classification
+  -------------------------- ---------------------------- -----------------------
+  `booknow_click`            Tracked Book Now CTA click   Booking start / intent
+
+  `phone_click`              Telephone-link click         Lead intent
+
+  `commercial_quote_start`   Commercial contact path      Lead intent
+                             initiated
+
+  `contact_click`            General contact path entered Lead intent
+
+  `coupon_click`             Coupon interaction           Secondary intent
+
+  `review_click`             Supported review/Maps link   Engagement
+                             click
+
+  `BookingByCustomer`        BookingKoala native          Confirmed booking
+                             completed-customer-booking
+                             event
+  -------------------------------------------------------------------------------
+
+`booknow_click` is not a completed booking. `BookingByCustomer` is the
+authoritative confirmed-booking event used by the dashboard and is
+case-sensitive. Do not create a second completion event without a
+validated need. Do not expose customer identifiers or BookingKoala
+booking IDs in the dashboard.
+
+## Rates
+
+-   Booking start rate = Organic Search `booknow_click` / Organic Search
+    sessions.
+-   Confirmed booking rate = Organic Search `BookingByCustomer` /
+    Organic Search sessions.
+-   Booking completion rate = Organic Search `BookingByCustomer` /
+    Organic Search `booknow_click`.
+
+These are event-count ratios, not exact unique-person probabilities.
+
+## Verified cross-domain behavior
+
+Google's linker is configured for `tampabayshine.com`,
+`tampabayshine.bookingkoala.com`, and `booking.tampabayshine.com`.
+
+A production test verified `_gl` decoration on the BookingKoala handoff
+and returned the identical GA4 Client ID, `1806746636.1790971052`,
+before and after the TampaBayShine.com -\> BookingKoala transition.
+Cross-domain GA4 client-identity continuity is therefore verified for
+that test.
+
+This does not by itself prove acquisition-source preservation through
+booking completion. Organic Search -\> BookingKoala -\>
+`BookingByCustomer` remains a separate attribution-quality test.
+
+A real booking test also produced `BookingByCustomer` in GA4 Realtime
+and the GA4 Data API. Refreshing the existing Thank You page once did
+not increase the event count in that test. This supports duplicate
+protection for that tested workflow but is not a universal guarantee.
+
+## Dashboard files
+
+-   `cloudflare-site/seo-dashboard/index.html`
+-   `cloudflare-site/seo-dashboard/data/gsc.json`
+-   `cloudflare-site/seo-dashboard/data/history.json`
+-   `cloudflare-site/seo-dashboard/data/ga4.json`
+-   `cloudflare-site/seo-dashboard/data/ga4-history.json`
+-   `cloudflare-site/seo-dashboard/data/events.json`
+
+## Tools
+
+-   `tools/gsc_dashboard.py`
+-   `tools/ga4_dashboard.py`
+-   `tools/ga4_conversion_audit.py`
+-   `tools/gsc_performance_audit.py`
+-   `tools/gsc_index_audit.py`
+-   `tools/seo_event.py`
+
+Reuse these tools instead of rebuilding equivalent API clients.
+
+## Automated refresh
+
+The authoritative scheduled workflow is
+`.github/workflows/gsc-dashboard.yml` on the default branch. It runs
+daily at cron `15 11 * * *`, checks out `seo-dashboard`, installs Google
+API dependencies, reconstructs temporary credentials from GitHub
+secrets, refreshes GSC and GA4, rejects unexpected changes, stages only
+`gsc.json`, `history.json`, `ga4.json`, and `ga4-history.json`, then
+commits and pushes changed data to `seo-dashboard`.
+
+Do not use the public-site promotion script to refresh dashboard data.
+
+## Credentials
+
+Never commit OAuth credentials.
+
+Local files:
+
+-   `%USERPROFILE%\.tbs-gsc\client_secret.json`
+-   `%USERPROFILE%\.tbs-gsc\token.json`
+-   `%USERPROFILE%\.tbs-ga4\token.json`
+
+Scopes:
+
+-   GSC: `https://www.googleapis.com/auth/webmasters.readonly`
+-   GA4: `https://www.googleapis.com/auth/analytics.readonly`
+
+GitHub Actions secrets:
+
+-   `TBS_GSC_CLIENT_SECRET_B64`
+-   `TBS_GSC_TOKEN_B64`
+-   `TBS_GA4_TOKEN_B64`
+
+Base64 is encoding, not encryption. Never place decoded credentials or
+encoded secret values in the repository, documentation, issues, commit
+messages, dashboard JSON, or chat transcripts.
+
+## Credential rotation
+
+### OAuth token
+
+1.  Preserve the working token until its replacement is verified.
+2.  Reauthorize the appropriate Google API scope locally.
+3.  Run the applicable generator with the replacement.
+4.  Confirm expected data.
+5.  Base64-encode the replacement.
+6.  Replace the corresponding GitHub Actions secret.
+7.  Manually run the dashboard workflow.
+8.  Verify workflow success and fresh dashboard data.
+9.  Retire obsolete copies only after verification.
+
+### OAuth client
+
+1.  Obtain the authorized replacement OAuth client.
+2.  Store it outside the repository.
+3.  Reauthorize GSC/GA4 if required.
+4.  Test both generators locally.
+5.  Replace `TBS_GSC_CLIENT_SECRET_B64`.
+6.  Replace token secrets if new tokens were issued.
+7.  Manually run the workflow.
+8.  Verify GSC, GA4, commit, push, and deployment.
+9.  Retire the old client only after successful verification.
+
+PowerShell base64 example:
+
+``` powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("$HOME\.tbs-ga4\token.json"))
+```
+
+Treat the output as a secret.
+
+## Local GA4 refresh
+
+``` powershell
+python.exe .\tools\ga4_dashboard.py `
+  --property 487638948 `
+  --client-secret "$HOME\.tbs-gsc\client_secret.json" `
+  --token "$HOME\.tbs-ga4\token.json" `
+  --out ".\cloudflare-site\seo-dashboard\data\ga4.json" `
+  --history-out ".\cloudflare-site\seo-dashboard\data\ga4-history.json"
+```
+
+## GA4 diagnostic audit
+
+``` powershell
+python.exe .\tools\ga4_conversion_audit.py `
+  --property 487638948 `
+  --client-secret "$HOME\.tbs-gsc\client_secret.json" `
+  --token "$HOME\.tbs-ga4\token.json" `
+  --start-date YYYY-MM-DD `
+  --end-date YYYY-MM-DD
+```
+
+Use `site-management/GSC_AUDIT_TOOLS.md` and the existing GSC tools for
+Search Console operations.
+
+## Privacy and change management
+
+Keep the dashboard aggregate-only. Do not expose customer names, emails,
+phone numbers, street addresses, payment information, form contents, or
+customer-linked booking IDs.
+
+When changing analytics: define the business meaning, identify the
+authoritative source, distinguish intent from completed outcomes,
+exclude PII, test locally, inspect generated JSON, test the dashboard,
+update documentation, commit only expected files, and verify scheduled
+automation. Never silently change an established metric's meaning.
+
+## Troubleshooting
+
+If the dashboard stops updating, inspect GitHub Actions and isolate
+credential creation, GSC generation, GA4 generation, safety validation,
+commit, or push.
+
+If GSC succeeds but GA4 fails, check `TBS_GA4_TOKEN_B64`, GA4 API
+access, property `487638948`, OAuth scope, and `google-analytics-data`.
+
+If GA4 succeeds but GSC fails, check `TBS_GSC_TOKEN_B64`, Search Console
+property/API access, and scope.
+
+If booking starts appear but confirmed bookings do not, first check GA4
+for exact `BookingByCustomer` events by acquisition channel. A start
+does not guarantee completion.
+
+If confirmed bookings appear as Direct, do not relabel them as Organic
+Search. Investigate session/source continuity.
+
+## Known limitations
+
+GSC average position is an aggregate metric, not a deterministic live
+rank. GSC cannot attribute an individual query to a specific later GA4
+booking. GA4 attribution depends on session/acquisition continuity.
+Revenue attribution is not currently validated; do not infer revenue
+from booking counts.
+
+## Phase 7 status
+
+Verified: production GA4, Book Now tracking, native `BookingByCustomer`,
+Data API availability, `_gl` decoration, matching cross-domain Client
+ID, and no duplicate native event in one Thank You-page reload test.
+
+Still to verify: controlled acquisition-source preservation through the
+complete booking path, especially Organic Search -\> BookingKoala -\>
+`BookingByCustomer`.

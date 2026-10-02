@@ -1,31 +1,64 @@
-# Tampa Bay Shine Conversion Tracking
+﻿# Tampa Bay Shine Conversion Tracking
 
 ## Purpose
 
-The public Cloudflare site includes first-party click instrumentation in `cloudflare-site/assets/js/main.js`.
+This document defines the business meaning of Tampa Bay Shine analytics
+events.
 
-The code exposes high-intent visitor actions so GTM, GA4, another analytics platform, or custom browser code can consume them.
+The public Cloudflare site includes first-party CTA instrumentation in
+`cloudflare-site/assets/js/main.js`. GA4 persists those events on
+production. BookingKoala separately emits its native confirmed-booking
+event.
 
-The tracking code does **not** by itself store analytics data or send data to Google.
+For implementation details, see
+`site-management/ANALYTICS_IMPLEMENTATION.md`.
+
+For dashboard operations, see
+`site-management/SEO_DASHBOARD_OPERATIONS.md`.
+
+## Conversion funnel
+
+The primary measured funnel is:
+
+`Google Search visibility -> website visit -> booknow_click -> BookingByCustomer`
+
+For Organic Search dashboard reporting, this is interpreted as:
+
+`Google visibility -> Google click -> Organic Search session -> booking start -> confirmed booking`
+
+GSC and GA4 measure different portions of this journey. Do not claim
+that an individual GSC query caused an individual later booking.
 
 ## Current events
 
-| Event | Trigger |
-|---|---|
-| `booknow_click` | Click on `/booknow` |
-| `phone_click` | Click on a `tel:` link |
-| `contact_click` | Click on `/contact-us` from a non-commercial page |
-| `commercial_quote_start` | Click on `/contact-us` from a commercial-intent page |
-| `coupon_click` | Click on `/coupons` |
-| `review_click` | Click on supported Google review/Maps links |
+  --------------------------------------------------------------------------
+  Event                      Trigger / source        Business meaning
+  -------------------------- ----------------------- -----------------------
+  `booknow_click`            Click on a tracked Book Booking start / strong
+                             Now CTA                 intent
 
-Commercial-intent path matching currently includes office-cleaning, commercial-cleaning, medical-office, common-area, floor-, gym-cleaning, post-construction, and post-event.
+  `phone_click`              Click on a `tel:` link  Lead intent
 
-## Event payload
+  `contact_click`            Click into general      Lead intent
+                             contact path
 
-Each event contains:
+  `commercial_quote_start`   Commercial-intent       Commercial lead intent
+                             contact path
 
-```json
+  `coupon_click`             Coupon-path click       Secondary intent
+
+  `review_click`             Supported Google        Engagement
+                             review/Maps click
+
+  `BookingByCustomer`        Native BookingKoala GA4 Confirmed booking
+                             event
+  --------------------------------------------------------------------------
+
+## First-party CTA payload
+
+Qualifying site CTA events use a payload such as:
+
+``` json
 {
   "event": "booknow_click",
   "event_name": "booknow_click",
@@ -36,121 +69,144 @@ Each event contains:
 ```
 
 Fields:
-- `event` — event name used by GTM-style data layers
-- `event_name` — duplicate event name for direct consumption
-- `page_path` — current marketing-page path
-- `link_url` — clicked destination
-- `link_text` — visible CTA/link text, limited to 120 characters
 
-## How events are emitted
+-   `event` - event name used by GTM-style data layers
+-   `event_name` - event name for direct consumption
+-   `page_path` - current marketing-page path
+-   `link_url` - clicked destination
+-   `link_text` - visible CTA/link text, limited by the implementation
 
-Every qualifying click dispatches:
+## How first-party events are emitted
 
-```javascript
+Each qualifying click dispatches:
+
+``` javascript
 window.dispatchEvent(new CustomEvent("tbs:conversion", { detail }));
 ```
 
-If `window.dataLayer` already exists and is an array, the same payload is also pushed:
+The implementation also supports the data layer and production GA4
+forwarding.
 
-```javascript
-window.dataLayer.push(detail);
-```
+The browser event layer is useful for debugging and future integrations,
+while GA4 provides persisted reporting.
 
-Without GTM, GA4, or another collector, the event is not persisted.
+## Confirmed bookings
 
-## How to test now
+`booknow_click` does not prove a booking was completed.
 
-Open DevTools Console and run:
+BookingKoala's native event:
 
-```javascript
-window.addEventListener("tbs:conversion", e => console.log(e.detail));
-```
+`BookingByCustomer`
 
-Then click a tracked CTA.
+is the confirmed-booking event used by the SEO dashboard.
 
-If GTM or another data-layer implementation exists, inspect:
+This event has been observed in GA4 Realtime and retrieved through the
+GA4 Data API after a real test booking.
 
-```javascript
-window.dataLayer
-```
+A tested Thank You page reload did not create an additional native
+event. Treat this as a successful test result, not a universal
+guarantee.
 
-## Recommended GTM / GA4 setup
+Do not create a second custom `booking_complete` event unless a new
+validated requirement makes it necessary.
 
-1. Create GTM Custom Event triggers for:
-   - `booknow_click`
-   - `phone_click`
-   - `contact_click`
-   - `commercial_quote_start`
-   - `coupon_click`
-   - `review_click`
-2. Create Data Layer Variables for:
-   - `page_path`
-   - `link_url`
-   - `link_text`
-3. Send those values to GA4 as event parameters.
-4. Test in GTM Preview / Tag Assistant.
-5. Verify in GA4 DebugView / Realtime.
-6. Mark only real business outcomes as GA4 key events.
+## Cross-domain attribution
 
-Recommended key-event candidates:
-- `booknow_click`
-- `commercial_quote_start`
-- `phone_click`
+Production uses Google's cross-domain linker between TampaBayShine.com
+and BookingKoala.
 
-`coupon_click` and `review_click` are useful engagement events but should not automatically be treated as conversions.
+A production test verified:
 
-## BookingKoala limitation
+-   `_gl` decoration on the BookingKoala handoff;
+-   identical GA4 Client IDs before and after the handoff.
 
-`booknow_click` measures only the handoff from the marketing site to BookingKoala. It does **not** prove a booking was completed.
+Therefore client-identity continuity is verified for that test.
 
-A complete residential funnel should eventually measure:
+Acquisition-source continuity through the complete booking event is a
+separate question. Do not relabel a Direct `BookingByCustomer` event as
+Organic Search merely because the visitor may have interacted with the
+site previously.
 
-```text
-landing page
-→ booknow_click
-→ booking_start
-→ booking_complete
-```
+## Dashboard rate definitions
 
-Do not report `booknow_click` as a completed booking.
+**Booking start rate**
 
-## Useful reports
+Organic Search `booknow_click` events divided by Organic Search
+sessions.
 
-Once GA4 is collecting these events, analyze by:
-- landing page
-- event name
-- CTA text
-- device
-- source / medium
-- campaign
-- service/location page
+**Confirmed booking rate**
 
-Useful questions:
-- Which pages generate the most Book Now clicks?
-- Which pages get traffic but weak CTA engagement?
-- Which commercial pages generate walkthrough interest?
-- Which sources drive phone clicks?
-- Which CTA wording performs best?
+Organic Search `BookingByCustomer` events divided by Organic Search
+sessions.
+
+**Booking completion rate**
+
+Organic Search `BookingByCustomer` events divided by Organic Search
+`booknow_click` events.
+
+These are event-count ratios and should not be presented as exact
+unique-person probabilities.
+
+## Useful analysis
+
+Analyze by:
+
+-   landing page
+-   event name
+-   acquisition channel
+-   source/medium when appropriate
+-   reporting period
+
+Useful questions include:
+
+-   Which landing pages generate booking starts?
+-   Which landing pages generate confirmed Organic Search bookings?
+-   Which pages receive traffic but weak CTA engagement?
+-   Which sources drive phone or commercial-contact intent?
+-   Where do booking starts fail to become confirmed bookings?
 
 ## Privacy
 
-Current click instrumentation does not intentionally collect names, email addresses, phone numbers, payment information, or form-field values.
-
-Do not add PII to analytics payloads.
+Do not intentionally collect or expose customer names, email addresses,
+telephone numbers, payment information, street addresses, form-field
+values, or customer-linked BookingKoala booking IDs in dashboard
+analytics.
 
 ## Maintenance rules
 
-When changing CTAs or tracking:
-- reuse existing event names when intent is unchanged;
-- create new events only for materially different business actions;
-- keep names lowercase with underscores;
-- preserve `page_path`, `link_url`, and `link_text`;
-- do not silently rename events after reporting begins;
-- update this document when semantics change;
-- verify events in DevTools before release.
+When changing tracking:
+
+-   reuse existing event names when the business meaning is unchanged;
+-   create new events only for materially different actions;
+-   do not silently rename events after reporting begins;
+-   preserve established event semantics;
+-   distinguish intent from completed outcomes;
+-   test production events before relying on them;
+-   update this document whenever semantics change;
+-   verify dashboard queries after event changes;
+-   do not expose PII.
+
+`BookingByCustomer` is a BookingKoala native event and is
+case-sensitive.
 
 ## Source of truth
 
-Implementation: `cloudflare-site/assets/js/main.js`
+First-party implementation:
 
-Documentation: `site-management/CONVERSION_TRACKING.md`
+`cloudflare-site/assets/js/main.js`
+
+Event definitions:
+
+`site-management/CONVERSION_TRACKING.md`
+
+Analytics architecture:
+
+`site-management/ANALYTICS_IMPLEMENTATION.md`
+
+Dashboard operations:
+
+`site-management/SEO_DASHBOARD_OPERATIONS.md`
+
+Business-owner guide:
+
+`site-management/SEO_DASHBOARD_USER_GUIDE.md`

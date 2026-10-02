@@ -51,25 +51,25 @@ The production Pages project serves the apex domain. `www` redirects to the apex
 
 ```text
 Tampa-Bay-Shine/
-├─ cloudflare-site/               Deployable static website
-│  ├─ index.html                  Homepage
-│  ├─ <slug>/index.html           Public pages
-│  ├─ assets/
-│  │  ├─ css/main.css             Shared CSS
-│  │  ├─ css/pages/               Page-specific CSS
-│  │  ├─ images/                  Local site images
-│  │  └─ js/main.js               Shared JavaScript
-│  ├─ _headers                    Cloudflare Pages headers
-│  ├─ _redirects                  Redirect rules, including transaction routes
-│  ├─ robots.txt
-│  ├─ sitemap.xml
-│  ├─ llms.txt
-│  ├─ site.webmanifest
-│  └─ 3631fda1114542beac8b749d5ed827ad.txt   IndexNow key
-├─ tools/                         Validation, preview, release, and maintenance tools
-├─ site-management/               Architecture, release policy, SEO rules, and config
-├─ reports/                       Local gate reports; ignored by Git
-└─ README.md                      Primary developer runbook
+â”œâ”€ cloudflare-site/               Deployable static website
+â”‚  â”œâ”€ index.html                  Homepage
+â”‚  â”œâ”€ <slug>/index.html           Public pages
+â”‚  â”œâ”€ assets/
+â”‚  â”‚  â”œâ”€ css/main.css             Shared CSS
+â”‚  â”‚  â”œâ”€ css/pages/               Page-specific CSS
+â”‚  â”‚  â”œâ”€ images/                  Local site images
+â”‚  â”‚  â””â”€ js/main.js               Shared JavaScript
+â”‚  â”œâ”€ _headers                    Cloudflare Pages headers
+â”‚  â”œâ”€ _redirects                  Redirect rules, including transaction routes
+â”‚  â”œâ”€ robots.txt
+â”‚  â”œâ”€ sitemap.xml
+â”‚  â”œâ”€ llms.txt
+â”‚  â”œâ”€ site.webmanifest
+â”‚  â””â”€ 3631fda1114542beac8b749d5ed827ad.txt   IndexNow key
+â”œâ”€ tools/                         Validation, preview, release, and maintenance tools
+â”œâ”€ site-management/               Architecture, release policy, SEO rules, and config
+â”œâ”€ reports/                       Local gate reports; ignored by Git
+â””â”€ README.md                      Primary developer runbook
 ```
 
 `cloudflare-site/` is authoritative after cutover. Old BookingKoala captures or migration-pipeline output are archive/reference material only. Never overwrite current GitHub content by rerunning an old capture pipeline unless an intentional rebuild is being performed.
@@ -726,20 +726,20 @@ If a connected GitHub integration is read-only, use a generated ZIP/installer lo
 - `site-management/RELEASE_CHECKLIST.md`
 - `site-management/SEO_AI_SEARCH_RULES.md`
 - `site-management/CHATGPT_SITE_MAINTENANCE_PROMPT.md`
-- `site-management/SSL_MIGRATION_GUIDE.md` — historical SSL/migration reference, not routine deployment procedure
+- `site-management/SSL_MIGRATION_GUIDE.md` â€” historical SSL/migration reference, not routine deployment procedure
 
 The root README is the primary operational runbook. Supporting documents should be kept consistent with it.
 
-- `site-management/SEO_SECOND_PASS_2026-09-30.md` — second-pass answerability and internal-link cleanup while post-release recrawl is pending
-- `site-management/GSC_AUDIT_TOOLS.md` — Search Console index/performance audit purpose, OAuth setup, usage, outputs, and interpretation
-- `site-management/SEO_AI_CRO_90_DAY_PLAN.md` — 90-day search, AI visibility, paid-search and conversion roadmap
+- `site-management/SEO_SECOND_PASS_2026-09-30.md` â€” second-pass answerability and internal-link cleanup while post-release recrawl is pending
+- `site-management/GSC_AUDIT_TOOLS.md` â€” Search Console index/performance audit purpose, OAuth setup, usage, outputs, and interpretation
+- `site-management/SEO_AI_CRO_90_DAY_PLAN.md` â€” 90-day search, AI visibility, paid-search and conversion roadmap
 
 
 ### Conversion event hooks
 
 `assets/js/main.js` emits `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click` as `tbs:conversion` browser events. If `window.dataLayer` exists, the same event object is pushed into it.
 
-GA4 is installed on production and these hooks are forwarded to GA4. They still do not measure completed BookingKoala transactions; BookingKoala completion measurement remains a separate requirement.
+GA4 is installed on production and these hooks are forwarded to GA4. Booking-start intent is measured with `booknow_click`, while completed BookingKoala bookings are measured separately with BookingKoala's native `BookingByCustomer` event.
 
 ## Conversion tracking and analytics
 
@@ -780,3 +780,40 @@ During production promotion, `tools/promote_cloudflare.py` rewrites transactiona
 The `_redirects` entries remain as fallback routes for manually entered/internal transaction URLs.
 
 Do not manually hard-code BookingKoala hosts across source HTML. Change transaction mode through the existing release-target workflow.
+
+## SEO and analytics dashboard
+
+Internal dashboard:
+
+https://seo.tampabayshine.com/
+
+The dashboard combines Google Search Console visibility data with GA4
+website/conversion data. It tracks search performance, historical
+trends, SEO opportunities, booking starts, and BookingKoala's native
+`BookingByCustomer` confirmed-booking event.
+
+Documentation:
+
+-   `site-management/SEO_DASHBOARD_USER_GUIDE.md` - nontechnical
+    business-owner guide: what the dashboard means, how to review it,
+    and how to interpret each metric.
+-   `site-management/SEO_DASHBOARD_OPERATIONS.md` - technical
+    operations, automation, credentials, credential rotation,
+    troubleshooting, privacy, and recovery.
+-   `site-management/ANALYTICS_IMPLEMENTATION.md` - production
+    GA4/Google tag and BookingKoala cross-domain implementation.
+-   `site-management/CONVERSION_TRACKING.md` - event definitions and
+    conversion-funnel semantics.
+-   `site-management/GSC_AUDIT_TOOLS.md` - Search Console audit tooling.
+
+Important distinction:
+
+`booknow_click` means a booking was started. It is not a completed
+booking.
+
+`BookingByCustomer` is the native BookingKoala confirmed-booking event
+used by the dashboard.
+
+The scheduled dashboard refresh is maintained by
+`.github/workflows/gsc-dashboard.yml` on the repository default branch
+and updates the `seo-dashboard` deployment branch.
