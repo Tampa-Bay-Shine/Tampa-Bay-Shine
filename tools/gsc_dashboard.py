@@ -306,6 +306,435 @@ def build_movers(current_rows, previous_rows, dimensions, limit=25):
     }
 
 
+
+def build_action_center(
+    query_movers,
+    page_movers,
+    query_rows,
+    query_page_rows,
+    previous_query_page_rows,
+):
+    """Build conservative deterministic SEO recommendations from GSC evidence."""
+    actions = []
+
+    def number(value, default=0.0):
+        if value in (None, ""):
+            return default
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return default
+
+    def add_action(
+        priority,
+        category,
+        subject,
+        evidence,
+        recommendation,
+        data_level,
+        query=None,
+        page=None,
+        previous_page=None,
+    ):
+        actions.append({
+            "priority": priority,
+            "category": category,
+            "subject": subject,
+            "query": query,
+            "page": page,
+            "previous_page": previous_page,
+            "evidence": evidence,
+            "recommended_action": recommendation,
+            "data_level": data_level,
+        })
+
+    def strongest_query_pages(rows):
+        """Return the strongest landing page observed for each query."""
+        result = {}
+
+        for row in rows:
+            query = row.get("query")
+            page = row.get("page")
+
+            if not query or not page:
+                continue
+
+            impressions = number(row.get("impressions"))
+            position = (
+                number(row.get("position"))
+                if row.get("position") not in (None, "")
+                else None
+            )
+
+            candidate = {
+                "page": page,
+                "impressions": impressions,
+                "position": position,
+            }
+
+            existing = result.get(query)
+
+            if (
+                existing is None
+                or impressions > existing["impressions"]
+                or (
+                    impressions == existing["impressions"]
+                    and position is not None
+                    and (
+                        existing["position"] is None
+                        or position < existing["position"]
+                    )
+                )
+            ):
+                result[query] = candidate
+
+        return result
+
+    current_query_pages = strongest_query_pages(query_page_rows)
+    previous_query_pages = strongest_query_pages(previous_query_page_rows)
+
+    # Track pages already represented by meaningful query-level declines.
+    decline_pages = set()
+
+    # ---------------------------------------------------------
+    # WINNERS: queries approaching useful organic positions
+    # ---------------------------------------------------------
+
+    for item in query_movers.get("winners", []):
+        query = item.get("query")
+
+        if not query:
+            continue
+
+        impressions = number(item.get("current_impressions"))
+        impression_change = number(item.get("impression_change"))
+
+        position = (
+            number(item.get("current_position"))
+            if item.get("current_position") not in (None, "")
+            else None
+        )
+
+        position_change = number(item.get("position_change"))
+        data_level = item.get("confidence", "low")
+
+        ranking = current_query_pages.get(query, {})
+        page = ranking.get("page")
+
+        # Page-one bottom through page two, with enough evidence and momentum.
+        if (
+            position is not None
+            and 8 <= position <= 20
+            and impressions >= 15
+            and (
+                impression_change >= 8
+                or position_change >= 3
+            )
+        ):
+            add_action(
+                "high" if impressions >= 25 else "medium",
+                "Striking distance",
+                query,
+                (
+                    f"Position {position:.2f}; "
+                    f"{impressions:.0f} impressions; "
+                    f"impressions {impression_change:+.0f}; "
+                    f"position improvement {position_change:+.2f}."
+                ),
+                (
+                    "Review the ranking landing page for search-intent alignment. "
+                    "Strengthen relevant internal links and improve the section that "
+                    "most directly answers this query while preserving content already "
+                    "earning visibility."
+                ),
+                data_level,
+                query=query,
+                page=page,
+            )
+
+        # Require stronger growth before surfacing distant rankings.
+        elif (
+            position is not None
+            and 20 < position <= 50
+            and impressions >= 20
+            and impression_change >= 15
+        ):
+            add_action(
+                "medium",
+                "Emerging opportunity",
+                query,
+                (
+                    f"Position {position:.2f}; "
+                    f"{impressions:.0f} impressions; "
+                    f"impressions {impression_change:+.0f}."
+                ),
+                (
+                    "Confirm that the best existing service or location page targets "
+                    "this search intent. Strengthen relevant supporting content and "
+                    "internal links. Create a new page only if the search intent is "
+                    "materially different from existing coverage."
+                ),
+                data_level,
+                query=query,
+                page=page,
+            )
+
+    # ---------------------------------------------------------
+    # LOSERS: meaningful query visibility declines
+    # ---------------------------------------------------------
+
+    for item in query_movers.get("losers", []):
+        query = item.get("query")
+
+        if not query:
+            continue
+
+        current_impressions = number(item.get("current_impressions"))
+        previous_impressions = number(item.get("previous_impressions"))
+        impression_change = number(item.get("impression_change"))
+        position_change = number(item.get("position_change"))
+        data_level = item.get("confidence", "low")
+
+        current_ranking = current_query_pages.get(query, {})
+        previous_ranking = previous_query_pages.get(query, {})
+
+        page = current_ranking.get("page")
+        previous_page = previous_ranking.get("page")
+
+        # If current visibility disappeared, preserve the historical URL.
+        display_page = page or previous_page
+
+        absolute_loss = abs(min(impression_change, 0))
+        loss_pct = (
+            absolute_loss / previous_impressions
+            if previous_impressions > 0
+            else 0
+        )
+
+        # Require both meaningful prior volume and a material decline.
+        if (
+            previous_impressions >= 25
+            and absolute_loss >= 15
+            and loss_pct >= 0.30
+        ):
+            if display_page:
+                decline_pages.add(display_page)
+
+            priority = (
+                "high"
+                if previous_impressions >= 40
+                and absolute_loss >= 20
+                and loss_pct >= 0.40
+                else "medium"
+            )
+
+            page_note = ""
+
+            if page:
+                page_note = f" Current landing page: {page}."
+            elif previous_page:
+                page_note = (
+                    f" Current period has no ranking URL; previous landing page: "
+                    f"{previous_page}."
+                )
+
+            add_action(
+                priority,
+                "Visibility decline",
+                query,
+                (
+                    f"Impressions fell from {previous_impressions:.0f} "
+                    f"to {current_impressions:.0f} "
+                    f"({impression_change:+.0f}, "
+                    f"{loss_pct * 100:.0f}% decline); "
+                    f"position change {position_change:+.2f}."
+                    f"{page_note}"
+                ),
+                (
+                    "Inspect the query and landing-page history before changing "
+                    "content. Determine whether the loss reflects ranking decline, "
+                    "reduced search demand, indexing/canonical changes, or Google "
+                    "selecting a different URL."
+                ),
+                data_level,
+                query=query,
+                page=display_page,
+                previous_page=previous_page,
+            )
+
+    # ---------------------------------------------------------
+    # CTR WATCH: deliberately conservative because GSC position
+    # and CTR can be noisy at small impression counts.
+    # ---------------------------------------------------------
+
+    for row in query_rows:
+        query = row.get("query")
+
+        if not query:
+            continue
+
+        impressions = number(row.get("impressions"))
+        clicks = number(row.get("clicks"))
+
+        position = (
+            number(row.get("position"))
+            if row.get("position") not in (None, "")
+            else None
+        )
+
+        if impressions <= 0 or position is None:
+            continue
+
+        ctr = clicks / impressions
+
+        # Do not call small samples high-priority CTR problems.
+        if impressions >= 50 and position <= 10 and ctr < 0.02:
+            ranking = current_query_pages.get(query, {})
+            page = ranking.get("page")
+
+            add_action(
+                "medium",
+                "CTR watch",
+                query,
+                (
+                    f"Position {position:.2f}; "
+                    f"{impressions:.0f} impressions; "
+                    f"{clicks:.0f} clicks; "
+                    f"CTR {ctr * 100:.2f}%."
+                ),
+                (
+                    "Review the actual search result and query intent before editing "
+                    "metadata. If the snippet is underperforming for the intended "
+                    "audience, test a clearer title or meta description without "
+                    "disturbing rankings that are already strong."
+                ),
+                "high" if impressions >= 100 else "medium",
+                query=query,
+                page=page,
+            )
+
+    # ---------------------------------------------------------
+    # PAGE-LEVEL DECLINES
+    #
+    # Suppress pages already represented by a material query
+    # decline so the Action Center does not repeat the same issue.
+    # ---------------------------------------------------------
+
+    for item in page_movers.get("losers", []):
+        page = item.get("page")
+
+        if not page or page in decline_pages:
+            continue
+
+        current_impressions = number(item.get("current_impressions"))
+        previous_impressions = number(item.get("previous_impressions"))
+        impression_change = number(item.get("impression_change"))
+
+        absolute_loss = abs(min(impression_change, 0))
+        loss_pct = (
+            absolute_loss / previous_impressions
+            if previous_impressions > 0
+            else 0
+        )
+
+        if (
+            previous_impressions < 40
+            or absolute_loss < 20
+            or loss_pct < 0.35
+        ):
+            continue
+
+        priority = (
+            "high"
+            if previous_impressions >= 60
+            and absolute_loss >= 30
+            else "medium"
+        )
+
+        add_action(
+            priority,
+            "Page visibility decline",
+            page,
+            (
+                f"Page impressions fell from {previous_impressions:.0f} "
+                f"to {current_impressions:.0f} "
+                f"({impression_change:+.0f}, "
+                f"{loss_pct * 100:.0f}% decline)."
+            ),
+            (
+                "Review the queries that previously generated visibility for this "
+                "URL. Check indexing, canonical status, internal links, recent "
+                "content changes, and competing pages before rewriting it."
+            ),
+            item.get("confidence", "low"),
+            page=page,
+        )
+
+    # Remove exact duplicates.
+    seen = set()
+    unique = []
+
+    for item in actions:
+        key = (
+            item["category"],
+            item.get("query"),
+            item.get("page"),
+        )
+
+        if key in seen:
+            continue
+
+        seen.add(key)
+        unique.append(item)
+
+    priority_order = {
+        "high": 0,
+        "medium": 1,
+        "low": 2,
+    }
+
+    category_order = {
+        "Striking distance": 0,
+        "Visibility decline": 1,
+        "Page visibility decline": 2,
+        "CTR watch": 3,
+        "Emerging opportunity": 4,
+    }
+
+    unique.sort(
+        key=lambda item: (
+            priority_order.get(item["priority"], 9),
+            category_order.get(item["category"], 9),
+            item["subject"].lower(),
+        )
+    )
+
+    counts = {
+        "high": sum(1 for item in unique if item["priority"] == "high"),
+        "medium": sum(1 for item in unique if item["priority"] == "medium"),
+        "low": sum(1 for item in unique if item["priority"] == "low"),
+    }
+
+    category_counts = {}
+
+    for item in unique:
+        category = item["category"]
+        category_counts[category] = category_counts.get(category, 0) + 1
+
+    return {
+        "actions": unique[:50],
+        "counts": counts,
+        "category_counts": category_counts,
+        "method": (
+            "Conservative deterministic recommendations based on current 28-day "
+            "Google Search Console performance compared with the previous 28 days. "
+            "Small CTR samples are treated as watch items rather than urgent issues. "
+            "Query-level declines take precedence over duplicate page-level alerts. "
+            "Recommendations are diagnostic prompts and do not automatically modify "
+            "the website."
+        ),
+    }
+
 def fetch_period(service, site, days, lag, end_date):
     start, end, prev_start, prev_end = gsc.period(days, lag, end_date)
     cur_q = gsc.normalize_rows(gsc.fetch_rows(service, site, start, end, ["query"]), ["query"])
@@ -410,6 +839,14 @@ def main():
     previous_pages = aggregate_by_dimension(pqp, "page")
     page_movers = build_movers(current_pages, previous_pages, ["page"])
 
+    action_center = build_action_center(
+        query_movers,
+        page_movers,
+        cq,
+        cqp,
+        pqp,
+    )
+
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "source": "Google Search Console",
@@ -425,6 +862,7 @@ def main():
         "cannibalization": cannibal,
         "query_movers": query_movers,
         "page_movers": page_movers,
+        "action_center": action_center,
         "limitations": "GSC average position is impression-weighted performance data, not a deterministic live SERP rank. GSC does not provide competitor or Google Maps grid rankings."
     }
     out = Path(args.out)

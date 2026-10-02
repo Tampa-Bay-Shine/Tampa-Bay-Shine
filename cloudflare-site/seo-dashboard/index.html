@@ -307,6 +307,212 @@ td:first-child{
   border:1px solid #dbe3ec;
 }
 
+
+/* SEO Action Center */
+
+.action-summary{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.action-summary-card{
+  background:#fff;
+  border:1px solid #dbe7f5;
+  border-radius:12px;
+  padding:16px 18px;
+  box-shadow:0 4px 14px rgba(8,76,153,.07);
+}
+
+.action-summary-card strong{
+  display:block;
+  font-size:1.65rem;
+  line-height:1;
+  color:var(--tbs-blue-deep);
+  margin-bottom:6px;
+}
+
+.action-summary-card span{
+  color:#5f6f82;
+  font-size:.88rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.action-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0 18px;
+}
+
+.action-filter{
+  appearance:none;
+  border:1px solid #cbd9ea;
+  background:#fff;
+  color:var(--tbs-blue-dark);
+  border-radius:999px;
+  padding:8px 13px;
+  font:inherit;
+  font-size:.88rem;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.action-filter:hover{
+  background:var(--tbs-blue-pale);
+}
+
+.action-filter.active{
+  color:#fff;
+  background:var(--tbs-blue);
+  border-color:var(--tbs-blue);
+}
+
+.action-list{
+  display:grid;
+  gap:14px;
+}
+
+.action-card{
+  background:#fff;
+  border:1px solid #dbe7f5;
+  border-left:5px solid #8aa5c2;
+  border-radius:12px;
+  padding:17px 18px;
+  box-shadow:0 4px 14px rgba(8,76,153,.06);
+}
+
+.action-card.priority-high{
+  border-left-color:#c62828;
+}
+
+.action-card.priority-medium{
+  border-left-color:#d98b00;
+}
+
+.action-card.priority-low{
+  border-left-color:#718096;
+}
+
+.action-card-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:10px;
+}
+
+.action-card-title{
+  min-width:0;
+}
+
+.action-card-title h3{
+  margin:5px 0 0;
+  padding:0;
+  background:none;
+  color:var(--tbs-blue-deep);
+  font-size:1.05rem;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+
+.action-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+}
+
+.action-badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:.72rem;
+  line-height:1.2;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.035em;
+}
+
+.action-badge.high{
+  background:#fdecec;
+  color:#a61b1b;
+}
+
+.action-badge.medium{
+  background:#fff3d9;
+  color:#925d00;
+}
+
+.action-badge.low{
+  background:#edf1f5;
+  color:#536273;
+}
+
+.action-badge.category{
+  background:var(--tbs-blue-light);
+  color:var(--tbs-blue-dark);
+}
+
+.action-badge.data{
+  background:#f1f4f8;
+  color:#5b6878;
+}
+
+.action-url{
+  margin:8px 0 0;
+  color:#627387;
+  font-size:.83rem;
+  overflow-wrap:anywhere;
+}
+
+.action-evidence{
+  margin:12px 0 0;
+  padding:11px 13px;
+  border-radius:8px;
+  background:var(--tbs-blue-pale);
+  color:#33475b;
+  font-size:.91rem;
+  line-height:1.5;
+}
+
+.action-recommendation{
+  margin:12px 0 0;
+  color:#263746;
+  line-height:1.55;
+}
+
+.action-recommendation strong{
+  color:var(--tbs-blue-deep);
+}
+
+.action-empty{
+  padding:22px;
+  border:1px dashed #b8c9db;
+  border-radius:10px;
+  background:#fff;
+  color:#667789;
+  text-align:center;
+}
+
+@media(max-width:700px){
+  .action-summary{
+    grid-template-columns:1fr;
+  }
+
+  .action-card-head{
+    display:block;
+  }
+
+  .action-badges{
+    margin-top:10px;
+  }
+}
+
 /* Winners / losers presentation */
 
 #movers h3{
@@ -438,8 +644,41 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="tracked" class="active">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
-<section id="tracked" class="tab active"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
+<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<section id="actions" class="tab active">
+<h2>SEO Action Center</h2>
+<p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes.</p>
+
+<div class="action-summary">
+  <div class="action-summary-card">
+    <strong id="action-total">0</strong>
+    <span>Total actions</span>
+  </div>
+  <div class="action-summary-card">
+    <strong id="action-high">0</strong>
+    <span>High priority</span>
+  </div>
+  <div class="action-summary-card">
+    <strong id="action-medium">0</strong>
+    <span>Medium priority</span>
+  </div>
+</div>
+
+<div class="action-filters" id="action-filters">
+  <button class="action-filter active" data-action-filter="all">All</button>
+  <button class="action-filter" data-action-filter="high">High priority</button>
+  <button class="action-filter" data-action-filter="medium">Medium priority</button>
+  <button class="action-filter" data-action-filter="Striking distance">Striking distance</button>
+  <button class="action-filter" data-action-filter="Visibility decline">Query declines</button>
+  <button class="action-filter" data-action-filter="Page visibility decline">Page declines</button>
+  <button class="action-filter" data-action-filter="CTR watch">CTR watch</button>
+  <button class="action-filter" data-action-filter="Emerging opportunity">Emerging</button>
+</div>
+
+<div id="action-list" class="action-list"></div>
+</section>
+
+<section id="tracked" class="tab"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
 <section id="queries" class="tab"><h2>Top non-brand queries</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th></tr></thead><tbody></tbody></table></section>
 <section id="movers" class="tab">
 <h2>SEO Winners &amp; Losers</h2>
@@ -544,6 +783,68 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  });
 
  renderPeriod(28);
+
+ const actionItems=d.action_center?.actions||[];
+
+ const actionCounts=d.action_center?.counts||{};
+ document.querySelector("#action-total").textContent=n(actionItems.length);
+ document.querySelector("#action-high").textContent=n(actionCounts.high||0);
+ document.querySelector("#action-medium").textContent=n(actionCounts.medium||0);
+
+ const actionCard=x=>{
+   const priority=String(x.priority||"low").toLowerCase();
+   const category=String(x.category||"Action");
+   const subject=x.subject||x.query||x.page||"SEO action";
+   const page=x.page||x.previous_page||"";
+   const dataLevel=x.data_level||"";
+   const pageHtml=page
+     ? `<div class="action-url"><strong>Affected URL:</strong> <a href="${esc(page)}" target="_blank" rel="noopener noreferrer">${esc(page)}</a></div>`
+     : "";
+
+   return `<article class="action-card priority-${esc(priority)}"
+       data-priority="${esc(priority)}"
+       data-category="${esc(category)}">
+     <div class="action-card-head">
+       <div class="action-card-title">
+         <div class="action-badges">
+           <span class="action-badge ${esc(priority)}">${esc(priority)} priority</span>
+           <span class="action-badge category">${esc(category)}</span>
+           ${dataLevel?`<span class="action-badge data">${esc(dataLevel)} data</span>`:""}
+         </div>
+         <h3>${esc(subject)}</h3>
+         ${pageHtml}
+       </div>
+     </div>
+     <div class="action-evidence"><strong>Evidence:</strong> ${esc(x.evidence||"--")}</div>
+     <p class="action-recommendation"><strong>Recommended action:</strong> ${esc(x.recommended_action||"--")}</p>
+   </article>`;
+ };
+
+ const renderActions=filter=>{
+   const visible=actionItems.filter(x=>{
+     if(filter==="all") return true;
+     if(filter==="high"||filter==="medium"||filter==="low"){
+       return String(x.priority||"").toLowerCase()===filter;
+     }
+     return x.category===filter;
+   });
+
+   document.querySelector("#action-list").innerHTML=visible.length
+     ? visible.map(actionCard).join("")
+     : `<div class="action-empty">No Action Center items match this filter.</div>`;
+ };
+
+ document.querySelectorAll("#action-filters .action-filter").forEach(btn=>{
+   btn.addEventListener("click",()=>{
+     document.querySelectorAll("#action-filters .action-filter")
+       .forEach(x=>x.classList.remove("active"));
+     btn.classList.add("active");
+     renderActions(btn.dataset.actionFilter);
+   });
+ });
+
+ renderActions("all");
+
  const moverRows=(items,key)=>{
    return (items||[]).slice(0,10).map(x=>`<tr>
 <td>${esc(x[key]||"--")}</td>
