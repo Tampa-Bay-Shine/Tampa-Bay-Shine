@@ -1,4 +1,4 @@
-﻿# Tampa Bay Shine SEO Dashboard and Analytics Operations Guide
+# Tampa Bay Shine SEO Dashboard and Analytics Operations Guide
 
 ## Purpose
 
@@ -258,10 +258,29 @@ from booking counts.
 
 ## Phase 7 status
 
-Verified: production GA4, Book Now tracking, native `BookingByCustomer`,
-Data API availability, `_gl` decoration, matching cross-domain Client
-ID, and no duplicate native event in one Thank You-page reload test.
+Verified:
 
-Still to verify: controlled acquisition-source preservation through the
-complete booking path, especially Organic Search -\> BookingKoala -\>
-`BookingByCustomer`.
+- production GA4 measurement is active;
+- Book Now intent tracking is active;
+- BookingKoala emits native `BookingByCustomer`;
+- `BookingByCustomer` is available through the GA4 Data API;
+- outbound BookingKoala navigation receives Google's `_gl` linker;
+- the tested TampaBayShine.com and BookingKoala pages returned the same GA4 Client ID;
+- a tested Thank You page refresh did not duplicate the native booking event;
+- GA4 is assigning `BookingByCustomer` events to acquisition channels.
+
+Observed for September 1 through October 2, 2026:
+
+- Organic Search sessions: 3;
+- Organic Search `booknow_click` events: 2;
+- Organic Search `BookingByCustomer` events: 0;
+- Direct `BookingByCustomer` events: 1;
+- Organic Social `BookingByCustomer` events: 1.
+
+Conclusion:
+
+Cross-domain client-identity continuity is verified and confirmed-booking channel attribution is operational. A confirmed Organic Search booking has not yet been observed in the available data.
+
+The dashboard automatically checks `events_by_channel` for a case-sensitive `BookingByCustomer` event whose channel is `Organic Search`. Until one is present, it reports that Organic Search confirmed-booking attribution has not yet been observed. When the first such event appears, the status automatically changes to verified.
+
+Do not relabel Direct or Organic Social bookings as Organic Search. No additional test booking is required solely to force this condition.

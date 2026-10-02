@@ -1349,6 +1349,11 @@ td:first-child{
     </div>
   </div>
 
+  <div class="callout" id="organic-booking-attribution">
+    <strong>Organic Search booking attribution:</strong>
+    <span id="organic-booking-attribution-status">Checking GA4 data...</span>
+  </div>
+
   <h3>Organic landing-page attribution</h3>
   <p class="muted">
     Current landing-page detail uses the latest 28-day GA4 reporting window.
@@ -2105,6 +2110,29 @@ function renderConversionTables(data){
     const rows=Array.isArray(data?.events_by_channel)
       ? data.events_by_channel
       : [];
+
+    const organicConfirmedBookings=rows
+      .filter(row=>
+        row.event_name==="BookingByCustomer" &&
+        row.channel==="Organic Search"
+      )
+      .reduce((sum,row)=>sum+(Number(row.event_count)||0),0);
+
+    const attributionStatus=document.querySelector(
+      "#organic-booking-attribution-status"
+    );
+
+    if(attributionStatus){
+      if(organicConfirmedBookings>0){
+        attributionStatus.textContent=
+          `Verified - ${organicConfirmedBookings} confirmed Organic Search ` +
+          `booking${organicConfirmedBookings===1?"":"s"} observed.`;
+      }else{
+        attributionStatus.textContent=
+          "Not yet observed - GA4 has not recorded a BookingByCustomer " +
+          "event attributed to Organic Search.";
+      }
+    }
 
     eventBody.innerHTML=rows.length
       ? rows.map(row=>`<tr>
