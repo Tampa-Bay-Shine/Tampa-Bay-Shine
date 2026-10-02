@@ -51,25 +51,25 @@ The production Pages project serves the apex domain. `www` redirects to the apex
 
 ```text
 Tampa-Bay-Shine/
-â”œâ”€ cloudflare-site/               Deployable static website
-â”‚  â”œâ”€ index.html                  Homepage
-â”‚  â”œâ”€ <slug>/index.html           Public pages
-â”‚  â”œâ”€ assets/
-â”‚  â”‚  â”œâ”€ css/main.css             Shared CSS
-â”‚  â”‚  â”œâ”€ css/pages/               Page-specific CSS
-â”‚  â”‚  â”œâ”€ images/                  Local site images
-â”‚  â”‚  â””â”€ js/main.js               Shared JavaScript
-â”‚  â”œâ”€ _headers                    Cloudflare Pages headers
-â”‚  â”œâ”€ _redirects                  Redirect rules, including transaction routes
-â”‚  â”œâ”€ robots.txt
-â”‚  â”œâ”€ sitemap.xml
-â”‚  â”œâ”€ llms.txt
-â”‚  â”œâ”€ site.webmanifest
-â”‚  â””â”€ 3631fda1114542beac8b749d5ed827ad.txt   IndexNow key
-â”œâ”€ tools/                         Validation, preview, release, and maintenance tools
-â”œâ”€ site-management/               Architecture, release policy, SEO rules, and config
-â”œâ”€ reports/                       Local gate reports; ignored by Git
-â””â”€ README.md                      Primary developer runbook
+|-- cloudflare-site/               Deployable static website
+|   |-- index.html                 Homepage
+|   |-- <slug>/index.html          Public pages
+|   |-- assets/
+|   |   |-- css/main.css           Shared CSS
+|   |   |-- css/pages/             Page-specific CSS
+|   |   |-- images/                Local site images
+|   |   `-- js/main.js             Shared JavaScript
+|   |-- _headers                   Cloudflare Pages headers
+|   |-- _redirects                 Redirect rules, including transaction routes
+|   |-- robots.txt
+|   |-- sitemap.xml
+|   |-- llms.txt
+|   |-- site.webmanifest
+|   `-- 3631fda1114542beac8b749d5ed827ad.txt   IndexNow key
+|-- tools/                         Validation, preview, release, and maintenance tools
+|-- site-management/               Architecture, release policy, SEO rules, and config
+|-- reports/                       Local gate reports; ignored by Git
+`-- README.md                      Primary developer runbook
 ```
 
 `cloudflare-site/` is authoritative after cutover. Old BookingKoala captures or migration-pipeline output are archive/reference material only. Never overwrite current GitHub content by rerunning an old capture pipeline unless an intentional rebuild is being performed.
@@ -726,13 +726,13 @@ If a connected GitHub integration is read-only, use a generated ZIP/installer lo
 - `site-management/RELEASE_CHECKLIST.md`
 - `site-management/SEO_AI_SEARCH_RULES.md`
 - `site-management/CHATGPT_SITE_MAINTENANCE_PROMPT.md`
-- `site-management/SSL_MIGRATION_GUIDE.md` â€” historical SSL/migration reference, not routine deployment procedure
+- `site-management/SSL_MIGRATION_GUIDE.md` — historical SSL/migration reference, not routine deployment procedure
 
 The root README is the primary operational runbook. Supporting documents should be kept consistent with it.
 
-- `site-management/SEO_SECOND_PASS_2026-09-30.md` â€” second-pass answerability and internal-link cleanup while post-release recrawl is pending
-- `site-management/GSC_AUDIT_TOOLS.md` â€” Search Console index/performance audit purpose, OAuth setup, usage, outputs, and interpretation
-- `site-management/SEO_AI_CRO_90_DAY_PLAN.md` â€” 90-day search, AI visibility, paid-search and conversion roadmap
+- `site-management/SEO_SECOND_PASS_2026-09-30.md` — second-pass answerability and internal-link cleanup while post-release recrawl is pending
+- `site-management/GSC_AUDIT_TOOLS.md` — Search Console index/performance audit purpose, OAuth setup, usage, outputs, and interpretation
+- `site-management/SEO_AI_CRO_90_DAY_PLAN.md` — 90-day search, AI visibility, paid-search and conversion roadmap
 
 
 ### Conversion event hooks
