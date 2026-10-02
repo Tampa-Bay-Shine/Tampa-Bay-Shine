@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <link rel="canonical" href="https://tampabayshine.com/seo-dashboard/">
-<title>Tampa Bay Shine â€” GSC SEO Dashboard</title>
+<title>Tampa Bay Shine - GSC SEO Dashboard</title>
 <style>
 body{font:15px system-ui;margin:0;background:#f5f7fb;color:#172033}main{max-width:1200px;margin:auto;padding:28px}
 h1{margin:0}.muted{color:#687386}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
@@ -15,10 +15,10 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px;bord
 </style></head><body><main>
 <h1>Tampa Bay Shine SEO Dashboard</h1><div class="muted" id="period">Google Search Console</div>
 <div class="cards">
-<div class="card"><div class="muted">Clicks</div><div class="big" id="clicks">â€”</div></div>
-<div class="card"><div class="muted">Impressions</div><div class="big" id="impressions">â€”</div></div>
-<div class="card"><div class="muted">CTR</div><div class="big" id="ctr">â€”</div></div>
-<div class="card"><div class="muted">Avg position</div><div class="big" id="position">â€”</div></div>
+<div class="card"><div class="muted">Clicks</div><div class="big" id="clicks">--</div></div>
+<div class="card"><div class="muted">Impressions</div><div class="big" id="impressions">--</div></div>
+<div class="card"><div class="muted">CTR</div><div class="big" id="ctr">--</div></div>
+<div class="card"><div class="muted">Avg position</div><div class="big" id="position">--</div></div>
 </div>
 <nav><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
 <section id="tracked" class="tab active"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
@@ -34,7 +34,7 @@ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.query
 fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  if(!d.generated_at){document.getElementById("note").textContent="Run python.exe .\\tools\\gsc_dashboard.py to populate the dashboard.";return}
  const s=d.summary||{}; clicks.textContent=n(s.clicks);impressions.textContent=n(s.impressions);ctr.textContent=n(s.ctr)+"%";position.textContent=n(s.position);
- period.textContent=`GSC â€¢ ${d.period.start} to ${d.period.end} â€¢ generated ${new Date(d.generated_at).toLocaleString()}`;
+ period.textContent=`GSC  |  ${d.period.start} to ${d.period.end}  |  generated ${new Date(d.generated_at).toLocaleString()}`;
  document.querySelector("#tracked tbody").innerHTML=(d.tracked_keywords||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.current.position)}</td><td>${change(x.position_change)}</td><td>${n(x.current.impressions)}</td><td>${n(x.current.clicks)}</td><td>${n(x.current.ctr)}%</td><td>${esc(x.ranking_page||"--")}</td></tr>`).join("");
  document.querySelector("#queries tbody").innerHTML=(d.top_queries||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.current_position)}</td><td>${change(x.position_improvement)}</td><td>${n(x.current_impressions)}</td><td>${n(x.current_clicks)}</td><td>${n(x.current_ctr_percent)}%</td></tr>`).join("");
  document.querySelector("#opps tbody").innerHTML=(d.opportunities||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.position)}</td><td>${n(x.impressions)}</td><td>${n(x.ctr_percent)}%</td><td>${esc(x.flags)}</td><td>${esc(x.page)}</td></tr>`).join("");
@@ -42,5 +42,7 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  note.textContent=d.limitations||"";
 }).catch(e=>{note.textContent="Dashboard data could not be loaded: "+e.message});
 </script></main></body></html>
+
+
 
 
