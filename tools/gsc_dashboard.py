@@ -45,6 +45,40 @@ def aggregate(rows):
         "position": round(pos, 2) if pos is not None else None,
     }
 
+def summary_change(current, previous):
+    """Calculate comparable GSC changes. Positive position_change means improvement."""
+    def pct_change(cur, prev):
+        if prev in (None, 0):
+            return None
+        return round(((cur - prev) / prev) * 100, 2)
+
+    cur_clicks = current.get("clicks", 0)
+    prev_clicks = previous.get("clicks", 0)
+    cur_impressions = current.get("impressions", 0)
+    prev_impressions = previous.get("impressions", 0)
+    cur_ctr = current.get("ctr")
+    prev_ctr = previous.get("ctr")
+    cur_position = current.get("position")
+    prev_position = previous.get("position")
+
+    return {
+        "clicks_change": round(cur_clicks - prev_clicks, 2),
+        "clicks_pct_change": pct_change(cur_clicks, prev_clicks),
+        "impressions_change": round(cur_impressions - prev_impressions, 2),
+        "impressions_pct_change": pct_change(cur_impressions, prev_impressions),
+        "ctr_change_points": (
+            round(cur_ctr - prev_ctr, 2)
+            if cur_ctr is not None and prev_ctr is not None
+            else None
+        ),
+        "position_change": (
+            round(prev_position - cur_position, 2)
+            if cur_position is not None and prev_position is not None
+            else None
+        ),
+    }
+
+
 def fetch_period(service, site, days, lag, end_date):
     start, end, prev_start, prev_end = gsc.period(days, lag, end_date)
     cur_q = gsc.normalize_rows(gsc.fetch_rows(service, site, start, end, ["query"]), ["query"])
@@ -69,9 +103,47 @@ def main():
     service, webmasters = gsc.build_services(creds)
     site = gsc.choose_property(webmasters, args.property, args.host)
 
-    start, end, ps, pe, cq, pq, cqp, pqp = fetch_period(
-        service, site, args.days, args.lag_days, args.end_date
-    )
+    periods = {}
+    period_rows = {}
+
+    for window in (7, 28, 90):
+        w_start, w_end, w_ps, w_pe, w_cq, w_pq, w_cqp, w_pqp = fetch_period(
+            service, site, window, args.lag_days, args.end_date
+        )
+
+        current_summary = aggregate(w_cq)
+        previous_summary = aggregate(w_pq)
+
+        periods[str(window)] = {
+            "current": {
+                "start": w_start.isoformat(),
+                "end": w_end.isoformat(),
+                "days": window,
+                "summary": current_summary,
+            },
+            "previous": {
+                "start": w_ps.isoformat(),
+                "end": w_pe.isoformat(),
+                "days": window,
+                "summary": previous_summary,
+            },
+            "change": summary_change(current_summary, previous_summary),
+        }
+
+        period_rows[window] = {
+            "current_queries": w_cq,
+            "previous_queries": w_pq,
+            "current_query_pages": w_cqp,
+            "previous_query_pages": w_pqp,
+        }
+
+    # Existing detailed dashboard tables use the 28-day window.
+    start, end, ps, pe = gsc.period(28, args.lag_days, args.end_date)
+
+    cq = period_rows[28]["current_queries"]
+    pq = period_rows[28]["previous_queries"]
+    cqp = period_rows[28]["current_query_pages"]
+    pqp = period_rows[28]["previous_query_pages"]
 
     cur = {r["query"].lower(): r for r in cq}
     prev = {r["query"].lower(): r for r in pq}
@@ -109,10 +181,11 @@ def main():
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "source": "Google Search Console",
         "property": site,
-        "period": {"start": start.isoformat(), "end": end.isoformat(), "days": args.days},
-        "previous_period": {"start": ps.isoformat(), "end": pe.isoformat(), "days": args.days},
+        "period": {"start": start.isoformat(), "end": end.isoformat(), "days": 28},
+        "previous_period": {"start": ps.isoformat(), "end": pe.isoformat(), "days": 28},
         "summary": aggregate(cq),
         "previous_summary": aggregate(pq),
+        "periods": periods,
         "tracked_keywords": tracked,
         "top_queries": discovered,
         "opportunities": opportunities,
