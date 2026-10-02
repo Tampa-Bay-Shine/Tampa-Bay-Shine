@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Tampa Bay Shine - SEO Dashboard User Guide</title>
+<style>
+:root{
+  --blue:#1267c4;
+  --blue-dark:#084c99;
+  --blue-deep:#073b78;
+  --text:#172033;
+  --muted:#687386;
+  --border:#dbe5f0;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font:16px/1.65 Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#edf6ff 0,#f7faff 260px,#f5f7fb 600px);
+}
+header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:980px;
+  margin:auto;
+  padding:18px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.brand{
+  font-weight:800;
+  color:var(--blue-deep);
+  font-size:18px;
+}
+.dashboard-link{
+  display:inline-block;
+  padding:9px 15px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+}
+main{
+  max-width:980px;
+  margin:34px auto;
+  padding:38px 46px 55px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 4px 16px rgba(20,55,90,.07);
+}
+h1{
+  margin-top:0;
+  color:var(--blue-deep);
+  line-height:1.2;
+  font-size:32px;
+}
+h2{
+  margin-top:38px;
+  padding-bottom:8px;
+  border-bottom:1px solid #e8eef5;
+  color:var(--blue-deep);
+  font-size:22px;
+}
+p,li{max-width:850px}
+li{margin:6px 0}
+a{color:var(--blue-dark)}
+code{
+  background:#f0f5fa;
+  padding:2px 5px;
+  border-radius:4px;
+}
+footer{
+  max-width:980px;
+  margin:0 auto 40px;
+  padding:0 28px;
+  color:var(--muted);
+  font-size:13px;
+}
+@media(max-width:700px){
+  .header-inner{align-items:flex-start;flex-direction:column}
+  main{margin:18px 12px;padding:28px 22px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">Tampa Bay Shine | SEO &amp; Analytics</div>
+    <a class="dashboard-link" href="/">Back to Dashboard</a>
+  </div>
+</header>
+<main>
+<h1>Tampa Bay Shine SEO Dashboard - Business Owner&#x27;s Guide</h1>
+<h2>What it is</h2>
+<p>The Tampa Bay Shine SEO Dashboard is an internal business-performance dashboard for Google Search and website conversion activity.</p>
+<p><strong>Dashboard:</strong> <a href="https://seo.tampabayshine.com/">https://seo.tampabayshine.com/</a></p>
+<p>It combines Google Search Console and Google Analytics 4 to answer:</p>
+<ol>
+<li>Are more potential customers finding Tampa Bay Shine in Google?</li>
+<li>Are those visitors taking actions that can become customers?</li>
+</ol>
+<p>It does not replace BookingKoala, accounting, or a CRM.</p>
+<h2>The funnel to remember</h2>
+<p><code>Google visibility -&gt; Google clicks -&gt; website sessions -&gt; booking starts -&gt; confirmed bookings</code></p>
+<p>Each stage answers a different question. High impressions but few clicks can indicate a search-result/ranking opportunity. Good traffic but few booking starts can indicate a landing-page, offer, pricing, or CTA issue. Many starts but few confirmed bookings can indicate booking friction or an attribution issue.</p>
+<h2>How often to review it</h2>
+<p><strong>Weekly:</strong> use the 28-day view and review Action Center, core search metrics, Conversions, Winners &amp; Losers, and tracked keywords.</p>
+<p><strong>Monthly:</strong> use 90 days to judge strategic direction. Ask whether visibility, clicks, important queries, booking starts, and confirmed bookings are improving.</p>
+<p>Use 7 days for recent changes and early warnings, not major strategic conclusions.</p>
+<h2>Search metrics</h2>
+<p><strong>Impressions</strong> = times a Tampa Bay Shine result was shown in Google. This is visibility.</p>
+<p><strong>Clicks</strong> = Google Search clicks to the site. This is stronger than visibility because the searcher actually visited.</p>
+<p><strong>CTR</strong> = clicks / impressions. Weak CTR can relate to position, title, description, intent, competitors, SERP features, or brand familiarity.</p>
+<p><strong>Average position</strong> = Google&#x27;s aggregate Search Console position metric. Lower is better. It is not a guaranteed live rank; results vary by query, location, device, time, and other factors.</p>
+<h2>Conversion metrics</h2>
+<p><strong>Organic sessions</strong> = visits GA4 attributes to Organic Search.</p>
+<p><strong>Organic users</strong> = users associated with Organic Search. One user can have multiple sessions.</p>
+<p><strong>Engaged sessions / engagement rate</strong> = GA4 measures of meaningful interaction. They are quality indicators, not sales.</p>
+<p><strong>Booking starts</strong> = tracked Book Now clicks (<code>booknow_click</code>). This is strong intent, not a completed booking.</p>
+<p><strong>Booking start rate</strong> = Organic Search booking starts / Organic Search sessions.</p>
+<p><strong>Confirmed bookings</strong> = BookingKoala&#x27;s native <code>BookingByCustomer</code> event. This is the dashboard&#x27;s confirmed-booking signal.</p>
+<p><strong>Confirmed booking rate</strong> = Organic Search confirmed bookings / Organic Search sessions.</p>
+<p><strong>Booking completion rate</strong> = Organic Search confirmed bookings / Organic Search booking starts. Be cautious with small counts because one booking can cause a large percentage swing.</p>
+<p><strong>Primary intent actions</strong> combine important commercial actions such as Book Now, phone, commercial quote, and contact activity. They are not all sales.</p>
+<p><strong>Phone clicks</strong> indicate a telephone-link click; the dashboard cannot tell whether the call was answered or became a customer.</p>
+<h2>Landing pages</h2>
+<p>The landing-page table shows where Organic Search visitors entered and what happened afterward.</p>
+<p>Look for high-traffic pages with weak commercial activity, which may need conversion optimization, and lower-traffic pages with strong booking activity, which may deserve more SEO attention. Avoid strong conclusions from tiny samples.</p>
+<h2>Tracked keywords and Top Queries</h2>
+<p>Tracked keywords are important Tampa searches monitored consistently over time. Use them for direction, not as a complete picture.</p>
+<p>Top Queries shows actual searches associated with Tampa Bay Shine visibility. Look for local/service demand, unexpected searches, high-impression/low-click queries, and searches approaching stronger positions.</p>
+<h2>Winners &amp; Losers</h2>
+<p>These highlight meaningful period-over-period movement. A winner is not automatically a business success and a loser is not automatically a problem. Consider actual impression/click volume, relevance, ranking movement, page purpose, and the reporting window.</p>
+<h2>Opportunities and Cannibalization</h2>
+<p>Opportunities surface queries/pages near stronger positions, gaining visibility, showing weak CTR, or losing visibility. They are prioritization signals, not guarantees.</p>
+<p>Cannibalization flags queries where multiple pages may compete. Multiple pages appearing for one query is not automatically bad; review search intent before consolidating or redirecting anything.</p>
+<h2>Trends and SEO Events</h2>
+<p>Trends preserve historical snapshots. Use them to distinguish temporary movement from sustained direction.</p>
+<p>SEO Events record meaningful work such as technical changes, page launches, content updates, and analytics changes. Event timing provides context; it does not prove causation.</p>
+<h2>Action Center</h2>
+<p><strong>Striking distance:</strong> useful visibility near a stronger position.</p>
+<p><strong>Emerging opportunity:</strong> Google is beginning to expose the site for a potentially useful search.</p>
+<p><strong>Visibility decline:</strong> search visibility fell versus the comparison period.</p>
+<p><strong>CTR watch:</strong> visibility exists but click-through behavior deserves review.</p>
+<p><strong>Page visibility decline:</strong> a page lost visibility and deserves investigation.</p>
+<h2>Reading metric combinations</h2>
+<p><strong>Impressions up + clicks up:</strong> visibility and traffic are expanding.</p>
+<p><strong>Impressions up + clicks flat:</strong> visibility expanded, but CTR/ranking quality may need attention.</p>
+<p><strong>Clicks up + booking starts up:</strong> added search traffic is creating more commercial intent.</p>
+<p><strong>Sessions up + booking starts flat:</strong> traffic grew without corresponding booking intent.</p>
+<p><strong>Booking starts up + confirmed bookings flat:</strong> investigate booking completion and attribution before blaming SEO.</p>
+<p><strong>Confirmed Organic Search bookings rising over a meaningful period:</strong> strong evidence Organic Search is contributing to customer acquisition.</p>
+<h2>Do not overreact to</h2>
+<p>One day, one unusual query, one manual ranking check, a percentage based on tiny counts, one booking, or one week of normal position volatility. Look for sustained patterns.</p>
+<h2>Attribution limitation</h2>
+<p>GSC and GA4 measure different parts of the journey. GSC can show which queries/pages generated search visibility and clicks. GA4 can show that an Organic Search session later generated booking-related events.</p>
+<p>The dashboard should not claim that a specific GSC query caused a specific customer&#x27;s booking.</p>
+<h2>BookingKoala handoff</h2>
+<p>Customers leave TampaBayShine.com for BookingKoala. Google&#x27;s cross-domain linker is used to maintain analytics identity.</p>
+<p>A production test verified the same GA4 Client ID before and after the TampaBayShine.com -\&gt; BookingKoala handoff. That confirms client-identity continuity for the tested handoff.</p>
+<p>Cross-domain client-identity continuity has been verified, and GA4 is successfully assigning confirmed bookings to acquisition channels. A confirmed Organic Search booking has not yet been observed in the available data. The dashboard will automatically identify the first Organic Search <code>BookingByCustomer</code> event when one occurs.</p>
+<h2>Revenue</h2>
+<p>The dashboard does not currently report validated booking revenue. Do not multiply booking counts by an assumed average price and call it tracked revenue.</p>
+<h2>A useful weekly review</h2>
+<p>Ask:</p>
+<ul>
+<li>Are 28-day impressions and clicks moving in the right direction?</li>
+<li>Which queries/pages gained meaningful visibility?</li>
+<li>Which pages are shown but not earning enough clicks?</li>
+<li>How many Organic Search sessions occurred?</li>
+<li>How many generated booking starts?</li>
+<li>How many generated confirmed bookings?</li>
+<li>Is booking completion improving?</li>
+<li>Does Action Center identify something worth changing?</li>
+<li>Did a recent SEO event occur near a trend worth monitoring?</li>
+</ul>
+<h2>Access</h2>
+<p>Dashboard: <a href="https://seo.tampabayshine.com/">https://seo.tampabayshine.com/</a></p>
+<p>It is protected with Cloudflare Access and should be treated as internal business-performance information.</p>
+<h2>Seven questions the dashboard should answer</h2>
+<ol>
+<li>Are we becoming more visible in Google?</li>
+<li>Are searchers clicking us?</li>
+<li>Are visitors engaging?</li>
+<li>Are they starting bookings?</li>
+<li>Are they completing bookings?</li>
+<li>Which pages/searches deserve attention?</li>
+<li>Are SEO improvements producing sustained business results?</li>
+</ol>
+<p>Use the full funnel and longer-term trends rather than any single metric.</p>
+</main>
+<footer>
+Internal Tampa Bay Shine business-performance documentation.
+</footer>
+</body>
+</html>

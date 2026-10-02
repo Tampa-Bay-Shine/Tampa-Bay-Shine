@@ -1,4 +1,4 @@
-﻿# Tampa Bay Shine SEO Dashboard - Business Owner's Guide
+# Tampa Bay Shine SEO Dashboard - Business Owner's Guide
 
 ## What it is
 
@@ -189,8 +189,11 @@ A production test verified the same GA4 Client ID before and after the
 TampaBayShine.com -\> BookingKoala handoff. That confirms
 client-identity continuity for the tested handoff.
 
-Preservation of the original acquisition source through complete booking
-is a separate measurement question and is being verified independently.
+Cross-domain client-identity continuity has been verified, and GA4 is
+successfully assigning confirmed bookings to acquisition channels. A confirmed
+Organic Search booking has not yet been observed in the available data. The
+dashboard will automatically identify the first Organic Search
+`BookingByCustomer` event when one occurs.
 
 ## Revenue
 
