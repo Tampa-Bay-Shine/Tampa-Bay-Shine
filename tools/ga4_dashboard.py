@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -59,6 +59,8 @@ PRIMARY_INTENT_EVENTS = [
     "commercial_quote_start",
     "contact_click",
 ]
+
+CONFIRMED_BOOKING_EVENT = "BookingByCustomer"
 
 
 def get_credentials(client_secret: Path, token_path: Path):
@@ -346,6 +348,45 @@ def intent_for_period(client, property_id, definition):
         ),
     }
 
+
+def confirmed_bookings_for_range(client, property_id, date_range):
+    response = run_report(
+        client,
+        property_id,
+        dimensions=[],
+        metrics=["eventCount"],
+        date_ranges=[date_range],
+        dimension_filter=organic_and_event_filter(
+            [CONFIRMED_BOOKING_EVENT]
+        ),
+        limit=10,
+    )
+
+    data = rows(response)
+    row = data[0] if data else {}
+
+    return {
+        "confirmed_bookings": clean_count(
+            row.get("eventCount")
+        )
+    }
+
+
+def confirmed_bookings_for_period(client, property_id, definition):
+    return {
+        "current": confirmed_bookings_for_range(
+            client,
+            property_id,
+            definition["current"],
+        ),
+        "previous": confirmed_bookings_for_range(
+            client,
+            property_id,
+            definition["previous"],
+        ),
+    }
+
+
 def landing_pages(client, property_id):
     traffic_response = run_report(
         client,
@@ -375,7 +416,7 @@ def landing_pages(client, property_id):
             ("28daysAgo", "yesterday")
         ],
         dimension_filter=organic_and_event_filter(
-            INTENT_EVENTS
+            INTENT_EVENTS + [CONFIRMED_BOOKING_EVENT]
         ),
         limit=5000,
     )
@@ -403,6 +444,7 @@ def landing_pages(client, property_id):
                 name: 0
                 for name in INTENT_EVENTS
             },
+            "confirmed_bookings": 0,
         }
 
     for row in rows(event_response):
@@ -424,11 +466,16 @@ def landing_pages(client, property_id):
                     name: 0
                     for name in INTENT_EVENTS
                 },
+                "confirmed_bookings": 0,
             },
         )
 
         if event_name in INTENT_EVENTS:
             item[event_name] = clean_count(
+                row.get("eventCount")
+            )
+        elif event_name == CONFIRMED_BOOKING_EVENT:
+            item["confirmed_bookings"] = clean_count(
                 row.get("eventCount")
             )
 
@@ -458,6 +505,30 @@ def landing_pages(client, property_id):
             else None
         )
 
+        item["confirmed_booking_rate"] = (
+            round(
+                number(item["confirmed_bookings"])
+                / sessions
+                * 100,
+                2,
+            )
+            if sessions
+            else None
+        )
+
+        booking_starts = number(item["booknow_click"])
+
+        item["booking_completion_rate"] = (
+            round(
+                number(item["confirmed_bookings"])
+                / booking_starts
+                * 100,
+                2,
+            )
+            if booking_starts
+            else None
+        )
+
         result.append(item)
 
     result.sort(
@@ -484,7 +555,7 @@ def conversion_events_by_channel(client, property_id):
             ("28daysAgo", "yesterday")
         ],
         dimension_filter=event_filter(
-            INTENT_EVENTS
+            INTENT_EVENTS + [CONFIRMED_BOOKING_EVENT]
         ),
         limit=1000,
     )
@@ -530,6 +601,12 @@ def add_rates(period):
             ]
         )
 
+        confirmed_bookings = number(
+            period["confirmed_bookings"][bucket][
+                "confirmed_bookings"
+            ]
+        )
+
         period["overview"][bucket][
             "booking_start_rate"
         ] = (
@@ -549,6 +626,29 @@ def add_rates(period):
                 2,
             )
             if sessions
+            else None
+        )
+
+
+        period["overview"][bucket][
+            "confirmed_booking_rate"
+        ] = (
+            round(
+                confirmed_bookings / sessions * 100,
+                2,
+            )
+            if sessions
+            else None
+        )
+
+        period["overview"][bucket][
+            "booking_completion_rate"
+        ] = (
+            round(
+                confirmed_bookings / booking_starts * 100,
+                2,
+            )
+            if booking_starts
             else None
         )
 
@@ -588,12 +688,21 @@ def build_history_snapshot(payload):
         "primary_intent_actions": period[
             "intent"
         ]["current"]["primary_intent_actions"],
+        "confirmed_bookings": period[
+            "confirmed_bookings"
+        ]["current"]["confirmed_bookings"],
         "booking_start_rate": period[
             "overview"
         ]["current"]["booking_start_rate"],
         "primary_intent_rate": period[
             "overview"
         ]["current"]["primary_intent_rate"],
+        "confirmed_booking_rate": period[
+            "overview"
+        ]["current"]["confirmed_booking_rate"],
+        "booking_completion_rate": period[
+            "overview"
+        ]["current"]["booking_completion_rate"],
     }
 
 
@@ -739,6 +848,11 @@ def main():
                 args.property,
                 definition,
             ),
+            "confirmed_bookings": confirmed_bookings_for_period(
+                client,
+                args.property,
+                definition,
+            ),
         }
 
         add_rates(period)
@@ -797,8 +911,16 @@ def main():
                 "events can occur in one session."
             ),
             "confirmed_bookings": (
-                "Not currently available from the "
-                "verified GA4 events."
+                "BookingByCustomer - native BookingKoala event "
+                "recorded after a customer creates a booking."
+            ),
+            "confirmed_booking_rate": (
+                "Organic Search BookingByCustomer events divided "
+                "by Organic Search sessions."
+            ),
+            "booking_completion_rate": (
+                "Organic Search BookingByCustomer events divided "
+                "by Organic Search booknow_click events."
             ),
             "revenue": (
                 "Not currently available from the "

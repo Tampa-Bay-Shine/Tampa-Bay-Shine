@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T19:42:51+00:00",
+  "generated_at": "2026-10-02T20:23:55+00:00",
   "data_through": "2026-10-01",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
@@ -23,7 +23,9 @@
           "engaged_sessions": 2,
           "engagement_rate": 66.67,
           "booking_start_rate": 66.67,
-          "primary_intent_rate": 66.67
+          "primary_intent_rate": 66.67,
+          "confirmed_booking_rate": 0.0,
+          "booking_completion_rate": 0.0
         },
         "previous": {
           "sessions": 0,
@@ -31,7 +33,9 @@
           "engaged_sessions": 0,
           "engagement_rate": 0.0,
           "booking_start_rate": null,
-          "primary_intent_rate": null
+          "primary_intent_rate": null,
+          "confirmed_booking_rate": null,
+          "booking_completion_rate": null
         }
       },
       "intent": {
@@ -52,6 +56,14 @@
           "coupon_click": 0,
           "primary_intent_actions": 0,
           "all_intent_actions": 0
+        }
+      },
+      "confirmed_bookings": {
+        "current": {
+          "confirmed_bookings": 0
+        },
+        "previous": {
+          "confirmed_bookings": 0
         }
       }
     },
@@ -72,7 +84,9 @@
           "engaged_sessions": 2,
           "engagement_rate": 66.67,
           "booking_start_rate": 66.67,
-          "primary_intent_rate": 66.67
+          "primary_intent_rate": 66.67,
+          "confirmed_booking_rate": 0.0,
+          "booking_completion_rate": 0.0
         },
         "previous": {
           "sessions": 0,
@@ -80,7 +94,9 @@
           "engaged_sessions": 0,
           "engagement_rate": 0.0,
           "booking_start_rate": null,
-          "primary_intent_rate": null
+          "primary_intent_rate": null,
+          "confirmed_booking_rate": null,
+          "booking_completion_rate": null
         }
       },
       "intent": {
@@ -101,6 +117,14 @@
           "coupon_click": 0,
           "primary_intent_actions": 0,
           "all_intent_actions": 0
+        }
+      },
+      "confirmed_bookings": {
+        "current": {
+          "confirmed_bookings": 0
+        },
+        "previous": {
+          "confirmed_bookings": 0
         }
       }
     },
@@ -121,7 +145,9 @@
           "engaged_sessions": 2,
           "engagement_rate": 66.67,
           "booking_start_rate": 66.67,
-          "primary_intent_rate": 66.67
+          "primary_intent_rate": 66.67,
+          "confirmed_booking_rate": 0.0,
+          "booking_completion_rate": 0.0
         },
         "previous": {
           "sessions": 0,
@@ -129,7 +155,9 @@
           "engaged_sessions": 0,
           "engagement_rate": 0.0,
           "booking_start_rate": null,
-          "primary_intent_rate": null
+          "primary_intent_rate": null,
+          "confirmed_booking_rate": null,
+          "booking_completion_rate": null
         }
       },
       "intent": {
@@ -151,6 +179,14 @@
           "primary_intent_actions": 0,
           "all_intent_actions": 0
         }
+      },
+      "confirmed_bookings": {
+        "current": {
+          "confirmed_bookings": 0
+        },
+        "previous": {
+          "confirmed_bookings": 0
+        }
       }
     }
   },
@@ -165,12 +201,25 @@
       "commercial_quote_start": 0,
       "contact_click": 0,
       "coupon_click": 0,
+      "confirmed_bookings": 0,
       "primary_intent_actions": 2,
       "all_intent_actions": 2,
-      "booking_start_rate": 66.67
+      "booking_start_rate": 66.67,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": 0.0
     }
   ],
   "events_by_channel": [
+    {
+      "event_name": "BookingByCustomer",
+      "channel": "Direct",
+      "event_count": 1
+    },
+    {
+      "event_name": "BookingByCustomer",
+      "channel": "Organic Social",
+      "event_count": 1
+    },
     {
       "event_name": "booknow_click",
       "channel": "Direct",
@@ -206,7 +255,9 @@
     "booking_start": "booknow_click - visitor clicked a Book Now link. This is not a confirmed booking.",
     "primary_intent_actions": "booknow_click + phone_click + commercial_quote_start + contact_click.",
     "booking_start_rate": "booknow_click events divided by Organic Search sessions. Multiple events can occur in one session.",
-    "confirmed_bookings": "Not currently available from the verified GA4 events.",
+    "confirmed_bookings": "BookingByCustomer - native BookingKoala event recorded after a customer creates a booking.",
+    "confirmed_booking_rate": "Organic Search BookingByCustomer events divided by Organic Search sessions.",
+    "booking_completion_rate": "Organic Search BookingByCustomer events divided by Organic Search booknow_click events.",
     "revenue": "Not currently available from the verified GA4 events."
   }
 }

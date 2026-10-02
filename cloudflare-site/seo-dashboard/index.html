@@ -1256,8 +1256,8 @@ td:first-child{
 <section id="conversions" class="tab">
   <h2>Organic Search Conversions</h2>
   <p class="muted">
-    GA4 Organic Search traffic and lead-intent activity.
-    Booking starts are clicks into the booking flow, not confirmed bookings.
+    GA4 Organic Search traffic, booking starts, and confirmed BookingKoala bookings.
+    Booking starts and confirmed bookings are tracked separately.
   </p>
 
   <div class="conversion-period-selector" id="conversion-period-selector">
@@ -1304,6 +1304,24 @@ td:first-child{
     </div>
 
     <div class="conversion-card">
+      <span class="label">Confirmed bookings</span>
+      <span class="value" id="conversion-confirmed">--</span>
+      <span class="comparison" id="conversion-confirmed-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Confirmed booking rate</span>
+      <span class="value" id="conversion-confirmed-rate">--</span>
+      <span class="comparison" id="conversion-confirmed-rate-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Booking completion rate</span>
+      <span class="value" id="conversion-completion-rate">--</span>
+      <span class="comparison" id="conversion-completion-rate-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
       <span class="label">Primary intent actions</span>
       <span class="value" id="conversion-intent">--</span>
       <span class="comparison" id="conversion-intent-compare">--</span>
@@ -1322,8 +1340,8 @@ td:first-child{
 
   <div class="conversion-status-grid">
     <div class="conversion-status">
-      <strong>Confirmed bookings</strong>
-      <span>Not currently available from the verified GA4 events.</span>
+      <strong>Confirmed booking source</strong>
+      <span>BookingKoala native GA4 event: BookingByCustomer.</span>
     </div>
     <div class="conversion-status">
       <strong>Revenue attribution</strong>
@@ -1345,18 +1363,21 @@ td:first-child{
           <th>Users</th>
           <th>Engaged</th>
           <th>Booking starts</th>
+          <th>Confirmed bookings</th>
           <th>Phone clicks</th>
           <th>Quote starts</th>
           <th>Contact clicks</th>
           <th>Intent actions</th>
           <th>Booking start rate</th>
+          <th>Confirmed booking rate</th>
+          <th>Completion rate</th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
   </div>
 
-  <h3>Tracked intent events by acquisition channel</h3>
+  <h3>Booking and intent events by acquisition channel</h3>
   <p class="muted">
     Latest 28-day view. This table provides context outside Organic Search
     without combining those channels into the SEO conversion totals above.
@@ -1888,6 +1909,8 @@ function renderConversions(data,days=28){
   const previous=period.overview?.previous||{};
   const intent=period.intent?.current||{};
   const previousIntent=period.intent?.previous||{};
+  const confirmed=period.confirmed_bookings?.current||{};
+  const previousConfirmed=period.confirmed_bookings?.previous||{};
 
   const set=(id,value)=>{
     const el=document.getElementById(id);
@@ -1949,6 +1972,50 @@ function renderConversions(data,days=28){
         )
   );
 
+  set(
+    "conversion-confirmed",
+    n(confirmed.confirmed_bookings)
+  );
+  set(
+    "conversion-confirmed-compare",
+    conversionComparison(
+      confirmed.confirmed_bookings,
+      previousConfirmed.confirmed_bookings
+    )
+  );
+
+  set(
+    "conversion-confirmed-rate",
+    current.confirmed_booking_rate==null
+      ? "--"
+      : `${n(current.confirmed_booking_rate)}%`
+  );
+  set(
+    "conversion-confirmed-rate-compare",
+    previous.confirmed_booking_rate==null
+      ? "No prior data"
+      : conversionPointComparison(
+          current.confirmed_booking_rate,
+          previous.confirmed_booking_rate
+        )
+  );
+
+  set(
+    "conversion-completion-rate",
+    current.booking_completion_rate==null
+      ? "--"
+      : `${n(current.booking_completion_rate)}%`
+  );
+  set(
+    "conversion-completion-rate-compare",
+    previous.booking_completion_rate==null
+      ? "No prior data"
+      : conversionPointComparison(
+          current.booking_completion_rate,
+          previous.booking_completion_rate
+        )
+  );
+
   set("conversion-intent",n(intent.primary_intent_actions));
   set(
     "conversion-intent-compare",
@@ -1982,8 +2049,10 @@ function renderConversions(data,days=28){
     note.innerHTML=
       `<strong>GA4 data through ${trendEsc(trendDate(data.data_through))}.</strong> `+
       `Booking Start Rate is booknow_click events divided by Organic Search `+
-      `sessions. A booking start is not a confirmed booking. Multiple intent `+
-      `events can occur during one session.`;
+      `sessions. Confirmed Booking Rate is BookingByCustomer events divided by `+
+      `Organic Search sessions. Completion Rate is confirmed bookings divided `+
+      `by Organic Search booking starts. BookingByCustomer is BookingKoala's `+
+      `native confirmed-booking event. Multiple events can occur during one session.`;
   }
 }
 
@@ -2004,6 +2073,7 @@ function renderConversionTables(data){
           <td>${n(row.active_users)}</td>
           <td>${n(row.engaged_sessions)}</td>
           <td>${n(row.booknow_click)}</td>
+          <td>${n(row.confirmed_bookings)}</td>
           <td>${n(row.phone_click)}</td>
           <td>${n(row.commercial_quote_start)}</td>
           <td>${n(row.contact_click)}</td>
@@ -2013,8 +2083,18 @@ function renderConversionTables(data){
               ? "--"
               : `${n(row.booking_start_rate)}%`
           }</td>
+          <td>${
+            row.confirmed_booking_rate==null
+              ? "--"
+              : `${n(row.confirmed_booking_rate)}%`
+          }</td>
+          <td>${
+            row.booking_completion_rate==null
+              ? "--"
+              : `${n(row.booking_completion_rate)}%`
+          }</td>
         </tr>`).join("")
-      : `<tr><td colspan="10">No organic landing-page data available.</td></tr>`;
+      : `<tr><td colspan="13">No organic landing-page data available.</td></tr>`;
   }
 
   const eventBody=document.querySelector(
@@ -2032,7 +2112,7 @@ function renderConversionTables(data){
           <td>${esc(row.channel||"--")}</td>
           <td>${n(row.event_count)}</td>
         </tr>`).join("")
-      : `<tr><td colspan="3">No tracked intent events available.</td></tr>`;
+      : `<tr><td colspan="3">No tracked booking or intent events available.</td></tr>`;
   }
 }
 

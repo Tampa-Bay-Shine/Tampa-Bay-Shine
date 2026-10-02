@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -245,6 +245,7 @@ def main():
         "form_submit",
         "booking",
         "booking_complete",
+        "BookingByCustomer",
         "booking_completed",
     }
 
