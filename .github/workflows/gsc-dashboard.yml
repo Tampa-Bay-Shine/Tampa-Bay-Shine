@@ -1,0 +1,89 @@
+name: Refresh GSC SEO Dashboard
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gsc-seo-dashboard-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out seo-dashboard
+        uses: actions/checkout@v4
+        with:
+          ref: seo-dashboard
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Google API dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+      - name: Create temporary GSC credentials
+        shell: bash
+        env:
+          CLIENT_SECRET_B64: ${{ secrets.TBS_GSC_CLIENT_SECRET_B64 }}
+          TOKEN_B64: ${{ secrets.TBS_GSC_TOKEN_B64 }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$CLIENT_SECRET_B64" ] || [ -z "$TOKEN_B64" ]; then
+            echo "Required GSC secrets are missing."
+            exit 1
+          fi
+
+          mkdir -p "$RUNNER_TEMP/tbs-gsc"
+          printf '%s' "$CLIENT_SECRET_B64" | base64 --decode > "$RUNNER_TEMP/tbs-gsc/client_secret.json"
+          printf '%s' "$TOKEN_B64" | base64 --decode > "$RUNNER_TEMP/tbs-gsc/token.json"
+
+          chmod 600 "$RUNNER_TEMP/tbs-gsc/client_secret.json"
+          chmod 600 "$RUNNER_TEMP/tbs-gsc/token.json"
+
+      - name: Refresh dashboard data
+        run: |
+          python tools/gsc_dashboard.py \
+            --client-secret "$RUNNER_TEMP/tbs-gsc/client_secret.json" \
+            --token "$RUNNER_TEMP/tbs-gsc/token.json" \
+            --out "cloudflare-site/seo-dashboard/data/gsc.json"
+
+      - name: Verify only dashboard data changed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          unexpected="$(git status --porcelain | grep -v 'cloudflare-site/seo-dashboard/data/gsc.json' || true)"
+
+          if [ -n "$unexpected" ]; then
+            echo "Unexpected repository changes detected:"
+            echo "$unexpected"
+            exit 1
+          fi
+
+      - name: Commit refreshed GSC data
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- cloudflare-site/seo-dashboard/data/gsc.json; then
+            echo "GSC dashboard data has not changed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add cloudflare-site/seo-dashboard/data/gsc.json
+          git commit -m "Refresh GSC dashboard data"
+          git push origin HEAD:seo-dashboard
