@@ -697,6 +697,176 @@ td:first-child{
   overflow-wrap:anywhere;
 }
 
+
+/* SEO event log */
+
+.event-summary{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.event-summary-card{
+  background:#f7fafd;
+  border:1px solid #dbe7f2;
+  border-radius:10px;
+  padding:14px 16px;
+}
+
+.event-summary-card .label{
+  display:block;
+  color:#64748b;
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.event-summary-card .value{
+  display:block;
+  color:#15395b;
+  font-size:20px;
+  font-weight:700;
+}
+
+.event-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:16px 0 18px;
+}
+
+.event-filter{
+  border:1px solid #bfd0e0;
+  background:#fff;
+  color:#31536f;
+  border-radius:999px;
+  padding:7px 12px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:600;
+}
+
+.event-filter:hover,
+.event-filter.active{
+  background:#15395b;
+  border-color:#15395b;
+  color:#fff;
+}
+
+.event-list{
+  display:grid;
+  gap:12px;
+}
+
+.event-card{
+  position:relative;
+  border:1px solid #dbe7f2;
+  border-left:4px solid #4f7fa7;
+  border-radius:10px;
+  background:#fff;
+  padding:15px 17px;
+}
+
+.event-card-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:7px;
+}
+
+.event-card-title{
+  color:#15395b;
+  font-weight:700;
+  font-size:15px;
+}
+
+.event-date{
+  white-space:nowrap;
+  color:#64748b;
+  font-size:12px;
+}
+
+.event-category{
+  display:inline-block;
+  margin-bottom:8px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#edf4fb;
+  color:#31536f;
+  font-size:11px;
+  font-weight:700;
+}
+
+.event-description{
+  line-height:1.55;
+}
+
+.event-urls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:9px;
+}
+
+.event-urls a{
+  font-size:12px;
+}
+
+.event-notes{
+  margin-top:9px;
+  color:#64748b;
+  font-size:12px;
+}
+
+.event-empty{
+  padding:24px;
+  border:1px dashed #bfd0e0;
+  border-radius:10px;
+  color:#64748b;
+  text-align:center;
+  background:#f8fbfe;
+}
+
+.trend-event-line{
+  stroke:#9b6a23;
+  stroke-width:1.5;
+  stroke-dasharray:4 3;
+  opacity:.8;
+}
+
+.trend-event-dot{
+  fill:#9b6a23;
+}
+
+.trend-event-label{
+  fill:#79511a;
+  font-size:9px;
+  font-weight:700;
+}
+
+.trend-event-legend{
+  margin-top:8px;
+  color:#64748b;
+  font-size:11px;
+  line-height:1.45;
+}
+
+@media(max-width:650px){
+  .event-summary{
+    grid-template-columns:1fr;
+  }
+
+  .event-card-header{
+    display:block;
+  }
+
+  .event-date{
+    display:block;
+    margin-top:4px;
+  }
+}
+
 /* Footer / limitations */
 
 #note{
@@ -792,7 +962,7 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
 <section id="actions" class="tab active">
 <h2>SEO Action Center</h2>
 <p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes.</p>
@@ -889,6 +1059,34 @@ td:first-child{
   </div>
 </section>
 
+
+<section id="events" class="tab">
+  <h2>SEO Event Log</h2>
+  <p class="muted">
+    Recorded SEO, content, technical, local search, migration, and AEO changes.
+    Trend annotations show timing only and do not establish that an event caused
+    a performance change.
+  </p>
+
+  <div class="event-summary">
+    <div class="event-summary-card">
+      <span class="label">Recorded events</span>
+      <span class="value" id="event-count">--</span>
+    </div>
+    <div class="event-summary-card">
+      <span class="label">First event</span>
+      <span class="value" id="event-first">--</span>
+    </div>
+    <div class="event-summary-card">
+      <span class="label">Latest event</span>
+      <span class="value" id="event-latest">--</span>
+    </div>
+  </div>
+
+  <div class="event-filters" id="event-filters"></div>
+  <div class="event-list" id="event-list"></div>
+</section>
+
 <section id="tracked" class="tab"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
 <section id="queries" class="tab"><h2>Top non-brand queries</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th></tr></thead><tbody></tbody></table></section>
 <section id="movers" class="tab">
@@ -964,6 +1162,97 @@ const trendNumber=(value,digits=1)=>{
   });
 };
 
+
+let seoEvents=[];
+
+function normalizedSeoEvents(data){
+  return Array.isArray(data?.events)
+    ? data.events
+        .filter(event=>event && event.date && event.title)
+        .slice()
+        .sort((a,b)=>String(a.date).localeCompare(String(b.date)))
+    : [];
+}
+
+function renderEvents(events){
+  seoEvents=Array.isArray(events) ? events : [];
+
+  const count=document.getElementById("event-count");
+  const first=document.getElementById("event-first");
+  const latest=document.getElementById("event-latest");
+  const filters=document.getElementById("event-filters");
+  const list=document.getElementById("event-list");
+
+  if(!count || !first || !latest || !filters || !list)return;
+
+  count.textContent=seoEvents.length;
+  first.textContent=seoEvents.length ? trendDate(seoEvents[0].date) : "--";
+  latest.textContent=seoEvents.length
+    ? trendDate(seoEvents[seoEvents.length-1].date)
+    : "--";
+
+  const categories=[...new Set(
+    seoEvents.map(event=>event.category).filter(Boolean)
+  )].sort((a,b)=>a.localeCompare(b));
+
+  filters.innerHTML=[
+    '<button class="event-filter active" data-event-filter="all">All</button>',
+    ...categories.map(category=>
+      `<button class="event-filter" data-event-filter="${trendEsc(category)}">${trendEsc(category)}</button>`
+    )
+  ].join("");
+
+  const draw=(filter="all")=>{
+    const visible=seoEvents
+      .filter(event=>filter==="all" || event.category===filter)
+      .slice()
+      .sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+
+    if(!visible.length){
+      list.innerHTML='<div class="event-empty">No SEO events match this filter.</div>';
+      return;
+    }
+
+    list.innerHTML=visible.map(event=>{
+      const urls=Array.isArray(event.urls) ? event.urls : [];
+
+      const links=urls.length
+        ? `<div class="event-urls">${urls.map(url=>
+            `<a href="${trendEsc(url)}" target="_blank" rel="noopener noreferrer">${trendEsc(url)}</a>`
+          ).join("")}</div>`
+        : "";
+
+      const notes=event.notes
+        ? `<div class="event-notes"><strong>Notes:</strong> ${trendEsc(event.notes)}</div>`
+        : "";
+
+      return `
+        <article class="event-card">
+          <div class="event-card-header">
+            <div class="event-card-title">${trendEsc(event.title)}</div>
+            <div class="event-date">${trendEsc(trendDate(event.date))}</div>
+          </div>
+          <div class="event-category">${trendEsc(event.category||"Other")}</div>
+          <div class="event-description">${trendEsc(event.description||"")}</div>
+          ${links}
+          ${notes}
+        </article>`;
+    }).join("");
+  };
+
+  filters.querySelectorAll("[data-event-filter]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      filters.querySelectorAll("[data-event-filter]")
+        .forEach(item=>item.classList.remove("active"));
+
+      button.classList.add("active");
+      draw(button.dataset.eventFilter);
+    });
+  });
+
+  draw();
+}
+
 function renderTrendChart(targetId,snapshots,valueFn,options={}){
   const target=document.getElementById(targetId);
   if(!target)return;
@@ -1017,6 +1306,23 @@ function renderTrendChart(targetId,snapshots,valueFn,options={}){
 
   const format=options.format || ((v)=>trendNumber(v,1));
 
+  const firstDate=Date.parse(points[0].date+"T00:00:00Z");
+  const lastDate=Date.parse(points[points.length-1].date+"T00:00:00Z");
+  const dateSpan=Math.max(lastDate-firstDate,1);
+
+  const chartEvents=seoEvents.filter(event=>{
+    const eventDate=Date.parse(String(event.date||"")+"T00:00:00Z");
+    return Number.isFinite(eventDate)
+      && eventDate>=firstDate
+      && eventDate<=lastDate;
+  });
+
+  const eventX=(dateValue)=>{
+    const eventDate=Date.parse(String(dateValue)+"T00:00:00Z");
+    const ratio=(eventDate-firstDate)/dateSpan;
+    return left+(ratio*plotW);
+  };
+
   let grid="";
   for(let i=0;i<=4;i++){
     const gy=top+(plotH*(i/4));
@@ -1043,6 +1349,26 @@ function renderTrendChart(targetId,snapshots,valueFn,options={}){
       <title>${trendEsc(trendDate(p.date))}: ${trendEsc(format(p.value))}</title>
     </circle>`).join("");
 
+  const eventMarkers=chartEvents.map((event,index)=>{
+    const ex=eventX(event.date);
+    const labelY=top+10+(index%3)*11;
+
+    return `
+      <line class="trend-event-line"
+        x1="${ex}" y1="${top}"
+        x2="${ex}" y2="${top+plotH}">
+        <title>${trendEsc(trendDate(event.date))}: ${trendEsc(event.title)}</title>
+      </line>
+      <circle class="trend-event-dot"
+        cx="${ex}" cy="${top}" r="3">
+        <title>${trendEsc(trendDate(event.date))}: ${trendEsc(event.title)}</title>
+      </circle>
+      <text class="trend-event-label"
+        x="${ex+4}" y="${labelY}">
+        ${trendEsc(event.title)}
+      </text>`;
+  }).join("");
+
   const first=points[0];
   const last=points[points.length-1];
 
@@ -1054,6 +1380,7 @@ function renderTrendChart(targetId,snapshots,valueFn,options={}){
       <line class="trend-axis"
         x1="${left}" y1="${top+plotH}"
         x2="${width-right}" y2="${top+plotH}"></line>
+      ${eventMarkers}
       <polyline class="trend-line" points="${coords}"></polyline>
       ${dots}
       <text class="trend-label"
@@ -1062,7 +1389,14 @@ function renderTrendChart(targetId,snapshots,valueFn,options={}){
       <text class="trend-label"
         x="${width-right}" y="${height-12}"
         text-anchor="end">${trendEsc(trendDate(last.date))}</text>
-    </svg>`;
+    </svg>
+    ${chartEvents.length
+      ? `<div class="trend-event-legend">${
+          chartEvents.map(event=>
+            `${trendEsc(trendDate(event.date))}: ${trendEsc(event.title)}`
+          ).join(" | ")
+        }</div>`
+      : ""}`;
 }
 
 function renderHistory(history){
@@ -1143,14 +1477,29 @@ function renderHistory(history){
   renderKeyword();
 }
 
-fetch("./data/history.json",{cache:"no-store"})
-  .then(r=>{
+Promise.all([
+  fetch("./data/history.json",{cache:"no-store"}).then(r=>{
     if(!r.ok)throw new Error(`History request failed: ${r.status}`);
     return r.json();
+  }),
+  fetch("./data/events.json",{cache:"no-store"})
+    .then(r=>{
+      if(!r.ok)throw new Error(`Events request failed: ${r.status}`);
+      return r.json();
+    })
+    .catch(err=>{
+      console.error(err);
+      return {schema_version:1,events:[]};
+    })
+])
+  .then(([history,eventData])=>{
+    renderEvents(normalizedSeoEvents(eventData));
+    renderHistory(history);
   })
-  .then(renderHistory)
   .catch(err=>{
     console.error(err);
+
+    renderEvents([]);
 
     ["trend-clicks","trend-impressions","trend-ctr","trend-position","trend-keyword"]
       .forEach(id=>{
