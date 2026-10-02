@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-02T19:25:01+00:00",
+  "data_through": "2026-10-01",
+  "property_id": "487638948",
+  "property_name": "tampabayshine.com",
+  "channel": "Organic Search",
+  "periods": {
+    "7": {
+      "days": 7,
+      "current_range": {
+        "start": "7daysAgo",
+        "end": "yesterday"
+      },
+      "previous_range": {
+        "start": "14daysAgo",
+        "end": "8daysAgo"
+      },
+      "overview": {
+        "current": {
+          "sessions": 3,
+          "active_users": 3,
+          "engaged_sessions": 2,
+          "engagement_rate": 66.67,
+          "booking_start_rate": 66.67,
+          "primary_intent_rate": 66.67
+        },
+        "previous": {
+          "sessions": 0,
+          "active_users": 0,
+          "engaged_sessions": 0,
+          "engagement_rate": 0.0,
+          "booking_start_rate": null,
+          "primary_intent_rate": null
+        }
+      },
+      "intent": {
+        "current": {
+          "booknow_click": 2,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 2,
+          "all_intent_actions": 2
+        },
+        "previous": {
+          "booknow_click": 0,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 0,
+          "all_intent_actions": 0
+        }
+      }
+    },
+    "28": {
+      "days": 28,
+      "current_range": {
+        "start": "28daysAgo",
+        "end": "yesterday"
+      },
+      "previous_range": {
+        "start": "56daysAgo",
+        "end": "29daysAgo"
+      },
+      "overview": {
+        "current": {
+          "sessions": 3,
+          "active_users": 3,
+          "engaged_sessions": 2,
+          "engagement_rate": 66.67,
+          "booking_start_rate": 66.67,
+          "primary_intent_rate": 66.67
+        },
+        "previous": {
+          "sessions": 0,
+          "active_users": 0,
+          "engaged_sessions": 0,
+          "engagement_rate": 0.0,
+          "booking_start_rate": null,
+          "primary_intent_rate": null
+        }
+      },
+      "intent": {
+        "current": {
+          "booknow_click": 2,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 2,
+          "all_intent_actions": 2
+        },
+        "previous": {
+          "booknow_click": 0,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 0,
+          "all_intent_actions": 0
+        }
+      }
+    },
+    "90": {
+      "days": 90,
+      "current_range": {
+        "start": "90daysAgo",
+        "end": "yesterday"
+      },
+      "previous_range": {
+        "start": "180daysAgo",
+        "end": "91daysAgo"
+      },
+      "overview": {
+        "current": {
+          "sessions": 3,
+          "active_users": 3,
+          "engaged_sessions": 2,
+          "engagement_rate": 66.67,
+          "booking_start_rate": 66.67,
+          "primary_intent_rate": 66.67
+        },
+        "previous": {
+          "sessions": 0,
+          "active_users": 0,
+          "engaged_sessions": 0,
+          "engagement_rate": 0.0,
+          "booking_start_rate": null,
+          "primary_intent_rate": null
+        }
+      },
+      "intent": {
+        "current": {
+          "booknow_click": 2,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 2,
+          "all_intent_actions": 2
+        },
+        "previous": {
+          "booknow_click": 0,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 0,
+          "all_intent_actions": 0
+        }
+      }
+    }
+  },
+  "landing_pages": [
+    {
+      "landing_page": "/",
+      "sessions": 3,
+      "active_users": 3,
+      "engaged_sessions": 2,
+      "booknow_click": 2,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "primary_intent_actions": 2,
+      "all_intent_actions": 2,
+      "booking_start_rate": 66.67
+    }
+  ],
+  "events_by_channel": [
+    {
+      "event_name": "booknow_click",
+      "channel": "Direct",
+      "event_count": 5
+    },
+    {
+      "event_name": "booknow_click",
+      "channel": "Organic Search",
+      "event_count": 2
+    },
+    {
+      "event_name": "booknow_click",
+      "channel": "Organic Social",
+      "event_count": 5
+    },
+    {
+      "event_name": "booknow_click",
+      "channel": "Referral",
+      "event_count": 3
+    },
+    {
+      "event_name": "contact_click",
+      "channel": "Direct",
+      "event_count": 1
+    },
+    {
+      "event_name": "coupon_click",
+      "channel": "Direct",
+      "event_count": 3
+    }
+  ],
+  "definitions": {
+    "booking_start": "booknow_click - visitor clicked a Book Now link. This is not a confirmed booking.",
+    "primary_intent_actions": "booknow_click + phone_click + commercial_quote_start + contact_click.",
+    "booking_start_rate": "booknow_click events divided by Organic Search sessions. Multiple events can occur in one session.",
+    "confirmed_bookings": "Not currently available from the verified GA4 events.",
+    "revenue": "Not currently available from the verified GA4 events."
+  }
+}

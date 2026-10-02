@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head><meta name="description" content="Private Tampa Bay Shine Google Search Console SEO performance and keyword tracking dashboard.">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -661,6 +661,204 @@ td:first-child{
   }
 }
 
+
+/* Compact tracked keyword trends */
+
+.keyword-trend-heading{
+  margin:28px 0 4px;
+}
+
+.keyword-trend-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+
+.keyword-mini-card{
+  min-width:0;
+  padding:13px;
+}
+
+.keyword-mini-card h3{
+  margin:0 0 3px;
+  font-size:13px;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+
+.keyword-mini-card .trend-chart-meta{
+  margin-bottom:7px;
+  font-size:11px;
+}
+
+.keyword-mini-card .trend-chart{
+  min-height:150px;
+}
+
+.keyword-mini-card .trend-empty{
+  min-height:145px;
+  padding:12px;
+  font-size:11px;
+}
+
+.keyword-mini-card .trend-event-legend{
+  font-size:10px;
+}
+
+@media(max-width:1000px){
+  .keyword-trend-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px){
+  .keyword-trend-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* GA4 conversions */
+
+.conversion-period-selector{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:18px 0;
+}
+
+.conversion-period-selector button{
+  padding:8px 14px;
+  border:1px solid #b9cce0;
+  border-radius:999px;
+  background:#fff;
+  color:#38516b;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.conversion-period-selector button:hover{
+  border-color:var(--tbs-blue);
+  color:var(--tbs-blue);
+  background:var(--tbs-blue-pale);
+}
+
+.conversion-period-selector button.active{
+  background:linear-gradient(135deg,var(--tbs-blue),var(--tbs-blue-dark));
+  color:#fff;
+  border-color:transparent;
+}
+
+.conversion-cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0 22px;
+}
+
+.conversion-card{
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 2px 8px rgba(15,23,42,.05);
+}
+
+.conversion-card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--tbs-blue),#57a8f4);
+}
+
+.conversion-card .label{
+  display:block;
+  color:#64748b;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.conversion-card .value{
+  display:block;
+  margin-top:5px;
+  color:var(--tbs-blue-deep);
+  font-size:25px;
+  font-weight:800;
+}
+
+.conversion-card .comparison{
+  display:block;
+  margin-top:5px;
+  color:#64748b;
+  font-size:11px;
+}
+
+.conversion-callout{
+  margin:18px 0;
+  padding:13px 15px;
+  border-left:4px solid var(--tbs-blue);
+  border-radius:8px;
+  background:var(--tbs-blue-pale);
+  color:#33475b;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.conversion-status-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.conversion-status{
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fafcff;
+}
+
+.conversion-status strong{
+  display:block;
+  color:var(--tbs-blue-deep);
+  margin-bottom:3px;
+}
+
+.conversion-status span{
+  color:#64748b;
+  font-size:12px;
+}
+
+.conversion-table-wrap{
+  overflow-x:auto;
+}
+
+.conversion-table-wrap table{
+  min-width:900px;
+}
+
+@media(max-width:900px){
+  .conversion-cards{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px){
+  .conversion-cards,
+  .conversion-status-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
 /* Winners / losers presentation */
 
 #movers h3{
@@ -962,7 +1160,7 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="conversions">Conversions</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
 <section id="actions" class="tab active">
 <h2>SEO Action Center</h2>
 <p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes.</p>
@@ -1045,17 +1243,136 @@ td:first-child{
     </div>
   </div>
 
-  <div class="trend-controls">
-    <label for="keyword-trend-select">Tracked keyword:</label>
-    <select id="keyword-trend-select"></select>
+  <h3 class="keyword-trend-heading">Tracked keyword position trends</h3>
+  <p class="muted">
+    All tracked Tampa keywords shown together for faster comparison.
+    Higher on each chart represents a better Google Search Console position.
+  </p>
+  <div id="keyword-trend-grid" class="keyword-trend-grid"></div>
+</section>
+
+
+
+<section id="conversions" class="tab">
+  <h2>Organic Search Conversions</h2>
+  <p class="muted">
+    GA4 Organic Search traffic and lead-intent activity.
+    Booking starts are clicks into the booking flow, not confirmed bookings.
+  </p>
+
+  <div class="conversion-period-selector" id="conversion-period-selector">
+    <button data-conversion-days="7">7 Days</button>
+    <button data-conversion-days="28" class="active">28 Days</button>
+    <button data-conversion-days="90">90 Days</button>
   </div>
 
-  <div id="keyword-trend-card" class="trend-chart-card">
-    <h3 id="keyword-trend-title">Tracked keyword position</h3>
-    <div class="trend-chart-meta">
-      28-day average Google Search Console position for the selected query
+  <div class="conversion-cards">
+    <div class="conversion-card">
+      <span class="label">Organic sessions</span>
+      <span class="value" id="conversion-sessions">--</span>
+      <span class="comparison" id="conversion-sessions-compare">--</span>
     </div>
-    <div id="trend-keyword" class="trend-chart"></div>
+
+    <div class="conversion-card">
+      <span class="label">Organic users</span>
+      <span class="value" id="conversion-users">--</span>
+      <span class="comparison" id="conversion-users-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Engaged sessions</span>
+      <span class="value" id="conversion-engaged">--</span>
+      <span class="comparison" id="conversion-engaged-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Engagement rate</span>
+      <span class="value" id="conversion-engagement-rate">--</span>
+      <span class="comparison" id="conversion-engagement-rate-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Booking starts</span>
+      <span class="value" id="conversion-booking-starts">--</span>
+      <span class="comparison" id="conversion-booking-starts-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Booking start rate</span>
+      <span class="value" id="conversion-booking-rate">--</span>
+      <span class="comparison" id="conversion-booking-rate-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Primary intent actions</span>
+      <span class="value" id="conversion-intent">--</span>
+      <span class="comparison" id="conversion-intent-compare">--</span>
+    </div>
+
+    <div class="conversion-card">
+      <span class="label">Phone clicks</span>
+      <span class="value" id="conversion-phone">--</span>
+      <span class="comparison" id="conversion-phone-compare">--</span>
+    </div>
+  </div>
+
+  <div class="conversion-callout" id="conversion-note">
+    Loading GA4 conversion data...
+  </div>
+
+  <div class="conversion-status-grid">
+    <div class="conversion-status">
+      <strong>Confirmed bookings</strong>
+      <span>Not currently available from the verified GA4 events.</span>
+    </div>
+    <div class="conversion-status">
+      <strong>Revenue attribution</strong>
+      <span>Not currently available from the verified GA4 events.</span>
+    </div>
+  </div>
+
+  <h3>Organic landing-page attribution</h3>
+  <p class="muted">
+    Current landing-page detail uses the latest 28-day GA4 reporting window.
+  </p>
+
+  <div class="conversion-table-wrap">
+    <table id="conversion-landing-pages">
+      <thead>
+        <tr>
+          <th>Landing page</th>
+          <th>Sessions</th>
+          <th>Users</th>
+          <th>Engaged</th>
+          <th>Booking starts</th>
+          <th>Phone clicks</th>
+          <th>Quote starts</th>
+          <th>Contact clicks</th>
+          <th>Intent actions</th>
+          <th>Booking start rate</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h3>Tracked intent events by acquisition channel</h3>
+  <p class="muted">
+    Latest 28-day view. This table provides context outside Organic Search
+    without combining those channels into the SEO conversion totals above.
+  </p>
+
+  <div class="conversion-table-wrap">
+    <table id="conversion-events">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Channel</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 </section>
 
@@ -1274,11 +1591,11 @@ function renderTrendChart(targetId,snapshots,valueFn,options={}){
   }
 
   const width=640;
-  const height=250;
-  const left=54;
+  const height=options.compact ? 205 : 250;
+  const left=options.compact ? 46 : 54;
   const right=18;
   const top=18;
-  const bottom=42;
+  const bottom=options.compact ? 34 : 42;
   const plotW=width-left-right;
   const plotH=height-top-bottom;
 
@@ -1455,32 +1772,41 @@ function renderHistory(history){
   });
 
   const keywords=[...keywordSet].sort((a,b)=>a.localeCompare(b));
-  const select=document.getElementById("keyword-trend-select");
+  const keywordGrid=document.getElementById("keyword-trend-grid");
 
-  select.innerHTML=keywords.length
-    ? keywords.map(q=>`<option value="${trendEsc(q)}">${trendEsc(q)}</option>`).join("")
-    : '<option value="">No tracked keyword history yet</option>';
+  if(keywordGrid){
+    if(!keywords.length){
+      keywordGrid.innerHTML=`
+        <div class="trend-empty">
+          No tracked keyword history is available yet.
+        </div>`;
+    }else{
+      keywordGrid.innerHTML=keywords.map((query,index)=>`
+        <div class="trend-chart-card keyword-mini-card">
+          <h3>${trendEsc(query)}</h3>
+          <div class="trend-chart-meta">
+            28-day average position
+          </div>
+          <div id="trend-keyword-${index}" class="trend-chart"></div>
+        </div>
+      `).join("");
 
-  const renderKeyword=()=>{
-    const query=select.value;
-    document.getElementById("keyword-trend-title").textContent=
-      query ? `${query} - position trend` : "Tracked keyword position";
-
-    renderTrendChart(
-      "trend-keyword",
-      snapshots,
-      s=>s.tracked_keywords?.[query]?.position,
-      {
-        label:`${query} position trend`,
-        format:v=>trendNumber(v,1),
-        invert:true,
-        minValue:1
-      }
-    );
-  };
-
-  select.addEventListener("change",renderKeyword);
-  renderKeyword();
+      keywords.forEach((query,index)=>{
+        renderTrendChart(
+          `trend-keyword-${index}`,
+          snapshots,
+          s=>s.tracked_keywords?.[query]?.position,
+          {
+            label:`${query} position trend`,
+            format:v=>trendNumber(v,1),
+            invert:true,
+            minValue:1,
+            compact:true
+          }
+        );
+      });
+    }
+  }
 }
 
 Promise.all([
@@ -1507,7 +1833,7 @@ Promise.all([
 
     renderEvents([]);
 
-    ["trend-clicks","trend-impressions","trend-ctr","trend-position","trend-keyword"]
+    ["trend-clicks","trend-impressions","trend-ctr","trend-position"]
       .forEach(id=>{
         const el=document.getElementById(id);
         if(el){
@@ -1515,6 +1841,231 @@ Promise.all([
         }
       });
   });
+
+
+function conversionComparison(current,previous,suffix=""){
+  const c=Number(current);
+  const p=Number(previous);
+
+  if(!Number.isFinite(c))return "--";
+
+  if(!Number.isFinite(p) || p===0){
+    return "No prior data";
+  }
+
+  const change=((c-p)/p)*100;
+  const sign=change>0?"+":"";
+
+  return `${sign}${trendNumber(change,1)}% vs previous period${suffix}`;
+}
+
+function conversionPointComparison(current,previous){
+  const c=Number(current);
+  const p=Number(previous);
+
+  if(!Number.isFinite(c))return "--";
+
+  if(!Number.isFinite(p) || p===0){
+    return "No prior data";
+  }
+
+  const delta=c-p;
+  const sign=delta>0?"+":"";
+
+  return `${sign}${trendNumber(delta,2)} pts vs previous period`;
+}
+
+function renderConversions(data,days=28){
+  const period=data?.periods?.[String(days)];
+
+  if(!period){
+    const note=document.getElementById("conversion-note");
+    if(note)note.textContent=`${days}-day GA4 conversion data is unavailable.`;
+    return;
+  }
+
+  const current=period.overview?.current||{};
+  const previous=period.overview?.previous||{};
+  const intent=period.intent?.current||{};
+  const previousIntent=period.intent?.previous||{};
+
+  const set=(id,value)=>{
+    const el=document.getElementById(id);
+    if(el)el.textContent=value;
+  };
+
+  set("conversion-sessions",n(current.sessions));
+  set(
+    "conversion-sessions-compare",
+    conversionComparison(current.sessions,previous.sessions)
+  );
+
+  set("conversion-users",n(current.active_users));
+  set(
+    "conversion-users-compare",
+    conversionComparison(current.active_users,previous.active_users)
+  );
+
+  set("conversion-engaged",n(current.engaged_sessions));
+  set(
+    "conversion-engaged-compare",
+    conversionComparison(current.engaged_sessions,previous.engaged_sessions)
+  );
+
+  set(
+    "conversion-engagement-rate",
+    current.engagement_rate==null ? "--" : `${n(current.engagement_rate)}%`
+  );
+  set(
+    "conversion-engagement-rate-compare",
+    conversionPointComparison(
+      current.engagement_rate,
+      previous.engagement_rate
+    )
+  );
+
+  set("conversion-booking-starts",n(intent.booknow_click));
+  set(
+    "conversion-booking-starts-compare",
+    conversionComparison(
+      intent.booknow_click,
+      previousIntent.booknow_click
+    )
+  );
+
+  set(
+    "conversion-booking-rate",
+    current.booking_start_rate==null
+      ? "--"
+      : `${n(current.booking_start_rate)}%`
+  );
+  set(
+    "conversion-booking-rate-compare",
+    previous.booking_start_rate==null
+      ? "No prior data"
+      : conversionPointComparison(
+          current.booking_start_rate,
+          previous.booking_start_rate
+        )
+  );
+
+  set("conversion-intent",n(intent.primary_intent_actions));
+  set(
+    "conversion-intent-compare",
+    conversionComparison(
+      intent.primary_intent_actions,
+      previousIntent.primary_intent_actions
+    )
+  );
+
+  set("conversion-phone",n(intent.phone_click));
+  set(
+    "conversion-phone-compare",
+    conversionComparison(
+      intent.phone_click,
+      previousIntent.phone_click
+    )
+  );
+
+  document.querySelectorAll(
+    "#conversion-period-selector [data-conversion-days]"
+  ).forEach(button=>{
+    button.classList.toggle(
+      "active",
+      button.dataset.conversionDays===String(days)
+    );
+  });
+
+  const note=document.getElementById("conversion-note");
+
+  if(note){
+    note.innerHTML=
+      `<strong>GA4 data through ${trendEsc(trendDate(data.data_through))}.</strong> `+
+      `Booking Start Rate is booknow_click events divided by Organic Search `+
+      `sessions. A booking start is not a confirmed booking. Multiple intent `+
+      `events can occur during one session.`;
+  }
+}
+
+function renderConversionTables(data){
+  const landingBody=document.querySelector(
+    "#conversion-landing-pages tbody"
+  );
+
+  if(landingBody){
+    const rows=Array.isArray(data?.landing_pages)
+      ? data.landing_pages
+      : [];
+
+    landingBody.innerHTML=rows.length
+      ? rows.map(row=>`<tr>
+          <td>${esc(row.landing_page||"--")}</td>
+          <td>${n(row.sessions)}</td>
+          <td>${n(row.active_users)}</td>
+          <td>${n(row.engaged_sessions)}</td>
+          <td>${n(row.booknow_click)}</td>
+          <td>${n(row.phone_click)}</td>
+          <td>${n(row.commercial_quote_start)}</td>
+          <td>${n(row.contact_click)}</td>
+          <td>${n(row.primary_intent_actions)}</td>
+          <td>${
+            row.booking_start_rate==null
+              ? "--"
+              : `${n(row.booking_start_rate)}%`
+          }</td>
+        </tr>`).join("")
+      : `<tr><td colspan="10">No organic landing-page data available.</td></tr>`;
+  }
+
+  const eventBody=document.querySelector(
+    "#conversion-events tbody"
+  );
+
+  if(eventBody){
+    const rows=Array.isArray(data?.events_by_channel)
+      ? data.events_by_channel
+      : [];
+
+    eventBody.innerHTML=rows.length
+      ? rows.map(row=>`<tr>
+          <td>${esc(row.event_name||"--")}</td>
+          <td>${esc(row.channel||"--")}</td>
+          <td>${n(row.event_count)}</td>
+        </tr>`).join("")
+      : `<tr><td colspan="3">No tracked intent events available.</td></tr>`;
+  }
+}
+
+fetch("./data/ga4.json",{cache:"no-store"})
+  .then(r=>{
+    if(!r.ok)throw new Error(`GA4 request failed: ${r.status}`);
+    return r.json();
+  })
+  .then(data=>{
+    renderConversions(data,28);
+    renderConversionTables(data);
+
+    document.querySelectorAll(
+      "#conversion-period-selector [data-conversion-days]"
+    ).forEach(button=>{
+      button.addEventListener("click",()=>{
+        renderConversions(
+          data,
+          Number(button.dataset.conversionDays)
+        );
+      });
+    });
+  })
+  .catch(err=>{
+    console.error(err);
+
+    const note=document.getElementById("conversion-note");
+    if(note){
+      note.textContent=
+        "GA4 conversion data could not be loaded: "+err.message;
+    }
+  });
+
 
 fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  if(!d.generated_at){document.getElementById("note").textContent="Run python.exe .\\tools\\gsc_dashboard.py to populate the dashboard.";return}
