@@ -817,3 +817,27 @@ used by the dashboard.
 The scheduled dashboard refresh is maintained by
 `.github/workflows/gsc-dashboard.yml` on the repository default branch
 and updates the `seo-dashboard` deployment branch.
+
+### Daily GSC query and page trend explorer
+
+The SEO dashboard maintains real daily Google Search Console history
+for interactive query and page analysis:
+
+- `cloudflare-site/seo-dashboard/data/query-history.json`
+- `cloudflare-site/seo-dashboard/data/page-history.json`
+
+Tracked keywords, top queries, query winners/losers, and page
+winners/losers can be expanded into daily historical charts.
+
+Chart periods: `1D | 7D | 30D | 90D | 180D | 1Y | Custom`
+
+Metrics: `Clicks | Impressions | Position | CTR`
+
+SEO Event Log entries provide change context on historical charts;
+temporal proximity does not establish causation.
+
+`tools/gsc_dashboard.py` creates an initial 365-day backfill and then
+refreshes a recent overlap window. The history files contain real GSC
+observations; missing query observations are not interpolated. GSC can
+omit anonymized or low-volume query rows, and average position is an
+aggregate metric rather than a deterministic live SERP rank.

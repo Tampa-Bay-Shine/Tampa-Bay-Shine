@@ -109,6 +109,8 @@ protection for that tested workflow but is not a universal guarantee.
 -   `cloudflare-site/seo-dashboard/data/ga4.json`
 -   `cloudflare-site/seo-dashboard/data/ga4-history.json`
 -   `cloudflare-site/seo-dashboard/data/events.json`
+-   `cloudflare-site/seo-dashboard/data/query-history.json`
+-   `cloudflare-site/seo-dashboard/data/page-history.json`
 
 ## Tools
 
@@ -127,11 +129,52 @@ The authoritative scheduled workflow is
 `.github/workflows/gsc-dashboard.yml` on the default branch. It runs
 daily at cron `15 11 * * *`, checks out `seo-dashboard`, installs Google
 API dependencies, reconstructs temporary credentials from GitHub
-secrets, refreshes GSC and GA4, rejects unexpected changes, stages only
-`gsc.json`, `history.json`, `ga4.json`, and `ga4-history.json`, then
-commits and pushes changed data to `seo-dashboard`.
+secrets, refreshes GSC and GA4, rejects unexpected changes, and commits
+approved generated dashboard datasets to `seo-dashboard`.
+
+Phase 9 requires the scheduled workflow to include
+`query-history.json` and `page-history.json` in its approved/staged
+dashboard data files in addition to the existing GSC, GA4, AI, and
+history datasets.
 
 Do not use the public-site promotion script to refresh dashboard data.
+
+## Daily GSC query and page history
+
+Phase 9 adds real daily Search Console history for individual queries
+and pages:
+
+- `data/query-history.json` - daily query-level GSC observations.
+- `data/page-history.json` - daily page-level GSC observations.
+
+Both retain a rolling 365-day window. Initial generation performs a
+full backfill. Normal runs refresh the most recent 7-day overlap and
+merge it into retained history.
+
+Query history retains queries with at least 20 impressions over the
+retained window, plus configured tracked keywords and queries currently
+needed by the dashboard. Page history retains pages with at least 20
+impressions, plus pages currently needed by dashboard analysis.
+
+Compact points use `[date, clicks, impressions, ctr, position]`.
+
+Do not interpret a missing query/date row as a measured zero. Search
+Console may omit anonymized or low-volume query observations. Average
+position is impression-weighted for retained summaries and is not a
+deterministic live Google ranking.
+
+Normal generation:
+
+    python.exe .\tools\gsc_dashboard.py --query-history-days 365 --page-history-days 365
+
+Incremental overlap defaults to 7 days and can be changed with
+`--query-history-refresh-days` and `--page-history-refresh-days`.
+
+The explorer supports `1D | 7D | 30D | 90D | 180D | 1Y | Custom` and
+`Clicks | Impressions | Position | CTR`. SEO Event Log entries inside
+the selected period are overlaid as annotations. Event timing provides
+context only and does not prove causation.
+
 
 ## Credentials
 

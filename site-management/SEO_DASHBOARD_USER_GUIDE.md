@@ -104,6 +104,27 @@ visibility. Look for local/service demand, unexpected searches,
 high-impression/low-click queries, and searches approaching stronger
 positions.
 
+## Interactive query and page trends
+
+Tracked Keywords, Top Queries, Query Winners/Losers, and Page
+Winners/Losers can be expanded to show daily Google Search Console
+history. Use the arrow beside a query or page to open its chart. Only
+one row is expanded at a time.
+
+Timeframes are **1D**, **7D**, **30D**, **90D**, **180D**, **1Y**, and
+**Custom**. Metrics are **Clicks**, **Impressions**, **Position**, and
+**CTR**. The summary above the chart recalculates for the selected
+period.
+
+SEO Event Log entries appear when their dates fall inside the selected
+range. They provide context, not proof of causation.
+
+Daily query charts use observations actually returned by GSC. Missing
+low-volume/anonymized query dates should not be treated as confirmed
+zeros. Low-volume queries can also produce large daily CTR swings; one
+click from one impression is 100% daily CTR. Average position is an
+aggregate GSC metric, not an exact live rank.
+
 ## Winners & Losers
 
 These highlight meaningful period-over-period movement. A winner is not
@@ -202,6 +223,11 @@ not multiply booking counts by an assumed average price and call it
 tracked revenue.
 
 ## A useful weekly review
+
+For important tracked keywords and meaningful Winners/Losers, expand
+the row and review the 30-day or 90-day chart before deciding whether a
+change is sustained. Use 1Y when longer-term context is useful.
+
 
 Ask:
 

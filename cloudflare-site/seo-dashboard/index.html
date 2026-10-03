@@ -1264,7 +1264,174 @@ td:first-child{
     font-size:28px;
   }
 }
-</style></head><body><main>
+</style>
+<style>
+.trend-explorer{
+  margin:18px 0 22px;
+  padding:16px;
+  border:1px solid #d8e1ea;
+  border-radius:12px;
+  background:#f8fafc;
+}
+
+.trend-explorer-title{
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.trend-explorer-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.trend-explorer-label{
+  font-size:13px;
+  font-weight:700;
+  color:#475569;
+  margin-right:3px;
+}
+
+.trend-range-button,
+.trend-metric-button{
+  border:1px solid #cbd5e1;
+  background:white;
+  border-radius:7px;
+  padding:6px 10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.trend-range-button.active,
+.trend-metric-button.active{
+  background:#084c99;
+  color:white;
+  border-color:#084c99;
+}
+
+.trend-custom{
+  display:none;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+
+.trend-custom.active{
+  display:flex;
+}
+
+.trend-custom input{
+  padding:6px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+}
+
+.trend-expand{
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  padding:4px 8px 4px 2px;
+  width:18px;
+  height:18px;
+  position:relative;
+  flex:0 0 18px;
+}
+
+.trend-expand::before{
+  content:"";
+  position:absolute;
+  left:3px;
+  top:5px;
+  width:6px;
+  height:6px;
+  border-right:2px solid #084c99;
+  border-bottom:2px solid #084c99;
+  transform:rotate(-45deg);
+  transition:transform .15s ease;
+}
+
+.trend-expand.expanded::before{
+  transform:rotate(45deg);
+}
+
+.trend-subject{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+
+.trend-detail-row td{
+  padding:0 !important;
+  background:#f8fafc;
+}
+
+.trend-detail{
+  padding:16px 18px 20px;
+  border-top:1px solid #dbe3ec;
+}
+
+.trend-detail-header{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+
+.trend-detail-title{
+  font-weight:700;
+}
+
+.trend-detail-meta{
+  color:#64748b;
+  font-size:13px;
+}
+
+.trend-detail-chart{
+  min-height:260px;
+}
+
+.trend-detail-summary{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:8px 0 12px;
+}
+
+.trend-detail-stat{
+  background:white;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:7px 10px;
+  font-size:13px;
+}
+
+.trend-no-data{
+  padding:25px;
+  text-align:center;
+  color:#64748b;
+}
+
+.trend-chart-note{
+  color:#64748b;
+  font-size:12px;
+  margin-top:8px;
+}
+
+@media(max-width:700px){
+  .trend-explorer-row{
+    align-items:flex-start;
+  }
+
+  .trend-detail{
+    padding:12px;
+  }
+}
+</style>
+</head><body><main>
 <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
   <a href="/guide/"
      style="font-weight:700;color:#084c99;text-decoration:none">
@@ -1756,6 +1923,44 @@ td:first-child{
   <div class="event-filters" id="event-filters"></div>
   <div class="event-list" id="event-list"></div>
 </section>
+
+
+<div class="trend-explorer" id="trend-explorer">
+  <div class="trend-explorer-title">Historical trend explorer</div>
+
+  <div class="trend-explorer-row">
+    <span class="trend-explorer-label">Timeframe</span>
+    <button class="trend-range-button" data-trend-range="1">1D</button>
+    <button class="trend-range-button" data-trend-range="7">7D</button>
+    <button class="trend-range-button active" data-trend-range="30">30D</button>
+    <button class="trend-range-button" data-trend-range="90">90D</button>
+    <button class="trend-range-button" data-trend-range="180">180D</button>
+    <button class="trend-range-button" data-trend-range="365">1Y</button>
+    <button class="trend-range-button" data-trend-range="custom">Custom</button>
+  </div>
+
+  <div class="trend-custom" id="trend-custom">
+    <span class="trend-explorer-label">From</span>
+    <input type="date" id="trend-custom-start">
+    <span class="trend-explorer-label">To</span>
+    <input type="date" id="trend-custom-end">
+    <button class="trend-range-button" id="trend-custom-apply">Apply</button>
+  </div>
+
+  <div class="trend-explorer-row">
+    <span class="trend-explorer-label">Metric</span>
+    <button class="trend-metric-button active" data-trend-metric="clicks">Clicks</button>
+    <button class="trend-metric-button" data-trend-metric="impressions">Impressions</button>
+    <button class="trend-metric-button" data-trend-metric="position">Position</button>
+    <button class="trend-metric-button" data-trend-metric="ctr">CTR</button>
+  </div>
+
+  <div class="trend-chart-note">
+    These controls apply to expanded Tracked Keyword, Top Query,
+    Query Winner/Loser and Page Winner/Loser charts.
+    SEO Event Log entries are overlaid on the selected period.
+  </div>
+</div>
 
 <section id="tracked" class="tab"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
 <section id="queries" class="tab"><h2>Top non-brand queries</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th></tr></thead><tbody></tbody></table></section>
@@ -2812,6 +3017,443 @@ fetch("./data/ga4.json",{cache:"no-store"})
   });
 
 
+
+let queryTrendData=null;
+let pageTrendData=null;
+
+const trendExplorerState={
+  days:30,
+  metric:"clicks",
+  customStart:null,
+  customEnd:null,
+  expanded:null
+};
+
+function trendSubjectKey(type,value){
+  return `${type}:${String(value||"")}`;
+}
+
+function trendFindRecord(type,value){
+  const needle=String(value||"").toLowerCase();
+
+  if(type==="query"){
+    return (queryTrendData?.queries||[]).find(
+      item=>String(item.query||"").toLowerCase()===needle
+    )||null;
+  }
+
+  return (pageTrendData?.pages||[]).find(
+    item=>String(item.page||"").toLowerCase()===needle
+  )||null;
+}
+
+function trendDatasetBounds(){
+  const starts=[
+    queryTrendData?.period?.start,
+    pageTrendData?.period?.start
+  ].filter(Boolean).sort();
+
+  const ends=[
+    queryTrendData?.period?.end,
+    pageTrendData?.period?.end
+  ].filter(Boolean).sort();
+
+  return {
+    start:starts.length ? starts[0] : null,
+    end:ends.length ? ends[ends.length-1] : null
+  };
+}
+
+function trendSelectedRange(){
+  const bounds=trendDatasetBounds();
+
+  if(!bounds.end){
+    return {start:null,end:null};
+  }
+
+  if(
+    trendExplorerState.days==="custom" &&
+    trendExplorerState.customStart &&
+    trendExplorerState.customEnd
+  ){
+    return {
+      start:trendExplorerState.customStart,
+      end:trendExplorerState.customEnd
+    };
+  }
+
+  const days=Number(trendExplorerState.days)||30;
+  const end=new Date(bounds.end+"T00:00:00Z");
+  const start=new Date(end);
+  start.setUTCDate(start.getUTCDate()-(days-1));
+
+  const iso=d=>d.toISOString().slice(0,10);
+
+  return {
+    start:bounds.start && iso(start)<bounds.start ? bounds.start : iso(start),
+    end:bounds.end
+  };
+}
+
+function trendFilteredPoints(record){
+  if(!record)return [];
+
+  const range=trendSelectedRange();
+
+  return (record.points||[])
+    .filter(point=>{
+      const date=point?.[0];
+      return date &&
+        (!range.start || date>=range.start) &&
+        (!range.end || date<=range.end);
+    })
+    .map(point=>({
+      date:point[0],
+      clicks:Number(point[1]||0),
+      impressions:Number(point[2]||0),
+      ctr:point[3]==null ? null : Number(point[3]),
+      position:point[4]==null ? null : Number(point[4])
+    }));
+}
+
+function trendMetricConfig(){
+  switch(trendExplorerState.metric){
+    case "impressions":
+      return {
+        label:"Impressions",
+        value:p=>p.impressions,
+        format:v=>trendNumber(v,0),
+        invert:false,
+        minValue:0
+      };
+
+    case "position":
+      return {
+        label:"Average position",
+        value:p=>p.position,
+        format:v=>trendNumber(v,1),
+        invert:true,
+        minValue:1
+      };
+
+    case "ctr":
+      return {
+        label:"CTR",
+        value:p=>p.ctr,
+        format:v=>`${trendNumber(v,2)}%`,
+        invert:false,
+        minValue:0
+      };
+
+    default:
+      return {
+        label:"Clicks",
+        value:p=>p.clicks,
+        format:v=>trendNumber(v,0),
+        invert:false,
+        minValue:0
+      };
+  }
+}
+
+function trendRangeSummary(points){
+  const clicks=points.reduce((sum,p)=>sum+p.clicks,0);
+  const impressions=points.reduce((sum,p)=>sum+p.impressions,0);
+
+  const ctr=impressions
+    ? clicks/impressions*100
+    : 0;
+
+  const positionNumerator=points.reduce(
+    (sum,p)=>sum+(
+      p.position!=null && p.impressions
+        ? p.position*p.impressions
+        : 0
+    ),
+    0
+  );
+
+  const positionImpressions=points.reduce(
+    (sum,p)=>sum+(
+      p.position!=null
+        ? p.impressions
+        : 0
+    ),
+    0
+  );
+
+  return {
+    clicks,
+    impressions,
+    ctr,
+    position:positionImpressions
+      ? positionNumerator/positionImpressions
+      : null
+  };
+}
+
+function renderExpandedTrend(){
+  const expanded=trendExplorerState.expanded;
+  if(!expanded)return;
+
+  const target=document.getElementById("active-row-trend");
+  if(!target)return;
+
+  const record=trendFindRecord(expanded.type,expanded.value);
+
+  if(!record){
+    target.innerHTML=`
+      <div class="trend-no-data">
+        No retained daily GSC history is available for this item.
+      </div>`;
+    return;
+  }
+
+  const points=trendFilteredPoints(record);
+  const range=trendSelectedRange();
+  const metric=trendMetricConfig();
+  const summary=trendRangeSummary(points);
+
+  const title=document.getElementById("active-row-trend-title");
+  const meta=document.getElementById("active-row-trend-meta");
+
+  if(title){
+    title.textContent=`${metric.label}: ${expanded.value}`;
+  }
+
+  if(meta){
+    meta.textContent=
+      `${range.start||"--"} to ${range.end||"--"} ? `+
+      `${points.length} reported GSC day${points.length===1?"":"s"}`;
+  }
+
+  const stats=document.getElementById("active-row-trend-summary");
+
+  if(stats){
+    stats.innerHTML=`
+      <span class="trend-detail-stat"><strong>Clicks:</strong> ${n(summary.clicks)}</span>
+      <span class="trend-detail-stat"><strong>Impressions:</strong> ${n(summary.impressions)}</span>
+      <span class="trend-detail-stat"><strong>CTR:</strong> ${n(summary.ctr)}%</span>
+      <span class="trend-detail-stat"><strong>Avg position:</strong> ${n(summary.position)}</span>`;
+  }
+
+  if(!points.length){
+    target.innerHTML=`
+      <div class="trend-no-data">
+        Google Search Console returned no retained daily observations
+        for this item in the selected period.
+      </div>`;
+    return;
+  }
+
+  if(points.length===1){
+    target.innerHTML=`
+      <div class="trend-no-data">
+        One GSC observation is available for this period:
+        <strong>${trendEsc(metric.format(metric.value(points[0])))}</strong>
+        on ${trendEsc(trendDate(points[0].date))}.
+      </div>`;
+    return;
+  }
+
+  renderTrendChart(
+    "active-row-trend",
+    points,
+    metric.value,
+    {
+      label:`${expanded.value} ${metric.label}`,
+      format:metric.format,
+      axisFormat:metric.format,
+      invert:metric.invert,
+      minValue:metric.minValue
+    }
+  );
+}
+
+function trendCloseExpanded(){
+  document.querySelectorAll(".trend-detail-row").forEach(row=>row.remove());
+
+  document.querySelectorAll(".trend-expand").forEach(button=>{
+    button.classList.remove("expanded");
+    button.setAttribute("aria-expanded","false");
+  });
+
+  trendExplorerState.expanded=null;
+}
+
+function trendExpand(button){
+  const row=button.closest("tr");
+  if(!row)return;
+
+  const type=button.dataset.trendType;
+  const value=button.dataset.trendValue;
+  const key=trendSubjectKey(type,value);
+
+  if(trendExplorerState.expanded?.key===key){
+    trendCloseExpanded();
+    return;
+  }
+
+  trendCloseExpanded();
+
+  const colspan=row.children.length;
+
+  const detail=document.createElement("tr");
+  detail.className="trend-detail-row";
+  detail.innerHTML=`
+    <td colspan="${colspan}">
+      <div class="trend-detail">
+        <div class="trend-detail-header">
+          <div>
+            <div class="trend-detail-title" id="active-row-trend-title"></div>
+            <div class="trend-detail-meta" id="active-row-trend-meta"></div>
+          </div>
+        </div>
+        <div class="trend-detail-summary" id="active-row-trend-summary"></div>
+        <div class="trend-detail-chart" id="active-row-trend"></div>
+        <div class="trend-chart-note">
+          Missing query dates mean GSC did not return a reportable row for
+          that query/date. Average position is not a deterministic live SERP rank.
+        </div>
+      </div>
+    </td>`;
+
+  row.insertAdjacentElement("afterend",detail);
+
+  button.classList.remove("expanded");
+  button.setAttribute("aria-expanded","true");
+
+  trendExplorerState.expanded={
+    key,
+    type,
+    value
+  };
+
+  renderExpandedTrend();
+}
+
+function trendSubjectButton(type,value){
+  return `
+    <span class="trend-subject">
+      <button
+        type="button"
+        class="trend-expand"
+        data-trend-type="${esc(type)}"
+        data-trend-value="${esc(value)}"
+        aria-expanded="false"
+        title="Show historical trend"></button>
+      <span>${esc(value)}</span>
+    </span>`;
+}
+
+function bindTrendRows(){
+  document.querySelectorAll(".trend-expand").forEach(button=>{
+    button.addEventListener("click",()=>{
+      trendExpand(button);
+    });
+  });
+}
+
+function refreshExpandedTrend(){
+  if(trendExplorerState.expanded){
+    renderExpandedTrend();
+  }
+}
+
+function initTrendExplorerControls(){
+  const custom=document.getElementById("trend-custom");
+  const customStart=document.getElementById("trend-custom-start");
+  const customEnd=document.getElementById("trend-custom-end");
+
+  const bounds=trendDatasetBounds();
+
+  if(customStart && bounds.start){
+    customStart.min=bounds.start;
+    customStart.max=bounds.end;
+  }
+
+  if(customEnd && bounds.end){
+    customEnd.min=bounds.start;
+    customEnd.max=bounds.end;
+  }
+
+  document.querySelectorAll("[data-trend-range]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const value=button.dataset.trendRange;
+
+      document.querySelectorAll("[data-trend-range]")
+        .forEach(item=>item.classList.remove("active"));
+
+      button.classList.add("active");
+
+      if(value==="custom"){
+        trendExplorerState.days="custom";
+        custom?.classList.add("active");
+
+        if(customStart && !customStart.value){
+          customStart.value=bounds.start||"";
+        }
+
+        if(customEnd && !customEnd.value){
+          customEnd.value=bounds.end||"";
+        }
+      }else{
+        trendExplorerState.days=Number(value);
+        custom?.classList.remove("active");
+        refreshExpandedTrend();
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-trend-metric]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      document.querySelectorAll("[data-trend-metric]")
+        .forEach(item=>item.classList.remove("active"));
+
+      button.classList.add("active");
+      trendExplorerState.metric=button.dataset.trendMetric;
+      refreshExpandedTrend();
+    });
+  });
+
+  document.getElementById("trend-custom-apply")
+    ?.addEventListener("click",()=>{
+      if(!customStart?.value || !customEnd?.value)return;
+
+      if(customStart.value>customEnd.value){
+        alert("Custom start date must be on or before the end date.");
+        return;
+      }
+
+      trendExplorerState.days="custom";
+      trendExplorerState.customStart=customStart.value;
+      trendExplorerState.customEnd=customEnd.value;
+      refreshExpandedTrend();
+    });
+}
+
+const trendHistoryPromise=Promise.all([
+  fetch("./data/query-history.json",{cache:"no-store"})
+    .then(r=>{
+      if(!r.ok)throw new Error(`Query history request failed: ${r.status}`);
+      return r.json();
+    }),
+  fetch("./data/page-history.json",{cache:"no-store"})
+    .then(r=>{
+      if(!r.ok)throw new Error(`Page history request failed: ${r.status}`);
+      return r.json();
+    })
+])
+.then(([queryData,pageData])=>{
+  queryTrendData=queryData;
+  pageTrendData=pageData;
+  initTrendExplorerControls();
+})
+.catch(err=>{
+  console.error(err);
+});
+
+
 fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  if(!d.generated_at){document.getElementById("note").textContent="Run python.exe .\\tools\\gsc_dashboard.py to populate the dashboard.";return}
  const renderPeriod=(days)=>{
@@ -2929,8 +3571,10 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  renderActions("all");
 
  const moverRows=(items,key)=>{
+   const type=key==="page" ? "page" : "query";
+
    return (items||[]).slice(0,10).map(x=>`<tr>
-<td>${esc(x[key]||"--")}</td>
+<td>${trendSubjectButton(type,x[key]||"--")}</td>
 <td>${esc(x.reason||"--")}</td>
 <td><span class="data-badge data-${esc(x.confidence||"low")}">${esc((x.confidence||"--").replace("high","High").replace("medium","Medium").replace("low","Low"))}</span></td>
 <td>${n(x.current_clicks)}</td>
@@ -2947,8 +3591,10 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  document.querySelector("#page-winners tbody").innerHTML=moverRows(d.page_movers?.winners,"page");
  document.querySelector("#page-losers tbody").innerHTML=moverRows(d.page_movers?.losers,"page");
 
- document.querySelector("#tracked tbody").innerHTML=(d.tracked_keywords||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.current.position)}</td><td>${change(x.position_change)}</td><td>${n(x.current.impressions)}</td><td>${n(x.current.clicks)}</td><td>${n(x.current.ctr)}%</td><td>${esc(x.ranking_page||"--")}</td></tr>`).join("");
- document.querySelector("#queries tbody").innerHTML=(d.top_queries||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.current_position)}</td><td>${change(x.position_improvement)}</td><td>${n(x.current_impressions)}</td><td>${n(x.current_clicks)}</td><td>${n(x.current_ctr_percent)}%</td></tr>`).join("");
+ document.querySelector("#tracked tbody").innerHTML=(d.tracked_keywords||[]).map(x=>`<tr><td>${trendSubjectButton("query",x.query)}</td><td>${n(x.current.position)}</td><td>${change(x.position_change)}</td><td>${n(x.current.impressions)}</td><td>${n(x.current.clicks)}</td><td>${n(x.current.ctr)}%</td><td>${esc(x.ranking_page||"--")}</td></tr>`).join("");
+ document.querySelector("#queries tbody").innerHTML=(d.top_queries||[]).map(x=>`<tr><td>${trendSubjectButton("query",x.query)}</td><td>${n(x.current_position)}</td><td>${change(x.position_improvement)}</td><td>${n(x.current_impressions)}</td><td>${n(x.current_clicks)}</td><td>${n(x.current_ctr_percent)}%</td></tr>`).join("");
+
+ bindTrendRows();
  document.querySelector("#opps tbody").innerHTML=(d.opportunities||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.position)}</td><td>${n(x.impressions)}</td><td>${n(x.ctr_percent)}%</td><td>${esc(x.flags)}</td><td>${esc(x.page)}</td></tr>`).join("");
  document.querySelector("#cann tbody").innerHTML=(d.cannibalization||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.pages_with_impressions)}</td><td>${n(x.total_impressions)}</td><td>${esc(x.page_1)}</td><td>${esc(x.page_2)}</td></tr>`).join("");
  note.textContent=d.limitations||"";

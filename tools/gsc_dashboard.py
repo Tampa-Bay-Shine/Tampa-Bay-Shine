@@ -9,6 +9,8 @@ import gsc_performance_audit as gsc
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "gsc.json"
+DEFAULT_QUERY_HISTORY_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "query-history.json"
+DEFAULT_PAGE_HISTORY_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "page-history.json"
 
 TRACKED = [
     "house cleaning tampa",
@@ -1118,6 +1120,917 @@ def backfill_history(
     )
 
 
+
+def build_daily_query_history(
+    service,
+    site,
+    start_date,
+    end_date,
+    tracked_queries=None,
+    required_queries=None,
+    minimum_impressions=20,
+):
+    """Fetch compact real daily GSC query metrics for trend charts."""
+    from datetime import datetime
+
+    if isinstance(start_date, str):
+        start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+
+    if isinstance(end_date, str):
+        end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+
+    tracked_queries = {
+        value.lower()
+        for value in (tracked_queries or [])
+        if value
+    }
+
+    required_queries = {
+        value.lower()
+        for value in (required_queries or [])
+        if value
+    }
+
+    required_queries.update(tracked_queries)
+
+    rows = gsc.normalize_rows(
+        gsc.fetch_rows(
+            service,
+            site,
+            start_date,
+            end_date,
+            ["date", "query"],
+        ),
+        ["date", "query"],
+    )
+
+    by_query = {}
+
+    for row in rows:
+        query = row.get("query")
+        observation_date = row.get("date")
+
+        if not query or not observation_date:
+            continue
+
+        key = query.lower()
+
+        item = by_query.setdefault(
+            key,
+            {
+                "query": query,
+                "tracked": key in tracked_queries,
+                "points": [],
+                "_clicks": 0.0,
+                "_impressions": 0.0,
+                "_position_weight": 0.0,
+            },
+        )
+
+        clicks = float(row.get("clicks", 0) or 0)
+        impressions = float(row.get("impressions", 0) or 0)
+        position = row.get("position")
+        position = (
+            float(position)
+            if position not in (None, "")
+            else None
+        )
+
+        ctr = (
+            clicks / impressions * 100
+            if impressions
+            else 0.0
+        )
+
+        item["points"].append([
+            observation_date,
+            round(clicks, 2),
+            round(impressions, 2),
+            round(ctr, 2),
+            round(position, 2) if position is not None else None,
+        ])
+
+        item["_clicks"] += clicks
+        item["_impressions"] += impressions
+
+        if position is not None and impressions:
+            item["_position_weight"] += position * impressions
+
+    queries = []
+
+    for key, item in by_query.items():
+        impressions = item["_impressions"]
+
+        if (
+            impressions < minimum_impressions
+            and key not in required_queries
+        ):
+            continue
+
+        clicks = item["_clicks"]
+
+        item["points"].sort(key=lambda point: point[0])
+
+        item["summary"] = {
+            "clicks": round(clicks, 2),
+            "impressions": round(impressions, 2),
+            "ctr": round(
+                clicks / impressions * 100,
+                2,
+            ) if impressions else 0.0,
+            "position": round(
+                item["_position_weight"] / impressions,
+                2,
+            ) if impressions else None,
+        }
+
+        del item["_clicks"]
+        del item["_impressions"]
+        del item["_position_weight"]
+
+        queries.append(item)
+
+    queries.sort(
+        key=lambda item: (
+            item["summary"]["impressions"],
+            item["summary"]["clicks"],
+        ),
+        reverse=True,
+    )
+
+    return {
+        "schema_version": 2,
+        "generated_at": datetime.now(timezone.utc)
+            .isoformat()
+            .replace("+00:00", "Z"),
+        "source": "Google Search Console",
+        "property": site,
+        "period": {
+            "start": start_date.isoformat(),
+            "end": end_date.isoformat(),
+        },
+        "granularity": "day",
+        "point_columns": [
+            "date",
+            "clicks",
+            "impressions",
+            "ctr",
+            "position",
+        ],
+        "retention": {
+            "minimum_impressions": minimum_impressions,
+            "always_include_tracked": True,
+            "always_include_dashboard_queries": True,
+        },
+        "queries": queries,
+        "query_count": len(queries),
+        "limitations": (
+            "Daily query rows are Google Search Console performance data. "
+            "Google may omit anonymized or very low-volume queries. Average "
+            "position is impression-weighted and is not a deterministic live "
+            "SERP rank. Queries below the retention threshold are omitted "
+            "unless tracked or currently used by dashboard analysis."
+        ),
+    }
+
+
+def dashboard_required_queries(payload):
+    """Collect queries that must retain trend history for dashboard rows."""
+    result = set()
+
+    for item in payload.get("tracked_keywords", []):
+        if item.get("query"):
+            result.add(item["query"])
+
+    for item in payload.get("top_queries", []):
+        if item.get("query"):
+            result.add(item["query"])
+
+    for group in ("winners", "losers"):
+        for item in payload.get("query_movers", {}).get(group, []):
+            if item.get("query"):
+                result.add(item["query"])
+
+    for item in payload.get("opportunities", []):
+        if item.get("query"):
+            result.add(item["query"])
+
+    for item in payload.get("action_center", {}).get("actions", []):
+        if item.get("query"):
+            result.add(item["query"])
+
+    return result
+
+
+def write_daily_query_history(
+    service,
+    site,
+    output_path,
+    dashboard_payload,
+    days=365,
+    lag_days=3,
+    end_date=None,
+    minimum_impressions=20,
+    refresh_days=7,
+):
+    """Create or incrementally refresh compact daily GSC query history."""
+    from datetime import date, datetime, timedelta
+
+    if days < 1:
+        raise ValueError("--query-history-days must be at least 1.")
+
+    if refresh_days < 1:
+        raise ValueError("--query-history-refresh-days must be at least 1.")
+
+    if end_date:
+        if isinstance(end_date, str):
+            latest = datetime.strptime(
+                end_date,
+                "%Y-%m-%d",
+            ).date()
+        else:
+            latest = end_date
+    else:
+        latest = date.today() - timedelta(days=lag_days)
+
+    earliest = latest - timedelta(days=days - 1)
+
+    output_path = Path(output_path)
+    required = dashboard_required_queries(dashboard_payload)
+
+    existing = None
+
+    if output_path.exists():
+        try:
+            existing = json.loads(
+                output_path.read_text(encoding="utf-8")
+            )
+        except (json.JSONDecodeError, OSError):
+            existing = None
+
+    use_incremental = (
+        existing
+        and existing.get("schema_version") == 2
+        and existing.get("property") == site
+        and existing.get("point_columns") == [
+            "date",
+            "clicks",
+            "impressions",
+            "ctr",
+            "position",
+        ]
+    )
+
+    if use_incremental:
+        refresh_start = max(
+            earliest,
+            latest - timedelta(days=refresh_days - 1),
+        )
+
+        fresh = build_daily_query_history(
+            service=service,
+            site=site,
+            start_date=refresh_start,
+            end_date=latest,
+            tracked_queries=TRACKED,
+            required_queries=required,
+            minimum_impressions=0,
+        )
+
+        merged = {}
+
+        # Keep existing observations outside the refresh window.
+        for item in existing.get("queries", []):
+            query = item.get("query")
+            if not query:
+                continue
+
+            key = query.lower()
+
+            target = merged.setdefault(
+                key,
+                {
+                    "query": query,
+                    "tracked": key in {
+                        value.lower() for value in TRACKED
+                    },
+                    "points": {},
+                },
+            )
+
+            for point in item.get("points", []):
+                if not point:
+                    continue
+
+                point_date = point[0]
+
+                if (
+                    earliest.isoformat()
+                    <= point_date
+                    < refresh_start.isoformat()
+                ):
+                    target["points"][point_date] = point
+
+        # Replace the overlap with newly fetched GSC observations.
+        for item in fresh.get("queries", []):
+            query = item.get("query")
+            if not query:
+                continue
+
+            key = query.lower()
+
+            target = merged.setdefault(
+                key,
+                {
+                    "query": query,
+                    "tracked": key in {
+                        value.lower() for value in TRACKED
+                    },
+                    "points": {},
+                },
+            )
+
+            target["query"] = query
+
+            for point in item.get("points", []):
+                if point:
+                    target["points"][point[0]] = point
+
+        queries = []
+
+        for key, item in merged.items():
+            points = sorted(
+                item["points"].values(),
+                key=lambda point: point[0],
+            )
+
+            clicks = sum(float(point[1] or 0) for point in points)
+            impressions = sum(float(point[2] or 0) for point in points)
+
+            position_weight = sum(
+                float(point[4]) * float(point[2] or 0)
+                for point in points
+                if point[4] is not None and float(point[2] or 0)
+            )
+
+            if (
+                impressions < minimum_impressions
+                and key not in {
+                    value.lower() for value in required
+                }
+            ):
+                continue
+
+            queries.append({
+                "query": item["query"],
+                "tracked": key in {
+                    value.lower() for value in TRACKED
+                },
+                "points": points,
+                "summary": {
+                    "clicks": round(clicks, 2),
+                    "impressions": round(impressions, 2),
+                    "ctr": round(
+                        clicks / impressions * 100,
+                        2,
+                    ) if impressions else 0.0,
+                    "position": round(
+                        position_weight / impressions,
+                        2,
+                    ) if impressions else None,
+                },
+            })
+
+        queries.sort(
+            key=lambda item: (
+                item["summary"]["impressions"],
+                item["summary"]["clicks"],
+            ),
+            reverse=True,
+        )
+
+        payload = {
+            "schema_version": 2,
+            "generated_at": datetime.now(timezone.utc)
+                .isoformat()
+                .replace("+00:00", "Z"),
+            "source": "Google Search Console",
+            "property": site,
+            "period": {
+                "start": earliest.isoformat(),
+                "end": latest.isoformat(),
+            },
+            "granularity": "day",
+            "point_columns": [
+                "date",
+                "clicks",
+                "impressions",
+                "ctr",
+                "position",
+            ],
+            "retention": {
+                "minimum_impressions": minimum_impressions,
+                "always_include_tracked": True,
+                "always_include_dashboard_queries": True,
+            },
+            "refresh": {
+                "mode": "incremental",
+                "start": refresh_start.isoformat(),
+                "end": latest.isoformat(),
+                "days": refresh_days,
+            },
+            "queries": queries,
+            "query_count": len(queries),
+            "limitations": (
+                "Daily query rows are Google Search Console performance data. "
+                "Google may omit anonymized or very low-volume queries. Average "
+                "position is impression-weighted and is not a deterministic live "
+                "SERP rank. Queries below the retention threshold are omitted "
+                "unless tracked or currently used by dashboard analysis."
+            ),
+        }
+
+    else:
+        payload = build_daily_query_history(
+            service=service,
+            site=site,
+            start_date=earliest,
+            end_date=latest,
+            tracked_queries=TRACKED,
+            required_queries=required,
+            minimum_impressions=minimum_impressions,
+        )
+
+        payload["refresh"] = {
+            "mode": "full",
+            "start": earliest.isoformat(),
+            "end": latest.isoformat(),
+            "days": days,
+        }
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    output_path.write_text(
+        json.dumps(
+            payload,
+            separators=(",", ":"),
+            ensure_ascii=False,
+        ) + "\n",
+        encoding="utf-8",
+    )
+
+    point_count = sum(
+        len(item.get("points", []))
+        for item in payload["queries"]
+    )
+
+    print(
+        f"Query history: {output_path} | "
+        f"{payload['query_count']} queries | "
+        f"{point_count} daily points | "
+        f"{payload['period']['start']} to "
+        f"{payload['period']['end']} | "
+        f"{payload['refresh']['mode']} refresh "
+        f"{payload['refresh']['start']} to "
+        f"{payload['refresh']['end']}"
+    )
+
+    return payload
+
+
+def dashboard_required_pages(payload):
+    """Collect pages that need daily trend history for dashboard rows."""
+    result = set()
+
+    for group in ("winners", "losers"):
+        for item in payload.get("page_movers", {}).get(group, []):
+            page = item.get("page")
+            if page:
+                result.add(page)
+
+    for item in payload.get("tracked_keywords", []):
+        page = item.get("ranking_page")
+        if page:
+            result.add(page)
+
+    for item in payload.get("opportunities", []):
+        page = item.get("page")
+        if page:
+            result.add(page)
+
+    return result
+
+
+def build_daily_page_history(
+    service,
+    site,
+    start_date,
+    end_date,
+    required_pages=None,
+    minimum_impressions=20,
+):
+    """Fetch compact real daily GSC page metrics for trend charts."""
+    from datetime import datetime
+
+    if isinstance(start_date, str):
+        start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+
+    if isinstance(end_date, str):
+        end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+
+    required_pages = {
+        value
+        for value in (required_pages or [])
+        if value
+    }
+
+    rows = gsc.normalize_rows(
+        gsc.fetch_rows(
+            service,
+            site,
+            start_date,
+            end_date,
+            ["date", "page"],
+        ),
+        ["date", "page"],
+    )
+
+    by_page = {}
+
+    for row in rows:
+        page = row.get("page")
+        observation_date = row.get("date")
+
+        if not page or not observation_date:
+            continue
+
+        item = by_page.setdefault(
+            page,
+            {
+                "page": page,
+                "points": [],
+                "_clicks": 0.0,
+                "_impressions": 0.0,
+                "_position_weight": 0.0,
+            },
+        )
+
+        clicks = float(row.get("clicks", 0) or 0)
+        impressions = float(row.get("impressions", 0) or 0)
+
+        position = row.get("position")
+        position = (
+            float(position)
+            if position not in (None, "")
+            else None
+        )
+
+        ctr = (
+            clicks / impressions * 100
+            if impressions
+            else 0.0
+        )
+
+        item["points"].append([
+            observation_date,
+            round(clicks, 2),
+            round(impressions, 2),
+            round(ctr, 2),
+            round(position, 2) if position is not None else None,
+        ])
+
+        item["_clicks"] += clicks
+        item["_impressions"] += impressions
+
+        if position is not None and impressions:
+            item["_position_weight"] += position * impressions
+
+    pages = []
+
+    for page, item in by_page.items():
+        impressions = item["_impressions"]
+
+        if (
+            impressions < minimum_impressions
+            and page not in required_pages
+        ):
+            continue
+
+        clicks = item["_clicks"]
+
+        item["points"].sort(key=lambda point: point[0])
+
+        item["summary"] = {
+            "clicks": round(clicks, 2),
+            "impressions": round(impressions, 2),
+            "ctr": round(
+                clicks / impressions * 100,
+                2,
+            ) if impressions else 0.0,
+            "position": round(
+                item["_position_weight"] / impressions,
+                2,
+            ) if impressions else None,
+        }
+
+        del item["_clicks"]
+        del item["_impressions"]
+        del item["_position_weight"]
+
+        pages.append(item)
+
+    pages.sort(
+        key=lambda item: (
+            item["summary"]["impressions"],
+            item["summary"]["clicks"],
+        ),
+        reverse=True,
+    )
+
+    return {
+        "schema_version": 1,
+        "generated_at": datetime.now(timezone.utc)
+            .isoformat()
+            .replace("+00:00", "Z"),
+        "source": "Google Search Console",
+        "property": site,
+        "period": {
+            "start": start_date.isoformat(),
+            "end": end_date.isoformat(),
+        },
+        "granularity": "day",
+        "point_columns": [
+            "date",
+            "clicks",
+            "impressions",
+            "ctr",
+            "position",
+        ],
+        "retention": {
+            "minimum_impressions": minimum_impressions,
+            "always_include_dashboard_pages": True,
+        },
+        "pages": pages,
+        "page_count": len(pages),
+        "limitations": (
+            "Daily page rows are Google Search Console performance data. "
+            "Average position is impression-weighted and is not a "
+            "deterministic live SERP rank."
+        ),
+    }
+
+
+def write_daily_page_history(
+    service,
+    site,
+    output_path,
+    dashboard_payload,
+    days=365,
+    lag_days=3,
+    end_date=None,
+    minimum_impressions=20,
+    refresh_days=7,
+):
+    """Create or incrementally refresh compact daily GSC page history."""
+    from datetime import date, datetime, timedelta
+
+    if days < 1:
+        raise ValueError("--page-history-days must be at least 1.")
+
+    if refresh_days < 1:
+        raise ValueError("--page-history-refresh-days must be at least 1.")
+
+    if end_date:
+        if isinstance(end_date, str):
+            latest = datetime.strptime(
+                end_date,
+                "%Y-%m-%d",
+            ).date()
+        else:
+            latest = end_date
+    else:
+        latest = date.today() - timedelta(days=lag_days)
+
+    earliest = latest - timedelta(days=days - 1)
+    required = dashboard_required_pages(dashboard_payload)
+
+    output_path = Path(output_path)
+
+    existing = None
+
+    if output_path.exists():
+        try:
+            existing = json.loads(
+                output_path.read_text(encoding="utf-8")
+            )
+        except (json.JSONDecodeError, OSError):
+            existing = None
+
+    use_incremental = (
+        existing
+        and existing.get("schema_version") == 1
+        and existing.get("property") == site
+        and existing.get("point_columns") == [
+            "date",
+            "clicks",
+            "impressions",
+            "ctr",
+            "position",
+        ]
+    )
+
+    if use_incremental:
+        refresh_start = max(
+            earliest,
+            latest - timedelta(days=refresh_days - 1),
+        )
+
+        fresh = build_daily_page_history(
+            service=service,
+            site=site,
+            start_date=refresh_start,
+            end_date=latest,
+            required_pages=required,
+            minimum_impressions=0,
+        )
+
+        merged = {}
+
+        for item in existing.get("pages", []):
+            page = item.get("page")
+            if not page:
+                continue
+
+            target = merged.setdefault(
+                page,
+                {
+                    "page": page,
+                    "points": {},
+                },
+            )
+
+            for point in item.get("points", []):
+                if not point:
+                    continue
+
+                point_date = point[0]
+
+                if (
+                    earliest.isoformat()
+                    <= point_date
+                    < refresh_start.isoformat()
+                ):
+                    target["points"][point_date] = point
+
+        for item in fresh.get("pages", []):
+            page = item.get("page")
+            if not page:
+                continue
+
+            target = merged.setdefault(
+                page,
+                {
+                    "page": page,
+                    "points": {},
+                },
+            )
+
+            for point in item.get("points", []):
+                if point:
+                    target["points"][point[0]] = point
+
+        pages = []
+
+        for page, item in merged.items():
+            points = sorted(
+                item["points"].values(),
+                key=lambda point: point[0],
+            )
+
+            clicks = sum(float(point[1] or 0) for point in points)
+            impressions = sum(float(point[2] or 0) for point in points)
+
+            position_weight = sum(
+                float(point[4]) * float(point[2] or 0)
+                for point in points
+                if point[4] is not None and float(point[2] or 0)
+            )
+
+            if (
+                impressions < minimum_impressions
+                and page not in required
+            ):
+                continue
+
+            pages.append({
+                "page": page,
+                "points": points,
+                "summary": {
+                    "clicks": round(clicks, 2),
+                    "impressions": round(impressions, 2),
+                    "ctr": round(
+                        clicks / impressions * 100,
+                        2,
+                    ) if impressions else 0.0,
+                    "position": round(
+                        position_weight / impressions,
+                        2,
+                    ) if impressions else None,
+                },
+            })
+
+        pages.sort(
+            key=lambda item: (
+                item["summary"]["impressions"],
+                item["summary"]["clicks"],
+            ),
+            reverse=True,
+        )
+
+        payload = {
+            "schema_version": 1,
+            "generated_at": datetime.now(timezone.utc)
+                .isoformat()
+                .replace("+00:00", "Z"),
+            "source": "Google Search Console",
+            "property": site,
+            "period": {
+                "start": earliest.isoformat(),
+                "end": latest.isoformat(),
+            },
+            "granularity": "day",
+            "point_columns": [
+                "date",
+                "clicks",
+                "impressions",
+                "ctr",
+                "position",
+            ],
+            "retention": {
+                "minimum_impressions": minimum_impressions,
+                "always_include_dashboard_pages": True,
+            },
+            "refresh": {
+                "mode": "incremental",
+                "start": refresh_start.isoformat(),
+                "end": latest.isoformat(),
+                "days": refresh_days,
+            },
+            "pages": pages,
+            "page_count": len(pages),
+            "limitations": (
+                "Daily page rows are Google Search Console performance data. "
+                "Average position is impression-weighted and is not a "
+                "deterministic live SERP rank."
+            ),
+        }
+
+    else:
+        payload = build_daily_page_history(
+            service=service,
+            site=site,
+            start_date=earliest,
+            end_date=latest,
+            required_pages=required,
+            minimum_impressions=minimum_impressions,
+        )
+
+        payload["refresh"] = {
+            "mode": "full",
+            "start": earliest.isoformat(),
+            "end": latest.isoformat(),
+            "days": days,
+        }
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    output_path.write_text(
+        json.dumps(
+            payload,
+            separators=(",", ":"),
+            ensure_ascii=False,
+        ) + "\n",
+        encoding="utf-8",
+    )
+
+    point_count = sum(
+        len(item.get("points", []))
+        for item in payload["pages"]
+    )
+
+    print(
+        f"Page history: {output_path} | "
+        f"{payload['page_count']} pages | "
+        f"{point_count} daily points | "
+        f"{payload['period']['start']} to "
+        f"{payload['period']['end']} | "
+        f"{payload['refresh']['mode']} refresh "
+        f"{payload['refresh']['start']} to "
+        f"{payload['refresh']['end']}"
+    )
+
+    return payload
+
 def main():
     ap = argparse.ArgumentParser(description="Build the Tampa Bay Shine GSC dashboard data.")
     ap.add_argument("--property", default=None)
@@ -1132,6 +2045,40 @@ def main():
         "--history-out",
         default=str(DEFAULT_OUT.parent / "history.json"),
         help="Path to compact historical dashboard snapshots.",
+    )
+    ap.add_argument(
+        "--query-history-out",
+        default=str(DEFAULT_QUERY_HISTORY_OUT),
+        help="Path to daily query-level GSC history.",
+    )
+    ap.add_argument(
+        "--query-history-days",
+        type=int,
+        default=365,
+        help="Number of calendar days of daily query history to retrieve.",
+    )
+    ap.add_argument(
+        "--query-history-refresh-days",
+        type=int,
+        default=7,
+        help="Recent GSC days to refetch when query history already exists.",
+    )
+    ap.add_argument(
+        "--page-history-out",
+        default=str(DEFAULT_PAGE_HISTORY_OUT),
+        help="Path to daily page-level GSC history.",
+    )
+    ap.add_argument(
+        "--page-history-days",
+        type=int,
+        default=365,
+        help="Number of calendar days of daily page history to retain.",
+    )
+    ap.add_argument(
+        "--page-history-refresh-days",
+        type=int,
+        default=7,
+        help="Recent GSC days to refetch when page history already exists.",
     )
     ap.add_argument(
         "--backfill-history",
@@ -1274,6 +2221,28 @@ def main():
         "action_center": action_center,
         "limitations": "GSC average position is impression-weighted performance data, not a deterministic live SERP rank. GSC does not provide competitor or Google Maps grid rankings."
     }
+    write_daily_query_history(
+        service=service,
+        site=site,
+        output_path=Path(args.query_history_out),
+        dashboard_payload=payload,
+        days=args.query_history_days,
+        lag_days=args.lag_days,
+        end_date=args.end_date,
+        refresh_days=args.query_history_refresh_days,
+    )
+
+    write_daily_page_history(
+        service=service,
+        site=site,
+        output_path=Path(args.page_history_out),
+        dashboard_payload=payload,
+        days=args.page_history_days,
+        lag_days=args.lag_days,
+        end_date=args.end_date,
+        refresh_days=args.page_history_refresh_days,
+    )
+
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
