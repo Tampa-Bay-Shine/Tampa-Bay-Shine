@@ -95,6 +95,10 @@ jobs:
             --out "cloudflare-site/seo-dashboard/data/ai.json" \
             --history-out "cloudflare-site/seo-dashboard/data/ai-history.json"
 
+      - name: Refresh SEO AEO opportunity intelligence
+        run: |
+          python tools/opportunity_intelligence.py
+
       - name: Verify only dashboard data changed
         shell: bash
         run: |
@@ -102,7 +106,7 @@ jobs:
 
           unexpected="$(
             git status --porcelain |
-              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|ga4|ga4-history|ai|ai-history)\.json$' ||
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|ga4|ga4-history|ai|ai-history|opportunity-intelligence)\.json$' ||
               true
           )"
 
@@ -125,7 +129,8 @@ jobs:
             cloudflare-site/seo-dashboard/data/ga4.json \
             cloudflare-site/seo-dashboard/data/ga4-history.json \
             cloudflare-site/seo-dashboard/data/ai.json \
-            cloudflare-site/seo-dashboard/data/ai-history.json
+            cloudflare-site/seo-dashboard/data/ai-history.json \
+            cloudflare-site/seo-dashboard/data/opportunity-intelligence.json
 
           if git diff --cached --quiet; then
             echo "Dashboard data has not changed."
