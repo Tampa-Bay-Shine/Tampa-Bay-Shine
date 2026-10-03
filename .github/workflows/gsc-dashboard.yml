@@ -1,4 +1,4 @@
-﻿name: Refresh GSC and GA4 SEO Dashboard
+name: Refresh GSC GA4 and AI SEO Dashboard
 
 on:
   workflow_dispatch:
@@ -86,6 +86,15 @@ jobs:
             --out "cloudflare-site/seo-dashboard/data/ga4.json" \
             --history-out "cloudflare-site/seo-dashboard/data/ga4-history.json"
 
+      - name: Refresh AI referral dashboard data
+        run: |
+          python tools/ai_dashboard.py \
+            --client-secret "$RUNNER_TEMP/tbs-gsc/client_secret.json" \
+            --token "$RUNNER_TEMP/tbs-ga4/token.json" \
+            --property "487638948" \
+            --out "cloudflare-site/seo-dashboard/data/ai.json" \
+            --history-out "cloudflare-site/seo-dashboard/data/ai-history.json"
+
       - name: Verify only dashboard data changed
         shell: bash
         run: |
@@ -93,7 +102,7 @@ jobs:
 
           unexpected="$(
             git status --porcelain |
-              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|ga4|ga4-history)\.json$' ||
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|ga4|ga4-history|ai|ai-history)\.json$' ||
               true
           )"
 
@@ -112,7 +121,9 @@ jobs:
             cloudflare-site/seo-dashboard/data/gsc.json \
             cloudflare-site/seo-dashboard/data/history.json \
             cloudflare-site/seo-dashboard/data/ga4.json \
-            cloudflare-site/seo-dashboard/data/ga4-history.json
+            cloudflare-site/seo-dashboard/data/ga4-history.json \
+            cloudflare-site/seo-dashboard/data/ai.json \
+            cloudflare-site/seo-dashboard/data/ai-history.json
 
           if git diff --cached --quiet; then
             echo "Dashboard data has not changed."
