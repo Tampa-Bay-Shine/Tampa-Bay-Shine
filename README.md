@@ -890,3 +890,17 @@ query/page text wraps at word boundaries while numeric columns remain
 compact. Trend-chart Y-axis labels use adaptive precision for low-volume
 integer metrics; fractional axis ticks are display scale labels only and
 do not imply fractional clicks or impressions.
+
+### Phase 11: SEO Action Workflow
+
+Opportunity Intelligence now has persistent workflow state. Each generated opportunity receives a deterministic ID and moves through:
+
+`New -> Investigating -> Implemented -> Measuring -> Closed`
+
+State is stored separately in `cloudflare-site/seo-dashboard/data/opportunity-workflow.json`, so a daily analytics refresh does not erase human decisions. Run `python tools/opportunity_workflow.py sync` after regenerating Opportunity Intelligence.
+
+Use `python tools/opportunity_workflow.py list` to review IDs. Change state with `python tools/opportunity_workflow.py status --id <ID> --status <STATE>`. When work has actually been implemented, record the implementation summary and create/link an SEO Event with `opportunity_workflow.py event`. SEO Event timing is measurement context and does not prove causation.
+
+The dashboard's Open Analysis view combines the current recommendation, retained GSC query/page history when available, Organic Search conversion context, related SEO Events, workflow state, and the 30/60/90-day measurement plan. A missing retained query/page history match is not treated as zero search activity.
+
+The dashboard is static and intentionally does not write workflow state from the browser. Repository state remains the auditable source of truth.

@@ -153,6 +153,11 @@ footer{
 <h2>Trends and SEO Events</h2>
 <p>Trends preserve historical snapshots. Use them to distinguish temporary movement from sustained direction.</p>
 <p>SEO Events record meaningful work such as technical changes, page launches, content updates, and analytics changes. Event timing provides context; it does not prove causation.</p>
+<h2>Opportunity Intelligence workflow</h2>
+<p>Opportunity Intelligence now uses a persistent action lifecycle: <strong>New → Investigating → Implemented → Measuring → Closed</strong>. The lifecycle is separate from the generated analytics, so a daily refresh does not make completed work appear new again.</p>
+<p>Use the workflow filters to focus on active or completed work. <strong>Open Analysis</strong> combines the recommendation with retained Google Search Console query/page history when available, Organic Search conversion context, related SEO Events, workflow state, and the 30/60/90-day measurement plan.</p>
+<p>Retained GSC history contains actual reported observations. Missing query dates or a missing retained history match are not confirmed zeros. Booking starts are intent rather than confirmed bookings, sitewide GA4 context is not page attribution, and SEO Event timing does not prove causation.</p>
+<p>The dashboard is intentionally read-only. Workflow changes are made with <code>tools/opportunity_workflow.py</code> in the repository so the action history remains auditable.</p>
 <h2>Action Center</h2>
 <p><strong>Striking distance:</strong> useful visibility near a stronger position.</p>
 <p><strong>Emerging opportunity:</strong> Google is beginning to expose the site for a potentially useful search.</p>

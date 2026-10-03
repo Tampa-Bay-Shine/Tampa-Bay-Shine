@@ -712,6 +712,33 @@ td:first-child{
   margin-bottom:3px;
 }
 
+.intelligence-workflow-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:16px 0 20px;
+}
+.intelligence-workflow-filter{
+  appearance:none;border:1px solid #cbd9ea;background:#fff;color:var(--tbs-blue-dark);
+  border-radius:999px;padding:8px 13px;font:inherit;font-size:.84rem;font-weight:700;cursor:pointer;
+}
+.intelligence-workflow-filter:hover{background:var(--tbs-blue-pale)}
+.intelligence-workflow-filter.active{color:#fff;background:var(--tbs-blue);border-color:var(--tbs-blue)}
+.intelligence-badge.workflow{background:#eef2ff;color:#3730a3}
+.intelligence-badge.workflow.implemented,.intelligence-badge.workflow.measuring{background:#ecfdf3;color:#087a42}
+.intelligence-badge.workflow.closed{background:#f1f5f9;color:#64748b}
+.intelligence-analysis{margin-top:14px;border-top:1px solid var(--border-light);padding-top:12px}
+.intelligence-analysis summary{cursor:pointer;color:var(--tbs-blue-dark);font-weight:800}
+.intelligence-analysis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:12px}
+.intelligence-analysis-panel{padding:12px 13px;border:1px solid var(--border-light);border-radius:9px;background:#fafcff;min-width:0;font-size:12px;line-height:1.55}
+.intelligence-analysis-panel strong{display:block;margin-bottom:5px;color:var(--tbs-blue-deep);font-size:13px}
+.intelligence-analysis-panel .analysis-row{margin:3px 0;overflow-wrap:anywhere}
+.intelligence-analysis-panel .analysis-label{font-weight:700;color:#475569}
+.intelligence-history{margin-top:8px;padding-top:8px;border-top:1px dashed #dbe5f0}
+.intelligence-history strong{display:inline}
+.intelligence-history-row{margin:3px 0}
+.intelligence-workflow-note{margin-top:10px;padding:10px 12px;border-radius:8px;background:#fff8e6;border:1px solid #f1d998;color:#6f5311;font-size:12px;line-height:1.5}
+
 .intelligence-empty{
   padding:22px;
   border:1px dashed #b8c9db;
@@ -723,7 +750,8 @@ td:first-child{
 
 @media(max-width:700px){
   .intelligence-summary,
-  .intelligence-measurement-grid{
+  .intelligence-measurement-grid,
+  .intelligence-analysis-grid{
     grid-template-columns:1fr;
   }
 
@@ -1817,6 +1845,16 @@ td:first-child{
 
   <div class="intelligence-callout" id="intelligence-note">
     Loading Opportunity Intelligence...
+  </div>
+
+  <div class="intelligence-workflow-filters" id="intelligence-workflow-filters">
+    <button class="intelligence-workflow-filter active" data-workflow-filter="active">Active</button>
+    <button class="intelligence-workflow-filter" data-workflow-filter="all">All</button>
+    <button class="intelligence-workflow-filter" data-workflow-filter="new">New</button>
+    <button class="intelligence-workflow-filter" data-workflow-filter="investigating">Investigating</button>
+    <button class="intelligence-workflow-filter" data-workflow-filter="implemented">Implemented</button>
+    <button class="intelligence-workflow-filter" data-workflow-filter="measuring">Measuring</button>
+    <button class="intelligence-workflow-filter" data-workflow-filter="closed">Closed</button>
   </div>
 
   <div class="intelligence-group">
@@ -3853,192 +3891,189 @@ const trendHistoryPromise=Promise.all([
 
 function intelligenceEvidenceText(action){
   const evidence=action?.evidence||{};
-
-  if(evidence.gsc_evidence){
-    return evidence.gsc_evidence;
-  }
-
+  if(evidence.gsc_evidence)return evidence.gsc_evidence;
   if(evidence.gsc_period){
     const p=evidence.gsc_period;
-    return (
-      `${p.start||"--"} to ${p.end||"--"}: `+
-      `${n(evidence.impressions)} impressions, `+
-      `${n(evidence.clicks)} clicks, `+
-      `${n(evidence.ctr_percent)}% CTR, `+
-      `average position ${n(evidence.position)}.`
-    );
+    return `${p.start||"--"} to ${p.end||"--"}: ${n(evidence.impressions)} impressions, ${n(evidence.clicks)} clicks, ${n(evidence.ctr_percent)}% CTR, average position ${n(evidence.position)}.`;
   }
-
   const parts=[];
-
   Object.entries(evidence).forEach(([key,value])=>{
     if(value==null || typeof value==="object")return;
-
-    const label=key
-      .replaceAll("_"," ")
-      .replace(/\b\w/g,c=>c.toUpperCase());
-
+    const label=key.replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase());
     parts.push(`${label}: ${value}`);
   });
-
   return parts.join(" | ")||"Evidence is available in the source datasets.";
 }
 
 function intelligenceTypeLabel(type){
-  return String(type||"opportunity")
-    .replaceAll("_"," ")
-    .replace(/\b\w/g,c=>c.toUpperCase());
+  return String(type||"opportunity").replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase());
+}
+function intelligenceWorkflowLabel(status){
+  return String(status||"new").replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase());
 }
 
-function intelligenceCard(action){
+let intelligenceQueryHistory={queries:[]};
+let intelligencePageHistory={pages:[]};
+
+function normalizeIntelligenceUrl(value){
+  try{
+    const u=new URL(value,location.origin);
+    return (u.origin+u.pathname.replace(/\/+$/,'')).toLowerCase();
+  }catch(_){
+    return String(value||'').replace(/\/+$/,'').toLowerCase();
+  }
+}
+function intelligenceHistorySummary(points){
+  if(!Array.isArray(points)||!points.length)return null;
+  const recent=points.slice(-30);
+  const clicks=recent.reduce((a,p)=>a+(Number(p[1])||0),0);
+  const impressions=recent.reduce((a,p)=>a+(Number(p[2])||0),0);
+  const weighted=recent.reduce((a,p)=>a+((Number(p[4])||0)*(Number(p[2])||0)),0);
+  const position=impressions?weighted/impressions:null;
+  const ctr=impressions?clicks/impressions*100:0;
+  return {clicks,impressions,position,ctr,latest:recent[recent.length-1],observations:recent.length};
+}
+function intelligenceTrendEvidence(action){
+  let query=null,page=null;
+  if(action.query)query=(intelligenceQueryHistory.queries||[]).find(x=>String(x.query||'').toLowerCase()===String(action.query).toLowerCase());
+  if(action.page){
+    const wanted=normalizeIntelligenceUrl(action.page);
+    page=(intelligencePageHistory.pages||[]).find(x=>normalizeIntelligenceUrl(x.page)===wanted);
+  }
+  const q=intelligenceHistorySummary(query?.points);
+  const pg=intelligenceHistorySummary(page?.points);
+  const fmt=x=>x==null?'--':Number(x).toFixed(2);
+  let html='<div class="intelligence-history"><strong>Recent GSC history</strong>';
+  if(q)html+=`<div class="intelligence-history-row">Query, last ${q.observations} reported days: ${n(q.impressions)} impressions, ${n(q.clicks)} clicks, ${fmt(q.ctr)}% CTR, ${fmt(q.position)} avg position. Latest observation: ${esc(q.latest[0])}, position ${fmt(q.latest[4])}.</div>`;
+  if(pg)html+=`<div class="intelligence-history-row">Page, last ${pg.observations} reported days: ${n(pg.impressions)} impressions, ${n(pg.clicks)} clicks, ${fmt(pg.ctr)}% CTR, ${fmt(pg.position)} avg position. Latest observation: ${esc(pg.latest[0])}, position ${fmt(pg.latest[4])}.</div>`;
+  if(!q&&!pg)html+='<div class="intelligence-history-row muted">No retained query/page history matched this opportunity. This is not evidence of zero search activity.</div>';
+  return html+'</div>';
+}
+
+function intelligenceAnalysisHtml(action,workflow){
+  const conversion=action.conversion_context||{};
+  const events=Array.isArray(action.seo_events)?action.seo_events:[];
+  const measurement=action.measurement||{};
+  const eventRows=events.length
+    ? events.map(event=>`<div class="analysis-row">${esc(event.date||"--")} — ${esc(event.category||"SEO")}: ${esc(event.title||"--")}</div>`).join("")
+    : `<div class="analysis-row muted">No matching SEO Events are currently linked to this URL.</div>`;
+  const implementation=workflow?.implementation_summary
+    ? `<div class="analysis-row"><span class="analysis-label">Implementation:</span> ${esc(workflow.implementation_summary)}</div>`:"";
+  const workflowEvent=workflow?.seo_event
+    ? `<div class="analysis-row"><span class="analysis-label">Workflow SEO Event:</span> ${esc(workflow.seo_event.date||"--")} — ${esc(workflow.seo_event.title||"--")}</div>`:"";
+
+  return `<details class="intelligence-analysis">
+    <summary>Open Analysis</summary>
+    <div class="intelligence-analysis-grid">
+      <div class="intelligence-analysis-panel"><strong>Search evidence</strong>
+        <div class="analysis-row"><span class="analysis-label">Query:</span> ${esc(action.query||"--")}</div>
+        <div class="analysis-row"><span class="analysis-label">Ranking URL:</span> ${esc(action.page||"--")}</div>
+        <div class="analysis-row"><span class="analysis-label">Evidence:</span> ${esc(intelligenceEvidenceText(action))}</div>
+        ${intelligenceTrendEvidence(action)}
+      </div>
+      <div class="intelligence-analysis-panel"><strong>Organic conversion evidence</strong>
+        <div class="analysis-row"><span class="analysis-label">Scope:</span> ${esc(conversion.scope==="landing_page"?"Ranking URL attribution":"Sitewide Organic Search context")}</div>
+        <div class="analysis-row"><span class="analysis-label">Sessions:</span> ${n(conversion.sessions)}</div>
+        <div class="analysis-row"><span class="analysis-label">Booking starts:</span> ${n(conversion.booking_starts)}</div>
+        <div class="analysis-row"><span class="analysis-label">Confirmed bookings:</span> ${n(conversion.confirmed_bookings)}</div>
+        <div class="analysis-row muted">${esc(conversion.note||"")}</div>
+      </div>
+      <div class="intelligence-analysis-panel"><strong>SEO Event context</strong>${eventRows}${workflowEvent}
+        <div class="analysis-row muted">Event timing provides context; it does not prove causation.</div>
+      </div>
+      <div class="intelligence-analysis-panel"><strong>Workflow</strong>
+        <div class="analysis-row"><span class="analysis-label">Opportunity ID:</span> ${esc(action.id||"--")}</div>
+        <div class="analysis-row"><span class="analysis-label">Status:</span> ${esc(intelligenceWorkflowLabel(workflow?.status||"new"))}</div>
+        ${implementation}
+        <div class="analysis-row"><span class="analysis-label">Updated:</span> ${esc(workflow?.updated_at||"--")}</div>
+      </div>
+    </div>
+    <div class="intelligence-measurement"><div class="intelligence-measurement-grid">
+      <div><strong>30 days</strong>${esc(measurement["30_days"]||"--")}</div>
+      <div><strong>60 days</strong>${esc(measurement["60_days"]||"--")}</div>
+      <div><strong>90 days</strong>${esc(measurement["90_days"]||"--")}</div>
+    </div></div>
+    <div class="intelligence-workflow-note">Workflow state is maintained in the repository rather than edited in this static dashboard. Use <strong>tools/opportunity_workflow.py</strong> to move an item through its lifecycle or record an implementation event.</div>
+  </details>`;
+}
+
+function intelligenceCard(action,workflow){
   const priority=String(action.priority||"medium").toLowerCase();
   const confidence=String(action.confidence||"low").toLowerCase();
+  const status=String(workflow?.status||"new").toLowerCase();
   const subject=action.subject||action.query||action.page||"SEO/AEO opportunity";
   const page=action.page||"";
   const conversion=action.conversion_context||{};
-  const measurement=action.measurement||{};
-
-  const pageHtml=page
-    ? `<div class="action-url"><strong>Affected URL:</strong> `+
-      `<a href="${esc(page)}" target="_blank" rel="noopener noreferrer">`+
-      `${esc(page)}</a></div>`
-    : "";
-
+  const pageHtml=page?`<div class="action-url"><strong>Affected URL:</strong> <a href="${esc(page)}" target="_blank" rel="noopener noreferrer">${esc(page)}</a></div>`:"";
   let conversionText="";
-
   if(Object.keys(conversion).length){
-    const scope=conversion.scope==="landing_page"
-      ? "Ranking URL attribution"
-      : "Sitewide Organic Search context";
-
-    conversionText=`
-      <div class="intelligence-conversion">
-        <strong>Conversion context:</strong> ${esc(scope)} Ã¢â‚¬â€
-        ${n(conversion.sessions)} sessions,
-        ${n(conversion.booking_starts)} booking starts,
-        ${n(conversion.confirmed_bookings)} confirmed bookings.
-        <div class="muted">${esc(conversion.note||"")}</div>
-      </div>`;
+    const scope=conversion.scope==="landing_page"?"Ranking URL attribution":"Sitewide Organic Search context";
+    conversionText=`<div class="intelligence-conversion"><strong>Conversion context:</strong> ${esc(scope)} — ${n(conversion.sessions)} sessions, ${n(conversion.booking_starts)} booking starts, ${n(conversion.confirmed_bookings)} confirmed bookings.<div class="muted">${esc(conversion.note||"")}</div></div>`;
   }
-
-  const measurementHtml=(
-    measurement["30_days"] ||
-    measurement["60_days"] ||
-    measurement["90_days"]
-  ) ? `
-    <details class="intelligence-measurement">
-      <summary>30 / 60 / 90 day measurement plan</summary>
-      <div class="intelligence-measurement-grid">
-        <div>
-          <strong>30 days</strong>
-          ${esc(measurement["30_days"]||"--")}
-        </div>
-        <div>
-          <strong>60 days</strong>
-          ${esc(measurement["60_days"]||"--")}
-        </div>
-        <div>
-          <strong>90 days</strong>
-          ${esc(measurement["90_days"]||"--")}
-        </div>
-      </div>
-    </details>`
-    : "";
-
-  return `
-    <article class="intelligence-card priority-${esc(priority)}">
-      <div class="intelligence-card-head">
-        <div>
-          <div class="intelligence-badges">
-            <span class="intelligence-badge ${esc(priority)}">
-              ${esc(priority)} priority
-            </span>
-            <span class="intelligence-badge type">
-              ${esc(intelligenceTypeLabel(action.type))}
-            </span>
-            <span class="intelligence-badge confidence">
-              ${esc(confidence)} confidence
-            </span>
-          </div>
-          <h4>${esc(subject)}</h4>
-          ${pageHtml}
-        </div>
-      </div>
-
-      <div class="intelligence-evidence">
-        <strong>Why flagged:</strong> ${esc(action.why_flagged||"--")}
-        <br>
-        <strong>Evidence:</strong> ${esc(intelligenceEvidenceText(action))}
-      </div>
-
-      ${conversionText}
-
-      <p class="intelligence-action">
-        <strong>Recommended action:</strong>
-        ${esc(action.recommended_action||"--")}
-      </p>
-
-      ${measurementHtml}
-    </article>`;
+  return `<article class="intelligence-card priority-${esc(priority)}" data-workflow-status="${esc(status)}">
+    <div class="intelligence-card-head"><div><div class="intelligence-badges">
+      <span class="intelligence-badge ${esc(priority)}">${esc(priority)} priority</span>
+      <span class="intelligence-badge type">${esc(intelligenceTypeLabel(action.type))}</span>
+      <span class="intelligence-badge confidence">${esc(confidence)} confidence</span>
+      <span class="intelligence-badge workflow ${esc(status)}">${esc(intelligenceWorkflowLabel(status))}</span>
+    </div><h4>${esc(subject)}</h4>${pageHtml}</div></div>
+    <div class="intelligence-evidence"><strong>Why flagged:</strong> ${esc(action.why_flagged||"--")}<br><strong>Evidence:</strong> ${esc(intelligenceEvidenceText(action))}</div>
+    ${conversionText}
+    <p class="intelligence-action"><strong>Recommended action:</strong> ${esc(action.recommended_action||"--")}</p>
+    ${intelligenceAnalysisHtml(action,workflow)}
+  </article>`;
 }
 
-fetch("./data/opportunity-intelligence.json",{cache:"no-store"})
-  .then(r=>{
-    if(!r.ok){
-      throw new Error(`Opportunity Intelligence request failed: ${r.status}`);
-    }
-    return r.json();
-  })
-  .then(data=>{
-    const actions=Array.isArray(data.actions)?data.actions:[];
-    const high=actions.filter(x=>x.priority==="high");
-    const medium=actions.filter(x=>x.priority==="medium");
-
-    document.getElementById("intelligence-total").textContent=
-      n(data.counts?.total??actions.length);
-
-    document.getElementById("intelligence-high").textContent=
-      n(data.counts?.high??high.length);
-
-    document.getElementById("intelligence-medium").textContent=
-      n(data.counts?.medium??medium.length);
-
-    document.getElementById("intelligence-high-list").innerHTML=
-      high.length
-        ? high.map(intelligenceCard).join("")
-        : `<div class="intelligence-empty">
-             No high-priority Opportunity Intelligence items.
-           </div>`;
-
-    document.getElementById("intelligence-medium-list").innerHTML=
-      medium.length
-        ? medium.map(intelligenceCard).join("")
-        : `<div class="intelligence-empty">
-             No medium-priority investigation items.
-           </div>`;
-
-    const generated=data.generated_at
-      ? new Date(data.generated_at).toLocaleString()
-      : "unknown";
-
-    document.getElementById("intelligence-note").innerHTML=
-      `<strong>How to use this:</strong> Work the high-priority queue first. `+
-      `Priority describes business urgency; confidence describes evidence `+
-      `strength. Booking starts are not confirmed bookings, sitewide GA4 `+
-      `context is not page attribution, AI referrals do not measure no-click `+
-      `AI answers, and SEO event timing does not prove causation. `+
-      `<span class="muted">Generated ${esc(generated)}.</span>`;
-  })
-  .catch(err=>{
-    console.error(err);
-
-    const note=document.getElementById("intelligence-note");
-
-    if(note){
-      note.textContent=
-        "Opportunity Intelligence data could not be loaded: "+err.message;
-    }
+function applyIntelligenceWorkflowFilter(filter){
+  document.querySelectorAll(".intelligence-card").forEach(card=>{
+    const status=card.dataset.workflowStatus||"new";
+    const show=filter==="all"||(filter==="active"&&status!=="closed")||status===filter;
+    card.style.display=show?"":"none";
   });
+  document.querySelectorAll(".intelligence-workflow-filter").forEach(button=>{
+    button.classList.toggle("active",button.dataset.workflowFilter===filter);
+  });
+}
+
+Promise.all([
+  fetch("./data/opportunity-intelligence.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Opportunity Intelligence request failed: ${r.status}`);return r.json();}),
+  fetch("./data/opportunity-workflow.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Opportunity workflow request failed: ${r.status}`);return r.json();}),
+  fetch("./data/query-history.json",{cache:"no-store"}).then(r=>r.ok?r.json():{queries:[]}),
+  fetch("./data/page-history.json",{cache:"no-store"}).then(r=>r.ok?r.json():{pages:[]})
+]).then(([data,workflowData,queryHistory,pageHistory])=>{
+  intelligenceQueryHistory=queryHistory||{queries:[]};
+  intelligencePageHistory=pageHistory||{pages:[]};
+  const actions=Array.isArray(data.actions)?data.actions:[];
+  const workflowItems=workflowData?.items||{};
+  const high=actions.filter(x=>x.priority==="high");
+  const medium=actions.filter(x=>x.priority==="medium");
+  const workflowFor=action=>workflowItems[action.id]||{status:"new"};
+
+  document.getElementById("intelligence-total").textContent=n(data.counts?.total??actions.length);
+  document.getElementById("intelligence-high").textContent=n(data.counts?.high??high.length);
+  document.getElementById("intelligence-medium").textContent=n(data.counts?.medium??medium.length);
+  document.getElementById("intelligence-high-list").innerHTML=high.length?high.map(action=>intelligenceCard(action,workflowFor(action))).join(""):`<div class="intelligence-empty">No high-priority Opportunity Intelligence items.</div>`;
+  document.getElementById("intelligence-medium-list").innerHTML=medium.length?medium.map(action=>intelligenceCard(action,workflowFor(action))).join(""):`<div class="intelligence-empty">No medium-priority investigation items.</div>`;
+
+  const statusCounts={new:0,investigating:0,implemented:0,measuring:0,closed:0};
+  actions.forEach(action=>{const status=workflowFor(action).status||"new";if(status in statusCounts)statusCounts[status]+=1;});
+  const generated=data.generated_at?new Date(data.generated_at).toLocaleString():"unknown";
+
+  document.getElementById("intelligence-note").innerHTML=
+    `<strong>How to use this:</strong> Work high-priority evidence first and move each opportunity through New → Investigating → Implemented → Measuring → Closed. `+
+    `Current workflow: ${statusCounts.new} new, ${statusCounts.investigating} investigating, ${statusCounts.implemented} implemented, ${statusCounts.measuring} measuring, ${statusCounts.closed} closed. `+
+    `Priority describes urgency; confidence describes evidence strength. Booking starts are not confirmed bookings, sitewide GA4 context is not page attribution, and SEO event timing does not prove causation. `+
+    `<span class="muted">Generated ${esc(generated)}.</span>`;
+
+  document.querySelectorAll(".intelligence-workflow-filter").forEach(button=>{
+    button.addEventListener("click",()=>applyIntelligenceWorkflowFilter(button.dataset.workflowFilter));
+  });
+  applyIntelligenceWorkflowFilter("active");
+}).catch(err=>{
+  console.error(err);
+  const note=document.getElementById("intelligence-note");
+  if(note)note.textContent="Opportunity Intelligence data could not be loaded: "+err.message;
+});
 
 
 fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{

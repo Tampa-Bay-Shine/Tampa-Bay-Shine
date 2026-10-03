@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -182,6 +183,26 @@ def event_context(events, page=None):
     return matches[-3:]
 
 
+def stable_opportunity_id(
+    opportunity_type,
+    subject,
+    query=None,
+    page=None,
+):
+    identity = "|".join([
+        str(opportunity_type or "").strip().lower(),
+        str(query or "").strip().lower(),
+        normalize_path(page) or "",
+        str(subject or "").strip().lower(),
+    ])
+
+    digest = hashlib.sha256(
+        identity.encode("utf-8")
+    ).hexdigest()[:16]
+
+    return f"opp-{digest}"
+
+
 def build_intelligence(gsc, ga4, ai, ai_visibility, events):
     ga4_pages = landing_page_map(ga4)
     items = []
@@ -206,6 +227,12 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
         seen.add(key)
 
         items.append({
+            "id": stable_opportunity_id(
+                opportunity_type,
+                subject,
+                query=query,
+                page=page,
+            ),
             "type": opportunity_type,
             "priority": priority,
             "confidence": confidence,
@@ -528,7 +555,7 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
     }
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "period": gsc.get("period"),
         "counts": counts,
