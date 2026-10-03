@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import argparse
 import hashlib
@@ -189,6 +189,12 @@ def sync_workflow(args):
 
 
 def set_status(args):
+    if args.status == "implemented":
+        raise ValueError(
+            "Use the 'implement' command so implementation and its linked "
+            "SEO Event are recorded together."
+        )
+
     workflow_path = Path(args.file)
     actions = intelligence_actions(Path(args.intelligence))
     workflow = load_workflow(workflow_path)
@@ -219,6 +225,84 @@ def set_status(args):
     save_json(workflow_path, workflow)
 
     print(f"Updated: {args.id} -> {args.status}")
+
+
+
+def implement_opportunity(args):
+    workflow_path = Path(args.file)
+    events_path = Path(args.events)
+    actions = intelligence_actions(Path(args.intelligence))
+    workflow = load_workflow(workflow_path)
+    action = find_action(actions, args.id)
+    existing = workflow["items"].get(args.id)
+    if not existing:
+        raise ValueError("Sync the workflow before implementing an opportunity.")
+    if existing.get("status") in ("implemented", "measuring", "closed"):
+        raise ValueError(
+            f"Opportunity is already {existing.get('status')}; use 'event' for an additional SEO Event."
+        )
+
+    events = load_json(events_path, {"schema_version": 1, "events": []})
+    if events.get("schema_version") != 1 or not isinstance(events.get("events"), list):
+        raise ValueError("Unsupported or invalid events data.")
+
+    event_date = args.date or date.today().isoformat()
+    summary = (args.summary or args.description or action.get("recommended_action")
+               or "Implemented Opportunity Intelligence recommendation.").strip()
+    description = (args.description or summary).strip()
+    title = (args.title or f"Opportunity implemented: {action.get('subject') or args.id}").strip()
+
+    if any(e.get("date") == event_date and str(e.get("title") or "").casefold() == title.casefold()
+           for e in events["events"]):
+        raise ValueError(f"Duplicate SEO event: {event_date} | {title}")
+
+    urls = [action["page"]] if action.get("page") else []
+    event = {
+        "date": event_date,
+        "category": args.category,
+        "title": title,
+        "description": description,
+        "urls": urls,
+        "notes": (
+            f"Opportunity Intelligence ID: {args.id}. "
+            "Event timing provides measurement context and does not prove causation."
+        ),
+    }
+    events["events"].append(event)
+    events["events"] = sorted(events["events"], key=lambda x: (x.get("date",""), str(x.get("title") or "").lower()))
+
+    now = datetime.now(timezone.utc).isoformat()
+    record = workflow_record(action, args.id, existing)
+    record["status"] = "implemented"
+    record["updated_at"] = now
+    record["implemented_at"] = record.get("implemented_at") or now
+    record["implementation_summary"] = summary
+    if args.notes is not None:
+        record["notes"] = args.notes.strip()
+    record["seo_event"] = {"date": event_date, "category": args.category, "title": title}
+    workflow["items"][args.id] = record
+    workflow["updated_at"] = now
+
+    events_old = events_path.read_bytes() if events_path.exists() else None
+    etmp = events_path.with_name(events_path.name + ".tmp")
+    wtmp = workflow_path.with_name(workflow_path.name + ".tmp")
+    etmp.write_text(json.dumps(events, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    wtmp.write_text(json.dumps(workflow, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    try:
+        etmp.replace(events_path)
+        try:
+            wtmp.replace(workflow_path)
+        except Exception:
+            if events_old is None:
+                events_path.unlink(missing_ok=True)
+            else:
+                events_path.write_bytes(events_old)
+            raise
+    finally:
+        etmp.unlink(missing_ok=True)
+        wtmp.unlink(missing_ok=True)
+
+    print(f"Implemented: {args.id} | SEO event linked: {event_date} | {args.category} | {title}")
 
 
 def add_event(args):
@@ -395,6 +479,20 @@ def main():
     status.add_argument("--summary")
     status.add_argument("--notes")
     status.set_defaults(func=set_status)
+
+    implement = sub.add_parser(
+        "implement",
+        help="Mark an opportunity implemented and create/link its SEO Event.",
+    )
+    implement.add_argument("--id", required=True)
+    implement.add_argument("--events", default=str(DEFAULT_EVENTS))
+    implement.add_argument("--category", required=True, choices=EVENT_CATEGORIES)
+    implement.add_argument("--date")
+    implement.add_argument("--title")
+    implement.add_argument("--description")
+    implement.add_argument("--summary")
+    implement.add_argument("--notes")
+    implement.set_defaults(func=implement_opportunity)
 
     event = sub.add_parser(
         "event",
