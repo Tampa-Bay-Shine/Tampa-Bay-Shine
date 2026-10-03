@@ -514,6 +514,224 @@ td:first-child{
 }
 
 
+
+/* Opportunity Intelligence */
+
+.intelligence-summary{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.intelligence-summary-card{
+  background:#fff;
+  border:1px solid #dbe7f5;
+  border-radius:12px;
+  padding:16px 18px;
+  box-shadow:0 4px 14px rgba(8,76,153,.07);
+}
+
+.intelligence-summary-card strong{
+  display:block;
+  font-size:1.65rem;
+  line-height:1;
+  color:var(--tbs-blue-deep);
+  margin-bottom:6px;
+}
+
+.intelligence-summary-card span{
+  color:#5f6f82;
+  font-size:.88rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.intelligence-callout{
+  margin:16px 0 20px;
+  padding:13px 15px;
+  border-left:4px solid var(--tbs-blue);
+  border-radius:8px;
+  background:var(--tbs-blue-pale);
+  color:#33475b;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.intelligence-group{
+  margin-top:24px;
+}
+
+.intelligence-group h3{
+  margin:0 0 5px;
+}
+
+.intelligence-group-description{
+  margin:0 0 13px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.intelligence-list{
+  display:grid;
+  gap:14px;
+}
+
+.intelligence-card{
+  border:1px solid #dbe7f5;
+  border-left:5px solid #d98b00;
+  border-radius:12px;
+  background:#fff;
+  padding:17px 18px;
+  box-shadow:0 4px 14px rgba(8,76,153,.06);
+}
+
+.intelligence-card.priority-high{
+  border-left-color:#c62828;
+}
+
+.intelligence-card.priority-medium{
+  border-left-color:#d98b00;
+}
+
+.intelligence-card.priority-low{
+  border-left-color:#718096;
+}
+
+.intelligence-card-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+}
+
+.intelligence-card h4{
+  margin:7px 0 0;
+  color:var(--tbs-blue-deep);
+  font-size:1.05rem;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+
+.intelligence-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.intelligence-badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:.72rem;
+  line-height:1.2;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.035em;
+}
+
+.intelligence-badge.high{
+  background:#fdecec;
+  color:#a61b1b;
+}
+
+.intelligence-badge.medium{
+  background:#fff3d9;
+  color:#925d00;
+}
+
+.intelligence-badge.low{
+  background:#edf1f5;
+  color:#536273;
+}
+
+.intelligence-badge.type{
+  background:var(--tbs-blue-light);
+  color:var(--tbs-blue-dark);
+}
+
+.intelligence-badge.confidence{
+  background:#f1f4f8;
+  color:#5b6878;
+}
+
+.intelligence-evidence,
+.intelligence-conversion{
+  margin-top:12px;
+  padding:11px 13px;
+  border-radius:8px;
+  background:var(--tbs-blue-pale);
+  color:#33475b;
+  font-size:.91rem;
+  line-height:1.5;
+}
+
+.intelligence-conversion{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+}
+
+.intelligence-action{
+  margin:12px 0 0;
+  line-height:1.55;
+}
+
+.intelligence-measurement{
+  margin-top:13px;
+  border-top:1px solid var(--border-light);
+  padding-top:12px;
+}
+
+.intelligence-measurement summary{
+  cursor:pointer;
+  color:var(--tbs-blue-dark);
+  font-weight:700;
+}
+
+.intelligence-measurement-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+
+.intelligence-measurement-grid div{
+  padding:10px 11px;
+  border:1px solid var(--border-light);
+  border-radius:8px;
+  background:#fafcff;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.intelligence-measurement-grid strong{
+  display:block;
+  color:var(--tbs-blue-deep);
+  margin-bottom:3px;
+}
+
+.intelligence-empty{
+  padding:22px;
+  border:1px dashed #b8c9db;
+  border-radius:10px;
+  background:#fff;
+  color:#667789;
+  text-align:center;
+}
+
+@media(max-width:700px){
+  .intelligence-summary,
+  .intelligence-measurement-grid{
+    grid-template-columns:1fr;
+  }
+
+  .intelligence-card-head{
+    display:block;
+  }
+}
+
 /* Historical trends */
 
 .trend-summary{
@@ -1474,7 +1692,54 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="conversions">Conversions</button><button data-tab="ai">AI Visibility</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<nav><button data-tab="intelligence">Opportunity Intelligence</button>
+<button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="conversions">Conversions</button><button data-tab="ai">AI Visibility</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+
+<section id="intelligence" class="tab">
+  <h2>Opportunity Intelligence</h2>
+  <div class="muted">
+    Cross-source weekly SEO/AEO decision queue using GSC, GA4,
+    AI visibility, AI referral, and SEO event evidence.
+  </div>
+
+  <div class="intelligence-summary">
+    <div class="intelligence-summary-card">
+      <strong id="intelligence-total">--</strong>
+      <span>Total actions</span>
+    </div>
+    <div class="intelligence-summary-card">
+      <strong id="intelligence-high">--</strong>
+      <span>High priority</span>
+    </div>
+    <div class="intelligence-summary-card">
+      <strong id="intelligence-medium">--</strong>
+      <span>Investigation queue</span>
+    </div>
+  </div>
+
+  <div class="intelligence-callout" id="intelligence-note">
+    Loading Opportunity Intelligence...
+  </div>
+
+  <div class="intelligence-group">
+    <h3>Act first</h3>
+    <p class="intelligence-group-description">
+      High-priority items supported by the strongest current evidence.
+      Investigate these before making broad SEO changes.
+    </p>
+    <div class="intelligence-list" id="intelligence-high-list"></div>
+  </div>
+
+  <div class="intelligence-group">
+    <h3>Investigation queue</h3>
+    <p class="intelligence-group-description">
+      Medium-priority opportunities and measurement gaps worth reviewing
+      after the high-priority items.
+    </p>
+    <div class="intelligence-list" id="intelligence-medium-list"></div>
+  </div>
+</section>
+
 <section id="actions" class="tab active">
 <h2>SEO Action Center</h2>
 <p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes.</p>
@@ -3452,6 +3717,197 @@ const trendHistoryPromise=Promise.all([
 .catch(err=>{
   console.error(err);
 });
+
+
+
+function intelligenceEvidenceText(action){
+  const evidence=action?.evidence||{};
+
+  if(evidence.gsc_evidence){
+    return evidence.gsc_evidence;
+  }
+
+  if(evidence.gsc_period){
+    const p=evidence.gsc_period;
+    return (
+      `${p.start||"--"} to ${p.end||"--"}: `+
+      `${n(evidence.impressions)} impressions, `+
+      `${n(evidence.clicks)} clicks, `+
+      `${n(evidence.ctr_percent)}% CTR, `+
+      `average position ${n(evidence.position)}.`
+    );
+  }
+
+  const parts=[];
+
+  Object.entries(evidence).forEach(([key,value])=>{
+    if(value==null || typeof value==="object")return;
+
+    const label=key
+      .replaceAll("_"," ")
+      .replace(/\b\w/g,c=>c.toUpperCase());
+
+    parts.push(`${label}: ${value}`);
+  });
+
+  return parts.join(" | ")||"Evidence is available in the source datasets.";
+}
+
+function intelligenceTypeLabel(type){
+  return String(type||"opportunity")
+    .replaceAll("_"," ")
+    .replace(/\b\w/g,c=>c.toUpperCase());
+}
+
+function intelligenceCard(action){
+  const priority=String(action.priority||"medium").toLowerCase();
+  const confidence=String(action.confidence||"low").toLowerCase();
+  const subject=action.subject||action.query||action.page||"SEO/AEO opportunity";
+  const page=action.page||"";
+  const conversion=action.conversion_context||{};
+  const measurement=action.measurement||{};
+
+  const pageHtml=page
+    ? `<div class="action-url"><strong>Affected URL:</strong> `+
+      `<a href="${esc(page)}" target="_blank" rel="noopener noreferrer">`+
+      `${esc(page)}</a></div>`
+    : "";
+
+  let conversionText="";
+
+  if(Object.keys(conversion).length){
+    const scope=conversion.scope==="landing_page"
+      ? "Ranking URL attribution"
+      : "Sitewide Organic Search context";
+
+    conversionText=`
+      <div class="intelligence-conversion">
+        <strong>Conversion context:</strong> ${esc(scope)} —
+        ${n(conversion.sessions)} sessions,
+        ${n(conversion.booking_starts)} booking starts,
+        ${n(conversion.confirmed_bookings)} confirmed bookings.
+        <div class="muted">${esc(conversion.note||"")}</div>
+      </div>`;
+  }
+
+  const measurementHtml=(
+    measurement["30_days"] ||
+    measurement["60_days"] ||
+    measurement["90_days"]
+  ) ? `
+    <details class="intelligence-measurement">
+      <summary>30 / 60 / 90 day measurement plan</summary>
+      <div class="intelligence-measurement-grid">
+        <div>
+          <strong>30 days</strong>
+          ${esc(measurement["30_days"]||"--")}
+        </div>
+        <div>
+          <strong>60 days</strong>
+          ${esc(measurement["60_days"]||"--")}
+        </div>
+        <div>
+          <strong>90 days</strong>
+          ${esc(measurement["90_days"]||"--")}
+        </div>
+      </div>
+    </details>`
+    : "";
+
+  return `
+    <article class="intelligence-card priority-${esc(priority)}">
+      <div class="intelligence-card-head">
+        <div>
+          <div class="intelligence-badges">
+            <span class="intelligence-badge ${esc(priority)}">
+              ${esc(priority)} priority
+            </span>
+            <span class="intelligence-badge type">
+              ${esc(intelligenceTypeLabel(action.type))}
+            </span>
+            <span class="intelligence-badge confidence">
+              ${esc(confidence)} confidence
+            </span>
+          </div>
+          <h4>${esc(subject)}</h4>
+          ${pageHtml}
+        </div>
+      </div>
+
+      <div class="intelligence-evidence">
+        <strong>Why flagged:</strong> ${esc(action.why_flagged||"--")}
+        <br>
+        <strong>Evidence:</strong> ${esc(intelligenceEvidenceText(action))}
+      </div>
+
+      ${conversionText}
+
+      <p class="intelligence-action">
+        <strong>Recommended action:</strong>
+        ${esc(action.recommended_action||"--")}
+      </p>
+
+      ${measurementHtml}
+    </article>`;
+}
+
+fetch("./data/opportunity-intelligence.json",{cache:"no-store"})
+  .then(r=>{
+    if(!r.ok){
+      throw new Error(`Opportunity Intelligence request failed: ${r.status}`);
+    }
+    return r.json();
+  })
+  .then(data=>{
+    const actions=Array.isArray(data.actions)?data.actions:[];
+    const high=actions.filter(x=>x.priority==="high");
+    const medium=actions.filter(x=>x.priority==="medium");
+
+    document.getElementById("intelligence-total").textContent=
+      n(data.counts?.total??actions.length);
+
+    document.getElementById("intelligence-high").textContent=
+      n(data.counts?.high??high.length);
+
+    document.getElementById("intelligence-medium").textContent=
+      n(data.counts?.medium??medium.length);
+
+    document.getElementById("intelligence-high-list").innerHTML=
+      high.length
+        ? high.map(intelligenceCard).join("")
+        : `<div class="intelligence-empty">
+             No high-priority Opportunity Intelligence items.
+           </div>`;
+
+    document.getElementById("intelligence-medium-list").innerHTML=
+      medium.length
+        ? medium.map(intelligenceCard).join("")
+        : `<div class="intelligence-empty">
+             No medium-priority investigation items.
+           </div>`;
+
+    const generated=data.generated_at
+      ? new Date(data.generated_at).toLocaleString()
+      : "unknown";
+
+    document.getElementById("intelligence-note").innerHTML=
+      `<strong>How to use this:</strong> Work the high-priority queue first. `+
+      `Priority describes business urgency; confidence describes evidence `+
+      `strength. Booking starts are not confirmed bookings, sitewide GA4 `+
+      `context is not page attribution, AI referrals do not measure no-click `+
+      `AI answers, and SEO event timing does not prove causation. `+
+      `<span class="muted">Generated ${esc(generated)}.</span>`;
+  })
+  .catch(err=>{
+    console.error(err);
+
+    const note=document.getElementById("intelligence-note");
+
+    if(note){
+      note.textContent=
+        "Opportunity Intelligence data could not be loaded: "+err.message;
+    }
+  });
 
 
 fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{

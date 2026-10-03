@@ -392,6 +392,35 @@ python.exe .\tools\gsc_performance_audit.py --days 28
 
 The generated `opportunity_score` is a local prioritization heuristic only; it is not a Google metric or ranking factor. Reports are written under `reports/gsc-performance/`.
 
+### `tools/opportunity_intelligence.py`
+
+Builds the cross-source SEO/AEO Opportunity Intelligence queue used by
+the private SEO dashboard.
+
+Run:
+
+    python.exe .\tools\opportunity_intelligence.py
+
+Output:
+
+    cloudflare-site/seo-dashboard/data/opportunity-intelligence.json
+
+The generator combines existing aggregate evidence from Google Search
+Console, GA4 Organic Search, identifiable AI referrals, controlled AI
+answer-visibility observations, and the SEO Event Log.
+
+Priority and confidence are separate. High priority is reserved for the
+strongest current business-action signals. Medium-priority items remain
+visible as an investigation queue.
+
+The generator does not use an opaque composite SEO score, fabricate
+missing observations, treat booking starts as confirmed bookings, or
+claim that SEO event timing proves causation. Sitewide GA4 context must
+not be presented as page-level attribution.
+
+The GSC Action Center remains the Search Console diagnostic layer.
+Opportunity Intelligence is the cross-source business decision layer.
+
 ### `tools/set_transaction_mode.py`
 
 Fallback:

@@ -151,6 +151,59 @@ SEO Events record meaningful work such as technical changes, page
 launches, content updates, and analytics changes. Event timing provides
 context; it does not prove causation.
 
+## Opportunity Intelligence
+
+Opportunity Intelligence is the dashboard's cross-source weekly decision
+queue. It combines evidence from Google Search Console, GA4 Organic
+Search, identifiable AI referrals, controlled AI answer-visibility
+observations, and the SEO Event Log.
+
+**Act first** contains the small number of high-priority items supported
+by the strongest current evidence.
+
+**Investigation queue** contains medium-priority opportunities, anomalies,
+and measurement gaps that deserve review but do not yet justify urgent
+changes.
+
+**Priority** describes business urgency. **Confidence** describes evidence
+strength. They are not the same thing.
+
+Read the Why flagged and Evidence fields before acting. A recommended
+action is a reasoned next step, not proof that an edit will improve
+rankings.
+
+### Conversion context
+
+**Ranking URL attribution** means matching GA4 Organic Search landing-page
+evidence exists for the affected URL.
+
+**Sitewide Organic Search context** means no matching landing-page row was
+available. Those sessions, booking starts, and confirmed bookings describe
+overall Organic Search and must not be attributed to that page.
+
+Booking starts are intent, not confirmed sales. Confirmed bookings use
+`BookingByCustomer`.
+
+### AI context
+
+Identifiable AI referral traffic and AI answer visibility are separate.
+Zero identifiable AI referrals does not prove that AI systems never
+mentioned Tampa Bay Shine. No-click AI exposure is not visible in GA4.
+
+Controlled answer-visibility observations are needed to measure mentions
+and citations. Until observations exist, the dashboard reports the
+measurement gap rather than estimating visibility.
+
+### 30 / 60 / 90 day measurement
+
+Expand the measurement plan on an intelligence card when investigating
+or changing something. Use 30 days for early evidence, 60 days for a
+meaningful subsequent comparison, and 90 days for sustained visibility
+plus Organic Search booking intent and confirmed-booking evidence.
+
+Record material SEO changes in the SEO Event Log. Event timing provides
+context but does not prove causation.
+
 ## Action Center
 
 **Striking distance:** useful visibility near a stronger position.
