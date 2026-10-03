@@ -102,7 +102,7 @@ jobs:
 
           unexpected="$(
             git status --porcelain |
-              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|ga4|ga4-history|ai|ai-history)\.json$' ||
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|ga4|ga4-history|ai|ai-history)\.json$' ||
               true
           )"
 
@@ -120,6 +120,8 @@ jobs:
           git add \
             cloudflare-site/seo-dashboard/data/gsc.json \
             cloudflare-site/seo-dashboard/data/history.json \
+            cloudflare-site/seo-dashboard/data/query-history.json \
+            cloudflare-site/seo-dashboard/data/page-history.json \
             cloudflare-site/seo-dashboard/data/ga4.json \
             cloudflare-site/seo-dashboard/data/ga4-history.json \
             cloudflare-site/seo-dashboard/data/ai.json \
