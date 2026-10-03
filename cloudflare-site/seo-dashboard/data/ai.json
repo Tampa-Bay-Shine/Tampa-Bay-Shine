@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T03:49:49.960663+00:00",
+  "generated_at": "2026-10-03T15:08:48.972407+00:00",
   "data_through": "yesterday",
   "property_id": "487638948",
   "definition": "Conservative classification of identifiable AI-assistant GA4 acquisition sources. Ordinary Organic Search is excluded.",
@@ -11,23 +11,49 @@
         "summary": {
           "platform": "all_ai",
           "label": "All identifiable AI referrals",
-          "sessions": 0,
-          "active_users": 0,
-          "engaged_sessions": 0,
-          "booknow_click": 0,
-          "phone_click": 0,
-          "commercial_quote_start": 0,
-          "contact_click": 0,
-          "coupon_click": 0,
-          "confirmed_bookings": 0,
-          "engagement_rate": null,
-          "booking_start_rate": null,
-          "confirmed_booking_rate": null,
-          "booking_completion_rate": null,
-          "primary_intent_actions": 0.0
+          "sessions": 1.0,
+          "active_users": 1.0,
+          "engaged_sessions": 1.0,
+          "booknow_click": 1.0,
+          "phone_click": 0.0,
+          "commercial_quote_start": 0.0,
+          "contact_click": 0.0,
+          "coupon_click": 0.0,
+          "confirmed_bookings": 1.0,
+          "engagement_rate": 100.0,
+          "booking_start_rate": 100.0,
+          "confirmed_booking_rate": 100.0,
+          "booking_completion_rate": 100.0,
+          "primary_intent_actions": 1.0
         },
-        "platforms": [],
-        "sources": []
+        "platforms": [
+          {
+            "platform": "chatgpt",
+            "label": "ChatGPT / OpenAI",
+            "sessions": 1.0,
+            "active_users": 1.0,
+            "engaged_sessions": 1.0,
+            "booknow_click": 1.0,
+            "phone_click": 0,
+            "commercial_quote_start": 0,
+            "contact_click": 0,
+            "coupon_click": 0,
+            "confirmed_bookings": 1.0,
+            "engagement_rate": 100.0,
+            "booking_start_rate": 100.0,
+            "confirmed_booking_rate": 100.0,
+            "booking_completion_rate": 100.0,
+            "primary_intent_actions": 1.0
+          }
+        ],
+        "sources": [
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / ai-assistant",
+            "sessions": 1.0
+          }
+        ]
       },
       "previous": {
         "summary": {
@@ -58,23 +84,49 @@
         "summary": {
           "platform": "all_ai",
           "label": "All identifiable AI referrals",
-          "sessions": 0,
-          "active_users": 0,
-          "engaged_sessions": 0,
-          "booknow_click": 0,
-          "phone_click": 0,
-          "commercial_quote_start": 0,
-          "contact_click": 0,
-          "coupon_click": 0,
-          "confirmed_bookings": 0,
-          "engagement_rate": null,
-          "booking_start_rate": null,
-          "confirmed_booking_rate": null,
-          "booking_completion_rate": null,
-          "primary_intent_actions": 0.0
+          "sessions": 1.0,
+          "active_users": 1.0,
+          "engaged_sessions": 1.0,
+          "booknow_click": 1.0,
+          "phone_click": 0.0,
+          "commercial_quote_start": 0.0,
+          "contact_click": 0.0,
+          "coupon_click": 0.0,
+          "confirmed_bookings": 1.0,
+          "engagement_rate": 100.0,
+          "booking_start_rate": 100.0,
+          "confirmed_booking_rate": 100.0,
+          "booking_completion_rate": 100.0,
+          "primary_intent_actions": 1.0
         },
-        "platforms": [],
-        "sources": []
+        "platforms": [
+          {
+            "platform": "chatgpt",
+            "label": "ChatGPT / OpenAI",
+            "sessions": 1.0,
+            "active_users": 1.0,
+            "engaged_sessions": 1.0,
+            "booknow_click": 1.0,
+            "phone_click": 0,
+            "commercial_quote_start": 0,
+            "contact_click": 0,
+            "coupon_click": 0,
+            "confirmed_bookings": 1.0,
+            "engagement_rate": 100.0,
+            "booking_start_rate": 100.0,
+            "confirmed_booking_rate": 100.0,
+            "booking_completion_rate": 100.0,
+            "primary_intent_actions": 1.0
+          }
+        ],
+        "sources": [
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / ai-assistant",
+            "sessions": 1.0
+          }
+        ]
       },
       "previous": {
         "summary": {
@@ -105,23 +157,49 @@
         "summary": {
           "platform": "all_ai",
           "label": "All identifiable AI referrals",
-          "sessions": 0,
-          "active_users": 0,
-          "engaged_sessions": 0,
-          "booknow_click": 0,
-          "phone_click": 0,
-          "commercial_quote_start": 0,
-          "contact_click": 0,
-          "coupon_click": 0,
-          "confirmed_bookings": 0,
-          "engagement_rate": null,
-          "booking_start_rate": null,
-          "confirmed_booking_rate": null,
-          "booking_completion_rate": null,
-          "primary_intent_actions": 0.0
+          "sessions": 1.0,
+          "active_users": 1.0,
+          "engaged_sessions": 1.0,
+          "booknow_click": 1.0,
+          "phone_click": 0.0,
+          "commercial_quote_start": 0.0,
+          "contact_click": 0.0,
+          "coupon_click": 0.0,
+          "confirmed_bookings": 1.0,
+          "engagement_rate": 100.0,
+          "booking_start_rate": 100.0,
+          "confirmed_booking_rate": 100.0,
+          "booking_completion_rate": 100.0,
+          "primary_intent_actions": 1.0
         },
-        "platforms": [],
-        "sources": []
+        "platforms": [
+          {
+            "platform": "chatgpt",
+            "label": "ChatGPT / OpenAI",
+            "sessions": 1.0,
+            "active_users": 1.0,
+            "engaged_sessions": 1.0,
+            "booknow_click": 1.0,
+            "phone_click": 0,
+            "commercial_quote_start": 0,
+            "contact_click": 0,
+            "coupon_click": 0,
+            "confirmed_bookings": 1.0,
+            "engagement_rate": 100.0,
+            "booking_start_rate": 100.0,
+            "confirmed_booking_rate": 100.0,
+            "booking_completion_rate": 100.0,
+            "primary_intent_actions": 1.0
+          }
+        ],
+        "sources": [
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / ai-assistant",
+            "sessions": 1.0
+          }
+        ]
       },
       "previous": {
         "summary": {

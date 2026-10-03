@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T03:49:47+00:00",
+  "generated_at": "2026-10-03T15:08:46+00:00",
   "data_through": "2026-10-02",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
@@ -18,12 +18,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 3,
-          "active_users": 3,
-          "engaged_sessions": 2,
-          "engagement_rate": 66.67,
-          "booking_start_rate": 66.67,
-          "primary_intent_rate": 66.67,
+          "sessions": 6,
+          "active_users": 6,
+          "engaged_sessions": 5,
+          "engagement_rate": 83.33,
+          "booking_start_rate": 33.33,
+          "primary_intent_rate": 33.33,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -79,12 +79,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 3,
-          "active_users": 3,
-          "engaged_sessions": 2,
-          "engagement_rate": 66.67,
-          "booking_start_rate": 66.67,
-          "primary_intent_rate": 66.67,
+          "sessions": 6,
+          "active_users": 6,
+          "engaged_sessions": 5,
+          "engagement_rate": 83.33,
+          "booking_start_rate": 33.33,
+          "primary_intent_rate": 33.33,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 3,
-          "active_users": 3,
-          "engaged_sessions": 2,
-          "engagement_rate": 66.67,
-          "booking_start_rate": 66.67,
-          "primary_intent_rate": 66.67,
+          "sessions": 6,
+          "active_users": 6,
+          "engaged_sessions": 5,
+          "engagement_rate": 83.33,
+          "booking_start_rate": 33.33,
+          "primary_intent_rate": 33.33,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 3,
-      "active_users": 3,
-      "engaged_sessions": 2,
+      "sessions": 5,
+      "active_users": 5,
+      "engaged_sessions": 4,
       "booknow_click": 2,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,16 +204,38 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 2,
       "all_intent_actions": 2,
-      "booking_start_rate": 66.67,
+      "booking_start_rate": 40.0,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
+    },
+    {
+      "landing_page": "/services/",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 1,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
     }
   ],
   "events_by_channel": [
     {
       "event_name": "BookingByCustomer",
-      "channel": "Direct",
+      "channel": "AI Assistant",
       "event_count": 1
+    },
+    {
+      "event_name": "BookingByCustomer",
+      "channel": "Direct",
+      "event_count": 2
     },
     {
       "event_name": "BookingByCustomer",
@@ -222,8 +244,13 @@
     },
     {
       "event_name": "booknow_click",
+      "channel": "AI Assistant",
+      "event_count": 1
+    },
+    {
+      "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 5
+      "event_count": 8
     },
     {
       "event_name": "booknow_click",
@@ -233,7 +260,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Organic Social",
-      "event_count": 5
+      "event_count": 6
     },
     {
       "event_name": "booknow_click",
@@ -243,12 +270,17 @@
     {
       "event_name": "contact_click",
       "channel": "Direct",
-      "event_count": 1
+      "event_count": 2
     },
     {
       "event_name": "coupon_click",
       "channel": "Direct",
       "event_count": 3
+    },
+    {
+      "event_name": "phone_click",
+      "channel": "Direct",
+      "event_count": 1
     }
   ],
   "definitions": {
