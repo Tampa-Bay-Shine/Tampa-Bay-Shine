@@ -1247,6 +1247,104 @@ td:first-child{
   margin-top:8px;
 }
 
+#query-winners,
+#query-losers,
+#page-winners,
+#page-losers{
+  width:100%;
+  min-width:0;
+  table-layout:fixed;
+}
+
+#query-winners th,
+#query-winners td,
+#query-losers th,
+#query-losers td,
+#page-winners th,
+#page-winners td,
+#page-losers th,
+#page-losers td{
+  white-space:normal;
+  overflow-wrap:break-word;
+  word-break:normal;
+  padding-left:8px;
+  padding-right:8px;
+}
+
+#query-winners th:nth-child(1),
+#query-winners td:nth-child(1),
+#query-losers th:nth-child(1),
+#query-losers td:nth-child(1){
+  width:17%;
+  overflow-wrap:normal;
+}
+
+#query-winners th:nth-child(2),
+#query-winners td:nth-child(2),
+#query-losers th:nth-child(2),
+#query-losers td:nth-child(2){
+  width:19%;
+}
+
+#query-winners th:nth-child(3),
+#query-winners td:nth-child(3),
+#query-losers th:nth-child(3),
+#query-losers td:nth-child(3){
+  width:8%;
+}
+
+#query-winners th:nth-child(n+4),
+#query-winners td:nth-child(n+4),
+#query-losers th:nth-child(n+4),
+#query-losers td:nth-child(n+4){
+  width:9.33%;
+  text-align:center;
+}
+
+#page-winners th:nth-child(1),
+#page-winners td:nth-child(1),
+#page-losers th:nth-child(1),
+#page-losers td:nth-child(1){
+  width:20%;
+}
+
+#page-winners th:nth-child(2),
+#page-winners td:nth-child(2),
+#page-losers th:nth-child(2),
+#page-losers td:nth-child(2){
+  width:16%;
+}
+
+#page-winners th:nth-child(3),
+#page-winners td:nth-child(3),
+#page-losers th:nth-child(3),
+#page-losers td:nth-child(3){
+  width:8%;
+}
+
+#page-winners th:nth-child(n+4),
+#page-winners td:nth-child(n+4),
+#page-losers th:nth-child(n+4),
+#page-losers td:nth-child(n+4){
+  width:9.33%;
+  text-align:center;
+}
+
+#query-winners .trend-subject,
+#query-losers .trend-subject,
+#page-winners .trend-subject,
+#page-losers .trend-subject{
+  align-items:flex-start;
+  min-width:0;
+}
+
+#query-winners .trend-subject span,
+#query-losers .trend-subject span,
+#page-winners .trend-subject span,
+#page-losers .trend-subject span{
+  min-width:0;
+}
+
 /* Make long URLs manageable */
 
 td:first-child{
@@ -2227,8 +2325,8 @@ td:first-child{
   </div>
 </div>
 
-<section id="tracked" class="tab"><h2>Tracked Tampa keywords</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
-<section id="queries" class="tab"><h2>Top non-brand queries</h2><table><thead><tr><th>Query</th><th>Position</th><th>Change</th><th>Impressions</th><th>Clicks</th><th>CTR</th></tr></thead><tbody></tbody></table></section>
+<section id="tracked" class="tab"><h2>Tracked Tampa keywords</h2><p class="muted">Table metrics use the current 28-day GSC period. Position is the 28-day impression-weighted average; change is positions gained/lost versus the previous 28 days.</p><table><thead><tr><th>Query</th><th>28D Avg Position</th><th>Change vs Prior 28D</th><th>28D Impressions</th><th>28D Clicks</th><th>28D CTR</th><th>Ranking page</th></tr></thead><tbody></tbody></table></section>
+<section id="queries" class="tab"><h2>Top non-brand queries</h2><p class="muted">Table metrics use the current 28-day GSC period. Position is the 28-day impression-weighted average; change is positions gained/lost versus the previous 28 days.</p><table><thead><tr><th>Query</th><th>28D Avg Position</th><th>Change vs Prior 28D</th><th>28D Impressions</th><th>28D Clicks</th><th>28D CTR</th></tr></thead><tbody></tbody></table></section>
 <section id="movers" class="tab">
 <h2>SEO Winners &amp; Losers</h2>
 <p class="muted">28-day performance compared with the previous 28 days. Data level reflects combined impressions across both periods.</p>
@@ -2236,7 +2334,7 @@ td:first-child{
 <h3>Query winners</h3>
 <table id="query-winners">
 <thead><tr>
-<th>Query</th><th>Reason</th><th>Data</th><th>Clicks</th><th>Click change</th><th>Impressions</th><th>Impr change</th><th>Position</th><th>Pos change</th>
+<th>Query</th><th>Reason</th><th>Data</th><th>28D Clicks</th><th>Click change vs prior 28D</th><th>28D Impressions</th><th>Impr change vs prior 28D</th><th>28D Avg Position</th><th>Position change vs prior 28D</th>
 </tr></thead>
 <tbody></tbody>
 </table>
@@ -2244,7 +2342,7 @@ td:first-child{
 <h3>Query losers</h3>
 <table id="query-losers">
 <thead><tr>
-<th>Query</th><th>Reason</th><th>Data</th><th>Clicks</th><th>Click change</th><th>Impressions</th><th>Impr change</th><th>Position</th><th>Pos change</th>
+<th>Query</th><th>Reason</th><th>Data</th><th>28D Clicks</th><th>Click change vs prior 28D</th><th>28D Impressions</th><th>Impr change vs prior 28D</th><th>28D Avg Position</th><th>Position change vs prior 28D</th>
 </tr></thead>
 <tbody></tbody>
 </table>
@@ -2252,7 +2350,7 @@ td:first-child{
 <h3>Page winners</h3>
 <table id="page-winners">
 <thead><tr>
-<th>Page</th><th>Reason</th><th>Data</th><th>Clicks</th><th>Click change</th><th>Impressions</th><th>Impr change</th><th>Position</th><th>Pos change</th>
+<th>Page</th><th>Reason</th><th>Data</th><th>28D Clicks</th><th>Click change vs prior 28D</th><th>28D Impressions</th><th>Impr change vs prior 28D</th><th>28D Avg Position</th><th>Position change vs prior 28D</th>
 </tr></thead>
 <tbody></tbody>
 </table>
@@ -2260,7 +2358,7 @@ td:first-child{
 <h3>Page losers</h3>
 <table id="page-losers">
 <thead><tr>
-<th>Page</th><th>Reason</th><th>Data</th><th>Clicks</th><th>Click change</th><th>Impressions</th><th>Impr change</th><th>Position</th><th>Pos change</th>
+<th>Page</th><th>Reason</th><th>Data</th><th>28D Clicks</th><th>Click change vs prior 28D</th><th>28D Impressions</th><th>Impr change vs prior 28D</th><th>28D Avg Position</th><th>Position change vs prior 28D</th>
 </tr></thead>
 <tbody></tbody>
 </table>
@@ -2452,7 +2550,25 @@ function renderTrendChart(targetId,snapshots,valueFn,options={}){
 
   // Avoid duplicate-looking Y-axis labels on low-volume integer charts.
   // The plotted values remain unchanged; this only improves axis labels.
-  const axisFormat=options.axisFormat || format;
+  const defaultAxisFormat=(value)=>{
+    if(options.axisFormat){
+      return options.axisFormat(value);
+    }
+
+    const span=Math.abs(max-min);
+
+    // Whole-number metrics such as clicks/impressions often need fractional
+    // grid labels when the visible range is small. Avoid repeated labels
+    // such as 0, 1, 1, 1, 1 without altering the plotted observations.
+    if(options.integerMetric){
+      const decimals=span<=2 ? 2 : (span<=10 ? 1 : 0);
+      return trendNumber(value,decimals);
+    }
+
+    return format(value);
+  };
+
+  const axisFormat=defaultAxisFormat;
 
   const firstDate=Date.parse(points[0].date+"T00:00:00Z");
   const lastDate=Date.parse(points[points.length-1].date+"T00:00:00Z");
@@ -3389,7 +3505,8 @@ function trendMetricConfig(){
         value:p=>p.impressions,
         format:v=>trendNumber(v,0),
         invert:false,
-        minValue:0
+        minValue:0,
+        integerMetric:true
       };
 
     case "position":
@@ -3416,7 +3533,8 @@ function trendMetricConfig(){
         value:p=>p.clicks,
         format:v=>trendNumber(v,0),
         invert:false,
-        minValue:0
+        minValue:0,
+        integerMetric:true
       };
   }
 }
@@ -3488,18 +3606,28 @@ function renderExpandedTrend(){
 
   if(meta){
     meta.textContent=
-      `${range.start||"--"} to ${range.end||"--"} ? `+
+      `${range.start||"--"} to ${range.end||"--"} | `+
       `${points.length} reported GSC day${points.length===1?"":"s"}`;
   }
 
   const stats=document.getElementById("active-row-trend-summary");
+  const latest=points.length ? points[points.length-1] : null;
 
   if(stats){
+    const latestHtml=latest
+      ? `<span class="trend-detail-stat"><strong>Latest reported day:</strong> ${trendEsc(trendDate(latest.date))}</span>
+         <span class="trend-detail-stat"><strong>Latest position:</strong> ${n(latest.position)}</span>
+         <span class="trend-detail-stat"><strong>Latest impressions:</strong> ${n(latest.impressions)}</span>
+         <span class="trend-detail-stat"><strong>Latest clicks:</strong> ${n(latest.clicks)}</span>
+         <span class="trend-detail-stat"><strong>Latest CTR:</strong> ${n(latest.ctr)}%</span>`
+      : "";
+
     stats.innerHTML=`
-      <span class="trend-detail-stat"><strong>Clicks:</strong> ${n(summary.clicks)}</span>
-      <span class="trend-detail-stat"><strong>Impressions:</strong> ${n(summary.impressions)}</span>
-      <span class="trend-detail-stat"><strong>CTR:</strong> ${n(summary.ctr)}%</span>
-      <span class="trend-detail-stat"><strong>Avg position:</strong> ${n(summary.position)}</span>`;
+      <span class="trend-detail-stat"><strong>Selected-period clicks:</strong> ${n(summary.clicks)}</span>
+      <span class="trend-detail-stat"><strong>Selected-period impressions:</strong> ${n(summary.impressions)}</span>
+      <span class="trend-detail-stat"><strong>Selected-period CTR:</strong> ${n(summary.ctr)}%</span>
+      <span class="trend-detail-stat"><strong>Selected-period avg position:</strong> ${n(summary.position)}</span>
+      ${latestHtml}`;
   }
 
   if(!points.length){
@@ -3528,9 +3656,9 @@ function renderExpandedTrend(){
     {
       label:`${expanded.value} ${metric.label}`,
       format:metric.format,
-      axisFormat:metric.format,
       invert:metric.invert,
-      minValue:metric.minValue
+      minValue:metric.minValue,
+      integerMetric:metric.integerMetric
     }
   );
 }
@@ -3577,15 +3705,18 @@ function trendExpand(button){
         <div class="trend-detail-summary" id="active-row-trend-summary"></div>
         <div class="trend-detail-chart" id="active-row-trend"></div>
         <div class="trend-chart-note">
-          Missing query dates mean GSC did not return a reportable row for
-          that query/date. Average position is not a deterministic live SERP rank.
+          Parent table values are current 28-day aggregates. The chart plots
+          individual daily GSC observations for the selected range, so the last
+          chart point is not expected to equal the 28-day table value. Missing
+          query dates mean GSC did not return a reportable row for that
+          query/date. Average position is not a deterministic live SERP rank.
         </div>
       </div>
     </td>`;
 
   row.insertAdjacentElement("afterend",detail);
 
-  button.classList.remove("expanded");
+  button.classList.add("expanded");
   button.setAttribute("aria-expanded","true");
 
   trendExplorerState.expanded={
@@ -3782,7 +3913,7 @@ function intelligenceCard(action){
 
     conversionText=`
       <div class="intelligence-conversion">
-        <strong>Conversion context:</strong> ${esc(scope)} —
+        <strong>Conversion context:</strong> ${esc(scope)} Ã¢â‚¬â€
         ${n(conversion.sessions)} sessions,
         ${n(conversion.booking_starts)} booking starts,
         ${n(conversion.confirmed_bookings)} confirmed bookings.

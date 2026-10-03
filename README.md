@@ -392,6 +392,20 @@ python.exe .\tools\gsc_performance_audit.py --days 28
 
 The generated `opportunity_score` is a local prioritization heuristic only; it is not a Google metric or ranking factor. Reports are written under `reports/gsc-performance/`.
 
+### SEO dashboard query metric semantics
+
+The private SEO dashboard's Tracked Keywords and Top Queries tables use
+the current 28-day GSC period: clicks/impressions are totals, CTR is
+clicks divided by impressions, and position is the impression-weighted
+average. Position change is positions gained/lost versus the previous
+28-day period, not a percentage.
+
+Expanded query/page charts use actual retained daily GSC observations
+for the selected trend range. Their selected-period aggregate and
+Latest reported day are displayed separately; the last daily chart
+point is not expected to equal the parent table's 28-day aggregate.
+Missing query dates are not interpolated or treated as confirmed zeros.
+
 ### `tools/opportunity_intelligence.py`
 
 Builds the cross-source SEO/AEO Opportunity Intelligence queue used by
@@ -870,3 +884,9 @@ refreshes a recent overlap window. The history files contain real GSC
 observations; missing query observations are not interpolated. GSC can
 omit anonymized or low-volume query rows, and average position is an
 aggregate metric rather than a deterministic live SERP rank.
+
+The Winners & Losers tables use a fixed responsive layout on desktop so
+query/page text wraps at word boundaries while numeric columns remain
+compact. Trend-chart Y-axis labels use adaptive precision for low-volume
+integer metrics; fractional axis ticks are display scale labels only and
+do not imply fractional clicks or impressions.

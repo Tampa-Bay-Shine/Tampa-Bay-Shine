@@ -175,6 +175,25 @@ The explorer supports `1D | 7D | 30D | 90D | 180D | 1Y | Custom` and
 the selected period are overlaid as annotations. Event timing provides
 context only and does not prove causation.
 
+### Query/page metric semantics
+
+Tracked Keywords and Top Queries table rows use the current 28-day GSC
+period. Clicks and impressions are period totals. CTR is period clicks
+divided by period impressions. Average position is the
+impression-weighted GSC average for the period. Position change is an
+absolute number of positions versus the previous 28-day period, not a
+percentage.
+
+Expanded charts use retained daily GSC observations and the global trend
+range. The selected-period summary recomputes totals, CTR, and
+impression-weighted average position from the observations in that
+range. The Latest reported day block shows the final actual retained
+daily observation separately.
+
+Therefore, the final plotted daily position/CTR/click/impression value
+does not need to equal the parent row's 28-day aggregate. Do not replace
+either value with the other or interpolate missing query dates.
+
 
 ## Opportunity Intelligence
 
@@ -398,3 +417,9 @@ Cross-domain client-identity continuity is verified and confirmed-booking channe
 The dashboard automatically checks `events_by_channel` for a case-sensitive `BookingByCustomer` event whose channel is `Organic Search`. Until one is present, it reports that Organic Search confirmed-booking attribution has not yet been observed. When the first such event appears, the status automatically changes to verified.
 
 Do not relabel Direct or Organic Social bookings as Organic Search. No additional test booking is required solely to force this condition.
+
+The Winners & Losers tables are constrained to the dashboard viewport on
+desktop. Query/page and reason text may wrap at word boundaries; metric
+columns remain compact. For low-volume Clicks/Impressions charts, Y-axis
+tick labels may use decimals to prevent duplicate-looking labels. The
+underlying GSC click/impression observations remain whole-number values.

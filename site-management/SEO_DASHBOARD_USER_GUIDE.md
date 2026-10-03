@@ -104,6 +104,13 @@ visibility. Look for local/service demand, unexpected searches,
 high-impression/low-click queries, and searches approaching stronger
 positions.
 
+The Tracked Keywords and Top Queries table values are **current 28-day
+aggregates**, not the latest day's values. Clicks and impressions are
+28-day totals. CTR is total 28-day clicks divided by total 28-day
+impressions. Average position is the impression-weighted GSC average for
+the 28-day period. Position change is the number of positions gained or
+lost versus the previous 28-day period; it is not a percentage.
+
 ## Interactive query and page trends
 
 Tracked Keywords, Top Queries, Query Winners/Losers, and Page
@@ -113,8 +120,15 @@ one row is expanded at a time.
 
 Timeframes are **1D**, **7D**, **30D**, **90D**, **180D**, **1Y**, and
 **Custom**. Metrics are **Clicks**, **Impressions**, **Position**, and
-**CTR**. The summary above the chart recalculates for the selected
-period.
+**CTR**. The **Selected-period** summary above the chart recalculates
+clicks, impressions, CTR, and impression-weighted average position for
+the selected chart range.
+
+The expanded row also shows **Latest reported day** metrics: the date,
+position, impressions, clicks, and CTR from the final actual GSC daily
+observation in that selected range. These latest-day values are separate
+from the parent table's 28-day aggregates. For example, a table average
+position of 15.8 and a latest chart point of 7.0 can both be correct.
 
 SEO Event Log entries appear when their dates fall inside the selected
 range. They provide context, not proof of causation.
@@ -313,3 +327,9 @@ business-performance information.
 
 Use the full funnel and longer-term trends rather than any single
 metric.
+
+On desktop, Winners & Losers tables are sized to remain within the
+dashboard viewport. Longer queries, URLs, reasons, and headings wrap
+rather than forcing the page wider. Low-volume Clicks and Impressions
+charts may show decimal Y-axis scale labels so adjacent tick labels are
+distinct; the actual GSC observations are still whole clicks/impressions.
