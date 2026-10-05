@@ -3,7 +3,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1] / 'cloudflare-site'
-TX = {'/booknow','/login','/gift-card','/referrals','/floor-calculator'}
+TX = {'/booknow','/login','/gift-card','/referrals','/floor-calculator','/contact-us'}
 LIVE = 'https://tampabayshine.com'
 
 class Handler(SimpleHTTPRequestHandler):

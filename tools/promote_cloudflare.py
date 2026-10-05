@@ -1,7 +1,7 @@
 
 from pathlib import Path
 import argparse,json,re,subprocess,sys
-DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator']; TX_ALT='|'.join(re.escape(x) for x in TX)
+DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator','contact-us']; TX_ALT='|'.join(re.escape(x) for x in TX)
 def run(a,cwd,check=False):
     p=subprocess.run(a,cwd=str(cwd),text=True,capture_output=True)
     if check and p.returncode: raise RuntimeError(' '.join(a)+'\n'+p.stdout+'\n'+p.stderr)
@@ -18,11 +18,12 @@ def transform(repo,active):
     for line in rp.read_text(encoding='utf-8').splitlines():
         s=line.strip(); hit=False
         for r in TX:
-            if s.startswith(f'/{r} '):
-                parts=s.split(); code=parts[2] if len(parts)>2 else '302'; out.append(f'/{r} {active}/{r} {code}'); seen.add(r); hit=True; break
+            if s.startswith(f'/{r} ') or s.startswith(f'/{r}/ '):
+                parts=s.split(); source=parts[0]; code=parts[2] if len(parts)>2 else '302'; out.append(f'{source} {active}/{r} {code}'); seen.add((r,source.endswith('/'))); hit=True; break
         if not hit: out.append(line)
     for r in TX:
-        if r not in seen: out.append(f'/{r} {active}/{r} 302')
+        if (r,False) not in seen: out.append(f'/{r} {active}/{r} 302')
+        if (r,True) not in seen: out.append(f'/{r}/ {active}/{r} 302')
     rp.write_text('\n'.join(out).rstrip()+'\n',encoding='utf-8')
     anchor_re=re.compile(r'(<a\b[^>]*?\bhref=)(["\'])(/(?:(?:'+TX_ALT+r'))(?:/)?(?:[?#][^"\']*)?)\2',re.I)
     for html in site.rglob('*.html'):
