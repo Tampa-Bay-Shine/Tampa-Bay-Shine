@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse, json, re, ssl, subprocess, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
 DEV_BRANCH='cloudflare-staging'; PROD_BRANCH='cloudflare-production'; SITE_DIR='cloudflare-site'
-TX=['/booknow','/login','/gift-card','/referrals','/floor-calculator']
+TX=['/booknow','/login','/gift-card','/referrals','/floor-calculator','/contact-us']
 STALE={'airbnb-cleaning-st-petersburg','apartment-cleaning-st-petersburg','house-cleaning-st-petersburg-fl','move-out-cleaning-st-petersburg','office-cleaning-st-petersburg'}
 CHECK=['/','/services','/locations','/standard-cleaning-services-tampa','/move-out-cleaning-tampa-1','/office-cleaning','/window-cleaning','/privacy-policy','/terms','/sms-opt-in']
 
@@ -86,7 +86,7 @@ def transaction_anchor_checks(repo,out,active):
     add(out,'Production has direct active BK transaction links',direct>0,f'direct_links={direct}')
 
 def active_checks(out,active):
-    for pth in ['/','/login','/booknow','/gift-card','/referrals','/floor-calculator']:
+    for pth in ['/','/login','/booknow','/gift-card','/referrals','/floor-calculator','/contact-us']:
         r=fetch(active+pth); add(out,f'Active BK target reachable {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']} {r['error']}".strip())
 def custom_info(out,custom):
     for pth in ['/','/login','/booknow']:

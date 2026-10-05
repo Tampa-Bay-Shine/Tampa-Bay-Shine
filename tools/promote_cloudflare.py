@@ -1,7 +1,7 @@
 
 from pathlib import Path
 import argparse,json,re,subprocess,sys
-DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator']; TX_ALT='|'.join(re.escape(x) for x in TX)
+DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator','contact-us']; TX_ALT='|'.join(re.escape(x) for x in TX)
 def run(a,cwd,check=False):
     p=subprocess.run(a,cwd=str(cwd),text=True,capture_output=True)
     if check and p.returncode: raise RuntimeError(' '.join(a)+'\n'+p.stdout+'\n'+p.stderr)
