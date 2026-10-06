@@ -26,7 +26,9 @@ friction or an attribution issue.
 
 ## How often to review it
 
-**Weekly:** use the 28-day view and review Action Center, core search
+**Daily:** use the email brief and Performance Intelligence for triage. Do not make broad SEO changes from one day alone.
+
+**Weekly:** use the 28-day view and review Opportunity Intelligence, Action Center, core search
 metrics, Conversions, Winners & Losers, and tracked keywords.
 
 **Monthly:** use 90 days to judge strategic direction. Ask whether
@@ -217,6 +219,18 @@ plus Organic Search booking intent and confirmed-booking evidence.
 
 Record material SEO changes in the SEO Event Log. Event timing provides
 context but does not prove causation.
+
+## Performance Intelligence
+
+Performance Intelligence is the fast Daily, Weekly, and Monthly summary. Daily compares the latest complete GSC day with the prior day; Weekly compares the latest 7 complete days with the previous 7; Monthly compares the latest 28 days with the previous 28.
+
+Headline impressions, clicks, CTR, and average position use authoritative date-only Search Console totals. Query/page movers use retained query/page histories, so they are evidence about specific searches and URLs rather than complete site-wide totals. Treat large percentage changes on tiny volumes cautiously.
+
+## Daily SEO Performance Brief
+
+After the successful scheduled 8 AM Eastern dashboard refresh, a concise email brief is sent to `marketing@tampabayshine.com`. It contains Daily, 7-day, and 28-day headline comparisons, up to three items that matter today, and a dashboard link.
+
+The email is a triage summary, not a replacement for the dashboard. Use the dashboard for query/page evidence, conversion context, Opportunity Intelligence, SEO Events, and 30/60/90-day measurement.
 
 ## Action Center
 
