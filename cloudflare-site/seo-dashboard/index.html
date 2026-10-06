@@ -4041,7 +4041,7 @@ function intelligenceAnalysisHtml(action,workflow){
   </details>`;
 }
 
-const SEO_WORKFLOW_API="https://seo-api.tampabayshine.com";
+const SEO_WORKFLOW_API="/api/opportunity-workflow";
 function intelligenceWorkflowControl(action,workflow){
   const status=String(workflow?.status||"new").toLowerCase(),id=String(action.id||"");
   let help="",form="";
@@ -4079,7 +4079,7 @@ function bindIntelligenceWorkflowControls(){
       if(payload.status==="closed") payload.notes=control.querySelector(".workflow-notes")?.value||"";
       button.disabled=true;result.className="intelligence-workflow-result show";result.textContent="Saving…";
       try{
-        const r=await fetch(SEO_WORKFLOW_API+"/workflow",{method:"POST",credentials:"include",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+        const r=await fetch(SEO_WORKFLOW_API,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
         const data=await r.json().catch(()=>({error:`HTTP ${r.status}`}));
         if(!r.ok) throw new Error(data.error||`HTTP ${r.status}`);
         result.className="intelligence-workflow-result show ok";

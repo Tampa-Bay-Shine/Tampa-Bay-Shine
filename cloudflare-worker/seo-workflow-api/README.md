@@ -4,8 +4,8 @@ This Worker lets the static SEO dashboard safely update Opportunity Intelligence
 
 ## Security model
 
-- Dashboard origin allowed: `https://seo.tampabayshine.com`
-- Worker custom domain: `https://seo-api.tampabayshine.com`
+- Dashboard/API origin: `https://seo.tampabayshine.com`
+- Worker route: `https://seo.tampabayshine.com/api/opportunity-workflow`
 - Protect the Worker custom domain with Cloudflare Access.
 - The Worker requires the `Cf-Access-Authenticated-User-Email` header and can restrict it to one email with `ALLOWED_EMAIL`.
 - `GITHUB_TOKEN` exists only as a Worker secret.
@@ -36,15 +36,17 @@ npx wrangler deploy
 
 For `ALLOWED_EMAIL`, enter the email address you will use to authenticate to Cloudflare Access.
 
-In Cloudflare Workers & Pages, open the `tbs-seo-workflow-api` Worker and add the custom domain:
+In Cloudflare Workers & Pages, route the Worker only to:
 
-`seo-api.tampabayshine.com`
+`seo.tampabayshine.com/api/opportunity-workflow`
+
+The rest of `seo.tampabayshine.com` must continue to be served by the existing Pages project.
 
 ## Cloudflare Access
 
 In Cloudflare Zero Trust / Access, create a self-hosted application for:
 
-`seo-api.tampabayshine.com/*`
+`seo.tampabayshine.com/*`
 
 Create an Allow policy containing only the email address you want to use for dashboard workflow changes. Keep the application protected. The Worker intentionally rejects mutation requests that did not pass through Access.
 
