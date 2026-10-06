@@ -2,6 +2,12 @@ name: Refresh GSC GA4 and AI SEO Dashboard
 
 on:
   workflow_dispatch:
+    inputs:
+      send_email:
+        description: Send Daily SEO Performance Brief
+        required: false
+        default: false
+        type: boolean
   schedule:
     # GitHub cron uses UTC. These cover 8 AM Eastern in EDT and EST.
     - cron: "0 12 * * *"
@@ -207,3 +213,22 @@ jobs:
 
           git commit -m "Refresh SEO dashboard data"
           git push origin HEAD:seo-dashboard
+
+      - name: Send Daily SEO Performance Brief
+        if: >-
+          steps.eastern_schedule.outputs.run == 'true' &&
+          (github.event_name == 'schedule' || inputs.send_email == true)
+        shell: bash
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "$RESEND_API_KEY" ]; then
+            echo "RESEND_API_KEY GitHub Actions secret is missing."
+            exit 1
+          fi
+          python tools/send_seo_email.py \
+            --to "marketing@tampabayshine.com" \
+            --from "Tampa Bay Shine SEO <seo@updates.tampabayshine.com>" \
+            --reply-to "marketing@tampabayshine.com" \
+            --dashboard-url "https://seo.tampabayshine.com/"
