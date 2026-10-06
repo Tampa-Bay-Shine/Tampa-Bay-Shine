@@ -2452,12 +2452,19 @@ td:first-child{
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const n=v=>v==null?"--":Number(v).toLocaleString(undefined,{maximumFractionDigits:2});
 const change=v=>v==null?"--":`<span class="${v>0?'good':v<0?'bad':''}">${v>0?'+':''}${n(v)}</span>`;
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
+function activateDashboardTab(tab,{persist=true}={}){
+  const button=document.querySelector(`nav button[data-tab="${tab}"]`);
+  const panel=document.getElementById(tab);
+  if(!button||!panel)return false;
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
   document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
-  document.getElementById(b.dataset.tab).classList.add("active");
-  b.classList.add("active");
-});
+  panel.classList.add("active");button.classList.add("active");
+  if(persist)sessionStorage.setItem("tbs-dashboard-tab",tab);
+  return true;
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>activateDashboardTab(b.dataset.tab));
+const restoredDashboardTab=sessionStorage.getItem("tbs-dashboard-tab");
+if(restoredDashboardTab)activateDashboardTab(restoredDashboardTab,{persist:false});
 
 const trendEsc=(v)=>String(v??"")
   .replaceAll("&","&amp;")
@@ -4083,10 +4090,33 @@ function bindIntelligenceWorkflowControls(){
         const data=await r.json().catch(()=>({error:`HTTP ${r.status}`}));
         if(!r.ok) throw new Error(data.error||`HTTP ${r.status}`);
         result.className="intelligence-workflow-result show ok";
-        result.textContent=`Updated to ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Refreshing…`;
+        result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Waiting for dashboard data to refresh…`;
         const card=control.closest(".intelligence-card");
-        if(card){card.dataset.workflowStatus=data.status;const badge=card.querySelector(".intelligence-badge.workflow");if(badge){badge.className=`intelligence-badge workflow ${data.status}`;badge.textContent=intelligenceWorkflowLabel(data.status);}}
-        setTimeout(()=>location.reload(),5000);
+        if(card){
+          card.dataset.workflowStatus=data.status;
+          const badge=card.querySelector(".intelligence-badge.workflow");
+          if(badge){badge.className=`intelligence-badge workflow ${data.status}`;badge.textContent=intelligenceWorkflowLabel(data.status);}
+        }
+        sessionStorage.setItem("tbs-dashboard-tab","intelligence");
+        sessionStorage.setItem("tbs-intelligence-focus",payload.id);
+        sessionStorage.setItem("tbs-intelligence-filter",document.querySelector(".intelligence-workflow-filter.active")?.dataset.workflowFilter||"active");
+        const expectedStatus=data.status, started=Date.now();
+        const poll=async()=>{
+          try{
+            const r=await fetch(`./data/opportunity-workflow.json?refresh=${Date.now()}`,{cache:"no-store"});
+            if(r.ok){
+              const fresh=await r.json();
+              if(String(fresh?.items?.[payload.id]?.status||"").toLowerCase()===expectedStatus){
+                result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Dashboard data refreshed.`;
+                setTimeout(()=>location.reload(),700);return;
+              }
+            }
+          }catch(_){}
+          if(Date.now()-started<90000){setTimeout(poll,2500);return;}
+          result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Repository update succeeded; dashboard deployment is still catching up.`;
+          button.disabled=false;
+        };
+        setTimeout(poll,1500);
       }catch(e){
         result.className="intelligence-workflow-result show error";
         result.textContent=e.message||String(e);button.disabled=false;
@@ -4108,7 +4138,7 @@ function intelligenceCard(action,workflow){
     const scope=conversion.scope==="landing_page"?"Ranking URL attribution":"Sitewide Organic Search context";
     conversionText=`<div class="intelligence-conversion"><strong>Conversion context:</strong> ${esc(scope)} — ${n(conversion.sessions)} sessions, ${n(conversion.booking_starts)} booking starts, ${n(conversion.confirmed_bookings)} confirmed bookings.<div class="muted">${esc(conversion.note||"")}</div></div>`;
   }
-  return `<article class="intelligence-card priority-${esc(priority)}" data-workflow-status="${esc(status)}">
+  return `<article class="intelligence-card priority-${esc(priority)}" data-workflow-status="${esc(status)}" data-opportunity-id="${esc(action.id||"")}">
     <div class="intelligence-card-head"><div><div class="intelligence-badges">
       <span class="intelligence-badge ${esc(priority)}">${esc(priority)} priority</span>
       <span class="intelligence-badge type">${esc(intelligenceTypeLabel(action.type))}</span>
@@ -4123,7 +4153,7 @@ function intelligenceCard(action,workflow){
   </article>`;
 }
 
-function applyIntelligenceWorkflowFilter(filter){
+function applyIntelligenceWorkflowFilter(filter,{persist=true}={}){
   document.querySelectorAll(".intelligence-card").forEach(card=>{
     const status=card.dataset.workflowStatus||"new";
     const show=filter==="all"||(filter==="active"&&status!=="closed")||status===filter;
@@ -4132,6 +4162,7 @@ function applyIntelligenceWorkflowFilter(filter){
   document.querySelectorAll(".intelligence-workflow-filter").forEach(button=>{
     button.classList.toggle("active",button.dataset.workflowFilter===filter);
   });
+  if(persist)sessionStorage.setItem("tbs-intelligence-filter",filter);
 }
 
 Promise.all([
@@ -4168,7 +4199,17 @@ Promise.all([
     button.addEventListener("click",()=>applyIntelligenceWorkflowFilter(button.dataset.workflowFilter));
   });
   bindIntelligenceWorkflowControls();
-  applyIntelligenceWorkflowFilter("active");
+  const restoredFilter=sessionStorage.getItem("tbs-intelligence-filter")||"active";
+  applyIntelligenceWorkflowFilter(restoredFilter,{persist:false});
+  if(sessionStorage.getItem("tbs-dashboard-tab")==="intelligence")activateDashboardTab("intelligence",{persist:false});
+  const focusId=sessionStorage.getItem("tbs-intelligence-focus");
+  if(focusId){
+    const focusCard=document.querySelector(`.intelligence-card[data-opportunity-id="${CSS.escape(focusId)}"]`);
+    if(focusCard){
+      setTimeout(()=>focusCard.scrollIntoView({behavior:"smooth",block:"center"}),150);
+      sessionStorage.removeItem("tbs-intelligence-focus");
+    }
+  }
 }).catch(err=>{
   console.error(err);
   const note=document.getElementById("intelligence-note");
