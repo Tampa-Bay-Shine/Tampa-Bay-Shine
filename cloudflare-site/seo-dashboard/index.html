@@ -4101,9 +4101,11 @@ function bindIntelligenceWorkflowControls(){
         sessionStorage.setItem("tbs-intelligence-focus",payload.id);
         sessionStorage.setItem("tbs-intelligence-filter",document.querySelector(".intelligence-workflow-filter.active")?.dataset.workflowFilter||"active");
         const expectedStatus=data.status, started=Date.now();
+        const workflowDataUrl=new URL("./data/opportunity-workflow.json",document.baseURI);
         const poll=async()=>{
           try{
-            const r=await fetch(`./data/opportunity-workflow.json?refresh=${Date.now()}`,{cache:"no-store"});
+            workflowDataUrl.searchParams.set("refresh",String(Date.now()));
+            const r=await fetch(workflowDataUrl.href,{cache:"no-store",credentials:"same-origin"});
             if(r.ok){
               const fresh=await r.json();
               if(String(fresh?.items?.[payload.id]?.status||"").toLowerCase()===expectedStatus){
@@ -4112,11 +4114,11 @@ function bindIntelligenceWorkflowControls(){
               }
             }
           }catch(_){}
-          if(Date.now()-started<90000){setTimeout(poll,2500);return;}
-          result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Repository update succeeded; dashboard deployment is still catching up.`;
-          button.disabled=false;
+          if(Date.now()-started<30000){setTimeout(poll,2000);return;}
+          result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Refreshing the dashboard...`;
+          setTimeout(()=>location.reload(),700);
         };
-        setTimeout(poll,1500);
+        setTimeout(poll,1200);
       }catch(e){
         result.className="intelligence-workflow-result show error";
         result.textContent=e.message||String(e);button.disabled=false;
