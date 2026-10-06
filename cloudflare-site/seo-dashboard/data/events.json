@@ -10,6 +10,16 @@
         "https://seo.tampabayshine.com/"
       ],
       "notes": ""
+    },
+    {
+      "date": "2026-10-06",
+      "category": "Internal linking",
+      "title": "Opportunity implemented: move out cleaning tampa",
+      "description": "Strengthened internal-link signals for the dedicated Tampa move-out cleaning page by changing prominent homepage and Services page links from the Tampa Bay service-area hub to /move-out-cleaning-tampa/.\nGSC showed the query \"move out cleaning tampa\" distributed across multiple URLs, including the homepage, Tampa transactional page, Wesley Chapel, Brandon, the move-out guide, and Tampa Bay move-out hub. The dedicated /move-out-cleaning-tampa/ page is the intended transactional landing page for Tampa-specific intent, while /move-out-cleaning-tampa-1/ remains the broader Tampa Bay service-area hub. Updated 3 prominent internal links across the homepage and Services page. No canonical, redirect, title, content, schema, or locality-page changes were made. Validation, SEO regression, analytics regression, service-area audit, and production migration gates all passed. Deployed to production 2026-10-06. Staging commit 05de95e; production promotion 1befeac.",
+      "urls": [
+        "https://tampabayshine.com/"
+      ],
+      "notes": "Opportunity Intelligence ID: opp-cb9373932d1bba4a. Event timing provides measurement context and does not prove causation."
     }
   ]
 }
