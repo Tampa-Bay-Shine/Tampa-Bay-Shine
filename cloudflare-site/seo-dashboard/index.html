@@ -739,6 +739,17 @@ td:first-child{
 .intelligence-history-row{margin:3px 0}
 .intelligence-workflow-note{margin-top:10px;padding:10px 12px;border-radius:8px;background:#fff8e6;border:1px solid #f1d998;color:#6f5311;font-size:12px;line-height:1.5}
 
+.intelligence-workflow-control{margin-top:14px;padding:12px 13px;border:1px solid #dbe7f5;border-radius:9px;background:#f8fbff}
+.intelligence-workflow-control-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.intelligence-workflow-control-title{font-weight:800;color:var(--tbs-blue-deep)}
+.intelligence-workflow-action{appearance:none;border:0;border-radius:8px;padding:9px 13px;background:var(--tbs-blue);color:#fff;font:inherit;font-size:.84rem;font-weight:800;cursor:pointer}
+.intelligence-workflow-action:hover{background:var(--tbs-blue-dark)}
+.intelligence-workflow-action.secondary{background:#64748b}
+.intelligence-workflow-action:disabled{opacity:.55;cursor:not-allowed}
+.intelligence-workflow-help{margin-top:8px;color:#5f6f82;font-size:12px;line-height:1.5}
+.intelligence-workflow-command{display:none;margin-top:10px;padding:10px 11px;border:1px solid #cbd5e1;border-radius:7px;background:#0f172a;color:#e2e8f0;font:12px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.intelligence-workflow-command.show{display:block}
+
 .intelligence-empty{
   padding:22px;
   border:1px dashed #b8c9db;
@@ -4020,8 +4031,33 @@ function intelligenceAnalysisHtml(action,workflow){
       <div><strong>60 days</strong>${esc(measurement["60_days"]||"--")}</div>
       <div><strong>90 days</strong>${esc(measurement["90_days"]||"--")}</div>
     </div></div>
-    <div class="intelligence-workflow-note">Workflow state is maintained in the repository rather than edited in this static dashboard. Use <strong>tools/opportunity_workflow.py</strong> to move an item through its lifecycle or record an implementation event.</div>
+    <div class="intelligence-workflow-note">This dashboard is static, so workflow changes are committed through the repository. Use the card-level workflow control above to generate the exact command for the next lifecycle step.</div>
   </details>`;
+}
+
+function intelligenceWorkflowControl(action,workflow){
+  const status=String(workflow?.status||"new").toLowerCase(), id=String(action.id||"");
+  const q=value=>`"${String(value||"").replace(/"/g,'\\"')}"`;
+  const base="python.exe .\\tools\\opportunity_workflow.py ";
+  let label="",help="",command="";
+  if(status==="new"){label="Start Investigation";help="Marks this opportunity Investigating. Review the evidence and decide whether a site change is justified.";command=base+`status --id ${q(id)} --status investigating`;}
+  else if(status==="investigating"){label="Mark Implemented";help="Implementation must create and link an SEO Event. Choose the event category and describe the change when you run the command.";command=base+`implement --id ${q(id)} --category "Content" --summary "DESCRIBE THE CHANGE IMPLEMENTED"`;}
+  else if(status==="implemented"){label="Start Measuring";help="Use after the change is live and you are ready to evaluate post-change GSC/GA4/AI evidence.";command=base+`status --id ${q(id)} --status measuring`;}
+  else if(status==="measuring"){label="Close Opportunity";help="Close only after enough post-change evidence exists to make a decision. Add a note with the outcome.";command=base+`status --id ${q(id)} --status closed --notes "DESCRIBE THE MEASUREMENT OUTCOME"`;}
+  else{label="Closed";help="This opportunity is closed. Its workflow history remains retained.";}
+  const button=status==="closed"?`<button class="intelligence-workflow-action secondary" disabled>Closed</button>`:`<button class="intelligence-workflow-action" data-workflow-command="${esc(command)}">${esc(label)}</button>`;
+  return `<div class="intelligence-workflow-control"><div class="intelligence-workflow-control-head"><div><div class="intelligence-workflow-control-title">Next workflow step</div><div class="intelligence-workflow-help">${esc(help)}</div></div>${button}</div><div class="intelligence-workflow-command" aria-live="polite"></div></div>`;
+}
+function bindIntelligenceWorkflowControls(){
+  document.querySelectorAll(".intelligence-workflow-action[data-workflow-command]").forEach(button=>{
+    button.dataset.originalLabel=button.textContent;
+    button.addEventListener("click",async()=>{
+      const box=button.closest(".intelligence-workflow-control").querySelector(".intelligence-workflow-command"), command=button.dataset.workflowCommand||"";
+      box.textContent=command;box.classList.add("show");
+      try{await navigator.clipboard.writeText(command);button.textContent="Command Copied";setTimeout(()=>{button.textContent=button.dataset.originalLabel;},1800);}
+      catch(_){button.textContent="Command Ready Below";}
+    });
+  });
 }
 
 function intelligenceCard(action,workflow){
@@ -4047,6 +4083,7 @@ function intelligenceCard(action,workflow){
     <div class="intelligence-evidence"><strong>Why flagged:</strong> ${esc(action.why_flagged||"--")}<br><strong>Evidence:</strong> ${esc(intelligenceEvidenceText(action))}</div>
     ${conversionText}
     <p class="intelligence-action"><strong>Recommended action:</strong> ${esc(action.recommended_action||"--")}</p>
+    ${intelligenceWorkflowControl(action,workflow)}
     ${intelligenceAnalysisHtml(action,workflow)}
   </article>`;
 }
@@ -4095,6 +4132,7 @@ Promise.all([
   document.querySelectorAll(".intelligence-workflow-filter").forEach(button=>{
     button.addEventListener("click",()=>applyIntelligenceWorkflowFilter(button.dataset.workflowFilter));
   });
+  bindIntelligenceWorkflowControls();
   applyIntelligenceWorkflowFilter("active");
 }).catch(err=>{
   console.error(err);
