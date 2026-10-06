@@ -124,6 +124,11 @@ jobs:
             --out "cloudflare-site/seo-dashboard/data/gsc.json" \
             --history-out "cloudflare-site/seo-dashboard/data/history.json"
 
+      - name: Refresh Performance Intelligence
+        if: steps.eastern_schedule.outputs.run == 'true'
+        run: |
+          python tools/performance_intelligence.py
+
       - name: Refresh GA4 dashboard data
         if: steps.eastern_schedule.outputs.run == 'true'
         run: |
@@ -162,7 +167,7 @@ jobs:
 
           unexpected="$(
             git status --porcelain |
-              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|ga4|ga4-history|ai|ai-history|opportunity-intelligence|opportunity-workflow)\.json$' ||
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|daily-total-history|performance-intelligence|ga4|ga4-history|ai|ai-history|opportunity-intelligence|opportunity-workflow)\.json$' ||
               true
           )"
 
@@ -183,6 +188,8 @@ jobs:
             cloudflare-site/seo-dashboard/data/history.json \
             cloudflare-site/seo-dashboard/data/query-history.json \
             cloudflare-site/seo-dashboard/data/page-history.json \
+            cloudflare-site/seo-dashboard/data/daily-total-history.json \
+            cloudflare-site/seo-dashboard/data/performance-intelligence.json \
             cloudflare-site/seo-dashboard/data/ga4.json \
             cloudflare-site/seo-dashboard/data/ga4-history.json \
             cloudflare-site/seo-dashboard/data/ai.json \
