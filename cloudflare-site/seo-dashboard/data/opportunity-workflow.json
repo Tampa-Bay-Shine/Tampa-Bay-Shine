@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-06T21:12:50.354Z",
+  "updated_at": "2026-10-06T21:13:30.549Z",
   "items": {
     "opp-3bfde108552e83d8": {
       "id": "opp-3bfde108552e83d8",
@@ -424,13 +424,13 @@
     },
     "opp-cb9373932d1bba4a": {
       "id": "opp-cb9373932d1bba4a",
-      "status": "implemented",
+      "status": "measuring",
       "subject": "move out cleaning tampa",
       "query": "move out cleaning tampa",
       "page": "https://tampabayshine.com/",
       "type": "gsc_action",
       "created_at": "2026-10-06T18:28:12.433788+00:00",
-      "updated_at": "2026-10-06T21:12:50.354Z",
+      "updated_at": "2026-10-06T21:13:30.549Z",
       "implemented_at": "2026-10-06T21:12:50.354Z",
       "implementation_summary": "Strengthened internal-link signals for the dedicated Tampa move-out cleaning page by changing prominent homepage and Services page links from the Tampa Bay service-area hub to /move-out-cleaning-tampa/.\nGSC showed the query \"move out cleaning tampa\" distributed across multiple URLs, including the homepage, Tampa transactional page, Wesley Chapel, Brandon, the move-out guide, and Tampa Bay move-out hub. The dedicated /move-out-cleaning-tampa/ page is the intended transactional landing page for Tampa-specific intent, while /move-out-cleaning-tampa-1/ remains the broader Tampa Bay service-area hub. Updated 3 prominent internal links across the homepage and Services page. No canonical, redirect, title, content, schema, or locality-page changes were made. Validation, SEO regression, analytics regression, service-area audit, and production migration gates all passed. Deployed to production 2026-10-06. Staging commit 05de95e; production promotion 1befeac.",
       "notes": "",
