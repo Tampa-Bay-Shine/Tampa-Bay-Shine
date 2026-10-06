@@ -2,42 +2,51 @@ from __future__ import annotations
 import argparse, html, json, os
 from pathlib import Path
 from urllib import request, error
-ROOT=Path(__file__).resolve().parents[1]
-DATA=ROOT/"cloudflare-site"/"seo-dashboard"/"data"
-def load(name):
-    p=DATA/name
-    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
-def num(v):
-    try:return f"{float(v):,.0f}"
-    except:return "--"
+ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/"cloudflare-site"/"seo-dashboard"/"data"
+def load(n):
+ p=DATA/n; return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+def n(v,d=0):
+ try:return f"{float(v):,.{d}f}"
+ except:return "--"
 def pct(v): return "--" if v is None else f"{float(v):+.1f}%"
-def metric_row(label,p):
-    cur=p["overall"]["current"]; ch=p["overall"]["change"]; pos=cur.get("position")
-    pt="--" if pos is None else f"{float(pos):.2f}"
-    pd="--" if ch.get("position") is None else f"{float(ch['position']):+.2f}"
-    return f"<tr><td><strong>{html.escape(label)}</strong></td><td>{num(cur.get('impressions'))} ({pct(ch.get('impressions_pct'))})</td><td>{num(cur.get('clicks'))} ({pct(ch.get('clicks_pct'))})</td><td>{float(cur.get('ctr',0))*100:.2f}% ({float(ch.get('ctr_points',0)):+.2f} pts)</td><td>{pt} ({pd})</td></tr>"
-def mover_lines(items):
-    out=[]
-    for x in (items or [])[:3]:
-        c=x.get("change",{})
-        out.append(f"{x.get('name','--')}: {float(c.get('impressions',0)):+.0f} impressions, {float(c.get('clicks',0)):+.0f} clicks")
-    return out
+def row(label,p):
+ c=p["overall"]["current"]; x=p["overall"]["change"]
+ return f"<tr><td><b>{label}</b></td><td>{n(c.get('impressions'))} ({pct(x.get('impressions_pct'))})</td><td>{n(c.get('clicks'))} ({pct(x.get('clicks_pct'))})</td><td>{float(c.get('ctr',0))*100:.2f}% ({float(x.get('ctr_points',0)):+.2f} pts)</td><td>{float(c.get('position',0)):.2f} ({float(x.get('position',0)):+.2f})</td></tr>"
+def mover(items,direction):
+ out=[]
+ for z in items or []:
+  c=z.get("current",{}); p=z.get("previous",{}); x=z.get("change",{})
+  vol=float(c.get("impressions",0) or 0)+float(p.get("impressions",0) or 0)
+  score=float(x.get("clicks",0) or 0)*25+float(x.get("impressions",0) or 0)+float(x.get("position",0) or 0)*.5
+  if vol>=10 and ((direction=="gain" and score>0) or (direction=="decline" and score<0)): out.append((score,z))
+ if not out:return None
+ return sorted(out,key=lambda q:q[0],reverse=direction=="gain")[0][1]
+def mt(label,z):
+ if not z:return None
+ x=z.get("change",{}); c=z.get("current",{})
+ return f"{label}: {z.get('name','--')} ({float(x.get('impressions',0) or 0):+.0f} impressions, {float(x.get('clicks',0) or 0):+.0f} clicks, {float(x.get('position',0) or 0):+.2f} position movement; current {float(c.get('impressions',0) or 0):.0f} impressions)."
 def main():
-    ap=argparse.ArgumentParser()
-    ap.add_argument("--to",required=True); ap.add_argument("--from",dest="sender",required=True)
-    ap.add_argument("--reply-to",required=True); ap.add_argument("--dashboard-url",required=True)
-    a=ap.parse_args(); key=os.environ.get("RESEND_API_KEY","").strip()
-    if not key: raise SystemExit("RESEND_API_KEY is missing")
-    pi=load("performance-intelligence.json")
-    if not pi.get("periods"): raise SystemExit("performance-intelligence.json is missing or invalid")
-    d=pi["periods"]["daily"]; w=pi["periods"]["weekly"]; m=pi["periods"]["monthly"]
-    matters=(d.get("observations",[])+w.get("observations",[])+m.get("observations",[])+mover_lines(w.get("query_movers"))+mover_lines(w.get("page_movers")))[:3]
-    if not matters: matters=["No material observation met the brief threshold."]
-    body=f"""<!doctype html><html><body style="font-family:Arial,sans-serif;color:#172033;line-height:1.45"><h2>Tampa Bay Shine Daily SEO Performance Brief</h2><div style="color:#667085">GSC data through {html.escape(str(pi.get('data_through','--')))}</div><table cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse;border-color:#d0d5dd"><tr><th>Period</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Avg position</th></tr>{metric_row("Daily",d)}{metric_row("7 days",w)}{metric_row("28 days",m)}</table><h3>What matters today</h3><ul>{''.join(f'<li>{html.escape(str(x))}</li>' for x in matters)}</ul><p><strong>Conversion context:</strong> Booking starts are intent; confirmed bookings use the case-sensitive <code>BookingByCustomer</code> event. Review the dashboard for current Organic Search conversion evidence.</p><p><strong>AI context:</strong> Identifiable AI referrals and no-click AI answer visibility are separate measurements.</p><p><a href="{html.escape(a.dashboard_url)}">Open the SEO Dashboard</a></p><p style="font-size:12px;color:#667085">Site-wide GSC headline totals use date-only Search Console data. Query/page movers use retained histories and may omit anonymized or low-volume observations. Average position is aggregate; lower is better. Period movement and SEO Event timing do not prove causation.</p></body></html>"""
-    payload={"from":a.sender,"to":[a.to],"reply_to":a.reply_to,"subject":f"Tampa Bay Shine SEO Brief — data through {pi.get('data_through','--')}","html":body}
-    req=request.Request("https://api.resend.com/emails",data=json.dumps(payload).encode(),headers={"Authorization":f"Bearer {key}","Content-Type":"application/json","Accept":"application/json","User-Agent":"TampaBayShine-SEO-Dashboard/1.0"},method="POST")
-    try:
-        with request.urlopen(req,timeout=30) as resp: result=json.loads(resp.read().decode())
-    except error.HTTPError as exc: raise SystemExit(f"Resend API error {exc.code}: {exc.read().decode(errors='replace')}")
-    print("Daily SEO Performance Brief sent:",result.get("id","accepted"))
-if __name__=="__main__": main()
+ ap=argparse.ArgumentParser(); ap.add_argument("--to",required=True); ap.add_argument("--from",dest="sender",required=True); ap.add_argument("--reply-to",required=True); ap.add_argument("--dashboard-url",required=True); a=ap.parse_args()
+ key=os.environ.get("RESEND_API_KEY","").strip()
+ if not key:raise SystemExit("RESEND_API_KEY is missing")
+ pi=load("performance-intelligence.json"); ga=load("ga4.json"); ai=load("ai.json"); op=load("opportunity-intelligence.json")
+ if not pi.get("periods"):raise SystemExit("performance-intelligence.json is missing or invalid")
+ d,w,m=pi["periods"]["daily"],pi["periods"]["weekly"],pi["periods"]["monthly"]; wc,wx=w["overall"]["current"],w["overall"]["change"]; mc,mx=m["overall"]["current"],m["overall"]["change"]
+ matters=[]
+ if wc.get("impressions",0)>=100:matters.append(f"7-day search visibility: {n(wc.get('impressions'))} impressions ({pct(wx.get('impressions_pct'))}) and {n(wc.get('clicks'))} clicks ({pct(wx.get('clicks_pct'))}) versus the prior 7 days.")
+ if mc.get("impressions",0)>=250:matters.append(f"28-day trend: {n(mc.get('impressions'))} impressions ({pct(mx.get('impressions_pct'))}), {n(mc.get('clicks'))} clicks ({pct(mx.get('clicks_pct'))}), with CTR movement of {float(mx.get('ctr_points',0)):+.2f} percentage points.")
+ if float(d["overall"]["current"].get("clicks",0) or 0)+float(d["overall"]["previous"].get("clicks",0) or 0)>=10:matters.append(f"Daily clicks: {n(d['overall']['current'].get('clicks'))} ({pct(d['overall']['change'].get('clicks_pct'))}) versus the prior complete day.")
+ g=ga.get("periods",{}).get("7",{}); ov=g.get("overview",{}).get("current",{}); it=g.get("intent",{}).get("current",{}); bk=g.get("confirmed_bookings",{}).get("current",{})
+ organic=f"{n(ov.get('sessions'))} Organic Search sessions; {n(it.get('booknow_click'))} booking starts ({n(ov.get('booking_start_rate'),2)}%); {n(bk.get('confirmed_bookings'))} confirmed bookings ({n(ov.get('confirmed_booking_rate'),2)}%)."
+ aa=ai.get("periods",{}).get("7",{}).get("current",{}).get("summary",{}); ait=f"{n(aa.get('sessions'))} identifiable AI referral session(s), {n(aa.get('booknow_click'))} booking start(s), and {n(aa.get('confirmed_bookings'))} confirmed booking(s) in the latest 7 days."
+ movers=[x for x in [mt("Top query gain",mover(w.get("query_movers"),"gain")),mt("Top query decline",mover(w.get("query_movers"),"decline")),mt("Top page gain",mover(w.get("page_movers"),"gain")),mt("Top page decline",mover(w.get("page_movers"),"decline"))] if x]
+ acts=op.get("actions") or []; top=next((x for x in acts if x.get("priority")=="high"),acts[0] if acts else None)
+ rec=(f"{top.get('subject','Priority opportunity')}: {top.get('recommended_action','Review dashboard evidence before changing the site.')}" if top else "No evidence-based opportunity currently meets the action threshold; continue measurement.")
+ body=f"""<!doctype html><html><body style="font-family:Arial,sans-serif;color:#172033;line-height:1.45;max-width:900px;margin:auto"><h2>Tampa Bay Shine Daily SEO Performance Brief</h2><div style="color:#667085">GSC data through {html.escape(str(pi.get('data_through','--')))}</div><table cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse;border-color:#d0d5dd;margin-top:12px"><tr><th>Period</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Avg position</th></tr>{row("Daily",d)}{row("7 days",w)}{row("28 days",m)}</table><h3>What matters today</h3><ul>{''.join(f'<li>{html.escape(x)}</li>' for x in matters)}</ul><h3>Business results</h3><p><b>Organic Search:</b> {html.escape(organic)}</p><p><b>AI referrals:</b> {html.escape(ait)}</p><h3>Search movers</h3>{('<ul>'+''.join(f'<li>{html.escape(x)}</li>' for x in movers)+'</ul>') if movers else '<p>No retained query/page movement cleared the volume threshold.</p>'}<h3>Recommended action</h3><p>{html.escape(rec)}</p><p><a href="{html.escape(a.dashboard_url)}">Open the SEO Dashboard</a></p><p style="font-size:12px;color:#667085">Site-wide GSC headline totals use date-only Search Console data. Query/page movers use retained histories and may omit anonymized or low-volume observations. Organic Search and identifiable AI conversions are GA4 channel-level evidence and are not attributed to individual GSC queries. Average position is aggregate; lower is better. SEO Event timing and period movement do not prove causation.</p></body></html>"""
+ payload={"from":a.sender,"to":[a.to],"reply_to":a.reply_to,"subject":f"Tampa Bay Shine SEO Brief — data through {pi.get('data_through','--')}","html":body}
+ req=request.Request("https://api.resend.com/emails",data=json.dumps(payload).encode(),headers={"Authorization":f"Bearer {key}","Content-Type":"application/json","Accept":"application/json","User-Agent":"TampaBayShine-SEO-Dashboard/1.0"},method="POST")
+ try:
+  with request.urlopen(req,timeout=30) as r: result=json.loads(r.read().decode())
+ except error.HTTPError as e:raise SystemExit(f"Resend API error {e.code}: {e.read().decode(errors='replace')}")
+ print("Daily SEO Performance Brief sent:",result.get("id","accepted"))
+if __name__=="__main__":main()
