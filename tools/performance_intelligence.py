@@ -31,6 +31,16 @@ def series(o):
    except: pass
   if a: out.append((str(name),a))
  return out
+
+def total_points(o):
+    pts=[]
+    for p in o.get("points",[]) if isinstance(o,dict) else []:
+        if isinstance(p,list) and len(p)>=5:
+            d,c,i,ctr,pos=p[:5]
+            pts.append({"date":str(d),"clicks":float(c or 0),"impressions":float(i or 0),"position":float(pos) if pos is not None else None})
+    return pts
+
+
 def agg(pts,s,e):
  a=[p for p in pts if s<=p["date"]<=e]; c=sum(x["clicks"] for x in a); i=sum(x["impressions"] for x in a)
  pn=sum((x["position"] or 0)*x["impressions"] for x in a if x["position"] is not None)
@@ -57,16 +67,15 @@ def movers(ss,end,n):
   ch=x["change"]; impact=abs(ch["impressions"])*.08+abs(ch["clicks"])*8+(abs(ch["position"] or 0)*max(1,math.log10(c["impressions"]+1)))
   r.append({"name":name,**x,"impact":round(impact,1)})
  return sorted(r,key=lambda x:x["impact"],reverse=True)[:12]
-q=series(load("query-history.json")); pages=series(load("page-history.json"))
-dates=[x["date"] for _,pts in q for x in pts] or [x["date"] for _,pts in pages for x in pts]
-if not dates: raise SystemExit("No retained GSC history found")
-end=max(dates); brand=("tampa bay shine","tampabayshine")
-out={"generated_at":datetime.now().astimezone().isoformat(),"data_through":end,"methodology":{"monthly_days":28,"missing_query_dates_are_zero":False},"periods":{}}
+q=series(load("query-history.json")); pages=series(load("page-history.json")); totals=total_points(load("daily-total-history.json"))
+if not totals: raise SystemExit("No authoritative daily GSC total history found")
+end=max(x["date"] for x in totals); brand=("tampa bay shine","tampabayshine")
+out={"generated_at":datetime.now().astimezone().isoformat(),"data_through":end,"methodology":{"monthly_days":28,"headline_source":"GSC date-only daily totals","query_page_source":"retained daily histories","missing_query_dates_are_zero":False},"periods":{}}
 for label,n in {"daily":1,"weekly":7,"monthly":28}.items():
- o=total(q,end,n); qm=movers(q,end,n); pm=movers(pages,end,n); ch=o["change"]; notes=[]
+ o=cmp(totals,end,n); qm=movers(q,end,n); pm=movers(pages,end,n); ch=o["change"]; notes=[]
  if ch["impressions_pct"] is not None:notes.append(f"Search impressions {'increased' if ch['impressions_pct']>=0 else 'decreased'} {abs(ch['impressions_pct']):.1f}% versus the previous {n}-day period.")
  if ch["clicks_pct"] is not None:notes.append(f"Google clicks {'increased' if ch['clicks_pct']>=0 else 'decreased'} {abs(ch['clicks_pct']):.1f}% versus the previous {n}-day period.")
- if qm:notes.append(f"Highest-impact query movement: {qm[0]['name']}.")
+ if qm:notes.append(f"Highest-impact retained query movement: {qm[0]['name']}.")
  b=[x for x in q if any(t in x[0].lower() for t in brand)]; nb=[x for x in q if x not in b]
  out["periods"][label]={"days":n,"overall":o,"query_movers":qm,"page_movers":pm,"branded":total(b,end,n) if b else None,"nonbranded":total(nb,end,n) if nb else None,"observations":notes}
 (DATA/"performance-intelligence.json").write_text(json.dumps(out,indent=2)+"\n",encoding="utf-8")

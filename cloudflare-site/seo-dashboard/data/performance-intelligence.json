@@ -1,8 +1,10 @@
 {
-  "generated_at": "2026-10-06T13:33:48.977861-04:00",
-  "data_through": "2026-10-02",
+  "generated_at": "2026-10-06T13:46:35.883001-04:00",
+  "data_through": "2026-10-03",
   "methodology": {
     "monthly_days": 28,
+    "headline_source": "GSC date-only daily totals",
+    "query_page_source": "retained daily histories",
     "missing_query_dates_are_zero": false
   },
   "periods": {
@@ -10,53 +12,89 @@
       "days": 1,
       "overall": {
         "current": {
-          "clicks": 2.0,
-          "impressions": 277.0,
-          "ctr": 0.00722,
-          "position": 26.43,
+          "clicks": 1.0,
+          "impressions": 256.0,
+          "ctr": 0.003906,
+          "position": 29.84,
           "observed_days": 1
         },
         "previous": {
-          "clicks": 1.0,
-          "impressions": 79.0,
-          "ctr": 0.012658,
-          "position": 26.13,
+          "clicks": 2.0,
+          "impressions": 420.0,
+          "ctr": 0.004762,
+          "position": 27.78,
           "observed_days": 1
         },
         "change": {
-          "clicks": 1.0,
-          "clicks_pct": 100.0,
-          "impressions": 198.0,
-          "impressions_pct": 250.6,
-          "ctr_points": -0.54,
-          "position": -0.3
+          "clicks": -1.0,
+          "clicks_pct": -50.0,
+          "impressions": -164.0,
+          "impressions_pct": -39.0,
+          "ctr_points": -0.09,
+          "position": -2.06
         },
         "range": {
           "current": [
-            "2026-10-02",
-            "2026-10-02"
+            "2026-10-03",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-10-01",
-            "2026-10-01"
+            "2026-10-02",
+            "2026-10-02"
           ]
         }
       },
       "query_movers": [
         {
-          "name": "floor stripping and waxing services",
+          "name": "office cleaning tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 78.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 6.0,
+            "ctr": 0.0,
+            "position": 27.67,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -2.0,
+            "impressions_pct": -33.3,
+            "ctr_points": 0.0,
+            "position": -50.33
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 50.5
+        },
+        {
+          "name": "tampa cleaning",
           "current": {
             "clicks": 0.0,
             "impressions": 2.0,
             "ctr": 0.0,
-            "position": 39.5,
+            "position": 23.5,
             "observed_days": 1
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 3.0,
             "ctr": 0.0,
-            "position": 10.0,
+            "position": 6.33,
             "observed_days": 1
           },
           "change": {
@@ -65,214 +103,358 @@
             "impressions": -1.0,
             "impressions_pct": -33.3,
             "ctr_points": 0.0,
-            "position": -29.5
+            "position": -17.17
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 29.6
-        },
-        {
-          "name": "medical office cleaning tampa",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 12.0,
-            "ctr": 0.0,
-            "position": 57.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 33.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 10.0,
-            "impressions_pct": 500.0,
-            "ctr_points": 0.0,
-            "position": -24.0
-          },
-          "range": {
-            "current": [
               "2026-10-02",
               "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
             ]
           },
-          "impact": 27.5
-        },
-        {
-          "name": "commercial cleaning brandon fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 7.0,
-            "ctr": 0.0,
-            "position": 31.14,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 51.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 5.0,
-            "impressions_pct": 250.0,
-            "ctr_points": 0.0,
-            "position": 19.86
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 20.3
-        },
-        {
-          "name": "office cleaning riverview fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 10.75,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 25.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 1.0,
-            "impressions_pct": 33.3,
-            "ctr_points": 0.0,
-            "position": 14.25
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 14.3
-        },
-        {
-          "name": "office cleaning brandon fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 13.75,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 4.67,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 1.0,
-            "impressions_pct": 33.3,
-            "ctr_points": 0.0,
-            "position": -9.08
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 9.2
+          "impact": 17.2
         },
         {
           "name": "medical office cleaning",
           "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 47.67,
+            "observed_days": 1
+          },
+          "previous": {
             "clicks": 0.0,
             "impressions": 6.0,
             "ctr": 0.0,
             "position": 32.67,
             "observed_days": 1
           },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -3.0,
+            "impressions_pct": -50.0,
+            "ctr_points": 0.0,
+            "position": -15.0
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 15.2
+        },
+        {
+          "name": "office cleaning services tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 35.67,
+            "observed_days": 1
+          },
           "previous": {
             "clicks": 0.0,
             "impressions": 2.0,
             "ctr": 0.0,
-            "position": 40.5,
+            "position": 48.0,
             "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 4.0,
-            "impressions_pct": 200.0,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
             "ctr_points": 0.0,
-            "position": 7.83
+            "position": 12.33
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
+              "2026-10-02",
+              "2026-10-02"
             ]
           },
-          "impact": 8.2
+          "impact": 12.4
         },
         {
-          "name": "airbnb cleaning service tampa",
+          "name": "janitorial services brandon fl",
           "current": {
             "clicks": 0.0,
-            "impressions": 2.0,
+            "impressions": 4.0,
             "ctr": 0.0,
-            "position": 22.0,
+            "position": 25.0,
             "observed_days": 1
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 4.0,
             "ctr": 0.0,
-            "position": 17.0,
+            "position": 35.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 0.0,
+            "impressions_pct": 0.0,
+            "ctr_points": 0.0,
+            "position": 10.0
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 10.0
+        },
+        {
+          "name": "medical office cleaning services",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 28.5,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 37.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 2.0,
+            "impressions_pct": 100.0,
+            "ctr_points": 0.0,
+            "position": 8.5
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 8.7
+        },
+        {
+          "name": "bank cleaning services",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 41.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 49.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -1.0,
+            "impressions_pct": -33.3,
+            "ctr_points": 0.0,
+            "position": 8.0
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 8.1
+        },
+        {
+          "name": "commercial cleaning rates tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 63.5,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 71.33,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -1.0,
+            "impressions_pct": -33.3,
+            "ctr_points": 0.0,
+            "position": 7.83
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 7.9
+        },
+        {
+          "name": "medical office cleaning tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 50.67,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 12.0,
+            "ctr": 0.0,
+            "position": 57.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -9.0,
+            "impressions_pct": -75.0,
+            "ctr_points": 0.0,
+            "position": 6.33
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 7.0
+        },
+        {
+          "name": "community clubhouse cleaning",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 39.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 45.5,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": 6.5
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 6.6
+        },
+        {
+          "name": "floor stripping and waxing services",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 34.67,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 39.5,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": 4.83
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 4.9
+        },
+        {
+          "name": "cleaning services brandon fl",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 76.5,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 73.25,
             "observed_days": 1
           },
           "change": {
@@ -281,309 +463,129 @@
             "impressions": -2.0,
             "impressions_pct": -50.0,
             "ctr_points": 0.0,
-            "position": -5.0
+            "position": -3.25
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 5.2
-        },
-        {
-          "name": "cleaning services near me",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 27.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 31.75,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": -3.0,
-            "impressions_pct": -75.0,
-            "ctr_points": 0.0,
-            "position": 4.75
-          },
-          "range": {
-            "current": [
               "2026-10-02",
               "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
             ]
           },
-          "impact": 5.0
-        },
-        {
-          "name": "house cleaning near me",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 18.67,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 22.5,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 1.0,
-            "impressions_pct": 50.0,
-            "ctr_points": 0.0,
-            "position": 3.83
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 3.9
-        },
-        {
-          "name": "move out cleaning brandon fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 13.5,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 16.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 3.0,
-            "impressions_pct": 300.0,
-            "ctr_points": 0.0,
-            "position": 2.5
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 2.7
-        },
-        {
-          "name": "bank cleaning services",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 49.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 47.5,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 1.0,
-            "impressions_pct": 50.0,
-            "ctr_points": 0.0,
-            "position": -1.5
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 1.6
-        },
-        {
-          "name": "professional cleaning service",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 11.0,
-            "ctr": 0.0,
-            "position": 1.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0,
-            "impressions": 0,
-            "ctr": 0,
-            "position": null,
-            "observed_days": 0
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 11.0,
-            "impressions_pct": null,
-            "ctr_points": 0.0,
-            "position": null
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 0.9
+          "impact": 3.4
         }
       ],
       "page_movers": [
         {
-          "name": "https://tampabayshine.com/office-cleaning-south-tampa/",
+          "name": "https://tampabayshine.com/post-construction-cleaning/",
           "current": {
             "clicks": 0.0,
             "impressions": 9.0,
             "ctr": 0.0,
-            "position": 50.44,
+            "position": 60.33,
             "observed_days": 1
           },
           "previous": {
+            "clicks": 0.0,
+            "impressions": 17.0,
+            "ctr": 0.0,
+            "position": 27.29,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -8.0,
+            "impressions_pct": -47.1,
+            "ctr_points": 0.0,
+            "position": -33.04
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 33.7
+        },
+        {
+          "name": "https://tampabayshine.com/medical-office-cleaning-wesley-chapel/",
+          "current": {
             "clicks": 0.0,
             "impressions": 3.0,
             "ctr": 0.0,
-            "position": 88.67,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 200.0,
-            "ctr_points": 0.0,
-            "position": 38.23
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 38.7
-        },
-        {
-          "name": "https://tampabayshine.com/airbnb-cleaning-brandon/",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 46.0,
+            "position": 53.67,
             "observed_days": 1
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 11.0,
+            "impressions": 14.0,
             "ctr": 0.0,
-            "position": 13.55,
+            "position": 27.21,
             "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -9.0,
-            "impressions_pct": -81.8,
+            "impressions": -11.0,
+            "impressions_pct": -78.6,
             "ctr_points": 0.0,
-            "position": -32.45
+            "position": -26.46
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
+              "2026-10-02",
+              "2026-10-02"
             ]
           },
-          "impact": 33.2
+          "impact": 27.3
         },
         {
-          "name": "https://tampabayshine.com/house-cleaning-brandon-fl",
+          "name": "https://tampabayshine.com/office-cleaning/",
           "current": {
+            "clicks": 0.0,
+            "impressions": 16.0,
+            "ctr": 0.0,
+            "position": 78.81,
+            "observed_days": 1
+          },
+          "previous": {
             "clicks": 0.0,
             "impressions": 8.0,
             "ctr": 0.0,
-            "position": 68.38,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 36.25,
+            "position": 61.5,
             "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 4.0,
+            "impressions": 8.0,
             "impressions_pct": 100.0,
             "ctr_points": 0.0,
-            "position": -32.13
+            "position": -17.31
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
+              "2026-10-02",
+              "2026-10-02"
             ]
           },
-          "impact": 32.5
+          "impact": 21.9
         },
         {
           "name": "https://tampabayshine.com/house-cleaning-south-tampa-fl",
@@ -591,472 +593,436 @@
             "clicks": 0.0,
             "impressions": 5.0,
             "ctr": 0.0,
+            "position": 16.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 5.0,
+            "ctr": 0.0,
             "position": 36.0,
             "observed_days": 1
           },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 5.0,
-            "observed_days": 1
-          },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 4.0,
-            "impressions_pct": 400.0,
+            "impressions": 0.0,
+            "impressions_pct": 0.0,
             "ctr_points": 0.0,
-            "position": -31.0
+            "position": 20.0
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 31.3
-        },
-        {
-          "name": "https://tampabayshine.com/office-cleaning/",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 8.0,
-            "ctr": 0.0,
-            "position": 61.5,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 89.67,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 5.0,
-            "impressions_pct": 166.7,
-            "ctr_points": 0.0,
-            "position": 28.17
-          },
-          "range": {
-            "current": [
               "2026-10-02",
               "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
             ]
           },
-          "impact": 28.6
-        },
-        {
-          "name": "https://tampabayshine.com/move-out-cleaning-apollo-beach",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 86.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 58.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 3.0,
-            "impressions_pct": 300.0,
-            "ctr_points": 0.0,
-            "position": -28.0
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 28.2
-        },
-        {
-          "name": "https://tampabayshine.com/medical-office-cleaning-brandon/",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 14.0,
-            "ctr": 0.0,
-            "position": 41.14,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 61.25,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 10.0,
-            "impressions_pct": 250.0,
-            "ctr_points": 0.0,
-            "position": 20.11
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 24.5
-        },
-        {
-          "name": "https://tampabayshine.com/medical-office-cleaning-tampa/",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 19.0,
-            "ctr": 0.0,
-            "position": 44.16,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 5.0,
-            "ctr": 0.0,
-            "position": 61.6,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 14.0,
-            "impressions_pct": 280.0,
-            "ctr_points": 0.0,
-            "position": 17.44
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 23.8
+          "impact": 20.0
         },
         {
           "name": "https://tampabayshine.com/",
           "current": {
+            "clicks": 1.0,
+            "impressions": 32.0,
+            "ctr": 0.03125,
+            "position": 17.09,
+            "observed_days": 1
+          },
+          "previous": {
             "clicks": 2.0,
             "impressions": 136.0,
             "ctr": 0.014706,
             "position": 15.12,
             "observed_days": 1
           },
-          "previous": {
-            "clicks": 1.0,
-            "impressions": 21.0,
-            "ctr": 0.047619,
-            "position": 12.43,
-            "observed_days": 1
-          },
           "change": {
-            "clicks": 1.0,
-            "clicks_pct": 100.0,
-            "impressions": 115.0,
-            "impressions_pct": 547.6,
-            "ctr_points": -3.29,
-            "position": -2.69
+            "clicks": -1.0,
+            "clicks_pct": -50.0,
+            "impressions": -104.0,
+            "impressions_pct": -76.5,
+            "ctr_points": 1.65,
+            "position": -1.97
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
+              "2026-10-02",
+              "2026-10-02"
             ]
           },
-          "impact": 22.9
+          "impact": 19.3
         },
         {
-          "name": "https://tampabayshine.com/house-cleaning-riverview-fl/",
+          "name": "https://tampabayshine.com/services/",
           "current": {
             "clicks": 0.0,
-            "impressions": 23.0,
+            "impressions": 7.0,
             "ctr": 0.0,
-            "position": 35.57,
+            "position": 56.86,
             "observed_days": 1
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 11.0,
-            "ctr": 0.0,
-            "position": 21.45,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 12.0,
-            "impressions_pct": 109.1,
-            "ctr_points": 0.0,
-            "position": -14.12
-          },
-          "range": {
-            "current": [
-              "2026-10-02",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-10-01",
-              "2026-10-01"
-            ]
-          },
-          "impact": 20.4
-        },
-        {
-          "name": "https://tampabayshine.com/medical-office-cleaning-wesley-chapel/",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 14.0,
-            "ctr": 0.0,
-            "position": 27.21,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 5.0,
-            "ctr": 0.0,
-            "position": 41.6,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
             "impressions": 9.0,
-            "impressions_pct": 180.0,
+            "ctr": 0.0,
+            "position": 37.78,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -2.0,
+            "impressions_pct": -22.2,
             "ctr_points": 0.0,
-            "position": 14.39
+            "position": -19.08
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
+              "2026-10-02",
+              "2026-10-02"
             ]
           },
-          "impact": 17.6
+          "impact": 19.2
         },
         {
           "name": "https://tampabayshine.com/house-cleaning-brandon-fl/",
           "current": {
+            "clicks": 0.0,
+            "impressions": 11.0,
+            "ctr": 0.0,
+            "position": 13.73,
+            "observed_days": 1
+          },
+          "previous": {
             "clicks": 0.0,
             "impressions": 5.0,
             "ctr": 0.0,
             "position": 29.4,
             "observed_days": 1
           },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 6.0,
+            "impressions_pct": 120.0,
+            "ctr_points": 0.0,
+            "position": 15.67
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 17.4
+        },
+        {
+          "name": "https://tampabayshine.com/floor-stripping-waxing/",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 5.0,
+            "ctr": 0.0,
+            "position": 41.4,
+            "observed_days": 1
+          },
           "previous": {
+            "clicks": 0.0,
+            "impressions": 13.0,
+            "ctr": 0.0,
+            "position": 28.15,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -8.0,
+            "impressions_pct": -61.5,
+            "ctr_points": 0.0,
+            "position": -13.25
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 13.9
+        },
+        {
+          "name": "https://tampabayshine.com/office-cleaning-apollo-beach/",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 5.0,
+            "ctr": 0.0,
+            "position": 13.4,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 5.0,
+            "ctr": 0.0,
+            "position": 25.4,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 0.0,
+            "impressions_pct": 0.0,
+            "ctr_points": 0.0,
+            "position": 12.0
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 12.0
+        },
+        {
+          "name": "https://tampabayshine.com/house-cleaning-riverview-fl/",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 15.0,
+            "ctr": 0.0,
+            "position": 26.27,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 23.0,
+            "ctr": 0.0,
+            "position": 35.57,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -8.0,
+            "impressions_pct": -34.8,
+            "ctr_points": 0.0,
+            "position": 9.3
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 11.8
+        },
+        {
+          "name": "https://tampabayshine.com/medical-office-cleaning-brandon/",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 11.0,
+            "ctr": 0.0,
+            "position": 31.36,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 14.0,
+            "ctr": 0.0,
+            "position": 41.14,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -3.0,
+            "impressions_pct": -21.4,
+            "ctr_points": 0.0,
+            "position": 9.78
+          },
+          "range": {
+            "current": [
+              "2026-10-03",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-10-02",
+              "2026-10-02"
+            ]
+          },
+          "impact": 10.8
+        },
+        {
+          "name": "https://tampabayshine.com/standard-cleaning-services-tampa",
+          "current": {
             "clicks": 0.0,
             "impressions": 6.0,
             "ctr": 0.0,
-            "position": 13.33,
+            "position": 34.67,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 7.0,
+            "ctr": 0.0,
+            "position": 25.29,
             "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
             "impressions": -1.0,
-            "impressions_pct": -16.7,
+            "impressions_pct": -14.3,
             "ctr_points": 0.0,
-            "position": -16.07
+            "position": -9.38
           },
           "range": {
             "current": [
-              "2026-10-02",
-              "2026-10-02"
+              "2026-10-03",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-10-01",
-              "2026-10-01"
+              "2026-10-02",
+              "2026-10-02"
             ]
           },
-          "impact": 16.1
+          "impact": 9.5
         }
       ],
       "branded": {
         "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null,
+          "observed_days": 0
+        },
+        "previous": {
           "clicks": 2.0,
           "impressions": 2.0,
           "ctr": 1.0,
           "position": 1.0,
           "observed_days": 1
         },
-        "previous": {
-          "clicks": 1.0,
-          "impressions": 1.0,
-          "ctr": 1.0,
-          "position": 1.0,
-          "observed_days": 1
-        },
         "change": {
-          "clicks": 1.0,
-          "clicks_pct": 100.0,
-          "impressions": 1.0,
-          "impressions_pct": 100.0,
-          "ctr_points": 0.0,
-          "position": 0.0
+          "clicks": -2.0,
+          "clicks_pct": -100.0,
+          "impressions": -2.0,
+          "impressions_pct": -100.0,
+          "ctr_points": -100.0,
+          "position": null
         },
         "range": {
           "current": [
-            "2026-10-02",
-            "2026-10-02"
+            "2026-10-03",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-10-01",
-            "2026-10-01"
+            "2026-10-02",
+            "2026-10-02"
           ]
         }
       },
       "nonbranded": {
         "current": {
           "clicks": 0.0,
-          "impressions": 275.0,
+          "impressions": 158.0,
           "ctr": 0.0,
-          "position": 26.62,
+          "position": 31.64,
           "observed_days": 1
         },
         "previous": {
           "clicks": 0.0,
-          "impressions": 78.0,
+          "impressions": 289.0,
           "ctr": 0.0,
-          "position": 26.45,
+          "position": 27.74,
           "observed_days": 1
         },
         "change": {
           "clicks": 0.0,
           "clicks_pct": null,
-          "impressions": 197.0,
-          "impressions_pct": 252.6,
+          "impressions": -131.0,
+          "impressions_pct": -45.3,
           "ctr_points": 0.0,
-          "position": -0.17
+          "position": -3.9
         },
         "range": {
           "current": [
-            "2026-10-02",
-            "2026-10-02"
+            "2026-10-03",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-10-01",
-            "2026-10-01"
+            "2026-10-02",
+            "2026-10-02"
           ]
         }
       },
       "observations": [
-        "Search impressions increased 250.6% versus the previous 1-day period.",
-        "Google clicks increased 100.0% versus the previous 1-day period.",
-        "Highest-impact query movement: floor stripping and waxing services."
+        "Search impressions decreased 39.0% versus the previous 1-day period.",
+        "Google clicks decreased 50.0% versus the previous 1-day period.",
+        "Highest-impact retained query movement: office cleaning tampa."
       ]
     },
     "weekly": {
       "days": 7,
       "overall": {
         "current": {
-          "clicks": 5.0,
-          "impressions": 500.0,
-          "ctr": 0.01,
-          "position": 23.69,
+          "clicks": 8.0,
+          "impressions": 1045.0,
+          "ctr": 0.007656,
+          "position": 26.09,
           "observed_days": 7
         },
         "previous": {
-          "clicks": 1.0,
-          "impressions": 179.0,
-          "ctr": 0.005587,
-          "position": 18.13,
+          "clicks": 3.0,
+          "impressions": 335.0,
+          "ctr": 0.008955,
+          "position": 14.48,
           "observed_days": 7
         },
         "change": {
-          "clicks": 4.0,
-          "clicks_pct": 400.0,
-          "impressions": 321.0,
-          "impressions_pct": 179.3,
-          "ctr_points": 0.44,
-          "position": -5.56
+          "clicks": 5.0,
+          "clicks_pct": 166.7,
+          "impressions": 710.0,
+          "impressions_pct": 211.9,
+          "ctr_points": -0.13,
+          "position": -11.61
         },
         "range": {
           "current": [
-            "2026-09-26",
-            "2026-10-02"
+            "2026-09-27",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-09-19",
-            "2026-09-25"
+            "2026-09-20",
+            "2026-09-26"
           ]
         }
       },
       "query_movers": [
-        {
-          "name": "airbnb cleaning service tampa",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 20.0,
-            "ctr": 0.0,
-            "position": 17.0,
-            "observed_days": 7
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 71.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 19.0,
-            "impressions_pct": 1900.0,
-            "ctr_points": 0.0,
-            "position": 54.0
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 72.9
-        },
         {
           "name": "maid service tampa",
           "current": {
@@ -1068,30 +1034,66 @@
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 2.0,
+            "impressions": 1.0,
             "ctr": 0.0,
-            "position": 76.0,
+            "position": 111.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 7.0,
+            "impressions_pct": 700.0,
+            "ctr_points": 0.0,
+            "position": 86.63
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 87.2
+        },
+        {
+          "name": "airbnb cleaning service tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 20.0,
+            "ctr": 0.0,
+            "position": 14.75,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 50.67,
             "observed_days": 2
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 300.0,
+            "impressions": 17.0,
+            "impressions_pct": 566.7,
             "ctr_points": 0.0,
-            "position": 51.63
+            "position": 35.92
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 52.1
+          "impact": 48.9
         },
         {
           "name": "post construction clean up",
@@ -1119,60 +1121,24 @@
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
           "impact": 43.6
         },
         {
-          "name": "move out cleaning tampa",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 9.0,
-            "ctr": 0.0,
-            "position": 24.11,
-            "observed_days": 3
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 58.5,
-            "observed_days": 2
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 7.0,
-            "impressions_pct": 350.0,
-            "ctr_points": 0.0,
-            "position": 34.39
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 35.0
-        },
-        {
           "name": "tampa office cleaning",
           "current": {
             "clicks": 0.0,
-            "impressions": 4.0,
+            "impressions": 5.0,
             "ctr": 0.0,
-            "position": 53.75,
-            "observed_days": 2
+            "position": 59.6,
+            "observed_days": 3
           },
           "previous": {
             "clicks": 0.0,
@@ -1184,31 +1150,67 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 3.0,
-            "impressions_pct": 300.0,
+            "impressions": 4.0,
+            "impressions_pct": 400.0,
             "ctr_points": 0.0,
-            "position": -32.75
+            "position": -38.6
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 33.0
+          "impact": 38.9
+        },
+        {
+          "name": "post construction cleaning",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 42.67,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 8.33,
+            "observed_days": 3
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 0.0,
+            "impressions_pct": 0.0,
+            "ctr_points": 0.0,
+            "position": -34.34
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 34.3
         },
         {
           "name": "tampa bay shine",
           "current": {
             "clicks": 5.0,
-            "impressions": 10.0,
-            "ctr": 0.5,
-            "position": 1.4,
-            "observed_days": 6
+            "impressions": 9.0,
+            "ctr": 0.555556,
+            "position": 1.33,
+            "observed_days": 5
           },
           "previous": {
             "clicks": 1.0,
@@ -1220,22 +1222,22 @@
           "change": {
             "clicks": 4.0,
             "clicks_pct": 400.0,
-            "impressions": 2.0,
-            "impressions_pct": 25.0,
-            "ctr_points": 37.5,
-            "position": 0.1
+            "impressions": 1.0,
+            "impressions_pct": 12.5,
+            "ctr_points": 43.06,
+            "position": 0.17
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 32.3
+          "impact": 32.2
         },
         {
           "name": "cleaning services in tampa fl",
@@ -1263,15 +1265,51 @@
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
           "impact": 30.6
+        },
+        {
+          "name": "medical office cleaning",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 11.0,
+            "ctr": 0.0,
+            "position": 38.18,
+            "observed_days": 3
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 11.0,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 9.0,
+            "impressions_pct": 450.0,
+            "ctr_points": 0.0,
+            "position": -27.18
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 30.1
         },
         {
           "name": "shine of tampa bay",
@@ -1299,132 +1337,60 @@
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
           "impact": 29.1
         },
         {
-          "name": "medical office cleaning",
+          "name": "move out cleaning tampa",
           "current": {
             "clicks": 0.0,
-            "impressions": 8.0,
+            "impressions": 14.0,
             "ctr": 0.0,
-            "position": 34.63,
-            "observed_days": 2
+            "position": 24.57,
+            "observed_days": 3
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 2.0,
             "ctr": 0.0,
-            "position": 11.0,
+            "position": 43.5,
             "observed_days": 2
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 300.0,
+            "impressions": 12.0,
+            "impressions_pct": 600.0,
             "ctr_points": 0.0,
-            "position": -23.63
+            "position": 18.93
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 24.1
-        },
-        {
-          "name": "post construction cleaning",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 30.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 6.75,
-            "observed_days": 4
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": -3.0,
-            "impressions_pct": -75.0,
-            "ctr_points": 0.0,
-            "position": -23.25
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 23.5
-        },
-        {
-          "name": "house cleaning services apollo beach fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 55.33,
-            "observed_days": 2
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 32.33,
-            "observed_days": 2
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 0.0,
-            "impressions_pct": 0.0,
-            "ctr_points": 0.0,
-            "position": -23.0
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 23.0
+          "impact": 23.2
         },
         {
           "name": "commercial floor cleaning",
           "current": {
             "clicks": 0.0,
-            "impressions": 4.0,
+            "impressions": 6.0,
             "ctr": 0.0,
-            "position": 23.25,
-            "observed_days": 2
+            "position": 23.17,
+            "observed_days": 3
           },
           "previous": {
             "clicks": 0.0,
@@ -1436,19 +1402,55 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 3.0,
-            "impressions_pct": 300.0,
+            "impressions": 5.0,
+            "impressions_pct": 500.0,
             "ctr_points": 0.0,
-            "position": -22.25
+            "position": -22.17
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 22.6
+        },
+        {
+          "name": "house cleaning services apollo beach fl",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 54.75,
+            "observed_days": 3
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 32.33,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 33.3,
+            "ctr_points": 0.0,
+            "position": -22.42
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
           "impact": 22.5
@@ -1456,76 +1458,112 @@
       ],
       "page_movers": [
         {
-          "name": "https://tampabayshine.com/commercial-cleaning-tampa",
+          "name": "https://tampabayshine.com/move-out-cleaning-apollo-beach",
           "current": {
             "clicks": 0.0,
-            "impressions": 7.0,
+            "impressions": 10.0,
             "ctr": 0.0,
-            "position": 17.43,
-            "observed_days": 3
+            "position": 73.3,
+            "observed_days": 6
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 1.0,
             "ctr": 0.0,
-            "position": 98.0,
+            "position": 6.0,
             "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 600.0,
+            "impressions": 9.0,
+            "impressions_pct": 900.0,
             "ctr_points": 0.0,
-            "position": 80.57
+            "position": -67.3
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 81.0
+          "impact": 70.8
         },
         {
-          "name": "https://tampabayshine.com/airbnb-cleaning-riverview",
+          "name": "https://tampabayshine.com/house-cleaning-brandon-fl",
           "current": {
             "clicks": 0.0,
-            "impressions": 1.0,
+            "impressions": 22.0,
             "ctr": 0.0,
-            "position": 78.0,
-            "observed_days": 1
+            "position": 48.27,
+            "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 6.0,
+            "impressions": 4.0,
             "ctr": 0.0,
-            "position": 7.17,
+            "position": 6.25,
             "observed_days": 2
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -5.0,
-            "impressions_pct": -83.3,
+            "impressions": 18.0,
+            "impressions_pct": 450.0,
             "ctr_points": 0.0,
-            "position": -70.83
+            "position": -42.02
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 71.2
+          "impact": 58.7
+        },
+        {
+          "name": "https://tampabayshine.com/airbnb-cleaning-apollo-beach",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 6.0,
+            "ctr": 0.0,
+            "position": 66.0,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 10.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 5.0,
+            "impressions_pct": 500.0,
+            "ctr_points": 0.0,
+            "position": -56.0
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 56.4
         },
         {
           "name": "https://tampabayshine.com/move-out-cleaning-tampa",
@@ -1553,247 +1591,175 @@
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
           "impact": 55.8
         },
         {
-          "name": "https://tampabayshine.com/house-cleaning-brandon-fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 21.0,
-            "ctr": 0.0,
-            "position": 42.53,
-            "observed_days": 7
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 5.5,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 19.0,
-            "impressions_pct": 950.0,
-            "ctr_points": 0.0,
-            "position": -37.03
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 51.2
-        },
-        {
-          "name": "https://tampabayshine.com/house-cleaning-apollo-beach",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 11.0,
-            "ctr": 0.0,
-            "position": 26.54,
-            "observed_days": 6
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 73.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 9.0,
-            "impressions_pct": 450.0,
-            "ctr_points": 0.0,
-            "position": 46.46
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 50.9
-        },
-        {
           "name": "https://tampabayshine.com/move-out-cleaning-brandon",
           "current": {
             "clicks": 0.0,
-            "impressions": 9.0,
+            "impressions": 10.0,
             "ctr": 0.0,
-            "position": 60.33,
-            "observed_days": 4
+            "position": 61.3,
+            "observed_days": 5
           },
           "previous": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 18.0,
-            "observed_days": 2
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 200.0,
-            "ctr_points": 0.0,
-            "position": -42.33
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 42.8
-        },
-        {
-          "name": "https://tampabayshine.com/cleaning-tips",
-          "current": {
             "clicks": 0.0,
             "impressions": 2.0,
             "ctr": 0.0,
-            "position": 5.5,
-            "observed_days": 2
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 5.0,
-            "ctr": 0.0,
-            "position": 43.4,
-            "observed_days": 3
+            "position": 9.5,
+            "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -3.0,
-            "impressions_pct": -60.0,
+            "impressions": 8.0,
+            "impressions_pct": 400.0,
             "ctr_points": 0.0,
-            "position": 37.9
+            "position": -51.8
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 38.1
+          "impact": 54.6
         },
         {
           "name": "https://tampabayshine.com/",
           "current": {
-            "clicks": 7.0,
-            "impressions": 273.0,
-            "ctr": 0.025641,
-            "position": 14.25,
+            "clicks": 8.0,
+            "impressions": 286.0,
+            "ctr": 0.027972,
+            "position": 15.06,
             "observed_days": 7
           },
           "previous": {
             "clicks": 3.0,
-            "impressions": 243.0,
-            "ctr": 0.012346,
-            "position": 13.54,
+            "impressions": 247.0,
+            "ctr": 0.012146,
+            "position": 12.92,
             "observed_days": 7
           },
           "change": {
-            "clicks": 4.0,
-            "clicks_pct": 133.3,
-            "impressions": 30.0,
-            "impressions_pct": 12.3,
-            "ctr_points": 1.33,
-            "position": -0.71
+            "clicks": 5.0,
+            "clicks_pct": 166.7,
+            "impressions": 39.0,
+            "impressions_pct": 15.8,
+            "ctr_points": 1.58,
+            "position": -2.14
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 36.1
-        },
-        {
-          "name": "https://tampabayshine.com/move-out-cleaning-tampa-1",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 7.0,
-            "ctr": 0.0,
-            "position": 43.43,
-            "observed_days": 4
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 76.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 600.0,
-            "ctr_points": 0.0,
-            "position": 32.57
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 33.0
+          "impact": 48.4
         },
         {
           "name": "https://tampabayshine.com/contact-us",
           "current": {
             "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 1.67,
+            "observed_days": 3
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 5.0,
+            "ctr": 0.0,
+            "position": 39.0,
+            "observed_days": 4
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -2.0,
+            "impressions_pct": -40.0,
+            "ctr_points": 0.0,
+            "position": 37.33
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 37.5
+        },
+        {
+          "name": "https://tampabayshine.com/move-out-cleaning-tampa-1",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 6.0,
+            "ctr": 0.0,
+            "position": 38.84,
+            "observed_days": 3
+          },
+          "previous": {
+            "clicks": 0.0,
             "impressions": 2.0,
             "ctr": 0.0,
-            "position": 1.5,
+            "position": 73.5,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 4.0,
+            "impressions_pct": 200.0,
+            "ctr_points": 0.0,
+            "position": 34.66
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 35.0
+        },
+        {
+          "name": "https://tampabayshine.com/airbnb-cleaning-riverview",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 41.0,
             "observed_days": 2
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 6.0,
             "ctr": 0.0,
-            "position": 32.83,
-            "observed_days": 5
+            "position": 7.17,
+            "observed_days": 2
           },
           "change": {
             "clicks": 0.0,
@@ -1801,100 +1767,136 @@
             "impressions": -4.0,
             "impressions_pct": -66.7,
             "ctr_points": 0.0,
-            "position": 31.33
+            "position": -33.83
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 31.6
+          "impact": 34.1
         },
         {
-          "name": "https://tampabayshine.com/partners",
+          "name": "https://tampabayshine.com/cleaning-tips",
           "current": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 5.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 6.0,
+            "ctr": 0.0,
+            "position": 37.17,
+            "observed_days": 4
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -5.0,
+            "impressions_pct": -83.3,
+            "ctr_points": 0.0,
+            "position": 32.17
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 32.6
+        },
+        {
+          "name": "https://tampabayshine.com/standard-cleaning-services-tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 29.0,
+            "ctr": 0.0,
+            "position": 23.55,
+            "observed_days": 6
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 11.0,
+            "ctr": 0.0,
+            "position": 7.82,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 18.0,
+            "impressions_pct": 163.6,
+            "ctr_points": 0.0,
+            "position": -15.73
+          },
+          "range": {
+            "current": [
+              "2026-09-27",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-09-20",
+              "2026-09-26"
+            ]
+          },
+          "impact": 24.7
+        },
+        {
+          "name": "https://tampabayshine.com/house-cleaning-ruskin-fl",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 25.5,
+            "observed_days": 2
+          },
+          "previous": {
             "clicks": 0.0,
             "impressions": 5.0,
             "ctr": 0.0,
-            "position": 25.2,
-            "observed_days": 5
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 54.0,
-            "observed_days": 3
+            "position": 2.6,
+            "observed_days": 2
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 2.0,
-            "impressions_pct": 66.7,
+            "impressions": -3.0,
+            "impressions_pct": -60.0,
             "ctr_points": 0.0,
-            "position": 28.8
+            "position": -22.9
           },
           "range": {
             "current": [
-              "2026-09-26",
-              "2026-10-02"
+              "2026-09-27",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-09-19",
-              "2026-09-25"
+              "2026-09-20",
+              "2026-09-26"
             ]
           },
-          "impact": 29.0
-        },
-        {
-          "name": "https://tampabayshine.com/airbnb-cleaning-services",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 21.0,
-            "ctr": 0.0,
-            "position": 20.62,
-            "observed_days": 7
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 1.75,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 17.0,
-            "impressions_pct": 425.0,
-            "ctr_points": 0.0,
-            "position": -18.87
-          },
-          "range": {
-            "current": [
-              "2026-09-26",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-09-19",
-              "2026-09-25"
-            ]
-          },
-          "impact": 26.7
+          "impact": 23.1
         }
       ],
       "branded": {
         "current": {
           "clicks": 5.0,
-          "impressions": 10.0,
-          "ctr": 0.5,
-          "position": 1.4,
-          "observed_days": 6
+          "impressions": 9.0,
+          "ctr": 0.555556,
+          "position": 1.33,
+          "observed_days": 5
         },
         "previous": {
           "clicks": 1.0,
@@ -1906,95 +1908,95 @@
         "change": {
           "clicks": 4.0,
           "clicks_pct": 400.0,
-          "impressions": 2.0,
-          "impressions_pct": 25.0,
-          "ctr_points": 37.5,
-          "position": 0.1
+          "impressions": 1.0,
+          "impressions_pct": 12.5,
+          "ctr_points": 43.06,
+          "position": 0.17
         },
         "range": {
           "current": [
-            "2026-09-26",
-            "2026-10-02"
+            "2026-09-27",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-09-19",
-            "2026-09-25"
+            "2026-09-20",
+            "2026-09-26"
           ]
         }
       },
       "nonbranded": {
         "current": {
           "clicks": 0.0,
-          "impressions": 490.0,
+          "impressions": 648.0,
           "ctr": 0.0,
-          "position": 24.14,
+          "position": 27.11,
           "observed_days": 7
         },
         "previous": {
           "clicks": 0.0,
-          "impressions": 171.0,
+          "impressions": 173.0,
           "ctr": 0.0,
-          "position": 18.91,
+          "position": 17.87,
           "observed_days": 7
         },
         "change": {
           "clicks": 0.0,
           "clicks_pct": null,
-          "impressions": 319.0,
-          "impressions_pct": 186.5,
+          "impressions": 475.0,
+          "impressions_pct": 274.6,
           "ctr_points": 0.0,
-          "position": -5.23
+          "position": -9.24
         },
         "range": {
           "current": [
-            "2026-09-26",
-            "2026-10-02"
+            "2026-09-27",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-09-19",
-            "2026-09-25"
+            "2026-09-20",
+            "2026-09-26"
           ]
         }
       },
       "observations": [
-        "Search impressions increased 179.3% versus the previous 7-day period.",
-        "Google clicks increased 400.0% versus the previous 7-day period.",
-        "Highest-impact query movement: airbnb cleaning service tampa."
+        "Search impressions increased 211.9% versus the previous 7-day period.",
+        "Google clicks increased 166.7% versus the previous 7-day period.",
+        "Highest-impact retained query movement: maid service tampa."
       ]
     },
     "monthly": {
       "days": 28,
       "overall": {
         "current": {
-          "clicks": 8.0,
-          "impressions": 1324.0,
-          "ctr": 0.006042,
-          "position": 21.51,
+          "clicks": 16.0,
+          "impressions": 2240.0,
+          "ctr": 0.007143,
+          "position": 21.98,
           "observed_days": 28
         },
         "previous": {
-          "clicks": 4.0,
-          "impressions": 1358.0,
-          "ctr": 0.002946,
-          "position": 26.2,
+          "clicks": 10.0,
+          "impressions": 2441.0,
+          "ctr": 0.004097,
+          "position": 31.09,
           "observed_days": 28
         },
         "change": {
-          "clicks": 4.0,
-          "clicks_pct": 100.0,
-          "impressions": -34.0,
-          "impressions_pct": -2.5,
-          "ctr_points": 0.31,
-          "position": 4.69
+          "clicks": 6.0,
+          "clicks_pct": 60.0,
+          "impressions": -201.0,
+          "impressions_pct": -8.2,
+          "ctr_points": 0.3,
+          "position": 9.11
         },
         "range": {
           "current": [
-            "2026-09-05",
-            "2026-10-02"
+            "2026-09-06",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-08-08",
-            "2026-09-04"
+            "2026-08-09",
+            "2026-09-05"
           ]
         }
       },
@@ -2025,12 +2027,12 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 66.0
@@ -2039,73 +2041,37 @@
           "name": "office cleaning services tampa fl",
           "current": {
             "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 14.0,
-            "observed_days": 1
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 15.0,
-            "ctr": 0.0,
-            "position": 78.27,
-            "observed_days": 6
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": -14.0,
-            "impressions_pct": -93.3,
-            "ctr_points": 0.0,
-            "position": 64.27
-          },
-          "range": {
-            "current": [
-              "2026-09-05",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-08-08",
-              "2026-09-04"
-            ]
-          },
-          "impact": 65.4
-        },
-        {
-          "name": "house cleaning services tampa",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 5.0,
-            "ctr": 0.0,
-            "position": 24.4,
-            "observed_days": 4
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 1.0,
-            "ctr": 0.0,
-            "position": 77.0,
-            "observed_days": 1
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
             "impressions": 4.0,
-            "impressions_pct": 400.0,
+            "ctr": 0.0,
+            "position": 29.75,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 10.0,
+            "ctr": 0.0,
+            "position": 82.5,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -6.0,
+            "impressions_pct": -60.0,
             "ctr_points": 0.0,
-            "position": 52.6
+            "position": 52.75
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 52.9
+          "impact": 53.2
         },
         {
           "name": "tampa bay shine",
@@ -2133,51 +2099,15 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 52.7
-        },
-        {
-          "name": "house cleaning services in tampa bay, fl",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 8.0,
-            "ctr": 0.0,
-            "position": 8.38,
-            "observed_days": 6
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 59.5,
-            "observed_days": 2
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": 6.0,
-            "impressions_pct": 300.0,
-            "ctr_points": 0.0,
-            "position": 51.12
-          },
-          "range": {
-            "current": [
-              "2026-09-05",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-08-08",
-              "2026-09-04"
-            ]
-          },
-          "impact": 51.6
         },
         {
           "name": "cleaning tampa",
@@ -2205,15 +2135,51 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 49.9
+        },
+        {
+          "name": "house cleaning services in tampa bay, fl",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 7.0,
+            "ctr": 0.0,
+            "position": 5.71,
+            "observed_days": 5
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 48.67,
+            "observed_days": 3
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 4.0,
+            "impressions_pct": 133.3,
+            "ctr_points": 0.0,
+            "position": 42.96
+          },
+          "range": {
+            "current": [
+              "2026-09-06",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-08-09",
+              "2026-09-05"
+            ]
+          },
+          "impact": 43.3
         },
         {
           "name": "post construction cleaning near me",
@@ -2241,51 +2207,15 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 41.1
-        },
-        {
-          "name": "apartment common area cleaning",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 3.0,
-            "ctr": 0.0,
-            "position": 55.67,
-            "observed_days": 2
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 14.0,
-            "ctr": 0.0,
-            "position": 17.0,
-            "observed_days": 7
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": -11.0,
-            "impressions_pct": -78.6,
-            "ctr_points": 0.0,
-            "position": -38.67
-          },
-          "range": {
-            "current": [
-              "2026-09-05",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-08-08",
-              "2026-09-04"
-            ]
-          },
-          "impact": 39.6
         },
         {
           "name": "house cleaning brandon fl",
@@ -2313,12 +2243,12 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 38.7
@@ -2327,10 +2257,10 @@
           "name": "commercial cleaning near me",
           "current": {
             "clicks": 0.0,
-            "impressions": 1.0,
+            "impressions": 2.0,
             "ctr": 0.0,
-            "position": 36.0,
-            "observed_days": 1
+            "position": 34.0,
+            "observed_days": 2
           },
           "previous": {
             "clicks": 0.0,
@@ -2342,22 +2272,22 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -6.0,
-            "impressions_pct": -85.7,
+            "impressions": -5.0,
+            "impressions_pct": -71.4,
             "ctr_points": 0.0,
-            "position": -35.0
+            "position": -33.0
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 35.5
+          "impact": 33.4
         },
         {
           "name": "tampa bay cleaning",
@@ -2385,51 +2315,123 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 32.2
         },
         {
-          "name": "office cleaning tampa",
+          "name": "bathroom cleaning services",
           "current": {
             "clicks": 0.0,
-            "impressions": 7.0,
+            "impressions": 1.0,
             "ctr": 0.0,
-            "position": 26.72,
-            "observed_days": 2
+            "position": 30.0,
+            "observed_days": 1
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 14.0,
+            "impressions": 17.0,
             "ctr": 0.0,
-            "position": 55.36,
+            "position": 1.0,
+            "observed_days": 15
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -16.0,
+            "impressions_pct": -94.1,
+            "ctr_points": 0.0,
+            "position": -29.0
+          },
+          "range": {
+            "current": [
+              "2026-09-06",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-08-09",
+              "2026-09-05"
+            ]
+          },
+          "impact": 30.3
+        },
+        {
+          "name": "airbnb cleaning service tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 45.0,
+            "ctr": 0.0,
+            "position": 35.04,
+            "observed_days": 21
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 58.0,
+            "ctr": 0.0,
+            "position": 52.12,
+            "observed_days": 28
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -13.0,
+            "impressions_pct": -22.4,
+            "ctr_points": 0.0,
+            "position": 17.08
+          },
+          "range": {
+            "current": [
+              "2026-09-06",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-08-09",
+              "2026-09-05"
+            ]
+          },
+          "impact": 29.4
+        },
+        {
+          "name": "cleaning services tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 1.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 28.5,
             "observed_days": 4
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -7.0,
+            "impressions": -2.0,
             "impressions_pct": -50.0,
             "ctr_points": 0.0,
-            "position": 28.64
+            "position": 27.5
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 29.2
+          "impact": 27.7
         }
       ],
       "page_movers": [
@@ -2459,12 +2461,12 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 87.9
@@ -2495,12 +2497,12 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 78.6
@@ -2509,37 +2511,37 @@
           "name": "https://tampabayshine.com/house-cleaning-south-tampa-fl",
           "current": {
             "clicks": 0.0,
-            "impressions": 75.0,
+            "impressions": 78.0,
             "ctr": 0.0,
-            "position": 11.61,
+            "position": 11.62,
             "observed_days": 17
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 190.0,
+            "impressions": 186.0,
             "ctr": 0.0,
-            "position": 44.2,
+            "position": 44.11,
             "observed_days": 24
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -115.0,
-            "impressions_pct": -60.5,
+            "impressions": -108.0,
+            "impressions_pct": -58.1,
             "ctr_points": 0.0,
-            "position": 32.59
+            "position": 32.49
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 70.5
+          "impact": 70.3
         },
         {
           "name": "https://tampabayshine.com/house-cleaning-sun-city-center-fl",
@@ -2567,12 +2569,12 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 70.3
@@ -2588,39 +2590,39 @@
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 42.0,
+            "impressions": 41.0,
             "ctr": 0.0,
-            "position": 69.19,
-            "observed_days": 15
+            "position": 68.95,
+            "observed_days": 14
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -26.0,
-            "impressions_pct": -61.9,
+            "impressions": -25.0,
+            "impressions_pct": -61.0,
             "ctr_points": 0.0,
-            "position": 50.13
+            "position": 49.89
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 63.8
+          "impact": 63.4
         },
         {
           "name": "https://tampabayshine.com/airbnb-cleaning-apollo-beach",
           "current": {
             "clicks": 0.0,
-            "impressions": 5.0,
+            "impressions": 7.0,
             "ctr": 0.0,
-            "position": 55.0,
-            "observed_days": 2
+            "position": 58.0,
+            "observed_days": 3
           },
           "previous": {
             "clicks": 0.0,
@@ -2632,22 +2634,22 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 4.0,
-            "impressions_pct": 400.0,
+            "impressions": 6.0,
+            "impressions_pct": 600.0,
             "ctr_points": 0.0,
-            "position": -50.0
+            "position": -53.0
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 50.3
+          "impact": 53.5
         },
         {
           "name": "https://tampabayshine.com/house-cleaning-wesley-chapel-fl",
@@ -2675,159 +2677,123 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 48.3
         },
         {
-          "name": "https://tampabayshine.com/move-out-cleaning-tampa",
-          "current": {
-            "clicks": 0.0,
-            "impressions": 12.0,
-            "ctr": 0.0,
-            "position": 23.0,
-            "observed_days": 6
-          },
-          "previous": {
-            "clicks": 0.0,
-            "impressions": 16.0,
-            "ctr": 0.0,
-            "position": 64.31,
-            "observed_days": 9
-          },
-          "change": {
-            "clicks": 0.0,
-            "clicks_pct": null,
-            "impressions": -4.0,
-            "impressions_pct": -25.0,
-            "ctr_points": 0.0,
-            "position": 41.31
-          },
-          "range": {
-            "current": [
-              "2026-09-05",
-              "2026-10-02"
-            ],
-            "previous": [
-              "2026-08-08",
-              "2026-09-04"
-            ]
-          },
-          "impact": 46.3
-        },
-        {
           "name": "https://tampabayshine.com/",
           "current": {
-            "clicks": 13.0,
-            "impressions": 1287.0,
-            "ctr": 0.010101,
-            "position": 16.5,
+            "clicks": 14.0,
+            "impressions": 1233.0,
+            "ctr": 0.011354,
+            "position": 15.89,
             "observed_days": 28
           },
           "previous": {
             "clicks": 9.0,
-            "impressions": 1189.0,
-            "ctr": 0.007569,
-            "position": 17.83,
+            "impressions": 1236.0,
+            "ctr": 0.007282,
+            "position": 18.44,
             "observed_days": 28
           },
           "change": {
-            "clicks": 4.0,
-            "clicks_pct": 44.4,
-            "impressions": 98.0,
-            "impressions_pct": 8.2,
-            "ctr_points": 0.25,
-            "position": 1.33
+            "clicks": 5.0,
+            "clicks_pct": 55.6,
+            "impressions": -3.0,
+            "impressions_pct": -0.2,
+            "ctr_points": 0.41,
+            "position": 2.55
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 44.0
+          "impact": 48.1
         },
         {
           "name": "https://tampabayshine.com/move-out-cleaning-wesley-chapel",
           "current": {
             "clicks": 0.0,
-            "impressions": 12.0,
+            "impressions": 10.0,
             "ctr": 0.0,
-            "position": 7.67,
-            "observed_days": 5
+            "position": 4.3,
+            "observed_days": 4
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 147.0,
+            "impressions": 146.0,
             "ctr": 0.0,
-            "position": 36.56,
+            "position": 36.51,
             "observed_days": 28
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -135.0,
-            "impressions_pct": -91.8,
+            "impressions": -136.0,
+            "impressions_pct": -93.2,
             "ctr_points": 0.0,
-            "position": 28.89
+            "position": 32.21
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 43.0
+          "impact": 44.4
         },
         {
-          "name": "https://tampabayshine.com/standard-cleaning-services-tampa",
+          "name": "https://tampabayshine.com/move-out-cleaning-tampa",
           "current": {
-            "clicks": 1.0,
-            "impressions": 59.0,
-            "ctr": 0.016949,
-            "position": 17.24,
-            "observed_days": 14
+            "clicks": 0.0,
+            "impressions": 11.0,
+            "ctr": 0.0,
+            "position": 23.73,
+            "observed_days": 5
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 10.0,
+            "impressions": 17.0,
             "ctr": 0.0,
-            "position": 33.3,
-            "observed_days": 8
+            "position": 61.41,
+            "observed_days": 10
           },
           "change": {
-            "clicks": 1.0,
+            "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 49.0,
-            "impressions_pct": 490.0,
-            "ctr_points": 1.69,
-            "position": 16.06
+            "impressions": -6.0,
+            "impressions_pct": -35.3,
+            "ctr_points": 0.0,
+            "position": 37.68
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
-          "impact": 40.5
+          "impact": 41.1
         },
         {
           "name": "https://tampabayshine.com/office-cleaning-apollo-beach",
@@ -2855,15 +2821,51 @@
           },
           "range": {
             "current": [
-              "2026-09-05",
-              "2026-10-02"
+              "2026-09-06",
+              "2026-10-03"
             ],
             "previous": [
-              "2026-08-08",
-              "2026-09-04"
+              "2026-08-09",
+              "2026-09-05"
             ]
           },
           "impact": 39.6
+        },
+        {
+          "name": "https://tampabayshine.com/office-cleaning-south-tampa",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 7.0,
+            "ctr": 0.0,
+            "position": 27.71,
+            "observed_days": 5
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 50.0,
+            "ctr": 0.0,
+            "position": 59.28,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -43.0,
+            "impressions_pct": -86.0,
+            "ctr_points": 0.0,
+            "position": 31.57
+          },
+          "range": {
+            "current": [
+              "2026-09-06",
+              "2026-10-03"
+            ],
+            "previous": [
+              "2026-08-09",
+              "2026-09-05"
+            ]
+          },
+          "impact": 35.0
         }
       ],
       "branded": {
@@ -2891,53 +2893,53 @@
         },
         "range": {
           "current": [
-            "2026-09-05",
-            "2026-10-02"
+            "2026-09-06",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-08-08",
-            "2026-09-04"
+            "2026-08-09",
+            "2026-09-05"
           ]
         }
       },
       "nonbranded": {
         "current": {
           "clicks": 0.0,
-          "impressions": 1300.0,
+          "impressions": 1391.0,
           "ctr": 0.0,
-          "position": 21.89,
+          "position": 23.09,
           "observed_days": 28
         },
         "previous": {
           "clicks": 1.0,
-          "impressions": 1336.0,
-          "ctr": 0.000749,
-          "position": 26.46,
+          "impressions": 1328.0,
+          "ctr": 0.000753,
+          "position": 26.25,
           "observed_days": 28
         },
         "change": {
           "clicks": -1.0,
           "clicks_pct": -100.0,
-          "impressions": -36.0,
-          "impressions_pct": -2.7,
-          "ctr_points": -0.07,
-          "position": 4.57
+          "impressions": 63.0,
+          "impressions_pct": 4.7,
+          "ctr_points": -0.08,
+          "position": 3.16
         },
         "range": {
           "current": [
-            "2026-09-05",
-            "2026-10-02"
+            "2026-09-06",
+            "2026-10-03"
           ],
           "previous": [
-            "2026-08-08",
-            "2026-09-04"
+            "2026-08-09",
+            "2026-09-05"
           ]
         }
       },
       "observations": [
-        "Search impressions decreased 2.5% versus the previous 28-day period.",
-        "Google clicks increased 100.0% versus the previous 28-day period.",
-        "Highest-impact query movement: house cleaning riverview."
+        "Search impressions decreased 8.2% versus the previous 28-day period.",
+        "Google clicks increased 60.0% versus the previous 28-day period.",
+        "Highest-impact retained query movement: house cleaning riverview."
       ]
     }
   }

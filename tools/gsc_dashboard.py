@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "gsc.json"
 DEFAULT_QUERY_HISTORY_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "query-history.json"
 DEFAULT_PAGE_HISTORY_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "page-history.json"
+DEFAULT_DAILY_TOTAL_HISTORY_OUT = ROOT / "cloudflare-site" / "seo-dashboard" / "data" / "daily-total-history.json"
 
 TRACKED = [
     "house cleaning tampa",
@@ -1121,6 +1122,62 @@ def backfill_history(
 
 
 
+
+def build_daily_total_history(service, site, start_date, end_date):
+    """Fetch authoritative site-wide daily GSC totals using date only."""
+    from datetime import datetime
+    if isinstance(start_date, str):
+        start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+    if isinstance(end_date, str):
+        end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+
+    rows = gsc.normalize_rows(
+        gsc.fetch_rows(service, site, start_date, end_date, ["date"]),
+        ["date"],
+    )
+    points = []
+    for row in rows:
+        d = row.get("date")
+        if not d:
+            continue
+        clicks = float(row.get("clicks", 0) or 0)
+        impressions = float(row.get("impressions", 0) or 0)
+        position = row.get("position")
+        position = float(position) if position not in (None, "") else None
+        ctr = clicks / impressions * 100 if impressions else 0.0
+        points.append([
+            d, round(clicks,2), round(impressions,2), round(ctr,4),
+            round(position,2) if position is not None else None
+        ])
+    points.sort(key=lambda x:x[0])
+    return {
+        "schema_version":1,
+        "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
+        "source":"Google Search Console",
+        "property":site,
+        "period":{"start":start_date.isoformat(),"end":end_date.isoformat()},
+        "granularity":"day",
+        "point_columns":["date","clicks","impressions","ctr","position"],
+        "points":points,
+        "limitations":"Site-wide daily totals fetched with date as the only dimension. Use these for headline Performance Intelligence metrics; query-level GSC data may omit anonymized or low-volume queries."
+    }
+
+def write_daily_total_history(service, site, output_path, days=365, lag_days=3, end_date=None):
+    """Write authoritative site-wide daily GSC totals."""
+    from datetime import date, datetime, timedelta
+    if end_date:
+        latest = datetime.strptime(end_date,"%Y-%m-%d").date() if isinstance(end_date,str) else end_date
+    else:
+        latest = date.today() - timedelta(days=lag_days)
+    earliest = latest - timedelta(days=days-1)
+    payload = build_daily_total_history(service,site,earliest,latest)
+    output_path=Path(output_path)
+    output_path.parent.mkdir(parents=True,exist_ok=True)
+    output_path.write_text(json.dumps(payload,separators=(",",":"),ensure_ascii=False)+"\n",encoding="utf-8")
+    print(f"Daily total history: {output_path} | {len(payload['points'])} points | {payload['period']['start']} to {payload['period']['end']}")
+    return payload
+
+
 def build_daily_query_history(
     service,
     site,
@@ -2047,6 +2104,17 @@ def main():
         help="Path to compact historical dashboard snapshots.",
     )
     ap.add_argument(
+        "--daily-total-history-out",
+        default=str(DEFAULT_DAILY_TOTAL_HISTORY_OUT),
+        help="Path to authoritative site-wide daily GSC totals.",
+    )
+    ap.add_argument(
+        "--daily-total-history-days",
+        type=int,
+        default=365,
+        help="Number of calendar days of authoritative daily GSC totals to retain.",
+    )
+    ap.add_argument(
         "--query-history-out",
         default=str(DEFAULT_QUERY_HISTORY_OUT),
         help="Path to daily query-level GSC history.",
@@ -2123,8 +2191,15 @@ def main():
             service, site, window, args.lag_days, args.end_date
         )
 
-        current_summary = aggregate(w_cq)
-        previous_summary = aggregate(w_pq)
+        # Site-wide headline totals must not be derived from query rows.
+        w_current_total = gsc.normalize_rows(
+            gsc.fetch_rows(service, site, w_start, w_end, []), []
+        )
+        w_previous_total = gsc.normalize_rows(
+            gsc.fetch_rows(service, site, w_ps, w_pe, []), []
+        )
+        current_summary = aggregate(w_current_total)
+        previous_summary = aggregate(w_previous_total)
 
         periods[str(window)] = {
             "current": {
@@ -2209,8 +2284,8 @@ def main():
         "property": site,
         "period": {"start": start.isoformat(), "end": end.isoformat(), "days": 28},
         "previous_period": {"start": ps.isoformat(), "end": pe.isoformat(), "days": 28},
-        "summary": aggregate(cq),
-        "previous_summary": aggregate(pq),
+        "summary": periods["28"]["current"]["summary"],
+        "previous_summary": periods["28"]["previous"]["summary"],
         "periods": periods,
         "tracked_keywords": tracked,
         "top_queries": discovered,
@@ -2221,6 +2296,15 @@ def main():
         "action_center": action_center,
         "limitations": "GSC average position is impression-weighted performance data, not a deterministic live SERP rank. GSC does not provide competitor or Google Maps grid rankings."
     }
+    write_daily_total_history(
+        service=service,
+        site=site,
+        output_path=Path(args.daily_total_history_out),
+        days=args.daily_total_history_days,
+        lag_days=args.lag_days,
+        end_date=args.end_date,
+    )
+
     write_daily_query_history(
         service=service,
         site=site,
