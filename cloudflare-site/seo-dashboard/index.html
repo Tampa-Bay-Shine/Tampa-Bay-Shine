@@ -1775,6 +1775,14 @@ td:first-child{
   }
 }
 </style>
+<style id="performance-intelligence-css">
+.pi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
+.pi-table-wrap{overflow-x:auto}
+.pi-table td:nth-child(n+2),.pi-table th:nth-child(n+2){text-align:center}
+#pi-notes{margin:0;padding-left:20px}
+#pi-meta{margin-top:18px}
+@media(max-width:800px){.pi-grid{grid-template-columns:1fr}}
+</style>
 </head><body><main>
 <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
   <a href="/guide/"
@@ -1818,8 +1826,27 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="intelligence">Opportunity Intelligence</button>
+<nav><button data-tab="performance">Performance Intelligence</button><button data-tab="intelligence">Opportunity Intelligence</button>
 <button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="conversions">Conversions</button><button data-tab="ai">AI Visibility</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+
+<section id="performance" class="tab">
+<h2>Performance Intelligence</h2>
+<p class="muted">Equivalent complete GSC periods showing what changed, the highest-impact query/page movement, and the signals worth reviewing.</p>
+<div class="period-selector" id="pi-period-selector">
+<button data-pi="daily">Daily</button>
+<button data-pi="weekly" class="active">Weekly</button>
+<button data-pi="monthly">Monthly (28D)</button>
+</div>
+<div class="cards" id="pi-metrics"></div>
+<div class="pi-grid">
+<div><h3>Highest-impact query movement</h3><div id="pi-queries"></div></div>
+<div><h3>Highest-impact page movement</h3><div id="pi-pages"></div></div>
+</div>
+<h3>What matters</h3>
+<div class="intelligence-callout"><ul id="pi-notes"></ul></div>
+<p class="muted" id="pi-meta"></p>
+<p class="muted">Impact is volume-aware. Low-volume or anonymized GSC queries can be omitted by Google, so daily movement is an early signal rather than a standalone decision rule.</p>
+</section>
 
 <section id="intelligence" class="tab">
   <h2>Opportunity Intelligence</h2>
@@ -4221,4 +4248,13 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  document.querySelector("#cann tbody").innerHTML=(d.cannibalization||[]).map(x=>`<tr><td>${esc(x.query)}</td><td>${n(x.pages_with_impressions)}</td><td>${n(x.total_impressions)}</td><td>${esc(x.page_1)}</td><td>${esc(x.page_2)}</td></tr>`).join("");
  note.textContent=d.limitations||"";
 }).catch(e=>{note.textContent="Dashboard data could not be loaded: "+e.message});
-</script></main></body></html>
+</script></main><script id="performance-intelligence-js">
+(()=>{let D=null,P="weekly";const $=s=>document.querySelector(s);const esc=s=>String(s).replaceAll("&","&amp;").replaceAll("<","&lt;");const sg=n=>(Number(n)>0?"+":"")+Number(n||0).toFixed(1);
+function card(label,value,delta){return `<div class="card"><div class="muted">${label}</div><div class="big">${value}</div><div class="delta">${delta}</div></div>`}
+function table(rows){if(!rows?.length)return `<p class="muted">Not enough retained data yet.</p>`;return `<div class="pi-table-wrap"><table class="pi-table"><thead><tr><th>Query / Page</th><th>Impr delta</th><th>Clicks delta</th><th>Position delta</th><th>Impact</th></tr></thead><tbody>${rows.slice(0,10).map(x=>`<tr><td>${esc(x.name)}</td><td>${sg(x.change.impressions)}</td><td>${sg(x.change.clicks)}</td><td>${x.change.position==null?"--":sg(x.change.position)}</td><td>${Number(x.impact||0).toFixed(1)}</td></tr>`).join("")}</tbody></table></div>`}
+function render(){const x=D.periods[P],a=x.overall.current,c=x.overall.change;$("#pi-meta").textContent=`Data through ${D.data_through} | ${x.days}-day period compared with the previous ${x.days}-day period`;$("#pi-metrics").innerHTML=card("Impressions",Math.round(a.impressions),c.impressions_pct==null?"No prior baseline":sg(c.impressions_pct)+"%")+card("Clicks",Math.round(a.clicks),c.clicks_pct==null?"No prior baseline":sg(c.clicks_pct)+"%")+card("CTR",(a.ctr*100).toFixed(2)+"%",sg(c.ctr_points)+" pts")+card("Avg position",a.position==null?"--":Number(a.position).toFixed(2),c.position==null?"--":sg(c.position)+" positions");$("#pi-queries").innerHTML=table(x.query_movers);$("#pi-pages").innerHTML=table(x.page_movers);$("#pi-notes").innerHTML=(x.observations||[]).map(n=>`<li>${esc(n)}</li>`).join("");document.querySelectorAll("[data-pi]").forEach(b=>b.classList.toggle("active",b.dataset.pi===P))}
+fetch("data/performance-intelligence.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(x=>{D=x;render()}).catch(e=>{$("#pi-meta").textContent="Performance Intelligence data unavailable: "+e.message});
+document.querySelectorAll("[data-pi]").forEach(b=>b.addEventListener("click",()=>{P=b.dataset.pi;if(D)render()}));
+})();
+</script>
+</body></html>
