@@ -747,8 +747,14 @@ td:first-child{
 .intelligence-workflow-action.secondary{background:#64748b}
 .intelligence-workflow-action:disabled{opacity:.55;cursor:not-allowed}
 .intelligence-workflow-help{margin-top:8px;color:#5f6f82;font-size:12px;line-height:1.5}
-.intelligence-workflow-command{display:none;margin-top:10px;padding:10px 11px;border:1px solid #cbd5e1;border-radius:7px;background:#0f172a;color:#e2e8f0;font:12px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
-.intelligence-workflow-command.show{display:block}
+.intelligence-workflow-form{margin-top:10px;display:grid;gap:8px}
+.intelligence-workflow-form label{font-size:12px;font-weight:700;color:#475569}
+.intelligence-workflow-form select,.intelligence-workflow-form input,.intelligence-workflow-form textarea{width:100%;padding:9px 10px;border:1px solid #cbd5e1;border-radius:7px;background:#fff;color:#172033;font:inherit}
+.intelligence-workflow-form textarea{min-height:72px;resize:vertical}
+.intelligence-workflow-result{display:none;margin-top:9px;padding:9px 11px;border-radius:7px;font-size:12px;font-weight:700}
+.intelligence-workflow-result.show{display:block}
+.intelligence-workflow-result.ok{background:#ecfdf3;color:#087a42;border:1px solid #bbf7d0}
+.intelligence-workflow-result.error{background:#fff1f0;color:#b42318;border:1px solid #fecaca}
 
 .intelligence-empty{
   padding:22px;
@@ -4031,31 +4037,60 @@ function intelligenceAnalysisHtml(action,workflow){
       <div><strong>60 days</strong>${esc(measurement["60_days"]||"--")}</div>
       <div><strong>90 days</strong>${esc(measurement["90_days"]||"--")}</div>
     </div></div>
-    <div class="intelligence-workflow-note">This dashboard is static, so workflow changes are committed through the repository. Use the card-level workflow control above to generate the exact command for the next lifecycle step.</div>
+    <div class="intelligence-workflow-note">Workflow changes are saved securely through the Cloudflare workflow API. GitHub credentials are never exposed in this page.</div>
   </details>`;
 }
 
+const SEO_WORKFLOW_API="https://seo-api.tampabayshine.com";
 function intelligenceWorkflowControl(action,workflow){
-  const status=String(workflow?.status||"new").toLowerCase(), id=String(action.id||"");
-  const q=value=>`"${String(value||"").replace(/"/g,'\\"')}"`;
-  const base="python.exe .\\tools\\opportunity_workflow.py ";
-  let label="",help="",command="";
-  if(status==="new"){label="Start Investigation";help="Marks this opportunity Investigating. Review the evidence and decide whether a site change is justified.";command=base+`status --id ${q(id)} --status investigating`;}
-  else if(status==="investigating"){label="Mark Implemented";help="Implementation must create and link an SEO Event. Choose the event category and describe the change when you run the command.";command=base+`implement --id ${q(id)} --category "Content" --summary "DESCRIBE THE CHANGE IMPLEMENTED"`;}
-  else if(status==="implemented"){label="Start Measuring";help="Use after the change is live and you are ready to evaluate post-change GSC/GA4/AI evidence.";command=base+`status --id ${q(id)} --status measuring`;}
-  else if(status==="measuring"){label="Close Opportunity";help="Close only after enough post-change evidence exists to make a decision. Add a note with the outcome.";command=base+`status --id ${q(id)} --status closed --notes "DESCRIBE THE MEASUREMENT OUTCOME"`;}
-  else{label="Closed";help="This opportunity is closed. Its workflow history remains retained.";}
-  const button=status==="closed"?`<button class="intelligence-workflow-action secondary" disabled>Closed</button>`:`<button class="intelligence-workflow-action" data-workflow-command="${esc(command)}">${esc(label)}</button>`;
-  return `<div class="intelligence-workflow-control"><div class="intelligence-workflow-control-head"><div><div class="intelligence-workflow-control-title">Next workflow step</div><div class="intelligence-workflow-help">${esc(help)}</div></div>${button}</div><div class="intelligence-workflow-command" aria-live="polite"></div></div>`;
+  const status=String(workflow?.status||"new").toLowerCase(),id=String(action.id||"");
+  let help="",form="";
+  if(status==="new"){
+    help="Review the evidence and start investigation with one click.";
+    form=`<button class="intelligence-workflow-action" data-id="${esc(id)}" data-target="investigating">Start Investigation</button>`;
+  }else if(status==="investigating"){
+    help="Record exactly what changed. Status and the linked SEO Event are committed together.";
+    form=`<div class="intelligence-workflow-form">
+      <label>SEO Event category<select class="workflow-category"><option>Content</option><option>Technical</option><option>On-page</option><option>Internal linking</option><option>Migration</option><option>Local SEO</option><option>AEO</option></select></label>
+      <label>What was implemented?<textarea class="workflow-summary" placeholder="Describe the actual change made."></textarea></label>
+      <button class="intelligence-workflow-action" data-id="${esc(id)}" data-target="implemented">Save Implementation</button></div>`;
+  }else if(status==="implemented"){
+    help="Start the post-change measurement period.";
+    form=`<button class="intelligence-workflow-action" data-id="${esc(id)}" data-target="measuring">Start Measuring</button>`;
+  }else if(status==="measuring"){
+    help="Close only after reviewing enough post-change evidence to make a decision.";
+    form=`<div class="intelligence-workflow-form"><label>Measurement outcome<textarea class="workflow-notes" placeholder="Summarize the outcome and why this opportunity can be closed."></textarea></label>
+      <button class="intelligence-workflow-action" data-id="${esc(id)}" data-target="closed">Close Opportunity</button></div>`;
+  }else{
+    help="This opportunity is closed. Its workflow history remains retained.";
+    form=`<button class="intelligence-workflow-action secondary" disabled>Closed</button>`;
+  }
+  return `<div class="intelligence-workflow-control"><div class="intelligence-workflow-control-title">Next workflow step</div><div class="intelligence-workflow-help">${esc(help)}</div>${form}<div class="intelligence-workflow-result" aria-live="polite"></div></div>`;
 }
 function bindIntelligenceWorkflowControls(){
-  document.querySelectorAll(".intelligence-workflow-action[data-workflow-command]").forEach(button=>{
-    button.dataset.originalLabel=button.textContent;
+  document.querySelectorAll(".intelligence-workflow-action[data-target]").forEach(button=>{
     button.addEventListener("click",async()=>{
-      const box=button.closest(".intelligence-workflow-control").querySelector(".intelligence-workflow-command"), command=button.dataset.workflowCommand||"";
-      box.textContent=command;box.classList.add("show");
-      try{await navigator.clipboard.writeText(command);button.textContent="Command Copied";setTimeout(()=>{button.textContent=button.dataset.originalLabel;},1800);}
-      catch(_){button.textContent="Command Ready Below";}
+      const control=button.closest(".intelligence-workflow-control"),result=control.querySelector(".intelligence-workflow-result");
+      const payload={id:button.dataset.id,status:button.dataset.target};
+      if(payload.status==="implemented"){
+        payload.category=control.querySelector(".workflow-category")?.value||"";
+        payload.summary=control.querySelector(".workflow-summary")?.value||"";
+      }
+      if(payload.status==="closed") payload.notes=control.querySelector(".workflow-notes")?.value||"";
+      button.disabled=true;result.className="intelligence-workflow-result show";result.textContent="Saving…";
+      try{
+        const r=await fetch(SEO_WORKFLOW_API+"/workflow",{method:"POST",credentials:"include",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+        const data=await r.json().catch(()=>({error:`HTTP ${r.status}`}));
+        if(!r.ok) throw new Error(data.error||`HTTP ${r.status}`);
+        result.className="intelligence-workflow-result show ok";
+        result.textContent=`Updated to ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Refreshing…`;
+        const card=control.closest(".intelligence-card");
+        if(card){card.dataset.workflowStatus=data.status;const badge=card.querySelector(".intelligence-badge.workflow");if(badge){badge.className=`intelligence-badge workflow ${data.status}`;badge.textContent=intelligenceWorkflowLabel(data.status);}}
+        setTimeout(()=>location.reload(),5000);
+      }catch(e){
+        result.className="intelligence-workflow-result show error";
+        result.textContent=e.message||String(e);button.disabled=false;
+      }
     });
   });
 }
