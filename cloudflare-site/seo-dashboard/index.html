@@ -4049,6 +4049,7 @@ function intelligenceAnalysisHtml(action,workflow){
 }
 
 const SEO_WORKFLOW_API="/api/opportunity-workflow";
+const intelligenceActionsById=new Map();
 function intelligenceWorkflowControl(action,workflow){
   const status=String(workflow?.status||"new").toLowerCase(),id=String(action.id||"");
   let help="",form="";
@@ -4074,8 +4075,10 @@ function intelligenceWorkflowControl(action,workflow){
   }
   return `<div class="intelligence-workflow-control"><div class="intelligence-workflow-control-title">Next workflow step</div><div class="intelligence-workflow-help">${esc(help)}</div>${form}<div class="intelligence-workflow-result" aria-live="polite"></div></div>`;
 }
-function bindIntelligenceWorkflowControls(){
-  document.querySelectorAll(".intelligence-workflow-action[data-target]").forEach(button=>{
+function bindIntelligenceWorkflowControls(root=document){
+  root.querySelectorAll(".intelligence-workflow-action[data-target]").forEach(button=>{
+    if(button.dataset.workflowBound==="1")return;
+    button.dataset.workflowBound="1";
     button.addEventListener("click",async()=>{
       const control=button.closest(".intelligence-workflow-control"),result=control.querySelector(".intelligence-workflow-result");
       const payload={id:button.dataset.id,status:button.dataset.target};
@@ -4089,36 +4092,24 @@ function bindIntelligenceWorkflowControls(){
         const r=await fetch(SEO_WORKFLOW_API,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
         const data=await r.json().catch(()=>({error:`HTTP ${r.status}`}));
         if(!r.ok) throw new Error(data.error||`HTTP ${r.status}`);
-        result.className="intelligence-workflow-result show ok";
-        result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Waiting for dashboard data to refresh…`;
         const card=control.closest(".intelligence-card");
         if(card){
           card.dataset.workflowStatus=data.status;
           const badge=card.querySelector(".intelligence-badge.workflow");
           if(badge){badge.className=`intelligence-badge workflow ${data.status}`;badge.textContent=intelligenceWorkflowLabel(data.status);}
-        }
-        sessionStorage.setItem("tbs-dashboard-tab","intelligence");
-        sessionStorage.setItem("tbs-intelligence-focus",payload.id);
-        sessionStorage.setItem("tbs-intelligence-filter",document.querySelector(".intelligence-workflow-filter.active")?.dataset.workflowFilter||"active");
-        const expectedStatus=data.status, started=Date.now();
-        const workflowDataUrl=new URL("./data/opportunity-workflow.json",document.baseURI);
-        const poll=async()=>{
-          try{
-            workflowDataUrl.searchParams.set("refresh",String(Date.now()));
-            const r=await fetch(workflowDataUrl.href,{cache:"no-store",credentials:"same-origin"});
-            if(r.ok){
-              const fresh=await r.json();
-              if(String(fresh?.items?.[payload.id]?.status||"").toLowerCase()===expectedStatus){
-                result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Dashboard data refreshed.`;
-                setTimeout(()=>location.reload(),700);return;
-              }
+          const action=intelligenceActionsById.get(payload.id);
+          if(action){
+            control.outerHTML=intelligenceWorkflowControl(action,data.record||{status:data.status});
+            bindIntelligenceWorkflowControls(card);
+            const updatedResult=card.querySelector(".intelligence-workflow-result");
+            if(updatedResult){
+              updatedResult.className="intelligence-workflow-result show ok";
+              updatedResult.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}.`;
             }
-          }catch(_){}
-          if(Date.now()-started<30000){setTimeout(poll,2000);return;}
-          result.textContent=`Saved as ${intelligenceWorkflowLabel(data.status)}. Git commit ${String(data.commit||"").slice(0,7)}. Refreshing the dashboard...`;
-          setTimeout(()=>location.reload(),700);
-        };
-        setTimeout(poll,1200);
+          }
+        }
+        const activeFilter=document.querySelector(".intelligence-workflow-filter.active")?.dataset.workflowFilter||"active";
+        applyIntelligenceWorkflowFilter(activeFilter);
       }catch(e){
         result.className="intelligence-workflow-result show error";
         result.textContent=e.message||String(e);button.disabled=false;
@@ -4169,13 +4160,15 @@ function applyIntelligenceWorkflowFilter(filter,{persist=true}={}){
 
 Promise.all([
   fetch("./data/opportunity-intelligence.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Opportunity Intelligence request failed: ${r.status}`);return r.json();}),
-  fetch("./data/opportunity-workflow.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Opportunity workflow request failed: ${r.status}`);return r.json();}),
+  fetch(SEO_WORKFLOW_API,{cache:"no-store",credentials:"same-origin"}).then(r=>{if(!r.ok)throw new Error(`Live opportunity workflow request failed: ${r.status}`);return r.json();}),
   fetch("./data/query-history.json",{cache:"no-store"}).then(r=>r.ok?r.json():{queries:[]}),
   fetch("./data/page-history.json",{cache:"no-store"}).then(r=>r.ok?r.json():{pages:[]})
 ]).then(([data,workflowData,queryHistory,pageHistory])=>{
   intelligenceQueryHistory=queryHistory||{queries:[]};
   intelligencePageHistory=pageHistory||{pages:[]};
   const actions=Array.isArray(data.actions)?data.actions:[];
+  intelligenceActionsById.clear();
+  actions.forEach(action=>{if(action?.id)intelligenceActionsById.set(action.id,action);});
   const workflowItems=workflowData?.items||{};
   const high=actions.filter(x=>x.priority==="high");
   const medium=actions.filter(x=>x.priority==="medium");

@@ -74,6 +74,14 @@ export default {
     if(!email) return json({error:"Cloudflare Access authentication required."},401);
     if(env.ALLOWED_EMAIL && email.toLowerCase()!==env.ALLOWED_EMAIL.toLowerCase())
       return json({error:"Authenticated user is not authorized."},403);
+    if(request.method==="GET"){
+      try{
+        const workflow=await readRepoJson(env,WORKFLOW_PATH);
+        return json(workflow,200);
+      }catch(e){
+        return json({error:String(e?.message||e)},500);
+      }
+    }
     if(request.method!=="POST") return json({error:"Method not allowed."},405);
 
     try{
@@ -118,7 +126,7 @@ export default {
       workflow.items[id]=record; workflow.updated_at=now;
       files[WORKFLOW_PATH]=JSON.stringify(workflow,null,2)+"\n";
       const sha=await atomicCommit(env,files,`Move SEO opportunity to ${target}: ${action.subject||id}`);
-      return json({ok:true,id,status:target,commit:sha},200);
+      return json({ok:true,id,status:target,commit:sha,record},200);
     }catch(e){
       return json({error:String(e?.message||e)},500);
     }
