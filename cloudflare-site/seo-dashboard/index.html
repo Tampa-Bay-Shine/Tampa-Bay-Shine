@@ -1792,6 +1792,16 @@ td:first-child{
   }
 }
 </style>
+<style id="competitor-intelligence-css">
+.competitor-summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:18px 0}
+.competitor-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+.competitor-table-wrap{overflow:auto}.competitor-table th,.competitor-table td{white-space:nowrap}
+.competitor-table td:first-child,.competitor-table th:first-child{white-space:normal;min-width:190px}
+.competitor-callout{border:1px solid #dbe7f5;border-radius:12px;background:#f8fbff;padding:14px 16px;margin:14px 0}
+.competitor-badge{display:inline-block;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:700;background:#eef4fb;color:#084c99}
+.competitor-badge.hold{background:#fff4db;color:#8a5b00}.competitor-empty{padding:18px;border:1px dashed #bfd0e2;border-radius:10px;color:#64748b}
+@media(max-width:1000px){.competitor-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.competitor-grid{grid-template-columns:1fr}}
+</style>
 <style id="performance-intelligence-css">
 .pi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
 .pi-table-wrap{overflow-x:auto}
@@ -1843,7 +1853,7 @@ td:first-child{
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="performance">Performance Intelligence</button><button data-tab="intelligence">Opportunity Intelligence</button>
+<nav><button data-tab="performance">Performance Intelligence</button><button data-tab="competitors">Competitors</button><button data-tab="intelligence">Opportunity Intelligence</button>
 <button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="conversions">Conversions</button><button data-tab="ai">AI Visibility</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
 
 <section id="performance" class="tab">
@@ -1865,6 +1875,25 @@ td:first-child{
 <p class="muted">Impact is volume-aware. Low-volume or anonymized GSC queries can be omitted by Google, so daily movement is an early signal rather than a standalone decision rule.</p>
 </section>
 
+<section id="competitors" class="tab">
+<h2>Competitor Intelligence</h2>
+<p class="muted">Free/manual competitor observations combined with Tampa Bay Shine Google Search Console data. Missing external metrics remain blank rather than estimated.</p>
+<div class="competitor-summary">
+<div class="card"><div class="muted">Tracked keywords</div><div class="big" id="ci-tracked">--</div></div>
+<div class="card"><div class="muted">SERPs observed</div><div class="big" id="ci-observed">--</div></div>
+<div class="card"><div class="muted">TBS Top 10</div><div class="big" id="ci-top10">--</div></div>
+<div class="card"><div class="muted">Visibility share</div><div class="big" id="ci-share">--</div></div>
+<div class="card"><div class="muted">Leader gap</div><div class="big" id="ci-gap">--</div></div>
+</div>
+<div class="competitor-callout" id="ci-status">Loading competitor data...</div>
+<div class="competitor-grid">
+<div><h3>Organic competitor leaderboard</h3><div class="competitor-table-wrap"><table class="competitor-table"><thead><tr><th>Domain</th><th>Visibility</th><th>Share</th><th>Overlap</th><th>Top 3</th><th>Top 10</th></tr></thead><tbody id="ci-leaderboard"></tbody></table></div></div>
+<div><h3>Authority / backlink observations</h3><div class="competitor-table-wrap"><table class="competitor-table"><thead><tr><th>Domain</th><th>Moz DA</th><th>Ahrefs DR</th><th>Semrush AS</th><th>Ref. domains</th><th>Backlinks</th></tr></thead><tbody id="ci-authority"></tbody></table></div></div>
+</div>
+<h3>Keyword battle board</h3>
+<div class="competitor-table-wrap"><table class="competitor-table"><thead><tr><th>Keyword</th><th>TBS pos.</th><th>Source</th><th>GSC impr.</th><th>Top competitor</th><th>Comp. pos.</th><th>Score</th><th>Recommendation</th></tr></thead><tbody id="ci-battle"></tbody></table></div>
+<p class="muted" id="ci-method"></p>
+</section>
 <section id="intelligence" class="tab">
   <h2>Opportunity Intelligence</h2>
   <div class="muted">
@@ -4365,5 +4394,16 @@ function render(){const x=D.periods[P],a=x.overall.current,c=x.overall.change;$(
 fetch("data/performance-intelligence.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(x=>{D=x;render()}).catch(e=>{$("#pi-meta").textContent="Performance Intelligence data unavailable: "+e.message});
 document.querySelectorAll("[data-pi]").forEach(b=>b.addEventListener("click",()=>{P=b.dataset.pi;if(D)render()}));
 })();
+</script>
+<script id="competitor-intelligence-js">
+(()=>{const $=s=>document.querySelector(s),esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;"),fmt=(v,d=1)=>v==null?"--":Number(v).toFixed(d).replace(/\.0$/,"");
+fetch("./data/competitor-intelligence.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json()}).then(d=>{
+const s=d.summary||{},st=d.source_status||{};$("#ci-tracked").textContent=fmt(s.tracked_keywords,0);$("#ci-observed").textContent=fmt(s.serp_queries_observed,0);$("#ci-top10").textContent=s.tbs_top10==null?"--":fmt(s.tbs_top10,0);$("#ci-share").textContent=s.tbs_visibility_share==null?"--":fmt(s.tbs_visibility_share)+"%";$("#ci-gap").textContent=s.leader_gap_points==null?"--":fmt(s.leader_gap_points)+" pts";
+$("#ci-status").innerHTML=`<strong>Data status:</strong> ${esc(st.serp_queries_observed??0)} of ${esc(st.tracked_keywords??0)} tracked SERPs have competitor observations. SERP snapshot: ${esc(st.serp_observed_at||"not loaded")}. Authority snapshot: ${esc(st.authority_observed_at||"not loaded")}. <span class="muted">${esc(st.note||"")}</span>`;
+$("#ci-leaderboard").innerHTML=(d.leaderboard||[]).map(x=>`<tr><td>${esc(x.domain)}</td><td>${fmt(x.visibility_points)}</td><td>${x.share_of_observed_visibility==null?"--":fmt(x.share_of_observed_visibility)+"%"}</td><td>${fmt(x.keywords_overlapping,0)}</td><td>${fmt(x.top3,0)}</td><td>${fmt(x.top10,0)}</td></tr>`).join("")||`<tr><td colspan="6"><div class="competitor-empty">Import a free/manual SERP snapshot to populate the leaderboard.</div></td></tr>`;
+$("#ci-authority").innerHTML=(d.authority||[]).map(x=>`<tr><td>${esc(x.domain)}</td><td>${fmt(x.moz_da)}</td><td>${fmt(x.ahrefs_dr)}</td><td>${fmt(x.semrush_authority)}</td><td>${fmt(x.referring_domains,0)}</td><td>${fmt(x.backlinks,0)}</td></tr>`).join("")||`<tr><td colspan="6"><div class="competitor-empty">Import authority/backlink observations.</div></td></tr>`;
+$("#ci-battle").innerHTML=(d.keyword_battle||[]).slice(0,40).map(x=>{const c=x.top_competitor||{},h=x.stabilization?.guarded;return `<tr><td>${esc(x.query)}</td><td>${fmt(x.tbs_position)}</td><td>${esc(x.tbs_position_source||"--")}</td><td>${fmt(x.gsc_impressions,0)}</td><td>${esc(c.domain||"--")}</td><td>${fmt(c.position,0)}</td><td>${fmt(x.opportunity_score)}</td><td>${h?'<span class="competitor-badge hold">HOLD</span> ':''}${esc(x.recommended_action)}</td></tr>`}).join("");
+$("#ci-method").textContent="Visibility share uses only supplied organic SERP observations. DA, DR and Authority Score stay separate. GSC average position is labeled when used as Tampa Bay Shine fallback data.";
+}).catch(e=>{const x=$("#ci-status");if(x)x.textContent="Competitor Intelligence data unavailable: "+e.message})})();
 </script>
 </body></html>
