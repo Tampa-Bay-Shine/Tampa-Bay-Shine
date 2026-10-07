@@ -3,6 +3,14 @@ import sys, json, urllib.parse
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 
+# Internal operational apps remain in route discovery, but are excluded from
+# public-site SEO validation.
+INTERNAL_ROUTE_PREFIXES = ('/seo-dashboard',)
+
+def is_internal_route(route):
+    normalized = route.rstrip('/') or '/'
+    return any(normalized == p or normalized.startswith(p + '/') for p in INTERNAL_ROUTE_PREFIXES)
+
 def main():
     root=Path(sys.argv[1] if len(sys.argv)>1 else 'cloudflare-site')
     if not root.exists():
@@ -29,6 +37,9 @@ def main():
         s=BeautifulSoup(text,'html.parser')
         rel=p.relative_to(root).as_posix()
         route='/' if rel=='index.html' else '/'+p.parent.relative_to(root).as_posix()
+
+        if is_internal_route(route):
+            continue
 
         if not s.title or not s.title.get_text(strip=True): issues.append(f'{route}: missing title')
         descriptions=s.find_all('meta',attrs={'name':'description'})
