@@ -33,7 +33,9 @@ def strongest(items, kind):
             score=clk*25+max(imp,0)+max(pos,0)*.25
             if clk>0 or imp>=5: candidates.append((score,z))
         elif kind=="ranking_decline" and pos <= -3:
-            candidates.append((abs(pos)+max(-clk,0)*25,z))
+            prior_vol=float(p.get("impressions",0) or 0)
+            if prior_vol >= 10:
+                candidates.append((abs(pos)+max(-clk,0)*25,z))
     return max(candidates,key=lambda q:q[0])[1] if candidates else None
 
 def growth_text(label,z,is_page=False):
@@ -63,11 +65,13 @@ def main():
  g=ga.get("periods",{}).get("7",{}); ov=g.get("overview",{}).get("current",{}); it=g.get("intent",{}).get("current",{}); bk=g.get("confirmed_bookings",{}).get("current",{})
  organic=f"{n(ov.get('sessions'))} Organic Search sessions; {n(it.get('booknow_click'))} booking starts ({n(ov.get('booking_start_rate'),2)}%); {n(bk.get('confirmed_bookings'))} confirmed bookings ({n(ov.get('confirmed_booking_rate'),2)}%)."
  aa=ai.get("periods",{}).get("7",{}).get("current",{}).get("summary",{}); ait=f"{n(aa.get('sessions'))} identifiable AI referral session(s), {n(aa.get('booknow_click'))} booking start(s), and {n(aa.get('confirmed_bookings'))} confirmed booking(s) in the latest 7 days."
+ weekly_range=w.get("overall",{}).get("range",{}).get("current",[])
+ full_week_post_boundary=bool(weekly_range and weekly_range[0] >= "2026-10-05")
  movers=[x for x in [
   growth_text("Query growth",strongest(w.get("query_movers"),"growth")),
-  decline_text("Query ranking concern",strongest(w.get("query_movers"),"ranking_decline")),
+  decline_text("Query ranking concern",strongest(w.get("query_movers"),"ranking_decline")) if full_week_post_boundary else None,
   growth_text("Page growth",strongest(w.get("page_movers"),"growth"),True),
-  decline_text("Page ranking concern",strongest(w.get("page_movers"),"ranking_decline"),True)
+  decline_text("Page ranking concern",strongest(w.get("page_movers"),"ranking_decline"),True) if full_week_post_boundary else None
  ] if x]
  acts=op.get("actions") or []; top=next((x for x in acts if x.get("priority")=="high"),acts[0] if acts else None)
  rec=(f"{top.get('subject','Priority opportunity')}: {top.get('recommended_action','Review dashboard evidence before changing the site.')}" if top else "No evidence-based opportunity currently meets the action threshold; continue measurement.")

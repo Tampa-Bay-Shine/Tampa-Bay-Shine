@@ -67,10 +67,38 @@ def movers(ss,end,n):
   ch=x["change"]; impact=abs(ch["impressions"])*.08+abs(ch["clicks"])*8+(abs(ch["position"] or 0)*max(1,math.log10(c["impressions"]+1)))
   r.append({"name":name,**x,"impact":round(impact,1)})
  return sorted(r,key=lambda x:x["impact"],reverse=True)[:12]
-q=series(load("query-history.json")); pages=series(load("page-history.json")); totals=total_points(load("daily-total-history.json"))
+def canonical_page_name(name):
+ from urllib.parse import urlsplit,urlunsplit
+ try:
+  u=urlsplit(name)
+  if not u.scheme or not u.netloc:return name
+  path=u.path or "/"
+  if path!="/":path=path.rstrip("/")+"/"
+  return urlunsplit((u.scheme.lower(),u.netloc.lower(),path,"",""))
+ except Exception:return name
+
+def merge_named_series(ss,normalizer):
+ merged={}
+ for name,pts in ss:
+  key=normalizer(name); bydate=merged.setdefault(key,{})
+  for x in pts:
+   z=bydate.setdefault(x["date"],{"date":x["date"],"clicks":0.0,"impressions":0.0,"pn":0.0,"pi":0.0})
+   z["clicks"]+=x["clicks"]; z["impressions"]+=x["impressions"]
+   if x["position"] is not None:
+    z["pn"]+=x["position"]*x["impressions"]; z["pi"]+=x["impressions"]
+ out=[]
+ for name,bydate in merged.items():
+  pts=[{"date":z["date"],"clicks":z["clicks"],"impressions":z["impressions"],
+        "position":z["pn"]/z["pi"] if z["pi"] else None} for z in bydate.values()]
+  out.append((name,sorted(pts,key=lambda x:x["date"])))
+ return out
+
+q=series(load("query-history.json"))
+pages=merge_named_series(series(load("page-history.json")),canonical_page_name)
+totals=total_points(load("daily-total-history.json"))
 if not totals: raise SystemExit("No authoritative daily GSC total history found")
 end=max(x["date"] for x in totals); brand=("tampa bay shine","tampabayshine")
-out={"generated_at":datetime.now().astimezone().isoformat(),"data_through":end,"methodology":{"monthly_days":28,"headline_source":"GSC date-only daily totals","query_page_source":"retained daily histories","missing_query_dates_are_zero":False},"periods":{}}
+out={"generated_at":datetime.now().astimezone().isoformat(),"data_through":end,"methodology":{"monthly_days":28,"headline_source":"GSC date-only daily totals","query_page_source":"retained daily histories","missing_query_dates_are_zero":False,"page_url_normalization":"canonical trailing-slash aliases merged"},"periods":{}}
 for label,n in {"daily":1,"weekly":7,"monthly":28}.items():
  o=cmp(totals,end,n); qm=movers(q,end,n); pm=movers(pages,end,n); ch=o["change"]; notes=[]
  if ch["impressions_pct"] is not None:notes.append(f"Search impressions {'increased' if ch['impressions_pct']>=0 else 'decreased'} {abs(ch['impressions_pct']):.1f}% versus the previous {n}-day period.")
