@@ -26,7 +26,8 @@ EXTERNAL = {
 COMMERCIAL = {
     "vanguardcleaning.com","stratusclean.com","servicemasterclean.com","buildingstars.com",
     "officepride.com","anagocleaning.com","janiking.com","coverall.com","jan-pro.com",
-    "locations.abm.com","4-m.com","summitfacilitysolutions.com","coastalofficecleaning.com"
+    "locations.abm.com","4-m.com","summitfacilitysolutions.com","coastalofficecleaning.com",
+    "coreclean.org","ramclean.com","aacompleteservices.com","collegiateclean.com"
 }
 
 IRRELEVANT = {
@@ -41,11 +42,16 @@ RESIDENTIAL_KNOWN = {
     "purahomecleaning.com","hautemesscleaningfl.com","gogreenorganicclean.com","merrymaids.com",
     "joyofcleaning.com","worryfree.cleaning","cleanandcleartampa.com","ahomemaidclean.com",
     "cleanspaceonline.com","10bucksaroom.com","tonisplendidcleaning.com","maidinwesleychapel.com",
-    "aboveandbeyondcleaningenterprisesfl.com","wownowcleaning.com","aacompleteservices.com",
-    "e2ecleaning.com","powerbaycleaningservice.com","gatorcleaningsolutions.com",
-    "sparkling-faith-cleaning-service.com","00clean.com","ramclean.com","collegiateclean.com",
-    "coreclean.org","megasvs.com"
+    "aboveandbeyondcleaningenterprisesfl.com","wownowcleaning.com","e2ecleaning.com",
+    "powerbaycleaningservice.com","gatorcleaningsolutions.com","sparkling-faith-cleaning-service.com",
+    "00clean.com","megasvs.com"
 }
+
+COMMERCIAL_INTENT_TERMS = (
+    "office cleaning", "commercial cleaning", "medical office", "medical cleaning",
+    "post construction", "post-construction", "janitorial", "facility cleaning",
+    "industrial cleaning", "business cleaning"
+)
 
 def load_json(path, default):
     try:
@@ -80,6 +86,12 @@ def pos_points(p):
 def confidence(impr):
     return "high" if impr>=50 else "medium" if impr>=20 else "low"
 
+def query_intent(query):
+    q=(query or "").lower()
+    if any(term in q for term in COMMERCIAL_INTENT_TERMS):
+        return "commercial_facility"
+    return "residential_local"
+
 def classify_domain(domain):
     d=norm_domain(domain)
     if not d: return "unknown"
@@ -87,8 +99,7 @@ def classify_domain(domain):
     if d in COMMERCIAL: return "commercial_facility"
     if d in IRRELEVANT: return "irrelevant_adjacent"
     if d in RESIDENTIAL_KNOWN: return "residential_local"
-    # Conservative fallback: unknown cleaning-looking domains stay residential/local,
-    # but known non-cleaning/adjacent domains should be explicitly excluded above.
+    # Conservative fallback for unknown cleaning-looking domains.
     tokens=("maid","clean","housekeep","house-clean","homeclean","cleaning")
     if any(t in d for t in tokens):
         return "residential_local"
@@ -152,19 +163,27 @@ def guard(query, page, events, days):
                     "reason":f"Recent logged SEO change ({age} days ago). Hold major page changes until the {days}-day stabilization window passes."}
     return {"guarded":False}
 
-def merge_authority_rows(primary, watchlist, authority_rows):
+def merge_authority_rows(primary, residential_watch, commercial_watch, authority_rows):
     fields=["moz_da","ahrefs_dr","semrush_authority","referring_domains","backlinks","organic_keywords","organic_traffic"]
     existing={norm_domain(r.get("domain")):dict(r) for r in authority_rows if norm_domain(r.get("domain"))}
     order=[]
-    def add(d):
+    labels={}
+    def add(d, group):
         d=norm_domain(d)
-        if not d or d in order: return
-        order.append(d)
+        if not d: return
+        if d not in order: order.append(d)
+        labels.setdefault(d,group)
         existing.setdefault(d,{"domain":d,**{f:None for f in fields}})
-    add(primary)
-    for d in watchlist: add(d)
-    for d in existing: add(d)
-    return [existing[d] for d in order]
+    add(primary,"Tampa Bay Shine")
+    for d in residential_watch: add(d,"Residential")
+    for d in commercial_watch: add(d,"Commercial")
+    for d in existing: add(d,"Other")
+    rows=[]
+    for d in order:
+        row=dict(existing[d])
+        row["watchlist_group"]=labels[d]
+        rows.append(row)
+    return rows
 
 def build(config, rankings, authority, gsc, events):
     primary=norm_domain(config.get("primary_domain") or "tampabayshine.com")
@@ -176,6 +195,7 @@ def build(config, rankings, authority, gsc, events):
     for item in kw:
         q=str(item.get("query") or "").strip().lower()
         if not q: continue
+        intent=query_intent(q)
         w=float(item.get("commercial_weight",1) or 1)
         results=ri.get(q,[]); g=gi.get(q,{})
         own=next((x for x in results if x["domain"]==primary),None)
@@ -193,22 +213,26 @@ def build(config, rankings, authority, gsc, events):
             if r["position"]<=10: z["top10"]+=1
 
         top_organic=next((x for x in results if x["domain"]!=primary),None)
-        top_direct=next((x for x in results if x["domain"]!=primary and classify_domain(x["domain"])=="residential_local"),None)
+        top_relevant=next(
+            (x for x in results if x["domain"]!=primary and classify_domain(x["domain"])==intent),
+            None
+        )
 
         weakness=7.5
-        if top_direct:
-            a=authority_strength(ai.get(primary)); b=authority_strength(ai.get(top_direct["domain"]))
+        if top_relevant:
+            a=authority_strength(ai.get(primary)); b=authority_strength(ai.get(top_relevant["domain"]))
             if a is not None and b is not None:
                 weakness=clamp(7.5+(a-b)*.3,0,15)
 
         impr_score=clamp(math.log10(impr+1)/math.log10(101)*25 if impr else 0,0,25)
         gap=0
-        comparison_pos = top_direct["position"] if top_direct else (top_organic["position"] if top_organic else None)
+        comparison_pos=top_relevant["position"] if top_relevant else (top_organic["position"] if top_organic else None)
         if comparison_pos is not None and pos is not None:
             gap=clamp((float(pos)-float(comparison_pos))/20*20,0,20)
 
         score=round(pos_points(pos)+impr_score+weakness+clamp(w*10,0,10)+gap,1)
         gstate=guard(q,page,events,stab)
+
         action="Insufficient competitor SERP data"
         if results and pos is not None:
             if gstate["guarded"]: action="Hold major changes; measure during stabilization window"
@@ -218,12 +242,17 @@ def build(config, rankings, authority, gsc, events):
             else: action="Monitor"
 
         battle.append({
-            "query":q,"tbs_position":round(float(pos),2) if pos is not None else None,
-            "tbs_position_source":src,"tbs_page":page,"gsc_impressions":round(impr,2),
-            "gsc_clicks":round(float(g.get("clicks",0) or 0),2),"gsc_position_change":g.get("position_change"),
+            "query":q,
+            "query_intent":intent,
+            "tbs_position":round(float(pos),2) if pos is not None else None,
+            "tbs_position_source":src,
+            "tbs_page":page,
+            "gsc_impressions":round(impr,2),
+            "gsc_clicks":round(float(g.get("clicks",0) or 0),2),
+            "gsc_position_change":g.get("position_change"),
             "confidence":confidence(impr),
             "top_organic_result":top_organic,
-            "top_direct_competitor":top_direct,
+            "top_relevant_competitor":top_relevant,
             "opportunity_score":score,
             "stabilization":gstate,
             "recommended_action":action
@@ -253,25 +282,20 @@ def build(config, rankings, authority, gsc, events):
 
     own=next((x for x in leaderboard if x["domain"]==primary),None)
     observed=sum(1 for x in kw if str(x.get("query") or "").strip().lower() in ri)
-    if observed:
-        tbs_share = own.get("share_of_observed_visibility") if own else 0.0
-    else:
-        tbs_share = None
-
+    tbs_share=(own.get("share_of_observed_visibility") if own else 0.0) if observed else None
     leader=leaderboard[0] if leaderboard else None
-    leader_gap=None
-    if observed and leader:
-        leader_gap=round((leader.get("share_of_observed_visibility") or 0.0) - (tbs_share or 0.0),2)
+    leader_gap=round((leader.get("share_of_observed_visibility") or 0.0)-(tbs_share or 0.0),2) if observed and leader else None
 
     top10=sum(1 for x in battle if x["tbs_position_source"]=="serp_observation" and x["tbs_position"] is not None and x["tbs_position"]<=10)
     top3=sum(1 for x in battle if x["tbs_position_source"]=="serp_observation" and x["tbs_position"] is not None and x["tbs_position"]<=3)
     battle.sort(key=lambda x:(x["opportunity_score"],x["gsc_impressions"]), reverse=True)
 
-    watchlist=[x["domain"] for x in boards["residential_local"] if x["domain"]!=primary][:10]
-    authority_rows=merge_authority_rows(primary,watchlist,authority.get("domains",[]))
+    residential_watch=[x["domain"] for x in boards["residential_local"] if x["domain"]!=primary][:10]
+    commercial_watch=[x["domain"] for x in boards["commercial_facility"] if x["domain"]!=primary][:10]
+    authority_rows=merge_authority_rows(primary,residential_watch,commercial_watch,authority.get("domains",[]))
 
     return {
-        "schema_version":3,
+        "schema_version":4,
         "generated_at":datetime.now(timezone.utc).isoformat(),
         "primary_domain":primary,
         "source_status":{
@@ -292,14 +316,17 @@ def build(config, rankings, authority, gsc, events):
         "leaderboard":leaderboard,
         "leaderboards":boards,
         "authority":authority_rows,
-        "authority_watchlist":watchlist,
+        "authority_watchlists":{
+            "residential_local":residential_watch,
+            "commercial_facility":commercial_watch
+        },
         "keyword_battle":battle,
         "methodology":{
             "visibility_weights":VISIBILITY_WEIGHTS,
             "important":[
-                "Residential/local cleaners, commercial/facility cleaners, external platforms, and irrelevant/adjacent domains are classified separately.",
+                "Keyword comparison is intent-aware: residential queries benchmark residential/local cleaners; commercial/office/medical/post-construction/janitorial queries benchmark commercial/facility cleaners.",
+                "Top organic result remains visible separately because directories and irrelevant results can still occupy rank #1.",
                 "TBS visibility is 0.0% when SERPs are observed but Tampa Bay Shine is absent from the captured Top 10.",
-                "Keyword rows show both the top organic result and the top residential/local cleaning competitor.",
                 "GSC average position is a labeled TBS-only fallback and is not treated as a live competitor rank."
             ]
         }
@@ -323,6 +350,8 @@ def main():
     print(f"Commercial/facility competitors: {len(result['leaderboards']['commercial_facility'])}")
     print(f"External/platform sites: {len(result['leaderboards']['external_platforms'])}")
     print(f"Irrelevant/adjacent results: {len(result['leaderboards']['irrelevant_adjacent'])}")
+    print(f"Residential authority watchlist: {len(result['authority_watchlists']['residential_local'])}")
+    print(f"Commercial authority watchlist: {len(result['authority_watchlists']['commercial_facility'])}")
     print(f"Wrote: {a.out}")
 
 if __name__=="__main__":

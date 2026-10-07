@@ -1803,6 +1803,8 @@ td:first-child{
 .competitor-callout{border:1px solid #dbe7f5;border-radius:12px;background:#f8fbff;padding:14px 16px;margin:14px 0}
 .competitor-badge{display:inline-block;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:700;background:#eef4fb;color:#084c99}
 .competitor-badge.hold{background:#fff4db;color:#8a5b00}
+.competitor-badge.residential{background:#edf7ff;color:#0b5c8a}
+.competitor-badge.commercial{background:#f2f2ff;color:#4b4b93}
 .competitor-empty{padding:18px;border:1px dashed #bfd0e2;border-radius:10px;color:#64748b}
 .competitor-note{margin-top:10px;color:#607089;font-size:13px;line-height:1.45}
 .competitor-details{margin:18px 0 26px;border:1px solid #dbe7f5;border-radius:10px;padding:12px 14px;background:#fafcff}
@@ -1884,7 +1886,7 @@ td:first-child{
 
 <section id="competitors" class="tab">
 <h2>Competitor Intelligence</h2>
-<p class="muted">Free/manual competitor observations combined with Tampa Bay Shine Google Search Console data. Missing external metrics remain blank rather than estimated.</p>
+<p class="muted">Free/manual competitor observations combined with Tampa Bay Shine Google Search Console data. Keyword comparisons are intent-aware so residential and commercial searches use the appropriate competitor class.</p>
 
 <div class="competitor-summary">
   <div class="card"><div class="muted">Tracked keywords</div><div class="big" id="ci-tracked">--</div></div>
@@ -1911,7 +1913,7 @@ td:first-child{
     <h3>Authority / backlink observations</h3>
     <div class="competitor-table-wrap">
       <table class="competitor-table">
-        <thead><tr><th>Domain</th><th>Moz DA</th><th>Ahrefs DR</th><th>Semrush AS</th><th>Ref. domains</th><th>Backlinks</th></tr></thead>
+        <thead><tr><th>Domain</th><th>Group</th><th>Moz DA</th><th>Ahrefs DR</th><th>Semrush AS</th><th>Ref. domains</th><th>Backlinks</th></tr></thead>
         <tbody id="ci-authority"></tbody>
       </table>
     </div>
@@ -1950,9 +1952,9 @@ td:first-child{
   <table class="competitor-table">
     <thead>
       <tr>
-        <th>Keyword</th><th>TBS pos.</th><th>Source</th><th>GSC impr.</th>
+        <th>Keyword</th><th>Intent</th><th>TBS pos.</th><th>Source</th><th>GSC impr.</th>
         <th>Top organic result</th><th>Pos.</th>
-        <th>Top residential competitor</th><th>Pos.</th>
+        <th>Top relevant competitor</th><th>Pos.</th>
         <th>Score</th><th>Recommendation</th>
       </tr>
     </thead>
@@ -4468,22 +4470,19 @@ document.querySelectorAll("[data-pi]").forEach(b=>b.addEventListener("click",()=
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
 const fmt=(v,d=1)=>v==null?"--":Number(v).toFixed(d).replace(/\.0$/,"");
+const intentLabel=i=>i==="commercial_facility"?"Commercial":"Residential";
 
 function boardRows(rows, emptyText){
   return rows.length ? rows.map(x=>`<tr>
-    <td>${esc(x.domain)}</td>
-    <td>${fmt(x.visibility_points)}</td>
-    <td>${fmt(x.share_of_observed_visibility)}%</td>
-    <td>${fmt(x.keywords_overlapping,0)}</td>
-    <td>${fmt(x.top3,0)}</td>
-    <td>${fmt(x.top10,0)}</td>
+    <td>${esc(x.domain)}</td><td>${fmt(x.visibility_points)}</td><td>${fmt(x.share_of_observed_visibility)}%</td>
+    <td>${fmt(x.keywords_overlapping,0)}</td><td>${fmt(x.top3,0)}</td><td>${fmt(x.top10,0)}</td>
   </tr>`).join("") : `<tr><td colspan="6"><div class="competitor-empty">${esc(emptyText)}</div></td></tr>`;
 }
 
 fetch("./data/competitor-intelligence.json",{cache:"no-store"})
 .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`); return r.json()})
 .then(d=>{
-  const s=d.summary||{}, st=d.source_status||{}, boards=d.leaderboards||{};
+  const s=d.summary||{}, st=d.source_status||{}, boards=d.leaderboards||{}, watch=d.authority_watchlists||{};
   $("#ci-tracked").textContent=fmt(s.tracked_keywords,0);
   $("#ci-observed").textContent=fmt(s.serp_queries_observed,0);
   $("#ci-top10").textContent=s.tbs_top10==null?"--":fmt(s.tbs_top10,0);
@@ -4502,39 +4501,36 @@ fetch("./data/competitor-intelligence.json",{cache:"no-store"})
 
   const auth=d.authority||[];
   $("#ci-authority").innerHTML=auth.length ? auth.map(x=>`<tr>
-    <td>${esc(x.domain)}</td><td>${fmt(x.moz_da)}</td><td>${fmt(x.ahrefs_dr)}</td>
-    <td>${fmt(x.semrush_authority)}</td><td>${fmt(x.referring_domains,0)}</td><td>${fmt(x.backlinks,0)}</td>
-  </tr>`).join("") : `<tr><td colspan="6"><div class="competitor-empty">No authority rows available.</div></td></tr>`;
+    <td>${esc(x.domain)}</td><td>${esc(x.watchlist_group||"--")}</td><td>${fmt(x.moz_da)}</td>
+    <td>${fmt(x.ahrefs_dr)}</td><td>${fmt(x.semrush_authority)}</td>
+    <td>${fmt(x.referring_domains,0)}</td><td>${fmt(x.backlinks,0)}</td>
+  </tr>`).join("") : `<tr><td colspan="7"><div class="competitor-empty">No authority rows available.</div></td></tr>`;
 
-  const watch=(d.authority_watchlist||[]);
-  $("#ci-authority-note").innerHTML=watch.length
-    ? `Priority residential competitors for free Moz/Ahrefs checks: <strong>${watch.map(esc).join(", ")}</strong>.`
-    : "";
+  const rw=watch.residential_local||[], cw=watch.commercial_facility||[];
+  $("#ci-authority-note").innerHTML=
+    `<strong>Residential watchlist:</strong> ${rw.length?rw.map(esc).join(", "):"--"}<br>`+
+    `<strong>Commercial watchlist:</strong> ${cw.length?cw.map(esc).join(", "):"--"}`;
 
   $("#ci-battle").innerHTML=(d.keyword_battle||[]).slice(0,40).map(x=>{
-    const o=x.top_organic_result||{}, c=x.top_direct_competitor||{}, h=x.stabilization?.guarded;
+    const o=x.top_organic_result||{}, c=x.top_relevant_competitor||{}, h=x.stabilization?.guarded;
+    const intent=x.query_intent==="commercial_facility"?"commercial":"residential";
     return `<tr>
       <td>${esc(x.query)}</td>
-      <td>${fmt(x.tbs_position)}</td>
-      <td>${esc(x.tbs_position_source||"--")}</td>
-      <td>${fmt(x.gsc_impressions,0)}</td>
-      <td>${esc(o.domain||"--")}</td>
-      <td>${fmt(o.position,0)}</td>
-      <td>${esc(c.domain||"--")}</td>
-      <td>${fmt(c.position,0)}</td>
+      <td><span class="competitor-badge ${intent}">${intentLabel(x.query_intent)}</span></td>
+      <td>${fmt(x.tbs_position)}</td><td>${esc(x.tbs_position_source||"--")}</td><td>${fmt(x.gsc_impressions,0)}</td>
+      <td>${esc(o.domain||"--")}</td><td>${fmt(o.position,0)}</td>
+      <td>${esc(c.domain||"--")}</td><td>${fmt(c.position,0)}</td>
       <td>${fmt(x.opportunity_score)}</td>
       <td>${h?'<span class="competitor-badge hold">HOLD</span> ':''}${esc(x.recommended_action)}</td>
     </tr>`;
-  }).join("") || `<tr><td colspan="10">No tracked keywords configured.</td></tr>`;
+  }).join("") || `<tr><td colspan="11">No tracked keywords configured.</td></tr>`;
 
   $("#ci-method").textContent=
-    "Residential/local cleaners, commercial/facility cleaners, directories/platforms, and irrelevant/adjacent results are separated. "+
-    "TBS visibility displays 0.0% when 30/30 SERPs are observed but Tampa Bay Shine is absent from the captured Top 10. "+
-    "GSC average position remains a labeled TBS-only fallback, not a live competitor rank.";
+    "Keyword comparison is intent-aware. Residential searches benchmark residential/local cleaners; office, commercial, medical-office, post-construction and janitorial searches benchmark commercial/facility cleaners. "+
+    "Top organic result remains separate because directories, suppliers and other non-comparable results can rank above the relevant cleaning competitor.";
 })
 .catch(e=>{
-  const x=$("#ci-status");
-  if(x)x.textContent="Competitor Intelligence data unavailable: "+e.message;
+  const x=$("#ci-status"); if(x)x.textContent="Competitor Intelligence data unavailable: "+e.message;
 });
 })();
 </script>

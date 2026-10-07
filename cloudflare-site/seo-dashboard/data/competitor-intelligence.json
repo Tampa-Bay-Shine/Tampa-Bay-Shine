@@ -1,6 +1,6 @@
 {
-  "schema_version": 3,
-  "generated_at": "2026-10-07T16:04:20.320793+00:00",
+  "schema_version": 4,
+  "generated_at": "2026-10-07T16:57:54.610111+00:00",
   "primary_domain": "tampabayshine.com",
   "source_status": {
     "gsc_generated_at": "2026-10-07T14:18:07.289673Z",
@@ -308,7 +308,7 @@
       "top3": 0,
       "top10": 3,
       "authority": null,
-      "category": "residential_local"
+      "category": "commercial_facility"
     },
     {
       "domain": "homecleanheroes.com",
@@ -378,7 +378,7 @@
       "top3": 1,
       "top10": 1,
       "authority": null,
-      "category": "residential_local"
+      "category": "commercial_facility"
     },
     {
       "domain": "revenuebase.ai",
@@ -428,7 +428,7 @@
       "top3": 0,
       "top10": 2,
       "authority": null,
-      "category": "residential_local"
+      "category": "commercial_facility"
     },
     {
       "domain": "angi.com",
@@ -788,7 +788,7 @@
       "top3": 0,
       "top10": 1,
       "authority": null,
-      "category": "residential_local"
+      "category": "commercial_facility"
     },
     {
       "domain": "10bucksaroom.com",
@@ -1111,7 +1111,7 @@
         "top3": 0,
         "top10": 3,
         "authority": null,
-        "category": "residential_local"
+        "category": "commercial_facility"
       },
       {
         "domain": "homecleanheroes.com",
@@ -1181,7 +1181,7 @@
         "top3": 1,
         "top10": 1,
         "authority": null,
-        "category": "residential_local"
+        "category": "commercial_facility"
       },
       {
         "domain": "revenuebase.ai",
@@ -1231,7 +1231,7 @@
         "top3": 0,
         "top10": 2,
         "authority": null,
-        "category": "residential_local"
+        "category": "commercial_facility"
       },
       {
         "domain": "angi.com",
@@ -1591,7 +1591,7 @@
         "top3": 0,
         "top10": 1,
         "authority": null,
-        "category": "residential_local"
+        "category": "commercial_facility"
       },
       {
         "domain": "10bucksaroom.com",
@@ -1756,16 +1756,6 @@
         "category": "residential_local"
       },
       {
-        "domain": "ramclean.com",
-        "visibility_points": 13.6,
-        "share_of_observed_visibility": 0.55,
-        "keywords_overlapping": 3,
-        "top3": 0,
-        "top10": 3,
-        "authority": null,
-        "category": "residential_local"
-      },
-      {
         "domain": "homecleanheroes.com",
         "visibility_points": 13.5,
         "share_of_observed_visibility": 0.54,
@@ -1796,16 +1786,6 @@
         "category": "residential_local"
       },
       {
-        "domain": "collegiateclean.com",
-        "visibility_points": 10.8,
-        "share_of_observed_visibility": 0.43,
-        "keywords_overlapping": 1,
-        "top3": 1,
-        "top10": 1,
-        "authority": null,
-        "category": "residential_local"
-      },
-      {
         "domain": "aboveandbeyondcleaningenterprisesfl.com",
         "visibility_points": 10.0,
         "share_of_observed_visibility": 0.4,
@@ -1819,16 +1799,6 @@
         "domain": "wownowcleaning.com",
         "visibility_points": 10.0,
         "share_of_observed_visibility": 0.4,
-        "keywords_overlapping": 2,
-        "top3": 0,
-        "top10": 2,
-        "authority": null,
-        "category": "residential_local"
-      },
-      {
-        "domain": "aacompleteservices.com",
-        "visibility_points": 9.0,
-        "share_of_observed_visibility": 0.36,
         "keywords_overlapping": 2,
         "top3": 0,
         "top10": 2,
@@ -2006,16 +1976,6 @@
         "category": "residential_local"
       },
       {
-        "domain": "coreclean.org",
-        "visibility_points": 2.0,
-        "share_of_observed_visibility": 0.08,
-        "keywords_overlapping": 1,
-        "top3": 0,
-        "top10": 1,
-        "authority": null,
-        "category": "residential_local"
-      },
-      {
         "domain": "10bucksaroom.com",
         "visibility_points": 1.8,
         "share_of_observed_visibility": 0.07,
@@ -2108,12 +2068,42 @@
         "category": "commercial_facility"
       },
       {
+        "domain": "ramclean.com",
+        "visibility_points": 13.6,
+        "share_of_observed_visibility": 0.55,
+        "keywords_overlapping": 3,
+        "top3": 0,
+        "top10": 3,
+        "authority": null,
+        "category": "commercial_facility"
+      },
+      {
         "domain": "coverall.com",
         "visibility_points": 12.0,
         "share_of_observed_visibility": 0.48,
         "keywords_overlapping": 1,
         "top3": 1,
         "top10": 1,
+        "authority": null,
+        "category": "commercial_facility"
+      },
+      {
+        "domain": "collegiateclean.com",
+        "visibility_points": 10.8,
+        "share_of_observed_visibility": 0.43,
+        "keywords_overlapping": 1,
+        "top3": 1,
+        "top10": 1,
+        "authority": null,
+        "category": "commercial_facility"
+      },
+      {
+        "domain": "aacompleteservices.com",
+        "visibility_points": 9.0,
+        "share_of_observed_visibility": 0.36,
+        "keywords_overlapping": 2,
+        "top3": 0,
+        "top10": 2,
         "authority": null,
         "category": "commercial_facility"
       },
@@ -2171,6 +2161,16 @@
         "domain": "locations.abm.com",
         "visibility_points": 4.0,
         "share_of_observed_visibility": 0.16,
+        "keywords_overlapping": 1,
+        "top3": 0,
+        "top10": 1,
+        "authority": null,
+        "category": "commercial_facility"
+      },
+      {
+        "domain": "coreclean.org",
+        "visibility_points": 2.0,
+        "share_of_observed_visibility": 0.08,
         "keywords_overlapping": 1,
         "top3": 0,
         "top10": 1,
@@ -2442,7 +2442,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Tampa Bay Shine"
     },
     {
       "domain": "thecleaningauthority.com",
@@ -2452,7 +2453,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "maidpro.com",
@@ -2462,7 +2464,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "extrememaids.com",
@@ -2472,7 +2475,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "mollymaid.com",
@@ -2482,7 +2486,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "maids.com",
@@ -2492,7 +2497,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "bestcleaningtampallc.com",
@@ -2502,7 +2508,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "luxetampabay.com",
@@ -2512,7 +2519,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "maidpurecleaningservices.com",
@@ -2522,7 +2530,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "tpacleaning.com",
@@ -2532,7 +2541,8 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
     },
     {
       "domain": "bestway-cleaning.com",
@@ -2542,24 +2552,150 @@
       "referring_domains": null,
       "backlinks": null,
       "organic_keywords": null,
-      "organic_traffic": null
+      "organic_traffic": null,
+      "watchlist_group": "Residential"
+    },
+    {
+      "domain": "vanguardcleaning.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "stratusclean.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "servicemasterclean.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "buildingstars.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "officepride.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "anagocleaning.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "ramclean.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "coverall.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "collegiateclean.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
+    },
+    {
+      "domain": "aacompleteservices.com",
+      "moz_da": null,
+      "ahrefs_dr": null,
+      "semrush_authority": null,
+      "referring_domains": null,
+      "backlinks": null,
+      "organic_keywords": null,
+      "organic_traffic": null,
+      "watchlist_group": "Commercial"
     }
   ],
-  "authority_watchlist": [
-    "thecleaningauthority.com",
-    "maidpro.com",
-    "extrememaids.com",
-    "mollymaid.com",
-    "maids.com",
-    "bestcleaningtampallc.com",
-    "luxetampabay.com",
-    "maidpurecleaningservices.com",
-    "tpacleaning.com",
-    "bestway-cleaning.com"
-  ],
+  "authority_watchlists": {
+    "residential_local": [
+      "thecleaningauthority.com",
+      "maidpro.com",
+      "extrememaids.com",
+      "mollymaid.com",
+      "maids.com",
+      "bestcleaningtampallc.com",
+      "luxetampabay.com",
+      "maidpurecleaningservices.com",
+      "tpacleaning.com",
+      "bestway-cleaning.com"
+    ],
+    "commercial_facility": [
+      "vanguardcleaning.com",
+      "stratusclean.com",
+      "servicemasterclean.com",
+      "buildingstars.com",
+      "officepride.com",
+      "anagocleaning.com",
+      "ramclean.com",
+      "coverall.com",
+      "collegiateclean.com",
+      "aacompleteservices.com"
+    ]
+  },
   "keyword_battle": [
     {
       "query": "airbnb cleaning service tampa",
+      "query_intent": "residential_local",
       "tbs_position": 35.42,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2573,7 +2709,7 @@
         "url": "https://tpacleaning.com/",
         "title": "Professional Airbnb Cleaning Service in Tampa"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "tpacleaning.com",
         "url": "https://tpacleaning.com/",
@@ -2587,6 +2723,7 @@
     },
     {
       "query": "move out cleaning tampa",
+      "query_intent": "residential_local",
       "tbs_position": 26.76,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/",
@@ -2600,7 +2737,7 @@
         "url": "https://www.mollymaid.com/locations/greater-tampa/move-out-cleaning/",
         "title": "Choose Us for Move Out Cleaning in Tampa Bay, FL"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "mollymaid.com",
         "url": "https://www.mollymaid.com/locations/greater-tampa/move-out-cleaning/",
@@ -2618,6 +2755,7 @@
     },
     {
       "query": "move out cleaning brandon fl",
+      "query_intent": "residential_local",
       "tbs_position": 22.16,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2631,7 +2769,7 @@
         "url": "https://www.thecleaningauthority.com/brandon/",
         "title": "Brandon House Cleaning"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/brandon/",
@@ -2645,6 +2783,7 @@
     },
     {
       "query": "house cleaning near me",
+      "query_intent": "residential_local",
       "tbs_position": 10.48,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2658,7 +2797,7 @@
         "url": "https://www.yelp.com/search?find_desc=House+Cleaning+Services&find_loc=Tampa%2C+FL",
         "title": "TOP 10 BEST House Cleaning Services in Tampa, FL"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 2,
         "domain": "mollymaid.com",
         "url": "https://www.mollymaid.com/locations/greater-tampa/",
@@ -2672,6 +2811,7 @@
     },
     {
       "query": "house cleaners tampa",
+      "query_intent": "residential_local",
       "tbs_position": 11.77,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2685,7 +2825,7 @@
         "url": "https://www.yelp.com/search?find_desc=House+Cleaning+Services&find_loc=Tampa%2C+FL",
         "title": "TOP 10 BEST House Cleaning Services in Tampa, FL"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 3,
         "domain": "extrememaids.com",
         "url": "https://www.extrememaids.com/",
@@ -2698,34 +2838,8 @@
       "recommended_action": "High-value page-one / page-two opportunity"
     },
     {
-      "query": "cleaning services in tampa fl",
-      "tbs_position": 40.57,
-      "tbs_position_source": "gsc_average_position",
-      "tbs_page": null,
-      "gsc_impressions": 23.0,
-      "gsc_clicks": 0.0,
-      "gsc_position_change": -4.57,
-      "confidence": "medium",
-      "top_organic_result": {
-        "position": 1,
-        "domain": "thecleaningauthority.com",
-        "url": "https://www.thecleaningauthority.com/tampa/",
-        "title": "Tampa House Cleaning Services"
-      },
-      "top_direct_competitor": {
-        "position": 1,
-        "domain": "thecleaningauthority.com",
-        "url": "https://www.thecleaningauthority.com/tampa/",
-        "title": "Tampa House Cleaning Services"
-      },
-      "opportunity_score": 59.3,
-      "stabilization": {
-        "guarded": false
-      },
-      "recommended_action": "Build relevance and internal-link support"
-    },
-    {
       "query": "office cleaning brandon fl",
+      "query_intent": "commercial_facility",
       "tbs_position": 12.75,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2739,20 +2853,49 @@
         "url": "https://www.yelp.com/search?cflt=officecleaning&find_loc=Brandon%2C+FL",
         "title": "THE BEST 10 OFFICE CLEANING IN BRANDON, FL"
       },
-      "top_direct_competitor": {
-        "position": 3,
-        "domain": "collegiateclean.com",
-        "url": "https://collegiateclean.com/",
-        "title": "Commercial Cleaning & Janitorial Services | Brandon, FL"
+      "top_relevant_competitor": {
+        "position": 2,
+        "domain": "officepride.com",
+        "url": "https://officepride.com/brandon-fl/",
+        "title": "Commercial Cleaning Services in Brandon, FL"
       },
-      "opportunity_score": 59.2,
+      "opportunity_score": 60.2,
       "stabilization": {
         "guarded": false
       },
       "recommended_action": "High-value page-one / page-two opportunity"
     },
     {
+      "query": "cleaning services in tampa fl",
+      "query_intent": "residential_local",
+      "tbs_position": 40.57,
+      "tbs_position_source": "gsc_average_position",
+      "tbs_page": null,
+      "gsc_impressions": 23.0,
+      "gsc_clicks": 0.0,
+      "gsc_position_change": -4.57,
+      "confidence": "medium",
+      "top_organic_result": {
+        "position": 1,
+        "domain": "thecleaningauthority.com",
+        "url": "https://www.thecleaningauthority.com/tampa/",
+        "title": "Tampa House Cleaning Services"
+      },
+      "top_relevant_competitor": {
+        "position": 1,
+        "domain": "thecleaningauthority.com",
+        "url": "https://www.thecleaningauthority.com/tampa/",
+        "title": "Tampa House Cleaning Services"
+      },
+      "opportunity_score": 59.3,
+      "stabilization": {
+        "guarded": false
+      },
+      "recommended_action": "Build relevance and internal-link support"
+    },
+    {
       "query": "maid service tampa",
+      "query_intent": "residential_local",
       "tbs_position": 35.75,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/standard-cleaning-services-tampa",
@@ -2766,7 +2909,7 @@
         "url": "https://www.yelp.com/search?find_desc=Maid+Service&find_loc=Tampa%2C+FL",
         "title": "TOP 10 BEST Maid Service in Tampa, FL - Updated 2026"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 2,
         "domain": "mollymaid.com",
         "url": "https://www.mollymaid.com/locations/florida/tampa/",
@@ -2780,6 +2923,7 @@
     },
     {
       "query": "medical office cleaning tampa",
+      "query_intent": "commercial_facility",
       "tbs_position": 48.3,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2793,11 +2937,11 @@
         "url": "https://www.cleansweepsupply.biz/commercial-cleaning",
         "title": "General and Medical Office Cleaning Service in Tampa, FL"
       },
-      "top_direct_competitor": {
-        "position": 9,
-        "domain": "coreclean.org",
-        "url": "https://www.coreclean.org/florida",
-        "title": "Florida | CORE Clean | Medical Office Cleaning Services"
+      "top_relevant_competitor": {
+        "position": 2,
+        "domain": "buildingstars.com",
+        "url": "https://buildingstars.com/locations/tampa/medical-cleaning-services-in-tampa/",
+        "title": "Medical Cleaning Services in Tampa"
       },
       "opportunity_score": 57.2,
       "stabilization": {
@@ -2807,6 +2951,7 @@
     },
     {
       "query": "house cleaning tampa",
+      "query_intent": "residential_local",
       "tbs_position": 31.38,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/",
@@ -2820,7 +2965,7 @@
         "url": "https://www.yelp.com/search?find_desc=House+Cleaning+Services&find_loc=Tampa%2C+FL",
         "title": "TOP 10 BEST House Cleaning Services in Tampa, FL"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 2,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/tampa/",
@@ -2838,6 +2983,7 @@
     },
     {
       "query": "deep cleaning tampa",
+      "query_intent": "residential_local",
       "tbs_position": 17.0,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/",
@@ -2851,7 +2997,7 @@
         "url": "https://www.thecleaningauthority.com/tampa/",
         "title": "Tampa House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/tampa/",
@@ -2869,6 +3015,7 @@
     },
     {
       "query": "apartment cleaning tampa",
+      "query_intent": "residential_local",
       "tbs_position": 23.25,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/apartment-cleaning-tampa/",
@@ -2882,7 +3029,7 @@
         "url": "https://www.thecleaningauthority.com/tampa/",
         "title": "Tampa House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/tampa/",
@@ -2896,6 +3043,7 @@
     },
     {
       "query": "house cleaning apollo beach fl",
+      "query_intent": "residential_local",
       "tbs_position": 42.67,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2909,7 +3057,7 @@
         "url": "https://www.maidpro.com/apollo-beach",
         "title": "Apollo Beach, FL Best House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "maidpro.com",
         "url": "https://www.maidpro.com/apollo-beach",
@@ -2923,6 +3071,7 @@
     },
     {
       "query": "house cleaning riverview fl",
+      "query_intent": "residential_local",
       "tbs_position": 9.75,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2936,7 +3085,7 @@
         "url": "https://bestcleaningtampallc.com/",
         "title": "Best Cleaning Tampa: House Cleaning Riverview & Tampa, FL"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "bestcleaningtampallc.com",
         "url": "https://bestcleaningtampallc.com/",
@@ -2950,6 +3099,7 @@
     },
     {
       "query": "commercial cleaning tampa",
+      "query_intent": "commercial_facility",
       "tbs_position": 26.0,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/",
@@ -2963,11 +3113,11 @@
         "url": "https://www.vanguardcleaning.com/cleaning/florida-tampa/",
         "title": "Commercial Cleaning Services in Tampa Bay, FL"
       },
-      "top_direct_competitor": {
-        "position": 4,
-        "domain": "ramclean.com",
-        "url": "https://ramclean.com/locations/tampa-fl/",
-        "title": "Commercial Cleaning Service - Janitorial Company"
+      "top_relevant_competitor": {
+        "position": 1,
+        "domain": "vanguardcleaning.com",
+        "url": "https://www.vanguardcleaning.com/cleaning/florida-tampa/",
+        "title": "Commercial Cleaning Services in Tampa Bay, FL"
       },
       "opportunity_score": 54.8,
       "stabilization": {
@@ -2981,6 +3131,7 @@
     },
     {
       "query": "post construction cleaning tampa",
+      "query_intent": "commercial_facility",
       "tbs_position": 48.5,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": null,
@@ -2994,11 +3145,11 @@
         "url": "https://www.stratusclean.com/locations/tampa/commercial-cleaning/construction-cleaning/",
         "title": "Post-Construction Cleaning Services in Tampa, Florida"
       },
-      "top_direct_competitor": {
-        "position": 4,
-        "domain": "aboveandbeyondcleaningenterprisesfl.com",
-        "url": "https://www.aboveandbeyondcleaningenterprisesfl.com/post-construction-cleaning-services",
-        "title": "Post-Construction Cleaning Services | Tampa, FL"
+      "top_relevant_competitor": {
+        "position": 1,
+        "domain": "stratusclean.com",
+        "url": "https://www.stratusclean.com/locations/tampa/commercial-cleaning/construction-cleaning/",
+        "title": "Post-Construction Cleaning Services in Tampa, Florida"
       },
       "opportunity_score": 54.6,
       "stabilization": {
@@ -3008,6 +3159,7 @@
     },
     {
       "query": "move in cleaning tampa",
+      "query_intent": "residential_local",
       "tbs_position": 24.0,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/move-out-cleaning-tampa/",
@@ -3021,7 +3173,7 @@
         "url": "https://www.extrememaids.com/",
         "title": "Tampa House Cleaning Services | Maid Services Tampa, FL"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "extrememaids.com",
         "url": "https://www.extrememaids.com/",
@@ -3035,6 +3187,7 @@
     },
     {
       "query": "office cleaning tampa",
+      "query_intent": "commercial_facility",
       "tbs_position": 60.71,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/office-cleaning/",
@@ -3048,11 +3201,11 @@
         "url": "https://www.yelp.com/search?cflt=officecleaning&find_loc=Tampa%2C+FL",
         "title": "THE BEST 10 OFFICE CLEANING IN TAMPA, FL"
       },
-      "top_direct_competitor": {
-        "position": 7,
-        "domain": "aacompleteservices.com",
-        "url": "https://www.aacompleteservices.com/",
-        "title": "Professional Cleaning Solutions | Tampa, FL"
+      "top_relevant_competitor": {
+        "position": 2,
+        "domain": "vanguardcleaning.com",
+        "url": "https://www.vanguardcleaning.com/cleaning/florida-tampa/",
+        "title": "Commercial Cleaning Services in Tampa Bay, FL"
       },
       "opportunity_score": 53.2,
       "stabilization": {
@@ -3062,6 +3215,7 @@
     },
     {
       "query": "house cleaning services tampa",
+      "query_intent": "residential_local",
       "tbs_position": 17.5,
       "tbs_position_source": "gsc_average_position",
       "tbs_page": "https://tampabayshine.com/",
@@ -3075,7 +3229,7 @@
         "url": "https://www.thecleaningauthority.com/tampa/",
         "title": "Tampa House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/tampa/",
@@ -3093,6 +3247,7 @@
     },
     {
       "query": "house cleaning south tampa",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3106,7 +3261,7 @@
         "url": "https://www.yelp.com/search?find_desc=House+Cleaning+Services&find_loc=South+Tampa%2C+Tampa+Bay%2C+FL",
         "title": "TOP 10 BEST House Cleaning Services near South Tampa ..."
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 2,
         "domain": "maids.com",
         "url": "https://www.maids.com/157/",
@@ -3120,6 +3275,7 @@
     },
     {
       "query": "maid service south tampa",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3133,7 +3289,7 @@
         "url": "https://www.maids.com/157/",
         "title": "Trusted House Cleaning Services In Tampa, FL - The Maids"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "maids.com",
         "url": "https://www.maids.com/157/",
@@ -3147,6 +3303,7 @@
     },
     {
       "query": "house cleaning downtown tampa",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3160,7 +3317,7 @@
         "url": "https://www.thecleaningauthority.com/tampa/",
         "title": "Tampa House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/tampa/",
@@ -3174,6 +3331,7 @@
     },
     {
       "query": "house cleaning brandon fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3187,7 +3345,7 @@
         "url": "https://www.thecleaningauthority.com/brandon/",
         "title": "Brandon House Cleaning"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/brandon/",
@@ -3201,6 +3359,7 @@
     },
     {
       "query": "maid service brandon fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3214,7 +3373,7 @@
         "url": "https://www.thecleaningauthority.com/brandon/",
         "title": "Brandon House Cleaning"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "thecleaningauthority.com",
         "url": "https://www.thecleaningauthority.com/brandon/",
@@ -3228,6 +3387,7 @@
     },
     {
       "query": "maid service riverview fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3241,7 +3401,7 @@
         "url": "https://www.maidpro.com/riverview",
         "title": "Riverview, FL Best House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "maidpro.com",
         "url": "https://www.maidpro.com/riverview",
@@ -3255,6 +3415,7 @@
     },
     {
       "query": "house cleaning ruskin fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3268,7 +3429,7 @@
         "url": "https://bestway-cleaning.com/",
         "title": "Bestway Cleaning: Cover"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "bestway-cleaning.com",
         "url": "https://bestway-cleaning.com/",
@@ -3282,6 +3443,7 @@
     },
     {
       "query": "house cleaning sun city center fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3295,7 +3457,7 @@
         "url": "https://www.maidpro.com/sun-city-center",
         "title": "Sun City Center, FL Best House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "maidpro.com",
         "url": "https://www.maidpro.com/sun-city-center",
@@ -3309,6 +3471,7 @@
     },
     {
       "query": "house cleaning wesley chapel fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3322,7 +3485,7 @@
         "url": "https://www.maidpro.com/wesley-chapel-fl",
         "title": "Wesley Chapel, FL Best House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "maidpro.com",
         "url": "https://www.maidpro.com/wesley-chapel-fl",
@@ -3336,6 +3499,7 @@
     },
     {
       "query": "move out cleaning riverview fl",
+      "query_intent": "residential_local",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3349,7 +3513,7 @@
         "url": "https://www.maidpro.com/riverview",
         "title": "Riverview, FL Best House Cleaning Services"
       },
-      "top_direct_competitor": {
+      "top_relevant_competitor": {
         "position": 1,
         "domain": "maidpro.com",
         "url": "https://www.maidpro.com/riverview",
@@ -3363,6 +3527,7 @@
     },
     {
       "query": "commercial cleaning south tampa",
+      "query_intent": "commercial_facility",
       "tbs_position": null,
       "tbs_position_source": "unavailable",
       "tbs_page": null,
@@ -3376,11 +3541,11 @@
         "url": "https://www.vanguardcleaning.com/cleaning/florida-tampa/",
         "title": "Commercial Cleaning Services in Tampa Bay, FL"
       },
-      "top_direct_competitor": {
-        "position": 7,
-        "domain": "ramclean.com",
-        "url": "https://ramclean.com/locations/tampa-fl/",
-        "title": "Commercial Cleaning Service - Janitorial Company"
+      "top_relevant_competitor": {
+        "position": 1,
+        "domain": "vanguardcleaning.com",
+        "url": "https://www.vanguardcleaning.com/cleaning/florida-tampa/",
+        "title": "Commercial Cleaning Services in Tampa Bay, FL"
       },
       "opportunity_score": 16.5,
       "stabilization": {
@@ -3403,9 +3568,9 @@
       "10": 1
     },
     "important": [
-      "Residential/local cleaners, commercial/facility cleaners, external platforms, and irrelevant/adjacent domains are classified separately.",
+      "Keyword comparison is intent-aware: residential queries benchmark residential/local cleaners; commercial/office/medical/post-construction/janitorial queries benchmark commercial/facility cleaners.",
+      "Top organic result remains visible separately because directories and irrelevant results can still occupy rank #1.",
       "TBS visibility is 0.0% when SERPs are observed but Tampa Bay Shine is absent from the captured Top 10.",
-      "Keyword rows show both the top organic result and the top residential/local cleaning competitor.",
       "GSC average position is a labeled TBS-only fallback and is not treated as a live competitor rank."
     ]
   }
