@@ -15,7 +15,11 @@ DEFAULT_GA4 = DATA_DIR / "ga4.json"
 DEFAULT_AI = DATA_DIR / "ai.json"
 DEFAULT_AI_VISIBILITY = DATA_DIR / "ai-visibility.json"
 DEFAULT_EVENTS = DATA_DIR / "events.json"
+DEFAULT_QUERY_HISTORY = DATA_DIR / "query-history.json"
 DEFAULT_OUT = DATA_DIR / "opportunity-intelligence.json"
+
+MEASUREMENT_BOUNDARY = "2026-10-05"
+DEPRIORITIZED_QUERY_TERMS = ("floor cleaning", "floor stripping", "floor waxing", "stripping and waxing")
 
 COMMERCIAL_TERMS = (
     "cleaning",
@@ -88,6 +92,46 @@ def is_commercial_query(query):
         any(term in text for term in COMMERCIAL_TERMS)
         and any(term in text for term in SERVICE_TERMS)
     )
+
+
+def post_boundary_context(query, query_history, boundary=MEASUREMENT_BOUNDARY):
+    """Summarize observed query rows on/after the measurement boundary."""
+    if not query:
+        return None
+    rows = {str(x.get("query") or "").strip().lower(): x for x in query_history.get("queries", [])}
+    row = rows.get(str(query).strip().lower())
+    history_end = (query_history.get("period") or {}).get("end")
+    points = [p for p in ((row or {}).get("points") or []) if p and str(p[0]) >= boundary]
+    impressions = sum(number(p[2]) for p in points)
+    clicks = sum(number(p[1]) for p in points)
+    position = (sum(number(p[4]) * number(p[2]) for p in points) / impressions) if impressions else None
+    if history_end and history_end < boundary:
+        status = "awaiting_post_boundary_data"
+    elif not row:
+        status = "query_not_retained"
+    elif not points:
+        status = "no_observed_post_boundary_rows"
+    elif impressions < 15:
+        status = "insufficient_post_boundary_volume"
+    else:
+        status = "post_boundary_evidence_available"
+    return {"boundary": boundary, "history_end": history_end, "status": status,
+            "observed_days": len(points), "impressions": impressions, "clicks": clicks,
+            "ctr_percent": round(clicks / impressions * 100, 2) if impressions else None,
+            "position": round(position, 2) if position is not None else None}
+
+
+def business_priority_context(query=None, page=None):
+    page_text = (normalize_path(page) or "").lower()
+    page_text = page_text.replace("-", " ").replace("_", " ").replace("/", " ")
+    text = " ".join([
+        str(query or "").lower(),
+        page_text,
+    ])
+    text = " ".join(text.split())
+    matched = next((term for term in DEPRIORITIZED_QUERY_TERMS if term in text), None)
+    return {"status": "deprioritized" if matched else "active", "matched_term": matched,
+            "reason": "Service is not a current business focus." if matched else None}
 
 
 def landing_page_map(ga4):
@@ -203,7 +247,7 @@ def stable_opportunity_id(
     return f"opp-{digest}"
 
 
-def build_intelligence(gsc, ga4, ai, ai_visibility, events):
+def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
     ga4_pages = landing_page_map(ga4)
     items = []
     seen = set()
@@ -226,6 +270,25 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
 
         seen.add(key)
 
+        post_change = post_boundary_context(query, query_history)
+        business_priority = business_priority_context(query=query, page=page)
+        if query and post_change and post_change["status"] != "post_boundary_evidence_available":
+            if priority == "high":
+                priority = "medium"
+            if confidence in ("high", "medium"):
+                confidence = "low"
+            recommended_action = (
+                f"Hold site changes until enough GSC evidence exists after the {MEASUREMENT_BOUNDARY} "
+                "measurement boundary. " + recommended_action
+            )
+        if business_priority["status"] == "deprioritized":
+            priority = "low"
+            confidence = "low"
+            recommended_action = (
+                "Retain measurement, but do not optimize this query while the service is "
+                "not a current business focus."
+            )
+
         items.append({
             "id": stable_opportunity_id(
                 opportunity_type,
@@ -241,6 +304,8 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
             "page": page,
             "why_flagged": why_flagged,
             "evidence": evidence,
+            "post_change_evidence": post_change,
+            "business_priority": business_priority,
             "conversion_context": conversion_context(page, ga4_pages, ga4),
             "recommended_action": recommended_action,
             "measurement": measurement_plan(query=query, page=page),
@@ -319,6 +384,7 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
             and position is not None
             and position <= 15
             and ctr < 2.0
+            and not (position <= 3 and impressions < 50)
         ):
             add(
                 "ctr_opportunity",
@@ -535,6 +601,19 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
 
     items = consolidated
 
+    preference = {"gsc_action": 0, "commercial_striking_distance": 1, "ctr_opportunity": 2}
+    by_query = {}
+    no_query = []
+    for item in items:
+        q = str(item.get("query") or "").strip().lower()
+        if not q:
+            no_query.append(item)
+            continue
+        current = by_query.get(q)
+        if current is None or preference.get(item.get("type"), 9) < preference.get(current.get("type"), 9):
+            by_query[q] = item
+    items = no_query + list(by_query.values())
+
     priority_order = {"high": 0, "medium": 1, "low": 2}
     confidence_order = {"high": 0, "medium": 1, "low": 2}
 
@@ -578,6 +657,10 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events):
                 "AI referrals do not measure no-click AI answers.",
                 "SEO event timing is context, not proof of causation.",
                 "Small samples reduce confidence.",
+                "GSC query actions are held at low confidence until enough post-2026-10-05 evidence exists.",
+                "Low-volume #1-3 rankings are protected from premature CTR optimization.",
+                "Business-deprioritized services remain measurable but rank low.",
+                "Duplicate exact-query recommendations are consolidated.",
             ],
         },
         "actions": items,
@@ -597,6 +680,7 @@ def main():
         default=DEFAULT_AI_VISIBILITY,
     )
     parser.add_argument("--events", type=Path, default=DEFAULT_EVENTS)
+    parser.add_argument("--query-history", type=Path, default=DEFAULT_QUERY_HISTORY)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
 
@@ -606,6 +690,7 @@ def main():
         load_json(args.ai),
         load_json(args.ai_visibility, {"observations": []}),
         load_json(args.events, {"events": []}),
+        load_json(args.query_history, {"queries": [], "period": {}}),
     )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)

@@ -1,16 +1,16 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-06T18:54:37.266740+00:00",
+  "generated_at": "2026-10-07T13:26:45.328006+00:00",
   "period": {
     "start": "2026-09-06",
     "end": "2026-10-03",
     "days": 28
   },
   "counts": {
-    "total": 21,
-    "high": 2,
-    "medium": 19,
-    "low": 0
+    "total": 18,
+    "high": 0,
+    "medium": 16,
+    "low": 2
   },
   "methodology": {
     "purpose": "Evidence-based weekly SEO/AEO opportunity queue using existing dashboard datasets.",
@@ -27,81 +27,14 @@
       "Booking starts are not confirmed bookings.",
       "AI referrals do not measure no-click AI answers.",
       "SEO event timing is context, not proof of causation.",
-      "Small samples reduce confidence."
+      "Small samples reduce confidence.",
+      "GSC query actions are held at low confidence until enough post-2026-10-05 evidence exists.",
+      "Low-volume #1-3 rankings are protected from premature CTR optimization.",
+      "Business-deprioritized services remain measurable but rank low.",
+      "Duplicate exact-query recommendations are consolidated."
     ]
   },
   "actions": [
-    {
-      "id": "opp-09bac2d3c84767d1",
-      "type": "gsc_action",
-      "priority": "high",
-      "confidence": "high",
-      "subject": "tampa bay cleaning services",
-      "query": "tampa bay cleaning services",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 59 to 24 (-35, 59% decline); position change -5.77. Current landing page: https://tampabayshine.com/.",
-        "data_level": "high"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for tampa bay cleaning services. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-b8b218fc905377a1",
-      "type": "commercial_striking_distance",
-      "priority": "high",
-      "confidence": "medium",
-      "subject": "house cleaning near me",
-      "query": "house cleaning near me",
-      "page": null,
-      "why_flagged": "Commercial-intent query is already within positions 4-20 and has enough current impressions to justify focused optimization.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-09-06",
-          "end": "2026-10-03",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 22.0,
-        "ctr_percent": 0.0,
-        "position": 9.18,
-        "position_change": -6.85
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning near me. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
     {
       "id": "opp-6a9f1a36a950d424",
       "type": "ai_measurement_gap",
@@ -113,6 +46,12 @@
       "why_flagged": "No controlled AI answer-visibility observations are currently stored, so mentions and citations cannot yet be trended.",
       "evidence": {
         "observations": 0
+      },
+      "post_change_evidence": null,
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
       },
       "conversion_context": {
         "scope": "organic_sitewide",
@@ -133,22 +72,44 @@
       "seo_events": []
     },
     {
-      "id": "opp-33478d6b0afb935e",
-      "type": "gsc_action",
+      "id": "opp-b8b218fc905377a1",
+      "type": "commercial_striking_distance",
       "priority": "medium",
-      "confidence": "high",
-      "subject": "https://tampabayshine.com/floor-cleaning",
-      "query": null,
-      "page": "https://tampabayshine.com/floor-cleaning",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
+      "confidence": "low",
+      "subject": "house cleaning near me",
+      "query": "house cleaning near me",
+      "page": null,
+      "why_flagged": "Commercial-intent query is already within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
-        "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 43 to 8 (-35, 81% decline).",
-        "data_level": "high"
+        "gsc_period": {
+          "start": "2026-09-06",
+          "end": "2026-10-03",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 22.0,
+        "ctr_percent": 0.0,
+        "position": 9.18,
+        "position_change": -6.85
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
       },
       "conversion_context": {
         "scope": "organic_sitewide",
-        "path": "/floor-cleaning",
+        "path": null,
         "sessions": 7.0,
         "booking_starts": 2.0,
         "confirmed_bookings": 0.0,
@@ -156,105 +117,9 @@
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
-      "recommended_action": "Review the queries that previously generated visibility for this URL. Check indexing, canonical status, internal links, recent content changes, and competing pages before rewriting it.",
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for https://tampabayshine.com/floor-cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-b3ef59dfce551779",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "high",
-      "subject": "maid services apollo beach fl",
-      "query": "maid services apollo beach fl",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 37 to 20 (-17, 46% decline); position change +7.67. Current landing page: https://tampabayshine.com/.",
-        "data_level": "high"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for maid services apollo beach fl. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-a272dc2abb812771",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "high",
-      "subject": "office cleaning brandon fl",
-      "query": "office cleaning brandon fl",
-      "page": "https://tampabayshine.com/office-cleaning-brandon/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 37 to 14 (-23, 62% decline); position change +8.40. Current landing page: https://tampabayshine.com/office-cleaning-brandon/.",
-        "data_level": "high"
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": "/office-cleaning-brandon",
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for office cleaning brandon fl. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-e8d187f833142c53",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "high",
-      "subject": "restroom cleaning service",
-      "query": "restroom cleaning service",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 41 to 26 (-15, 37% decline); position change +1.66. Current landing page: https://tampabayshine.com/.",
-        "data_level": "high"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for restroom cleaning service. Confirm that Google is still selecting the intended landing page.",
+        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning near me. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -264,7 +129,7 @@
       "id": "opp-aa0361b958ef2bde",
       "type": "commercial_striking_distance",
       "priority": "medium",
-      "confidence": "medium",
+      "confidence": "low",
       "subject": "post construction cleaning",
       "query": "post construction cleaning",
       "page": null,
@@ -281,6 +146,21 @@
         "position": 9.32,
         "position_change": -5.41
       },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
@@ -291,411 +171,9 @@
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for post construction cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-420f724e266eb6f8",
-      "type": "ctr_opportunity",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "house cleaning near me",
-      "query": "house cleaning near me",
-      "page": null,
-      "why_flagged": "The query has meaningful impressions and useful average position but is generating little or no click-through.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-09-06",
-          "end": "2026-10-03",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 22.0,
-        "ctr_percent": 0.0,
-        "position": 9.18
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Review the search-result title and meta description against the query's intent. Verify the landing page immediately confirms the service and Tampa-area relevance. Do not change content solely because of a low-volume CTR fluctuation.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning near me. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-ada6f684e7660c32",
-      "type": "ctr_opportunity",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "office cleaning",
-      "query": "office cleaning",
-      "page": null,
-      "why_flagged": "The query has meaningful impressions and useful average position but is generating little or no click-through.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-09-06",
-          "end": "2026-10-03",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 20.0,
-        "ctr_percent": 0.0,
-        "position": 2.85
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Review the search-result title and meta description against the query's intent. Verify the landing page immediately confirms the service and Tampa-area relevance. Do not change content solely because of a low-volume CTR fluctuation.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for office cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-f6a3f730be7e250c",
-      "type": "ctr_opportunity",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "restroom cleaning services",
-      "query": "restroom cleaning services",
-      "page": null,
-      "why_flagged": "The query has meaningful impressions and useful average position but is generating little or no click-through.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-09-06",
-          "end": "2026-10-03",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 29.0,
-        "ctr_percent": 0.0,
-        "position": 1.03
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Review the search-result title and meta description against the query's intent. Verify the landing page immediately confirms the service and Tampa-area relevance. Do not change content solely because of a low-volume CTR fluctuation.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for restroom cleaning services. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-665512d866332be1",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "bank cleaning services",
-      "query": "bank cleaning services",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 27 to 10 (-17, 63% decline); position change +14.05. Current landing page: https://tampabayshine.com/.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for bank cleaning services. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-4c65d24b501a6160",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "commercial floor cleaning",
-      "query": "commercial floor cleaning",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 28 to 13 (-15, 54% decline); position change +12.26. Current landing page: https://tampabayshine.com/.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for commercial floor cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-2d0f7ce295500624",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "home cleaning apollo beach fl",
-      "query": "home cleaning apollo beach fl",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 28 to 12 (-16, 57% decline); position change +2.07. Current landing page: https://tampabayshine.com/.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for home cleaning apollo beach fl. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-26b53f11caf3be14",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "house cleaners tampa",
-      "query": "house cleaners tampa",
-      "page": "https://tampabayshine.com/house-cleaning-south-tampa-fl",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
-      "evidence": {
-        "category": "Striking distance",
-        "gsc_evidence": "Position 12.83; 24 impressions; impressions +16; position improvement +13.79.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": "/house-cleaning-south-tampa-fl",
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaners tampa. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-e140345e97c59441",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "house cleaning services apollo beach fl",
-      "query": "house cleaning services apollo beach fl",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 32 to 16 (-16, 50% decline); position change -5.59. Current landing page: https://tampabayshine.com/.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning services apollo beach fl. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-99645118da1eba83",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "house cleaning tampa fl",
-      "query": "house cleaning tampa fl",
-      "page": "https://tampabayshine.com/house-cleaning-south-tampa-fl",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
-      "evidence": {
-        "category": "Striking distance",
-        "gsc_evidence": "Position 16.70; 20 impressions; impressions +18; position improvement +18.80.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": "/house-cleaning-south-tampa-fl",
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning tampa fl. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-0b76565265320618",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "move in move out cleaning wesley chapel fl",
-      "query": "move in move out cleaning wesley chapel fl",
-      "page": "https://tampabayshine.com/move-out-cleaning-wesley-chapel",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 26 to 0 (-26, 100% decline); position change +0.00. Current period has no ranking URL; previous landing page: https://tampabayshine.com/move-out-cleaning-wesley-chapel.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": "/move-out-cleaning-wesley-chapel",
-        "sessions": 7.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 28.57,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for move in move out cleaning wesley chapel fl. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-cb9373932d1bba4a",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "move out cleaning tampa",
-      "query": "move out cleaning tampa",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
-      "evidence": {
-        "category": "Emerging opportunity",
-        "gsc_evidence": "Position 26.76; 21 impressions; impressions +15.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for move out cleaning tampa. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-ac6b62283112ff74",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "tampa office cleaning",
-      "query": "tampa office cleaning",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
-      "evidence": {
-        "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 35 to 11 (-24, 69% decline); position change +18.35. Current landing page: https://tampabayshine.com/.",
-        "data_level": "medium"
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 6.0,
-        "booking_starts": 2.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 33.33,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for tampa office cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -717,6 +195,12 @@
         "booking_start_rate": 28.57,
         "confirmed_booking_rate": 0.0
       },
+      "post_change_evidence": null,
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
@@ -730,6 +214,709 @@
       "recommended_action": "Do not assume the traffic failed to convert. Verify BookingKoala cross-domain attribution and then review the booking flow for friction. Keep booking starts and confirmed bookings as separate funnel stages.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for the affected search opportunity. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-665512d866332be1",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "bank cleaning services",
+      "query": "bank cleaning services",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 27 to 10 (-17, 63% decline); position change +14.05. Current landing page: https://tampabayshine.com/.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for bank cleaning services. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-2d0f7ce295500624",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "home cleaning apollo beach fl",
+      "query": "home cleaning apollo beach fl",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 28 to 12 (-16, 57% decline); position change +2.07. Current landing page: https://tampabayshine.com/.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for home cleaning apollo beach fl. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-26b53f11caf3be14",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "house cleaners tampa",
+      "query": "house cleaners tampa",
+      "page": "https://tampabayshine.com/house-cleaning-south-tampa-fl",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
+      "evidence": {
+        "category": "Striking distance",
+        "gsc_evidence": "Position 12.83; 24 impressions; impressions +16; position improvement +13.79.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/house-cleaning-south-tampa-fl",
+        "sessions": 7.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 28.57,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaners tampa. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-e140345e97c59441",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "house cleaning services apollo beach fl",
+      "query": "house cleaning services apollo beach fl",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 32 to 16 (-16, 50% decline); position change -5.59. Current landing page: https://tampabayshine.com/.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning services apollo beach fl. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-99645118da1eba83",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "house cleaning tampa fl",
+      "query": "house cleaning tampa fl",
+      "page": "https://tampabayshine.com/house-cleaning-south-tampa-fl",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
+      "evidence": {
+        "category": "Striking distance",
+        "gsc_evidence": "Position 16.70; 20 impressions; impressions +18; position improvement +18.80.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/house-cleaning-south-tampa-fl",
+        "sessions": 7.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 28.57,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning tampa fl. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-b3ef59dfce551779",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "maid services apollo beach fl",
+      "query": "maid services apollo beach fl",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 37 to 20 (-17, 46% decline); position change +7.67. Current landing page: https://tampabayshine.com/.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for maid services apollo beach fl. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-0b76565265320618",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "move in move out cleaning wesley chapel fl",
+      "query": "move in move out cleaning wesley chapel fl",
+      "page": "https://tampabayshine.com/move-out-cleaning-wesley-chapel",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 26 to 0 (-26, 100% decline); position change +0.00. Current period has no ranking URL; previous landing page: https://tampabayshine.com/move-out-cleaning-wesley-chapel.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/move-out-cleaning-wesley-chapel",
+        "sessions": 7.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 28.57,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for move in move out cleaning wesley chapel fl. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-cb9373932d1bba4a",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "move out cleaning tampa",
+      "query": "move out cleaning tampa",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
+      "evidence": {
+        "category": "Emerging opportunity",
+        "gsc_evidence": "Position 26.76; 21 impressions; impressions +15.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for move out cleaning tampa. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-a272dc2abb812771",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "office cleaning brandon fl",
+      "query": "office cleaning brandon fl",
+      "page": "https://tampabayshine.com/office-cleaning-brandon/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 37 to 14 (-23, 62% decline); position change +8.40. Current landing page: https://tampabayshine.com/office-cleaning-brandon/.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/office-cleaning-brandon",
+        "sessions": 7.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 28.57,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for office cleaning brandon fl. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-e8d187f833142c53",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "restroom cleaning service",
+      "query": "restroom cleaning service",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 41 to 26 (-15, 37% decline); position change +1.66. Current landing page: https://tampabayshine.com/.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for restroom cleaning service. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-09bac2d3c84767d1",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "tampa bay cleaning services",
+      "query": "tampa bay cleaning services",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 59 to 24 (-35, 59% decline); position change -5.77. Current landing page: https://tampabayshine.com/.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for tampa bay cleaning services. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-ac6b62283112ff74",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "low",
+      "subject": "tampa office cleaning",
+      "query": "tampa office cleaning",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 35 to 11 (-24, 69% decline); position change +18.35. Current landing page: https://tampabayshine.com/.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Hold site changes until enough GSC evidence exists after the 2026-10-05 measurement boundary. Inspect the query and landing-page history before changing content. Determine whether the loss reflects ranking decline, reduced search demand, indexing/canonical changes, or Google selecting a different URL.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for tampa office cleaning. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-4c65d24b501a6160",
+      "type": "gsc_action",
+      "priority": "low",
+      "confidence": "low",
+      "subject": "commercial floor cleaning",
+      "query": "commercial floor cleaning",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
+      "evidence": {
+        "category": "Visibility decline",
+        "gsc_evidence": "Impressions fell from 28 to 13 (-15, 54% decline); position change +12.26. Current landing page: https://tampabayshine.com/.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-10-03",
+        "status": "awaiting_post_boundary_data",
+        "observed_days": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr_percent": null,
+        "position": null
+      },
+      "business_priority": {
+        "status": "deprioritized",
+        "matched_term": "floor cleaning",
+        "reason": "Service is not a current business focus."
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 6.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 33.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Retain measurement, but do not optimize this query while the service is not a current business focus.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for commercial floor cleaning. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        }
+      ]
+    },
+    {
+      "id": "opp-33478d6b0afb935e",
+      "type": "gsc_action",
+      "priority": "low",
+      "confidence": "low",
+      "subject": "https://tampabayshine.com/floor-cleaning",
+      "query": null,
+      "page": "https://tampabayshine.com/floor-cleaning",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
+      "evidence": {
+        "category": "Page visibility decline",
+        "gsc_evidence": "Page impressions fell from 43 to 8 (-35, 81% decline).",
+        "data_level": "high"
+      },
+      "post_change_evidence": null,
+      "business_priority": {
+        "status": "deprioritized",
+        "matched_term": "floor cleaning",
+        "reason": "Service is not a current business focus."
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/floor-cleaning",
+        "sessions": 7.0,
+        "booking_starts": 2.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 28.57,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Retain measurement, but do not optimize this query while the service is not a current business focus.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for https://tampabayshine.com/floor-cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
