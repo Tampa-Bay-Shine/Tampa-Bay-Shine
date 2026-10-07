@@ -1819,6 +1819,16 @@ td:first-child{
 #pi-meta{margin-top:18px}
 @media(max-width:800px){.pi-grid{grid-template-columns:1fr}}
 </style>
+
+<style id="sortable-table-enhancements">
+table thead th[data-sortable="true"]{cursor:pointer;user-select:none;position:relative;padding-right:22px}
+table thead th[data-sortable="true"]::after{content:"↕";position:absolute;right:7px;opacity:.35;font-size:11px}
+table thead th[data-sort-dir="asc"]::after{content:"▲";opacity:.8}
+table thead th[data-sort-dir="desc"]::after{content:"▼";opacity:.8}
+table tbody tr.tbs-highlight>td{background:#fff4c2 !important;font-weight:700}
+table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
+</style>
+
 </head><body><main>
 <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
   <a href="/guide/"
@@ -2016,7 +2026,7 @@ td:first-child{
 
 <section id="actions" class="tab active">
 <h2>SEO Action Center</h2>
-<p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes.</p>
+<p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes. During the Oct. 5 migration measurement phase, historical signals remain visible but are not promoted to High Priority until the full current comparison window is post-boundary.</p>
 
 <div class="action-summary">
   <div class="action-summary-card">
@@ -4537,4 +4547,17 @@ fetch("./data/competitor-intelligence.json",{cache:"no-store"})
 });
 })();
 </script>
+
+<script id="sortable-table-enhancements-js">
+(function(){
+ function val(c){const r=(c?.textContent||"").trim();if(!r||r==="--")return{k:"e",v:""};const x=r.replace(/,/g,"").replace(/[$%]/g,"").trim();if(/^[-+]?\d*\.?\d+$/.test(x))return{k:"n",v:Number(x)};return{k:"t",v:r.toLowerCase()}}
+ function cmp(a,b,i,d){const A=val(a.cells[i]),B=val(b.cells[i]);if(A.k==="e"&&B.k!=="e")return 1;if(B.k==="e"&&A.k!=="e")return-1;let r=A.k==="n"&&B.k==="n"?A.v-B.v:String(A.v).localeCompare(String(B.v),undefined,{numeric:true,sensitivity:"base"});return d==="asc"?r:-r}
+ function hi(t){Array.from(t?.tBodies||[]).forEach(b=>Array.from(b.rows).forEach(r=>{const x=(r.textContent||"").toLowerCase();r.classList.toggle("tbs-highlight",x.includes("tampa bay shine")||x.includes("tampabayshine.com"))}))}
+ function en(t){if(!t)return;if(t.dataset.sortEnhanced==="true"){hi(t);return}const hr=t.tHead?.rows?.[0];if(!hr)return;t.dataset.sortEnhanced="true";Array.from(hr.cells).forEach((th,i)=>{th.dataset.sortable="true";th.title=(th.title?th.title+" · ":"")+"Click to sort";th.addEventListener("click",()=>{const d=th.dataset.sortDir==="asc"?"desc":"asc";Array.from(hr.cells).forEach(x=>delete x.dataset.sortDir);th.dataset.sortDir=d;Array.from(t.tBodies||[]).forEach(b=>{Array.from(b.rows).sort((a,c)=>cmp(a,c,i,d)).forEach(r=>b.appendChild(r))});hi(t)})});hi(t)}
+ function all(){document.querySelectorAll("table").forEach(en)}
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",all);else all();
+ new MutationObserver(()=>all()).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
 </body></html>

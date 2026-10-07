@@ -272,14 +272,17 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
 
         post_change = post_boundary_context(query, query_history)
         business_priority = business_priority_context(query=query, page=page)
+        decision_status = "actionable"
         if query and post_change and post_change["status"] != "post_boundary_evidence_available":
+            decision_status = "awaiting_post_change_evidence"
             if priority == "high":
                 priority = "medium"
             if confidence in ("high", "medium"):
                 confidence = "low"
             recommended_action = (
-                f"Hold site changes until enough GSC evidence exists after the {MEASUREMENT_BOUNDARY} "
-                "measurement boundary. " + recommended_action
+                f"Awaiting post-change evidence. Hold site changes until enough GSC "
+                f"evidence exists after the {MEASUREMENT_BOUNDARY} measurement boundary. "
+                + recommended_action
             )
         if business_priority["status"] == "deprioritized":
             priority = "low"
@@ -305,6 +308,7 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
             "why_flagged": why_flagged,
             "evidence": evidence,
             "post_change_evidence": post_change,
+            "decision_status": decision_status,
             "business_priority": business_priority,
             "conversion_context": conversion_context(page, ga4_pages, ga4),
             "recommended_action": recommended_action,
@@ -657,7 +661,7 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
                 "AI referrals do not measure no-click AI answers.",
                 "SEO event timing is context, not proof of causation.",
                 "Small samples reduce confidence.",
-                "GSC query actions are held at low confidence until enough post-2026-10-05 evidence exists.",
+                "GSC query actions are explicitly marked awaiting_post_change_evidence until enough post-2026-10-05 evidence exists.",
                 "Low-volume #1-3 rankings are protected from premature CTR optimization.",
                 "Business-deprioritized services remain measurable but rank low.",
                 "Duplicate exact-query recommendations are consolidated.",

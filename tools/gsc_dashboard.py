@@ -310,6 +310,9 @@ def build_movers(current_rows, previous_rows, dimensions, limit=25):
 
 
 
+MEASUREMENT_BOUNDARY = "2026-10-05"
+
+
 def build_action_center(
     query_movers,
     page_movers,
@@ -2277,6 +2280,32 @@ def main():
         cqp,
         pqp,
     )
+
+    # Migration measurement guard: retain historical signals, but do not
+    # promote them as High Priority until the full current 28-day window
+    # begins on/after the Oct. 5 measurement boundary.
+    full_current_period_post_boundary = start.isoformat() >= MEASUREMENT_BOUNDARY
+    action_center["measurement_boundary"] = MEASUREMENT_BOUNDARY
+    if not full_current_period_post_boundary:
+        action_center["measurement_status"] = "awaiting_post_change_evidence"
+        for action in action_center.get("actions", []):
+            action["measurement_status"] = "awaiting_post_change_evidence"
+            action["measurement_boundary"] = MEASUREMENT_BOUNDARY
+            if action.get("priority") == "high":
+                action["priority"] = "medium"
+            prefix = (f"Awaiting post-change evidence: the current 28-day comparison "
+                      f"window begins before the {MEASUREMENT_BOUNDARY} measurement boundary. ")
+            recommendation = str(action.get("recommended_action") or "")
+            if not recommendation.startswith("Awaiting post-change evidence:"):
+                action["recommended_action"] = prefix + recommendation
+        counts=action_center.get("counts",{}); actions=action_center.get("actions",[])
+        counts["high"]=sum(1 for x in actions if x.get("priority")=="high")
+        counts["medium"]=sum(1 for x in actions if x.get("priority")=="medium")
+        counts["low"]=sum(1 for x in actions if x.get("priority")=="low")
+        action_center["method"]=(str(action_center.get("method") or "")+" "+
+            f"Migration guard: High Priority actions are suppressed until the full current 28-day comparison period begins on/after {MEASUREMENT_BOUNDARY}.")
+    else:
+        action_center["measurement_status"] = "post_change_period_complete"
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
