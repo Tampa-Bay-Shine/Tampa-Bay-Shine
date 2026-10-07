@@ -103,6 +103,28 @@ protection for that tested workflow but is not a universal guarantee.
 
 ## Dashboard files
 
+### Competitor authority data workflow
+
+Competitor Intelligence additionally uses:
+- `cloudflare-site/seo-dashboard/data/competitor-config.json`
+- `cloudflare-site/seo-dashboard/data/competitor-rankings.json`
+- `cloudflare-site/seo-dashboard/data/competitor-rankings-history.json`
+- `cloudflare-site/seo-dashboard/data/competitor-authority.json`
+- `cloudflare-site/seo-dashboard/data/competitor-intelligence.json`
+- `site-management/competitor-authority-template.csv`
+
+SERP capture is manual and must not bypass Google CAPTCHA/anti-bot controls. Authority/backlink observations are also manual. Populate the CSV from free/available Moz, Ahrefs, and/or Semrush checks; leave unavailable vendor metrics blank.
+
+Import and rebuild:
+```powershell
+python.exe .\tools\competitor_authority_import.py
+python.exe .\tools\competitor_intelligence.py
+```
+
+Moz DA, Ahrefs DR, and Semrush Authority Score stay separate because they use different methodologies and are not Google metrics. The authority watchlist is split between residential/local and commercial/facility competitors.
+
+See `site-management/COMPETITOR_INTELLIGENCE.md` for the full workflow.
+
 -   `cloudflare-site/seo-dashboard/index.html`
 -   `cloudflare-site/seo-dashboard/data/gsc.json`
 -   `cloudflare-site/seo-dashboard/data/history.json`
@@ -399,6 +421,13 @@ does not guarantee completion.
 
 If confirmed bookings appear as Direct, do not relabel them as Organic
 Search. Investigate session/source continuity.
+
+<!-- v20.6.1 authority-baseline -->
+## Competitor authority baseline policy
+
+Free-tool access currently provides a reliable Tampa Bay Shine baseline but not a consistent comparable dataset for all competitor domains. The dashboard therefore loads the known Tampa Bay Shine Moz/Semrush baseline and defers competitor-authority comparison until comparable observations are available.
+
+Do not populate missing competitor values by inference, search snippets, or cross-vendor substitution. The competitive SERP snapshot, category split, overlap, Top-3/Top-10 counts, visibility share, and Keyword Battle Board remain valid without competitor DA/DR data.
 
 ## Known limitations
 

@@ -322,6 +322,40 @@ Ask:
 -   Does Action Center identify something worth changing?
 -   Did a recent SEO event occur near a trend worth monitoring?
 
+## Competitor Intelligence and authority metrics
+
+The **Competitors** tab compares Tampa Bay Shine with domains observed in the manually captured Google organic Top 10 for the tracked keyword set. It separates residential/local cleaners, commercial/facility cleaners, directories/marketplaces/social sites, and irrelevant or adjacent results.
+
+The Keyword Battle Board is intent-aware. Residential searches compare Tampa Bay Shine with residential/local cleaners. Office, commercial, medical-office, post-construction, janitorial, and facility searches compare with commercial/facility competitors. The top organic result is shown separately because a directory, supplier, forum, or other non-comparable site can rank above the most relevant cleaning company.
+
+**Visibility share** is based only on supplied organic Top-10 SERP observations. If all tracked SERPs were observed and Tampa Bay Shine did not appear in any captured Top 10, the dashboard correctly reports `0.0%`; this is different from missing data.
+
+**Moz DA, Ahrefs DR, and Semrush Authority Score are separate vendor metrics.** They are not Google metrics and must not be averaged together or treated as interchangeable. Referring domains and backlinks are shown separately as supporting link-profile observations.
+
+Authority/backlink values are manual/free-tool inputs. Missing values remain blank rather than estimated. Use `site-management/competitor-authority-template.csv`, record source and observation date, then run:
+
+```powershell
+python.exe .\tools\competitor_authority_import.py
+python.exe .\tools\competitor_intelligence.py
+```
+
+Use authority as diagnostic context, not as a ranking guarantee. Do not make major page changes solely because a third-party authority score is higher.
+
+<!-- v20.6.1 authority-baseline -->
+## Authority baseline availability
+
+The Competitors tab keeps a Tampa Bay Shine authority baseline from free Moz and Semrush data. A comparable competitor-authority table is not shown unless consistent competitor metrics are actually available.
+
+Current free baseline:
+- Moz Domain Authority: 13
+- Semrush Authority Score: 6
+- Semrush referring domains: 362
+- Semrush backlinks: 1.1K
+- Semrush organic keywords: 56
+- Semrush organic traffic: 6
+
+These are third-party observations, not Google ranking metrics. Because free competitor access is limited, the dashboard does not estimate or fabricate competitor authority values. The SERP visibility and intent-aware competitor analysis remain the primary competitive signals.
+
 ## Access
 
 Dashboard: https://seo.tampabayshine.com/

@@ -861,6 +861,32 @@ The scheduled dashboard refresh is maintained by
 `.github/workflows/gsc-dashboard.yml` on the repository default branch
 and updates the `seo-dashboard` deployment branch.
 
+### Competitor Intelligence and authority observations
+
+The SEO dashboard includes an intent-aware Competitors tab. Organic SERP observations are separated into residential/local cleaners, commercial/facility cleaners, directories/marketplaces/social sites, and irrelevant/adjacent results.
+
+Authority/backlink values are deliberately manual and auditable. The repository does not bypass Google anti-bot controls and does not invent missing Moz/Ahrefs/Semrush values.
+
+Authority template:
+`site-management/competitor-authority-template.csv`
+
+Import and rebuild:
+```powershell
+python.exe .\tools\competitor_authority_import.py
+python.exe .\tools\competitor_intelligence.py
+```
+
+Keep Moz DA, Ahrefs DR, and Semrush Authority Score separate. See `site-management/COMPETITOR_INTELLIGENCE.md`.
+
+<!-- v20.6.1 authority-baseline -->
+### Competitor authority baseline
+
+Competitor Intelligence does not require paid authority APIs. The dashboard currently stores a Tampa Bay Shine baseline from free Moz/Semrush observations and suppresses an empty competitor-authority comparison when comparable competitor metrics are unavailable.
+
+Current baseline (2026-10-07): Moz DA 13; Semrush Authority Score 6; Semrush referring domains 362; backlinks 1.1K; organic keywords 56; organic traffic 6.
+
+Missing competitor authority metrics remain null. SERP visibility and intent-aware competitor comparisons remain the primary competitive dataset.
+
 ### Daily GSC query and page trend explorer
 
 The SEO dashboard maintains real daily Google Search Console history

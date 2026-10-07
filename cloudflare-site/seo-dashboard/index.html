@@ -1910,14 +1910,9 @@ td:first-child{
   </div>
 
   <div>
-    <h3>Authority / backlink observations</h3>
-    <div class="competitor-table-wrap">
-      <table class="competitor-table">
-        <thead><tr><th>Domain</th><th>Group</th><th>Moz DA</th><th>Ahrefs DR</th><th>Semrush AS</th><th>Ref. domains</th><th>Backlinks</th></tr></thead>
-        <tbody id="ci-authority"></tbody>
-      </table>
-    </div>
-    <div class="competitor-note" id="ci-authority-note"></div>
+    <h3>Authority baseline</h3>
+    <div id="ci-authority-baseline"></div>
+<div class="competitor-note" id="ci-authority-note"></div>
   </div>
 </div>
 
@@ -4491,7 +4486,7 @@ fetch("./data/competitor-intelligence.json",{cache:"no-store"})
 
   $("#ci-status").innerHTML=
     `<strong>Data status:</strong> ${esc(st.serp_queries_observed??0)} of ${esc(st.tracked_keywords??0)} tracked SERPs have competitor observations. `+
-    `SERP snapshot: ${esc(st.serp_observed_at||"not loaded")}. Authority snapshot: ${esc(st.authority_observed_at||"not loaded")}. `+
+    `SERP snapshot: ${esc(st.serp_observed_at||"not loaded")}. Authority baseline: ${esc(st.authority_observed_at||"not loaded")}. `+
     `<span class="muted">${esc(st.note||"")}</span>`;
 
   $("#ci-residential").innerHTML=boardRows(boards.residential_local||[],"No residential/local competitors classified.");
@@ -4500,16 +4495,24 @@ fetch("./data/competitor-intelligence.json",{cache:"no-store"})
   $("#ci-irrelevant").innerHTML=boardRows(boards.irrelevant_adjacent||[],"No irrelevant/adjacent results classified.");
 
   const auth=d.authority||[];
-  $("#ci-authority").innerHTML=auth.length ? auth.map(x=>`<tr>
-    <td>${esc(x.domain)}</td><td>${esc(x.watchlist_group||"--")}</td><td>${fmt(x.moz_da)}</td>
-    <td>${fmt(x.ahrefs_dr)}</td><td>${fmt(x.semrush_authority)}</td>
-    <td>${fmt(x.referring_domains,0)}</td><td>${fmt(x.backlinks,0)}</td>
-  </tr>`).join("") : `<tr><td colspan="7"><div class="competitor-empty">No authority rows available.</div></td></tr>`;
+  const own=auth.find(x=>x.domain==="tampabayshine.com") || null;
+  const comparable=auth.filter(x=>x.domain!=="tampabayshine.com" && [x.moz_da,x.ahrefs_dr,x.semrush_authority,x.referring_domains,x.backlinks].some(v=>v!=null));
+  $("#ci-authority-baseline").innerHTML = own ? `<div class="competitor-callout">
+    <strong>Tampa Bay Shine baseline</strong><br>
+    Moz DA: <strong>${fmt(own.moz_da,0)}</strong> &nbsp;|&nbsp;
+    Semrush AS: <strong>${fmt(own.semrush_authority,0)}</strong> &nbsp;|&nbsp;
+    Ref. domains: <strong>${fmt(own.referring_domains,0)}</strong> &nbsp;|&nbsp;
+    Backlinks: <strong>${fmt(own.backlinks,0)}</strong> &nbsp;|&nbsp;
+    Organic keywords: <strong>${fmt(own.organic_keywords,0)}</strong> &nbsp;|&nbsp;
+    Organic traffic: <strong>${fmt(own.organic_traffic,0)}</strong>
+  </div>` : `<div class="competitor-empty">No authority baseline loaded.</div>`;
 
   const rw=watch.residential_local||[], cw=watch.commercial_facility||[];
-  $("#ci-authority-note").innerHTML=
-    `<strong>Residential watchlist:</strong> ${rw.length?rw.map(esc).join(", "):"--"}<br>`+
-    `<strong>Commercial watchlist:</strong> ${cw.length?cw.map(esc).join(", "):"--"}`;
+  $("#ci-authority-note").innerHTML = comparable.length
+    ? `<strong>Comparable competitor authority rows loaded:</strong> ${comparable.length}.`
+    : `<strong>Competitor authority comparison deferred.</strong> Free tools do not expose consistent competitor metrics. The dashboard keeps the Tampa Bay Shine baseline for reference and does not estimate competitor DA/DR/backlinks.<br><br>`+
+      `<strong>Residential watchlist:</strong> ${rw.length?rw.map(esc).join(", "):"--"}<br>`+
+      `<strong>Commercial watchlist:</strong> ${cw.length?cw.map(esc).join(", "):"--"}`;
 
   $("#ci-battle").innerHTML=(d.keyword_battle||[]).slice(0,40).map(x=>{
     const o=x.top_organic_result||{}, c=x.top_relevant_competitor||{}, h=x.stabilization?.guarded;

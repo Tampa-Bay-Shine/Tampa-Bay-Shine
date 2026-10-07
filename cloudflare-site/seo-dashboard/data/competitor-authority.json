@@ -1,17 +1,21 @@
 {
-  "schema_version": 1,
-  "observed_at": null,
-  "source": "manual/free authority-tool import",
+  "schema_version": 2,
+  "observed_at": "2026-10-07",
+  "source": "Moz + Semrush",
   "domains": [
     {
       "domain": "tampabayshine.com",
-      "moz_da": null,
+      "group": "Tampa Bay Shine",
+      "moz_da": 13,
       "ahrefs_dr": null,
-      "semrush_authority": null,
-      "referring_domains": null,
-      "backlinks": null,
-      "organic_keywords": null,
-      "organic_traffic": null
+      "semrush_authority": 6,
+      "referring_domains": 362,
+      "backlinks": 1100,
+      "organic_keywords": 56,
+      "organic_traffic": 6,
+      "source": "Moz + Semrush",
+      "observed_at": "2026-10-07",
+      "notes": "Moz: 190 Linking Root Domains; 22 Ranking Keywords; 13% Spam Score; homepage PA 32. Semrush: Authority Score 6; 362 Referring Domains; 1.1K Backlinks; 56 Organic Keywords; Organic Traffic 6; Traffic Cost $43; AI Visibility 0; Mentions 0; Cited Pages 0."
     }
   ]
 }

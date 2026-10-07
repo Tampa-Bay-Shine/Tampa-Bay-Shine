@@ -1,11 +1,11 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-10-07T16:57:54.610111+00:00",
+  "generated_at": "2026-10-07T17:38:23.161747+00:00",
   "primary_domain": "tampabayshine.com",
   "source_status": {
     "gsc_generated_at": "2026-10-07T14:18:07.289673Z",
     "serp_observed_at": "2026-10-07T15:13:47.280Z",
-    "authority_observed_at": null,
+    "authority_observed_at": "2026-10-07",
     "serp_queries_observed": 30,
     "tracked_keywords": 30,
     "note": "Missing competitor metrics remain null; no external rankings, DA/DR, backlinks, traffic, or search volume are fabricated."
@@ -2436,13 +2436,17 @@
   "authority": [
     {
       "domain": "tampabayshine.com",
-      "moz_da": null,
+      "group": "Tampa Bay Shine",
+      "moz_da": 13,
       "ahrefs_dr": null,
-      "semrush_authority": null,
-      "referring_domains": null,
-      "backlinks": null,
-      "organic_keywords": null,
-      "organic_traffic": null,
+      "semrush_authority": 6,
+      "referring_domains": 362,
+      "backlinks": 1100,
+      "organic_keywords": 56,
+      "organic_traffic": 6,
+      "source": "Moz + Semrush",
+      "observed_at": "2026-10-07",
+      "notes": "Moz: 190 Linking Root Domains; 22 Ranking Keywords; 13% Spam Score; homepage PA 32. Semrush: Authority Score 6; 362 Referring Domains; 1.1K Backlinks; 56 Organic Keywords; Organic Traffic 6; Traffic Cost $43; AI Visibility 0; Mentions 0; Cited Pages 0.",
       "watchlist_group": "Tampa Bay Shine"
     },
     {
