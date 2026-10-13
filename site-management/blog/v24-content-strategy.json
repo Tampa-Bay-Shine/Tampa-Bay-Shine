@@ -1,0 +1,34 @@
+{
+  "version": "v24-batch1",
+  "principle": "Consolidate overlapping source topics into authoritative Cloudflare resources instead of publishing near-duplicates.",
+  "published_targets": [
+    "standard-vs-deep-cleaning-tampa",
+    "weekly-vs-biweekly-house-cleaning-tampa-bay",
+    "medical-office-cleaning-tampa-guide",
+    "hoa-common-area-cleaning-tampa-bay-guide",
+    "office-cleaning-frequency-tampa",
+    "house-cleaning-wesley-chapel-guide"
+  ],
+  "clusters": {
+    "move-out": {
+      "target": "move-out-cleaning-to-get-your-deposit-back",
+      "action": "merge related move-out/checklist/inspection sources"
+    },
+    "standard-vs-deep": {
+      "target": "standard-vs-deep-cleaning-tampa",
+      "action": "merge overlapping comparison sources"
+    },
+    "recurring-frequency": {
+      "target": "weekly-vs-biweekly-house-cleaning-tampa-bay",
+      "action": "merge weekly/biweekly/monthly frequency sources"
+    },
+    "hoa-common-area": {
+      "target": "hoa-common-area-cleaning-tampa-bay-guide",
+      "action": "merge HOA/condo/common-area informational sources"
+    },
+    "office-commercial": {
+      "target": "office-cleaning-frequency-tampa",
+      "action": "merge frequency/planning informational sources while preserving transactional service pages"
+    }
+  }
+}
