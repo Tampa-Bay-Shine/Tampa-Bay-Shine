@@ -39,3 +39,23 @@
  .blog-faq-item h3{padding:15px 16px 7px}
  .blog-faq-item p{padding:0 16px 15px}
 }
+
+/* v24.3 final alignment */
+.blog-card-grid .blog-card{display:flex;flex-direction:column;height:100%}
+.blog-card-grid .blog-card-media{flex:0 0 auto}
+.blog-card-grid .blog-card-body{display:flex;flex:1 1 auto;flex-direction:column;padding:20px 22px 21px}
+.blog-card-grid .blog-card-body h2{margin:.38rem 0 .55rem}
+.blog-card-grid .blog-card-body p{margin:0 0 1rem;line-height:1.58}
+.blog-card-grid .blog-read-link{margin-top:auto;padding-top:.35rem}
+.blog-card-grid .blog-card-media+ .blog-card-body{border-top:0}
+.blog-article>p,.blog-article>h2,.blog-article>h3,.blog-article>ul,.blog-article>ol,
+.blog-article .quick-answer,.blog-article .article-toc,.blog-article .blog-faq-list,
+.blog-article .related-guides,.blog-article h2#faq{width:min(900px,100%);box-sizing:border-box}
+.blog-article>ol li,.blog-article>ul li{margin:.28rem 0}
+.blog-article>h2+ol,.blog-article>h2+ul{margin-top:.45rem}
+.blog-article>h2+p{margin-top:.2rem}
+.blog-faq-list,.related-guides{align-self:center}
+.blog-faq-item h3,.blog-faq-item p{text-align:left}
+@media(max-width:760px){
+ .blog-card-grid .blog-card-body{padding:18px 17px 19px}
+}
