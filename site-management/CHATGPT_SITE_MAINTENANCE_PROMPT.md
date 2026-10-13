@@ -91,3 +91,18 @@ ANALYTICS:
 - `booknow_click` is not a completed booking.
 - Do not add PII to analytics events.
 - Read `site-management/ANALYTICS_IMPLEMENTATION.md` before changing analytics.
+
+## Resource Center maintenance context
+
+The Cloudflare Cleaning Resource Center at `/blog/` is now an actively maintained part of the production marketing/SEO site.
+
+When editing it:
+- Treat current GitHub `cloudflare-staging` as the development source of truth.
+- Preserve the approved Resource Center visual system in `assets/css/pages/blog.css`.
+- New hub cards should use a local responsive image and maintain equal-height card/CTA alignment.
+- Article components should align to the shared content width: contextual image, Quick Answer, TOC, tables, body copy, FAQ cards, and Related Resources.
+- Use responsive local WebP/AVIF assets when available, with intrinsic dimensions, `srcset`, `sizes`, descriptive alt text, and lazy loading below the fold.
+- Do not hotlink BookingKoala article imagery.
+- Check inherited metadata/schema carefully when cloning an article template.
+- Run `blog_content_audit.py` and `blog_link_audit.py` in addition to the normal site validators.
+- Consolidate duplicate BK/Medium topics rather than generating thin or competing articles.

@@ -52,3 +52,18 @@ For changes to priority landing pages, shared CSS, shared JavaScript, or convers
 5. preserve event names unless an intentional analytics migration is planned;
 6. update `CONVERSION_TRACKING.md` if event semantics or payloads change;
 7. after production, notify IndexNow only for materially changed canonical pages.
+
+## Updating the Cleaning Resource Center
+
+For a new or materially revised guide:
+
+1. Confirm the informational topic does not duplicate an existing article or cannibalize a transactional service/location page.
+2. Prefer consolidation when BookingKoala, Medium, or existing Cloudflare sources cover substantially the same intent.
+3. Use an answer-first structure: descriptive H1, concise Quick Answer, optional table of contents, substantive sections, useful tables/checklists where warranted, visible FAQ when warranted, and Related Resources.
+4. Add contextual links to the primary service/location page and genuinely related guides.
+5. Use local optimized images from `cloudflare-site/assets/images/`; do not hotlink BookingKoala CDN assets.
+6. Keep the hub card, sitemap, `llms.txt`, canonical, Open Graph metadata, breadcrumb, and structured data synchronized with the article.
+7. Run both blog audits and the normal site release validation suite.
+8. Visually QA desktop and mobile staging before production promotion.
+
+Do not invent historical publication dates. Use a publication date only when supported by the source record. A rebuild may use an accurate modification date when the template calls for it.

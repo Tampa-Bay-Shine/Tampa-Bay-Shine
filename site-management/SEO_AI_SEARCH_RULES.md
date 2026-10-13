@@ -151,3 +151,19 @@ Do not rename `booknow_click`, `phone_click`, `contact_click`, `commercial_quote
 Do not add PII to analytics payloads.
 
 Run `python.exe .\tools\analytics_regression.py .` after modifying shared JavaScript, CTA destinations, or sitewide Google-tag setup.
+
+## Resource Center SEO / GEO / AI-search rules
+
+Resource Center pages are informational assets, not alternate service landing pages.
+
+- Keep one authoritative article per materially identical search intent.
+- Merge overlapping legacy BookingKoala and Medium topics and redirect legacy URLs when appropriate.
+- Preserve useful legacy URLs when they already have search signals and the intent remains appropriate.
+- Use direct, answer-first language and descriptive headings that can stand alone when extracted by search or AI systems.
+- Tables, checklists, comparisons and FAQs must add real information; do not add them solely for schema.
+- FAQPage structured data, when present, must match the visible FAQ.
+- Article/BlogPosting, WebPage and Breadcrumb structured data must identify the actual article; never inherit another article's title, URL, description or breadcrumb.
+- Canonicals use the apex domain and trailing slash.
+- Avoid unsupported review, rating, medical, regulatory or performance claims.
+- Internal links should connect guides to the most relevant service/location pages and related resources. Do not mass-link every guide from every page.
+- Local relevance should be natural and useful. Do not force unsupported city names into generic articles.

@@ -94,3 +94,21 @@ Commit/push the config change on staging and promote normally.
 - manually copy only part of staging into production
 - promote an unpushed staging commit
 - switch BookingKoala mode solely because DNS resolves
+
+## Resource Center release checks
+
+When a change touches `/blog/`, run these before the normal staging migration gate:
+
+```powershell
+python.exe .\tools\blog_content_audit.py .
+python.exe .\tools\blog_link_audit.py .
+python.exe .\tools\validate_site.py .\cloudflare-site
+python.exe .\tools\seo_regression.py .
+python.exe .\tools\analytics_regression.py .
+python.exe .\tools\service_area_audit.py --repo .
+git diff --check
+```
+
+`blog_link_audit.py` produces opportunities for review; its opportunity count is not itself a release failure. Do not mass-insert links from that report. Apply only contextually useful links.
+
+Blog changes follow the same branch discipline as the rest of the marketing site: develop and QA on `cloudflare-staging`, push staging, visually inspect Cloudflare staging, then use `tools/promote_cloudflare.py --repo . --push` to construct production from the exact remote staging revision.

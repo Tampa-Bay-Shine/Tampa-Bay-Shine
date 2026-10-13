@@ -780,3 +780,16 @@ During production promotion, `tools/promote_cloudflare.py` rewrites transactiona
 The `_redirects` entries remain as fallback routes for manually entered/internal transaction URLs.
 
 Do not manually hard-code BookingKoala hosts across source HTML. Change transaction mode through the existing release-target workflow.
+
+## Cleaning Resource Center
+
+The public `/blog/` Cleaning Resource Center is maintained in Cloudflare alongside the rest of the marketing site. Article source lives under `cloudflare-site/blog/` and shared styling lives in `cloudflare-site/assets/css/pages/blog.css`.
+
+For Resource Center changes, run the two blog-specific tools before the standard validation/release workflow:
+
+```powershell
+python.exe .\tools\blog_content_audit.py .
+python.exe .\tools\blog_link_audit.py .
+```
+
+Then run the normal site, SEO, analytics, service-area, diff and migration-gate checks. See `site-management/ARCHITECTURE.md`, `site-management/UPDATE_WORKFLOW.md`, and `site-management/SEO_AI_SEARCH_RULES.md` for the current content, migration, linking, image and structured-data rules.

@@ -73,3 +73,16 @@ The site does not persist those events itself. GA4/GTM or another collector is a
 BookingKoala owns the transactional funnel. A marketing-site `booknow_click` is only a handoff signal; completed-booking attribution requires BookingKoala-side or cross-domain measurement.
 
 See `site-management/CONVERSION_TRACKING.md`.
+
+## Cloudflare Resource Center (`/blog/`)
+
+The public Cleaning Resource Center is Cloudflare-owned content. BookingKoala is no longer the source of truth for migrated/rebuilt informational articles.
+
+- Hub: `cloudflare-site/blog/index.html`
+- Articles: `cloudflare-site/blog/<slug>/index.html`
+- Shared presentation: `cloudflare-site/assets/css/pages/blog.css`
+- Canonical form: `https://tampabayshine.com/blog/<slug>/`
+- Legacy BookingKoala/Medium material is source material only. Rebuild or consolidate it into authoritative Cloudflare resources instead of publishing overlapping near-duplicates.
+- Transactional BookingKoala ownership remains unchanged for `/booknow`, `/login`, `/gift-card`, `/referrals`, `/floor-calculator`, and `/contact-us`.
+
+Resource articles should preserve informational intent and link contextually to the appropriate transactional service/location pages. They must not be used to create duplicate transactional landing pages.
