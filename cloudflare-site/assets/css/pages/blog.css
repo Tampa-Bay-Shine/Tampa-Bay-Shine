@@ -59,3 +59,41 @@
 @media(max-width:760px){
  .blog-card-grid .blog-card-body{padding:18px 17px 19px}
 }
+
+/* v24.4 single article content rail */
+.blog-article > .blog-article-visual,
+.blog-article > .quick-answer,
+.blog-article > .article-toc,
+.blog-article > table,
+.blog-article > p,
+.blog-article > h2,
+.blog-article > h3,
+.blog-article > ul,
+.blog-article > ol,
+.blog-article > .blog-faq-list,
+.blog-article > .related-guides{
+  width:min(900px,100%);
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  box-sizing:border-box;
+}
+.blog-article > table{
+  width:min(900px,100%);
+  max-width:900px;
+}
+.blog-article > h2,
+.blog-article > h3{
+  padding-left:0;
+  padding-right:0;
+}
+.blog-article > ol,
+.blog-article > ul{
+  padding-right:0;
+}
+@media(max-width:760px){
+  .blog-article > table{
+    width:100%;
+    max-width:100%;
+  }
+}
