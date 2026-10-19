@@ -57,3 +57,64 @@
   content: none !important;
   display: none !important;
 }
+
+/* TBS BOOKING BRANDED HERO v4 */
+#tbs-booking-experience .booking-intro{
+ position:relative;isolation:isolate;overflow:hidden;
+ padding:30px 18px 34px;
+ background:
+ radial-gradient(circle at 18% 0%,rgba(255,255,255,.14),transparent 34%),
+ radial-gradient(circle at 84% 20%,rgba(71,140,255,.20),transparent 30%),
+ linear-gradient(135deg,#0f0889 0%,#0b066d 100%);
+ color:#fff;border-bottom:4px solid #f4c613
+}
+#tbs-booking-experience .booking-eyebrow{
+ display:inline-flex;align-items:center;justify-content:center;
+ margin:0 0 7px;padding:5px 10px;
+ border:1px solid rgba(244,198,19,.55);border-radius:999px;
+ background:rgba(244,198,19,.10);color:#ffe36b;
+ font-size:.70rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase
+}
+#tbs-booking-experience .booking-intro h1{
+ margin:0;color:#fff;font-size:clamp(2rem,4vw,2.8rem);
+ line-height:1.06;letter-spacing:-.025em;
+ text-shadow:0 2px 12px rgba(0,0,0,.12)
+}
+#tbs-booking-experience .booking-intro p{
+ max-width:700px;margin:10px auto 0;color:rgba(255,255,255,.88);
+ font-size:.96rem;line-height:1.55
+}
+#tbs-booking-experience .booking-trust{
+ display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+ max-width:850px;margin:16px auto 0
+}
+#tbs-booking-experience .booking-trust span{
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:32px;padding:6px 12px;
+ border:1px solid rgba(255,255,255,.23);border-radius:999px;
+ background:rgba(255,255,255,.10);color:#fff;
+ font-size:.80rem;font-weight:700;line-height:1.2;
+ box-shadow:0 5px 16px rgba(0,0,0,.08)
+}
+#tbs-booking-experience .booking-trust span::before,
+#tbs-booking-experience .booking-trust span::after{
+ content:none!important;display:none!important
+}
+#tbs-booking-experience .booking-form-section{padding-top:14px}
+
+@media(max-width:700px){
+ #tbs-booking-experience .booking-intro{padding:24px 14px 27px}
+ #tbs-booking-experience .booking-intro h1{font-size:clamp(1.85rem,9vw,2.35rem)}
+ #tbs-booking-experience .booking-intro p{font-size:.91rem}
+ #tbs-booking-experience .booking-trust{gap:6px;margin-top:13px}
+ #tbs-booking-experience .booking-trust span{min-height:30px;padding:5px 9px;font-size:.75rem}
+}
+@media(max-width:430px){
+ #tbs-booking-experience .booking-trust{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  width:100%;max-width:390px
+ }
+ #tbs-booking-experience .booking-trust span{
+  width:100%;white-space:normal;text-align:center
+ }
+}
