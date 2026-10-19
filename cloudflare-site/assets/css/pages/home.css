@@ -1639,3 +1639,21 @@
     transform:none !important;
   }
 }
+
+/* =========================================================
+   TBS HERO MEDIA ALIGNMENT v4
+   Final optical desktop alignment
+   ========================================================= */
+
+@media(min-width:821px){
+
+  #tbs-home-v2 .hero-media{
+    align-self:start;
+    margin-top:-38px;
+    transform:none;
+  }
+
+  #tbs-home-v2 .hero-media:hover{
+    transform:none;
+  }
+}
