@@ -1909,3 +1909,176 @@
     margin-top:-28px;
   }
 }
+
+/* =========================================================
+   TBS SERVICE CARDS v1
+   Warm, scannable homepage service selection
+   ========================================================= */
+
+#tbs-home-v2 #services .service-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:228px;
+  padding:25px 22px 20px;
+  border:1px solid #e4e7f2;
+  border-radius:17px;
+  background:#fff;
+  box-shadow:0 7px 20px rgba(15,23,42,.045);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+#tbs-home-v2 #services .service-card::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:var(--royal);
+  opacity:.9;
+}
+
+#tbs-home-v2 #services .service-card > *{
+  position:relative;
+  z-index:1;
+}
+
+#tbs-home-v2 #services .service-label{
+  margin-bottom:7px;
+  padding:5px 9px;
+  border:1px solid #dfe4ff;
+  background:#f4f6ff;
+  color:var(--royal);
+  font-size:.68rem;
+  line-height:1;
+  letter-spacing:.055em;
+}
+
+#tbs-home-v2 #services .service-card h3{
+  margin:9px 0 9px;
+  font-size:1.12rem;
+  line-height:1.22;
+  letter-spacing:-.012em;
+}
+
+#tbs-home-v2 #services .service-card p{
+  margin-bottom:0;
+  line-height:1.55;
+}
+
+#tbs-home-v2 #services .service-card .cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  width:100%;
+  margin-top:auto;
+  padding-top:16px;
+  border-top:1px solid #edf0f7;
+  color:var(--royal);
+  font-size:.84rem;
+  font-weight:900;
+  line-height:1.25;
+}
+
+#tbs-home-v2 #services .service-card .cta::after{
+  content:"→";
+  flex:0 0 auto;
+  font-size:1.05rem;
+  transition:transform .2s ease;
+}
+
+#tbs-home-v2 #services .service-card:hover,
+#tbs-home-v2 #services .service-card:focus-visible{
+  transform:translateY(-4px);
+  border-color:#cfd6f5;
+  box-shadow:0 16px 34px rgba(15,23,42,.095);
+  text-decoration:none;
+}
+
+#tbs-home-v2 #services .service-card:hover .cta::after,
+#tbs-home-v2 #services .service-card:focus-visible .cta::after{
+  transform:translateX(3px);
+}
+
+/* Primary residential path */
+
+#tbs-home-v2 #services .service-card:first-child{
+  border-color:rgba(244,198,19,.72);
+  background:
+    linear-gradient(180deg,rgba(255,249,224,.78) 0,#fff 43%);
+  box-shadow:0 10px 26px rgba(15,23,42,.07);
+}
+
+#tbs-home-v2 #services .service-card:first-child::before{
+  background:var(--yellow);
+  opacity:1;
+}
+
+#tbs-home-v2 #services .service-card:first-child .service-label{
+  border-color:rgba(244,198,19,.48);
+  background:#fff8d9;
+  color:#594600;
+}
+
+/* Business path */
+
+#tbs-home-v2 #services .service-card:last-child{
+  background:
+    linear-gradient(180deg,rgba(238,242,255,.72) 0,#fff 43%);
+}
+
+#tbs-home-v2 #services .service-card:last-child .service-label{
+  border-color:#cfd7ff;
+  background:#eef2ff;
+}
+
+/* Tablet/mobile: preserve compact responsive behavior */
+
+@media(max-width:820px){
+
+  #tbs-home-v2 #services .service-card{
+    min-height:0;
+    padding:22px 20px 19px;
+  }
+
+  #tbs-home-v2 #services .service-card:first-child{
+    transform:none;
+  }
+
+  #tbs-home-v2 #services .service-card:first-child:hover,
+  #tbs-home-v2 #services .service-card:first-child:focus-visible{
+    transform:translateY(-3px);
+  }
+}
+
+@media(max-width:560px){
+
+  #tbs-home-v2 #services .service-card{
+    padding:21px 19px 18px;
+  }
+
+  #tbs-home-v2 #services .service-card h3{
+    font-size:1.08rem;
+  }
+
+  #tbs-home-v2 #services .service-card .cta{
+    padding-top:14px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  #tbs-home-v2 #services .service-card,
+  #tbs-home-v2 #services .service-card:hover,
+  #tbs-home-v2 #services .service-card:focus-visible,
+  #tbs-home-v2 #services .service-card .cta::after{
+    transition:none !important;
+    transform:none !important;
+  }
+}
