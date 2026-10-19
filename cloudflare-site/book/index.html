@@ -60,11 +60,50 @@
 <section class="booking-form-section" aria-label="Online cleaning booking form">
   <div class="booking-shell">
     <div class="booking-frame-card">
-      <iframe title="Tampa Bay Shine online booking form" src="https://tampabayshine.bookingkoala.com/booknow?embed=true" style="border:none;height:1000px" width="100%" scrolling="no"></iframe>
+      <iframe id="tbs-booking-frame" title="Tampa Bay Shine online booking form" src="https://tampabayshine.bookingkoala.com/booknow?embed=true" style="border:none;height:1000px" width="100%" scrolling="no"></iframe>
+      <script>
+      (function () {
+        var services = {
+          "standard": { serviceId: "6" },
+          "deep": { serviceId: "18" },
+          "move-out": { serviceId: "17", frequencyId: "1" },
+          "deep-moving": { serviceId: "23", frequencyId: "1" }
+        };
+
+        var params = new URLSearchParams(window.location.search);
+        var cleaning = params.get("cleaning");
+        var selection = services[cleaning];
+
+        if (!selection) {
+          return;
+        }
+
+        var bookingUrl = new URL("https://tampabayshine.bookingkoala.com/booknow");
+        bookingUrl.searchParams.set("embed", "true");
+        bookingUrl.searchParams.set("service_id", selection.serviceId);
+
+        if (selection.frequencyId) {
+          bookingUrl.searchParams.set("frequency_id", selection.frequencyId);
+        }
+
+        var frame = document.getElementById("tbs-booking-frame");
+
+        if (frame) {
+          frame.src = bookingUrl.toString();
+        }
+
+        var fallbackUrl = new URL(bookingUrl.toString());
+        fallbackUrl.searchParams.delete("embed");
+
+        document.querySelectorAll("[data-tbs-booking-fallback]").forEach(function (link) {
+          link.href = fallbackUrl.toString();
+        });
+      }());
+      </script>
       <script src="https://tampabayshine.bookingkoala.com/resources/embed.js" defer></script>
       <noscript><p class="booking-fallback">JavaScript is required for embedded booking. <a href="https://tampabayshine.bookingkoala.com/booknow">Open the secure booking form</a>.</p></noscript>
     </div>
-    <p class="booking-fallback">Having trouble with the embedded form? <a href="https://tampabayshine.bookingkoala.com/booknow">Open our secure booking form in a new page</a>.</p>
+    <p class="booking-fallback">Having trouble with the embedded form? <a data-tbs-booking-fallback href="https://tampabayshine.bookingkoala.com/booknow">Open our secure booking form in a new page</a>.</p>
   </div>
 </section>
 <section class="booking-help">
