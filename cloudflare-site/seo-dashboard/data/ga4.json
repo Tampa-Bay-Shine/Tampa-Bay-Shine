@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-18T14:57:42+00:00",
-  "data_through": "2026-10-17",
+  "generated_at": "2026-10-19T17:50:39+00:00",
+  "data_through": "2026-10-18",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -18,22 +18,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 17,
+          "sessions": 18,
           "active_users": 13,
-          "engaged_sessions": 12,
-          "engagement_rate": 70.59,
-          "booking_start_rate": 11.76,
-          "primary_intent_rate": 17.65,
+          "engaged_sessions": 14,
+          "engagement_rate": 77.78,
+          "booking_start_rate": 11.11,
+          "primary_intent_rate": 16.67,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 15,
-          "active_users": 13,
+          "sessions": 16,
+          "active_users": 14,
           "engaged_sessions": 10,
-          "engagement_rate": 66.67,
-          "booking_start_rate": 33.33,
-          "primary_intent_rate": 33.33,
+          "engagement_rate": 62.5,
+          "booking_start_rate": 31.25,
+          "primary_intent_rate": 31.25,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -79,12 +79,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 39,
-          "active_users": 31,
-          "engaged_sessions": 28,
-          "engagement_rate": 71.79,
-          "booking_start_rate": 23.08,
-          "primary_intent_rate": 25.64,
+          "sessions": 41,
+          "active_users": 32,
+          "engaged_sessions": 30,
+          "engagement_rate": 73.17,
+          "booking_start_rate": 21.95,
+          "primary_intent_rate": 24.39,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 39,
-          "active_users": 31,
-          "engaged_sessions": 28,
-          "engagement_rate": 71.79,
-          "booking_start_rate": 23.08,
-          "primary_intent_rate": 25.64,
+          "sessions": 41,
+          "active_users": 32,
+          "engaged_sessions": 30,
+          "engagement_rate": 73.17,
+          "booking_start_rate": 21.95,
+          "primary_intent_rate": 24.39,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 31,
+      "sessions": 32,
       "active_users": 27,
-      "engaged_sessions": 23,
+      "engaged_sessions": 24,
       "booknow_click": 9,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,7 +204,7 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 9,
       "all_intent_actions": 9,
-      "booking_start_rate": 29.03,
+      "booking_start_rate": 28.12,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -244,6 +244,23 @@
     },
     {
       "landing_page": "/admin/booking/draft/1/1/73",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 1,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
+      "landing_page": "/gym-cleaning/",
       "sessions": 1,
       "active_users": 1,
       "engaged_sessions": 1,
@@ -357,7 +374,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 25
+      "event_count": 26
     },
     {
       "event_name": "booknow_click",
@@ -367,7 +384,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Organic Social",
-      "event_count": 8
+      "event_count": 9
     },
     {
       "event_name": "booknow_click",
@@ -377,7 +394,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Referral",
-      "event_count": 8
+      "event_count": 13
     },
     {
       "event_name": "commercial_quote_start",
@@ -392,6 +409,11 @@
     {
       "event_name": "contact_click",
       "channel": "Organic Search",
+      "event_count": 1
+    },
+    {
+      "event_name": "contact_click",
+      "channel": "Organic Social",
       "event_count": 1
     },
     {
