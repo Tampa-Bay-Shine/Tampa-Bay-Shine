@@ -1,7 +1,7 @@
 
 from pathlib import Path
 import argparse,json,re,subprocess,sys
-DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator','contact-us']; TX_ALT='|'.join(re.escape(x) for x in TX)
+DEV='cloudflare-staging'; PROD='cloudflare-production'; TX=['booknow','login','gift-card','referrals','floor-calculator','contact-us']; EXTERNAL_TX=['referrals','floor-calculator']; TX_ALT='|'.join(re.escape(x) for x in TX)
 def run(a,cwd,check=False):
     p=subprocess.run(a,cwd=str(cwd),text=True,capture_output=True)
     if check and p.returncode: raise RuntimeError(' '.join(a)+'\n'+p.stdout+'\n'+p.stderr)
@@ -11,21 +11,23 @@ def load_active(repo):
     d=json.loads((repo/'site-management'/'release_targets.json').read_text(encoding='utf-8')); mode=d['transaction_mode']
     if mode=='bookingkoala_fallback': return d['fallback_base'].rstrip('/')
     if mode=='custom_booking': return d['custom_booking_base'].rstrip('/')
+    if mode=='first_party_embeds': return d['fallback_base'].rstrip('/')
     raise RuntimeError('Invalid transaction_mode')
 def transform(repo,active):
+    cfg=json.loads((repo/'site-management'/'release_targets.json').read_text(encoding='utf-8')); routes=EXTERNAL_TX if cfg['transaction_mode']=='first_party_embeds' else TX; route_alt='|'.join(re.escape(x) for x in routes)
     site=repo/'cloudflare-site'; hp=site/'_headers'; lines=hp.read_text(encoding='utf-8').splitlines(); hp.write_text('\n'.join(x for x in lines if not re.match(r'\s*X-Robots-Tag:\s*noindex\s*$',x,re.I)).rstrip()+'\n',encoding='utf-8')
     rp=site/'_redirects'; out=[]; seen=set()
     for line in rp.read_text(encoding='utf-8').splitlines():
         s=line.strip(); hit=False
-        for r in TX:
+        for r in routes:
             if s.startswith(f'/{r} ') or s.startswith(f'/{r}/ '):
                 parts=s.split(); source=parts[0]; code=parts[2] if len(parts)>2 else '302'; out.append(f'{source} {active}/{r} {code}'); seen.add((r,source.endswith('/'))); hit=True; break
         if not hit: out.append(line)
-    for r in TX:
+    for r in routes:
         if (r,False) not in seen: out.append(f'/{r} {active}/{r} 302')
         if (r,True) not in seen: out.append(f'/{r}/ {active}/{r} 302')
     rp.write_text('\n'.join(out).rstrip()+'\n',encoding='utf-8')
-    anchor_re=re.compile(r'(<a\b[^>]*?\bhref=)(["\'])(/(?:(?:'+TX_ALT+r'))(?:/)?(?:[?#][^"\']*)?)\2',re.I)
+    anchor_re=re.compile(r'(<a\b[^>]*?\bhref=)(["\'])(/(?:(?:'+route_alt+r'))(?:/)?(?:[?#][^"\']*)?)\2',re.I)
     for html in site.rglob('*.html'):
         src=html.read_text(encoding='utf-8')
         def repl(m):

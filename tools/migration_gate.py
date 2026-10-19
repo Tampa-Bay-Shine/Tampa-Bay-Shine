@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse, json, re, ssl, subprocess, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
 DEV_BRANCH='cloudflare-staging'; PROD_BRANCH='cloudflare-production'; SITE_DIR='cloudflare-site'
-TX=['/booknow','/login','/gift-card','/referrals','/floor-calculator','/contact-us']
+TX=['/booknow','/login','/gift-card','/referrals','/floor-calculator','/contact-us']; EXTERNAL_TX=['/referrals','/floor-calculator']; FIRST_PARTY=['/book/','/contact-us/','/login/','/gift-card/']
 STALE={'airbnb-cleaning-st-petersburg','apartment-cleaning-st-petersburg','house-cleaning-st-petersburg-fl','move-out-cleaning-st-petersburg','office-cleaning-st-petersburg'}
 CHECK=['/','/services','/locations','/standard-cleaning-services-tampa','/move-out-cleaning-tampa-1','/office-cleaning','/window-cleaning','/privacy-policy','/terms','/sms-opt-in']
 
@@ -23,22 +23,22 @@ def noindex(r):
 def add(out,name,ok,detail='',kind='BLOCK'): out.append({'name':name,'ok':bool(ok),'detail':detail,'kind':kind})
 def load_cfg(repo):
     d=json.loads((repo/'site-management'/'release_targets.json').read_text(encoding='utf-8')); mode=d['transaction_mode']
-    if mode not in {'bookingkoala_fallback','custom_booking'}: raise ValueError('invalid transaction_mode')
-    active=d['fallback_base'] if mode=='bookingkoala_fallback' else d['custom_booking_base']
+    if mode not in {'bookingkoala_fallback','custom_booking','first_party_embeds'}: raise ValueError('invalid transaction_mode')
+    active=d['custom_booking_base'] if mode=='custom_booking' else d['fallback_base']
     return d,active.rstrip('/')
 def load_manual(repo):
     p=repo/'site-management'/'release_gate_manual.json'
     try: return json.loads(p.read_text(encoding='utf-8')),p
     except Exception: return {},p
 
-def common(repo,out,active,require_redirects):
+def common(repo,out,active,require_redirects,cfg_mode='bookingkoala_fallback'):
     site=repo/SITE_DIR; add(out,'cloudflare-site exists',(site/'index.html').exists(),str(site))
     stale=[x for x in sorted(STALE) if (site/x).exists()]; add(out,'No stale St. Petersburg directories',not stale,', '.join(stale) or 'none')
     sm=(site/'sitemap.xml').read_text(encoding='utf-8',errors='ignore') if (site/'sitemap.xml').exists() else ''
     add(out,'No St. Petersburg URLs in sitemap','st-petersburg' not in sm.lower())
     if require_redirects:
         rd=(site/'_redirects').read_text(encoding='utf-8',errors='ignore') if (site/'_redirects').exists() else ''
-        bad=[r for r in TX if f'{r} {active}{r}' not in rd]; add(out,f'Transactional redirects target {active}',not bad,', '.join(bad) or 'all correct')
+        routes=EXTERNAL_TX if cfg_mode=='first_party_embeds' else TX; bad=[r for r in routes if f'{r} {active}{r}' not in rd]; add(out,f'Transactional redirects target {active}',not bad,', '.join(bad) or 'all correct')
     else: add(out,'Production transaction target configured',True,active,'INFO')
     val=repo/'tools'/'validate_site.py'
     if val.exists():
@@ -67,19 +67,19 @@ def seo_regression(repo,out):
     p=cmd([sys.executable,str(tool),str(repo)],repo,120)
     add(out,'seo_regression.py passes',p.returncode==0,(p.stdout+p.stderr)[-2500:])
 
-def transaction_anchor_checks(repo,out,active):
+def transaction_anchor_checks(repo,out,active,mode='bookingkoala_fallback'):
     site=repo/SITE_DIR
     internal=[]
     direct=0
     pat=re.compile(r'<a\b[^>]*?\bhref=["\']([^"\']+)["\']',re.I)
-    txset=set(TX)
+    routes=EXTERNAL_TX if mode=='first_party_embeds' else TX; txset=set(routes)
     for html in site.rglob('*.html'):
         body=html.read_text(encoding='utf-8',errors='ignore')
         for href in pat.findall(body):
             path=href.split('?',1)[0].split('#',1)[0].rstrip('/') or '/'
             if path in txset:
                 internal.append(f'{html.relative_to(site)} -> {href}')
-            if any(href.startswith(active+r) for r in TX):
+            if any(href.startswith(active+r) for r in routes):
                 direct+=1
     add(out,'Production transaction anchors use direct active BK URLs',not internal,
         '; '.join(internal[:12]) if internal else f'direct_links={direct}')
@@ -88,11 +88,29 @@ def transaction_anchor_checks(repo,out,active):
 def active_checks(out,active):
     for pth in ['/','/login','/booknow','/gift-card','/referrals','/floor-calculator','/contact-us']:
         r=fetch(active+pth); add(out,f'Active BK target reachable {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']} {r['error']}".strip())
+def first_party_source_checks(repo,out):
+    site=repo/SITE_DIR
+    expected={
+        '/book/':('book/index.html','https://tampabayshine.bookingkoala.com/booknow?embed=true'),
+        '/contact-us/':('contact-us/index.html','https://tampabayshine.bookingkoala.com/contact-us?embed=true'),
+        '/login/':('login/index.html','https://tampabayshine.bookingkoala.com/login?embed=true'),
+        '/gift-card/':('gift-card/index.html','https://tampabayshine.bookingkoala.com/gift-cards/send?embed=true')
+    }
+    for route,(rel,embed) in expected.items():
+        path=site/rel
+        exists=path.exists()
+        add(out,f'First-party source exists {route}',exists,rel)
+        if exists:
+            body=path.read_text(encoding='utf-8',errors='ignore')
+            add(out,f'First-party BK embed configured {route}',embed in body,embed)
+    redirects=(site/'_redirects').read_text(encoding='utf-8',errors='ignore') if (site/'_redirects').exists() else ''
+    add(out,'Compatibility redirect /booknow -> /book/','/booknow  /book/  308' in redirects and '/booknow/  /book/  308' in redirects)
+
 def custom_info(out,custom):
     for pth in ['/','/login','/booknow']:
         r=fetch(custom+pth); add(out,f'Future custom BK status {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']} {r['error']}".strip(),'INFO')
 def manual(repo,out,mode,active):
-    d,p=load_manual(repo); mode_key='bk_fallback_set_primary' if mode=='bookingkoala_fallback' else 'bk_custom_booking_set_primary'
+    d,p=load_manual(repo); mode_key='bk_custom_booking_set_primary' if mode=='custom_booking' else 'bk_fallback_set_primary'
     add(out,f'{active} set as BK Primary domain',d.get(mode_key) is True,f'{mode_key}={d.get(mode_key,False)}; edit {p}','MANUAL')
     checks={'bk_admin_login_tested':'BK admin login tested on active target','bk_customer_login_tested':'BK customer login tested on active target','bk_provider_app_tested':'Provider app/session tested','bk_owner_sender_email_tested':'owner@tampabayshine.com sender test passed','bk_email_links_use_active_target':'BK email links use active transaction domain','bk_sms_links_use_active_target':'BK SMS links use active transaction domain','bk_recurring_booking_tested':'Recurring booking/job visibility tested'}
     for k,label in checks.items(): add(out,label,d.get(k) is True,f'{k}={d.get(k,False)}; edit {p}','MANUAL')
@@ -100,7 +118,7 @@ def staging(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On development branch',b==DEV_BRANCH,f'current={b}')
     s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean'); seo_regression(repo,out); analytics_regression(repo,out)
     add(out,"Development has global noindex","x-robots-tag: noindex" in (repo/SITE_DIR/"_headers").read_text(encoding="utf-8",errors="ignore").lower())
-    active_checks(out,active); custom_info(out,cfg['custom_booking_base'].rstrip('/'))
+    active_checks(out,active); custom_info(out,cfg['custom_booking_base'].rstrip('/')); first_party_source_checks(repo,out) if cfg['transaction_mode']=='first_party_embeds' else None
     for pth in CHECK:
         r=fetch(cfg['development_url'].rstrip('/')+pth); add(out,f'Dev reachable {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']}")
         if pth!='/sms-opt-in': add(out,f'Dev noindex {pth}',noindex(r))
@@ -108,21 +126,28 @@ def staging(repo,out,cfg,active):
 def production(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On production branch',b==PROD_BRANCH,f'current={b}')
     s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean')
-    common(repo,out,active,True); seo_regression(repo,out); analytics_regression(repo,out); transaction_anchor_checks(repo,out,active); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
+    common(repo,out,active,True,cfg['transaction_mode']); seo_regression(repo,out); analytics_regression(repo,out); transaction_anchor_checks(repo,out,active,cfg['transaction_mode']); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
     active_checks(out,active); manual(repo,out,cfg['transaction_mode'],active)
 def postcut(repo,out,cfg,active):
     active_checks(out,active); prod=cfg['production_url'].rstrip('/')
     for pth in CHECK:
         r=fetch(prod+pth); add(out,f'Production reachable {pth}',r['ok'],f"HTTP {r['status']} -> {r['url']}"); add(out,f'Production indexing state {pth}',noindex(r) if pth=='/sms-opt-in' else not noindex(r),'expected noindex' if pth=='/sms-opt-in' else 'expected indexable')
-    for pth in TX:
-        r=fetch(prod+pth); add(out,f'Redirect {pth} -> active BK target',r['url'].startswith(active+pth),r['url'])
+    if cfg['transaction_mode']=='first_party_embeds':
+        for pth in FIRST_PARTY:
+            r=fetch(prod+pth); add(out,f'First-party production route {pth}',r['ok'] and r['url'].rstrip('/')==(prod+pth).rstrip('/'),f"HTTP {r['status']} -> {r['url']}")
+        r=fetch(prod+'/booknow'); add(out,'Compatibility redirect /booknow -> /book/',r['ok'] and r['url'].rstrip('/')==(prod+'/book').rstrip('/'),f"HTTP {r['status']} -> {r['url']}")
+        for pth in EXTERNAL_TX:
+            r=fetch(prod+pth); add(out,f'External route {pth} -> active BK target',r['url'].startswith(active+pth),r['url'])
+    else:
+        for pth in TX:
+            r=fetch(prod+pth); add(out,f'Redirect {pth} -> active BK target',r['url'].startswith(active+pth),r['url'])
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--repo',default='.'); ap.add_argument('--phase',choices=['staging','production','post-cutover'],default='staging'); a=ap.parse_args(); repo=Path(a.repo).resolve(); cfg,active=load_cfg(repo); out=[]
     if a.phase=='staging': staging(repo,out,cfg,active)
     elif a.phase=='production': production(repo,out,cfg,active)
     else: postcut(repo,out,cfg,active)
     block=[x for x in out if not x['ok'] and x['kind']=='BLOCK']; man=[x for x in out if not x['ok'] and x['kind']=='MANUAL']; verdict='RED' if block else ('YELLOW' if man else 'GREEN')
-    print('\nTAMPA BAY SHINE MIGRATION GATE 2.5.8'); print('='*40); print('Phase:',a.phase); print('Transaction mode:',cfg['transaction_mode']); print('Active transaction target:',active)
+    print('\nTAMPA BAY SHINE MIGRATION GATE 2.6.0'); print('='*40); print('Phase:',a.phase); print('Transaction mode:',cfg['transaction_mode']); print('Active transaction target:',active)
     for x in out:
         mark='INFO' if x['kind']=='INFO' else ('PASS' if x['ok'] else ('WAIT' if x['kind']=='MANUAL' else 'FAIL')); print(f'[{mark}] {x["name"]}')
         if x['detail'] and (not x['ok'] or x['kind']=='INFO'): print('       '+x['detail'].replace('\n','\n       '))
