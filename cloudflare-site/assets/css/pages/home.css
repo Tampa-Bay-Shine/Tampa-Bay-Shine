@@ -973,3 +973,368 @@
   }
 }
 /* TBS_MODERN_LIVE_REVIEWS_END */
+
+/* =========================================================
+   TBS HOMEPAGE DESIGN REFRESH v1
+   Residential / Commercial decision module
+   ========================================================= */
+
+#tbs-home-v2{
+  --warm:#fffdf7;
+  --warm-line:#eee7d2;
+}
+
+#tbs-home-v2 .tbs-pathway{
+  padding:64px 0;
+  background:linear-gradient(180deg,#fff 0%,var(--warm) 100%);
+  border-bottom:1px solid var(--warm-line);
+}
+
+#tbs-home-v2 .tbs-pathway-head{
+  max-width:760px;
+  margin:0 auto 28px;
+  text-align:center;
+}
+
+#tbs-home-v2 .tbs-pathway-head h2{
+  font-size:clamp(1.8rem,3.4vw,2.55rem);
+  letter-spacing:-.02em;
+}
+
+#tbs-home-v2 .tbs-pathway-head p{
+  color:var(--muted);
+  font-size:1.04rem;
+}
+
+#tbs-home-v2 .tbs-pathway-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+
+#tbs-home-v2 .tbs-pathway-card{
+  position:relative;
+  overflow:hidden;
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(15,23,42,.07);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+#tbs-home-v2 .tbs-pathway-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 44px rgba(15,23,42,.11);
+}
+
+#tbs-home-v2 .tbs-pathway-home{
+  border-top:5px solid var(--accent);
+}
+
+#tbs-home-v2 .tbs-pathway-business{
+  border-top:5px solid var(--royal);
+}
+
+#tbs-home-v2 .tbs-pathway-icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  margin-bottom:18px;
+  border-radius:14px;
+  background:#f1f3ff;
+  color:var(--royal);
+  font-size:1.05rem;
+  font-weight:900;
+}
+
+#tbs-home-v2 .tbs-pathway-home .tbs-pathway-icon{
+  background:var(--promo-bg);
+}
+
+#tbs-home-v2 .tbs-pathway-kicker{
+  display:block;
+  margin-bottom:6px;
+  color:var(--royal);
+  font-size:.76rem;
+  font-weight:900;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+#tbs-home-v2 .tbs-pathway-card h3{
+  font-size:1.5rem;
+  letter-spacing:-.01em;
+}
+
+#tbs-home-v2 .tbs-pathway-card > p{
+  color:var(--muted);
+}
+
+#tbs-home-v2 .tbs-pathway-card ul{
+  margin:18px 0 22px;
+  padding:0;
+  list-style:none;
+}
+
+#tbs-home-v2 .tbs-pathway-card li{
+  position:relative;
+  margin:9px 0;
+  padding-left:25px;
+  color:#334155;
+  font-weight:700;
+}
+
+#tbs-home-v2 .tbs-pathway-card li::before{
+  content:"\2713";
+  position:absolute;
+  left:0;
+  color:var(--success);
+  font-weight:900;
+}
+
+#tbs-home-v2 .tbs-pathway-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:15px;
+}
+
+#tbs-home-v2 .tbs-text-link{
+  color:var(--royal);
+  font-weight:900;
+}
+
+#tbs-home-v2 .tbs-pathway-card:hover .tbs-text-link{
+  text-decoration:underline;
+}
+
+@media(max-width:820px){
+
+  #tbs-home-v2 .tbs-pathway{
+    padding:48px 0;
+  }
+
+  #tbs-home-v2 .tbs-pathway-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:560px){
+
+  #tbs-home-v2 .tbs-pathway-card{
+    padding:23px 20px;
+  }
+
+  #tbs-home-v2 .tbs-pathway-actions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  #tbs-home-v2 .tbs-pathway-actions .btn{
+    width:100%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  #tbs-home-v2 .tbs-pathway-card{
+    transition:none !important;
+    transform:none !important;
+  }
+}
+
+/* =========================================================
+   TBS HOMEPAGE VISUAL POLISH v1
+   Warm local-company presentation
+   ========================================================= */
+
+/* HERO */
+
+#tbs-home-v2 .hero{
+  position:relative;
+  padding:62px 0 58px;
+  background:
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(244,198,19,.18),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 7% 92%,
+      rgba(255,255,255,.08),
+      transparent 31%
+    ),
+    linear-gradient(
+      135deg,
+      #0f0889 0%,
+      #0b066d 72%,
+      #09044f 100%
+    );
+}
+
+#tbs-home-v2 .hero-grid{
+  gap:46px;
+}
+
+#tbs-home-v2 .hero h1{
+  max-width:720px;
+  letter-spacing:-.025em;
+  text-wrap:balance;
+}
+
+#tbs-home-v2 .hero .lede{
+  max-width:660px;
+}
+
+/* OFFER */
+
+#tbs-home-v2 .offer-card{
+  border:1px solid rgba(244,198,19,.68);
+  border-top:5px solid var(--accent);
+  box-shadow:0 18px 46px rgba(3,3,40,.22);
+}
+
+#tbs-home-v2 .offer-summary{
+  border-radius:9px;
+}
+
+/* HERO IMAGE */
+
+#tbs-home-v2 .hero-media{
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 26px 60px rgba(0,0,0,.28);
+  transform:rotate(.45deg);
+}
+
+#tbs-home-v2 .hero-media img{
+  transition:transform .35s ease;
+}
+
+#tbs-home-v2 .hero-media:hover img{
+  transform:scale(1.025);
+}
+
+#tbs-home-v2 .hero-media-caption{
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+
+/* TRUST PILLS */
+
+#tbs-home-v2 .proof-pill{
+  border-color:rgba(255,255,255,.25);
+  background:rgba(255,255,255,.11);
+  backdrop-filter:blur(3px);
+}
+
+/* BUTTON INTERACTIONS */
+
+#tbs-home-v2 .btn{
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background-color .2s ease,
+    border-color .2s ease;
+}
+
+#tbs-home-v2 .btn:hover{
+  transform:translateY(-2px);
+}
+
+#tbs-home-v2 .btn-primary:hover{
+  box-shadow:0 14px 30px rgba(244,198,19,.36);
+}
+
+#tbs-home-v2 .btn-royal:hover{
+  box-shadow:0 14px 30px rgba(15,8,137,.25);
+}
+
+/* GENERAL CARDS */
+
+#tbs-home-v2 .card{
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+#tbs-home-v2 .card:hover{
+  transform:translateY(-3px);
+  border-color:#d6dcf1;
+  box-shadow:0 14px 32px rgba(15,23,42,.08);
+}
+
+/* PRICING */
+
+#tbs-home-v2 .price-card{
+  border-top:4px solid #e8ebf8;
+}
+
+#tbs-home-v2 .price-card:first-child{
+  border-top-color:var(--accent);
+}
+
+/* HOW IT WORKS */
+
+#tbs-home-v2 .step-number{
+  box-shadow:0 7px 16px rgba(15,8,137,.18);
+}
+
+/* COMMERCIAL */
+
+#tbs-home-v2 .commercial-panel{
+  box-shadow:0 18px 42px rgba(15,8,137,.18);
+}
+
+/* FINAL CTA */
+
+#tbs-home-v2 .final-cta{
+  background:
+    radial-gradient(
+      circle at 85% 0,
+      rgba(244,198,19,.17),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      var(--royal) 0%,
+      var(--royal-dark) 100%
+    );
+  box-shadow:0 18px 44px rgba(15,8,137,.18);
+}
+
+/* TABLET */
+
+@media(max-width:820px){
+
+  #tbs-home-v2 .hero{
+    padding:38px 0 44px;
+  }
+
+  #tbs-home-v2 .hero-grid{
+    gap:28px;
+  }
+
+  #tbs-home-v2 .hero-media{
+    transform:none;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion:reduce){
+
+  #tbs-home-v2 .btn,
+  #tbs-home-v2 .card,
+  #tbs-home-v2 .hero-media,
+  #tbs-home-v2 .hero-media img{
+    transition:none !important;
+    transform:none !important;
+  }
+}
