@@ -26,3 +26,28 @@
 @media(hover:hover){.booking-btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(15,8,137,.12)}}
 @media(max-width:760px){.booking-intro{padding:34px 0 28px}.booking-intro-inner{padding-left:18px;padding-right:18px}.booking-intro p{font-size:1rem}.booking-trust{gap:7px}.booking-trust span{font-size:.82rem;padding:7px 9px}.booking-form-section{padding:18px 0 32px}.booking-frame-card{border-left:0;border-right:0;border-radius:0;box-shadow:none}.booking-fallback{padding:0 16px}.booking-help{padding:36px 0}.booking-help-inner{display:block;padding-left:20px;padding-right:20px}.booking-help-actions{margin-top:20px}.booking-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.booking-btn{transition:none!important;transform:none!important}}
+/* =========================================================
+   TBS BOOKING SHELL REFINEMENT v2
+   Faster path into checkout; lighter first-party framing
+   ========================================================= */
+#tbs-booking-experience .booking-intro{padding:26px 0 20px;}
+#tbs-booking-experience .booking-eyebrow{margin-bottom:5px;font-size:.72rem;}
+#tbs-booking-experience .booking-intro h1{font-size:clamp(1.85rem,4vw,2.65rem);}
+#tbs-booking-experience .booking-intro p{max-width:720px;margin-top:8px;font-size:.95rem;line-height:1.5;}
+#tbs-booking-experience .booking-trust{gap:7px;margin-top:12px;}
+#tbs-booking-experience .booking-trust span{padding:6px 10px;font-size:.81rem;box-shadow:none;}
+#tbs-booking-experience .booking-form-section{padding-top:16px;padding-bottom:30px;}
+#tbs-booking-experience .booking-shell{max-width:1180px;}
+#tbs-booking-experience .booking-workspace{border-color:#edf0f6;border-radius:16px;box-shadow:0 8px 28px rgba(15,23,42,.045);}
+#tbs-booking-experience .booking-workspace-head{padding-top:18px;padding-bottom:14px;}
+#tbs-booking-experience .booking-workspace-head h2{margin-bottom:5px;}
+#tbs-booking-experience .booking-workspace-head p{margin-bottom:0;}
+@media(max-width:700px){
+  #tbs-booking-experience .booking-intro{padding:21px 0 17px;}
+  #tbs-booking-experience .booking-trust{margin-top:10px;}
+  #tbs-booking-experience .booking-form-section{padding-top:10px;padding-left:10px;padding-right:10px;}
+  #tbs-booking-experience .booking-workspace{border-radius:13px;}
+}
+@media(prefers-reduced-motion:reduce){
+  #tbs-booking-experience *,#tbs-booking-experience *::before,#tbs-booking-experience *::after{scroll-behavior:auto !important;}
+}
