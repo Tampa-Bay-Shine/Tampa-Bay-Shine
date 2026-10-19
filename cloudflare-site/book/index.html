@@ -59,51 +59,585 @@
 </section>
 <section class="booking-form-section" aria-label="Online cleaning booking form">
   <div class="booking-shell">
-    <div class="booking-frame-card">
+        <!-- TBS GUIDED BOOKING FUNNEL v2.1 -->
+    <div class="booking-guide" id="tbs-booking-guide" hidden>
+
+      <div class="booking-guide-progress" aria-hidden="true">
+        <span class="is-complete">Cleaning Selected</span>
+        <span class="is-current">Quick Setup</span>
+        <span>Price &amp; Schedule</span>
+      </div>
+
+      <div class="booking-guide-panel">
+
+        <span class="booking-eyebrow booking-guide-eyebrow">
+          Quick Setup
+        </span>
+
+        <h2>Let's Get Your Cleaning Price</h2>
+
+        <p class="booking-guide-lede">
+          We already know which cleaning you need. Confirm the details below and we'll take you directly into pricing and scheduling.
+        </p>
+
+        <div class="booking-selected-service">
+          <div>
+            <span class="booking-selected-label">
+              Selected Cleaning
+            </span>
+
+            <strong id="tbs-selected-service">
+              Residential Cleaning
+            </strong>
+          </div>
+
+          <a href="/services/">
+            Change Service
+          </a>
+        </div>
+
+        <fieldset
+          class="booking-frequency"
+          id="tbs-frequency-fieldset"
+          tabindex="-1"
+          hidden
+        >
+
+          <legend>
+            How often would you like us to clean?
+          </legend>
+
+          <p>
+            Choose the schedule that works best for you. Recurring savings are applied automatically.
+          </p>
+
+          <div class="booking-frequency-grid">
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="1"
+              >
+              <span>
+                <strong>One-Time</strong>
+                <small>No commitment</small>
+              </span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="9"
+              >
+              <span>
+                <strong>Weekly</strong>
+                <small>Save 25%</small>
+              </span>
+            </label>
+
+            <label class="is-popular">
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="4"
+              >
+              <span>
+                <em>Popular Choice</em>
+                <strong>Bi-Weekly</strong>
+                <small>Save 15%</small>
+              </span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="5"
+              >
+              <span>
+                <strong>Every 3 Weeks</strong>
+                <small>Save 12%</small>
+              </span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="2"
+              >
+              <span>
+                <strong>Every 4 Weeks</strong>
+                <small>Save 10%</small>
+              </span>
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="booking-guide-actions">
+
+          <button
+            class="booking-btn booking-btn-primary booking-guide-continue"
+            id="tbs-booking-continue"
+            type="button"
+          >
+            Continue to My Price
+          </button>
+
+          <button
+            class="booking-guide-skip"
+            id="tbs-booking-skip"
+            type="button"
+          >
+            Skip to Full Booking
+          </button>
+
+        </div>
+
+        <p class="booking-guide-reassurance">
+          No phone call required. Review your price, available appointments and service details before booking.
+        </p>
+
+      </div>
+
+    </div>
+    <!-- /TBS GUIDED BOOKING FUNNEL v2.1 -->
+    <div class="booking-frame-card" id="tbs-booking-workspace">
       <iframe id="tbs-booking-frame" title="Tampa Bay Shine online booking form" src="https://tampabayshine.bookingkoala.com/booknow?embed=true" style="border:none;height:1000px" width="100%" scrolling="no"></iframe>
-      <script>
+            <script>
       (function () {
+
         var services = {
-          "standard": { serviceId: "6" },
-          "deep": { serviceId: "18" },
-          "move-out": { serviceId: "17", frequencyId: "1" },
-          "deep-moving": { serviceId: "23", frequencyId: "1" }
+
+          "standard": {
+            serviceId: "6",
+            label: "Standard Cleaning",
+            note: "Choose your preferred cleaning frequency, then continue to enter your home details and see your price.",
+            askFrequency: true
+          },
+
+          "deep": {
+            serviceId: "18",
+            label: "Deep Cleaning",
+            note: "Your Deep Cleaning is selected. Continue to enter your home details and see your price."
+          },
+
+          "move-out": {
+            serviceId: "17",
+            frequencyId: "1",
+            label: "Move-Out Cleaning",
+            note: "Move-Out Cleaning is a one-time service. Continue to enter your home details and see your price."
+          },
+
+          "deep-moving": {
+            serviceId: "23",
+            frequencyId: "1",
+            label: "Deep Move-In / Move-Out Cleaning",
+            note: "Your detailed moving clean is set as a one-time service. Continue to enter your home details and see your price."
+          }
+
         };
 
-        var params = new URLSearchParams(window.location.search);
-        var cleaning = params.get("cleaning");
-        var selection = services[cleaning];
+        var params =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        var cleaning =
+          params.get("cleaning");
+
+        var selection =
+          services[cleaning];
+
+        var frame =
+          document.getElementById(
+            "tbs-booking-frame"
+          );
+
+        var guide =
+          document.getElementById(
+            "tbs-booking-guide"
+          );
+
+        var workspace =
+          document.getElementById(
+            "tbs-booking-workspace"
+          );
+
+        var serviceName =
+          document.getElementById(
+            "tbs-selected-service"
+          );
+
+        var frequencyFieldset =
+          document.getElementById(
+            "tbs-frequency-fieldset"
+          );
+
+        var continueButton =
+          document.getElementById(
+            "tbs-booking-continue"
+          );
+
+        var skipButton =
+          document.getElementById(
+            "tbs-booking-skip"
+          );
+
+
+        function buildBookingUrl(
+          frequencyId
+        ) {
+
+          var bookingUrl =
+            new URL(
+              "https://tampabayshine.bookingkoala.com/booknow"
+            );
+
+          bookingUrl.searchParams.set(
+            "embed",
+            "true"
+          );
+
+          if (selection) {
+
+            bookingUrl.searchParams.set(
+              "service_id",
+              selection.serviceId
+            );
+
+            if (
+              frequencyId ||
+              selection.frequencyId
+            ) {
+
+              bookingUrl.searchParams.set(
+                "frequency_id",
+                frequencyId ||
+                selection.frequencyId
+              );
+
+            }
+
+          }
+
+          return bookingUrl;
+
+        }
+
+
+        function updateBookingTarget(
+          frequencyId
+        ) {
+
+          var bookingUrl =
+            buildBookingUrl(
+              frequencyId
+            );
+
+          if (frame) {
+
+            frame.src =
+              bookingUrl.toString();
+
+          }
+
+          var fallbackUrl =
+            new URL(
+              bookingUrl.toString()
+            );
+
+          fallbackUrl.searchParams.delete(
+            "embed"
+          );
+
+          document
+            .querySelectorAll(
+              "[data-tbs-booking-fallback]"
+            )
+            .forEach(
+              function (link) {
+
+                link.href =
+                  fallbackUrl.toString();
+
+              }
+            );
+
+        }
+
+
+        function track(
+          eventName,
+          extra
+        ) {
+
+          if (
+            typeof window.gtag !==
+            "function"
+          ) {
+            return;
+          }
+
+          var data = {
+
+            booking_intent:
+              cleaning || "generic",
+
+            booking_source:
+              "guided_booking"
+
+          };
+
+          Object
+            .keys(
+              extra || {}
+            )
+            .forEach(
+              function (key) {
+
+                data[key] =
+                  extra[key];
+
+              }
+            );
+
+          window.gtag(
+            "event",
+            eventName,
+            data
+          );
+
+        }
+
+
+        function revealBooking(
+          source
+        ) {
+
+          if (guide) {
+
+            guide.classList.add(
+              "is-complete"
+            );
+
+          }
+
+          if (workspace) {
+
+            workspace.classList.add(
+              "is-ready"
+            );
+
+            workspace.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+
+          track(
+            "booking_guided_continue",
+            {
+              guided_action: source
+            }
+          );
+
+        }
+
+
+        /*
+         * Generic /book/ remains the
+         * existing direct booking experience.
+         */
 
         if (!selection) {
+
+          if (workspace) {
+
+            workspace.classList.add(
+              "is-ready"
+            );
+
+          }
+
           return;
+
         }
 
-        var bookingUrl = new URL("https://tampabayshine.bookingkoala.com/booknow");
-        bookingUrl.searchParams.set("embed", "true");
-        bookingUrl.searchParams.set("service_id", selection.serviceId);
 
-        if (selection.frequencyId) {
-          bookingUrl.searchParams.set("frequency_id", selection.frequencyId);
+        /*
+         * Known residential service intent.
+         */
+
+        if (guide) {
+
+          guide.hidden = false;
+
         }
 
-        var frame = document.getElementById("tbs-booking-frame");
+        if (workspace) {
 
-        if (frame) {
-          frame.src = bookingUrl.toString();
+          workspace.classList.add(
+            "is-guided"
+          );
+
         }
 
-        var fallbackUrl = new URL(bookingUrl.toString());
-        fallbackUrl.searchParams.delete("embed");
+        if (serviceName) {
 
-        document.querySelectorAll("[data-tbs-booking-fallback]").forEach(function (link) {
-          link.href = fallbackUrl.toString();
-        });
+          serviceName.textContent =
+            selection.label;
+
+        }
+
+
+        if (
+          selection.askFrequency &&
+          frequencyFieldset
+        ) {
+
+          frequencyFieldset.hidden =
+            false;
+
+        }
+
+
+        /*
+         * Preload the correct service.
+         * Standard frequency is not forced
+         * until the customer chooses it.
+         */
+
+        updateBookingTarget();
+
+        track(
+          "booking_guided_start"
+        );
+
+
+        if (continueButton) {
+
+          continueButton.addEventListener(
+            "click",
+            function () {
+
+              var frequencyId =
+                null;
+
+
+              if (
+                selection.askFrequency
+              ) {
+
+                var checked =
+                  document.querySelector(
+                    'input[name="tbs-frequency"]:checked'
+                  );
+
+
+                if (!checked) {
+
+                  frequencyFieldset
+                    .classList.add(
+                      "has-error"
+                    );
+
+                  frequencyFieldset
+                    .focus();
+
+                  return;
+
+                }
+
+
+                frequencyId =
+                  checked.value;
+
+                frequencyFieldset
+                  .classList.remove(
+                    "has-error"
+                  );
+
+              }
+
+
+              updateBookingTarget(
+                frequencyId
+              );
+
+              revealBooking(
+                "continue"
+              );
+
+            }
+          );
+
+        }
+
+
+        document
+          .querySelectorAll(
+            'input[name="tbs-frequency"]'
+          )
+          .forEach(
+            function (input) {
+
+              input.addEventListener(
+                "change",
+                function () {
+
+                  if (
+                    frequencyFieldset
+                  ) {
+
+                    frequencyFieldset
+                      .classList.remove(
+                        "has-error"
+                      );
+
+                  }
+
+                }
+              );
+
+            }
+          );
+
+
+        if (skipButton) {
+
+          skipButton.addEventListener(
+            "click",
+            function () {
+
+              /*
+               * Preserve the known service
+               * but do not force a Standard
+               * frequency when skipping.
+               */
+
+              updateBookingTarget();
+
+              revealBooking(
+                "skip"
+              );
+
+            }
+          );
+
+        }
+
       }());
       </script>
       <script src="https://tampabayshine.bookingkoala.com/resources/embed.js" defer></script>
       <noscript><p class="booking-fallback">JavaScript is required for embedded booking. <a href="https://tampabayshine.bookingkoala.com/booknow">Open the secure booking form</a>.</p></noscript>
+      <p class="booking-fallback">Having trouble with the embedded form? <a data-tbs-booking-fallback href="https://tampabayshine.bookingkoala.com/booknow">Open our secure booking form in a new page</a>.</p>
     </div>
-    <p class="booking-fallback">Having trouble with the embedded form? <a data-tbs-booking-fallback href="https://tampabayshine.bookingkoala.com/booknow">Open our secure booking form in a new page</a>.</p>
   </div>
 </section>
 <section class="booking-help">
