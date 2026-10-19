@@ -1229,3 +1229,65 @@
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
+/* TBS RESIDENTIAL SERVICE FUNNEL V2 */
+#tbs-services-v2 .residential-funnel{background:linear-gradient(180deg,#f7f9ff 0%,#fff 100%);border-block:1px solid #e3e8f2}
+#tbs-services-v2 .funnel-heading{max-width:760px;margin:0 auto 26px}
+#tbs-services-v2 .funnel-lede{max-width:700px;margin:10px auto 0;line-height:1.65}
+#tbs-services-v2 .funnel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#tbs-services-v2 .funnel-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:22px;background:#fff;border:1px solid #dfe6f0;border-radius:16px;box-shadow:0 8px 24px rgba(20,42,82,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+#tbs-services-v2 .funnel-card:hover{transform:translateY(-3px);border-color:#bdc9df;box-shadow:0 13px 30px rgba(20,42,82,.11)}
+#tbs-services-v2 .funnel-card-featured{border-color:#ffc619}
+#tbs-services-v2 .funnel-card-featured::before{content:"POPULAR FIRST-TIME CHOICE";position:absolute;top:-10px;right:18px;padding:5px 9px;color:#13245a;background:#ffc619;border-radius:999px;font-size:.62rem;font-weight:800;letter-spacing:.06em}
+#tbs-services-v2 .funnel-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+#tbs-services-v2 .funnel-number{display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;color:#fff;background:#11108a;border-radius:50%;font-size:.72rem;font-weight:800}
+#tbs-services-v2 .funnel-fit{padding:5px 9px;color:#42516d;background:#f1f5fa;border-radius:999px;font-size:.7rem;font-weight:700}
+#tbs-services-v2 .funnel-card h3{margin:0 0 6px;font-size:1.2rem;line-height:1.22}
+#tbs-services-v2 .funnel-situation{margin:0 0 12px;font-size:.91rem;line-height:1.5}
+#tbs-services-v2 .funnel-recommendation{margin:0 0 10px;padding:10px 12px;background:#f3f6ff;border-left:3px solid #11108a;border-radius:0 8px 8px 0}
+#tbs-services-v2 .funnel-recommendation span{display:block;margin-bottom:1px;color:#68748a;font-size:.64rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+#tbs-services-v2 .funnel-recommendation strong{color:#11108a;font-size:.92rem}
+#tbs-services-v2 .funnel-detail{margin:0 0 15px;color:#526078;font-size:.82rem;line-height:1.45}
+#tbs-services-v2 .funnel-actions{display:flex;align-items:center;gap:12px;margin-top:auto}
+#tbs-services-v2 .funnel-actions .btn{flex:0 0 auto;padding:10px 16px}
+#tbs-services-v2 .funnel-learn{font-size:.76rem;font-weight:750}
+#tbs-services-v2 .quick-choose{display:grid;grid-template-columns:auto repeat(4,1fr);align-items:stretch;gap:1px;margin-top:20px;overflow:hidden;background:#dfe5f0;border:1px solid #dfe5f0;border-radius:12px}
+#tbs-services-v2 .quick-choose-label{display:flex;align-items:center;padding:12px 14px;color:#fff;background:#11108a;font-size:.76rem;font-weight:800}
+#tbs-services-v2 .quick-choose a{display:flex;flex-direction:column;justify-content:center;padding:10px 12px;background:#fff;text-decoration:none}
+#tbs-services-v2 .quick-choose a:hover{background:#f7f9ff}
+#tbs-services-v2 .quick-choose strong{color:#283650;font-size:.72rem}
+#tbs-services-v2 .quick-choose span{margin-top:2px;color:#11108a;font-size:.68rem;font-weight:800}
+#tbs-services-v2 .funnel-reassurance{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+#tbs-services-v2 .funnel-reassurance span{padding:6px 10px;color:#44516a;background:#fff;border:1px solid #dfe6f0;border-radius:999px;font-size:.7rem;font-weight:750}
+#tbs-services-v2 .business-bridge{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px;padding:13px 16px;background:#eef3f8;border:1px solid #dce4ee;border-radius:10px;font-size:.78rem}
+#tbs-services-v2 .business-bridge-actions{display:flex;flex:0 0 auto;gap:14px;font-weight:800}
+#tbs-services-v2 .other-residential{padding-top:46px;padding-bottom:46px}
+#tbs-services-v2 .compact-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:18px}
+#tbs-services-v2 .compact-heading h2{margin-bottom:0}
+#tbs-services-v2 .compact-heading p{max-width:460px;margin:0;color:#5b6780;font-size:.9rem;line-height:1.5}
+#tbs-services-v2 .secondary-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#tbs-services-v2 .secondary-service{display:flex;flex-direction:column;padding:18px;background:#fff;border:1px solid #dfe6f0;border-radius:13px;box-shadow:0 6px 18px rgba(20,42,82,.05);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+#tbs-services-v2 .secondary-service:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(20,42,82,.1)}
+#tbs-services-v2 .secondary-service strong{color:#11108a;font-size:.96rem}
+#tbs-services-v2 .secondary-service span{flex:1;margin:7px 0 12px;color:#58647b;font-size:.8rem;line-height:1.45}
+#tbs-services-v2 .secondary-service b{color:#11108a;font-size:.74rem}
+@media(max-width:900px){#tbs-services-v2 .funnel-grid{grid-template-columns:1fr}#tbs-services-v2 .quick-choose{grid-template-columns:1fr 1fr}#tbs-services-v2 .quick-choose-label{grid-column:1/-1}#tbs-services-v2 .business-bridge,#tbs-services-v2 .compact-heading{align-items:flex-start;flex-direction:column}#tbs-services-v2 .secondary-service-grid{grid-template-columns:1fr}}
+@media(max-width:600px){#tbs-services-v2 .funnel-card{padding:18px}#tbs-services-v2 .funnel-card-featured::before{position:static;align-self:flex-start;display:inline-block;margin:-2px 0 12px}#tbs-services-v2 .funnel-actions{align-items:stretch;flex-direction:column}#tbs-services-v2 .funnel-actions .btn{width:100%;text-align:center}#tbs-services-v2 .quick-choose{grid-template-columns:1fr}#tbs-services-v2 .business-bridge-actions{flex-direction:column;gap:6px}}
+@media(prefers-reduced-motion:reduce){#tbs-services-v2 .funnel-card,#tbs-services-v2 .secondary-service{transition:none}#tbs-services-v2 .funnel-card:hover,#tbs-services-v2 .secondary-service:hover{transform:none}}
+/* /TBS RESIDENTIAL SERVICE FUNNEL V2 */
+
+/* TBS SERVICES FUNNEL V2.1 READABILITY */
+#tbs-services-v2 .funnel-situation{
+  font-size:.94rem;
+  line-height:1.6;
+}
+
+#tbs-services-v2 .funnel-detail{
+  font-size:.86rem;
+  line-height:1.55;
+}
+
+#tbs-services-v2 .funnel-learn{
+  font-size:.82rem;
+  line-height:1.4;
+}
+/* /TBS SERVICES FUNNEL V2.1 READABILITY */
