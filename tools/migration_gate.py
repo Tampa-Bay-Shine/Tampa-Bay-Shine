@@ -129,7 +129,7 @@ def staging(repo,out,cfg,active):
 def production(repo,out,cfg,active):
     b=cmd(['git','branch','--show-current'],repo).stdout.strip(); add(out,'On production branch',b==PROD_BRANCH,f'current={b}')
     s=cmd(['git','status','--porcelain'],repo).stdout.strip(); add(out,'Git working tree clean',not s,s or 'clean')
-    common(repo,out,active,True,cfg['transaction_mode']); seo_regression(repo,out); analytics_regression(repo,out); transaction_anchor_checks(repo,out,active,cfg['transaction_mode']); hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
+    common(repo,out,active,True,cfg['transaction_mode']); seo_regression(repo,out); analytics_regression(repo,out); transaction_anchor_checks(repo,out,active,cfg['transaction_mode']); first_party_source_checks(repo,out) if cfg['transaction_mode']=='first_party_embeds' else None; hp=(repo/SITE_DIR/'_headers').read_text(encoding='utf-8',errors='ignore'); add(out,'Production global noindex removed',not bool(re.search(r'X-Robots-Tag:\\s*noindex',hp,re.I)))
     active_checks(out,active); manual(repo,out,cfg['transaction_mode'],active)
 def postcut(repo,out,cfg,active):
     active_checks(out,active); prod=cfg['production_url'].rstrip('/')
