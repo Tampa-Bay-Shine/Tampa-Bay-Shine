@@ -49,7 +49,9 @@ Compare conversion rates by landing page and service. Refine CTA copy/placement.
 | cleaning service areas Tampa Bay | `/locations` |
 
 ## Measurement
-Shared site JavaScript should emit `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click`. These are analytics-ready hooks only. Completed BookingKoala transaction measurement requires separate cross-domain/conversion configuration.
+Shared site JavaScript emits `booknow_click`, `phone_click`, `contact_click`, `commercial_quote_start`, `coupon_click`, and `review_click`. The first-party `/book/` experience also emits `booking_guided_start` and `booking_guided_continue` when a known residential cleaning intent is recognized.
+
+These are pre-transaction funnel signals. Completed BookingKoala transaction and revenue measurement require separately verified transaction-side/cross-domain conversion instrumentation.
 
 ## Release discipline
 For material updates: validate locally, commit, run staging gate, push `cloudflare-staging`, QA staging, promote with `tools/promote_cloudflare.py --push`, run post-cutover, notify IndexNow for changed canonical URLs, and use Google Search Console URL Inspection selectively.
@@ -61,9 +63,10 @@ The site now has first-party CTA event instrumentation for `booknow_click`, `pho
 These events are emitted in the browser and are pushed to `window.dataLayer` when a data layer exists.
 
 Current status:
-- event-generation layer: implemented;
-- GA4/GTM collection: must be verified/configured separately;
-- BookingKoala `booking_start` / `booking_complete`: not measured by this marketing-site instrumentation;
-- revenue attribution: requires transactional/cross-domain measurement.
+- shared CTA event-generation layer: implemented;
+- first-party guided booking start/continue events: implemented for known residential service intent;
+- GA4 production collection: implemented in site code and should be verified in reporting after material changes;
+- BookingKoala completed-booking confirmation: not established by these marketing-site events;
+- revenue attribution: requires verified transaction-side/cross-domain measurement.
 
 See `site-management/CONVERSION_TRACKING.md`.

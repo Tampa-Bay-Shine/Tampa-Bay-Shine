@@ -12,7 +12,9 @@ The tracking code does **not** by itself store analytics data or send data to Go
 
 | Event | Trigger |
 |---|---|
-| `booknow_click` | Click on `/booknow` |
+| `booknow_click` | Click into `/book/` or `/booknow` |
+| `booking_guided_start` | `/book/` recognizes a known residential `cleaning` intent |
+| `booking_guided_continue` | Customer continues/skips from the guided intent layer into the BookingKoala workspace |
 | `phone_click` | Click on a `tel:` link |
 | `contact_click` | Click on `/contact-us` from a non-commercial page |
 | `commercial_quote_start` | Click on `/contact-us` from a commercial-intent page |
@@ -99,20 +101,25 @@ Recommended key-event candidates:
 
 `coupon_click` and `review_click` are useful engagement events but should not automatically be treated as conversions.
 
-## BookingKoala limitation
+## Residential booking measurement boundary
 
-`booknow_click` measures only the handoff from the marketing site to BookingKoala. It does **not** prove a booking was completed.
+`booknow_click`, `booking_guided_start`, and `booking_guided_continue` are first-party funnel signals. None proves a booking was completed.
 
-A complete residential funnel should eventually measure:
+The current residential path is conceptually:
 
 ```text
 landing page
 → booknow_click
-→ booking_start
-→ booking_complete
+→ /book/ intent recognized when available
+→ booking_guided_start
+→ booking_guided_continue
+→ BookingKoala pricing / scheduling / checkout
+→ booking_complete (not yet verified by this marketing-site instrumentation)
 ```
 
-Do not report `booknow_click` as a completed booking.
+A generic `/book/` visit may bypass the guided-intent events.
+
+Do not report CTA clicks or guided events as completed bookings or revenue.
 
 ## Useful reports
 
