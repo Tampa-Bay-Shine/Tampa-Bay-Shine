@@ -459,3 +459,114 @@
   }
 
 }
+
+/* TBS BOOKING CHECKOUT HEADER v5
+   Minimal booking-page chrome to reduce funnel exits. */
+body.booking-page .booking-checkout-header .header-inner{
+  min-height:82px;
+}
+
+body.booking-page .booking-checkout-header .site-brand img{
+  width:92px;
+}
+
+body.booking-page .booking-header-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-left:auto;
+}
+
+body.booking-page .booking-header-help{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  color:#fff;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+body.booking-page .booking-header-help span{
+  color:rgba(255,255,255,.76);
+  font-size:.78rem;
+  font-weight:700;
+}
+
+body.booking-page .booking-header-help strong{
+  font-size:.92rem;
+  font-weight:800;
+}
+
+body.booking-page .booking-header-help:hover strong,
+body.booking-page .booking-header-help:focus-visible strong{
+  text-decoration:underline;
+}
+
+body.booking-page .booking-header-login{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:8px 13px;
+  border:1px solid rgba(255,255,255,.48);
+  border-radius:9px;
+  color:#fff;
+  font-size:.85rem;
+  font-weight:800;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+body.booking-page .booking-header-login:hover,
+body.booking-page .booking-header-login:focus-visible{
+  background:rgba(255,255,255,.10);
+  border-color:#fff;
+}
+
+@media(max-width:620px){
+  body.booking-page .booking-checkout-header .header-inner{
+    min-height:70px;
+    gap:12px;
+  }
+
+  body.booking-page .booking-checkout-header .site-brand img{
+    width:76px;
+  }
+
+  body.booking-page .booking-header-actions{
+    gap:8px;
+  }
+
+  body.booking-page .booking-header-help{
+    display:inline-flex;
+    min-height:38px;
+    align-items:center;
+    padding:7px 9px;
+    border:1px solid rgba(255,255,255,.32);
+    border-radius:8px;
+  }
+
+  body.booking-page .booking-header-help span{
+    display:none;
+  }
+
+  body.booking-page .booking-header-help strong{
+    font-size:.78rem;
+  }
+
+  body.booking-page .booking-header-login{
+    min-height:38px;
+    padding:7px 9px;
+    font-size:.78rem;
+  }
+
+  body.booking-page #tbs-booking-experience .booking-form-section{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  body.booking-page #tbs-booking-experience .booking-guide{
+    padding-left:10px;
+    padding-right:10px;
+  }
+}
