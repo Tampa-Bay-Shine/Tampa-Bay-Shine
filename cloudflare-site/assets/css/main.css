@@ -66,35 +66,40 @@
   background: #f7f9ff;
   border-top: 1px solid #dfe5f3;
   border-bottom: 1px solid #dfe5f3;
-  padding: 24px 0;
+  padding: 32px 20px;
 }
 
 .tbs-answer-inner {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap: 24px;
-  align-items: center;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: 26px 28px;
+  background: #fff;
+  border: 1px solid #dfe5f3;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15,23,42,.06);
+  text-align: center;
 }
 
 .tbs-answer-eyebrow {
   display: inline-block;
-  margin-bottom: 6px;
+  margin: 0 0 7px;
   color: #001c7d;
-  font-size: .78rem;
+  font-size: .75rem;
   font-weight: 900;
-  letter-spacing: .06em;
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
 .tbs-answer-block h2 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   color: #111827;
-  font-size: clamp(1.2rem,2.2vw,1.55rem);
+  font-size: clamp(1.35rem,2.5vw,1.75rem);
+  line-height: 1.2;
 }
 
 .tbs-answer-block p {
-  margin: 0;
-  max-width: 860px;
+  margin: 0 auto;
+  max-width: 820px;
   color: #374151;
   line-height: 1.65;
 }
@@ -102,17 +107,19 @@
 .tbs-answer-related {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
-  font-size: .92rem;
+  justify-content: center;
+  gap: 6px 12px;
+  margin-top: 12px !important;
+  font-size: .9rem;
   font-weight: 700;
 }
 
 .tbs-answer-actions {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  min-width: 210px;
+  margin-top: 18px;
 }
 
 .tbs-answer-primary,
@@ -158,12 +165,26 @@
 }
 
 @media (max-width: 760px) {
+  .tbs-answer-block {
+    padding: 24px 14px;
+  }
+
   .tbs-answer-inner {
-    grid-template-columns: 1fr;
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+
+  .tbs-answer-related {
+    display: block;
   }
 
   .tbs-answer-actions {
-    min-width: 0;
+    margin-top: 16px;
+  }
+
+  .tbs-answer-primary,
+  .tbs-answer-secondary {
+    width: min(100%, 320px);
   }
 }
 .tbs-resource-link{padding:22px 0;background:#f7f9ff;border-top:1px solid #dfe5f3}.tbs-resource-link a{font-weight:800;color:#001c7d}
