@@ -570,3 +570,80 @@ body.booking-page .booking-header-login:focus-visible{
     padding-right:10px;
   }
 }
+
+/* TBS BOOKING CHECKOUT FOOTER v5.1
+   Reduced checkout chrome for a cleaner funnel finish. */
+body.booking-page .booking-checkout-footer{
+  margin-top:0;
+}
+
+body.booking-page .booking-footer-inner{
+  display:grid;
+  grid-template-columns:1.35fr auto auto;
+  align-items:start;
+  gap:28px;
+  padding:30px 0 22px;
+}
+
+body.booking-page .booking-footer-brand{
+  display:grid;
+  gap:4px;
+}
+
+body.booking-page .booking-footer-brand strong{
+  font-size:1rem;
+}
+
+body.booking-page .booking-footer-brand span{
+  color:rgba(255,255,255,.76);
+  font-size:.86rem;
+}
+
+body.booking-page .booking-footer-contact,
+body.booking-page .booking-footer-legal{
+  display:grid;
+  gap:6px;
+  align-content:start;
+}
+
+body.booking-page .booking-footer-contact a,
+body.booking-page .booking-footer-legal a{
+  color:#fff;
+  font-size:.86rem;
+  text-decoration:none;
+}
+
+body.booking-page .booking-footer-contact a:hover,
+body.booking-page .booking-footer-contact a:focus-visible,
+body.booking-page .booking-footer-legal a:hover,
+body.booking-page .booking-footer-legal a:focus-visible{
+  text-decoration:underline;
+}
+
+body.booking-page .booking-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.16);
+  padding:14px 0 18px;
+  color:rgba(255,255,255,.72);
+  font-size:.78rem;
+}
+
+@media(max-width:760px){
+  body.booking-page .booking-footer-inner{
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:24px 0 18px;
+    text-align:center;
+  }
+
+  body.booking-page .booking-footer-contact,
+  body.booking-page .booking-footer-legal{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px 16px;
+  }
+
+  body.booking-page .booking-footer-bottom{
+    text-align:center;
+  }
+}
