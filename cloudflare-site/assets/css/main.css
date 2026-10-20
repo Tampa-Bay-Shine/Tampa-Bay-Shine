@@ -295,13 +295,138 @@
 .site-footer-legal a:hover,.site-footer-legal a:focus-visible{text-decoration:underline}
 
 @media(max-width:980px){
-  .site-nav{align-items:stretch;gap:16px}
+  .site-header .site-nav{
+    display:none;
+    align-items:stretch;
+    gap:16px;
+    max-height:calc(100dvh - 84px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+  }
+  .site-header .site-nav.is-open{display:flex}
   .site-nav-primary,.site-nav-actions{flex-direction:column;align-items:stretch;gap:0}
   .site-nav-primary a,.site-nav-actions a:not(.site-book){display:block;padding:10px 4px}
   .site-nav-actions{padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
   .site-book{width:100%;margin-top:8px}
+  .site-footer-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px 32px;
+  }
+  .site-footer-grid > *{min-width:0}
 }
 @media(max-width:620px){
-  .site-footer-bottom{align-items:flex-start;flex-direction:column}
-  .site-footer-legal{gap:14px}
+  .site-footer-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+    padding:32px 0 26px;
+  }
+  .site-footer-brand p{max-width:none}
+  .site-footer-links{gap:7px}
+  .site-footer a,
+  .site-footer p{
+    overflow-wrap:anywhere;
+  }
+  .site-footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
+  }
+  .site-footer-legal{gap:10px 14px}
+}
+
+/* TBS MOBILE STICKY CTA v1
+   Mobile-only residential booking action for pages without a native sticky bar. */
+.tbs-mobile-sticky-cta{
+  display:none;
+}
+
+@media(max-width:620px){
+  body.has-tbs-mobile-sticky-cta{
+    padding-bottom:calc(72px + env(safe-area-inset-bottom));
+  }
+
+  .tbs-mobile-sticky-cta{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:2400;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-width:0;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:#fff;
+    border-top:1px solid #e5e9f4;
+    box-shadow:0 -8px 26px rgba(15,23,42,.12);
+  }
+
+  .tbs-mobile-sticky-copy{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+  }
+
+  .tbs-mobile-sticky-copy strong{
+    color:#0f0889;
+    font-size:.78rem;
+    font-weight:900;
+    letter-spacing:.02em;
+  }
+
+  .tbs-mobile-sticky-copy span{
+    margin-top:2px;
+    color:#334155;
+    font-size:.74rem;
+    font-weight:700;
+  }
+
+  .tbs-mobile-sticky-button{
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
+    padding:10px 16px;
+    border-radius:12px;
+    background:#f4c613;
+    color:#111 !important;
+    font-size:.88rem;
+    font-weight:900;
+    line-height:1;
+    text-decoration:none !important;
+    white-space:nowrap;
+    box-shadow:0 6px 18px rgba(244,198,19,.22);
+  }
+
+  .tbs-mobile-sticky-button:hover,
+  .tbs-mobile-sticky-button:focus-visible{
+    background:#ffd52a;
+    color:#111 !important;
+    text-decoration:none !important;
+  }
+}
+
+@media(max-width:370px){
+  .tbs-mobile-sticky-cta{
+    gap:8px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .tbs-mobile-sticky-copy strong{
+    font-size:.72rem;
+  }
+
+  .tbs-mobile-sticky-copy span{
+    font-size:.69rem;
+  }
+
+  .tbs-mobile-sticky-button{
+    padding-left:12px;
+    padding-right:12px;
+    font-size:.82rem;
+  }
 }
