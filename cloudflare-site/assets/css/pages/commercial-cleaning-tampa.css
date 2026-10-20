@@ -32,8 +32,8 @@
         }
 
         #commercial-cleaning-tampa .panel.accent{
-          background:var(--soft);
-          border-color:#e6f0ff;
+          background:#f7f9ff;
+          border-color:#e5e9f4;
         }
 
         #commercial-cleaning-tampa h1{
@@ -143,9 +143,10 @@
           inset:0;
           z-index:1;
           background:linear-gradient(
-            180deg,
-            rgba(0,0,0,.08) 0%,
-            rgba(0,0,0,.70) 100%
+            90deg,
+            rgba(6,5,64,.92) 0%,
+            rgba(15,8,137,.80) 48%,
+            rgba(0,0,0,.34) 100%
           );
           border-radius:var(--radius);
         }
@@ -174,15 +175,16 @@
         }
 
         #commercial-cleaning-tampa .btn-primary{
-          background:var(--royal);
-          color:#fff;
-          box-shadow:0 8px 22px rgba(15,8,137,.25);
+          background:#fff;
+          color:var(--royal);
+          border-color:#fff;
+          box-shadow:0 8px 22px rgba(0,0,0,.16);
         }
 
         #commercial-cleaning-tampa .btn-accent{
           background:var(--accent);
-          color:#000;
-          box-shadow:0 6px 18px rgba(0,0,0,.12);
+          color:#111;
+          box-shadow:0 9px 24px rgba(244,198,19,.25);
         }
 
         #commercial-cleaning-tampa .btn-outline{
@@ -240,8 +242,22 @@
           }
 
           #commercial-cleaning-tampa .hero .lead{
-            color:#eef3ff;
+            color:#eef1ff;
             text-shadow:0 2px 8px rgba(0,0,0,.35);
+          }
+
+          #commercial-cleaning-tampa .hero .lead a:not(.btn){
+            color:#fff;
+            font-weight:900;
+            text-decoration:underline;
+            text-decoration-color:var(--accent);
+            text-decoration-thickness:2px;
+            text-underline-offset:3px;
+          }
+
+          #commercial-cleaning-tampa .hero .lead a:not(.btn):hover,
+          #commercial-cleaning-tampa .hero .lead a:not(.btn):focus-visible{
+            color:var(--accent);
           }
         }
 
