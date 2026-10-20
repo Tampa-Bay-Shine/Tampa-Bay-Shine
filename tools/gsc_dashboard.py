@@ -4,6 +4,7 @@ import argparse
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse, urlunparse
 
 import gsc_performance_audit as gsc
 
@@ -82,12 +83,57 @@ def summary_change(current, previous):
     }
 
 
+def normalize_page_url(value):
+    """Normalize page URLs so slash variants share one logical page."""
+    if not value:
+        return value
+
+    text = str(value).strip()
+    parsed = urlparse(text)
+
+    if parsed.scheme and parsed.netloc:
+        path = parsed.path or "/"
+        if len(path) > 1:
+            path = path.rstrip("/")
+        return urlunparse(
+            (parsed.scheme.lower(), parsed.netloc.lower(), path, "", "", "")
+        )
+
+    path = text.split("?", 1)[0].split("#", 1)[0] or "/"
+    if not path.startswith("/"):
+        path = "/" + path
+    if len(path) > 1:
+        path = path.rstrip("/")
+    return path
+
+
+def synthetic_query_reason(query):
+    """Classify obvious Boolean/operator automation queries."""
+    text = " ".join(str(query or "").strip().lower().split())
+    if not text:
+        return None
+
+    operator_hits = sum(text.count(token) for token in (" or ", " and "))
+    quoted_phrases = text.count('"') // 2
+    parenthesized = "(" in text and ")" in text
+
+    if parenthesized and operator_hits >= 2 and quoted_phrases >= 1:
+        return "boolean_operator_pattern"
+    if operator_hits >= 4 and quoted_phrases >= 2:
+        return "boolean_operator_pattern"
+    if len(text) >= 180 and operator_hits >= 2:
+        return "long_automation_pattern"
+    return None
+
+
 def aggregate_by_dimension(rows, dimension):
     """Aggregate GSC rows to one row per query or page."""
     grouped = {}
 
     for row in rows:
         key = row.get(dimension)
+        if dimension == "page":
+            key = normalize_page_url(key)
         if not key:
             continue
 
@@ -360,7 +406,7 @@ def build_action_center(
 
         for row in rows:
             query = row.get("query")
-            page = row.get("page")
+            page = normalize_page_url(row.get("page"))
 
             if not query or not page:
                 continue
@@ -372,29 +418,39 @@ def build_action_center(
                 else None
             )
 
-            candidate = {
-                "page": page,
-                "impressions": impressions,
-                "position": position,
-            }
+            pages = result.setdefault(query, {})
+            candidate = pages.setdefault(
+                page,
+                {"page": page, "impressions": 0.0, "_position_weight": 0.0},
+            )
+            candidate["impressions"] += impressions
+            if position is not None and impressions > 0:
+                candidate["_position_weight"] += position * impressions
 
-            existing = result.get(query)
-
-            if (
-                existing is None
-                or impressions > existing["impressions"]
-                or (
-                    impressions == existing["impressions"]
-                    and position is not None
-                    and (
-                        existing["position"] is None
-                        or position < existing["position"]
-                    )
+        strongest = {}
+        for query, pages in result.items():
+            candidates = []
+            for candidate in pages.values():
+                impressions = candidate["impressions"]
+                position = (
+                    candidate["_position_weight"] / impressions
+                    if impressions > 0 else None
                 )
-            ):
-                result[query] = candidate
+                candidates.append({
+                    "page": candidate["page"],
+                    "impressions": impressions,
+                    "position": position,
+                })
+            candidates.sort(
+                key=lambda item: (
+                    -item["impressions"],
+                    item["position"] if item["position"] is not None else 999999,
+                )
+            )
+            if candidates:
+                strongest[query] = candidates[0]
 
-        return result
+        return strongest
 
     current_query_pages = strongest_query_pages(query_page_rows)
     previous_query_pages = strongest_query_pages(previous_query_page_rows)
@@ -410,6 +466,9 @@ def build_action_center(
         query = item.get("query")
 
         if not query:
+            continue
+
+        if synthetic_query_reason(query):
             continue
 
         impressions = number(item.get("current_impressions"))
@@ -493,6 +552,9 @@ def build_action_center(
         query = item.get("query")
 
         if not query:
+            continue
+
+        if synthetic_query_reason(query):
             continue
 
         current_impressions = number(item.get("current_impressions"))
@@ -579,6 +641,9 @@ def build_action_center(
         if not query:
             continue
 
+        if synthetic_query_reason(query):
+            continue
+
         impressions = number(row.get("impressions"))
         clicks = number(row.get("clicks"))
 
@@ -627,7 +692,7 @@ def build_action_center(
     # ---------------------------------------------------------
 
     for item in page_movers.get("losers", []):
-        page = item.get("page")
+        page = normalize_page_url(item.get("page"))
 
         if not page or page in decline_pages:
             continue
@@ -727,10 +792,31 @@ def build_action_center(
         category = item["category"]
         category_counts[category] = category_counts.get(category, 0) + 1
 
+    excluded_queries = []
+    seen_excluded = set()
+
+    for source in (
+        query_rows,
+        query_movers.get("winners", []),
+        query_movers.get("losers", []),
+    ):
+        for row in source:
+            query = row.get("query")
+            reason = synthetic_query_reason(query)
+            key = str(query or "").strip().lower()
+            if reason and key and key not in seen_excluded:
+                seen_excluded.add(key)
+                excluded_queries.append({
+                    "query": query,
+                    "reason": reason,
+                    "status": "excluded_from_actionable_opportunities",
+                })
+
     return {
         "actions": unique[:50],
         "counts": counts,
         "category_counts": category_counts,
+        "excluded_queries": excluded_queries,
         "method": (
             "Conservative deterministic recommendations based on current 28-day "
             "Google Search Console performance compared with the previous 28 days. "

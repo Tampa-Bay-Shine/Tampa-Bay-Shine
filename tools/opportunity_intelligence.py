@@ -86,6 +86,25 @@ def normalize_path(value):
     return value
 
 
+def synthetic_query_reason(query):
+    """Classify obvious Boolean/operator automation queries."""
+    text = " ".join(str(query or "").strip().lower().split())
+    if not text:
+        return None
+
+    operator_hits = sum(text.count(token) for token in (" or ", " and "))
+    quoted_phrases = text.count('"') // 2
+    parenthesized = "(" in text and ")" in text
+
+    if parenthesized and operator_hits >= 2 and quoted_phrases >= 1:
+        return "boolean_operator_pattern"
+    if operator_hits >= 4 and quoted_phrases >= 2:
+        return "boolean_operator_pattern"
+    if len(text) >= 180 and operator_hits >= 2:
+        return "long_automation_pattern"
+    return None
+
+
 def is_commercial_query(query):
     text = str(query or "").lower()
     return (
@@ -321,6 +340,9 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
     # ---------------------------------------------------------
     for row in gsc.get("top_queries", []):
         query = row.get("query")
+
+        if synthetic_query_reason(query):
+            continue
         impressions = number(row.get("current_impressions"))
         clicks = number(row.get("current_clicks"))
         position = row.get("current_position")
@@ -375,6 +397,9 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
     # ---------------------------------------------------------
     for row in gsc.get("top_queries", []):
         query = row.get("query")
+
+        if synthetic_query_reason(query):
+            continue
         impressions = number(row.get("current_impressions"))
         clicks = number(row.get("current_clicks"))
         ctr = number(row.get("current_ctr_percent"))
@@ -437,6 +462,10 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
         )
 
         query = row.get("query")
+
+        if synthetic_query_reason(query):
+            continue
+
         page = row.get("page") or row.get("previous_page")
 
         add(
