@@ -295,7 +295,15 @@
 .site-footer-legal a:hover,.site-footer-legal a:focus-visible{text-decoration:underline}
 
 @media(max-width:980px){
-  .site-nav{align-items:stretch;gap:16px}
+  .site-header .site-nav{
+    display:none;
+    align-items:stretch;
+    gap:16px;
+    max-height:calc(100dvh - 84px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+  }
+  .site-header .site-nav.is-open{display:flex}
   .site-nav-primary,.site-nav-actions{flex-direction:column;align-items:stretch;gap:0}
   .site-nav-primary a,.site-nav-actions a:not(.site-book){display:block;padding:10px 4px}
   .site-nav-actions{padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
