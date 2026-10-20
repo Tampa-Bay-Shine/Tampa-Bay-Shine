@@ -19,22 +19,29 @@ This repository is the source of truth for the Tampa Bay Shine public marketing 
 
 The public marketing site is a static Cloudflare Pages site. Important content must be present in the initial HTML response; do not make primary SEO content depend on client-side JavaScript.
 
-BookingKoala remains the transactional application. These public routes redirect into BookingKoala:
+Tampa Bay Shine owns the public marketing experience and the first-party booking wrapper. BookingKoala remains the transaction engine for pricing, scheduling, customer/payment records, and booking completion.
 
-- `/booknow`
-- `/login`
-- `/gift-card`
+Current first-party customer routes include:
+
+- `/book/` — branded booking wrapper with embedded BookingKoala
+- `/booknow` — canonical compatibility route into `/book/`
+- `/login` — branded customer access experience
+- `/gift-card` — branded gift-card experience
+
+External transaction/support routes that may still hand off to BookingKoala include:
+
 - `/referrals`
 - `/floor-calculator`
 
-The active transaction target is controlled by `site-management/release_targets.json`.
+The active transaction mode and fallback/custom BookingKoala targets are controlled by `site-management/release_targets.json`.
 
-Current modes:
+Current modes include:
 
-- `bookingkoala_fallback` -> `https://tampabayshine.bookingkoala.com`
-- future `custom_booking` -> `https://booking.tampabayshine.com`
+- `first_party_embeds` — current production architecture
+- `bookingkoala_fallback` — direct fallback to `https://tampabayshine.bookingkoala.com`
+- future/custom booking host — `https://booking.tampabayshine.com`
 
-The custom booking hostname must not be activated merely because DNS exists. It must work, be made BookingKoala Primary when appropriate, and pass the manual transaction tests before switching modes.
+Do not switch transaction mode or the custom booking hostname merely because DNS exists. The target must work, be intentionally configured in BookingKoala, and pass the manual transaction tests before activation.
 
 ### Cloudflare projects
 

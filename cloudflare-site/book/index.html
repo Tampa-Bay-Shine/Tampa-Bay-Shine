@@ -104,11 +104,11 @@
         >
 
           <legend>
-            How often would you like us to clean?
+            Want recurring service?
           </legend>
 
           <p>
-            Choose the schedule that works best for you. Recurring savings are applied automatically.
+            Optional. Choose a frequency now to carry it into pricing, or continue and decide in the booking form.
           </p>
 
           <div class="booking-frequency-grid">
@@ -216,7 +216,7 @@
           "standard": {
             serviceId: "6",
             label: "Standard Cleaning",
-            note: "Choose your preferred cleaning frequency, then continue to enter your home details and see your price.",
+            note: "Standard Cleaning is selected. Frequency can be chosen now or later in the booking form.",
             askFrequency: true
           },
 
@@ -539,29 +539,12 @@
                     'input[name="tbs-frequency"]:checked'
                   );
 
+                if (checked) {
 
-                if (!checked) {
-
-                  frequencyFieldset
-                    .classList.add(
-                      "has-error"
-                    );
-
-                  frequencyFieldset
-                    .focus();
-
-                  return;
+                  frequencyId =
+                    checked.value;
 
                 }
-
-
-                frequencyId =
-                  checked.value;
-
-                frequencyFieldset
-                  .classList.remove(
-                    "has-error"
-                  );
 
               }
 

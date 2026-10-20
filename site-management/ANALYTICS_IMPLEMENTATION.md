@@ -26,7 +26,20 @@ Event parameters:
 - `link_url`
 - `link_text`
 
-`booknow_click` is a handoff into BookingKoala, not a completed booking.
+`booknow_click` measures entry into the residential booking path (`/book/` or `/booknow`) and is not a completed booking.
+
+The first-party `/book/` guided layer also emits:
+
+- `booking_guided_start` — a known `cleaning` intent was recognized;
+- `booking_guided_continue` — the customer continued from the intent layer into the embedded BookingKoala workspace.
+
+Guided-booking parameters currently include:
+
+- `booking_intent`
+- `booking_source`
+- `guided_action` on continue/skip actions
+
+These remain pre-transaction signals, not proof of booking completion.
 
 ## Recommended GA4 key events
 Recommended:
@@ -59,30 +72,30 @@ The migration gate also runs the analytics regression in staging and production 
 ## Privacy
 Do not add names, email addresses, phone numbers, payment details, form values, or other PII to analytics payloads.
 
-## Cross-domain BookingKoala handoff
+## First-party booking and cross-domain BookingKoala measurement
 
-Production promotion rewrites static transactional anchors from same-origin routes such as `/booknow` to the active BookingKoala base URL.
+The current production mode is `first_party_embeds`.
 
-Example:
+Residential CTAs normally stay on `tampabayshine.com` and enter `/book/`, optionally with a friendly service-intent parameter such as `?cleaning=deep`. The `/book/` page translates that intent into BookingKoala parameters and embeds `https://tampabayshine.bookingkoala.com/booknow?embed=true`.
 
-```text
-/booknow
-→ https://tampabayshine.bookingkoala.com/booknow
-```
+`/booknow` is retained as a compatibility route into the first-party booking experience rather than as the normal direct BookingKoala handoff.
 
-This is intentional. Google's linker needs the clicked anchor itself to be outbound to a configured linker domain so it can decorate the destination with `_gl` before navigation.
+Google linker configuration still includes the BookingKoala domains because customers may use the fallback/open-in-new-page flow and transaction completion may cross domains.
 
-Staging source HTML continues to use internal transaction routes. `tools/promote_cloudflare.py` performs the absolute-link rewrite only while generating `cloudflare-production`.
+Do not hard-code the fallback host across marketing page CTAs. The first-party booking wrapper owns normal residential entry.
 
-The destination comes from `site-management/release_targets.json`; do not hard-code the fallback host across source page HTML.
+After production deployment, verify:
 
-After production deployment:
-1. Click Book Now from `tampabayshine.com`.
-2. Confirm the BookingKoala navigation is decorated with `_gl`.
-3. Compare GA4 client IDs on both domains with:
+1. Residential CTAs enter `/book/` and preserve known service intent.
+2. The iframe/fallback target uses the expected BookingKoala host.
+3. Guided events fire only on production.
+4. If a customer leaves the iframe for a BookingKoala page, cross-domain identity continuity is preserved.
+5. A booking CTA or guided event is never reported as a completed booking.
+
+Where direct cross-domain navigation occurs, client identity can be compared with:
 
 ```javascript
 gtag('get', 'G-XK4CTL9KWM', 'client_id', console.log)
 ```
 
-The client IDs should match. Matching identity continuity does not itself measure a completed booking.
+Matching identity continuity does not itself measure a completed booking.

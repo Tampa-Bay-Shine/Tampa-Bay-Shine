@@ -9,9 +9,12 @@ ARCHITECTURE:
 - Deployable files: `cloudflare-site/`.
 - Staging branch: `cloudflare-staging`.
 - Production branch: `cloudflare-production`.
-- Current BookingKoala target is defined in `site-management/release_targets.json`.
-- Transactional routes: `/booknow`, `/login`, `/gift-card`, `/referrals`, `/floor-calculator`.
-- Do not rebuild account/payment/customer/provider functionality as static pages.
+- Transaction mode and BookingKoala targets are defined in `site-management/release_targets.json`.
+- Current production mode is `first_party_embeds`.
+- `/book/` is the first-party residential booking wrapper; `/booknow` is a compatibility route into it.
+- Known residential intent is passed with friendly `cleaning` parameters and translated to BookingKoala service/frequency IDs inside `/book/`.
+- `/login`, `/gift-card`, and `/contact-us/` have first-party branded experiences; `/referrals` and `/floor-calculator` may still hand off externally.
+- Do not rebuild pricing, scheduling, payment, customer-record, provider, or transaction-completion functionality outside BookingKoala.
 
 EDITING CONTRACT:
 1. Treat current repository files as authoritative.
@@ -73,6 +76,10 @@ Return replacement files or a deterministic patch package, a concise change log,
 
 PRIORITY PAGE / CRO RULES:
 - Preserve visible answer-ready summaries, social image/card metadata, stable primary-image preload, and CTA hierarchy on priority pages.
+- Treat the first-party booking layer as a friction reducer, not a second booking form.
+- If page context already identifies the cleaning type, do not ask the customer to choose it again.
+- Do not require pre-booking questions unless the answer reliably eliminates a later BookingKoala step.
+- Prefer low-friction residential CTA wording such as `See My Price` where the visitor is still evaluating cost.
 - Preserve first-party `tbs:conversion` click instrumentation in shared JavaScript.
 - Do not claim GA4/GTM or completed BookingKoala conversion tracking is active unless verified.
 
