@@ -261,3 +261,26 @@
     min-width:0;
   }
 }
+/* TBS SITE EXPERIENCE V2 - SHARED NAVIGATION */
+.site-nav{display:flex;align-items:center;gap:22px;margin-left:auto}
+.site-nav-primary,.site-nav-actions{display:flex;align-items:center;gap:18px}
+.site-nav-actions{gap:12px}
+.site-login{font-size:.9rem;opacity:.96}
+.site-footer-grid{grid-template-columns:1.35fr repeat(3,1fr);gap:34px;padding:42px 0 34px}
+.site-footer-brand p{max-width:290px}
+.site-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-footer-legal{display:flex;flex-wrap:wrap;gap:16px}
+.site-footer-legal a{text-decoration:none}
+.site-footer-legal a:hover,.site-footer-legal a:focus-visible{text-decoration:underline}
+
+@media(max-width:980px){
+  .site-nav{align-items:stretch;gap:16px}
+  .site-nav-primary,.site-nav-actions{flex-direction:column;align-items:stretch;gap:0}
+  .site-nav-primary a,.site-nav-actions a:not(.site-book){display:block;padding:10px 4px}
+  .site-nav-actions{padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
+  .site-book{width:100%;margin-top:8px}
+}
+@media(max-width:620px){
+  .site-footer-bottom{align-items:flex-start;flex-direction:column}
+  .site-footer-legal{gap:14px}
+}
