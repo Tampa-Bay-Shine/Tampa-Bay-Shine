@@ -53,4 +53,31 @@ def main():
         args=['git','push','origin',PROD] if remote else ['git','push','-u','origin',PROD]; run(args,repo,True); print('Pushed',PROD,'using transaction target',active)
     else: print('Production branch prepared locally. NOT pushed.'); print('Transaction target:',active)
     run(['git','switch',DEV],repo,True); print('Returned to',DEV)
+    if a.push:
+        post=subprocess.run(
+            [sys.executable,str(gate),'--repo',str(repo),'--phase','post-cutover'],
+            cwd=str(repo)
+        )
+
+        if post.returncode!=0:
+            raise SystemExit(
+                'Production was pushed, but post-cutover gate is not GREEN. '
+                'IndexNow skipped.'
+            )
+
+        indexnow=repo/'tools'/'submit_indexnow.py'
+        submitted=subprocess.run(
+            [sys.executable,str(indexnow),'--repo',str(repo),'--live'],
+            cwd=str(repo)
+        )
+
+        if submitted.returncode!=0:
+            raise SystemExit(
+                'Production is verified, but IndexNow submission failed.'
+            )
+
+        print(
+            'Post-cutover GREEN; IndexNow live sitemap submission accepted.'
+        )
+
 if __name__=='__main__': main()
