@@ -30,3 +30,36 @@
     }
     .tbs-careers .soft{background:rgba(15,8,137,0.06);border:1px solid #e9ecff;border-radius:12px}
     .tbs-careers .hr{height:1px;background:#eee;margin:1rem 0}
+
+/* TBS CAREERS POLISH V2 - 2026-10-21 */
+.tbs-careers .wrap{padding:1.5rem 1rem}
+.tbs-careers .careers-section{padding-top:1.35rem;padding-bottom:1.35rem}
+.tbs-careers .section-heading{margin-bottom:1rem}
+.tbs-careers .section-heading .muted{margin:.2rem 0 0}
+.tbs-careers .tbs-careers__hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:1rem}
+.tbs-careers .btn-primary{background:var(--tb-blue);color:#fff;border:1px solid var(--tb-blue);box-shadow:0 6px 16px rgba(15,8,137,.14)}
+.tbs-careers .requirements-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.tbs-careers .requirement-card{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #e6e8f2;border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
+.tbs-careers .requirement-card h3{font-size:1rem;color:var(--tb-blue);margin:0 0 .25rem}
+.tbs-careers .requirement-card p{margin:0;color:#334155;line-height:1.5}
+.tbs-careers .requirement-mark{flex:0 0 28px;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--tb-accent);color:var(--tb-blue);font-weight:900}
+.tbs-careers .job-card{display:flex;flex-direction:column;min-height:100%;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
+.tbs-careers .role-apply{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;background:var(--tb-blue);color:#fff;text-decoration:none;font-weight:800;border-radius:8px;padding:.65rem .9rem;border:1px solid var(--tb-blue)}
+.tbs-careers .role-apply:hover{background:#1810a8}
+.tbs-careers .hiring-process{background:#fafbff;border-top:1px solid #eef0f7;border-bottom:1px solid #eef0f7}
+.tbs-careers .hiring-steps{display:grid;grid-template-columns:1fr;gap:12px}
+.tbs-careers .hiring-step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #e6e8f2;border-radius:12px;padding:15px}
+.tbs-careers .hiring-step>span{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--tb-blue);color:#fff;font-weight:900}
+.tbs-careers .hiring-step strong{color:var(--tb-blue)}
+.tbs-careers .hiring-step p{margin:.2rem 0 0;color:#475569;line-height:1.45}
+.tbs-careers .application-shell{overflow:hidden;background:#fff;border:1px solid #e6e8f2;border-radius:14px;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+.tbs-careers .application-shell iframe{display:block;width:100%;border:0}
+.tbs-careers .hr{margin:.35rem 0}
+@media (min-width:760px){
+  .tbs-careers .requirements-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tbs-careers .hiring-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .tbs-careers .badge{white-space:normal;margin-bottom:.4rem;line-height:1.2}
+  .tbs-careers .btn,.tbs-careers .btn-ghost{width:100%}
+}
