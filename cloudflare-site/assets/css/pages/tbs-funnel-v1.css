@@ -1,0 +1,393 @@
+/* TBS FUNNEL EXPERIENCE v1 */
+.tbs-funnel-v1{
+  --f-royal:#0f0889;--f-royal2:#1735d1;--f-dark:#07043f;--f-blue:#1266ff;
+  --f-gold:#f4c613;--f-ink:#0f172a;--f-muted:#667085;--f-line:#dfe5f2;
+  --f-soft:#f5f8ff;--f-cream:#f8f4ea;--f-shadow:0 20px 60px rgba(15,23,42,.12);
+  --f-max:1160px;font-family:Arial,Helvetica,sans-serif;color:var(--f-ink);
+  line-height:1.55;overflow-x:hidden;background:#fff;
+}
+.tbs-funnel-v1 *{box-sizing:border-box}
+.tbs-funnel-v1 a{text-decoration:none}
+.tbs-funnel-v1 .f-shell{width:min(var(--f-max),calc(100% - 40px));margin:0 auto}
+.tbs-funnel-v1 .f-breadcrumb{padding:14px 0;border-bottom:1px solid rgba(15,23,42,.06);background:#fff}
+.tbs-funnel-v1 .f-breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;gap:8px;flex-wrap:wrap;font-size:.83rem;color:#667085}
+.tbs-funnel-v1 .f-breadcrumb li+li:before{content:"/";margin-right:8px;color:#98a2b3}
+.tbs-funnel-v1 .f-breadcrumb a{color:var(--f-royal);font-weight:800}
+.tbs-funnel-v1 .f-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 20%,rgba(68,120,255,.33),transparent 30%),linear-gradient(120deg,var(--f-dark),var(--f-royal) 62%,#0d4bd3);color:#fff}
+.tbs-funnel-v1 .f-hero:after{content:"";position:absolute;right:-140px;bottom:-220px;width:520px;height:520px;border-radius:50%;border:70px solid rgba(255,255,255,.035)}
+.tbs-funnel-v1 .f-hero-inner{position:relative;z-index:1;padding:62px 0 58px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:48px;align-items:center}
+.tbs-funnel-v1 .f-kicker,.tbs-funnel-v1 .f-eyebrow{font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.tbs-funnel-v1 .f-kicker{color:var(--f-gold);margin-bottom:10px}
+.tbs-funnel-v1 .f-eyebrow{color:var(--f-blue);margin-bottom:8px}
+.tbs-funnel-v1 h1,.tbs-funnel-v1 .f-title{margin:0;font-weight:900;line-height:1.02;letter-spacing:-.035em}
+.tbs-funnel-v1 h1{font-size:clamp(2.7rem,6vw,4.8rem);color:#fff}
+.tbs-funnel-v1 .f-title{font-size:clamp(2rem,4vw,3.2rem);color:var(--f-royal)}
+.tbs-funnel-v1 .f-hero p{font-size:1.08rem;color:#edf1ff;max-width:760px;margin:18px 0 0}
+.tbs-funnel-v1 .f-hero-media{position:relative;border:1px solid rgba(255,255,255,.22);border-radius:18px;overflow:hidden;min-height:255px;box-shadow:0 18px 60px rgba(0,0,0,.16)}
+.tbs-funnel-v1 .f-hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tbs-funnel-v1 .f-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,62,.06),rgba(5,4,62,.78))}
+.tbs-funnel-v1 .f-hero-media-copy{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;color:#fff}
+.tbs-funnel-v1 .f-hero-media-copy strong{display:block;font-size:1.25rem;margin-bottom:4px}
+.tbs-funnel-v1 .f-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.tbs-funnel-v1 .f-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:9px;font-weight:900;border:2px solid transparent;transition:.2s ease}
+.tbs-funnel-v1 .f-btn-gold{background:var(--f-gold);color:#111!important}
+.tbs-funnel-v1 .f-btn-gold:hover,.tbs-funnel-v1 .f-btn-gold:focus-visible{transform:translateY(-2px);box-shadow:0 10px 24px rgba(244,198,19,.28)}
+.tbs-funnel-v1 .f-trust{background:#f1f5ff;border-bottom:1px solid var(--f-line)}
+.tbs-funnel-v1 .f-trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.tbs-funnel-v1 .f-trust-item{padding:19px 18px;border-right:1px solid var(--f-line)}
+.tbs-funnel-v1 .f-trust-item:last-child{border-right:0}
+.tbs-funnel-v1 .f-trust-item strong{display:block;color:var(--f-royal);margin-bottom:3px}
+.tbs-funnel-v1 .f-section{padding:56px 0}
+.tbs-funnel-v1 .f-section.f-soft{background:var(--f-soft)}
+.tbs-funnel-v1 .f-section.f-cream{background:var(--f-cream)}
+.tbs-funnel-v1 .f-section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.tbs-funnel-v1 .f-section-copy{max-width:680px;color:var(--f-muted)}
+.tbs-funnel-v1 .f-answer{padding:26px 28px;border:1px solid var(--f-line);border-radius:16px;background:#fff;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+.tbs-funnel-v1 .f-answer h2{margin:0 0 8px;color:var(--f-royal);font-size:1.55rem}
+.tbs-funnel-v1 .f-answer p{margin:0;color:#374151}
+.tbs-funnel-v1 .f-action-list{display:grid;gap:12px}
+.tbs-funnel-v1 .f-action-wrap{position:relative}
+.tbs-funnel-v1 .f-action-row{position:relative;display:grid;grid-template-columns:76px minmax(0,1fr) auto;align-items:center;gap:20px;padding:20px 22px;border:1px solid var(--f-line);border-radius:14px;background:#fff;box-shadow:0 5px 18px rgba(15,23,42,.04);overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease;color:var(--f-ink)!important}
+.tbs-funnel-v1 .f-action-row:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--f-gold);transform:scaleY(0);transform-origin:center;transition:transform .22s ease}
+.tbs-funnel-v1 .f-action-row:hover,.tbs-funnel-v1 .f-action-row:focus-visible{transform:translateY(-4px) scale(1.012);box-shadow:0 18px 44px rgba(15,23,42,.12);border-color:#b8c8ff;background:linear-gradient(90deg,#fff,#f8faff);outline:none;text-decoration:none}
+.tbs-funnel-v1 .f-action-row:hover:before,.tbs-funnel-v1 .f-action-row:focus-visible:before{transform:scaleY(1)}
+.tbs-funnel-v1 .f-action-num{font-size:2rem;font-weight:900;color:var(--f-royal);transition:.22s ease}
+.tbs-funnel-v1 .f-action-row:hover .f-action-num,.tbs-funnel-v1 .f-action-row:focus-visible .f-action-num{transform:translateX(4px);color:var(--f-royal2)}
+.tbs-funnel-v1 .f-action-copy h2{margin:0 0 2px;font-size:1.22rem;color:var(--f-ink)}
+.tbs-funnel-v1 .f-action-tag{display:block;margin:0 0 4px;color:var(--f-royal);font-weight:900;font-size:.84rem}
+.tbs-funnel-v1 .f-action-copy p{margin:0;color:var(--f-muted)}
+.tbs-funnel-v1 .f-action-arrow{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--f-royal);background:#eef3ff;font-size:1.4rem;font-weight:900;transition:.22s ease}
+.tbs-funnel-v1 .f-action-row:hover .f-action-arrow,.tbs-funnel-v1 .f-action-row:focus-visible .f-action-arrow{transform:translateX(6px);background:var(--f-royal);color:#fff}
+.tbs-funnel-v1 .f-action-wrap .f-detail{position:absolute;right:78px;top:50%;transform:translateY(-50%);z-index:3;color:var(--f-royal);font-weight:900;font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row{padding-right:160px}
+.tbs-funnel-v1 .f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tbs-funnel-v1 .f-card{padding:19px 20px;border:1px solid var(--f-line);border-radius:12px;background:#fff;transition:.2s ease;color:var(--f-ink)!important}
+.tbs-funnel-v1 a.f-card:hover,.tbs-funnel-v1 a.f-card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 30px rgba(15,23,42,.08);border-color:#bccbff;text-decoration:none}
+.tbs-funnel-v1 .f-card strong,.tbs-funnel-v1 .f-card h3{display:block;color:var(--f-royal);margin:0 0 4px}
+.tbs-funnel-v1 .f-card p{margin:0;color:var(--f-muted)}
+.tbs-funnel-v1 .f-callout{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:center;background:linear-gradient(120deg,var(--f-royal),#1b4ce2);color:#fff;border-radius:18px;padding:30px}
+.tbs-funnel-v1 .f-callout h2{margin:0 0 7px;font-size:2rem;color:#fff}
+.tbs-funnel-v1 .f-callout p{margin:0;color:#eef1ff}
+.tbs-funnel-v1 .f-faq{display:grid;gap:10px}
+.tbs-funnel-v1 .f-faq details{border:1px solid var(--f-line);border-radius:10px;background:#fff;padding:15px 17px}
+.tbs-funnel-v1 .f-faq summary{font-weight:900;color:var(--f-royal);cursor:pointer}
+.tbs-funnel-v1 .f-faq p{margin:10px 0 0;color:#4b5563}
+.tbs-funnel-v1 .f-location-stage{display:grid;grid-template-columns:330px minmax(0,1fr);gap:26px;background:linear-gradient(135deg,#0b066d,#133ec7);border-radius:22px;padding:24px;box-shadow:var(--f-shadow);overflow:hidden;position:relative}
+.tbs-funnel-v1 .f-city-list{position:relative;z-index:2;display:grid;gap:8px}
+.tbs-funnel-v1 .f-city-button{width:100%;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.055);color:#fff;text-align:left;padding:15px 16px;border-radius:12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s ease}
+.tbs-funnel-v1 .f-city-button span:first-child{font-weight:900}
+.tbs-funnel-v1 .f-city-button small{opacity:.68}
+.tbs-funnel-v1 .f-city-button:hover{background:rgba(255,255,255,.1);transform:translateX(4px)}
+.tbs-funnel-v1 .f-city-button.active{background:#fff;color:var(--f-royal);transform:translateX(8px);box-shadow:0 12px 30px rgba(0,0,0,.18);border-color:#fff}
+.tbs-funnel-v1 .f-location-panel{position:relative;z-index:2;background:#fff;border-radius:18px;padding:30px;min-height:420px}
+.tbs-funnel-v1 .f-location-head{display:flex;justify-content:space-between;gap:20px;align-items:start}
+.tbs-funnel-v1 .f-location-panel h3{font-size:2.1rem;margin:0;color:var(--f-royal)}
+.tbs-funnel-v1 .f-location-panel p{color:var(--f-muted)}
+.tbs-funnel-v1 .f-city-badge{background:#eef3ff;color:var(--f-royal);font-weight:900;border-radius:999px;padding:8px 12px;font-size:.82rem}
+.tbs-funnel-v1 .f-service-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}
+.tbs-funnel-v1 .f-service-link{position:relative;padding:17px;border:1px solid var(--f-line);border-radius:12px;background:#fff;transition:.2s ease;color:var(--f-ink)!important}
+.tbs-funnel-v1 .f-service-link:after{content:"→";position:absolute;right:15px;top:50%;transform:translateY(-50%);color:var(--f-royal);font-weight:900}
+.tbs-funnel-v1 .f-service-link:hover,.tbs-funnel-v1 .f-service-link:focus-visible{transform:translateY(-3px);border-color:#b8c8ff;box-shadow:0 12px 26px rgba(15,23,42,.08);text-decoration:none}
+.tbs-funnel-v1 .f-service-link strong{display:block;color:var(--f-royal);padding-right:28px}
+.tbs-funnel-v1 .f-service-link span{display:block;color:var(--f-muted);font-size:.88rem;margin-top:3px}
+.tbs-funnel-v1 .f-location-index{display:grid;gap:14px}
+.tbs-funnel-v1 .f-location-group{padding:20px;border:1px solid var(--f-line);border-radius:12px;background:#fff}
+.tbs-funnel-v1 .f-location-group h3{margin:0 0 10px;color:var(--f-royal)}
+.tbs-funnel-v1 .f-location-group-links{display:flex;flex-wrap:wrap;gap:8px 14px}
+.tbs-funnel-v1 .f-location-group-links a{font-weight:800;color:var(--f-royal)}
+.tbs-funnel-v1 .f-preserved-links{padding-top:28px;border-top:1px solid var(--f-line);margin-top:32px}
+.tbs-funnel-v1 .f-preserved-links h2{font-size:1rem;color:var(--f-royal);margin:0 0 10px}
+.tbs-funnel-v1 .f-preserved-links div{display:flex;flex-wrap:wrap;gap:8px 14px}
+.tbs-funnel-v1 .f-preserved-links a{font-size:.86rem;font-weight:700;color:var(--f-royal)}
+@media(max-width:920px){
+ .tbs-funnel-v1 .f-hero-inner{grid-template-columns:1fr}
+ .tbs-funnel-v1 .f-trust-grid{grid-template-columns:repeat(2,1fr)}
+ .tbs-funnel-v1 .f-action-row{grid-template-columns:56px 1fr}
+ .tbs-funnel-v1 .f-action-arrow{grid-column:2}
+ .tbs-funnel-v1 .f-action-wrap .f-detail{position:static;display:inline-block;margin:8px 0 0 76px;transform:none}
+ .tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row{padding-right:22px}
+ .tbs-funnel-v1 .f-grid{grid-template-columns:1fr}
+ .tbs-funnel-v1 .f-location-stage{grid-template-columns:1fr}
+ .tbs-funnel-v1 .f-city-list{grid-template-columns:repeat(2,1fr)}
+ .tbs-funnel-v1 .f-city-button.active{transform:none}
+ .tbs-funnel-v1 .f-location-panel{min-height:0}
+ .tbs-funnel-v1 .f-callout{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+ .tbs-funnel-v1 .f-shell{width:calc(100% - 28px)}
+ .tbs-funnel-v1 .f-hero-inner{padding:44px 0}
+ .tbs-funnel-v1 h1{font-size:2.55rem}
+ .tbs-funnel-v1 .f-trust-grid{grid-template-columns:1fr}
+ .tbs-funnel-v1 .f-section{padding:42px 0}
+ .tbs-funnel-v1 .f-section-head{display:block}
+ .tbs-funnel-v1 .f-action-row{grid-template-columns:42px 1fr;padding:17px}
+ .tbs-funnel-v1 .f-action-num{font-size:1.45rem}
+ .tbs-funnel-v1 .f-action-wrap .f-detail{margin-left:59px}
+ .tbs-funnel-v1 .f-city-list{grid-template-columns:1fr}
+ .tbs-funnel-v1 .f-service-links{grid-template-columns:1fr}
+ .tbs-funnel-v1 .f-location-stage{padding:14px;border-radius:16px}
+ .tbs-funnel-v1 .f-location-panel{padding:22px}
+ .tbs-funnel-v1 .f-location-head{display:block}
+ .tbs-funnel-v1 .f-city-badge{display:inline-block;margin-top:10px}
+}
+@media(prefers-reduced-motion:reduce){.tbs-funnel-v1 *{scroll-behavior:auto!important;transition:none!important}}
+
+/* TBS FUNNEL v1.2 CUSTOMER COPY + LOCATION POLISH */
+
+/* Stronger location hierarchy: city first, service choices second. */
+.tbs-funnel-v1 .f-location-group{
+  position:relative;
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:24px;
+  align-items:start;
+  padding:24px 24px 24px 30px;
+  border:1px solid var(--f-line);
+  border-radius:16px;
+  background:linear-gradient(135deg,#fff 0%,#fbfcff 100%);
+  box-shadow:0 7px 24px rgba(15,23,42,.045);
+  overflow:hidden;
+}
+.tbs-funnel-v1 .f-location-group:before{
+  content:"";
+  position:absolute;
+  left:12px;
+  top:12px;
+  width:52px;
+  height:30px;
+  border-left:4px solid var(--f-gold);
+  border-top:4px solid var(--f-gold);
+  border-radius:3px 0 0 0;
+  pointer-events:none;
+}
+.tbs-funnel-v1 .f-location-group h3{
+  position:relative;
+  margin:9px 0 0;
+  padding:16px 0 0 8px;
+  color:var(--f-royal);
+  font-size:1.32rem;
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-.025em;
+}
+.tbs-funnel-v1 .f-location-group-links{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+  gap:10px;
+}
+.tbs-funnel-v1 .f-location-group-links a{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:52px;
+  padding:11px 36px 11px 13px;
+  border:1px solid #dbe3f2;
+  border-radius:10px;
+  background:#fff;
+  color:var(--f-royal);
+  font-weight:900;
+  box-shadow:0 3px 10px rgba(15,23,42,.035);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+.tbs-funnel-v1 .f-location-group-links a:after{
+  content:"→";
+  position:absolute;
+  right:13px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.05rem;
+  color:var(--f-royal);
+  transition:transform .18s ease;
+}
+.tbs-funnel-v1 .f-location-group-links a:hover,
+.tbs-funnel-v1 .f-location-group-links a:focus-visible{
+  transform:translateY(-2px);
+  border-color:#b9c8ff;
+  background:#f8faff;
+  box-shadow:0 10px 22px rgba(15,23,42,.08);
+  text-decoration:none;
+}
+.tbs-funnel-v1 .f-location-group-links a:hover:after,
+.tbs-funnel-v1 .f-location-group-links a:focus-visible:after{
+  transform:translate(4px,-50%);
+}
+
+/* Selected city gets a small gold architectural frame. */
+.tbs-funnel-v1 .f-location-panel h3{
+  position:relative;
+  display:inline-block;
+  padding:10px 14px 10px 13px;
+  margin:2px 0 2px;
+}
+.tbs-funnel-v1 .f-location-panel h3:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:44px;
+  height:24px;
+  border-left:4px solid var(--f-gold);
+  border-top:4px solid var(--f-gold);
+  border-radius:3px 0 0 0;
+}
+.tbs-funnel-v1 .f-service-link{
+  border-radius:12px;
+  border-top:3px solid transparent;
+}
+.tbs-funnel-v1 .f-service-link:hover,
+.tbs-funnel-v1 .f-service-link:focus-visible{
+  border-top-color:var(--f-gold);
+}
+
+/* Preserve old links without implementation-oriented copy. */
+.tbs-funnel-v1 .f-extra-section{padding-top:18px}
+.tbs-funnel-v1 .f-extra-links{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:10px;
+}
+.tbs-funnel-v1 .f-extra-links a{
+  position:relative;
+  display:block;
+  padding:14px 38px 14px 16px;
+  border:1px solid var(--f-line);
+  border-radius:10px;
+  background:#fff;
+  color:var(--f-royal);
+  font-weight:900;
+  box-shadow:0 4px 14px rgba(15,23,42,.04);
+}
+.tbs-funnel-v1 .f-extra-links a:after{
+  content:"→";
+  position:absolute;
+  right:14px;
+  top:50%;
+  transform:translateY(-50%);
+}
+.tbs-funnel-v1 .f-extra-links a:hover,
+.tbs-funnel-v1 .f-extra-links a:focus-visible{
+  border-color:#b9c8ff;
+  background:#f8faff;
+  text-decoration:none;
+}
+@media(max-width:760px){
+  .tbs-funnel-v1 .f-location-group{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .tbs-funnel-v1 .f-location-group h3{padding-top:18px}
+  .tbs-funnel-v1 .f-location-group-links{grid-template-columns:1fr}
+}
+
+/* TBS FUNNEL v1.6 VISUAL QA */
+
+/* Secondary action links sit intentionally beside the normal row arrow. */
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row{
+  padding-right:210px;
+}
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-action-arrow{
+  position:absolute;
+  right:22px;
+  top:50%;
+  transform:translateY(-50%);
+}
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row:hover .f-action-arrow,
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row:focus-visible .f-action-arrow{
+  transform:translate(6px,-50%);
+}
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-detail{
+  position:absolute;
+  right:78px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:4;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  max-width:122px;
+  padding:7px 11px;
+  border:1px solid rgba(244,198,19,.7);
+  border-radius:999px;
+  background:#fff9da;
+  color:var(--f-royal);
+  font-size:.78rem;
+  font-weight:900;
+  line-height:1.1;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 3px 10px rgba(15,23,42,.04);
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-detail:hover,
+.tbs-funnel-v1 .f-action-wrap.has-detail .f-detail:focus-visible{
+  transform:translateY(calc(-50% - 2px));
+  background:#fff4b3;
+  box-shadow:0 8px 18px rgba(15,23,42,.09);
+  outline:none;
+}
+
+@media(max-width:920px){
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row{
+    padding-right:22px;
+  }
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-action-arrow{
+    position:static;
+    transform:none;
+  }
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row:hover .f-action-arrow,
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-action-row:focus-visible .f-action-arrow{
+    transform:translateX(6px);
+  }
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-detail{
+    position:static;
+    transform:none;
+    margin:8px 0 0 76px;
+    max-width:none;
+  }
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-detail:hover,
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-detail:focus-visible{
+    transform:translateY(-2px);
+  }
+}
+@media(max-width:620px){
+  .tbs-funnel-v1 .f-action-wrap.has-detail .f-detail{
+    margin-left:59px;
+  }
+}
+
+/* TBS FUNNEL v1.7 MOBILE LOCATION PICKER */
+.tbs-funnel-v1 .f-city-mobile-picker{display:none}
+
+@media(max-width:760px){
+  .tbs-funnel-v1 .f-location-stage{display:block;padding:14px}
+  .tbs-funnel-v1 .f-city-list{display:none}
+  .tbs-funnel-v1 .f-city-mobile-picker{
+    display:block;position:relative;z-index:3;margin:0 0 12px;padding:14px;
+    border:1px solid rgba(255,255,255,.18);border-radius:14px;
+    background:rgba(255,255,255,.08)
+  }
+  .tbs-funnel-v1 .f-city-mobile-picker label{
+    display:block;margin:0 0 8px;color:#fff;font-size:.76rem;font-weight:900;
+    letter-spacing:.09em;text-transform:uppercase
+  }
+  .tbs-funnel-v1 .f-city-select-wrap{position:relative}
+  .tbs-funnel-v1 .f-city-select-wrap:before{
+    content:"";position:absolute;z-index:2;left:0;top:0;width:42px;height:24px;
+    border-left:4px solid var(--f-gold);border-top:4px solid var(--f-gold);
+    border-radius:3px 0 0 0;pointer-events:none
+  }
+  .tbs-funnel-v1 #f-city-select{
+    width:100%;min-height:52px;padding:10px 44px 10px 15px;border:2px solid #fff;
+    border-radius:10px;background:#fff;color:var(--f-royal);font:inherit;
+    font-size:1rem;font-weight:900;line-height:1.2;
+    box-shadow:0 9px 24px rgba(0,0,0,.14);cursor:pointer
+  }
+  .tbs-funnel-v1 #f-city-select:focus{
+    outline:3px solid rgba(244,198,19,.48);outline-offset:2px
+  }
+  .tbs-funnel-v1 .f-location-panel{margin:0;min-height:0}
+  .tbs-funnel-v1 .f-location-head{display:block}
+  .tbs-funnel-v1 .f-city-badge{display:inline-block;margin-top:10px}
+  .tbs-funnel-v1 .f-service-links{grid-template-columns:1fr}
+}
