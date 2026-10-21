@@ -355,3 +355,39 @@
     margin-left:59px;
   }
 }
+
+/* TBS FUNNEL v1.7 MOBILE LOCATION PICKER */
+.tbs-funnel-v1 .f-city-mobile-picker{display:none}
+
+@media(max-width:760px){
+  .tbs-funnel-v1 .f-location-stage{display:block;padding:14px}
+  .tbs-funnel-v1 .f-city-list{display:none}
+  .tbs-funnel-v1 .f-city-mobile-picker{
+    display:block;position:relative;z-index:3;margin:0 0 12px;padding:14px;
+    border:1px solid rgba(255,255,255,.18);border-radius:14px;
+    background:rgba(255,255,255,.08)
+  }
+  .tbs-funnel-v1 .f-city-mobile-picker label{
+    display:block;margin:0 0 8px;color:#fff;font-size:.76rem;font-weight:900;
+    letter-spacing:.09em;text-transform:uppercase
+  }
+  .tbs-funnel-v1 .f-city-select-wrap{position:relative}
+  .tbs-funnel-v1 .f-city-select-wrap:before{
+    content:"";position:absolute;z-index:2;left:0;top:0;width:42px;height:24px;
+    border-left:4px solid var(--f-gold);border-top:4px solid var(--f-gold);
+    border-radius:3px 0 0 0;pointer-events:none
+  }
+  .tbs-funnel-v1 #f-city-select{
+    width:100%;min-height:52px;padding:10px 44px 10px 15px;border:2px solid #fff;
+    border-radius:10px;background:#fff;color:var(--f-royal);font:inherit;
+    font-size:1rem;font-weight:900;line-height:1.2;
+    box-shadow:0 9px 24px rgba(0,0,0,.14);cursor:pointer
+  }
+  .tbs-funnel-v1 #f-city-select:focus{
+    outline:3px solid rgba(244,198,19,.48);outline-offset:2px
+  }
+  .tbs-funnel-v1 .f-location-panel{margin:0;min-height:0}
+  .tbs-funnel-v1 .f-location-head{display:block}
+  .tbs-funnel-v1 .f-city-badge{display:inline-block;margin-top:10px}
+  .tbs-funnel-v1 .f-service-links{grid-template-columns:1fr}
+}

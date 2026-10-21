@@ -11,17 +11,48 @@
     ruskin:{title:'Ruskin',badge:'Ruskin',blurb:'Start with Ruskin house cleaning, or choose another type of cleaning from the Services page.',services:[['House Cleaning','Ruskin home cleaning','/house-cleaning-ruskin-fl/'],['Choose Another Service','Find the right clean first','/services/']]},
     scc:{title:'Sun City Center',badge:'Sun City Center',blurb:'Start with Sun City Center house cleaning, or choose another type of cleaning from the Services page.',services:[['House Cleaning','Sun City Center home cleaning','/house-cleaning-sun-city-center-fl/'],['Choose Another Service','Find the right clean first','/services/']]}
   };
-  var title=root.querySelector('#f-city-title'),blurb=root.querySelector('#f-city-blurb'),badge=root.querySelector('#f-city-badge'),services=root.querySelector('#f-city-services');
+  var title=root.querySelector('#f-city-title'),
+      blurb=root.querySelector('#f-city-blurb'),
+      badge=root.querySelector('#f-city-badge'),
+      services=root.querySelector('#f-city-services'),
+      select=root.querySelector('#f-city-select');
+
+  function syncButtons(key){
+    root.querySelectorAll('.f-city-button').forEach(function(x){
+      var active=x.getAttribute('data-city')===key;
+      x.classList.toggle('active',active);
+      x.setAttribute('aria-pressed',active?'true':'false');
+    });
+  }
+
   function render(key){
     var d=data[key];if(!d)return;
-    title.textContent=d.title;blurb.textContent=d.blurb;badge.textContent=d.badge;services.innerHTML='';
-    d.services.forEach(function(s){var a=document.createElement('a');a.className='f-service-link';a.href=s[2];a.innerHTML='<strong>'+s[0]+'</strong><span>'+s[1]+'</span>';services.appendChild(a);});
+    title.textContent=d.title;
+    blurb.textContent=d.blurb;
+    badge.textContent=d.badge;
+    services.innerHTML='';
+    d.services.forEach(function(s){
+      var a=document.createElement('a');
+      a.className='f-service-link';
+      a.href=s[2];
+      a.innerHTML='<strong>'+s[0]+'</strong><span>'+s[1]+'</span>';
+      services.appendChild(a);
+    });
+    if(select && select.value!==key)select.value=key;
+    syncButtons(key);
   }
+
   root.querySelectorAll('.f-city-button').forEach(function(btn){
     btn.addEventListener('click',function(){
-      root.querySelectorAll('.f-city-button').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false')});
-      btn.classList.add('active');btn.setAttribute('aria-pressed','true');render(btn.getAttribute('data-city'));
+      render(btn.getAttribute('data-city'));
     });
   });
+
+  if(select){
+    select.addEventListener('change',function(){
+      render(select.value);
+    });
+  }
+
   render('tampa');
 })();
