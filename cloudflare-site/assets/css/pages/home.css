@@ -2082,3 +2082,24 @@
     transform:none !important;
   }
 }
+
+
+/* TBS HOMEPAGE PRICING FUNNEL V2 - 2026-10-21 */
+#tbs-home-v2 .frequency-intro{max-width:780px;margin:14px auto 0;text-align:center;color:var(--muted);font-size:.94rem}
+#tbs-home-v2 .frequency-wrap{max-width:940px}
+#tbs-home-v2 .frequency-example-note{max-width:820px;margin:12px auto 0;font-size:.88rem}
+#tbs-home-v2 .frequency-action{text-align:right;white-space:nowrap}
+#tbs-home-v2 .frequency-cta{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 12px;border-radius:9px;background:var(--royal);color:#fff;font-size:.82rem;font-weight:900;line-height:1.15;text-decoration:none;box-shadow:0 5px 14px rgba(15,8,137,.12)}
+#tbs-home-v2 .frequency-cta:hover,#tbs-home-v2 .frequency-cta:focus-visible{background:#1a12aa;color:#fff;text-decoration:none;transform:translateY(-1px)}
+#tbs-home-v2 .frequency-wrap tbody tr:hover{background:#fafbff}
+@media(max-width:700px){
+  #tbs-home-v2 .frequency-wrap{overflow-x:visible}
+  #tbs-home-v2 .frequency-wrap table,#tbs-home-v2 .frequency-wrap thead,#tbs-home-v2 .frequency-wrap tbody,#tbs-home-v2 .frequency-wrap tr,#tbs-home-v2 .frequency-wrap th,#tbs-home-v2 .frequency-wrap td{display:block;width:100%}
+  #tbs-home-v2 .frequency-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tbs-home-v2 .frequency-wrap tbody{display:grid;gap:10px}
+  #tbs-home-v2 .frequency-wrap tr{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+  #tbs-home-v2 .frequency-wrap th,#tbs-home-v2 .frequency-wrap td{padding:3px 0;border:0}
+  #tbs-home-v2 .frequency-wrap th{color:var(--royal);font-size:1rem}
+  #tbs-home-v2 .frequency-action{margin-top:8px;text-align:left}
+  #tbs-home-v2 .frequency-cta{width:100%}
+}

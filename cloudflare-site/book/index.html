@@ -266,6 +266,34 @@
         var selection =
           services[cleaning];
 
+        var frequencies = {
+          "one-time": { id: "1", label: "One-Time" },
+          "weekly": { id: "9", label: "Weekly" },
+          "biweekly": { id: "4", label: "Bi-Weekly" },
+          "bi-weekly": { id: "4", label: "Bi-Weekly" },
+          "every-other-week": { id: "4", label: "Bi-Weekly" },
+          "every-3-weeks": { id: "5", label: "Every 3 Weeks" },
+          "every-4-weeks": { id: "2", label: "Every 4 Weeks" },
+          "monthly": { id: "2", label: "Every 4 Weeks" }
+        };
+
+        var frequency =
+          params.get("frequency");
+
+        var frequencySelection =
+          (
+            selection &&
+            selection.askFrequency &&
+            frequency
+          )
+            ? frequencies[frequency]
+            : null;
+
+        var initialFrequencyId =
+          frequencySelection
+            ? frequencySelection.id
+            : null;
+
         var frame =
           document.getElementById(
             "tbs-booking-frame"
@@ -504,7 +532,11 @@
         if (serviceName) {
 
           serviceName.textContent =
-            selection.label;
+            frequencySelection
+              ? selection.label +
+                " - " +
+                frequencySelection.label
+              : selection.label;
 
         }
 
@@ -519,17 +551,41 @@
 
         }
 
+        if (initialFrequencyId) {
 
-        /*
-         * Preload the correct service.
-         * Standard frequency is not forced
-         * until the customer chooses it.
-         */
+          var initialFrequencyInput =
+            document.querySelector(
+              'input[name="tbs-frequency"][value="' +
+              initialFrequencyId +
+              '"]'
+            );
 
-        updateBookingTarget();
+          if (initialFrequencyInput) {
+
+            initialFrequencyInput.checked =
+              true;
+
+          }
+
+        }
+
+        updateBookingTarget(
+          initialFrequencyId
+        );
 
         track(
-          "booking_guided_start"
+          "booking_guided_start",
+          {
+            booking_frequency:
+              frequencySelection
+                ? frequency
+                : "unspecified",
+
+            frequency_prefilled:
+              frequencySelection
+                ? "yes"
+                : "no"
+          }
         );
 
 
@@ -611,13 +667,30 @@
             "click",
             function () {
 
-              /*
-               * Preserve the known service
-               * but do not force a Standard
-               * frequency when skipping.
-               */
+              var preservedFrequencyId =
+                null;
 
-              updateBookingTarget();
+              if (
+                selection.askFrequency
+              ) {
+
+                var preservedChecked =
+                  document.querySelector(
+                    'input[name="tbs-frequency"]:checked'
+                  );
+
+                if (preservedChecked) {
+
+                  preservedFrequencyId =
+                    preservedChecked.value;
+
+                }
+
+              }
+
+              updateBookingTarget(
+                preservedFrequencyId
+              );
 
               revealBooking(
                 "skip"
