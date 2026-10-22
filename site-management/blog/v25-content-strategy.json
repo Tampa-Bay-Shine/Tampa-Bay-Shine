@@ -34,5 +34,8 @@
     "Existing move-out, apartment, office-frequency, HOA, medical-office, recurring-frequency and Wesley Chapel resources remain authoritative.",
     "Do not create duplicate city informational pages where a strong transactional location page already exists.",
     "Evergreen pricing content links to current online pricing instead of freezing changing dollar amounts."
-  ]
+  ],
+  "superseded_by": "migration-final.json",
+  "status": "implemented-and-superseded",
+  "implementation_note": "Final BookingKoala accounting and post-deployment reindex targets are recorded in site-management/blog/migration-final.json."
 }
