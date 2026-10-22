@@ -1,0 +1,1065 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-10-21T22:30:04.260980-04:00",
+  "data_through": "2026-10-18",
+  "methodology": {
+    "comparison": "current 28 days vs previous 28 days",
+    "executive_default": "top 12 consolidated actions",
+    "business_relevance": "Core 20 > strategic service/location intent > discovered queries",
+    "synthetic_queries": "excluded",
+    "low_confidence": "excluded",
+    "indexing": "live GSC inspection/index coverage not yet wired"
+  },
+  "summary": {
+    "qualifying_signals": 42,
+    "consolidated_actions": 38,
+    "high": 2,
+    "core20": 5,
+    "strategic": 27,
+    "discovered": 6,
+    "striking_distance": 31,
+    "ctr_gaps": 1,
+    "declines": 2,
+    "positive_momentum": 7
+  },
+  "items": [
+    {
+      "type": "ranking_decline",
+      "subject": "house cleaning near me",
+      "priority": "high",
+      "confidence": "high",
+      "relevance": "core20",
+      "metrics": {
+        "position": 16.0,
+        "impressions": 57.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 19,
+        "position_improvement": -15.0,
+        "impressions_change_pct": 338.5
+      },
+      "evidence": "Average position declined 15.0 places versus the previous 28-day window. Average position 16.0 on 57 impressions in the current 28-day window.",
+      "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
+      "relevance_weight": 3,
+      "score": 152.0,
+      "signals": [
+        {
+          "type": "ranking_decline",
+          "evidence": "Average position declined 15.0 places versus the previous 28-day window."
+        },
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.0 on 57 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 2
+    },
+    {
+      "type": "striking_distance",
+      "subject": "office cleaning service near me",
+      "priority": "high",
+      "confidence": "high",
+      "relevance": "core20",
+      "metrics": {
+        "position": 12.61,
+        "impressions": 33.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 20,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 12.6 on 33 impressions in the current 28-day window. 33 impressions at position 12.6 with 0.00% CTR.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 3,
+      "score": 140.1,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 12.6 on 33 impressions in the current 28-day window."
+        },
+        {
+          "type": "ctr_gap",
+          "evidence": "33 impressions at position 12.6 with 0.00% CTR."
+        }
+      ],
+      "signal_count": 2
+    },
+    {
+      "type": "striking_distance",
+      "subject": "cleaning services near me",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "core20",
+      "metrics": {
+        "position": 15.06,
+        "impressions": 50.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 17,
+        "position_improvement": -14.06,
+        "impressions_change_pct": 1150.0
+      },
+      "evidence": "Average position 15.1 on 50 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 3,
+      "score": 118.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 15.1 on 50 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaning tampa",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "core20",
+      "metrics": {
+        "position": 19.9,
+        "impressions": 10.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 9,
+        "position_improvement": 26.43,
+        "impressions_change_pct": 11.1
+      },
+      "evidence": "Average position 19.9 on 10 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 3,
+      "score": 113.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 19.9 on 10 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_decline",
+      "subject": "tampa office cleaning",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 63.52,
+        "impressions": 31.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 17,
+        "position_improvement": -8.87,
+        "impressions_change_pct": 34.8
+      },
+      "evidence": "Average position declined 8.9 places versus the previous 28-day window.",
+      "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
+      "relevance_weight": 2,
+      "score": 111.9,
+      "signals": [
+        {
+          "type": "ranking_decline",
+          "evidence": "Average position declined 8.9 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_momentum",
+      "subject": "airbnb cleaning service tampa",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "core20",
+      "metrics": {
+        "position": 27.22,
+        "impressions": 36.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 16,
+        "position_improvement": 20.76,
+        "impressions_change_pct": -29.4
+      },
+      "evidence": "Average position improved 20.8 places versus the previous 28-day window.",
+      "recommended_action": "Protect the gain and verify the intended page is ranking.",
+      "relevance_weight": 3,
+      "score": 107.5,
+      "signals": [
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 20.8 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaners tampa",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 5.0,
+        "impressions": 24.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 11,
+        "position_improvement": 27.25,
+        "impressions_change_pct": 100.0
+      },
+      "evidence": "Average position 5.0 on 24 impressions in the current 28-day window. Average position improved 27.2 places versus the previous 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 104.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 5.0 on 24 impressions in the current 28-day window."
+        },
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 27.2 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 2
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaning services near me",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 19.49,
+        "impressions": 39.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 16,
+        "position_improvement": -18.49,
+        "impressions_change_pct": 3800.0
+      },
+      "evidence": "Average position 19.5 on 39 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 102.7,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 19.5 on 39 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaning services",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 16.74,
+        "impressions": 38.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 18,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 16.7 on 38 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 102.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.7 on 38 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "cleaning services",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 15.11,
+        "impressions": 36.0,
+        "clicks": 1.0,
+        "ctr_percent": 2.78,
+        "observed_days": 15,
+        "position_improvement": -14.11,
+        "impressions_change_pct": 1100.0
+      },
+      "evidence": "Average position 15.1 on 36 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 102.5,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 15.1 on 36 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "cleaning services wesley chapel",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 14.36,
+        "impressions": 28.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 12,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 14.4 on 28 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 101.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 14.4 on 28 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "office cleaning service",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 10.22,
+        "impressions": 27.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 17,
+        "position_improvement": -9.22,
+        "impressions_change_pct": 200.0
+      },
+      "evidence": "Average position 10.2 on 27 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 101.5,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 10.2 on 27 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "home cleaning services",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 18.4,
+        "impressions": 25.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 15,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 18.4 on 25 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 101.2,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 18.4 on 25 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "hoa office cleaning",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 15.81,
+        "impressions": 21.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 10,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 15.8 on 21 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 15.8 on 21 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "office cleaning near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 12.43,
+        "impressions": 21.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 15,
+        "position_improvement": -11.43,
+        "impressions_change_pct": 250.0
+      },
+      "evidence": "Average position 12.4 on 21 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 12.4 on 21 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "office cleaning services",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 16.9,
+        "impressions": 20.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 16,
+        "position_improvement": -11.46,
+        "impressions_change_pct": 122.2
+      },
+      "evidence": "Average position 16.9 on 20 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.4,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.9 on 20 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "commercial cleaning services near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 12.5,
+        "impressions": 18.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 14,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 12.5 on 18 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 12.5 on 18 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "gym cleaning services tampa",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 13.39,
+        "impressions": 18.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 7,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 13.4 on 18 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 13.4 on 18 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaning tampa fl",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 8.67,
+        "impressions": 18.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 9,
+        "position_improvement": 30.45,
+        "impressions_change_pct": 125.0
+      },
+      "evidence": "Average position 8.7 on 18 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 8.7 on 18 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "apartment cleaning services near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 19.0,
+        "impressions": 16.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 12,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 19.0 on 16 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 99.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 19.0 on 16 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "are there any home cleaning service coupons in tampa?",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 4.47,
+        "impressions": 15.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 8,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 4.5 on 15 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 99.4,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 4.5 on 15 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "apartment complex cleaning services",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 17.15,
+        "impressions": 13.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 11,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 17.1 on 13 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.9,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 17.1 on 13 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "commercial cleaning near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 18.08,
+        "impressions": 12.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 11,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 18.1 on 12 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 18.1 on 12 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaning riverview fl",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 17.58,
+        "impressions": 12.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 11,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 17.6 on 12 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 17.6 on 12 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "tampa gym cleaning",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 12.18,
+        "impressions": 11.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 7,
+        "position_improvement": 5.09,
+        "impressions_change_pct": 0.0
+      },
+      "evidence": "Average position 12.2 on 11 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.3,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 12.2 on 11 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "house cleaning riverview",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 16.9,
+        "impressions": 10.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 7,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 16.9 on 10 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.9 on 10 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "janitorial service",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 4.0,
+        "impressions": 10.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 7,
+        "position_improvement": -3.0,
+        "impressions_change_pct": -47.4
+      },
+      "evidence": "Average position 4.0 on 10 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 4.0 on 10 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "move out cleaning services near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 15.7,
+        "impressions": 10.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 8,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 15.7 on 10 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 15.7 on 10 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_momentum",
+      "subject": "tampa bay shine",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 1.34,
+        "impressions": 44.0,
+        "clicks": 15.0,
+        "ctr_percent": 34.09,
+        "observed_days": 21,
+        "position_improvement": 8.62,
+        "impressions_change_pct": 91.3
+      },
+      "evidence": "Average position improved 8.6 places versus the previous 28-day window.",
+      "recommended_action": "Protect the gain and verify the intended page is ranking.",
+      "relevance_weight": 2,
+      "score": 93.1,
+      "signals": [
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 8.6 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_momentum",
+      "subject": "tampa bay cleaning services",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 34.33,
+        "impressions": 33.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 23,
+        "position_improvement": 7.45,
+        "impressions_change_pct": -19.5
+      },
+      "evidence": "Average position improved 7.5 places versus the previous 28-day window.",
+      "recommended_action": "Protect the gain and verify the intended page is ranking.",
+      "relevance_weight": 2,
+      "score": 92.1,
+      "signals": [
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 7.5 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_momentum",
+      "subject": "bank cleaning services",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 43.11,
+        "impressions": 28.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 14,
+        "position_improvement": 17.04,
+        "impressions_change_pct": 115.4
+      },
+      "evidence": "Average position improved 17.0 places versus the previous 28-day window.",
+      "recommended_action": "Protect the gain and verify the intended page is ranking.",
+      "relevance_weight": 2,
+      "score": 91.6,
+      "signals": [
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 17.0 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_momentum",
+      "subject": "maid services apollo beach fl",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 21.05,
+        "impressions": 21.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 17,
+        "position_improvement": 11.42,
+        "impressions_change_pct": -30.0
+      },
+      "evidence": "Average position improved 11.4 places versus the previous 28-day window.",
+      "recommended_action": "Protect the gain and verify the intended page is ranking.",
+      "relevance_weight": 2,
+      "score": 90.6,
+      "signals": [
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 11.4 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "home cleaning near me",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "discovered",
+      "metrics": {
+        "position": 16.66,
+        "impressions": 44.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 18,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 16.7 on 44 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 1,
+      "score": 88.1,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.7 on 44 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "residential cleaning service near me",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "discovered",
+      "metrics": {
+        "position": 16.53,
+        "impressions": 38.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 17,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 16.5 on 38 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 1,
+      "score": 87.6,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.5 on 38 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "amenity center cleaning",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "discovered",
+      "metrics": {
+        "position": 16.68,
+        "impressions": 34.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 13,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 16.7 on 34 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 1,
+      "score": 87.3,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.7 on 34 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "commercial floor maintenance",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "discovered",
+      "metrics": {
+        "position": 16.43,
+        "impressions": 33.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 18,
+        "position_improvement": 13.95,
+        "impressions_change_pct": 312.5
+      },
+      "evidence": "Average position 16.4 on 33 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 1,
+      "score": 87.1,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.4 on 33 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "hoa common area cleaning",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "discovered",
+      "metrics": {
+        "position": 11.46,
+        "impressions": 30.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 6,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 11.5 on 30 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 1,
+      "score": 86.8,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 11.5 on 30 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_momentum",
+      "subject": "commercial floor cleaning",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "discovered",
+      "metrics": {
+        "position": 21.13,
+        "impressions": 23.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 12,
+        "position_improvement": 7.75,
+        "impressions_change_pct": -4.2
+      },
+      "evidence": "Average position improved 7.8 places versus the previous 28-day window.",
+      "recommended_action": "Protect the gain and verify the intended page is ranking.",
+      "relevance_weight": 1,
+      "score": 75.9,
+      "signals": [
+        {
+          "type": "ranking_momentum",
+          "evidence": "Average position improved 7.8 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    }
+  ]
+}

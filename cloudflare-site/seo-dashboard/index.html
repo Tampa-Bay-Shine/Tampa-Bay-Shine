@@ -1861,6 +1861,9 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 .serp-domain{white-space:nowrap}.serp-rank{font-weight:800;color:#15395b}
 #performance .detail-nav,#performance .subnav,#performance>.tabs,#performance>.section-tabs{display:none!important}
 </style>
+<style id="phase5-decision-intelligence-css">
+.decision-intelligence-panel{margin:0 0 24px;padding:18px;border:1px solid #d9e5f2;border-radius:12px;background:#fff}.decision-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.decision-head h2{margin:0 0 5px}.decision-head p{margin:0;color:#5d7188}.decision-head #decision-generated{font-size:12px;color:#6a7d91;white-space:nowrap}.decision-summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:14px 0}.decision-kpi{border:1px solid #dbe7f3;border-top:3px solid #318ce7;border-radius:9px;padding:9px;background:#fbfdff}.decision-kpi span{display:block;font-size:11px;text-transform:uppercase;color:#60758c;font-weight:700}.decision-kpi strong{font-size:20px;color:#073f7d}.decision-table{width:100%;border-collapse:collapse;font-size:12px}.decision-table th{background:#e9f3fd;text-align:left;padding:8px;white-space:nowrap}.decision-table td{padding:8px;border-bottom:1px solid #e6edf5;vertical-align:top}.decision-table small{color:#63768a}.decision-priority,.decision-relevance{display:inline-block;padding:3px 7px;border-radius:999px;text-transform:uppercase;font-size:10px;font-weight:800}.decision-priority.high{background:#fff0d7;color:#8a5700}.decision-priority.medium{background:#eaf3fb;color:#22577f}.decision-relevance.core20,.decision-relevance.core_page{background:#dff5e7;color:#126437}.decision-relevance.strategic{background:#e6f0fb;color:#1f5685}.decision-relevance.discovered{background:#f0f2f5;color:#5d6670}.decision-controls{text-align:center;margin:12px 0}.decision-controls button{border:1px solid #b9cee3;background:#fff;border-radius:18px;padding:7px 13px;color:#0757a6;font-weight:700;cursor:pointer}.decision-note,.legacy-workflow-note{margin-top:10px;padding:9px 11px;background:#f4f8fc;border-left:3px solid #318ce7;color:#5e7185;font-size:11px}@media(max-width:850px){.decision-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.decision-head{display:block}.decision-head #decision-generated{margin-top:8px}.decision-intelligence-panel .table-wrap{overflow-x:auto}.decision-table{min-width:1050px}}
+</style>
 </head><body><main>
 <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
   <a href="/guide/"
@@ -4640,6 +4643,39 @@ const a=nav.querySelector("[data-tab].active")?.dataset.tab;if(groups[a])render(
  const walk=(o,f)=>{if(!o||typeof o!=="object")return;f(o);for(const v of Object.values(o))walk(v,f)};
  const count=o=>{let e=null;walk(o,x=>{for(const k of ["reliable_top_20","reliable_top20","reliable_top_20_count","reliable_top20_count"])if(e==null&&num(x[k])!=null)e=x[k]});if(e!=null)return e;const q=new Set();walk(o,x=>{const t=x.query??x.keyword??x.term,p=num(x?.current?.position)??num(x?.current_7d?.position)??num(x?.periods?.["7d"]?.position)??num(x?.position)??num(x?.avg_position)??num(x?.current_position),c=String(x.confidence??x?.evidence?.confidence??x?.current?.confidence??"").toLowerCase();if(typeof t==="string"&&p!=null&&p<=20&&c&&c!=="low")q.add(t.toLowerCase())});return q.size||null};
  fetch("data/core-search.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject(new Error(`HTTP ${r.status}`))).then(o=>{const n=count(o);if(n==null)return;const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let x;while(x=w.nextNode()){if(/--\s*reliable Top 20/i.test(x.nodeValue||"")){x.nodeValue=x.nodeValue.replace(/--\s*reliable Top 20/i,`${n} reliable Top 20`);break}}}).catch(e=>console.warn("Core Search binding",e));
+})();
+</script>
+<script id="phase5-decision-intelligence">
+(()=>{
+ const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const fmt=v=>v==null?"—":Number(v).toLocaleString(undefined,{maximumFractionDigits:2});
+ const typeLabel=t=>({striking_distance:"Striking distance",ctr_gap:"CTR opportunity",ranking_decline:"Ranking decline",ranking_momentum:"Positive momentum",page_decay:"Page decay"}[t]||t);
+ const mount=()=>{
+   const h=[...document.querySelectorAll("h2")].find(x=>(x.textContent||"").trim()==="Opportunity Intelligence")||[...document.querySelectorAll("h2")].find(x=>(x.textContent||"").trim()==="SEO Intelligence");
+   if(!h||document.getElementById("decision-intelligence-panel"))return;
+   const p=document.createElement("section");p.id="decision-intelligence-panel";p.className="decision-intelligence-panel";
+   p.innerHTML=`<div class="decision-head"><div><h2>Decision Intelligence</h2><p>Prioritized, evidence-thresholded SEO actions using the current 28 days vs the previous 28 days. Core 20 and strategic service/location intent receive higher business relevance.</p></div><div id="decision-generated"></div></div><div id="decision-summary" class="decision-summary"></div><div class="table-wrap"><table class="decision-table"><thead><tr><th>Priority</th><th>Signals</th><th>Query / Page</th><th>POSITION (28D)</th><th>IMPR. (28D)</th><th>CHANGE vs PRIOR 28D</th><th>Relevance</th><th>Recommended action</th></tr></thead><tbody id="decision-body"></tbody></table></div><div class="decision-controls"><button type="button" id="decision-toggle">Show all qualifying actions</button></div><div class="decision-note">Low-confidence samples and synthetic automation queries are excluded. Indexing status is not inferred from build validation; live GSC inspection/index coverage is not yet wired.</div>`;
+   h.parentNode.insertBefore(p,h);
+   fetch("./data/decision-intelligence.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject(new Error(`HTTP ${r.status}`))).then(d=>{
+     const s=d.summary||{};let expanded=false,items=d.items||[];
+     document.getElementById("decision-generated").textContent=`Data through ${d.data_through||"—"}`;
+     document.getElementById("decision-summary").innerHTML=[
+       ["Priority actions",s.consolidated_actions||0],["High priority",s.high||0],["Core 20",s.core20||0],["Strategic",s.strategic||0],["Qualifying signals",s.qualifying_signals||0]
+     ].map(x=>`<div class="decision-kpi"><span>${esc(x[0])}</span><strong>${fmt(x[1])}</strong></div>`).join("");
+     const render=()=>{
+       const rows=expanded?items:items.slice(0,12);
+       document.getElementById("decision-body").innerHTML=rows.length?rows.map(x=>{
+         const m=x.metrics||{},chg=m.position_improvement, sig=(x.signals||[]).map(s=>typeLabel(s.type)).join(" + ");
+         return `<tr><td><span class="decision-priority ${esc(x.priority)}">${esc(x.priority)}</span></td><td>${esc(sig)}</td><td><strong>${esc(x.subject)}</strong><br><small>${esc(x.evidence)}</small></td><td>${fmt(m.position)}</td><td>${fmt(m.impressions)}</td><td>${chg==null?"—":`${chg>0?"+":""}${fmt(chg)} pos.`}</td><td><span class="decision-relevance ${esc(x.relevance)}">${esc(x.relevance)}</span><br><small>${esc(x.confidence)} confidence</small></td><td>${esc(x.recommended_action)}</td></tr>`;
+       }).join(""):`<tr><td colspan="8">No evidence-supported actions meet the thresholds.</td></tr>`;
+       const b=document.getElementById("decision-toggle");b.textContent=expanded?"Show top 12 priorities":`Show all ${items.length} qualifying actions`;b.style.display=items.length<=12?"none":"inline-block";
+     };
+     document.getElementById("decision-toggle").onclick=()=>{expanded=!expanded;render()};render();
+   }).catch(e=>document.getElementById("decision-body").innerHTML=`<tr><td colspan="8">Decision Intelligence unavailable: ${esc(e.message)}</td></tr>`);
+   // Static/local dashboard cannot service the legacy live workflow endpoint. Reframe its 404 as an availability note rather than a broken primary feature.
+   setTimeout(()=>{document.querySelectorAll("*").forEach(el=>{if(el.children.length===0&&/Live opportunity workflow request failed:\s*404/i.test(el.textContent||"")){el.textContent="Legacy live Action Center workflow is unavailable in static/local preview. Decision Intelligence above remains fully data-backed.";el.classList.add("legacy-workflow-note")}})},700);
+ };
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount);else mount();
 })();
 </script>
 </body></html>
