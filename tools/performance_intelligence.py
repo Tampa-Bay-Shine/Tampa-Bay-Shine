@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 from datetime import date,datetime,timedelta
 import json,math
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/"cloudflare-site/seo-dashboard/data"
@@ -32,6 +32,19 @@ def series(o):
   if a: out.append((str(name),a))
  return out
 
+def synthetic_query_reason(query):
+    text=" ".join(str(query or "").strip().lower().split())
+    if not text:return None
+    operators=sum(text.count(token) for token in (" or "," and "))
+    quotes=text.count('"')//2
+    parenthesized="(" in text and ")" in text
+    if parenthesized and operators>=2 and quotes>=1:return "boolean_operator_pattern"
+    if operators>=4 and quotes>=2:return "boolean_operator_pattern"
+    if len(text)>=180 and operators>=2:return "long_automation_pattern"
+    return None
+
+def clean_query_series(ss):
+    return [(name,pts) for name,pts in ss if not synthetic_query_reason(name)]
 def total_points(o):
     pts=[]
     for p in o.get("points",[]) if isinstance(o,dict) else []:
@@ -93,7 +106,8 @@ def merge_named_series(ss,normalizer):
   out.append((name,sorted(pts,key=lambda x:x["date"])))
  return out
 
-q=series(load("query-history.json"))
+q_raw=series(load("query-history.json"))
+q=clean_query_series(q_raw)
 pages=merge_named_series(series(load("page-history.json")),canonical_page_name)
 totals=total_points(load("daily-total-history.json"))
 if not totals: raise SystemExit("No authoritative daily GSC total history found")
@@ -108,3 +122,4 @@ for label,n in {"daily":1,"weekly":7,"monthly":28}.items():
  out["periods"][label]={"days":n,"overall":o,"query_movers":qm,"page_movers":pm,"branded":total(b,end,n) if b else None,"nonbranded":total(nb,end,n) if nb else None,"observations":notes}
 (DATA/"performance-intelligence.json").write_text(json.dumps(out,indent=2)+"\n",encoding="utf-8")
 print("Wrote Performance Intelligence data through",end)
+

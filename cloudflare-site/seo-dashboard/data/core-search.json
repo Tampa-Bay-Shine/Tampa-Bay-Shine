@@ -1,0 +1,1188 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-10-21T20:44:22.934683-04:00",
+  "data_through": "2026-10-18",
+  "source": "Google Search Console retained daily query history",
+  "baseline": {
+    "version": "2026-10-21-v1",
+    "effective_date": "2026-10-21",
+    "description": "Fixed non-brand commercial search portfolio for Tampa Bay Shine. Membership changes only through an explicit rebaseline."
+  },
+  "methodology": {
+    "membership": "Fixed cohort; membership changes only by explicit config update/rebaseline.",
+    "position": "Impression-weighted average GSC position.",
+    "missing_dates": "Missing query/date observations are not treated as zero ranking.",
+    "noise_filter": "Boolean/operator automation patterns are excluded from decision intelligence.",
+    "confidence": {
+      "high": "At least 30 impressions across at least 10 observed days in the current 28-day window.",
+      "medium": "At least 10 impressions across at least 5 observed days in the current 28-day window.",
+      "low": "Below the medium evidence threshold; do not treat as a reliable ranking trend."
+    },
+    "momentum": "Evidence-aware classification using current vs previous 28-day position and impressions."
+  },
+  "excluded_configured_queries": [],
+  "cohorts": {
+    "top_10": {
+      "query_count": 10,
+      "queries": [
+        "house cleaning tampa",
+        "house cleaning services tampa",
+        "maid service tampa",
+        "house cleaning near me",
+        "cleaning services near me",
+        "deep cleaning tampa",
+        "move out cleaning tampa",
+        "move in cleaning tampa",
+        "apartment cleaning tampa",
+        "airbnb cleaning service tampa"
+      ],
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 93.0,
+            "ctr": 0.0,
+            "position": 27.11,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 84.0,
+            "ctr": 0.0,
+            "position": 27.14,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 9.0,
+            "impressions_pct": 10.71,
+            "ctr_points": 0.0,
+            "position": 0.03
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 258.0,
+            "ctr": 0.0,
+            "position": 26.03,
+            "observed_days": 26
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 107.0,
+            "ctr": 0.0,
+            "position": 34.64,
+            "observed_days": 26
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 151.0,
+            "impressions_pct": 141.12,
+            "ctr_points": 0.0,
+            "position": 8.61
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 1.0,
+            "impressions": 502.0,
+            "ctr": 0.2,
+            "position": 28.73,
+            "observed_days": 82
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 733.0,
+            "ctr": 0.0,
+            "position": 42.49,
+            "observed_days": 85
+          },
+          "change": {
+            "clicks": 1.0,
+            "clicks_pct": null,
+            "impressions": -231.0,
+            "impressions_pct": -31.51,
+            "ctr_points": 0.2,
+            "position": 13.76
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      },
+      "position_distribution_28d": {
+        "top_3": 0,
+        "top_10": 0,
+        "top_20": 4,
+        "positions_21_50": 6,
+        "positions_51_plus": 0,
+        "no_observation": 0
+      },
+      "confidence_28d": {
+        "high": 5,
+        "medium": 2,
+        "low": 3
+      },
+      "momentum_28d": {
+        "improving": 2,
+        "expanding": 0,
+        "stable": 4,
+        "needs_attention": 1,
+        "new_visibility": 0,
+        "low_sample": 3,
+        "insufficient_data": 0
+      },
+      "executive": {
+        "overall_status": "stable",
+        "reliable_top_20": 3,
+        "low_sample_top_20": 1,
+        "high_confidence_queries": 5,
+        "medium_confidence_queries": 2,
+        "low_confidence_queries": 3,
+        "improving": 2,
+        "expanding": 0,
+        "stable": 4,
+        "needs_attention": 1,
+        "new_visibility": 0
+      },
+      "queries_28d": [
+        {
+          "query": "house cleaning tampa",
+          "bucket": "top_20",
+          "confidence": "medium",
+          "momentum": "improving",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 10.0,
+            "ctr": 0.0,
+            "position": 19.9,
+            "observed_days": 9
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 9.0,
+            "ctr": 0.0,
+            "position": 46.33,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 11.11,
+            "ctr_points": 0.0,
+            "position": 26.43
+          }
+        },
+        {
+          "query": "house cleaning services tampa",
+          "bucket": "top_20",
+          "confidence": "low",
+          "momentum": "low_sample",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 11.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 27.75,
+            "observed_days": 3
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -3.0,
+            "impressions_pct": -75.0,
+            "ctr_points": 0.0,
+            "position": 16.75
+          }
+        },
+        {
+          "query": "maid service tampa",
+          "bucket": "positions_21_50",
+          "confidence": "medium",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 12.0,
+            "ctr": 0.0,
+            "position": 29.08,
+            "observed_days": 6
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 8.0,
+            "ctr": 0.0,
+            "position": 29.5,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 4.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": 0.42
+          }
+        },
+        {
+          "query": "house cleaning near me",
+          "bucket": "top_20",
+          "confidence": "high",
+          "momentum": "needs_attention",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 57.0,
+            "ctr": 0.0,
+            "position": 16.0,
+            "observed_days": 19
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 13.0,
+            "ctr": 0.0,
+            "position": 1.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 44.0,
+            "impressions_pct": 338.46,
+            "ctr_points": 0.0,
+            "position": -15.0
+          }
+        },
+        {
+          "query": "cleaning services near me",
+          "bucket": "top_20",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 50.0,
+            "ctr": 0.0,
+            "position": 15.06,
+            "observed_days": 17
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 1.0,
+            "observed_days": 4
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 46.0,
+            "impressions_pct": 1150.0,
+            "ctr_points": 0.0,
+            "position": -14.06
+          }
+        },
+        {
+          "query": "deep cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 34.0,
+            "ctr": 0.0,
+            "position": 32.68,
+            "observed_days": 14
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 6.0,
+            "ctr": 0.0,
+            "position": 24.33,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 28.0,
+            "impressions_pct": 466.67,
+            "ctr_points": 0.0,
+            "position": -8.35
+          }
+        },
+        {
+          "query": "move out cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 52.0,
+            "ctr": 0.0,
+            "position": 43.08,
+            "observed_days": 18
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 8.0,
+            "ctr": 0.0,
+            "position": 26.0,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 44.0,
+            "impressions_pct": 550.0,
+            "ctr_points": 0.0,
+            "position": -17.08
+          }
+        },
+        {
+          "query": "move in cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "low",
+          "momentum": "low_sample",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 29.67,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 41.0,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": 11.33
+          }
+        },
+        {
+          "query": "apartment cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "low",
+          "momentum": "low_sample",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 24.0,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 21.0,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": -3.0
+          }
+        },
+        {
+          "query": "airbnb cleaning service tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "improving",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 36.0,
+            "ctr": 0.0,
+            "position": 27.22,
+            "observed_days": 16
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 51.0,
+            "ctr": 0.0,
+            "position": 47.98,
+            "observed_days": 25
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -15.0,
+            "impressions_pct": -29.41,
+            "ctr_points": 0.0,
+            "position": 20.76
+          }
+        }
+      ]
+    },
+    "top_20": {
+      "query_count": 20,
+      "queries": [
+        "house cleaning tampa",
+        "house cleaning services tampa",
+        "maid service tampa",
+        "house cleaning near me",
+        "cleaning services near me",
+        "deep cleaning tampa",
+        "move out cleaning tampa",
+        "move in cleaning tampa",
+        "apartment cleaning tampa",
+        "airbnb cleaning service tampa",
+        "office cleaning tampa",
+        "office cleaning service near me",
+        "commercial cleaning tampa",
+        "medical office cleaning tampa",
+        "medical office cleaning",
+        "commercial cleaning brandon fl",
+        "office cleaning brandon fl",
+        "office cleaning riverview fl",
+        "commercial cleaning riverview fl",
+        "janitorial services brandon fl"
+      ],
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 338.0,
+            "ctr": 0.0,
+            "position": 33.43,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 247.0,
+            "ctr": 0.0,
+            "position": 40.72,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 91.0,
+            "impressions_pct": 36.84,
+            "ctr_points": 0.0,
+            "position": 7.29
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 810.0,
+            "ctr": 0.0,
+            "position": 35.14,
+            "observed_days": 26
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 116.0,
+            "ctr": 0.0,
+            "position": 32.72,
+            "observed_days": 28
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 694.0,
+            "impressions_pct": 598.28,
+            "ctr_points": 0.0,
+            "position": -2.42
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 1.0,
+            "impressions": 1287.0,
+            "ctr": 0.08,
+            "position": 32.08,
+            "observed_days": 88
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 1086.0,
+            "ctr": 0.0,
+            "position": 37.81,
+            "observed_days": 89
+          },
+          "change": {
+            "clicks": 1.0,
+            "clicks_pct": null,
+            "impressions": 201.0,
+            "impressions_pct": 18.51,
+            "ctr_points": 0.08,
+            "position": 5.73
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      },
+      "position_distribution_28d": {
+        "top_3": 0,
+        "top_10": 0,
+        "top_20": 5,
+        "positions_21_50": 14,
+        "positions_51_plus": 1,
+        "no_observation": 0
+      },
+      "confidence_28d": {
+        "high": 14,
+        "medium": 3,
+        "low": 3
+      },
+      "momentum_28d": {
+        "improving": 2,
+        "expanding": 0,
+        "stable": 7,
+        "needs_attention": 1,
+        "new_visibility": 7,
+        "low_sample": 3,
+        "insufficient_data": 0
+      },
+      "executive": {
+        "overall_status": "improving",
+        "reliable_top_20": 4,
+        "low_sample_top_20": 1,
+        "high_confidence_queries": 14,
+        "medium_confidence_queries": 3,
+        "low_confidence_queries": 3,
+        "improving": 2,
+        "expanding": 0,
+        "stable": 7,
+        "needs_attention": 1,
+        "new_visibility": 7
+      },
+      "queries_28d": [
+        {
+          "query": "house cleaning tampa",
+          "bucket": "top_20",
+          "confidence": "medium",
+          "momentum": "improving",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 10.0,
+            "ctr": 0.0,
+            "position": 19.9,
+            "observed_days": 9
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 9.0,
+            "ctr": 0.0,
+            "position": 46.33,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 11.11,
+            "ctr_points": 0.0,
+            "position": 26.43
+          }
+        },
+        {
+          "query": "house cleaning services tampa",
+          "bucket": "top_20",
+          "confidence": "low",
+          "momentum": "low_sample",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 11.0,
+            "observed_days": 1
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 27.75,
+            "observed_days": 3
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -3.0,
+            "impressions_pct": -75.0,
+            "ctr_points": 0.0,
+            "position": 16.75
+          }
+        },
+        {
+          "query": "maid service tampa",
+          "bucket": "positions_21_50",
+          "confidence": "medium",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 12.0,
+            "ctr": 0.0,
+            "position": 29.08,
+            "observed_days": 6
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 8.0,
+            "ctr": 0.0,
+            "position": 29.5,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 4.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": 0.42
+          }
+        },
+        {
+          "query": "house cleaning near me",
+          "bucket": "top_20",
+          "confidence": "high",
+          "momentum": "needs_attention",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 57.0,
+            "ctr": 0.0,
+            "position": 16.0,
+            "observed_days": 19
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 13.0,
+            "ctr": 0.0,
+            "position": 1.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 44.0,
+            "impressions_pct": 338.46,
+            "ctr_points": 0.0,
+            "position": -15.0
+          }
+        },
+        {
+          "query": "cleaning services near me",
+          "bucket": "top_20",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 50.0,
+            "ctr": 0.0,
+            "position": 15.06,
+            "observed_days": 17
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 1.0,
+            "observed_days": 4
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 46.0,
+            "impressions_pct": 1150.0,
+            "ctr_points": 0.0,
+            "position": -14.06
+          }
+        },
+        {
+          "query": "deep cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 34.0,
+            "ctr": 0.0,
+            "position": 32.68,
+            "observed_days": 14
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 6.0,
+            "ctr": 0.0,
+            "position": 24.33,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 28.0,
+            "impressions_pct": 466.67,
+            "ctr_points": 0.0,
+            "position": -8.35
+          }
+        },
+        {
+          "query": "move out cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 52.0,
+            "ctr": 0.0,
+            "position": 43.08,
+            "observed_days": 18
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 8.0,
+            "ctr": 0.0,
+            "position": 26.0,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 44.0,
+            "impressions_pct": 550.0,
+            "ctr_points": 0.0,
+            "position": -17.08
+          }
+        },
+        {
+          "query": "move in cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "low",
+          "momentum": "low_sample",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 29.67,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 41.0,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": 11.33
+          }
+        },
+        {
+          "query": "apartment cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "low",
+          "momentum": "low_sample",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 3.0,
+            "ctr": 0.0,
+            "position": 24.0,
+            "observed_days": 2
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 21.0,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 1.0,
+            "impressions_pct": 50.0,
+            "ctr_points": 0.0,
+            "position": -3.0
+          }
+        },
+        {
+          "query": "airbnb cleaning service tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "improving",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 36.0,
+            "ctr": 0.0,
+            "position": 27.22,
+            "observed_days": 16
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 51.0,
+            "ctr": 0.0,
+            "position": 47.98,
+            "observed_days": 25
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -15.0,
+            "impressions_pct": -29.41,
+            "ctr_points": 0.0,
+            "position": 20.76
+          }
+        },
+        {
+          "query": "office cleaning tampa",
+          "bucket": "positions_51_plus",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 78.0,
+            "ctr": 0.0,
+            "position": 67.44,
+            "observed_days": 17
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 21.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 77.0,
+            "impressions_pct": 7700.0,
+            "ctr_points": 0.0,
+            "position": -46.44
+          }
+        },
+        {
+          "query": "office cleaning service near me",
+          "bucket": "top_20",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 33.0,
+            "ctr": 0.0,
+            "position": 12.61,
+            "observed_days": 20
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 33.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        },
+        {
+          "query": "commercial cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "medium",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 10.0,
+            "ctr": 0.0,
+            "position": 38.7,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 21.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 9.0,
+            "impressions_pct": 900.0,
+            "ctr_points": 0.0,
+            "position": -17.7
+          }
+        },
+        {
+          "query": "medical office cleaning tampa",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 75.0,
+            "ctr": 0.0,
+            "position": 35.52,
+            "observed_days": 18
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 75.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        },
+        {
+          "query": "medical office cleaning",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "stable",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 71.0,
+            "ctr": 0.0,
+            "position": 31.37,
+            "observed_days": 18
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 7.0,
+            "ctr": 0.0,
+            "position": 6.71,
+            "observed_days": 6
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 64.0,
+            "impressions_pct": 914.29,
+            "ctr_points": 0.0,
+            "position": -24.66
+          }
+        },
+        {
+          "query": "commercial cleaning brandon fl",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 62.0,
+            "ctr": 0.0,
+            "position": 34.98,
+            "observed_days": 15
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 62.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        },
+        {
+          "query": "office cleaning brandon fl",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 62.0,
+            "ctr": 0.0,
+            "position": 26.08,
+            "observed_days": 17
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 62.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        },
+        {
+          "query": "office cleaning riverview fl",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 56.0,
+            "ctr": 0.0,
+            "position": 33.43,
+            "observed_days": 15
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 56.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        },
+        {
+          "query": "commercial cleaning riverview fl",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 52.0,
+            "ctr": 0.0,
+            "position": 49.19,
+            "observed_days": 14
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 52.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        },
+        {
+          "query": "janitorial services brandon fl",
+          "bucket": "positions_21_50",
+          "confidence": "high",
+          "momentum": "new_visibility",
+          "current": {
+            "clicks": 0.0,
+            "impressions": 53.0,
+            "ctr": 0.0,
+            "position": 48.66,
+            "observed_days": 13
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 53.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          }
+        }
+      ]
+    }
+  }
+}
