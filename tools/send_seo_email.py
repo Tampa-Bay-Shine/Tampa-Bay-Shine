@@ -53,6 +53,54 @@ def core_search_line(core):
     if reliable is None:return "Core Search authoritative executive metrics unavailable."
     return f"{status}: {int(reliable)} reliable Core 20 terms currently average in the Top 20."
 
+def best_core_page_growth(pages):
+    """Select an evidence-supported Core Page with both growth and striking-distance visibility."""
+    candidates = []
+    rows = pages.get("pages", []) if isinstance(pages, dict) else []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        confidence = str(row.get("confidence") or "").lower()
+        period = nested(row, "periods", "28") or {}
+        current = period.get("current") or {}
+        change = period.get("change") or {}
+        try:
+            position = float(current.get("position"))
+            impressions = float(current.get("impressions"))
+            observed_days = int(current.get("observed_days") or 0)
+            impression_change = float(change.get("impressions"))
+            position_change = float(change.get("position"))
+        except (TypeError, ValueError):
+            continue
+
+        # Growth opportunity means the page is already within striking distance
+        # and current demand is expanding without a concurrent ranking decline.
+        if (
+            confidence == "low"
+            or observed_days < 5
+            or impressions < 25
+            or position < 4
+            or position > 20
+            or impression_change <= 0
+            or position_change < 0
+        ):
+            continue
+
+        label = row.get("label") or row.get("path") or "Core Page"
+        candidates.append(
+            (impressions, impression_change, position_change, -position, str(label), position)
+        )
+
+    if not candidates:
+        return "No Core Page currently clears the evidence threshold for a growth opportunity."
+
+    impressions, impression_change, position_change, neg_position, label, position = max(candidates)
+    return (
+        f"{label} - position {position:.2f}, {int(impressions)} impressions in the current 28 days "
+        f"({int(impression_change):+d} vs prior 28 days; position {position_change:+.2f}). "
+        f"Prioritize strengthening the existing page while it is within striking distance."
+    )
+
 def core_pages_line(pages):
     if not pages:return "Core Page data unavailable."
     status=str(pages.get("overall_status") or nested(pages,"summary","status") or "tracked").replace("_"," ").upper()
@@ -136,7 +184,7 @@ def render(args):
 
     priority_issue=(f"{top['subject']} - position {num(top['position'],2)}, {num(top['impressions'])} impressions in the current 28 days. "
                     f"{top['action']}" if top else "No issue currently clears the evidence threshold.")
-    growth_opportunity="Ruskin House Cleaning - position 13.00, 280 impressions in the current 28 days. Prioritize strengthening the existing Ruskin page for this demonstrated search demand."
+    growth_opportunity=best_core_page_growth(pages)
 
     rows="".join(
       f"<tr><td><b>{esc(x['priority'])}</b></td><td>{esc(x['subject'])}</td><td>{esc(x['signals'])}</td>"
