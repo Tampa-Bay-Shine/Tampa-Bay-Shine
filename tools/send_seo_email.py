@@ -103,14 +103,14 @@ def best_core_page_growth(pages):
 
 def core_pages_line(pages):
     if not pages:return "Core Page data unavailable."
-    status=str(pages.get("overall_status") or nested(pages,"summary","status") or "tracked").replace("_"," ").upper()
-    rows=pages.get("pages") or pages.get("items") or []
-    reliable=nested(pages,"summary","reliable")
-    if reliable is None: reliable=sum(1 for x in rows if str(x.get("confidence","")).lower()!="low")
-    attention=nested(pages,"summary","needs_attention")
-    if attention is None: attention=sum(1 for x in rows if x.get("momentum")=="needs_attention")
-    return f"{status}: {int(reliable or 0)} reliable strategic pages; {int(attention or 0)} currently need attention."
-
+    ex=pages.get("executive") or {}
+    status=str(ex.get("overall_status") or "tracked").replace("_"," ").upper()
+    reliable=ex.get("reliable_pages")
+    attention=nested(ex,"momentum","needs_attention")
+    if reliable is None or attention is None:
+        return "Core Page authoritative executive metrics unavailable."
+    noun="needs" if int(attention)==1 else "need"
+    return f"{status}: {int(reliable)} reliable strategic pages; {int(attention)} currently {noun} attention."
 def competitor_line(ci):
     if not ci:return "Competitive data unavailable."
     x=ci.get("summary") or {}
