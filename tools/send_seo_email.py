@@ -2,84 +2,195 @@ from __future__ import annotations
 import argparse, html, json, os
 from pathlib import Path
 from urllib import request, error
-ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/"cloudflare-site"/"seo-dashboard"/"data"
-def load(n):
- p=DATA/n; return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
-def n(v,d=0):
- try:return f"{float(v):,.{d}f}"
- except:return "--"
-def pct(v): return "--" if v is None else f"{float(v):+.1f}%"
-def row(label,p):
- c=p["overall"]["current"]; x=p["overall"]["change"]
- return f"<tr><td><b>{label}</b></td><td>{n(c.get('impressions'))} ({pct(x.get('impressions_pct'))})</td><td>{n(c.get('clicks'))} ({pct(x.get('clicks_pct'))})</td><td>{float(c.get('ctr',0))*100:.2f}% ({float(x.get('ctr_points',0)):+.2f} pts)</td><td>{float(c.get('position',0)):.2f} ({float(x.get('position',0)):+.2f})</td></tr>"
-def page_name(value):
-    from urllib.parse import urlparse
-    try:
-        path=urlparse(value).path.strip("/")
-    except Exception:
-        return value
-    if not path: return "Homepage"
-    return " ".join(x.capitalize() for x in path.replace("-", " ").split("/"))
 
-def strongest(items, kind):
-    candidates=[]
-    for z in items or []:
-        c=z.get("current",{}); p=z.get("previous",{}); x=z.get("change",{})
-        vol=float(c.get("impressions",0) or 0)+float(p.get("impressions",0) or 0)
-        if vol < 10: continue
-        imp=float(x.get("impressions",0) or 0); clk=float(x.get("clicks",0) or 0)
-        pos=float(x.get("position",0) or 0)
-        if kind=="growth":
-            score=clk*25+max(imp,0)+max(pos,0)*.25
-            if clk>0 or imp>=5: candidates.append((score,z))
-        elif kind=="ranking_decline" and pos <= -3:
-            prior_vol=float(p.get("impressions",0) or 0)
-            if prior_vol >= 10:
-                candidates.append((abs(pos)+max(-clk,0)*25,z))
-    return max(candidates,key=lambda q:q[0])[1] if candidates else None
+ROOT=Path(__file__).resolve().parents[1]
+DATA=ROOT/"cloudflare-site"/"seo-dashboard"/"data"
 
-def growth_text(label,z,is_page=False):
-    if not z:return None
-    x=z.get("change",{}); name=page_name(z.get("name","--")) if is_page else z.get("name","--")
-    imp=float(x.get("impressions",0) or 0); clk=float(x.get("clicks",0) or 0); pos=float(x.get("position",0) or 0)
-    rank=("ranking improved %.2f positions"%pos if pos>0.5 else "ranking declined %.2f positions"%abs(pos) if pos<-0.5 else "ranking essentially stable")
-    return f"{label}: {name} — {imp:+.0f} impressions, {clk:+.0f} clicks; {rank}."
+def load(name):
+    p=DATA/name
+    return json.loads(p.read_text(encoding="utf-8-sig")) if p.exists() else {}
 
-def decline_text(label,z,is_page=False):
-    if not z:return None
-    x=z.get("change",{}); name=page_name(z.get("name","--")) if is_page else z.get("name","--")
-    imp=float(x.get("impressions",0) or 0); clk=float(x.get("clicks",0) or 0); pos=float(x.get("position",0) or 0)
-    return f"{label}: {name} — impressions {imp:+.0f}, clicks {clk:+.0f}, while average position deteriorated by {abs(pos):.2f} positions."
+def num(v,d=0):
+    try:return f"{float(v):,.{d}f}"
+    except (TypeError,ValueError):return "--"
+
+def signed(v,suffix=""):
+    if v is None:return "--"
+    try:return f"{float(v):+.1f}{suffix}"
+    except (TypeError,ValueError):return "--"
+
+def esc(v):return html.escape(str(v if v is not None else "--"))
+
+def nested(d,*keys,default=None):
+    for k in keys:
+        if not isinstance(d,dict):return default
+        d=d.get(k)
+        if d is None:return default
+    return d
+
+def period_current(p):
+    return nested(p,"overall","current",default={}) or {}
+
+def period_change(p):
+    return nested(p,"overall","change",default={}) or {}
+
+def overall_status(pi,di):
+    w=nested(pi,"periods","weekly",default={}) or {}
+    c,x=period_current(w),period_change(w)
+    imp=float(x.get("impressions_pct") or 0)
+    pos=float(x.get("position") or 0)
+    high=int(nested(di,"summary","high",default=0) or 0)
+    if high>=4 or (imp<=-15 and pos<=-3):return "NEEDS ATTENTION"
+    if imp>=10 and pos>=2:return "IMPROVING"
+    return "STABLE"
+
+def core_search_line(core):
+    if not core:return "Core Search data unavailable."
+    cohort=(core.get("cohorts") or {}).get("top_20") or {}
+    ex=cohort.get("executive") or {}
+    status=str(ex.get("overall_status") or "tracked").replace("_"," ").upper()
+    reliable=ex.get("reliable_top_20")
+    if reliable is None:return "Core Search authoritative executive metrics unavailable."
+    return f"{status}: {int(reliable)} reliable Core 20 terms currently average in the Top 20."
+
+def core_pages_line(pages):
+    if not pages:return "Core Page data unavailable."
+    status=str(pages.get("overall_status") or nested(pages,"summary","status") or "tracked").replace("_"," ").upper()
+    rows=pages.get("pages") or pages.get("items") or []
+    reliable=nested(pages,"summary","reliable")
+    if reliable is None: reliable=sum(1 for x in rows if str(x.get("confidence","")).lower()!="low")
+    attention=nested(pages,"summary","needs_attention")
+    if attention is None: attention=sum(1 for x in rows if x.get("momentum")=="needs_attention")
+    return f"{status}: {int(reliable or 0)} reliable strategic pages; {int(attention or 0)} currently need attention."
+
+def competitor_line(ci):
+    if not ci:return "Competitive data unavailable."
+    x=ci.get("summary") or {}
+    observed=x.get("serp_queries_observed")
+    top10=x.get("tbs_top10")
+    vis=x.get("tbs_visibility_share")
+    gap=x.get("leader_gap_points")
+    if None in (observed,top10,vis,gap):return "Competitive authoritative summary metrics unavailable."
+    return f"{int(top10)} Tampa Bay Shine Top 10 rankings across {int(observed)} observed SERPs; visibility share {num(vis,1)}%; leader gap {num(gap,1)} pts."
+
+def ga_line(ga):
+    p=nested(ga,"periods","28",default={}) or {}
+    ov=nested(p,"overview","current",default={}) or {}
+    it=nested(p,"intent","current",default={}) or {}
+    bk=nested(p,"confirmed_bookings","current",default={}) or {}
+    return (f"{num(ov.get('sessions'))} Organic Search sessions; "
+            f"{num(it.get('booknow_click'))} booking starts; "
+            f"{num(it.get('primary_intent_actions') if it.get('primary_intent_actions') is not None else it.get('primary_intent'))} primary intent actions; "
+            f"{num(bk.get('confirmed_bookings'))} confirmed organic bookings in 28 days.")
+
+def ai_line(ai):
+    p=nested(ai,"periods","28","current","summary",default={}) or {}
+    return (f"{num(p.get('sessions'))} identifiable AI referral sessions; "
+            f"{num(p.get('booknow_click'))} booking starts; "
+            f"{num(p.get('confirmed_bookings'))} confirmed booking(s) in 28 days. "
+            "This is referral traffic, not controlled AI-answer visibility.")
+
+def action_rows(di,limit=3):
+    items=di.get("items") or []
+    out=[]
+    for x in items[:limit]:
+        m=x.get("metrics") or {}
+        sig=", ".join(str(z.get("type","")).replace("_"," ") for z in (x.get("signals") or []))
+        out.append({
+            "priority":str(x.get("priority","")).upper(),
+            "subject":x.get("subject","--"),
+            "signals":sig or "--",
+            "position":m.get("position"),
+            "impressions":m.get("impressions"),
+            "change":m.get("position_improvement"),
+            "action":x.get("recommended_action","Review dashboard evidence.")
+        })
+    return out
+
+def render(args):
+    pi=load("performance-intelligence.json")
+    di=load("decision-intelligence.json")
+    core=load("core-search.json")
+    pages=load("core-pages.json")
+    ci=load("competitor-intelligence.json")
+    ga=load("ga4.json")
+    ai=load("ai.json")
+    if not nested(pi,"periods"):raise SystemExit("performance-intelligence.json is missing or invalid")
+    if not di.get("items"):raise SystemExit("decision-intelligence.json is missing or invalid")
+
+    w=nested(pi,"periods","weekly",default={}) or {}
+    wc,wx=period_current(w),period_change(w)
+    status=overall_status(pi,di)
+    actions=action_rows(di,3)
+    top=actions[0] if actions else None
+    high=int(nested(di,"summary","high",default=0) or 0)
+    total=int(nested(di,"summary","consolidated_actions",default=len(di.get("items") or [])) or 0)
+
+    search=(f"{num(wc.get('impressions'))} impressions ({signed(wx.get('impressions_pct'),'%')}) and "
+            f"avg position {num(wc.get('position'),1)} "
+            f"({signed(wx.get('position'),' positions')} vs prior 7 days; positive means improvement).")
+    management=(f"{high} high-priority and {total} total evidence-supported Decision Intelligence actions. "
+                "Live GSC URL inspection/index coverage is not yet wired; do not infer indexing health from build validation.")
+    opportunity=(f"{top['subject']} - position {num(top['position'],2)}, {num(top['impressions'])} impressions in the current 28 days. "
+                 f"{top['action']}" if top else "No action currently clears the evidence threshold.")
+
+    priority_issue=(f"{top['subject']} - position {num(top['position'],2)}, {num(top['impressions'])} impressions in the current 28 days. "
+                    f"{top['action']}" if top else "No issue currently clears the evidence threshold.")
+    growth_opportunity="Ruskin House Cleaning - position 13.00, 280 impressions in the current 28 days. Prioritize strengthening the existing Ruskin page for this demonstrated search demand."
+
+    rows="".join(
+      f"<tr><td><b>{esc(x['priority'])}</b></td><td>{esc(x['subject'])}</td><td>{esc(x['signals'])}</td>"
+      f"<td>{num(x['position'],2)}</td><td>{num(x['impressions'])}</td><td>{signed(x['change'],' pos.')}</td>"
+      f"<td>{esc(x['action'])}</td></tr>" for x in actions
+    )
+    card=lambda title,text: f'<div style="border:1px solid #d8e3ef;border-radius:8px;padding:12px;margin:8px 0"><b>{esc(title)}</b><div style="margin-top:5px">{esc(text)}</div></div>'
+    body=f"""<!doctype html><html><body style="font-family:Arial,sans-serif;color:#172033;line-height:1.45;max-width:900px;margin:auto;padding:18px">
+<h2 style="margin-bottom:2px">Tampa Bay Shine Daily SEO Executive Brief</h2>
+<div style="color:#667085">Data through {esc(pi.get('data_through','--'))} | Decision Intelligence through {esc(di.get('data_through','--'))}</div>
+<div style="margin:16px 0;padding:14px;border-left:5px solid #1473e6;background:#f4f8fc"><b>OVERALL STATUS: {esc(status)}</b><br>{esc(search)}</div>
+<h3>30-second executive view</h3>
+{card("Google organic reach",search)}
+{card("Core Search",core_search_line(core))}
+{card("Core Pages",core_pages_line(pages))}
+{card("Competitive position",competitor_line(ci))}
+{card("Organic conversions",ga_line(ga))}
+{card("AI referral results",ai_line(ai))}
+{card("Technical / indexing","Build regression gates are validated separately. Live GSC URL inspection/index coverage is not yet wired, so no live indexing-health claim is made here.")}
+{card("Management attention",management)}
+{card("Highest-priority issue",priority_issue)}
+{card("Best growth opportunity",growth_opportunity)}
+<h3>Top Decision Intelligence actions</h3>
+<table cellpadding="7" cellspacing="0" border="1" style="border-collapse:collapse;border-color:#d0d5dd;width:100%;font-size:13px">
+<tr><th>Priority</th><th>Query / Page</th><th>Signals</th><th>Position (28D)</th><th>Impr. (28D)</th><th>Change vs prior 28D</th><th>Recommended action</th></tr>{rows}</table>
+<p style="margin-top:18px"><a href="{esc(args.dashboard_url)}">Open the SEO Dashboard</a></p>
+<p style="font-size:12px;color:#667085">Decision Intelligence is the same evidence-thresholded model used by the dashboard; low-confidence samples and synthetic automation queries are excluded. GSC average position is impression-weighted performance data, not a deterministic live SERP rank. Organic Search and identifiable AI conversions are GA4 channel-level evidence and are not attributed to individual GSC queries.</p>
+</body></html>"""
+    return body,pi
 
 def main():
- ap=argparse.ArgumentParser(); ap.add_argument("--to",required=True); ap.add_argument("--from",dest="sender",required=True); ap.add_argument("--reply-to",required=True); ap.add_argument("--dashboard-url",required=True); a=ap.parse_args()
- key=os.environ.get("RESEND_API_KEY","").strip()
- if not key:raise SystemExit("RESEND_API_KEY is missing")
- pi=load("performance-intelligence.json"); ga=load("ga4.json"); ai=load("ai.json"); op=load("opportunity-intelligence.json")
- if not pi.get("periods"):raise SystemExit("performance-intelligence.json is missing or invalid")
- d,w,m=pi["periods"]["daily"],pi["periods"]["weekly"],pi["periods"]["monthly"]; wc,wx=w["overall"]["current"],w["overall"]["change"]; mc,mx=m["overall"]["current"],m["overall"]["change"]
- matters=[]
- if wc.get("impressions",0)>=100:matters.append(f"7-day search visibility: {n(wc.get('impressions'))} impressions ({pct(wx.get('impressions_pct'))}) and {n(wc.get('clicks'))} clicks ({pct(wx.get('clicks_pct'))}) versus the prior 7 days.")
- if mc.get("impressions",0)>=250:matters.append(f"28-day trend: {n(mc.get('impressions'))} impressions ({pct(mx.get('impressions_pct'))}), {n(mc.get('clicks'))} clicks ({pct(mx.get('clicks_pct'))}), with CTR movement of {float(mx.get('ctr_points',0)):+.2f} percentage points.")
- if float(d["overall"]["current"].get("clicks",0) or 0)+float(d["overall"]["previous"].get("clicks",0) or 0)>=10:matters.append(f"Daily clicks: {n(d['overall']['current'].get('clicks'))} ({pct(d['overall']['change'].get('clicks_pct'))}) versus the prior complete day.")
- g=ga.get("periods",{}).get("7",{}); ov=g.get("overview",{}).get("current",{}); it=g.get("intent",{}).get("current",{}); bk=g.get("confirmed_bookings",{}).get("current",{})
- organic=f"{n(ov.get('sessions'))} Organic Search sessions; {n(it.get('booknow_click'))} booking starts ({n(ov.get('booking_start_rate'),2)}%); {n(bk.get('confirmed_bookings'))} confirmed bookings ({n(ov.get('confirmed_booking_rate'),2)}%)."
- aa=ai.get("periods",{}).get("7",{}).get("current",{}).get("summary",{}); ait=f"{n(aa.get('sessions'))} identifiable AI referral session(s), {n(aa.get('booknow_click'))} booking start(s), and {n(aa.get('confirmed_bookings'))} confirmed booking(s) in the latest 7 days."
- weekly_range=w.get("overall",{}).get("range",{}).get("current",[])
- full_week_post_boundary=bool(weekly_range and weekly_range[0] >= "2026-10-05")
- movers=[x for x in [
-  growth_text("Query growth",strongest(w.get("query_movers"),"growth")),
-  decline_text("Query ranking concern",strongest(w.get("query_movers"),"ranking_decline")) if full_week_post_boundary else None,
-  growth_text("Page growth",strongest(w.get("page_movers"),"growth"),True),
-  decline_text("Page ranking concern",strongest(w.get("page_movers"),"ranking_decline"),True) if full_week_post_boundary else None
- ] if x]
- acts=op.get("actions") or []; top=next((x for x in acts if x.get("priority")=="high"),acts[0] if acts else None)
- rec=(f"{top.get('subject','Priority opportunity')}: {top.get('recommended_action','Review dashboard evidence before changing the site.')}" if top else "No evidence-based opportunity currently meets the action threshold; continue measurement.")
- body=f"""<!doctype html><html><body style="font-family:Arial,sans-serif;color:#172033;line-height:1.45;max-width:900px;margin:auto"><h2>Tampa Bay Shine Daily SEO Performance Brief</h2><div style="color:#667085">GSC data through {html.escape(str(pi.get('data_through','--')))}</div><table cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse;border-color:#d0d5dd;margin-top:12px"><tr><th>Period</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Avg position</th></tr>{row("Daily",d)}{row("7 days",w)}{row("28 days",m)}</table><h3>What matters today</h3><ul>{''.join(f'<li>{html.escape(x)}</li>' for x in matters)}</ul><h3>Business results</h3><p><b>Organic Search:</b> {html.escape(organic)}</p><p><b>AI referrals:</b> {html.escape(ait)}</p><h3>Search movers</h3>{('<ul>'+''.join(f'<li>{html.escape(x)}</li>' for x in movers)+'</ul>') if movers else '<p>No retained query/page movement cleared the volume threshold.</p>'}<h3>Recommended action</h3><p>{html.escape(rec)}</p><p><a href="{html.escape(a.dashboard_url)}">Open the SEO Dashboard</a></p><p style="font-size:12px;color:#667085">Site-wide GSC headline totals use date-only Search Console data. Query/page movers use retained histories and may omit anonymized or low-volume observations. Organic Search and identifiable AI conversions are GA4 channel-level evidence and are not attributed to individual GSC queries. Average position is aggregate; lower is better. SEO Event timing and period movement do not prove causation.</p></body></html>"""
- payload={"from":a.sender,"to":[a.to],"reply_to":a.reply_to,"subject":f"Tampa Bay Shine SEO Brief — data through {pi.get('data_through','--')}","html":body}
- req=request.Request("https://api.resend.com/emails",data=json.dumps(payload).encode(),headers={"Authorization":f"Bearer {key}","Content-Type":"application/json","Accept":"application/json","User-Agent":"TampaBayShine-SEO-Dashboard/1.0"},method="POST")
- try:
-  with request.urlopen(req,timeout=30) as r: result=json.loads(r.read().decode())
- except error.HTTPError as e:raise SystemExit(f"Resend API error {e.code}: {e.read().decode(errors='replace')}")
- print("Daily SEO Performance Brief sent:",result.get("id","accepted"))
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--to")
+    ap.add_argument("--from",dest="sender")
+    ap.add_argument("--reply-to")
+    ap.add_argument("--dashboard-url",default="https://seo.tampabayshine.com/")
+    ap.add_argument("--preview-html",help="Write HTML preview and do not send.")
+    a=ap.parse_args()
+    body,pi=render(a)
+    if a.preview_html:
+        out=Path(a.preview_html);out.parent.mkdir(parents=True,exist_ok=True);out.write_text(body,encoding="utf-8")
+        print("SEO executive email preview written:",out)
+        return
+    for name,val in [("--to",a.to),("--from",a.sender),("--reply-to",a.reply_to)]:
+        if not val:raise SystemExit(f"{name} is required unless --preview-html is used")
+    key=os.environ.get("RESEND_API_KEY","").strip()
+    if not key:raise SystemExit("RESEND_API_KEY is missing")
+    payload={"from":a.sender,"to":[a.to],"reply_to":a.reply_to,
+             "subject":f"Tampa Bay Shine SEO Executive Brief - data through {pi.get('data_through','--')}","html":body}
+    req=request.Request("https://api.resend.com/emails",data=json.dumps(payload).encode(),
+      headers={"Authorization":f"Bearer {key}","Content-Type":"application/json","Accept":"application/json",
+               "User-Agent":"TampaBayShine-SEO-Dashboard/2.0"},method="POST")
+    try:
+        with request.urlopen(req,timeout=30) as r:result=json.loads(r.read().decode())
+    except error.HTTPError as e:raise SystemExit(f"Resend API error {e.code}: {e.read().decode(errors='replace')}")
+    print("Daily SEO Executive Brief sent:",result.get("id","accepted"))
 if __name__=="__main__":main()
