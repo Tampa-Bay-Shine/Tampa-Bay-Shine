@@ -163,6 +163,7 @@ def render(args):
     ci=load("competitor-intelligence.json")
     ga=load("ga4.json")
     ai=load("ai.json")
+    indexing=load("indexing-intelligence.json")
     if not nested(pi,"periods"):raise SystemExit("performance-intelligence.json is missing or invalid")
     if not di.get("items"):raise SystemExit("decision-intelligence.json is missing or invalid")
 
@@ -177,8 +178,22 @@ def render(args):
     search=(f"{num(wc.get('impressions'))} impressions ({signed(wx.get('impressions_pct'),'%')}) and "
             f"avg position {num(wc.get('position'),1)} "
             f"({signed(wx.get('position'),' positions')} vs prior 7 days; positive means improvement).")
-    management=(f"{high} high-priority and {total} total evidence-supported Decision Intelligence actions. "
-                "Live GSC URL inspection/index coverage is not yet wired; do not infer indexing health from build validation.")
+    ix=nested(indexing,"executive",default={}) or {}
+    ix_tracked=ix.get("tracked")
+    ix_indexed=ix.get("indexed")
+    ix_issues=ix.get("not_indexed_or_nonpass")
+    ix_canon=ix.get("canonical_matches")
+    indexing_line=(
+        f"{int(ix_indexed)}/{int(ix_tracked)} strategic Core Pages are Submitted and indexed; "
+        f"{int(ix_canon)}/{int(ix_tracked)} Google-selected canonicals match declared canonicals; "
+        f"{int(ix_issues)} inspection issues. Scope is the fixed Core Pages cohort, not a site-wide coverage count."
+        if None not in (ix_tracked,ix_indexed,ix_issues,ix_canon)
+        else "Live URL Inspection data unavailable; no indexing-health claim is made."
+    )
+    management=(
+        f"{high} high-priority and {total} total evidence-supported Decision Intelligence actions. "
+        + indexing_line
+    )
     opportunity=(f"{top['subject']} - position {num(top['position'],2)}, {num(top['impressions'])} impressions in the current 28 days. "
                  f"{top['action']}" if top else "No action currently clears the evidence threshold.")
 
@@ -203,7 +218,7 @@ def render(args):
 {card("Competitive position",competitor_line(ci))}
 {card("Organic conversions",ga_line(ga))}
 {card("AI referral results",ai_line(ai))}
-{card("Technical / indexing","Build regression gates are validated separately. Live GSC URL inspection/index coverage is not yet wired, so no live indexing-health claim is made here.")}
+{card("Technical / indexing",indexing_line)}
 {card("Management attention",management)}
 {card("Highest-priority issue",priority_issue)}
 {card("Best growth opportunity",growth_opportunity)}
