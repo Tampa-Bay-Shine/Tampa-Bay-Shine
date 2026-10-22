@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "business": "Tampa Bay Shine",
+  "target_domain": "tampabayshine.com",
+  "protocol": {
+    "instruction": "Run each prompt verbatim in a fresh/default consumer AI chat with no Tampa Bay Shine context supplied. Record only what the answer actually shows; do not infer mentions, citations, or appearance position.",
+    "missing_period_rule": "No observation means not tested, never zero visibility.",
+    "recommended_platforms": ["ChatGPT", "Gemini", "Claude", "Perplexity", "Copilot"]
+  },
+  "prompts": [
+    {"id":"residential-tampa","category":"residential","prompt":"What are the best house cleaning services in Tampa, Florida?"},
+    {"id":"deep-cleaning-tampa","category":"deep_cleaning","prompt":"Who offers deep cleaning services in Tampa, Florida?"},
+    {"id":"move-out-tampa","category":"move_out","prompt":"What are the best move-out cleaning services in Tampa, Florida?"},
+    {"id":"apartment-tampa","category":"apartment","prompt":"What companies provide apartment cleaning in Tampa, Florida?"},
+    {"id":"airbnb-tampa","category":"airbnb","prompt":"Who provides Airbnb cleaning services in Tampa, Florida?"},
+    {"id":"office-tampa","category":"office","prompt":"What are the best office cleaning services in Tampa, Florida?"},
+    {"id":"commercial-tampa","category":"commercial","prompt":"Who provides commercial cleaning services in Tampa, Florida?"},
+    {"id":"medical-tampa","category":"medical_office","prompt":"Who provides medical office cleaning in Tampa, Florida?"},
+    {"id":"house-brandon","category":"location","prompt":"What are the best house cleaning services in Brandon, Florida?"},
+    {"id":"house-riverview","category":"location","prompt":"What are the best house cleaning services in Riverview, Florida?"}
+  ]
+}
