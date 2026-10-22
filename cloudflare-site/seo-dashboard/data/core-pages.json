@@ -1,0 +1,1702 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-10-21T20:49:14.939204-04:00",
+  "data_through": "2026-10-18",
+  "source": "Google Search Console retained daily page history",
+  "methodology": {
+    "membership": "Fixed strategic landing-page cohort; changes require explicit rebaseline.",
+    "canonicalization": "Absolute URLs, query strings, fragments, and trailing-slash aliases normalize to one canonical path.",
+    "position": "Impression-weighted average GSC position.",
+    "missing_dates": "Missing page/date observations are not treated as zero.",
+    "confidence": {
+      "high": "At least 100 impressions across 14 observed days in current 28d.",
+      "medium": "At least 30 impressions across 7 observed days in current 28d.",
+      "low": "Below medium evidence threshold."
+    }
+  },
+  "executive": {
+    "overall_status": "improving",
+    "page_count": 15,
+    "reliable_pages": 15,
+    "confidence": {
+      "high": 9,
+      "medium": 6,
+      "low": 0
+    },
+    "momentum": {
+      "improving": 11,
+      "stable": 1,
+      "needs_attention": 1,
+      "new_visibility": 2,
+      "low_sample": 0,
+      "no_visibility": 0
+    }
+  },
+  "pages": [
+    {
+      "path": "/",
+      "label": "Homepage",
+      "intent": "brand / broad residential",
+      "confidence": "high",
+      "momentum": "stable",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 8.0,
+            "impressions": 287.0,
+            "ctr": 2.79,
+            "position": 15.02,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 9.0,
+            "impressions": 239.0,
+            "ctr": 3.77,
+            "position": 14.18,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": -1.0,
+            "clicks_pct": -11.11,
+            "impressions": 48.0,
+            "impressions_pct": 20.08,
+            "ctr_points": -0.98,
+            "position": -0.84
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 28.0,
+            "impressions": 1071.0,
+            "ctr": 2.61,
+            "position": 14.5,
+            "observed_days": 28
+          },
+          "previous": {
+            "clicks": 5.0,
+            "impressions": 1246.0,
+            "ctr": 0.4,
+            "position": 17.97,
+            "observed_days": 28
+          },
+          "change": {
+            "clicks": 23.0,
+            "clicks_pct": 460.0,
+            "impressions": -175.0,
+            "impressions_pct": -14.04,
+            "ctr_points": 2.21,
+            "position": 3.47
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 55.0,
+            "impressions": 4673.0,
+            "ctr": 1.18,
+            "position": 19.56,
+            "observed_days": 90
+          },
+          "previous": {
+            "clicks": 55.0,
+            "impressions": 6208.0,
+            "ctr": 0.89,
+            "position": 25.16,
+            "observed_days": 90
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": 0.0,
+            "impressions": -1535.0,
+            "impressions_pct": -24.73,
+            "ctr_points": 0.29,
+            "position": 5.6
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/services/",
+      "label": "Services Hub",
+      "intent": "service discovery",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 98.0,
+            "ctr": 0.0,
+            "position": 22.9,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 96.0,
+            "ctr": 0.0,
+            "position": 25.21,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 2.0,
+            "impressions_pct": 2.08,
+            "ctr_points": 0.0,
+            "position": 2.31
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 262.0,
+            "ctr": 0.0,
+            "position": 25.01,
+            "observed_days": 27
+          },
+          "previous": {
+            "clicks": 2.0,
+            "impressions": 19.0,
+            "ctr": 10.53,
+            "position": 21.84,
+            "observed_days": 13
+          },
+          "change": {
+            "clicks": -2.0,
+            "clicks_pct": -100.0,
+            "impressions": 243.0,
+            "impressions_pct": 1278.95,
+            "ctr_points": -10.53,
+            "position": -3.17
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 3.0,
+            "impressions": 620.0,
+            "ctr": 0.48,
+            "position": 28.7,
+            "observed_days": 66
+          },
+          "previous": {
+            "clicks": 3.0,
+            "impressions": 1678.0,
+            "ctr": 0.18,
+            "position": 32.03,
+            "observed_days": 82
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": 0.0,
+            "impressions": -1058.0,
+            "impressions_pct": -63.05,
+            "ctr_points": 0.3,
+            "position": 3.33
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/standard-cleaning-services-tampa/",
+      "label": "Standard Cleaning",
+      "intent": "recurring / house cleaning",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 53.0,
+            "ctr": 0.0,
+            "position": 23.04,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 25.0,
+            "ctr": 0.0,
+            "position": 21.4,
+            "observed_days": 6
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 28.0,
+            "impressions_pct": 112.0,
+            "ctr_points": 0.0,
+            "position": -1.64
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 122.0,
+            "ctr": 0.0,
+            "position": 20.94,
+            "observed_days": 22
+          },
+          "previous": {
+            "clicks": 1.0,
+            "impressions": 26.0,
+            "ctr": 3.85,
+            "position": 18.35,
+            "observed_days": 8
+          },
+          "change": {
+            "clicks": -1.0,
+            "clicks_pct": -100.0,
+            "impressions": 96.0,
+            "impressions_pct": 369.23,
+            "ctr_points": -3.85,
+            "position": -2.59
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 1.0,
+            "impressions": 177.0,
+            "ctr": 0.56,
+            "position": 21.11,
+            "observed_days": 47
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 398.0,
+            "ctr": 0.0,
+            "position": 38.18,
+            "observed_days": 71
+          },
+          "change": {
+            "clicks": 1.0,
+            "clicks_pct": null,
+            "impressions": -221.0,
+            "impressions_pct": -55.53,
+            "ctr_points": 0.56,
+            "position": 17.07
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/deep-cleaning-services-tampa/",
+      "label": "Deep Cleaning",
+      "intent": "deep cleaning",
+      "confidence": "medium",
+      "momentum": "new_visibility",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 29.0,
+            "ctr": 0.0,
+            "position": 28.93,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 72.0,
+            "ctr": 0.0,
+            "position": 24.36,
+            "observed_days": 6
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -43.0,
+            "impressions_pct": -59.72,
+            "ctr_points": 0.0,
+            "position": -4.57
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 101.0,
+            "ctr": 0.0,
+            "position": 25.67,
+            "observed_days": 13
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 101.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 101.0,
+            "ctr": 0.0,
+            "position": 25.67,
+            "observed_days": 13
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 13.0,
+            "ctr": 0.0,
+            "position": 6.62,
+            "observed_days": 10
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 88.0,
+            "impressions_pct": 676.92,
+            "ctr_points": 0.0,
+            "position": -19.05
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/move-out-cleaning-tampa/",
+      "label": "Move Out / Move In Cleaning",
+      "intent": "move cleaning",
+      "confidence": "medium",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 34.0,
+            "ctr": 0.0,
+            "position": 43.21,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 24.0,
+            "ctr": 0.0,
+            "position": 51.21,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 10.0,
+            "impressions_pct": 41.67,
+            "ctr_points": 0.0,
+            "position": 8.0
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 89.0,
+            "ctr": 0.0,
+            "position": 38.12,
+            "observed_days": 20
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 7.0,
+            "ctr": 0.0,
+            "position": 42.86,
+            "observed_days": 6
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 82.0,
+            "impressions_pct": 1171.43,
+            "ctr_points": 0.0,
+            "position": 4.74
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 171.0,
+            "ctr": 0.0,
+            "position": 44.31,
+            "observed_days": 47
+          },
+          "previous": {
+            "clicks": 1.0,
+            "impressions": 75.0,
+            "ctr": 1.33,
+            "position": 50.11,
+            "observed_days": 25
+          },
+          "change": {
+            "clicks": -1.0,
+            "clicks_pct": -100.0,
+            "impressions": 96.0,
+            "impressions_pct": 128.0,
+            "ctr_points": -1.33,
+            "position": 5.8
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/apartment-cleaning-tampa/",
+      "label": "Apartment Cleaning",
+      "intent": "apartment cleaning",
+      "confidence": "medium",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 10.0,
+            "ctr": 0.0,
+            "position": 26.1,
+            "observed_days": 6
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 12.0,
+            "ctr": 0.0,
+            "position": 21.17,
+            "observed_days": 4
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -2.0,
+            "impressions_pct": -16.67,
+            "ctr_points": 0.0,
+            "position": -4.93
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 31.0,
+            "ctr": 0.0,
+            "position": 20.97,
+            "observed_days": 14
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 25.0,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 29.0,
+            "impressions_pct": 1450.0,
+            "ctr_points": 0.0,
+            "position": 4.03
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 36.0,
+            "ctr": 0.0,
+            "position": 20.61,
+            "observed_days": 19
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 23.5,
+            "observed_days": 2
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 34.0,
+            "impressions_pct": 1700.0,
+            "ctr_points": 0.0,
+            "position": 2.89
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/airbnb-cleaning-services/",
+      "label": "Airbnb Cleaning",
+      "intent": "short-term rental cleaning",
+      "confidence": "medium",
+      "momentum": "needs_attention",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 59.5,
+            "observed_days": 3
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -4.0,
+            "impressions_pct": -100.0,
+            "ctr_points": 0.0,
+            "position": null
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 31.0,
+            "ctr": 0.0,
+            "position": 25.23,
+            "observed_days": 12
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 75.0,
+            "ctr": 0.0,
+            "position": 43.56,
+            "observed_days": 25
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -44.0,
+            "impressions_pct": -58.67,
+            "ctr_points": 0.0,
+            "position": 18.33
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 107.0,
+            "ctr": 0.0,
+            "position": 38.12,
+            "observed_days": 38
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 15.0,
+            "ctr": 0.0,
+            "position": 7.6,
+            "observed_days": 12
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 92.0,
+            "impressions_pct": 613.33,
+            "ctr_points": 0.0,
+            "position": -30.52
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/office-cleaning/",
+      "label": "Office Cleaning",
+      "intent": "office cleaning",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 154.0,
+            "ctr": 0.0,
+            "position": 62.32,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 101.0,
+            "ctr": 0.0,
+            "position": 67.62,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 53.0,
+            "impressions_pct": 52.48,
+            "ctr_points": 0.0,
+            "position": 5.3
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 321.0,
+            "ctr": 0.0,
+            "position": 64.26,
+            "observed_days": 23
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 23.0,
+            "ctr": 0.0,
+            "position": 60.91,
+            "observed_days": 8
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 298.0,
+            "impressions_pct": 1295.65,
+            "ctr_points": 0.0,
+            "position": -3.35
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 377.0,
+            "ctr": 0.0,
+            "position": 64.4,
+            "observed_days": 44
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 685.0,
+            "ctr": 0.0,
+            "position": 55.26,
+            "observed_days": 65
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -308.0,
+            "impressions_pct": -44.96,
+            "ctr_points": 0.0,
+            "position": -9.14
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/commercial-cleaning-tampa/",
+      "label": "Commercial Cleaning",
+      "intent": "commercial cleaning",
+      "confidence": "medium",
+      "momentum": "new_visibility",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 52.0,
+            "ctr": 0.0,
+            "position": 65.79,
+            "observed_days": 6
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 18.0,
+            "ctr": 0.0,
+            "position": 41.66,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 34.0,
+            "impressions_pct": 188.89,
+            "ctr_points": 0.0,
+            "position": -24.13
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 78.0,
+            "ctr": 0.0,
+            "position": 56.29,
+            "observed_days": 15
+          },
+          "previous": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 78.0,
+            "impressions_pct": null,
+            "ctr_points": 0.0,
+            "position": null
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 87.0,
+            "ctr": 0.0,
+            "position": 52.48,
+            "observed_days": 18
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 121.0,
+            "ctr": 0.0,
+            "position": 62.57,
+            "observed_days": 33
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -34.0,
+            "impressions_pct": -28.1,
+            "ctr_points": 0.0,
+            "position": 10.09
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/medical-office-cleaning-tampa/",
+      "label": "Medical Office Cleaning",
+      "intent": "medical office cleaning",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 106.0,
+            "ctr": 0.0,
+            "position": 46.65,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 82.0,
+            "ctr": 0.0,
+            "position": 48.37,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 24.0,
+            "impressions_pct": 29.27,
+            "ctr_points": 0.0,
+            "position": 1.72
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 230.0,
+            "ctr": 0.0,
+            "position": 47.33,
+            "observed_days": 19
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 2.0,
+            "ctr": 0.0,
+            "position": 24.5,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 228.0,
+            "impressions_pct": 11400.0,
+            "ctr_points": 0.0,
+            "position": -22.83
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 244.0,
+            "ctr": 0.0,
+            "position": 46.24,
+            "observed_days": 26
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 387.0,
+            "ctr": 0.0,
+            "position": 27.53,
+            "observed_days": 71
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -143.0,
+            "impressions_pct": -36.95,
+            "ctr_points": 0.0,
+            "position": -18.71
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/locations/",
+      "label": "Locations Hub",
+      "intent": "local service areas",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 36.0,
+            "ctr": 0.0,
+            "position": 12.75,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 38.0,
+            "ctr": 0.0,
+            "position": 9.42,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -2.0,
+            "impressions_pct": -5.26,
+            "ctr_points": 0.0,
+            "position": -3.33
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 110.0,
+            "ctr": 0.0,
+            "position": 12.24,
+            "observed_days": 24
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 15.0,
+            "ctr": 0.0,
+            "position": 47.73,
+            "observed_days": 14
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 95.0,
+            "impressions_pct": 633.33,
+            "ctr_points": 0.0,
+            "position": 35.49
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 188.0,
+            "ctr": 0.0,
+            "position": 16.3,
+            "observed_days": 62
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 372.0,
+            "ctr": 0.0,
+            "position": 27.97,
+            "observed_days": 78
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -184.0,
+            "impressions_pct": -49.46,
+            "ctr_points": 0.0,
+            "position": 11.67
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/house-cleaning-brandon-fl/",
+      "label": "Brandon House Cleaning",
+      "intent": "Brandon residential",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 191.0,
+            "ctr": 0.0,
+            "position": 18.17,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 123.0,
+            "ctr": 0.0,
+            "position": 26.71,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 68.0,
+            "impressions_pct": 55.28,
+            "ctr_points": 0.0,
+            "position": 8.54
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 382.0,
+            "ctr": 0.0,
+            "position": 23.35,
+            "observed_days": 24
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 21.0,
+            "ctr": 0.0,
+            "position": 60.14,
+            "observed_days": 9
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 361.0,
+            "impressions_pct": 1719.05,
+            "ctr_points": 0.0,
+            "position": 36.79
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 436.0,
+            "ctr": 0.0,
+            "position": 28.39,
+            "observed_days": 50
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 305.0,
+            "ctr": 0.0,
+            "position": 35.43,
+            "observed_days": 29
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 131.0,
+            "impressions_pct": 42.95,
+            "ctr_points": 0.0,
+            "position": 7.04
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/house-cleaning-riverview-fl/",
+      "label": "Riverview House Cleaning",
+      "intent": "Riverview residential",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 77.0,
+            "ctr": 0.0,
+            "position": 28.54,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 92.0,
+            "ctr": 0.0,
+            "position": 24.97,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -15.0,
+            "impressions_pct": -16.3,
+            "ctr_points": 0.0,
+            "position": -3.57
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 261.0,
+            "ctr": 0.0,
+            "position": 26.26,
+            "observed_days": 24
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 4.0,
+            "ctr": 0.0,
+            "position": 81.5,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 257.0,
+            "impressions_pct": 6425.0,
+            "ctr_points": 0.0,
+            "position": 55.24
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 303.0,
+            "ctr": 0.0,
+            "position": 32.46,
+            "observed_days": 40
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 139.0,
+            "ctr": 0.0,
+            "position": 51.55,
+            "observed_days": 28
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 164.0,
+            "impressions_pct": 117.99,
+            "ctr_points": 0.0,
+            "position": 19.09
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/house-cleaning-sun-city-center-fl/",
+      "label": "Sun City Center House Cleaning",
+      "intent": "Sun City Center residential",
+      "confidence": "medium",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 12.0,
+            "ctr": 0.0,
+            "position": 13.75,
+            "observed_days": 4
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 19.0,
+            "ctr": 0.0,
+            "position": 22.06,
+            "observed_days": 5
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -7.0,
+            "impressions_pct": -36.84,
+            "ctr_points": 0.0,
+            "position": 8.31
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 58.0,
+            "ctr": 0.0,
+            "position": 15.23,
+            "observed_days": 17
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 33.0,
+            "ctr": 0.0,
+            "position": 62.24,
+            "observed_days": 6
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 25.0,
+            "impressions_pct": 75.76,
+            "ctr_points": 0.0,
+            "position": 47.01
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 110.0,
+            "ctr": 0.0,
+            "position": 38.36,
+            "observed_days": 26
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 101.0,
+            "ctr": 0.0,
+            "position": 35.53,
+            "observed_days": 44
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 9.0,
+            "impressions_pct": 8.91,
+            "ctr_points": 0.0,
+            "position": -2.83
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "/house-cleaning-ruskin-fl/",
+      "label": "Ruskin House Cleaning",
+      "intent": "Ruskin residential",
+      "confidence": "high",
+      "momentum": "improving",
+      "periods": {
+        "7": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 90.0,
+            "ctr": 0.0,
+            "position": 15.38,
+            "observed_days": 7
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 165.0,
+            "ctr": 0.0,
+            "position": 10.75,
+            "observed_days": 7
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": -75.0,
+            "impressions_pct": -45.45,
+            "ctr_points": 0.0,
+            "position": -4.63
+          },
+          "range": {
+            "current": [
+              "2026-10-12",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-10-05",
+              "2026-10-11"
+            ]
+          }
+        },
+        "28": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 280.0,
+            "ctr": 0.0,
+            "position": 13.0,
+            "observed_days": 22
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 22.0,
+            "observed_days": 1
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 279.0,
+            "impressions_pct": 27900.0,
+            "ctr_points": 0.0,
+            "position": 9.0
+          },
+          "range": {
+            "current": [
+              "2026-09-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-08-24",
+              "2026-09-20"
+            ]
+          }
+        },
+        "90": {
+          "current": {
+            "clicks": 0.0,
+            "impressions": 281.0,
+            "ctr": 0.0,
+            "position": 13.03,
+            "observed_days": 23
+          },
+          "previous": {
+            "clicks": 0.0,
+            "impressions": 40.0,
+            "ctr": 0.0,
+            "position": 26.57,
+            "observed_days": 17
+          },
+          "change": {
+            "clicks": 0.0,
+            "clicks_pct": null,
+            "impressions": 241.0,
+            "impressions_pct": 602.5,
+            "ctr_points": 0.0,
+            "position": 13.54
+          },
+          "range": {
+            "current": [
+              "2026-07-21",
+              "2026-10-18"
+            ],
+            "previous": [
+              "2026-04-22",
+              "2026-07-20"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
