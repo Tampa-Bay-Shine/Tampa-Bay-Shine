@@ -134,6 +134,14 @@ jobs:
         if: steps.eastern_schedule.outputs.run == 'true'
         run: |
           python tools/performance_intelligence.py
+      - name: Refresh live URL Inspection intelligence
+        if: steps.eastern_schedule.outputs.run == 'true'
+        run: |
+          python tools/indexing_intelligence.py \
+            --client-secret "$RUNNER_TEMP/tbs-gsc/client_secret.json" \
+            --token "$RUNNER_TEMP/tbs-gsc/token.json" \
+            --out "cloudflare-site/seo-dashboard/data/indexing-intelligence.json" \
+            --history-out "cloudflare-site/seo-dashboard/data/indexing-history.json"
 
       - name: Refresh Core Search intelligence
         if: steps.eastern_schedule.outputs.run == 'true'
@@ -193,7 +201,7 @@ jobs:
 
           unexpected="$(
             git status --porcelain |
-              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|daily-total-history|performance-intelligence|core-search|core-pages|competitor-intelligence|decision-intelligence|ga4|ga4-history|ai|ai-history|opportunity-intelligence|opportunity-workflow)\.json$' ||
+              grep -v -E 'cloudflare-site/seo-dashboard/data/(gsc|history|query-history|page-history|daily-total-history|performance-intelligence|core-search|core-pages|indexing-intelligence|indexing-history|competitor-intelligence|decision-intelligence|ga4|ga4-history|ai|ai-history|opportunity-intelligence|opportunity-workflow)\.json$' ||
               true
           )"
 
@@ -218,6 +226,8 @@ jobs:
             cloudflare-site/seo-dashboard/data/performance-intelligence.json \
             cloudflare-site/seo-dashboard/data/core-search.json \
             cloudflare-site/seo-dashboard/data/core-pages.json \
+            cloudflare-site/seo-dashboard/data/indexing-intelligence.json \
+            cloudflare-site/seo-dashboard/data/indexing-history.json \
             cloudflare-site/seo-dashboard/data/competitor-intelligence.json \
             cloudflare-site/seo-dashboard/data/decision-intelligence.json \
             cloudflare-site/seo-dashboard/data/ga4.json \
