@@ -183,10 +183,16 @@ def render(args):
     ix_indexed=ix.get("indexed")
     ix_issues=ix.get("not_indexed_or_nonpass")
     ix_canon=ix.get("canonical_matches")
+    change=nested(indexing,"changes",default={}) or {}
+    comparison=bool(change.get("comparison_available"))
+    material=int(change.get("material_change_count") or 0)
+    adverse=int(change.get("adverse_change_count") or 0)
+    recrawls=int(change.get("recrawl_count") or 0)
+    change_line=((f"No material indexing/canonical changes since the previous inspection; {recrawls} Google recrawl(s) detected." if material==0 else f"{material} material indexing/canonical change(s) since the previous inspection; {adverse} adverse; {recrawls} Google recrawl(s) detected.") if comparison else "Change comparison baseline established; no prior inspection is available.")
     indexing_line=(
         f"{int(ix_indexed)}/{int(ix_tracked)} strategic Core Pages are Submitted and indexed; "
         f"{int(ix_canon)}/{int(ix_tracked)} Google-selected canonicals match declared canonicals; "
-        f"{int(ix_issues)} inspection issues. Scope is the fixed Core Pages cohort, not a site-wide coverage count."
+        f"{int(ix_issues)} inspection issues. {change_line} Scope is the fixed Core Pages cohort, not a site-wide coverage count."
         if None not in (ix_tracked,ix_indexed,ix_issues,ix_canon)
         else "Live URL Inspection data unavailable; no indexing-health claim is made."
     )
