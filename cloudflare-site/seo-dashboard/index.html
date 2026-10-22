@@ -1822,13 +1822,45 @@ td:first-child{
 
 <style id="sortable-table-enhancements">
 table thead th[data-sortable="true"]{cursor:pointer;user-select:none;position:relative;padding-right:22px}
-table thead th[data-sortable="true"]::after{content:"↕";position:absolute;right:7px;opacity:.35;font-size:11px}
-table thead th[data-sort-dir="asc"]::after{content:"▲";opacity:.8}
-table thead th[data-sort-dir="desc"]::after{content:"▼";opacity:.8}
+table thead th[data-sortable="true"]::after{content:"â†•";position:absolute;right:7px;opacity:.35;font-size:11px}
+table thead th[data-sort-dir="asc"]::after{content:"â–²";opacity:.8}
+table thead th[data-sort-dir="desc"]::after{content:"â–¼";opacity:.8}
 table tbody tr.tbs-highlight>td{background:#fff4c2 !important;font-weight:700}
 table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 </style>
 
+<style id="exec-css">.exec-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}.exec-card{border:1px solid var(--border);border-top:4px solid #54789d;border-radius:13px;padding:16px;background:#fff}.exec-card.improving{border-top-color:var(--success)}.exec-card.needs_attention{border-top-color:#d98b00}.exec-head{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:800;text-transform:uppercase}.exec-status{border-radius:999px;padding:3px 7px;font-size:10px}.exec-status.improving{background:#dcfce7;color:#075d35}.exec-status.stable{background:#edf4fb;color:#31536f}.exec-status.needs_attention{background:#fff3d9;color:#925d00}.exec-value{font-size:23px;font-weight:800;color:var(--tbs-blue-deep);margin-top:10px}.exec-detail{font-size:12px;color:#607089;margin-top:6px;line-height:1.5}.exec-lower{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.exec-panel{border:1px solid var(--border);border-radius:12px;padding:15px;background:#fafcff}.exec-panel h3{margin:0 0 9px}.exec-item{background:#fff;border:1px solid var(--border-light);border-radius:7px;padding:8px 10px;margin:6px 0;font-size:13px}.exec-note{margin-top:15px;padding:11px 13px;border-left:4px solid var(--tbs-blue);background:#f8fbff;border-radius:7px;font-size:12px;color:#536579}.detail-nav{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 18px}.detail-nav button{border:1px solid #cbd9ea;background:#fff;color:var(--tbs-blue-dark);border-radius:8px;padding:7px 10px;font-weight:700;cursor:pointer}@media(max-width:900px){.exec-grid{grid-template-columns:repeat(2,1fr)}.exec-lower{grid-template-columns:1fr}}@media(max-width:600px){.exec-grid{grid-template-columns:1fr}}</style><style id="phase4-3-density-css">
+.trend-chart svg{height:190px!important;max-height:190px!important}
+.keyword-mini-card .trend-chart svg{height:135px!important;max-height:135px!important}
+.trend-detail-chart,.trend-standalone-chart{min-height:190px!important}
+.trend-detail-chart svg,.trend-standalone-chart svg{height:205px!important;max-height:205px!important}
+.ai-chart-card .trend-chart svg{height:175px!important;max-height:175px!important}
+.trend-chart-card{padding:12px!important}.keyword-trend-grid{gap:10px!important}
+.cards,.ai-cards,.conversion-cards,.competitor-summary{gap:9px!important}
+.card,.ai-card,.conversion-card{padding:12px!important}
+.competitor-table th,.competitor-table td{padding-top:7px!important;padding-bottom:7px!important}
+.competitor-tbs-row td{background:#fff4c2!important;font-weight:800}
+.competitor-tbs-row td:first-child{box-shadow:inset 4px 0 0 #d99a00}
+.ci-compare-bars{display:grid;gap:7px;margin:10px 0 18px}
+.ci-compare-row{display:grid;grid-template-columns:minmax(150px,230px) 1fr 70px;gap:9px;align-items:center;font-size:12px}
+.ci-compare-track{height:14px;background:#edf2f7;border-radius:999px;overflow:hidden}
+.ci-compare-fill{height:100%;background:#4c8ed9;border-radius:999px}.ci-compare-row.tbs{font-weight:800;color:#15395b}
+.ci-compare-row.tbs .ci-compare-fill{background:#d99a00}.ci-compare-value{text-align:right;font-variant-numeric:tabular-nums}
+.executive-subnav{display:flex;flex-wrap:wrap;gap:7px;margin:-2px 0 12px;padding:7px 9px;border:1px solid #dbe5f0;border-top:0;border-radius:0 0 10px 10px;background:#f7faff}
+.executive-subnav[hidden]{display:none}.executive-subnav button{border:1px solid #d5e2ef;border-radius:7px;padding:6px 10px;background:#fff;color:#31536f;font-weight:700;cursor:pointer}
+.executive-subnav button.active,.executive-subnav button:hover{background:#0b67bd;color:#fff;border-color:#0b67bd}
+.ai-monitoring-state{margin:12px 0;padding:12px 14px;border-left:4px solid #d99a00;background:#fff8e7;border-radius:8px}
+@media(max-width:700px){.trend-chart svg,.keyword-mini-card .trend-chart svg,.ai-chart-card .trend-chart svg{height:165px!important;max-height:165px!important}.ci-compare-row{grid-template-columns:120px 1fr 55px}}
+</style>
+<style id="phase4-4-keyword-css">
+.keyword-competitive-wrap{margin:16px 0 22px;overflow-x:auto}.keyword-competitive-wrap table{min-width:1180px}
+.keyword-competitive-wrap th,.keyword-competitive-wrap td{padding:7px 8px;font-size:11px;vertical-align:top}
+.keyword-competitive-wrap td:first-child{font-weight:750;color:#15395b;min-width:165px}
+.rank-chip{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:800;white-space:nowrap}
+.rank-top10{background:#dcfce7;color:#166534}.rank-striking{background:#fef3c7;color:#92400e}.rank-21-50{background:#dbeafe;color:#1e40af}.rank-51{background:#fee2e2;color:#991b1b}.rank-na{background:#eef2f7;color:#64748b}
+.serp-domain{white-space:nowrap}.serp-rank{font-weight:800;color:#15395b}
+#performance .detail-nav,#performance .subnav,#performance>.tabs,#performance>.section-tabs{display:none!important}
+</style>
 </head><body><main>
 <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
   <a href="/guide/"
@@ -1872,11 +1904,11 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 <div class="delta-detail" id="position-detail"></div>
 </div>
 </div>
-<nav><button data-tab="performance">Performance Intelligence</button><button data-tab="competitors">Competitors</button><button data-tab="intelligence">Opportunity Intelligence</button>
-<button data-tab="actions" class="active">Action Center</button><button data-tab="trends">Trends</button><button data-tab="conversions">Conversions</button><button data-tab="ai">AI Visibility</button><button data-tab="events">SEO Events</button><button data-tab="tracked">Tracked keywords</button><button data-tab="queries">Top queries</button><button data-tab="movers">Winners &amp; Losers</button><button data-tab="opps">Opportunities</button><button data-tab="cann">Cannibalization</button></nav>
+<nav id="executive-nav"><button data-tab="overview" class="active">Overview</button><button data-tab="performance">Search Performance</button><button data-tab="competitors">Competitive Intelligence</button><button data-tab="intelligence">SEO Intelligence</button><button data-tab="conversions">Conversions</button><button data-tab="ai">AI / AEO</button><button data-tab="events">SEO Events</button></nav>
 
+<section id="overview" class="tab active"><h2>Executive Overview</h2><p class="muted">Management view of organic reach, strategic search visibility, landing pages, competitive position, conversion intent, and technical readiness.</p><div class="exec-grid" id="exec-grid"></div><div class="exec-lower"><div class="exec-panel"><h3>Management attention</h3><div id="exec-attention">Loading...</div></div><div class="exec-panel"><h3>Best current opportunity</h3><div id="exec-opportunity">Loading...</div></div></div><div class="exec-note"><strong>Scope:</strong> GSC totals measure Google organic reach. Core Search/Core Pages are fixed evidence-weighted portfolios. Competitor metrics are observed SERPs, not GSC competitor ranks. Booking starts are intent events, not confirmed bookings.</div></section>
 <section id="performance" class="tab">
-<h2>Performance Intelligence</h2>
+<h2>Search Performance</h2><div class="detail-nav"><button data-detail="performance">Performance</button><button data-detail="trends">Historical Trends</button><button data-detail="tracked">Tracked Keywords</button><button data-detail="queries">Top Queries</button><button data-detail="movers">Winners &amp; Losers</button></div>
 <p class="muted">Equivalent complete GSC periods showing what changed, the highest-impact query/page movement, and the signals worth reviewing.</p>
 <div class="period-selector" id="pi-period-selector">
 <button data-pi="daily">Daily</button>
@@ -1907,10 +1939,14 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 </div>
 
 <div class="competitor-callout" id="ci-status">Loading competitor data...</div>
+<div class="competitor-grid" id="ci-tbs-compare-grid">
+<div><h3>Tampa Bay Shine vs residential leaders</h3><div class="ci-compare-bars" id="ci-residential-bars"></div></div>
+<div><h3>Tampa Bay Shine vs commercial leaders</h3><div class="ci-compare-bars" id="ci-commercial-bars"></div></div>
+</div>
 
 <div class="competitor-grid">
   <div>
-    <h3>Residential / local cleaning competitors</h3>
+    <div id="ci-keyword-competitive"><h3>Core 20 Keyword Competitive Rankings</h3><p class="muted">Tampa Bay Shine GSC performance is shown alongside the same query's captured organic SERP. GSC average position is not treated as a live SERP rank. Not in observed Top 10 means the query was observed but Tampa Bay Shine was absent from that captured Top 10.</p><div class="keyword-competitive-wrap"><table><thead><tr><th>Search term</th><th>TBS GSC avg pos.</th><th>Impr.</th><th>Best relevant competitor</th><th>Competitor rank</th><th>Gap / status</th><th>Clicks</th><th>CTR</th><th>TBS observed SERP</th><th>#1 observed</th><th>#2 observed</th><th>#3 observed</th></tr></thead><tbody id="ci-keyword-rankings"></tbody></table></div></div><h3>Residential / local cleaning competitors</h3>
     <div class="competitor-table-wrap">
       <table class="competitor-table">
         <thead><tr><th>Domain</th><th>Visibility</th><th>Share</th><th>Overlap</th><th>Top 3</th><th>Top 10</th></tr></thead>
@@ -1970,7 +2006,7 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 <p class="muted" id="ci-method"></p>
 </section>
 <section id="intelligence" class="tab">
-  <h2>Opportunity Intelligence</h2>
+  <h2>SEO Intelligence</h2><div class="detail-nav"><button data-detail="intelligence">Opportunity Intelligence</button><button data-detail="actions">Action Center</button><button data-detail="opps">Opportunities</button><button data-detail="cann">Cannibalization</button></div>
   <div class="muted">
     Cross-source weekly SEO/AEO decision queue using GSC, GA4,
     AI visibility, AI referral, and SEO event evidence.
@@ -2394,7 +2430,7 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
     </table>
   </div>
 
-  <h3>AI answer visibility</h3>
+  <h3>AI Answer Monitoring — Not Yet Activated</h3><div class="ai-monitoring-state"><strong>Controlled AI-answer monitoring has not started.</strong> No controlled observations have been collected yet. Identifiable AI referral traffic above is measured separately and does not represent controlled answer visibility.</div>
   <p class="muted">
     Controlled prompt observations are separate from GA4 referral traffic.
     Missing test periods mean no observation was performed, not zero visibility.
@@ -4051,12 +4087,12 @@ function intelligenceAnalysisHtml(action,workflow){
   const events=Array.isArray(action.seo_events)?action.seo_events:[];
   const measurement=action.measurement||{};
   const eventRows=events.length
-    ? events.map(event=>`<div class="analysis-row">${esc(event.date||"--")} — ${esc(event.category||"SEO")}: ${esc(event.title||"--")}</div>`).join("")
+    ? events.map(event=>`<div class="analysis-row">${esc(event.date||"--")} â€” ${esc(event.category||"SEO")}: ${esc(event.title||"--")}</div>`).join("")
     : `<div class="analysis-row muted">No matching SEO Events are currently linked to this URL.</div>`;
   const implementation=workflow?.implementation_summary
     ? `<div class="analysis-row"><span class="analysis-label">Implementation:</span> ${esc(workflow.implementation_summary)}</div>`:"";
   const workflowEvent=workflow?.seo_event
-    ? `<div class="analysis-row"><span class="analysis-label">Workflow SEO Event:</span> ${esc(workflow.seo_event.date||"--")} — ${esc(workflow.seo_event.title||"--")}</div>`:"";
+    ? `<div class="analysis-row"><span class="analysis-label">Workflow SEO Event:</span> ${esc(workflow.seo_event.date||"--")} â€” ${esc(workflow.seo_event.title||"--")}</div>`:"";
 
   return `<details class="intelligence-analysis">
     <summary>Open Analysis</summary>
@@ -4132,7 +4168,7 @@ function bindIntelligenceWorkflowControls(root=document){
         payload.summary=control.querySelector(".workflow-summary")?.value||"";
       }
       if(payload.status==="closed") payload.notes=control.querySelector(".workflow-notes")?.value||"";
-      button.disabled=true;result.className="intelligence-workflow-result show";result.textContent="Saving…";
+      button.disabled=true;result.className="intelligence-workflow-result show";result.textContent="Savingâ€¦";
       try{
         const r=await fetch(SEO_WORKFLOW_API,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
         const data=await r.json().catch(()=>({error:`HTTP ${r.status}`}));
@@ -4174,7 +4210,7 @@ function intelligenceCard(action,workflow){
   let conversionText="";
   if(Object.keys(conversion).length){
     const scope=conversion.scope==="landing_page"?"Ranking URL attribution":"Sitewide Organic Search context";
-    conversionText=`<div class="intelligence-conversion"><strong>Conversion context:</strong> ${esc(scope)} — ${n(conversion.sessions)} sessions, ${n(conversion.booking_starts)} booking starts, ${n(conversion.confirmed_bookings)} confirmed bookings.<div class="muted">${esc(conversion.note||"")}</div></div>`;
+    conversionText=`<div class="intelligence-conversion"><strong>Conversion context:</strong> ${esc(scope)} â€” ${n(conversion.sessions)} sessions, ${n(conversion.booking_starts)} booking starts, ${n(conversion.confirmed_bookings)} confirmed bookings.<div class="muted">${esc(conversion.note||"")}</div></div>`;
   }
   return `<article class="intelligence-card priority-${esc(priority)}" data-workflow-status="${esc(status)}" data-opportunity-id="${esc(action.id||"")}">
     <div class="intelligence-card-head"><div><div class="intelligence-badges">
@@ -4230,7 +4266,7 @@ Promise.all([
   const generated=data.generated_at?new Date(data.generated_at).toLocaleString():"unknown";
 
   document.getElementById("intelligence-note").innerHTML=
-    `<strong>How to use this:</strong> Work high-priority evidence first and move each opportunity through New → Investigating → Implemented → Measuring → Closed. `+
+    `<strong>How to use this:</strong> Work high-priority evidence first and move each opportunity through New â†’ Investigating â†’ Implemented â†’ Measuring â†’ Closed. `+
     `Current workflow: ${statusCounts.new} new, ${statusCounts.investigating} investigating, ${statusCounts.implemented} implemented, ${statusCounts.measuring} measuring, ${statusCounts.closed} closed. `+
     `Priority describes urgency; confidence describes evidence strength. Booking starts are not confirmed bookings, sitewide GA4 context is not page attribution, and SEO event timing does not prove causation. `+
     `<span class="muted">Generated ${esc(generated)}.</span>`;
@@ -4419,8 +4455,8 @@ const fmt=(v,d=1)=>v==null?"--":Number(v).toFixed(d).replace(/\.0$/,"");
 const intentLabel=i=>i==="commercial_facility"?"Commercial":"Residential";
 
 function boardRows(rows, emptyText){
-  return rows.length ? rows.map(x=>`<tr>
-    <td>${esc(x.domain)}</td><td>${fmt(x.visibility_points)}</td><td>${fmt(x.share_of_observed_visibility)}%</td>
+  return rows.length ? rows.map(x=>`<tr class="${x.is_primary||x.domain==="tampabayshine.com"?"competitor-tbs-row":""}">
+    <td>${x.is_primary||x.domain==="tampabayshine.com"?"Tampa Bay Shine · "+esc(x.domain):esc(x.domain)}</td><td>${fmt(x.visibility_points)}</td><td>${fmt(x.share_of_observed_visibility)}%</td>
     <td>${fmt(x.keywords_overlapping,0)}</td><td>${fmt(x.top3,0)}</td><td>${fmt(x.top10,0)}</td>
   </tr>`).join("") : `<tr><td colspan="6"><div class="competitor-empty">${esc(emptyText)}</div></td></tr>`;
 }
@@ -4440,8 +4476,16 @@ fetch("./data/competitor-intelligence.json",{cache:"no-store"})
     `SERP snapshot: ${esc(st.serp_observed_at||"not loaded")}. Authority baseline: ${esc(st.authority_observed_at||"not loaded")}. `+
     `<span class="muted">${esc(st.note||"")}</span>`;
 
-  $("#ci-residential").innerHTML=boardRows(boards.residential_local||[],"No residential/local competitors classified.");
-  $("#ci-commercial").innerHTML=boardRows(boards.commercial_facility||[],"No commercial/facility competitors classified.");
+  /* Core20 table rendered independently below. */
+  const compareBars=(rows)=>{
+    const clean=(rows||[]).slice(0,7), max=Math.max(1,...clean.map(x=>Number(x.visibility_points)||0));
+    return clean.map(x=>{const own=x.is_primary||x.domain==="tampabayshine.com",value=Number(x.visibility_points)||0,width=value<=0?0:Math.max(2,(value/max)*100);return `<div class="ci-compare-row ${own?"tbs":""}"><div>${own?"Tampa Bay Shine":esc(x.domain)}</div><div class="ci-compare-track"><div class="ci-compare-fill" style="width:${width}%"></div></div><div class="ci-compare-value">${fmt(value)} pts</div></div>`}).join("");
+  };
+  const residentialBoard=boards.residential_local||[], commercialBoard=boards.commercial_facility||[];
+  $("#ci-residential-bars").innerHTML=compareBars(residentialBoard);
+  $("#ci-commercial-bars").innerHTML=compareBars(commercialBoard);
+  $("#ci-residential").innerHTML=boardRows(residentialBoard,"No residential/local competitors classified.");
+  $("#ci-commercial").innerHTML=boardRows(commercialBoard,"No commercial/facility competitors classified.");
   $("#ci-external").innerHTML=boardRows(boards.external_platforms||[],"No directories, marketplaces, or social sites classified.");
   $("#ci-irrelevant").innerHTML=boardRows(boards.irrelevant_adjacent||[],"No irrelevant/adjacent results classified.");
 
@@ -4494,11 +4538,108 @@ fetch("./data/competitor-intelligence.json",{cache:"no-store"})
  function val(c){const r=(c?.textContent||"").trim();if(!r||r==="--")return{k:"e",v:""};const x=r.replace(/,/g,"").replace(/[$%]/g,"").trim();if(/^[-+]?\d*\.?\d+$/.test(x))return{k:"n",v:Number(x)};return{k:"t",v:r.toLowerCase()}}
  function cmp(a,b,i,d){const A=val(a.cells[i]),B=val(b.cells[i]);if(A.k==="e"&&B.k!=="e")return 1;if(B.k==="e"&&A.k!=="e")return-1;let r=A.k==="n"&&B.k==="n"?A.v-B.v:String(A.v).localeCompare(String(B.v),undefined,{numeric:true,sensitivity:"base"});return d==="asc"?r:-r}
  function hi(t){Array.from(t?.tBodies||[]).forEach(b=>Array.from(b.rows).forEach(r=>{const x=(r.textContent||"").toLowerCase();r.classList.toggle("tbs-highlight",x.includes("tampa bay shine")||x.includes("tampabayshine.com"))}))}
- function en(t){if(!t)return;if(t.dataset.sortEnhanced==="true"){hi(t);return}const hr=t.tHead?.rows?.[0];if(!hr)return;t.dataset.sortEnhanced="true";Array.from(hr.cells).forEach((th,i)=>{th.dataset.sortable="true";th.title=(th.title?th.title+" · ":"")+"Click to sort";th.addEventListener("click",()=>{const d=th.dataset.sortDir==="asc"?"desc":"asc";Array.from(hr.cells).forEach(x=>delete x.dataset.sortDir);th.dataset.sortDir=d;Array.from(t.tBodies||[]).forEach(b=>{Array.from(b.rows).sort((a,c)=>cmp(a,c,i,d)).forEach(r=>b.appendChild(r))});hi(t)})});hi(t)}
+ function en(t){if(!t)return;if(t.dataset.sortEnhanced==="true"){hi(t);return}const hr=t.tHead?.rows?.[0];if(!hr)return;t.dataset.sortEnhanced="true";Array.from(hr.cells).forEach((th,i)=>{th.dataset.sortable="true";th.title=(th.title?th.title+" Â· ":"")+"Click to sort";th.addEventListener("click",()=>{const d=th.dataset.sortDir==="asc"?"desc":"asc";Array.from(hr.cells).forEach(x=>delete x.dataset.sortDir);th.dataset.sortDir=d;Array.from(t.tBodies||[]).forEach(b=>{Array.from(b.rows).sort((a,c)=>cmp(a,c,i,d)).forEach(r=>b.appendChild(r))});hi(t)})});hi(t)}
  function all(){document.querySelectorAll("table").forEach(en)}
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",all);else all();
  new MutationObserver(()=>all()).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
 
+<script id="exec-js">(()=>{const n=v=>Number(v),f=(v,d=0)=>Number.isFinite(n(v))?n(v).toLocaleString(undefined,{maximumFractionDigits:d}):"--",get=(o,p)=>p.split(".").reduce((a,k)=>a?.[k],o),pick=(o,ps)=>{for(const p of ps){const v=get(o,p);if(v!==undefined&&v!==null)return v}return null},norm=v=>{v=String(v||"stable").toLowerCase().replace(/\s+/g,"_");return ["improving","stable","needs_attention"].includes(v)?v:"stable"},label=v=>v==="needs_attention"?"Needs Attention":v[0].toUpperCase()+v.slice(1);function tab(id){document.querySelectorAll("section.tab").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll("#executive-nav [data-tab]").forEach(x=>x.classList.toggle("active",x.dataset.tab===id));scrollTo({top:document.getElementById(id)?.offsetTop-12||0,behavior:"smooth"})}document.querySelectorAll(".detail-nav [data-detail]").forEach(b=>b.onclick=()=>tab(b.dataset.detail));Promise.all(["performance-intelligence","core-search","core-pages","competitor-intelligence","ga4"].map(x=>fetch(`./data/${x}.json`,{cache:"no-store"}).then(r=>r.json()))).then(([pi,cs,cp,ci,ga])=>{const cards=[];const w=pi?.periods?.weekly?.overall||pi?.periods?.["7"]?.overall||{},ic=n(w?.change?.impressions_pct),pc=n(w?.change?.position);let rs=ic>=10&&pc>=0?"improving":ic<=-15&&pc<0?"needs_attention":"stable";cards.push(["Google Organic Reach",rs,`${f(w?.current?.impressions)} impressions`,`${Number.isFinite(ic)?(ic>=0?"+":"")+f(ic,1)+"%":"--"} vs prior period; avg position ${f(w?.current?.position,1)}.`]);const cse=cs?.executive||cs?.summary||{},css=norm(cs?.overall_status||cse?.overall_status||cse?.status),rt=pick(cse,["reliable_top_20","reliable_top20"]);cards.push(["Core Search",css,`${rt??"--"} reliable Top 20`,`Fixed Core 20 portfolio with evidence/confidence thresholds.`]);const cpe=cp?.executive||cp?.summary||{},cps=norm(cp?.overall_status||cpe?.overall_status||cpe?.status),rp=pick(cpe,["reliable_pages","reliable"]);cards.push(["Core Pages",cps,`${rp??"--"} reliable pages`,`Strategic landing-page cohort with canonical URL normalization.`]);const cis=ci?.summary||{},cos=n(cis.serp_queries_observed)>0&&n(cis.tbs_top10)===0?"needs_attention":n(cis.tbs_top10)>0?"improving":"stable";cards.push(["Competitive Position",cos,`${f(cis.tbs_top10)} Top 10 / ${f(cis.serp_queries_observed)} observed`,`Visibility share ${f(cis.tbs_visibility_share,1)}%; leader gap ${f(cis.leader_gap_points,1)} pts. Observed SERPs, not GSC competitor ranks.`]);const g=ga?.periods?.["28"]||{},intent=n(g?.intent?.current?.primary_intent_actions)||0,starts=n(g?.intent?.current?.booknow_click)||0,confirmed=n(g?.confirmed_bookings?.current?.confirmed_bookings)||0,sessions=n(g?.overview?.current?.sessions)||0,cv=confirmed>0?"improving":intent>0?"stable":"needs_attention";cards.push(["Organic Conversions",cv,`${f(intent)} primary intent actions`,`${f(sessions)} sessions; ${f(starts)} booking starts; ${f(confirmed)} confirmed bookings. Starts are not bookings.`]);cards.push(["Technical / Indexing","stable","Build gates validated","SEO + analytics regression gates are validated in this phase. Live GSC indexing health is not yet wired into this card."]);document.getElementById("exec-grid").innerHTML=cards.map(c=>`<div class="exec-card ${c[1]}"><div class="exec-head"><span>${c[0]}</span><span class="exec-status ${c[1]}">${label(c[1])}</span></div><div class="exec-value">${c[2]}</div><div class="exec-detail">${c[3]}</div></div>`).join("");const a=[];if(n(cse?.momentum?.needs_attention)>0)a.push(`${f(cse.momentum.needs_attention)} Core Search term(s) need attention.`);if(n(cpe?.momentum?.needs_attention)>0)a.push(`${f(cpe.momentum.needs_attention)} Core Page(s) need attention.`);if(cos==="needs_attention")a.push(`Competitive gap: 0 TBS Top-10 results across ${f(cis.serp_queries_observed)} observed SERPs.`);if(starts>0&&confirmed===0)a.push(`${f(starts)} organic booking starts but 0 confirmed organic bookings in the current 28-day window.`);document.getElementById("exec-attention").innerHTML=(a.length?a:["No material management exception detected."]).map(x=>`<div class="exec-item">${x}</div>`).join("");const pages=(cp?.pages||[]).filter(x=>Number.isFinite(n(x?.current_28d?.position??x?.current?.position??x?.position))&&n(x?.current_28d?.position??x?.current?.position??x?.position)<=20).sort((a,b)=>n(b?.current_28d?.impressions??b?.current?.impressions??b?.impressions)-n(a?.current_28d?.impressions??a?.current?.impressions??a?.impressions));const b=pages[0];document.getElementById("exec-opportunity").innerHTML=b?`<strong>${b.label||b.name||b.path||b.page}</strong><br>Average position ${f(b?.current_28d?.position??b?.current?.position??b?.position,1)} on ${f(b?.current_28d?.impressions??b?.current?.impressions??b?.impressions)} impressions. Prioritize evidence-backed ranking/CTR work rather than another overlapping page.`:"No evidence-supported Core Page is currently inside the Top 20 threshold."}).catch(e=>{console.error(e);document.getElementById("exec-attention").textContent="Executive data load failed: "+e.message})})();</script>
+<script id="executive-overview-js">
+(()=>{
+"use strict";
+const byId=id=>document.getElementById(id);
+const finite=v=>Number.isFinite(Number(v));
+const number=(v,d=0)=>finite(v)?Number(v).toLocaleString(undefined,{maximumFractionDigits:d}):"--";
+const signed=(v,d=1,suffix="")=>finite(v)?`${Number(v)>0?"+":""}${number(v,d)}${suffix}`:"--";
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const get=(o,p)=>{let v=o;for(const k of p.split(".")){if(v==null)return null;v=v[k]}return v==null?null:v};
+const first=(o,ps)=>{for(const p of ps){const v=get(o,p);if(v!=null)return v}return null};
+const norm=v=>{const x=String(v||"stable").toLowerCase().replace(/[\s-]+/g,"_");return ["improving","stable","needs_attention"].includes(x)?x:"stable"};
+const statusText=s=>s==="needs_attention"?"Needs Attention":s==="improving"?"Improving":"Stable";
+function setCard(i,title,status,value,detail){
+ const el=document.querySelectorAll("#executive-grid .executive-card")[i];if(!el)return;
+ status=norm(status);el.dataset.status=status;
+ el.innerHTML=`<div class="executive-card-head"><span>${esc(title)}</span><span class="executive-status ${status}">${statusText(status)}</span></div><div class="executive-value">${esc(value)}</div><div class="executive-detail">${detail}</div>`;
+}
+function activate(id){
+ const target=document.getElementById(id);if(!target)return;
+ document.querySelectorAll("section.tab").forEach(x=>x.classList.toggle("active",x.id===id));
+ document.querySelectorAll("#executive-nav [data-tab]").forEach(x=>x.classList.toggle("active",x.dataset.tab===id));
+
+ target.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+const executive=d=>d?.executive||d?.summary||{};const deepKey=(o,names)=>{if(!o||typeof o!=="object")return null;for(const k of Object.keys(o)){if(names.includes(k)&&o[k]!=null)return o[k]}for(const v of Object.values(o)){if(v&&typeof v==="object"){const f=deepKey(v,names);if(f!=null)return f}}return null;};
+const overallStatus=d=>norm(first(d,["overall_status","executive.overall_status","executive.status","summary.overall_status","summary.status"]));
+const pageRows=d=>["pages","items","portfolio"].map(k=>d?.[k]).find(Array.isArray)||[];
+const pageMetric=(r,k)=>first(r,[`current_28d.${k}`,`current.${k}`,`periods.28.current.${k}`,k]);
+Promise.all(["performance-intelligence.json","core-search.json","core-pages.json","competitor-intelligence.json","ga4.json","ai.json"].map(f=>fetch("./data/"+f,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`${f}: HTTP ${r.status}`);return r.json()})))
+.then(([pi,cs,cp,ci,ga,ai])=>{
+ const week=first(pi,["periods.weekly.overall","periods.7.overall"])||{}, wi=Number(get(week,"change.impressions_pct")), wp=Number(get(week,"change.position"));
+ let reach="stable";if(Number.isFinite(wi)&&Number.isFinite(wp)&&wi>=10&&wp>=0)reach="improving";if(Number.isFinite(wi)&&Number.isFinite(wp)&&wi<=-15&&wp<0)reach="needs_attention";
+ setCard(0,"Google Organic Reach",reach,`${number(get(week,"current.impressions"))} impressions`,`${signed(get(week,"change.impressions_pct"),1,"%")} vs prior equivalent period; average position ${number(get(week,"current.position"),1)}. <strong>Source:</strong> authoritative GSC daily totals.`);
+ const cse=executive(cs), top20=deepKey(cs,["reliable_top_20","reliable_top20","reliable_top20_count","reliable_top_20_count"]), cs7=first(cs,["periods.7.current","periods.7.current_aggregate"])||{};
+ setCard(1,"Core Search",overallStatus(cs),`${number(top20)} reliable Top 20`,`Fixed Core 20 portfolio; 7-day impressions ${number(cs7.impressions)}. Evidence thresholds prevent tiny samples from being promoted as reliable rankings.`);
+ const cpe=executive(cp), reliable=first(cpe,["reliable_pages","reliable"]), improving=first(cpe,["momentum.improving","improving"]);
+ setCard(2,"Core Pages",overallStatus(cp),`${number(reliable)} reliable pages`,`${number(improving)} improving strategic pages. Canonicalized fixed landing-page cohort with evidence thresholds.`);
+ const cis=ci?.summary||{};let comp="stable";if(Number(cis.serp_queries_observed)>0&&Number(cis.tbs_top10)===0)comp="needs_attention";if(Number(cis.tbs_top10)>0)comp="improving";
+ setCard(3,"Competitive Position",comp,`${number(cis.tbs_top10)} Top 10 / ${number(cis.serp_queries_observed)} observed`,`TBS observed visibility share ${number(cis.tbs_visibility_share,1)}%; leader gap ${number(cis.leader_gap_points,1)} pts. <strong>Observed SERPsâ€”not GSC competitor rankings.</strong>`);
+ const g28=ga?.periods?.["28"]||{}, ov=g28?.overview?.current||{}, intent=g28?.intent?.current||{}, conf=g28?.confirmed_bookings?.current||{};
+ const primary=Number(intent.primary_intent_actions)||0, starts=Number(intent.booknow_click)||0, bookings=Number(conf.confirmed_bookings)||0;
+ setCard(4,"Organic Conversions",bookings>0?"improving":primary>0?"stable":"needs_attention",`${number(primary)} primary intent actions`,`${number(ov.sessions)} Organic Search sessions; ${number(starts)} booking starts; ${number(bookings)} confirmed <code>BookingByCustomer</code> events. <strong>Starts are not confirmed bookings.</strong>`);
+ const tech=document.querySelectorAll("#executive-grid .executive-card")[5];if(tech)tech.dataset.status="stable";
+ const attention=[], csm=cse?.momentum||{}, cpm=cpe?.momentum||{};
+ if(Number(csm.needs_attention)>0)attention.push(`${number(csm.needs_attention)} Core Search term(s) need attention.`);
+ if(Number(cpm.needs_attention)>0)attention.push(`${number(cpm.needs_attention)} Core Page(s) need attention.`);
+ if(Number(cis.serp_queries_observed)>0&&Number(cis.tbs_top10)===0)attention.push(`Competitive visibility remains a major gap: 0 TBS Top-10 results across ${number(cis.serp_queries_observed)} observed SERPs.`);
+ if(starts>0&&bookings===0)attention.push(`${number(starts)} organic booking starts but 0 confirmed organic bookings in the current 28-day GA4 window.`);
+ const ai28=ai?.periods?.["28"]?.current?.summary||{};if(Number(ai28.confirmed_bookings)>0)attention.push(`Identifiable AI referrals produced ${number(ai28.confirmed_bookings)} confirmed booking(s) in 28 days; AI referral traffic remains separate from controlled AI-answer visibility.`);
+ if(!attention.length)attention.push("No material management exception was detected in the current overview signals.");
+ if(byId("exec-attention"))byId("exec-attention").innerHTML=attention.slice(0,5).map(x=>`<div class="executive-list-item">${esc(x)}</div>`).join("");
+ const best=pageRows(cp).filter(r=>{const pagePath=String(r.path||r.page||r.url||"");return pagePath!=="/"&&pagePath!==""&&finite(pageMetric(r,"position"))&&Number(pageMetric(r,"position"))<=20}).sort((a,b)=>(Number(pageMetric(b,"impressions"))||0)-(Number(pageMetric(a,"impressions"))||0))[0];
+ if(byId("exec-opportunity"))byId("exec-opportunity").innerHTML=best?`<strong>${esc(best.label||best.name||best.path||best.page||"Core landing page")}</strong><br>Average position ${number(pageMetric(best,"position"),1)} on ${number(pageMetric(best,"impressions"))} current-period impressions. This strategic page is already within striking distance; prioritize evidence-backed ranking/CTR work rather than creating an overlapping page.`:"No evidence-supported Core Page is currently inside the Top 20 threshold.";
+ const dates=[pi?.data_through,cs?.data_through,cp?.data_through,ga?.data_through].filter(Boolean).sort();if(byId("exec-asof"))byId("exec-asof").textContent=`Latest source date: ${dates.at(-1)||"see source panels"}`;
+}).catch(err=>{console.error("Executive Overview:",err);if(byId("exec-asof"))byId("exec-asof").textContent="Executive data load error: "+err.message;if(byId("exec-attention"))byId("exec-attention").innerHTML='<div class="executive-list-item">One or more executive datasets could not be loaded. Detailed dashboard sections remain available.</div>';});
+})();
+</script>
+
+<script id="phase4-3-ux-js">
+(()=>{"use strict";
+const nav=document.getElementById("executive-nav")||document.querySelector("nav");if(!nav)return;
+let bar=document.getElementById("executive-subnav");if(!bar){bar=document.createElement("div");bar.id="executive-subnav";bar.className="executive-subnav";bar.hidden=true;nav.insertAdjacentElement("afterend",bar)}
+const groups={performance:[["performance","Performance"],["trends","Historical Trends"],["tracked","Tracked Keywords"],["queries","Top Queries"],["movers","Winners & Losers"]],intelligence:[["intelligence","Opportunity Intelligence"],["actions","Action Center"],["opps","Opportunities"],["cann","Cannibalization"]]};let current=null;
+function explorer(on){document.querySelectorAll(".trend-explorer").forEach(x=>x.hidden=!on)}
+function render(g,a){current=g;if(!groups[g]){bar.hidden=true;bar.innerHTML="";explorer(false);return}bar.hidden=false;bar.innerHTML=groups[g].map(([id,l])=>`<button type="button" data-detail="${id}" class="${id===a?"active":""}">${l}</button>`).join("");explorer(g==="performance")}
+function show(id,g){const t=document.getElementById(id);if(!t)return;document.querySelectorAll("section.tab").forEach(x=>x.classList.toggle("active",x.id===id));nav.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x.dataset.tab===g));render(g,id);t.scrollIntoView({behavior:"smooth",block:"start"})}
+bar.addEventListener("click",e=>{const b=e.target.closest("[data-detail]");if(b&&current)show(b.dataset.detail,current)});
+nav.addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;const id=b.dataset.tab;setTimeout(()=>groups[id]?render(id,id):render(null,null),0)});
+const a=nav.querySelector("[data-tab].active")?.dataset.tab;if(groups[a])render(a,a);else explorer(false);
+})();
+</script>
+<script id="phase4-4-isolated-renderer">
+(()=>{
+ const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const fmt=v=>v==null||v===""?"—":Number.isFinite(Number(v))?Number(v).toLocaleString(undefined,{maximumFractionDigits:2}):String(v);
+ const rc=p=>p==null?"rank-na":p<=10?"rank-top10":p<=20?"rank-striking":p<=50?"rank-21-50":"rank-51";
+ const rs=p=>p==null?"No GSC position":p<=10?"Top 10":p<=20?"Striking distance":p<=50?"21–50":"51+";
+ const sc=x=>x?`<span class="serp-rank">#${fmt(x.position)}</span> <span class="serp-domain">${esc(x.domain)}</span>`:"—";
+ fetch("data/competitor-intelligence.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject(new Error(`HTTP ${r.status}`))).then(d=>{
+  const body=document.querySelector("#ci-keyword-rankings"); if(!body)return;
+  body.innerHTML=(d.core20_competitive||[]).map(x=>{
+   const gp=x.tbs_gsc_position!=null?Number(x.tbs_gsc_position):null;
+   const obs=x.serp_observed===false?"SERP not observed":(x.tbs_observed_position!=null?`#${fmt(x.tbs_observed_position)}`:"Not in observed Top 10");
+   const ctr=x.gsc_ctr!=null?(Number(x.gsc_ctr)*100).toFixed(2)+"%":"—",top=x.observed_top3||[];
+   const gap=gp==null?"—":gp<=10?"In Top 10":gp<=20?`${Math.max(0,Math.ceil(gp-10))} positions to Top 10`:`${Math.max(0,Math.ceil(gp-20))} positions to striking distance`;
+   const comp=x.best_competitor_domain?esc(x.best_competitor_domain):(x.serp_observed===false?"SERP not observed":"—");
+   return `<tr><td>${esc(x.query)}</td><td><span class="rank-chip ${rc(gp)}">${gp==null?"—":fmt(gp)}</span><br><small>${rs(gp)}</small></td><td>${fmt(x.gsc_impressions)}</td><td>${comp}</td><td>${x.best_competitor_rank!=null?"#"+fmt(x.best_competitor_rank):"—"}</td><td>${gap}</td><td>${fmt(x.gsc_clicks)}</td><td>${ctr}</td><td>${obs}</td><td>${sc(top[0])}</td><td>${sc(top[1])}</td><td>${sc(top[2])}</td></tr>`;
+  }).join("")||`<tr><td colspan="12">No Core 20 competitive data available.</td></tr>`;
+ }).catch(e=>{const b=document.querySelector("#ci-keyword-rankings");if(b)b.innerHTML=`<tr><td colspan="12">Core 20 competitive data unavailable: ${esc(e.message)}</td></tr>`;});
+ const num=v=>typeof v==="number"&&Number.isFinite(v)?v:null;
+ const walk=(o,f)=>{if(!o||typeof o!=="object")return;f(o);for(const v of Object.values(o))walk(v,f)};
+ const count=o=>{let e=null;walk(o,x=>{for(const k of ["reliable_top_20","reliable_top20","reliable_top_20_count","reliable_top20_count"])if(e==null&&num(x[k])!=null)e=x[k]});if(e!=null)return e;const q=new Set();walk(o,x=>{const t=x.query??x.keyword??x.term,p=num(x?.current?.position)??num(x?.current_7d?.position)??num(x?.periods?.["7d"]?.position)??num(x?.position)??num(x?.avg_position)??num(x?.current_position),c=String(x.confidence??x?.evidence?.confidence??x?.current?.confidence??"").toLowerCase();if(typeof t==="string"&&p!=null&&p<=20&&c&&c!=="low")q.add(t.toLowerCase())});return q.size||null};
+ fetch("data/core-search.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject(new Error(`HTTP ${r.status}`))).then(o=>{const n=count(o);if(n==null)return;const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let x;while(x=w.nextNode()){if(/--\s*reliable Top 20/i.test(x.nodeValue||"")){x.nodeValue=x.nodeValue.replace(/--\s*reliable Top 20/i,`${n} reliable Top 20`);break}}}).catch(e=>console.warn("Core Search binding",e));
+})();
+</script>
 </body></html>

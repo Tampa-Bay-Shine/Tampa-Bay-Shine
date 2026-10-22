@@ -112,13 +112,13 @@ def gsc_index(gsc):
         if q:
             cur=x.get("current") or {}
             out[q]={"position":num(cur.get("position")),"impressions":num(cur.get("impressions"),0) or 0,
-                    "clicks":num(cur.get("clicks"),0) or 0,"position_change":num(x.get("position_change")),
+                    "clicks":num(cur.get("clicks"),0) or 0,"ctr":num(cur.get("ctr")),"position_change":num(x.get("position_change")),
                     "page":x.get("ranking_page")}
     for x in gsc.get("top_queries",[]):
         q=str(x.get("query") or "").strip().lower()
         if q and q not in out:
             out[q]={"position":num(x.get("current_position")),"impressions":num(x.get("current_impressions"),0) or 0,
-                    "clicks":num(x.get("current_clicks"),0) or 0,"position_change":num(x.get("position_improvement")),
+                    "clicks":num(x.get("current_clicks"),0) or 0,"ctr":num(x.get("current_ctr")),"position_change":num(x.get("position_improvement")),
                     "page":None}
     return out
 
@@ -245,10 +245,22 @@ def build(config, rankings, authority, gsc, events):
             "query":q,
             "query_intent":intent,
             "tbs_position":round(float(pos),2) if pos is not None else None,
+
+            "tbs_gsc_position":round(float(g.get("position")),2) if g.get("position") is not None else None,
+
+            "tbs_observed_position":own["position"] if own else None,
             "tbs_position_source":src,
             "tbs_page":page,
             "gsc_impressions":round(impr,2),
             "gsc_clicks":round(float(g.get("clicks",0) or 0),2),
+
+            "gsc_ctr":round(float(g.get("ctr")),4) if g.get("ctr") is not None else (round(float(g.get("clicks",0) or 0)/impr,4) if impr else 0.0),
+
+            "observed_top3":[{"position":r["position"],"domain":r["domain"]} for r in results[:3]],
+
+            "best_competitor_domain":top_relevant["domain"] if top_relevant else None,
+
+            "best_competitor_rank":top_relevant["position"] if top_relevant else None,
             "gsc_position_change":g.get("position_change"),
             "confidence":confidence(impr),
             "top_organic_result":top_organic,
@@ -257,6 +269,10 @@ def build(config, rankings, authority, gsc, events):
             "stabilization":gstate,
             "recommended_action":action
         })
+
+    # Always retain Tampa Bay Shine as a first-class comparison entity.
+    # Zero visibility means absent from the captured observed Top 10, not rank zero.
+    lb.setdefault(primary,{"visibility_points":0,"keywords":set(),"top3":0,"top10":0})
 
     total=sum(v["visibility_points"] for v in lb.values())
     leaderboard=[]
@@ -268,14 +284,19 @@ def build(config, rankings, authority, gsc, events):
             "keywords_overlapping":len(v["keywords"]),
             "top3":v["top3"],"top10":v["top10"],
             "authority":ai.get(d),
-            "category":classify_domain(d)
+            "category":"tampa_bay_shine" if d==primary else classify_domain(d),
+            "is_primary":d==primary
         })
     leaderboard.sort(key=lambda x:x["visibility_points"], reverse=True)
 
+    primary_row=next((x for x in leaderboard if x["domain"]==primary),None)
+    def with_primary(rows):
+        return ([primary_row] if primary_row else []) + [x for x in rows if x["domain"]!=primary]
+
     boards={
         "all":leaderboard,
-        "residential_local":[x for x in leaderboard if x["category"]=="residential_local"],
-        "commercial_facility":[x for x in leaderboard if x["category"]=="commercial_facility"],
+        "residential_local":with_primary([x for x in leaderboard if x["category"]=="residential_local"]),
+        "commercial_facility":with_primary([x for x in leaderboard if x["category"]=="commercial_facility"]),
         "external_platforms":[x for x in leaderboard if x["category"]=="external_platform"],
         "irrelevant_adjacent":[x for x in leaderboard if x["category"]=="irrelevant_adjacent"],
     }
@@ -332,6 +353,50 @@ def build(config, rankings, authority, gsc, events):
         }
     }
 
+CORE20_QUERIES=["house cleaning tampa","house cleaning services tampa","maid service tampa","house cleaning near me","cleaning services near me","deep cleaning tampa","move out cleaning tampa","move in cleaning tampa","apartment cleaning tampa","airbnb cleaning service tampa","office cleaning tampa","office cleaning service near me","commercial cleaning tampa","medical office cleaning tampa","medical office cleaning","commercial cleaning brandon fl","office cleaning brandon fl","office cleaning riverview fl","commercial cleaning riverview fl","janitorial services brandon fl"]
+
+def _core_dicts(o):
+    if isinstance(o,dict):
+        yield o
+        for v in o.values(): yield from _core_dicts(v)
+    elif isinstance(o,list):
+        for v in o: yield from _core_dicts(v)
+
+def _core_num(d,*keys):
+    for k in keys:
+        v=d.get(k)
+        if isinstance(v,(int,float)): return v
+    return None
+
+def enrich_core20_competitive(result,core_path):
+    core=load_json(core_path,{})
+    src={}
+    for d in _core_dicts(core):
+        q=d.get("query") or d.get("keyword") or d.get("term")
+        if isinstance(q,str) and q.lower() in CORE20_QUERIES: src.setdefault(q.lower(),d)
+    battle={str(x.get("query","")).lower():x for x in result.get("keyword_battle",[])}
+    rows=[]
+    for q in CORE20_QUERIES:
+        b=dict(battle.get(q,{}) or {}); d=src.get(q,{})
+        cur=d.get("current") if isinstance(d.get("current"),dict) else {}
+        pos=b.get("tbs_gsc_position")
+        if pos is None: pos=_core_num(cur,"position","avg_position")
+        if pos is None: pos=_core_num(d,"current_position","position","avg_position")
+        imp=b.get("gsc_impressions")
+        if imp is None: imp=_core_num(cur,"impressions")
+        if imp is None: imp=_core_num(d,"current_impressions","impressions")
+        clk=b.get("gsc_clicks")
+        if clk is None: clk=_core_num(cur,"clicks")
+        if clk is None: clk=_core_num(d,"current_clicks","clicks")
+        ctr=b.get("gsc_ctr")
+        if ctr is None: ctr=_core_num(cur,"ctr")
+        if ctr is None: ctr=_core_num(d,"current_ctr","ctr")
+        if ctr is None and imp: ctr=(clk or 0)/imp
+        b.update({"query":q,"tbs_gsc_position":pos,"gsc_impressions":imp or 0,"gsc_clicks":clk or 0,"gsc_ctr":ctr or 0,"serp_observed":q in battle,"observed_top3":b.get("observed_top3",[]),"tbs_observed_position":b.get("tbs_observed_position"),"best_competitor_domain":b.get("best_competitor_domain"),"best_competitor_rank":b.get("best_competitor_rank")})
+        rows.append(b)
+    result["core20_competitive"]=rows
+    return result
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--config",type=Path,default=DEFAULT_CONFIG)
@@ -343,6 +408,7 @@ def main():
     a=p.parse_args()
     result=build(load_json(a.config,{}),load_json(a.rankings,{"queries":[]}),
                  load_json(a.authority,{"domains":[]}),load_json(a.gsc,{}),load_json(a.events,{"events":[]}))
+    result=enrich_core20_competitive(result, Path("cloudflare-site/seo-dashboard/data/core-search.json"))
     a.out.parent.mkdir(parents=True,exist_ok=True)
     a.out.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
     print(f"Competitor Intelligence: {result['summary']['serp_queries_observed']}/{result['summary']['tracked_keywords']} SERP queries observed")
