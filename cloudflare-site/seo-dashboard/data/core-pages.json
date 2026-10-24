@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-23T16:01:30.693289+00:00",
-  "data_through": "2026-10-20",
+  "generated_at": "2026-10-24T14:58:31.880505+00:00",
+  "data_through": "2026-10-21",
   "source": "Google Search Console retained daily page history",
   "methodology": {
     "membership": "Fixed strategic landing-page cohort; changes require explicit rebaseline.",
@@ -17,18 +17,18 @@
   "executive": {
     "overall_status": "improving",
     "page_count": 15,
-    "reliable_pages": 15,
+    "reliable_pages": 14,
     "confidence": {
       "high": 11,
-      "medium": 4,
-      "low": 0
+      "medium": 3,
+      "low": 1
     },
     "momentum": {
-      "improving": 10,
+      "improving": 8,
       "stable": 1,
-      "needs_attention": 1,
+      "needs_attention": 2,
       "new_visibility": 3,
-      "low_sample": 0,
+      "low_sample": 1,
       "no_visibility": 0
     }
   },
@@ -42,103 +42,103 @@
       "periods": {
         "7": {
           "current": {
-            "clicks": 9.0,
-            "impressions": 300.0,
-            "ctr": 3.0,
-            "position": 14.07,
+            "clicks": 8.0,
+            "impressions": 292.0,
+            "ctr": 2.74,
+            "position": 14.21,
             "observed_days": 7
           },
           "previous": {
-            "clicks": 12.0,
-            "impressions": 256.0,
-            "ctr": 4.69,
-            "position": 14.5,
+            "clicks": 13.0,
+            "impressions": 255.0,
+            "ctr": 5.1,
+            "position": 14.52,
             "observed_days": 7
           },
           "change": {
-            "clicks": -3.0,
-            "clicks_pct": -25.0,
-            "impressions": 44.0,
-            "impressions_pct": 17.19,
-            "ctr_points": -1.69,
-            "position": 0.43
+            "clicks": -5.0,
+            "clicks_pct": -38.46,
+            "impressions": 37.0,
+            "impressions_pct": 14.51,
+            "ctr_points": -2.36,
+            "position": 0.31
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 29.0,
-            "impressions": 1084.0,
-            "ctr": 2.68,
-            "position": 14.29,
+            "impressions": 1066.0,
+            "ctr": 2.72,
+            "position": 14.38,
             "observed_days": 28
           },
           "previous": {
             "clicks": 7.0,
-            "impressions": 1226.0,
+            "impressions": 1231.0,
             "ctr": 0.57,
-            "position": 18.3,
+            "position": 18.18,
             "observed_days": 28
           },
           "change": {
             "clicks": 22.0,
             "clicks_pct": 314.29,
-            "impressions": -142.0,
-            "impressions_pct": -11.58,
-            "ctr_points": 2.11,
-            "position": 4.01
+            "impressions": -165.0,
+            "impressions_pct": -13.4,
+            "ctr_points": 2.15,
+            "position": 3.8
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
-            "clicks": 58.0,
-            "impressions": 4637.0,
-            "ctr": 1.25,
-            "position": 19.26,
+            "clicks": 57.0,
+            "impressions": 4496.0,
+            "ctr": 1.27,
+            "position": 19.24,
             "observed_days": 90
           },
           "previous": {
-            "clicks": 56.0,
-            "impressions": 6259.0,
+            "clicks": 57.0,
+            "impressions": 6405.0,
             "ctr": 0.89,
-            "position": 25.3,
+            "position": 25.21,
             "observed_days": 90
           },
           "change": {
-            "clicks": 2.0,
-            "clicks_pct": 3.57,
-            "impressions": -1622.0,
-            "impressions_pct": -25.91,
-            "ctr_points": 0.36,
-            "position": 6.04
+            "clicks": 0.0,
+            "clicks_pct": 0.0,
+            "impressions": -1909.0,
+            "impressions_pct": -29.8,
+            "ctr_points": 0.38,
+            "position": 5.97
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -149,107 +149,107 @@
       "label": "Services Hub",
       "intent": "service discovery",
       "confidence": "high",
-      "momentum": "improving",
+      "momentum": "needs_attention",
       "periods": {
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 86.0,
+            "impressions": 78.0,
             "ctr": 0.0,
-            "position": 19.6,
+            "position": 17.85,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 94.0,
+            "impressions": 86.0,
             "ctr": 0.0,
-            "position": 19.28,
+            "position": 19.7,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
             "impressions": -8.0,
-            "impressions_pct": -8.51,
+            "impressions_pct": -9.3,
             "ctr_points": 0.0,
-            "position": -0.32
+            "position": 1.85
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 271.0,
+            "impressions": 265.0,
             "ctr": 0.0,
-            "position": 24.16,
+            "position": 24.83,
             "observed_days": 27
           },
           "previous": {
             "clicks": 2.0,
-            "impressions": 20.0,
-            "ctr": 10.0,
-            "position": 27.85,
+            "impressions": 33.0,
+            "ctr": 6.06,
+            "position": 18.76,
             "observed_days": 14
           },
           "change": {
             "clicks": -2.0,
             "clicks_pct": -100.0,
-            "impressions": 251.0,
-            "impressions_pct": 1255.0,
-            "ctr_points": -10.0,
-            "position": 3.69
+            "impressions": 232.0,
+            "impressions_pct": 703.03,
+            "ctr_points": -6.06,
+            "position": -6.07
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 3.0,
-            "impressions": 626.0,
-            "ctr": 0.48,
-            "position": 28.47,
+            "impressions": 517.0,
+            "ctr": 0.58,
+            "position": 27.14,
             "observed_days": 66
           },
           "previous": {
             "clicks": 3.0,
-            "impressions": 1667.0,
-            "ctr": 0.18,
-            "position": 32.24,
+            "impressions": 1783.0,
+            "ctr": 0.17,
+            "position": 32.32,
             "observed_days": 82
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": 0.0,
-            "impressions": -1041.0,
-            "impressions_pct": -62.45,
-            "ctr_points": 0.3,
-            "position": 3.77
+            "impressions": -1266.0,
+            "impressions_pct": -71.0,
+            "ctr_points": 0.41,
+            "position": 5.18
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -260,107 +260,107 @@
       "label": "Standard Cleaning",
       "intent": "recurring / house cleaning",
       "confidence": "high",
-      "momentum": "improving",
+      "momentum": "needs_attention",
       "periods": {
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 44.0,
+            "impressions": 41.0,
             "ctr": 0.0,
-            "position": 27.02,
+            "position": 25.44,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 41.0,
             "ctr": 0.0,
-            "position": 18.32,
+            "position": 21.1,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 3.0,
-            "impressions_pct": 7.32,
+            "impressions": 0.0,
+            "impressions_pct": 0.0,
             "ctr_points": 0.0,
-            "position": -8.7
+            "position": -4.34
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 131.0,
+            "impressions": 125.0,
             "ctr": 0.0,
-            "position": 20.98,
+            "position": 21.63,
             "observed_days": 24
           },
           "previous": {
             "clicks": 1.0,
-            "impressions": 26.0,
-            "ctr": 3.85,
-            "position": 18.35,
-            "observed_days": 8
+            "impressions": 34.0,
+            "ctr": 2.94,
+            "position": 15.62,
+            "observed_days": 9
           },
           "change": {
             "clicks": -1.0,
             "clicks_pct": -100.0,
-            "impressions": 105.0,
-            "impressions_pct": 403.85,
-            "ctr_points": -3.85,
-            "position": -2.63
+            "impressions": 91.0,
+            "impressions_pct": 267.65,
+            "ctr_points": -2.94,
+            "position": -6.01
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 1.0,
-            "impressions": 180.0,
-            "ctr": 0.56,
-            "position": 20.77,
+            "impressions": 181.0,
+            "ctr": 0.55,
+            "position": 20.69,
             "observed_days": 47
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 399.0,
+            "impressions": 398.0,
             "ctr": 0.0,
-            "position": 37.7,
+            "position": 37.45,
             "observed_days": 71
           },
           "change": {
             "clicks": 1.0,
             "clicks_pct": null,
-            "impressions": -219.0,
-            "impressions_pct": -54.89,
-            "ctr_points": 0.56,
-            "position": 16.93
+            "impressions": -217.0,
+            "impressions_pct": -54.52,
+            "ctr_points": 0.55,
+            "position": 16.76
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -376,44 +376,44 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 38.0,
+            "impressions": 41.0,
             "ctr": 0.0,
-            "position": 27.84,
+            "position": 26.73,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 65.0,
+            "impressions": 31.0,
             "ctr": 0.0,
-            "position": 25.31,
+            "position": 23.45,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -27.0,
-            "impressions_pct": -41.54,
+            "impressions": 10.0,
+            "impressions_pct": 32.26,
             "ctr_points": 0.0,
-            "position": -2.53
+            "position": -3.28
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 115.0,
+            "impressions": 122.0,
             "ctr": 0.0,
-            "position": 25.41,
-            "observed_days": 15
+            "position": 25.57,
+            "observed_days": 16
           },
           "previous": {
             "clicks": 0,
@@ -425,29 +425,29 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 115.0,
+            "impressions": 122.0,
             "impressions_pct": null,
             "ctr_points": 0.0,
             "position": null
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 115.0,
+            "impressions": 122.0,
             "ctr": 0.0,
-            "position": 25.41,
-            "observed_days": 15
+            "position": 25.57,
+            "observed_days": 16
           },
           "previous": {
             "clicks": 0.0,
@@ -459,19 +459,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 102.0,
-            "impressions_pct": 784.62,
+            "impressions": 109.0,
+            "impressions_pct": 838.46,
             "ctr_points": 0.0,
-            "position": -18.79
+            "position": -18.95
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -481,108 +481,108 @@
       "path": "/move-out-cleaning-tampa/",
       "label": "Move Out / Move In Cleaning",
       "intent": "move cleaning",
-      "confidence": "high",
+      "confidence": "medium",
       "momentum": "improving",
       "periods": {
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 40.0,
+            "impressions": 39.0,
             "ctr": 0.0,
-            "position": 41.68,
+            "position": 40.05,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 23.0,
+            "impressions": 26.0,
             "ctr": 0.0,
-            "position": 44.0,
+            "position": 43.42,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 17.0,
-            "impressions_pct": 73.91,
+            "impressions": 13.0,
+            "impressions_pct": 50.0,
             "ctr_points": 0.0,
-            "position": 2.32
+            "position": 3.37
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 100.0,
+            "impressions": 99.0,
             "ctr": 0.0,
-            "position": 37.69,
+            "position": 39.56,
             "observed_days": 22
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 7.0,
+            "impressions": 11.0,
             "ctr": 0.0,
-            "position": 42.86,
+            "position": 26.64,
             "observed_days": 6
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 93.0,
-            "impressions_pct": 1328.57,
+            "impressions": 88.0,
+            "impressions_pct": 800.0,
             "ctr_points": 0.0,
-            "position": 5.17
+            "position": -12.92
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 179.0,
+            "impressions": 177.0,
             "ctr": 0.0,
-            "position": 43.99,
+            "position": 44.49,
             "observed_days": 47
           },
           "previous": {
             "clicks": 1.0,
-            "impressions": 78.0,
-            "ctr": 1.28,
-            "position": 49.19,
-            "observed_days": 27
+            "impressions": 84.0,
+            "ctr": 1.19,
+            "position": 47.68,
+            "observed_days": 28
           },
           "change": {
             "clicks": -1.0,
             "clicks_pct": -100.0,
-            "impressions": 101.0,
-            "impressions_pct": 129.49,
-            "ctr_points": -1.28,
-            "position": 5.2
+            "impressions": 93.0,
+            "impressions_pct": 110.71,
+            "ctr_points": -1.19,
+            "position": 3.19
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -598,34 +598,34 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 12.0,
+            "impressions": 14.0,
             "ctr": 0.0,
-            "position": 21.08,
+            "position": 15.86,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 9.0,
+            "impressions": 8.0,
             "ctr": 0.0,
-            "position": 21.67,
+            "position": 28.12,
             "observed_days": 3
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 3.0,
-            "impressions_pct": 33.33,
+            "impressions": 6.0,
+            "impressions_pct": 75.0,
             "ctr_points": 0.0,
-            "position": 0.59
+            "position": 12.26
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
@@ -634,42 +634,42 @@
             "clicks": 0.0,
             "impressions": 35.0,
             "ctr": 0.0,
-            "position": 21.09,
+            "position": 20.97,
             "observed_days": 16
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 2.0,
+            "impressions": 6.0,
             "ctr": 0.0,
-            "position": 25.0,
-            "observed_days": 2
+            "position": 12.0,
+            "observed_days": 3
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 33.0,
-            "impressions_pct": 1650.0,
+            "impressions": 29.0,
+            "impressions_pct": 483.33,
             "ctr_points": 0.0,
-            "position": 3.91
+            "position": -8.97
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 40.0,
+            "impressions": 44.0,
             "ctr": 0.0,
-            "position": 20.75,
-            "observed_days": 21
+            "position": 19.27,
+            "observed_days": 22
           },
           "previous": {
             "clicks": 0.0,
@@ -681,19 +681,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 38.0,
-            "impressions_pct": 1900.0,
+            "impressions": 42.0,
+            "impressions_pct": 2100.0,
             "ctr_points": 0.0,
-            "position": 2.75
+            "position": 4.23
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -703,8 +703,8 @@
       "path": "/airbnb-cleaning-services/",
       "label": "Airbnb Cleaning",
       "intent": "short-term rental cleaning",
-      "confidence": "medium",
-      "momentum": "needs_attention",
+      "confidence": "low",
+      "momentum": "low_sample",
       "periods": {
         "7": {
           "current": {
@@ -715,62 +715,62 @@
             "observed_days": 0
           },
           "previous": {
-            "clicks": 0.0,
-            "impressions": 2.0,
-            "ctr": 0.0,
-            "position": 63.5,
-            "observed_days": 1
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
           },
           "change": {
-            "clicks": 0.0,
+            "clicks": 0,
             "clicks_pct": null,
-            "impressions": -2.0,
-            "impressions_pct": -100.0,
-            "ctr_points": 0.0,
+            "impressions": 0,
+            "impressions_pct": null,
+            "ctr_points": 0,
             "position": null
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 31.0,
+            "impressions": 27.0,
             "ctr": 0.0,
-            "position": 25.23,
-            "observed_days": 12
+            "position": 28.7,
+            "observed_days": 11
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 71.0,
             "ctr": 0.0,
-            "position": 43.51,
+            "position": 41.1,
             "observed_days": 23
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -40.0,
-            "impressions_pct": -56.34,
+            "impressions": -44.0,
+            "impressions_pct": -61.97,
             "ctr_points": 0.0,
-            "position": 18.28
+            "position": 12.4
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
@@ -799,12 +799,12 @@
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -820,78 +820,78 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 167.0,
+            "impressions": 163.0,
             "ctr": 0.0,
-            "position": 61.23,
+            "position": 60.48,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 82.0,
+            "impressions": 79.0,
             "ctr": 0.0,
-            "position": 59.25,
+            "position": 58.71,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 85.0,
-            "impressions_pct": 103.66,
+            "impressions": 84.0,
+            "impressions_pct": 106.33,
             "ctr_points": 0.0,
-            "position": -1.98
+            "position": -1.77
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 366.0,
+            "impressions": 379.0,
             "ctr": 0.0,
-            "position": 63.32,
+            "position": 64.02,
             "observed_days": 24
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 18.0,
+            "impressions": 17.0,
             "ctr": 0.0,
-            "position": 59.61,
+            "position": 42.12,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 348.0,
-            "impressions_pct": 1933.33,
+            "impressions": 362.0,
+            "impressions_pct": 2129.41,
             "ctr_points": 0.0,
-            "position": -3.71
+            "position": -21.9
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 423.0,
+            "impressions": 443.0,
             "ctr": 0.0,
-            "position": 63.63,
-            "observed_days": 46
+            "position": 63.27,
+            "observed_days": 47
           },
           "previous": {
             "clicks": 0.0,
@@ -903,19 +903,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -262.0,
-            "impressions_pct": -38.25,
+            "impressions": -242.0,
+            "impressions_pct": -35.33,
             "ctr_points": 0.0,
-            "position": -8.37
+            "position": -8.01
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -925,50 +925,50 @@
       "path": "/commercial-cleaning-tampa/",
       "label": "Commercial Cleaning",
       "intent": "commercial cleaning",
-      "confidence": "medium",
+      "confidence": "high",
       "momentum": "new_visibility",
       "periods": {
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 65.0,
+            "impressions": 72.0,
             "ctr": 0.0,
-            "position": 65.15,
+            "position": 63.5,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 25.0,
+            "impressions": 24.0,
             "ctr": 0.0,
-            "position": 50.52,
+            "position": 58.75,
             "observed_days": 6
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 40.0,
-            "impressions_pct": 160.0,
+            "impressions": 48.0,
+            "impressions_pct": 200.0,
             "ctr_points": 0.0,
-            "position": -14.63
+            "position": -4.75
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 98.0,
+            "impressions": 113.0,
             "ctr": 0.0,
-            "position": 58.35,
-            "observed_days": 17
+            "position": 58.5,
+            "observed_days": 18
           },
           "previous": {
             "clicks": 0,
@@ -980,29 +980,29 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 98.0,
+            "impressions": 113.0,
             "impressions_pct": null,
             "ctr_points": 0.0,
             "position": null
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 107.0,
+            "impressions": 122.0,
             "ctr": 0.0,
-            "position": 55.07,
-            "observed_days": 20
+            "position": 55.62,
+            "observed_days": 21
           },
           "previous": {
             "clicks": 0.0,
@@ -1014,19 +1014,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -14.0,
-            "impressions_pct": -11.57,
+            "impressions": 1.0,
+            "impressions_pct": 0.83,
             "ctr_points": 0.0,
-            "position": 7.5
+            "position": 6.95
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -1037,107 +1037,107 @@
       "label": "Medical Office Cleaning",
       "intent": "medical office cleaning",
       "confidence": "high",
-      "momentum": "new_visibility",
+      "momentum": "improving",
       "periods": {
         "7": {
           "current": {
             "clicks": 0.0,
             "impressions": 107.0,
             "ctr": 0.0,
-            "position": 45.23,
+            "position": 42.58,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 79.0,
+            "impressions": 80.0,
             "ctr": 0.0,
-            "position": 44.23,
+            "position": 44.54,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 28.0,
-            "impressions_pct": 35.44,
+            "impressions": 27.0,
+            "impressions_pct": 33.75,
             "ctr_points": 0.0,
-            "position": -1.0
+            "position": 1.96
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 258.0,
+            "impressions": 273.0,
             "ctr": 0.0,
-            "position": 46.55,
+            "position": 46.1,
             "observed_days": 21
           },
           "previous": {
-            "clicks": 0,
-            "impressions": 0,
-            "ctr": 0,
-            "position": null,
-            "observed_days": 0
+            "clicks": 0.0,
+            "impressions": 1.0,
+            "ctr": 0.0,
+            "position": 4.0,
+            "observed_days": 1
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 258.0,
-            "impressions_pct": null,
+            "impressions": 272.0,
+            "impressions_pct": 27200.0,
             "ctr_points": 0.0,
-            "position": null
+            "position": -42.1
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 272.0,
+            "impressions": 288.0,
             "ctr": 0.0,
-            "position": 45.61,
-            "observed_days": 28
+            "position": 45.09,
+            "observed_days": 29
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 387.0,
+            "impressions": 386.0,
             "ctr": 0.0,
-            "position": 27.53,
-            "observed_days": 71
+            "position": 27.57,
+            "observed_days": 70
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -115.0,
-            "impressions_pct": -29.72,
+            "impressions": -98.0,
+            "impressions_pct": -25.39,
             "ctr_points": 0.0,
-            "position": -18.08
+            "position": -17.52
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -1153,102 +1153,102 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 37.0,
+            "impressions": 34.0,
             "ctr": 0.0,
-            "position": 10.7,
+            "position": 11.18,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
             "impressions": 39.0,
             "ctr": 0.0,
-            "position": 9.36,
+            "position": 9.74,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -2.0,
-            "impressions_pct": -5.13,
+            "impressions": -5.0,
+            "impressions_pct": -12.82,
             "ctr_points": 0.0,
-            "position": -1.34
+            "position": -1.44
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 119.0,
+            "impressions": 113.0,
             "ctr": 0.0,
-            "position": 12.52,
+            "position": 12.71,
             "observed_days": 26
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 14.0,
+            "impressions": 22.0,
             "ctr": 0.0,
-            "position": 46.64,
+            "position": 29.91,
             "observed_days": 13
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 105.0,
-            "impressions_pct": 750.0,
+            "impressions": 91.0,
+            "impressions_pct": 413.64,
             "ctr_points": 0.0,
-            "position": 34.12
+            "position": 17.2
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 191.0,
+            "impressions": 189.0,
             "ctr": 0.0,
-            "position": 16.57,
+            "position": 16.68,
             "observed_days": 62
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 355.0,
+            "impressions": 357.0,
             "ctr": 0.0,
-            "position": 28.31,
+            "position": 27.95,
             "observed_days": 78
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -164.0,
-            "impressions_pct": -46.2,
+            "impressions": -168.0,
+            "impressions_pct": -47.06,
             "ctr_points": 0.0,
-            "position": 11.74
+            "position": 11.27
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -1264,78 +1264,78 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 187.0,
+            "impressions": 183.0,
             "ctr": 0.0,
-            "position": 19.88,
+            "position": 20.09,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 93.0,
+            "impressions": 87.0,
             "ctr": 0.0,
-            "position": 23.45,
+            "position": 22.04,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 94.0,
-            "impressions_pct": 101.08,
+            "impressions": 96.0,
+            "impressions_pct": 110.34,
             "ctr_points": 0.0,
-            "position": 3.57
+            "position": 1.95
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 406.0,
+            "impressions": 420.0,
             "ctr": 0.0,
-            "position": 24.05,
+            "position": 24.25,
             "observed_days": 26
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 18.0,
+            "impressions": 16.0,
             "ctr": 0.0,
-            "position": 60.44,
+            "position": 51.62,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 388.0,
-            "impressions_pct": 2155.56,
+            "impressions": 404.0,
+            "impressions_pct": 2525.0,
             "ctr_points": 0.0,
-            "position": 36.39
+            "position": 27.37
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 460.0,
+            "impressions": 476.0,
             "ctr": 0.0,
-            "position": 28.74,
-            "observed_days": 52
+            "position": 28.68,
+            "observed_days": 53
           },
           "previous": {
             "clicks": 0.0,
@@ -1347,19 +1347,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 155.0,
-            "impressions_pct": 50.82,
+            "impressions": 171.0,
+            "impressions_pct": 56.07,
             "ctr_points": 0.0,
-            "position": 6.69
+            "position": 6.75
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -1370,107 +1370,107 @@
       "label": "Riverview House Cleaning",
       "intent": "Riverview residential",
       "confidence": "high",
-      "momentum": "improving",
+      "momentum": "new_visibility",
       "periods": {
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 87.0,
+            "impressions": 84.0,
             "ctr": 0.0,
-            "position": 28.62,
+            "position": 28.06,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 54.0,
+            "impressions": 51.0,
             "ctr": 0.0,
-            "position": 23.95,
+            "position": 24.84,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
             "impressions": 33.0,
-            "impressions_pct": 61.11,
+            "impressions_pct": 64.71,
             "ctr_points": 0.0,
-            "position": -4.67
+            "position": -3.22
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 282.0,
+            "impressions": 294.0,
             "ctr": 0.0,
-            "position": 26.26,
-            "observed_days": 26
+            "position": 26.31,
+            "observed_days": 27
           },
           "previous": {
-            "clicks": 0.0,
-            "impressions": 4.0,
-            "ctr": 0.0,
-            "position": 81.5,
-            "observed_days": 1
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": null,
+            "observed_days": 0
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 278.0,
-            "impressions_pct": 6950.0,
+            "impressions": 294.0,
+            "impressions_pct": null,
             "ctr_points": 0.0,
-            "position": 55.24
+            "position": null
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 322.0,
+            "impressions": 333.0,
             "ctr": 0.0,
-            "position": 31.83,
+            "position": 31.56,
             "observed_days": 40
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 138.0,
+            "impressions": 139.0,
             "ctr": 0.0,
-            "position": 51.88,
-            "observed_days": 28
+            "position": 52.04,
+            "observed_days": 29
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 184.0,
-            "impressions_pct": 133.33,
+            "impressions": 194.0,
+            "impressions_pct": 139.57,
             "ctr_points": 0.0,
-            "position": 20.05
+            "position": 20.48
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -1486,78 +1486,78 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 16.0,
+            "impressions": 14.0,
             "ctr": 0.0,
-            "position": 12.44,
+            "position": 13.79,
             "observed_days": 5
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 19.0,
+            "impressions": 14.0,
             "ctr": 0.0,
-            "position": 24.05,
+            "position": 24.57,
             "observed_days": 4
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -3.0,
-            "impressions_pct": -15.79,
+            "impressions": 0.0,
+            "impressions_pct": 0.0,
             "ctr_points": 0.0,
-            "position": 11.61
+            "position": 10.78
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 67.0,
+            "impressions": 62.0,
             "ctr": 0.0,
-            "position": 14.9,
+            "position": 16.57,
             "observed_days": 19
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 27.0,
+            "impressions": 10.0,
             "ctr": 0.0,
-            "position": 68.67,
+            "position": 14.7,
             "observed_days": 5
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 40.0,
-            "impressions_pct": 148.15,
+            "impressions": 52.0,
+            "impressions_pct": 520.0,
             "ctr_points": 0.0,
-            "position": 53.77
+            "position": -1.87
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 119.0,
+            "impressions": 120.0,
             "ctr": 0.0,
-            "position": 36.42,
-            "observed_days": 28
+            "position": 36.48,
+            "observed_days": 29
           },
           "previous": {
             "clicks": 0.0,
@@ -1569,19 +1569,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 18.0,
-            "impressions_pct": 17.82,
+            "impressions": 19.0,
+            "impressions_pct": 18.81,
             "ctr_points": 0.0,
-            "position": -0.89
+            "position": -0.95
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
@@ -1597,78 +1597,78 @@
         "7": {
           "current": {
             "clicks": 0.0,
-            "impressions": 90.0,
+            "impressions": 70.0,
             "ctr": 0.0,
-            "position": 14.54,
+            "position": 11.1,
             "observed_days": 7
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 169.0,
+            "impressions": 191.0,
             "ctr": 0.0,
-            "position": 10.9,
+            "position": 12.18,
             "observed_days": 7
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": -79.0,
-            "impressions_pct": -46.75,
+            "impressions": -121.0,
+            "impressions_pct": -63.35,
             "ctr_points": 0.0,
-            "position": -3.64
+            "position": 1.08
           },
           "range": {
             "current": [
-              "2026-10-14",
-              "2026-10-20"
+              "2026-10-15",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-10-07",
-              "2026-10-13"
+              "2026-10-08",
+              "2026-10-14"
             ]
           }
         },
         "28": {
           "current": {
             "clicks": 0.0,
-            "impressions": 301.0,
+            "impressions": 308.0,
             "ctr": 0.0,
-            "position": 12.8,
+            "position": 12.84,
             "observed_days": 24
           },
           "previous": {
             "clicks": 0.0,
-            "impressions": 1.0,
+            "impressions": 4.0,
             "ctr": 0.0,
-            "position": 22.0,
-            "observed_days": 1
+            "position": 6.25,
+            "observed_days": 2
           },
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 300.0,
-            "impressions_pct": 30000.0,
+            "impressions": 304.0,
+            "impressions_pct": 7600.0,
             "ctr_points": 0.0,
-            "position": 9.2
+            "position": -6.59
           },
           "range": {
             "current": [
-              "2026-09-23",
-              "2026-10-20"
+              "2026-09-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-08-26",
-              "2026-09-22"
+              "2026-08-27",
+              "2026-09-23"
             ]
           }
         },
         "90": {
           "current": {
             "clicks": 0.0,
-            "impressions": 302.0,
+            "impressions": 312.0,
             "ctr": 0.0,
-            "position": 12.83,
-            "observed_days": 25
+            "position": 12.76,
+            "observed_days": 26
           },
           "previous": {
             "clicks": 0.0,
@@ -1680,19 +1680,19 @@
           "change": {
             "clicks": 0.0,
             "clicks_pct": null,
-            "impressions": 262.0,
-            "impressions_pct": 655.0,
+            "impressions": 272.0,
+            "impressions_pct": 680.0,
             "ctr_points": 0.0,
-            "position": 13.74
+            "position": 13.81
           },
           "range": {
             "current": [
-              "2026-07-23",
-              "2026-10-20"
+              "2026-07-24",
+              "2026-10-21"
             ],
             "previous": [
-              "2026-04-24",
-              "2026-07-22"
+              "2026-04-25",
+              "2026-07-23"
             ]
           }
         }
