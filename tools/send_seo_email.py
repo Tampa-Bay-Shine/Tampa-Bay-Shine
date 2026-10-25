@@ -53,6 +53,74 @@ def core_search_line(core):
     if reliable is None:return "Core Search authoritative executive metrics unavailable."
     return f"{status}: {int(reliable)} reliable Core 20 terms currently average in the Top 20."
 
+
+def broader_gsc_top10_line(gsc):
+    """Summarize meaningful broader GSC Top-10 visibility outside fixed cohorts."""
+    rows = gsc.get("top_queries") or []
+    qualifying = []
+
+    for row in rows:
+        query = str(row.get("query") or "").strip()
+        lowered = " ".join(query.lower().split())
+
+        try:
+            impressions = float(row.get("current_impressions") or 0)
+            position = float(row.get("current_position") or 0)
+        except (TypeError, ValueError):
+            continue
+
+        if impressions < 10 or position <= 0 or position > 10:
+            continue
+
+        if "tampa bay shine" in lowered or "shine of tampa bay" in lowered:
+            continue
+        if "site:" in lowered:
+            continue
+
+        operator_hits = lowered.count(" or ") + lowered.count(" and ")
+        quoted_phrases = lowered.count('"') // 2
+        parenthesized = "(" in lowered and ")" in lowered
+
+        if (
+            (parenthesized and operator_hits >= 2 and quoted_phrases >= 1)
+            or (operator_hits >= 4 and quoted_phrases >= 2)
+            or (len(lowered) >= 180 and operator_hits >= 2)
+        ):
+            continue
+
+        qualifying.append(
+            {
+                "query": query,
+                "position": position,
+                "impressions": impressions,
+            }
+        )
+
+    qualifying.sort(
+        key=lambda x: (-x["impressions"], x["position"], x["query"])
+    )
+
+    if not qualifying:
+        return (
+            "No meaningful non-brand query in the retained Top Queries set "
+            "currently clears both Top-10 average position and 10 impressions "
+            "in the current 28-day window."
+        )
+
+    examples = "; ".join(
+        f'{x["query"]} (pos. {x["position"]:.2f}, {int(x["impressions"])} impr.)'
+        for x in qualifying[:4]
+    )
+
+    return (
+        f"{len(qualifying)} meaningful non-brand GSC queries with at least "
+        f"10 impressions currently average in the Top 10 over 28 days. "
+        f"Examples: {examples}. "
+        "This broader GSC measure is separate from the fixed Core Search and "
+        "manual competitor SERP cohorts."
+    )
+
+
 def best_core_page_growth(pages):
     """Select an evidence-supported Core Page with both growth and striking-distance visibility."""
     candidates = []
@@ -159,6 +227,7 @@ def render(args):
     pi=load("performance-intelligence.json")
     di=load("decision-intelligence.json")
     core=load("core-search.json")
+    gsc=load("gsc.json")
     pages=load("core-pages.json")
     ci=load("competitor-intelligence.json")
     ga=load("ga4.json")
@@ -220,6 +289,7 @@ def render(args):
 <h3>30-second executive view</h3>
 {card("Google organic reach",search)}
 {card("Core Search",core_search_line(core))}
+{card("Broader GSC Top-10 visibility",broader_gsc_top10_line(gsc))}
 {card("Core Pages",core_pages_line(pages))}
 {card("Competitive position",competitor_line(ci))}
 {card("Organic conversions",ga_line(ga))}
