@@ -2473,7 +2473,100 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
     </table>
   </div>
 
-  <h3>Controlled AI Answer Visibility</h3><div class="ai-monitoring-state"><strong>Controlled observation protocol activated.</strong> A fixed prompt set is tested manually in fresh/default consumer AI chats. Only recorded observations count; untested periods remain unknown rather than 0% visibility. Identifiable AI referral traffic above remains a separate GA4 measure.</div>
+  <h3>Controlled AEO Benchmark</h3>
+<p class="muted">
+  Fixed commercial and local prompts measure Tampa Bay Shine mentions,
+  citations, and cited URLs independently from GA4 AI referral traffic.
+  Headline rates use only the latest complete 20-prompt benchmark run.
+  Partial runs remain measurement-in-progress and are never scored as zero.
+</p>
+
+<div class="ai-answer-summary" id="aeo-benchmark-status">
+  <div class="ai-card">
+    <span class="label">Benchmark coverage</span>
+    <span class="value" id="aeo-coverage">--</span>
+    <span class="comparison" id="aeo-coverage-note">No benchmark run</span>
+  </div>
+
+  <div class="ai-card">
+    <span class="label">Mention rate</span>
+    <span class="value" id="aeo-mention-rate">--</span>
+    <span class="comparison">Latest complete benchmark</span>
+  </div>
+
+  <div class="ai-card">
+    <span class="label">Citation rate</span>
+    <span class="value" id="aeo-citation-rate">--</span>
+    <span class="comparison">Latest complete benchmark</span>
+  </div>
+
+  <div class="ai-card">
+    <span class="label">Avg appearance</span>
+    <span class="value" id="aeo-average-position">--</span>
+    <span class="comparison">When observable</span>
+  </div>
+</div>
+
+<div class="ai-callout" id="aeo-benchmark-note">
+  No complete controlled AEO benchmark has been recorded yet.
+</div>
+
+<h3>AEO visibility by category</h3>
+<div class="ai-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Observations</th>
+        <th>Mentions</th>
+        <th>Mention rate</th>
+        <th>Citations</th>
+        <th>Citation rate</th>
+      </tr>
+    </thead>
+    <tbody id="aeo-category-rollup">
+      <tr><td colspan="6">No complete benchmark observations.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Cited Tampa Bay Shine URLs</h3>
+<p class="muted">Latest complete benchmark only.</p>
+<div class="ai-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Cited URL</th>
+        <th>Citations</th>
+      </tr>
+    </thead>
+    <tbody id="aeo-cited-urls">
+      <tr><td colspan="2">No cited URLs observed.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Benchmark run history</h3>
+<div class="ai-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Platform</th>
+        <th>Model</th>
+        <th>Coverage</th>
+        <th>Status</th>
+        <th>Mention rate</th>
+        <th>Citation rate</th>
+      </tr>
+    </thead>
+    <tbody id="aeo-run-history">
+      <tr><td colspan="7">No benchmark runs recorded.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Controlled AI Answer Visibility</h3><div class="ai-monitoring-state"><strong>Controlled observation protocol activated.</strong> A fixed prompt set is tested manually in fresh/default consumer AI chats. Only recorded observations count; untested periods remain unknown rather than 0% visibility. Identifiable AI referral traffic above remains a separate GA4 measure.</div>
   <p class="muted">
     Controlled prompt observations are separate from GA4 referral traffic.
     Missing test periods mean no observation was performed, not zero visibility.
@@ -3231,7 +3324,149 @@ function renderAIHistory(history){
   );
 }
 
+function renderAEOBenchmark(data){
+  const benchmark=data?.benchmark||{};
+  const latest=data?.latest_run||null;
+  const complete=data?.latest_complete_run||null;
+  const rollups=data?.rollups||{};
+  const expected=Number(benchmark.prompt_count||20);
+
+  const coverageEl=document.getElementById("aeo-coverage");
+  const coverageNote=document.getElementById("aeo-coverage-note");
+
+  if(latest){
+    const observed=Number(latest.observed_prompts||0);
+
+    if(coverageEl){
+      coverageEl.textContent=`${observed}/${expected}`;
+    }
+
+    if(coverageNote){
+      coverageNote.textContent=
+        `${latest.complete?"Complete":"Incomplete"} • `+
+        `${latest.platform||"Unknown platform"}`;
+    }
+  }else{
+    if(coverageEl){
+      coverageEl.textContent=`0/${expected}`;
+    }
+
+    if(coverageNote){
+      coverageNote.textContent="No benchmark run";
+    }
+  }
+
+  aiSet(
+    "aeo-mention-rate",
+    complete?.mention_rate==null
+      ? "--"
+      : `${trendNumber(complete.mention_rate,1)}%`
+  );
+
+  aiSet(
+    "aeo-citation-rate",
+    complete?.citation_rate==null
+      ? "--"
+      : `${trendNumber(complete.citation_rate,1)}%`
+  );
+
+  aiSet(
+    "aeo-average-position",
+    complete?.average_appearance==null
+      ? "--"
+      : trendNumber(complete.average_appearance,2)
+  );
+
+  const note=document.getElementById("aeo-benchmark-note");
+
+  if(note){
+    if(complete){
+      note.textContent=
+        `Latest complete benchmark: ${complete.date||"--"} • `+
+        `${complete.platform||"Unknown platform"} • `+
+        `${complete.model||"model not recorded"} • `+
+        `${complete.mentions||0}/${complete.expected_prompts||expected} mentions • `+
+        `${complete.citations||0}/${complete.expected_prompts||expected} citations. `+
+        `Controlled answer visibility is separate from identifiable GA4 AI referral traffic.`;
+    }else if(latest){
+      note.textContent=
+        `Latest benchmark is incomplete: `+
+        `${latest.observed_prompts||0}/${expected} prompts observed. `+
+        `No headline mention or citation rate is reported until all `+
+        `${expected} canonical prompts are complete for one platform/model/run.`;
+    }else{
+      note.textContent=
+        `No complete controlled AEO benchmark has been recorded yet. `+
+        `The fixed ${expected}-prompt benchmark is ready for its first baseline run.`;
+    }
+  }
+
+  const categoryBody=document.getElementById("aeo-category-rollup");
+  const categories=Array.isArray(rollups.categories)
+    ? rollups.categories
+    : [];
+
+  if(categoryBody){
+    categoryBody.innerHTML=categories.length
+      ? categories.map(row=>`<tr>
+          <td>${esc(row.category||"--")}</td>
+          <td>${n(row.observations)}</td>
+          <td>${n(row.mentions)}</td>
+          <td>${row.mention_rate==null?"--":`${trendNumber(row.mention_rate,1)}%`}</td>
+          <td>${n(row.citations)}</td>
+          <td>${row.citation_rate==null?"--":`${trendNumber(row.citation_rate,1)}%`}</td>
+        </tr>`).join("")
+      : `<tr><td colspan="6">No complete benchmark observations.</td></tr>`;
+  }
+
+  const citedBody=document.getElementById("aeo-cited-urls");
+  const citedUrls=Array.isArray(rollups.cited_urls)
+    ? rollups.cited_urls
+    : [];
+
+  if(citedBody){
+    citedBody.innerHTML=citedUrls.length
+      ? citedUrls.map(row=>`<tr>
+          <td>${
+            row.citation_url
+              ? `<a href="${esc(row.citation_url)}" target="_blank" rel="noopener noreferrer">${esc(row.citation_url)}</a>`
+              : "--"
+          }</td>
+          <td>${n(row.citations)}</td>
+        </tr>`).join("")
+      : `<tr><td colspan="2">No cited URLs observed in the latest complete benchmark.</td></tr>`;
+  }
+
+  const historyBody=document.getElementById("aeo-run-history");
+  const runs=Array.isArray(data?.benchmark_runs)
+    ? data.benchmark_runs.slice().reverse()
+    : [];
+
+  if(historyBody){
+    historyBody.innerHTML=runs.length
+      ? runs.map(row=>`<tr>
+          <td>${esc(row.date||"--")}</td>
+          <td>${esc(row.platform||"--")}</td>
+          <td>${esc(row.model||"--")}</td>
+          <td>${n(row.observed_prompts)}/${n(row.expected_prompts)}</td>
+          <td>${row.complete?"Complete":"Incomplete"}</td>
+          <td>${
+            row.complete && row.mention_rate!=null
+              ? `${trendNumber(row.mention_rate,1)}%`
+              : "--"
+          }</td>
+          <td>${
+            row.complete && row.citation_rate!=null
+              ? `${trendNumber(row.citation_rate,1)}%`
+              : "--"
+          }</td>
+        </tr>`).join("")
+      : `<tr><td colspan="7">No benchmark runs recorded.</td></tr>`;
+  }
+}
+
 function renderAIVisibility(data){
+  renderAEOBenchmark(data);
   const observations=Array.isArray(data?.observations)
     ? data.observations.slice().sort((a,b)=>
         String(b.date||"").localeCompare(String(a.date||"")))

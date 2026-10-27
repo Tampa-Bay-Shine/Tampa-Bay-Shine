@@ -1,4 +1,120 @@
 {
-  "schema_version": 1,
-  "observations": []
+  "schema_version": 2,
+  "generated_at": "2026-10-27T14:47:53.880252+00:00",
+  "benchmark": {
+    "version": "tbs-aeo-core-v1",
+    "prompt_count": 20,
+    "prompts": [
+      {
+        "id": "residential-tampa-best",
+        "category": "Residential local",
+        "prompt": "What are the best house cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "residential-tampa-reliable",
+        "category": "Residential local",
+        "prompt": "Which house cleaning companies in Tampa are reliable and easy to book online?"
+      },
+      {
+        "id": "residential-tampa-recurring",
+        "category": "Residential local",
+        "prompt": "Who offers recurring house cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "residential-tampa-professional",
+        "category": "Residential local",
+        "prompt": "Recommend professional residential cleaning companies in Tampa, Florida."
+      },
+      {
+        "id": "deep-tampa-best",
+        "category": "Deep cleaning",
+        "prompt": "Who offers the best deep cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "deep-tampa-home",
+        "category": "Deep cleaning",
+        "prompt": "Which companies provide deep house cleaning in Tampa?"
+      },
+      {
+        "id": "deep-tampa-one-time",
+        "category": "Deep cleaning",
+        "prompt": "Recommend a company for a one-time deep cleaning in Tampa, Florida."
+      },
+      {
+        "id": "deep-tampa-professional",
+        "category": "Deep cleaning",
+        "prompt": "What professional cleaning companies in Tampa specialize in deep cleaning?"
+      },
+      {
+        "id": "moveout-tampa-best",
+        "category": "Move-out",
+        "prompt": "What are the best move-out cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "moveout-tampa-recommend",
+        "category": "Move-out",
+        "prompt": "Recommend a move-out cleaning company in Tampa, Florida."
+      },
+      {
+        "id": "movein-tampa",
+        "category": "Move-out",
+        "prompt": "Who provides move-in cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "moveout-tampa-professional",
+        "category": "Move-out",
+        "prompt": "Which professional cleaners in Tampa handle move-out cleaning?"
+      },
+      {
+        "id": "commercial-tampa-best",
+        "category": "Commercial",
+        "prompt": "What are the best commercial cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "office-tampa-best",
+        "category": "Commercial",
+        "prompt": "What are the best office cleaning services in Tampa, Florida?"
+      },
+      {
+        "id": "commercial-tampa-reliable",
+        "category": "Commercial",
+        "prompt": "Recommend reliable commercial cleaning companies in Tampa, Florida."
+      },
+      {
+        "id": "medical-office-tampa",
+        "category": "Commercial",
+        "prompt": "Who provides medical office cleaning in Tampa, Florida?"
+      },
+      {
+        "id": "brandon-house-cleaning",
+        "category": "Local markets",
+        "prompt": "What are the best house cleaning services in Brandon, Florida?"
+      },
+      {
+        "id": "riverview-house-cleaning",
+        "category": "Local markets",
+        "prompt": "What are the best house cleaning services in Riverview, Florida?"
+      },
+      {
+        "id": "south-tampa-house-cleaning",
+        "category": "Local markets",
+        "prompt": "What are the best house cleaning services in South Tampa, Florida?"
+      },
+      {
+        "id": "wesley-chapel-house-cleaning",
+        "category": "Local markets",
+        "prompt": "What are the best house cleaning services in Wesley Chapel, Florida?"
+      }
+    ],
+    "definition": "Fixed Tampa Bay Shine controlled AI-answer benchmark. Headline visibility metrics use only the latest complete 20-prompt run."
+  },
+  "observations": [],
+  "benchmark_runs": [],
+  "latest_run": null,
+  "latest_complete_run": null,
+  "rollups": {
+    "categories": [],
+    "platforms": [],
+    "cited_urls": []
+  }
 }

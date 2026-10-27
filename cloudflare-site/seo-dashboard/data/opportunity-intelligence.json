@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-26T17:46:10.939511+00:00",
+  "generated_at": "2026-10-27T14:42:10.874167+00:00",
   "period": {
     "start": "2026-09-26",
     "end": "2026-10-23",
@@ -75,10 +75,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -130,10 +130,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -185,10 +185,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -240,10 +240,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -295,10 +295,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -350,10 +350,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -405,10 +405,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -428,9 +428,13 @@
       "subject": "AI answer visibility measurement",
       "query": null,
       "page": null,
-      "why_flagged": "No controlled AI answer-visibility observations are currently stored, so mentions and citations cannot yet be trended.",
+      "why_flagged": "No controlled AI answer-visibility observations are currently stored, so Tampa Bay Shine mention and citation visibility cannot yet be trended.",
       "evidence": {
-        "observations": 0
+        "observations": 0,
+        "benchmark_version": "tbs-aeo-core-v1",
+        "expected_prompts": 20,
+        "latest_run": null,
+        "latest_complete_run": null
       },
       "post_change_evidence": null,
       "decision_status": "actionable",
@@ -442,14 +446,14 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
-      "recommended_action": "Run a controlled, repeatable set of commercial and local prompts and record whether Tampa Bay Shine is mentioned, cited, and which URL is used. Keep this separate from GA4 AI referral traffic.",
+      "recommended_action": "Run the fixed controlled AEO benchmark and record all canonical prompts for one platform/model/run. Keep controlled answer visibility separate from GA4 identifiable AI referral traffic.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for the affected search opportunity. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
@@ -497,10 +501,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -552,10 +556,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -607,10 +611,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -662,10 +666,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -717,10 +721,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -772,10 +776,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -820,10 +824,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/common-area-cleaning",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -868,10 +872,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-brandon",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -916,10 +920,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-riverview",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -964,10 +968,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/post-event-cleaning",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1012,10 +1016,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/common-area-cleaning",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1060,10 +1064,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-ruskin-fl",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1099,10 +1103,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/airbnb-cleaning-services",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1147,10 +1151,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-brandon",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1195,10 +1199,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/medical-office-cleaning-wesley-chapel",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1243,10 +1247,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-brandon",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1291,10 +1295,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-riverview",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1316,10 +1320,10 @@
       "page": null,
       "why_flagged": "Organic Search generated booking-start intent during the current 28-day GA4 window, but no confirmed Organic Search booking was recorded.",
       "evidence": {
-        "organic_sessions": 75.0,
+        "organic_sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0
       },
       "post_change_evidence": null,
@@ -1332,10 +1336,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1386,10 +1390,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1434,10 +1438,10 @@
       "conversion_context": {
         "scope": "landing_page",
         "path": "/",
-        "sessions": 58.0,
+        "sessions": 62.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 18.97,
+        "booking_start_rate": 17.74,
         "confirmed_booking_rate": 0.0,
         "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
       },
@@ -1493,10 +1497,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-ruskin-fl",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1589,10 +1593,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-ruskin-fl",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1637,10 +1641,10 @@
       "conversion_context": {
         "scope": "landing_page",
         "path": "/",
-        "sessions": 58.0,
+        "sessions": 62.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 18.97,
+        "booking_start_rate": 17.74,
         "confirmed_booking_rate": 0.0,
         "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
       },
@@ -1703,10 +1707,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1758,10 +1762,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1813,10 +1817,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1868,10 +1872,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1916,10 +1920,10 @@
       "conversion_context": {
         "scope": "landing_page",
         "path": "/",
-        "sessions": 58.0,
+        "sessions": 62.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 18.97,
+        "booking_start_rate": 17.74,
         "confirmed_booking_rate": 0.0,
         "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
       },
@@ -1975,10 +1979,10 @@
       "conversion_context": {
         "scope": "landing_page",
         "path": "/",
-        "sessions": 58.0,
+        "sessions": 62.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 18.97,
+        "booking_start_rate": 17.74,
         "confirmed_booking_rate": 0.0,
         "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
       },
@@ -2034,10 +2038,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/floor-cleaning",
-        "sessions": 75.0,
+        "sessions": 81.0,
         "booking_starts": 11.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 14.67,
+        "booking_start_rate": 13.58,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },

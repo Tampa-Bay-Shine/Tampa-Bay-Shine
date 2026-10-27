@@ -318,6 +318,88 @@ The scheduled workflow must run `tools/opportunity_intelligence.py` after
 the GSC, GA4, and AI generators and must allow/stage
 `opportunity-intelligence.json` as an approved generated dataset.
 
+## Phase 12: Controlled AEO measurement
+
+Controlled AI answer visibility is measured separately from identifiable
+GA4 AI-assistant referral traffic.
+
+The canonical benchmark is defined in `tools/ai_visibility.py` as
+`tbs-aeo-core-v1`. It contains 20 fixed commercial and local prompts
+across five categories:
+
+- Residential local
+- Deep cleaning
+- Move-out
+- Commercial
+- Local markets
+
+Do not casually rewrite benchmark prompts between measurement periods.
+Changing prompt wording changes the experiment and breaks longitudinal
+comparability. A future material prompt-set change must receive a new
+benchmark version.
+
+A benchmark run is scoped by:
+
+`date + platform + model + run`
+
+A run is complete only when all 20 canonical prompt IDs are represented
+exactly once. Partial runs remain visible as measurement-in-progress but
+must not produce the dashboard headline mention rate or citation rate.
+
+The benchmark records:
+
+- whether Tampa Bay Shine was mentioned;
+- whether Tampa Bay Shine or a Tampa Bay Shine page was cited;
+- observable appearance/order when meaningful;
+- the cited URL when exposed by the AI surface;
+- category;
+- platform;
+- model;
+- observation date; and
+- benchmark run.
+
+No observation means unknown, not zero visibility.
+
+The dashboard headline controlled-AEO metrics use only the latest
+complete benchmark run. Historical complete and incomplete runs remain
+available for trend and coverage review. Category and cited-URL rollups
+also use the latest complete benchmark so lifetime averages do not hide
+current visibility changes.
+
+List the canonical prompts:
+
+    python.exe .\tools\ai_visibility.py --list-prompts
+
+Generate a CSV observation worksheet:
+
+    python.exe .\tools\ai_visibility.py --write-template .\reports\aeo-benchmark-template.csv
+
+After completing the worksheet, import it:
+
+    python.exe .\tools\ai_visibility.py --import-csv .\reports\aeo-benchmark-template.csv --summary
+
+Validate the controlled AEO dataset:
+
+    python.exe .\tools\ai_visibility_regression.py
+
+Then regenerate Opportunity Intelligence:
+
+    python.exe .\tools\opportunity_intelligence.py
+
+Opportunity Intelligence distinguishes:
+
+1. no controlled observations;
+2. observations exist but no complete benchmark exists; and
+3. a complete benchmark exists.
+
+Do not interpret AI mention/citation changes as deterministic rankings.
+AI answers can vary by platform, model, session context, product
+behavior, and time. The benchmark is a controlled observation system,
+not a universal AI-search ranking metric.
+
+Do not infer that a controlled AI mention caused GA4 referral traffic,
+a booking start, or a confirmed booking. Those signals remain separate.
+
 ## Credentials
 
 Never commit OAuth credentials.

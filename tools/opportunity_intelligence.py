@@ -564,9 +564,12 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
         )
 
     # ---------------------------------------------------------
-    # 6. AI answer-observation coverage
+    # 6. Controlled AEO benchmark coverage
     # ---------------------------------------------------------
     observations = ai_visibility.get("observations", []) or []
+    benchmark = ai_visibility.get("benchmark", {}) or {}
+    latest_run = ai_visibility.get("latest_run")
+    latest_complete = ai_visibility.get("latest_complete_run")
 
     if not observations:
         add(
@@ -575,15 +578,44 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
             "AI answer visibility measurement",
             (
                 "No controlled AI answer-visibility observations are currently stored, "
-                "so mentions and citations cannot yet be trended."
+                "so Tampa Bay Shine mention and citation visibility cannot yet be trended."
             ),
             {
                 "observations": 0,
+                "benchmark_version": benchmark.get("version"),
+                "expected_prompts": benchmark.get("prompt_count"),
+                "latest_run": None,
+                "latest_complete_run": None,
             },
             (
-                "Run a controlled, repeatable set of commercial and local prompts and "
-                "record whether Tampa Bay Shine is mentioned, cited, and which URL is "
-                "used. Keep this separate from GA4 AI referral traffic."
+                "Run the fixed controlled AEO benchmark and record all canonical prompts "
+                "for one platform/model/run. Keep controlled answer visibility separate "
+                "from GA4 identifiable AI referral traffic."
+            ),
+            confidence="high",
+        )
+
+    elif latest_complete is None:
+        add(
+            "ai_measurement_gap",
+            "medium",
+            "Complete controlled AEO benchmark",
+            (
+                "Controlled AI answer observations exist, but no complete canonical "
+                "benchmark run is available. Partial observations must not be treated "
+                "as the current Tampa Bay Shine AEO visibility score."
+            ),
+            {
+                "observations": len(observations),
+                "benchmark_version": benchmark.get("version"),
+                "expected_prompts": benchmark.get("prompt_count"),
+                "latest_run": latest_run,
+                "latest_complete_run": None,
+            },
+            (
+                "Complete the missing canonical prompts for a single platform/model/run. "
+                "Only a complete benchmark should become the headline mention and "
+                "citation measurement."
             ),
             confidence="high",
         )
