@@ -170,19 +170,29 @@ def load_data(path: Path) -> dict:
     return data
 
 
-def parse_bool(value) -> bool:
+def parse_bool(value, field_name="value") -> bool:
     if isinstance(value, bool):
         return value
 
-    value = str(value or "").strip().lower()
+    raw = "" if value is None else str(value).strip()
+
+    if not raw:
+        raise ValueError(
+            f"{field_name} is required; "
+            "blank means unknown and must not be recorded"
+        )
+
+    value = raw.lower()
 
     if value in {"1", "true", "yes", "y"}:
         return True
 
-    if value in {"0", "false", "no", "n", ""}:
+    if value in {"0", "false", "no", "n"}:
         return False
 
-    raise ValueError(f"Invalid boolean value: {value!r}")
+    raise ValueError(
+        f"Invalid boolean value for {field_name}: {raw!r}"
+    )
 
 
 def parse_position(value):
@@ -262,8 +272,14 @@ def normalize(row: dict) -> dict:
                 f"Prompt text does not match {prompt_id}"
             )
 
-    mentioned = parse_bool(row.get("mentioned"))
-    cited = parse_bool(row.get("cited"))
+    mentioned = parse_bool(
+        row.get("mentioned"),
+        "mentioned",
+    )
+    cited = parse_bool(
+        row.get("cited"),
+        "cited",
+    )
 
     position = parse_position(
         row.get("position", row.get("order"))

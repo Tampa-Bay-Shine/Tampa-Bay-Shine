@@ -18,6 +18,42 @@ EXPECTED_PROMPTS = 20
 
 errors = []
 
+# Missing controlled observations are unknown, not negative
+# observations. Blank result fields must therefore be rejected.
+try:
+    from ai_visibility import parse_bool
+
+    try:
+        parse_bool("", "mentioned")
+        errors.append(
+            "blank mentioned value was accepted"
+        )
+    except ValueError:
+        pass
+
+    try:
+        parse_bool(None, "cited")
+        errors.append(
+            "blank cited value was accepted"
+        )
+    except ValueError:
+        pass
+
+    if parse_bool("no", "mentioned") is not False:
+        errors.append(
+            "explicit 'no' did not parse as False"
+        )
+
+    if parse_bool("yes", "mentioned") is not True:
+        errors.append(
+            "explicit 'yes' did not parse as True"
+        )
+
+except Exception as exc:
+    errors.append(
+        f"boolean validation regression failed: {exc}"
+    )
+
 if not DATA.exists():
     errors.append(
         f"Missing dataset: {DATA}"
