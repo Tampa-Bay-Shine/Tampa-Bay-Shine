@@ -81,25 +81,43 @@ booking IDs in the dashboard.
 
 These are event-count ratios, not exact unique-person probabilities.
 
-## Verified cross-domain behavior
+## Booking attribution behavior
 
 Google's linker is configured for `tampabayshine.com`,
 `tampabayshine.bookingkoala.com`, and `booking.tampabayshine.com`.
 
-A production test verified `_gl` decoration on the BookingKoala handoff
-and returned the identical GA4 Client ID, `1806746636.1790971052`,
-before and after the TampaBayShine.com -\> BookingKoala transition.
-Cross-domain GA4 client-identity continuity is therefore verified for
-that test.
+Current production testing of the embedded `/book/` workflow shows that
+the TampaBayShine.com parent page and the embedded BookingKoala booking
+form can use different GA4 Client IDs even when both send to measurement
+ID `G-XK4CTL9KWM`.
 
-This does not by itself prove acquisition-source preservation through
-booking completion. Organic Search -\> BookingKoala -\>
-`BookingByCustomer` remains a separate attribution-quality test.
+Therefore, cross-domain client-identity continuity must not be treated as
+verified for the current embedded booking workflow.
 
-A real booking test also produced `BookingByCustomer` in GA4 Realtime
-and the GA4 Data API. Refreshing the existing Thank You page once did
-not increase the event count in that test. This supports duplicate
-protection for that tested workflow but is not a universal guarantee.
+`BookingByCustomer` remains the authoritative confirmed-booking event.
+GA4 can report its completion-session channel and first-user channel, but
+those dimensions do not establish an exact join from an earlier
+TampaBayShine.com Organic Search booking start to a later BookingKoala
+completion.
+
+The dashboard therefore reports separately:
+
+- Organic Search sessions and `booknow_click` booking starts;
+- Organic Search `BookingByCustomer` events when GA4 explicitly assigns
+  the completion event to Organic Search;
+- total `BookingByCustomer` events across all channels;
+- completion-session channel;
+- first-user channel; and
+- attribution quality.
+
+Do not relabel Direct, Referral, Organic Social, AI Assistant, or other
+completion channels as Organic Search without additional joined evidence.
+
+Landing-page SEO reporting is restricted to TampaBayShine.com marketing
+traffic. Query strings and fragments are removed before dashboard
+persistence, and application paths such as `/login`, `/admin/`, and
+`/reset-password` are excluded to prevent BookingKoala/internal paths or
+token-bearing URLs from entering aggregate SEO dashboard data.
 
 ## Dashboard files
 
@@ -445,8 +463,8 @@ Verified:
 - Book Now intent tracking is active;
 - BookingKoala emits native `BookingByCustomer`;
 - `BookingByCustomer` is available through the GA4 Data API;
-- outbound BookingKoala navigation receives Google's `_gl` linker;
-- the tested TampaBayShine.com and BookingKoala pages returned the same GA4 Client ID;
+- Google's linker is configured for the Tampa Bay Shine and BookingKoala domains;
+- current embedded-flow testing observed different GA4 Client IDs between the TampaBayShine.com parent page and BookingKoala iframe, so exact cross-domain client-identity continuity is not considered verified;
 - a tested Thank You page refresh did not duplicate the native booking event;
 - GA4 is assigning `BookingByCustomer` events to acquisition channels.
 
@@ -460,11 +478,17 @@ Observed for September 1 through October 2, 2026:
 
 Conclusion:
 
-Cross-domain client-identity continuity is verified and confirmed-booking channel attribution is operational. A confirmed Organic Search booking has not yet been observed in the available data.
+Confirmed-booking channel reporting is operational, but exact
+TampaBayShine.com booking-start to BookingKoala completion attribution is
+not currently available for the embedded workflow.
 
-The dashboard automatically checks `events_by_channel` for a case-sensitive `BookingByCustomer` event whose channel is `Organic Search`. Until one is present, it reports that Organic Search confirmed-booking attribution has not yet been observed. When the first such event appears, the status automatically changes to verified.
+The dashboard reports completion-session channel and first-user channel
+as diagnostic acquisition context and explicitly labels the attribution
+as measured but not exact-joined. Neither dimension should be treated as
+proof that an unmatched booking originated from Organic Search.
 
-Do not relabel Direct or Organic Social bookings as Organic Search. No additional test booking is required solely to force this condition.
+Do not relabel Direct, Referral, Organic Social, AI Assistant, or other
+bookings as Organic Search without additional joined evidence.
 
 The Winners & Losers tables are constrained to the dashboard viewport on
 desktop. Query/page and reason text may wrap at word boundaries; metric

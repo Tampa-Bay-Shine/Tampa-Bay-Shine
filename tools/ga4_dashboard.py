@@ -107,6 +107,78 @@ def organic_filter():
     )
 
 
+def marketing_host_filter():
+    return FilterExpression(
+        or_group=FilterExpressionList(
+            expressions=[
+                FilterExpression(
+                    filter=Filter(
+                        field_name="hostName",
+                        string_filter=Filter.StringFilter(
+                            match_type=Filter.StringFilter.MatchType.EXACT,
+                            value="tampabayshine.com",
+                            case_sensitive=False,
+                        ),
+                    )
+                ),
+                FilterExpression(
+                    filter=Filter(
+                        field_name="hostName",
+                        string_filter=Filter.StringFilter(
+                            match_type=Filter.StringFilter.MatchType.EXACT,
+                            value="www.tampabayshine.com",
+                            case_sensitive=False,
+                        ),
+                    )
+                ),
+            ]
+        )
+    )
+
+
+def organic_marketing_filter():
+    return FilterExpression(
+        and_group=FilterExpressionList(
+            expressions=[
+                organic_filter(),
+                marketing_host_filter(),
+            ]
+        )
+    )
+
+
+def sanitize_landing_page(value):
+    value = value or "(not set)"
+
+    if value == "(not set)":
+        return value
+
+    # Never persist query strings or fragments in dashboard data.
+    # They can contain tokens or other values that do not belong in
+    # an aggregate SEO dashboard.
+    value = value.split("?", 1)[0]
+    value = value.split("#", 1)[0]
+
+    return value or "/"
+
+
+def is_marketing_landing_page(value):
+    page = sanitize_landing_page(value)
+
+    if page == "(not set)":
+        return True
+
+    lower = page.lower()
+
+    excluded_prefixes = (
+        "/admin/",
+        "/login",
+        "/reset-password",
+    )
+
+    return not lower.startswith(excluded_prefixes)
+
+
 def event_filter(event_names):
     expressions = []
 
@@ -391,7 +463,10 @@ def landing_pages(client, property_id):
     traffic_response = run_report(
         client,
         property_id,
-        dimensions=["landingPagePlusQueryString"],
+        dimensions=[
+            "hostName",
+            "landingPagePlusQueryString",
+        ],
         metrics=[
             "sessions",
             "activeUsers",
@@ -400,7 +475,7 @@ def landing_pages(client, property_id):
         date_ranges=[
             ("28daysAgo", "yesterday")
         ],
-        dimension_filter=organic_filter(),
+        dimension_filter=organic_marketing_filter(),
         limit=500,
     )
 
@@ -408,6 +483,7 @@ def landing_pages(client, property_id):
         client,
         property_id,
         dimensions=[
+            "hostName",
             "landingPagePlusQueryString",
             "eventName",
         ],
@@ -415,8 +491,15 @@ def landing_pages(client, property_id):
         date_ranges=[
             ("28daysAgo", "yesterday")
         ],
-        dimension_filter=organic_and_event_filter(
-            INTENT_EVENTS + [CONFIRMED_BOOKING_EVENT]
+        dimension_filter=FilterExpression(
+            and_group=FilterExpressionList(
+                expressions=[
+                    organic_marketing_filter(),
+                    event_filter(
+                        INTENT_EVENTS + [CONFIRMED_BOOKING_EVENT]
+                    ),
+                ]
+            )
         ),
         limit=5000,
     )
@@ -424,10 +507,12 @@ def landing_pages(client, property_id):
     pages = {}
 
     for row in rows(traffic_response):
-        page = (
-            row.get("landingPagePlusQueryString")
-            or "(not set)"
-        )
+        raw_page = row.get("landingPagePlusQueryString")
+
+        if not is_marketing_landing_page(raw_page):
+            continue
+
+        page = sanitize_landing_page(raw_page)
 
         pages[page] = {
             "landing_page": page,
@@ -448,10 +533,12 @@ def landing_pages(client, property_id):
         }
 
     for row in rows(event_response):
-        page = (
-            row.get("landingPagePlusQueryString")
-            or "(not set)"
-        )
+        raw_page = row.get("landingPagePlusQueryString")
+
+        if not is_marketing_landing_page(raw_page):
+            continue
+
+        page = sanitize_landing_page(raw_page)
 
         event_name = row.get("eventName")
 
@@ -581,6 +668,101 @@ def conversion_events_by_channel(client, property_id):
     )
 
     return result
+
+
+def confirmed_bookings_by_acquisition(client, property_id):
+    response = run_report(
+        client,
+        property_id,
+        dimensions=[
+            "sessionDefaultChannelGroup",
+            "firstUserDefaultChannelGroup",
+        ],
+        metrics=["eventCount"],
+        date_ranges=[
+            ("28daysAgo", "yesterday")
+        ],
+        dimension_filter=event_filter(
+            [CONFIRMED_BOOKING_EVENT]
+        ),
+        limit=1000,
+    )
+
+    result = []
+
+    for row in rows(response):
+        result.append({
+            "completion_session_channel": row.get(
+                "sessionDefaultChannelGroup"
+            ),
+            "first_user_channel": row.get(
+                "firstUserDefaultChannelGroup"
+            ),
+            "confirmed_bookings": clean_count(
+                row.get("eventCount")
+            ),
+        })
+
+    result.sort(
+        key=lambda item: number(
+            item["confirmed_bookings"]
+        ),
+        reverse=True,
+    )
+
+    return result
+
+
+def attribution_quality(acquisition_rows, organic_booking_starts):
+    total = sum(
+        number(row.get("confirmed_bookings"))
+        for row in acquisition_rows
+    )
+
+    organic_completion = sum(
+        number(row.get("confirmed_bookings"))
+        for row in acquisition_rows
+        if (
+            row.get("completion_session_channel")
+            == "Organic Search"
+        )
+    )
+
+    organic_first_user = sum(
+        number(row.get("confirmed_bookings"))
+        for row in acquisition_rows
+        if (
+            row.get("first_user_channel")
+            == "Organic Search"
+        )
+    )
+
+    return {
+        "status": "measured_not_exact_joined",
+        "confirmed_bookings_all_channels": clean_count(total),
+        "confirmed_bookings_organic_completion_session": clean_count(
+            organic_completion
+        ),
+        "confirmed_bookings_organic_first_user": clean_count(
+            organic_first_user
+        ),
+        "organic_booking_starts": clean_count(
+            organic_booking_starts
+        ),
+        "exact_booking_origin_available": False,
+        "cross_domain_client_identity_verified": False,
+        "confidence": "medium" if total else "low",
+        "interpretation": (
+            "GA4 can report the channel of the BookingByCustomer "
+            "completion session and the first-user acquisition channel, "
+            "but the current embedded BookingKoala flow does not preserve "
+            "the TampaBayShine.com GA4 client identity. These dimensions "
+            "therefore do not provide an exact join from an Organic Search "
+            "booking start to a later confirmed booking. Do not relabel "
+            "Direct, Referral, Social, or AI Assistant completions as "
+            "Organic Search without additional evidence."
+        ),
+    }
 
 
 def add_rates(period):
@@ -873,6 +1055,18 @@ def main():
         args.property,
     )
 
+    print("Fetching confirmed-booking acquisition diagnostics...")
+
+    acquisition_rows = confirmed_bookings_by_acquisition(
+        client,
+        args.property,
+    )
+
+    attribution = attribution_quality(
+        acquisition_rows,
+        periods["28"]["intent"]["current"]["booknow_click"],
+    )
+
     generated_at = datetime.now(
         timezone.utc
     ).replace(
@@ -894,6 +1088,8 @@ def main():
         "periods": periods,
         "landing_pages": page_rows,
         "events_by_channel": channel_rows,
+        "confirmed_bookings_by_acquisition": acquisition_rows,
+        "attribution_quality": attribution,
         "definitions": {
             "booking_start": (
                 "booknow_click - visitor clicked "
@@ -921,6 +1117,22 @@ def main():
             "booking_completion_rate": (
                 "Organic Search BookingByCustomer events divided "
                 "by Organic Search booknow_click events."
+            ),
+            "completion_session_channel": (
+                "GA4 session default channel group attached to the "
+                "BookingByCustomer completion event. This is not an "
+                "exact join to an earlier TampaBayShine.com booking start."
+            ),
+            "first_user_channel": (
+                "GA4 first-user default channel group for the client "
+                "identity that emitted BookingByCustomer. This is "
+                "acquisition context, not exact booking-origin attribution."
+            ),
+            "booking_origin_attribution": (
+                "Exact TampaBayShine.com booking-start to BookingByCustomer "
+                "attribution is not currently available because the embedded "
+                "BookingKoala flow was observed using a different GA4 client "
+                "identity from the parent TampaBayShine.com page."
             ),
             "revenue": (
                 "Not currently available from the "

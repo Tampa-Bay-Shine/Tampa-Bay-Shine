@@ -2252,8 +2252,48 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
   </div>
 
   <div class="callout" id="organic-booking-attribution">
-    <strong>Organic Search booking attribution:</strong>
+    <strong>Booking attribution quality:</strong>
     <span id="organic-booking-attribution-status">Checking GA4 data...</span>
+  </div>
+
+  <h3>Confirmed-booking attribution diagnostics</h3>
+  <p class="muted">
+    Latest 28-day view. Completion-session channel and first-user channel
+    are GA4 attribution dimensions. They provide useful acquisition context,
+    but they are not an exact join between a Tampa Bay Shine booking start
+    and a later BookingKoala completion.
+  </p>
+
+  <div class="conversion-status-grid">
+    <div class="conversion-status">
+      <strong>Total confirmed bookings</strong>
+      <span id="attribution-total-confirmed">--</span>
+    </div>
+    <div class="conversion-status">
+      <strong>Organic completion-session bookings</strong>
+      <span id="attribution-organic-completion">--</span>
+    </div>
+    <div class="conversion-status">
+      <strong>Organic first-user bookings</strong>
+      <span id="attribution-organic-first-user">--</span>
+    </div>
+    <div class="conversion-status">
+      <strong>Exact booking-origin join</strong>
+      <span id="attribution-exact-join">--</span>
+    </div>
+  </div>
+
+  <div class="conversion-table-wrap">
+    <table id="confirmed-booking-acquisition">
+      <thead>
+        <tr>
+          <th>Completion-session channel</th>
+          <th>First-user channel</th>
+          <th>Confirmed bookings</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 
   <h3>Organic landing-page attribution</h3>
@@ -3516,6 +3556,81 @@ function renderConversions(data,days=28){
   }
 }
 
+function renderBookingAttribution(data){
+  const quality=data?.attribution_quality||{};
+  const rows=Array.isArray(data?.confirmed_bookings_by_acquisition)
+    ? data.confirmed_bookings_by_acquisition
+    : [];
+
+  const set=(id,value)=>{
+    const el=document.getElementById(id);
+    if(el)el.textContent=value;
+  };
+
+  set(
+    "attribution-total-confirmed",
+    n(quality.confirmed_bookings_all_channels)
+  );
+
+  set(
+    "attribution-organic-completion",
+    n(quality.confirmed_bookings_organic_completion_session)
+  );
+
+  set(
+    "attribution-organic-first-user",
+    n(quality.confirmed_bookings_organic_first_user)
+  );
+
+  set(
+    "attribution-exact-join",
+    quality.exact_booking_origin_available
+      ? "Available"
+      : "Not available"
+  );
+
+  const status=document.getElementById(
+    "organic-booking-attribution-status"
+  );
+
+  if(status){
+    if(quality.exact_booking_origin_available){
+      status.textContent=
+        "Exact booking-origin attribution is available.";
+    }else{
+      status.textContent=
+        `Measured, not exact-joined. ${n(
+          quality.organic_booking_starts
+        )} Organic Search booking starts were observed, while ${n(
+          quality.confirmed_bookings_all_channels
+        )} confirmed bookings were measured across all channels. `+
+        `${n(
+          quality.confirmed_bookings_organic_completion_session
+        )} confirmed bookings had Organic Search as the completion-session `+
+        `channel and ${n(
+          quality.confirmed_bookings_organic_first_user
+        )} had Organic Search as the first-user channel. `+
+        `Do not infer that unmatched Direct or other-channel completions `+
+        `originated from Organic Search.`;
+    }
+  }
+
+  const body=document.querySelector(
+    "#confirmed-booking-acquisition tbody"
+  );
+
+  if(body){
+    body.innerHTML=rows.length
+      ? rows.map(row=>`<tr>
+          <td>${esc(row.completion_session_channel||"--")}</td>
+          <td>${esc(row.first_user_channel||"--")}</td>
+          <td>${n(row.confirmed_bookings)}</td>
+        </tr>`).join("")
+      : `<tr><td colspan="3">No confirmed-booking attribution data available.</td></tr>`;
+  }
+}
+
+
 function renderConversionTables(data){
   const landingBody=document.querySelector(
     "#conversion-landing-pages tbody"
@@ -3566,29 +3681,6 @@ function renderConversionTables(data){
       ? data.events_by_channel
       : [];
 
-    const organicConfirmedBookings=rows
-      .filter(row=>
-        row.event_name==="BookingByCustomer" &&
-        row.channel==="Organic Search"
-      )
-      .reduce((sum,row)=>sum+(Number(row.event_count)||0),0);
-
-    const attributionStatus=document.querySelector(
-      "#organic-booking-attribution-status"
-    );
-
-    if(attributionStatus){
-      if(organicConfirmedBookings>0){
-        attributionStatus.textContent=
-          `Verified - ${organicConfirmedBookings} confirmed Organic Search ` +
-          `booking${organicConfirmedBookings===1?"":"s"} observed.`;
-      }else{
-        attributionStatus.textContent=
-          "Not yet observed - GA4 has not recorded a BookingByCustomer " +
-          "event attributed to Organic Search.";
-      }
-    }
-
     eventBody.innerHTML=rows.length
       ? rows.map(row=>`<tr>
           <td>${esc(row.event_name||"--")}</td>
@@ -3606,6 +3698,7 @@ fetch("./data/ga4.json",{cache:"no-store"})
   })
   .then(data=>{
     renderConversions(data,28);
+    renderBookingAttribution(data);
     renderConversionTables(data);
 
     document.querySelectorAll(
