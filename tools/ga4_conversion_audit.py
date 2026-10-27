@@ -267,6 +267,63 @@ def main():
         conversion_rows,
     )
 
+    confirmed_acquisition = run_report(
+        client,
+        args.property,
+        dimensions=[
+            "sessionDefaultChannelGroup",
+            "firstUserDefaultChannelGroup",
+        ],
+        metrics=["eventCount"],
+        start_date=args.start_date,
+        end_date=args.end_date,
+        organic_only=False,
+        limit=100,
+    )
+
+    confirmed_acquisition_rows = [
+        row
+        for row in report_rows(confirmed_acquisition)
+        if row.get("eventName") == "BookingByCustomer"
+    ] if False else []
+
+    booking_filter = FilterExpression(
+        filter=Filter(
+            field_name="eventName",
+            string_filter=Filter.StringFilter(
+                match_type=Filter.StringFilter.MatchType.EXACT,
+                value="BookingByCustomer",
+                case_sensitive=True,
+            ),
+        )
+    )
+
+    acquisition_request = RunReportRequest(
+        property=f"properties/{args.property}",
+        dimensions=[
+            Dimension(name="sessionDefaultChannelGroup"),
+            Dimension(name="firstUserDefaultChannelGroup"),
+        ],
+        metrics=[Metric(name="eventCount")],
+        date_ranges=[
+            DateRange(
+                start_date=args.start_date,
+                end_date=args.end_date,
+            )
+        ],
+        dimension_filter=booking_filter,
+        limit=100,
+    )
+
+    acquisition_response = client.run_report(
+        acquisition_request
+    )
+
+    print_section(
+        "CONFIRMED BOOKINGS: COMPLETION CHANNEL VS FIRST-USER CHANNEL",
+        report_rows(acquisition_response),
+    )
+
     print()
     print("GA4 audit complete.")
 
