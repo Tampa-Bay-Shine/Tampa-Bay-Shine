@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-27T14:42:10.874167+00:00",
+  "generated_at": "2026-10-27T15:25:56.112919+00:00",
   "period": {
     "start": "2026-09-26",
     "end": "2026-10-23",
     "days": 28
   },
   "counts": {
-    "total": 39,
+    "total": 38,
     "high": 7,
-    "medium": 31,
+    "medium": 30,
     "low": 1
   },
   "methodology": {
@@ -415,47 +415,6 @@
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for commercial cleaning services near me. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-6a9f1a36a950d424",
-      "type": "ai_measurement_gap",
-      "priority": "medium",
-      "confidence": "high",
-      "subject": "AI answer visibility measurement",
-      "query": null,
-      "page": null,
-      "why_flagged": "No controlled AI answer-visibility observations are currently stored, so Tampa Bay Shine mention and citation visibility cannot yet be trended.",
-      "evidence": {
-        "observations": 0,
-        "benchmark_version": "tbs-aeo-core-v1",
-        "expected_prompts": 20,
-        "latest_run": null,
-        "latest_complete_run": null
-      },
-      "post_change_evidence": null,
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 81.0,
-        "booking_starts": 11.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 13.58,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Run the fixed controlled AEO benchmark and record all canonical prompts for one platform/model/run. Keep controlled answer visibility separate from GA4 identifiable AI referral traffic.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for the affected search opportunity. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
