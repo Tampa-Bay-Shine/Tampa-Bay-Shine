@@ -72,7 +72,153 @@
 </section>
 <section class="booking-form-section" aria-label="Online cleaning booking form">
   <div class="booking-shell">
-        <p id="tbs-standard-promo" class="booking-fallback" hidden>New customer recurring cleaning offer: <strong>30% off your first eligible cleaning with code RECUR30</strong>. Enter the code during checkout. See the <a href="/coupons/">offer terms</a> for eligibility and minimum-service requirements.</p>
+        <!-- TBS GUIDED BOOKING FUNNEL v2.1 -->
+    <div class="booking-guide" id="tbs-booking-guide" hidden>
+
+      <div class="booking-guide-progress" aria-hidden="true">
+        <span class="is-complete">Cleaning Selected</span>
+        <span class="is-current">Quick Setup</span>
+        <span>Price &amp; Schedule</span>
+      </div>
+
+      <div class="booking-guide-panel">
+
+        <span class="booking-eyebrow booking-guide-eyebrow">
+          Quick Setup
+        </span>
+
+        <h2>Let's Get Your Cleaning Price</h2>
+
+        <p class="booking-guide-lede">
+          We already know which cleaning you need. Confirm the details below and we'll take you directly into pricing and scheduling.
+        </p>
+
+        <div class="booking-selected-service">
+          <div>
+            <span class="booking-selected-label">
+              Selected Cleaning
+            </span>
+
+            <strong id="tbs-selected-service">
+              Residential Cleaning
+            </strong>
+          </div>
+
+          <a href="/services/">
+            Change Service
+          </a>
+        </div>
+
+        <fieldset
+          class="booking-frequency"
+          id="tbs-frequency-fieldset"
+          tabindex="-1"
+          hidden
+        >
+
+          <legend>
+            Want recurring service?
+          </legend>
+
+          <p>
+            Optional. Choose a frequency now to carry it into pricing, or continue and decide in the booking form.
+          </p>
+
+          <div class="booking-frequency-grid">
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="1"
+              >
+              <span>
+                <strong>One-Time</strong>
+                <small>No commitment</small>
+              </span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="9"
+              >
+              <span>
+                <strong>Weekly</strong>
+                <small>Save 25%</small>
+              </span>
+            </label>
+
+            <label class="is-popular">
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="4"
+              >
+              <span>
+                <em>Popular Choice</em>
+                <strong>Bi-Weekly</strong>
+                <small>Save 15%</small>
+              </span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="5"
+              >
+              <span>
+                <strong>Every 3 Weeks</strong>
+                <small>Save 12%</small>
+              </span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="tbs-frequency"
+                value="2"
+              >
+              <span>
+                <strong>Every 4 Weeks</strong>
+                <small>Save 10%</small>
+              </span>
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="booking-guide-actions">
+
+          <button
+            class="booking-btn booking-btn-primary booking-guide-continue"
+            id="tbs-booking-continue"
+            type="button"
+          >
+            Continue to My Price
+          </button>
+
+          <button
+            class="booking-guide-skip"
+            id="tbs-booking-skip"
+            type="button"
+          >
+            Skip to Full Booking
+          </button>
+
+        </div>
+
+        <p class="booking-guide-reassurance">
+          No phone call required. Review your price, available appointments and service details before booking.
+        </p>
+
+      </div>
+
+    </div>
+    <!-- /TBS GUIDED BOOKING FUNNEL v2.1 -->
     <div class="booking-frame-card" id="tbs-booking-workspace">
       <iframe id="tbs-booking-frame" title="Tampa Bay Shine online booking form" src="https://tampabayshine.bookingkoala.com/booknow?embed=true" style="border:none;height:1000px" width="100%" scrolling="no"></iframe>
             <script>
@@ -152,6 +298,37 @@
           document.getElementById(
             "tbs-booking-frame"
           );
+
+        var guide =
+          document.getElementById(
+            "tbs-booking-guide"
+          );
+
+        var workspace =
+          document.getElementById(
+            "tbs-booking-workspace"
+          );
+
+        var serviceName =
+          document.getElementById(
+            "tbs-selected-service"
+          );
+
+        var frequencyFieldset =
+          document.getElementById(
+            "tbs-frequency-fieldset"
+          );
+
+        var continueButton =
+          document.getElementById(
+            "tbs-booking-continue"
+          );
+
+        var skipButton =
+          document.getElementById(
+            "tbs-booking-skip"
+          );
+
 
         function buildBookingUrl(
           frequencyId
@@ -279,31 +456,250 @@
         }
 
 
+        function revealBooking(
+          source
+        ) {
+
+          if (guide) {
+
+            guide.classList.add(
+              "is-complete"
+            );
+
+          }
+
+          if (workspace) {
+
+            workspace.classList.add(
+              "is-ready"
+            );
+
+            workspace.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+
+          track(
+            "booking_guided_continue",
+            {
+              guided_action: source
+            }
+          );
+
+        }
+
+
         /*
          * Generic /book/ remains the
          * existing direct booking experience.
          */
 
         if (!selection) {
+
+          if (workspace) {
+
+            workspace.classList.add(
+              "is-ready"
+            );
+
+          }
+
           return;
+
         }
 
 
         /*
-         * Known residential service intent: go directly to BookingKoala.
-         * Preserve supported service and optional frequency preselection.
-         * Do not assume BookingKoala supports coupon URL prefill.
+         * Known residential service intent.
          */
 
-        updateBookingTarget(initialFrequencyId);
+        if (guide) {
 
-        var promo = document.getElementById("tbs-standard-promo");
-        if (promo && cleaning === "standard") promo.hidden = false;
+          guide.hidden = false;
 
-        track("booking_service_prefilled", {
-          booking_frequency: frequencySelection ? frequency : "unspecified",
-          frequency_prefilled: frequencySelection ? "yes" : "no"
-        });
+        }
+
+        if (workspace) {
+
+          workspace.classList.add(
+            "is-guided"
+          );
+
+        }
+
+        if (serviceName) {
+
+          serviceName.textContent =
+            frequencySelection
+              ? selection.label +
+                " - " +
+                frequencySelection.label
+              : selection.label;
+
+        }
+
+
+        if (
+          selection.askFrequency &&
+          frequencyFieldset
+        ) {
+
+          frequencyFieldset.hidden =
+            false;
+
+        }
+
+        if (initialFrequencyId) {
+
+          var initialFrequencyInput =
+            document.querySelector(
+              'input[name="tbs-frequency"][value="' +
+              initialFrequencyId +
+              '"]'
+            );
+
+          if (initialFrequencyInput) {
+
+            initialFrequencyInput.checked =
+              true;
+
+          }
+
+        }
+
+        updateBookingTarget(
+          initialFrequencyId
+        );
+
+        track(
+          "booking_guided_start",
+          {
+            booking_frequency:
+              frequencySelection
+                ? frequency
+                : "unspecified",
+
+            frequency_prefilled:
+              frequencySelection
+                ? "yes"
+                : "no"
+          }
+        );
+
+
+        if (continueButton) {
+
+          continueButton.addEventListener(
+            "click",
+            function () {
+
+              var frequencyId =
+                null;
+
+
+              if (
+                selection.askFrequency
+              ) {
+
+                var checked =
+                  document.querySelector(
+                    'input[name="tbs-frequency"]:checked'
+                  );
+
+                if (checked) {
+
+                  frequencyId =
+                    checked.value;
+
+                }
+
+              }
+
+
+              updateBookingTarget(
+                frequencyId
+              );
+
+              revealBooking(
+                "continue"
+              );
+
+            }
+          );
+
+        }
+
+
+        document
+          .querySelectorAll(
+            'input[name="tbs-frequency"]'
+          )
+          .forEach(
+            function (input) {
+
+              input.addEventListener(
+                "change",
+                function () {
+
+                  if (
+                    frequencyFieldset
+                  ) {
+
+                    frequencyFieldset
+                      .classList.remove(
+                        "has-error"
+                      );
+
+                  }
+
+                }
+              );
+
+            }
+          );
+
+
+        if (skipButton) {
+
+          skipButton.addEventListener(
+            "click",
+            function () {
+
+              var preservedFrequencyId =
+                null;
+
+              if (
+                selection.askFrequency
+              ) {
+
+                var preservedChecked =
+                  document.querySelector(
+                    'input[name="tbs-frequency"]:checked'
+                  );
+
+                if (preservedChecked) {
+
+                  preservedFrequencyId =
+                    preservedChecked.value;
+
+                }
+
+              }
+
+              updateBookingTarget(
+                preservedFrequencyId
+              );
+
+              revealBooking(
+                "skip"
+              );
+
+            }
+          );
+
+        }
 
       }());
       </script>
