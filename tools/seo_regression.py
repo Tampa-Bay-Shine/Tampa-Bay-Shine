@@ -7,7 +7,7 @@ PRIORITY_PAGES = [
     ("house cleaning", "standard-cleaning-services-tampa/index.html"),
     ("deep cleaning", "deep-cleaning-services-tampa/index.html"),
     ("move-out Tampa", "move-out-cleaning-tampa/index.html"),
-    ("move-out regional hub", "move-out-cleaning-tampa-1/index.html"),
+    ("move-out regional hub", "move-out-cleaning-tampa-bay/index.html"),
     ("office cleaning", "office-cleaning/index.html"),
     ("commercial cleaning", "commercial-cleaning-tampa/index.html"),
     ("locations", "locations/index.html"),
