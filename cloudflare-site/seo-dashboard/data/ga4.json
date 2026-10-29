@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-28T17:31:14+00:00",
-  "data_through": "2026-10-27",
+  "generated_at": "2026-10-29T17:42:31+00:00",
+  "data_through": "2026-10-28",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -18,22 +18,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 37,
-          "active_users": 13,
-          "engaged_sessions": 19,
-          "engagement_rate": 51.35,
+          "sessions": 40,
+          "active_users": 14,
+          "engaged_sessions": 21,
+          "engagement_rate": 52.5,
           "booking_start_rate": 0.0,
-          "primary_intent_rate": 2.7,
+          "primary_intent_rate": 2.5,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": null
         },
         "previous": {
-          "sessions": 22,
+          "sessions": 21,
           "active_users": 15,
-          "engaged_sessions": 19,
-          "engagement_rate": 86.36,
-          "booking_start_rate": 13.64,
-          "primary_intent_rate": 18.18,
+          "engaged_sessions": 17,
+          "engagement_rate": 80.95,
+          "booking_start_rate": 14.29,
+          "primary_intent_rate": 19.05,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -79,22 +79,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 86,
+          "sessions": 89,
           "active_users": 50,
-          "engaged_sessions": 57,
-          "engagement_rate": 66.28,
-          "booking_start_rate": 11.63,
-          "primary_intent_rate": 15.12,
+          "engaged_sessions": 59,
+          "engagement_rate": 66.29,
+          "booking_start_rate": 11.24,
+          "primary_intent_rate": 14.61,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 1,
-          "active_users": 1,
+          "sessions": 2,
+          "active_users": 2,
           "engaged_sessions": 1,
-          "engagement_rate": 100.0,
-          "booking_start_rate": 100.0,
-          "primary_intent_rate": 100.0,
+          "engagement_rate": 50.0,
+          "booking_start_rate": 50.0,
+          "primary_intent_rate": 50.0,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 87,
-          "active_users": 51,
-          "engaged_sessions": 58,
-          "engagement_rate": 66.67,
-          "booking_start_rate": 12.64,
-          "primary_intent_rate": 16.09,
+          "sessions": 91,
+          "active_users": 52,
+          "engaged_sessions": 60,
+          "engagement_rate": 65.93,
+          "booking_start_rate": 12.09,
+          "primary_intent_rate": 15.38,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 65,
-      "active_users": 45,
-      "engaged_sessions": 48,
+      "sessions": 66,
+      "active_users": 44,
+      "engaged_sessions": 50,
       "booknow_click": 10,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,7 +204,7 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 12,
       "all_intent_actions": 12,
-      "booking_start_rate": 15.38,
+      "booking_start_rate": 15.15,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -227,8 +227,25 @@
     },
     {
       "landing_page": "(not set)",
+      "sessions": 2,
+      "active_users": 1,
+      "engaged_sessions": 0,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
+      "landing_page": "/coupons/",
       "sessions": 1,
-      "active_users": 0,
+      "active_users": 1,
       "engaged_sessions": 0,
       "booknow_click": 0,
       "phone_click": 0,
@@ -320,12 +337,7 @@
     {
       "event_name": "BookingByCustomer",
       "channel": "Direct",
-      "event_count": 6
-    },
-    {
-      "event_name": "BookingByCustomer",
-      "channel": "Organic Social",
-      "event_count": 1
+      "event_count": 7
     },
     {
       "event_name": "BookingByCustomer",
@@ -335,12 +347,12 @@
     {
       "event_name": "booknow_click",
       "channel": "AI Assistant",
-      "event_count": 8
+      "event_count": 23
     },
     {
       "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 30
+      "event_count": 33
     },
     {
       "event_name": "booknow_click",
@@ -350,7 +362,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Organic Social",
-      "event_count": 12
+      "event_count": 9
     },
     {
       "event_name": "booknow_click",
@@ -360,7 +372,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Referral",
-      "event_count": 40
+      "event_count": 45
     },
     {
       "event_name": "commercial_quote_start",
@@ -374,8 +386,13 @@
     },
     {
       "event_name": "contact_click",
+      "channel": "AI Assistant",
+      "event_count": 1
+    },
+    {
+      "event_name": "contact_click",
       "channel": "Direct",
-      "event_count": 4
+      "event_count": 3
     },
     {
       "event_name": "contact_click",
@@ -395,7 +412,7 @@
     {
       "event_name": "coupon_click",
       "channel": "Direct",
-      "event_count": 2
+      "event_count": 1
     },
     {
       "event_name": "coupon_click",
@@ -405,23 +422,18 @@
     {
       "event_name": "phone_click",
       "channel": "Direct",
-      "event_count": 1
+      "event_count": 2
     }
   ],
   "confirmed_bookings_by_acquisition": [
     {
       "completion_session_channel": "Direct",
       "first_user_channel": "Direct",
-      "confirmed_bookings": 6
+      "confirmed_bookings": 7
     },
     {
       "completion_session_channel": "AI Assistant",
       "first_user_channel": "AI Assistant",
-      "confirmed_bookings": 1
-    },
-    {
-      "completion_session_channel": "Organic Social",
-      "first_user_channel": "Organic Social",
       "confirmed_bookings": 1
     },
     {
