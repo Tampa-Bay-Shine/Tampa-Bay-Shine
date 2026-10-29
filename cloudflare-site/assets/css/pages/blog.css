@@ -125,3 +125,19 @@
     padding: clamp(1.35rem, 3vw, 2.25rem);
   }
 }
+
+/* v25.2 - keep photographic blog-card images flush with their containers.
+   Older .blog-card-media aspect-ratio:16/9 plus fixed 210px image height
+   created an empty tinted area beneath newer 3:2 cover photographs. */
+.blog-card-grid .blog-card:not(.blog-card-featured) .blog-card-media {
+  aspect-ratio: auto;
+  height: auto;
+  flex: 0 0 auto;
+}
+.blog-card-grid .blog-card:not(.blog-card-featured) .blog-card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
