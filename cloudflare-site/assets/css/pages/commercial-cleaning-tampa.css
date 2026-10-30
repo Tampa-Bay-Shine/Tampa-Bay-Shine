@@ -383,3 +383,38 @@
             width:100%;
           }
         }
+
+/* TBS commercial hero balance v1 - page-scoped overrides */
+@media (min-width:921px) {
+  #tbs-commercial-funnel-v1 .f-hero-inner {
+    grid-template-columns:minmax(0,1fr) 405px;
+    gap:36px;
+  }
+  #tbs-commercial-funnel-v1 .f-hero h1 {
+    font-size:clamp(2.7rem,4.6vw,4.2rem);
+    line-height:1.07;
+    letter-spacing:-.025em;
+  }
+  #tbs-commercial-funnel-v1 .f-hero-media {
+    min-height:305px;
+  }
+}
+#tbs-commercial-funnel-v1 .f-hero-media:after {
+  background:linear-gradient(180deg,rgba(5,4,62,0) 32%,rgba(5,4,62,.57) 100%);
+}
+#tbs-commercial-funnel-v1 .f-hero-media-copy {
+  left:18px;
+  right:18px;
+  bottom:15px;
+  text-shadow:0 1px 3px rgba(0,0,0,.55);
+}
+#tbs-commercial-funnel-v1 .f-hero-media-copy strong {
+  font-size:1.1rem;
+  line-height:1.22;
+  margin-bottom:3px;
+}
+#tbs-commercial-funnel-v1 .f-hero-media-copy span {
+  font-size:.91rem;
+  line-height:1.3;
+  display:block;
+}
