@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-31T16:25:27.883019+00:00",
-  "data_through": "2026-10-28",
+  "generated_at": "2026-11-01T18:11:55.984041+00:00",
+  "data_through": "2026-10-29",
   "methodology": {
     "comparison": "current 28 days vs previous 28 days",
     "executive_default": "top 12 consolidated actions",
@@ -11,16 +11,16 @@
     "indexing": "live GSC inspection/index coverage not yet wired"
   },
   "summary": {
-    "qualifying_signals": 64,
-    "consolidated_actions": 51,
-    "high": 6,
-    "core20": 5,
-    "strategic": 32,
-    "discovered": 14,
-    "striking_distance": 44,
-    "ctr_gaps": 8,
+    "qualifying_signals": 65,
+    "consolidated_actions": 52,
+    "high": 7,
+    "core20": 4,
+    "strategic": 36,
+    "discovered": 12,
+    "striking_distance": 46,
+    "ctr_gaps": 10,
     "declines": 7,
-    "positive_momentum": 4
+    "positive_momentum": 2
   },
   "items": [
     {
@@ -30,30 +30,30 @@
       "confidence": "high",
       "relevance": "core20",
       "metrics": {
-        "position": 14.92,
+        "position": 14.7,
         "impressions": 89.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 28,
-        "position_improvement": -11.99,
-        "impressions_change_pct": 535.7
+        "position_improvement": -9.32,
+        "impressions_change_pct": 456.2
       },
-      "evidence": "Average position declined 12.0 places versus the previous 28-day window. Average position 14.9 on 89 impressions in the current 28-day window.",
+      "evidence": "Average position declined 9.3 places versus the previous 28-day window. Average position 14.7 on 89 impressions in the current 28-day window.",
       "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
       "relevance_weight": 3,
       "score": 156.6,
       "signals": [
         {
           "type": "ranking_decline",
-          "evidence": "Average position declined 12.0 places versus the previous 28-day window."
+          "evidence": "Average position declined 9.3 places versus the previous 28-day window."
         },
         {
           "type": "striking_distance",
-          "evidence": "Average position 14.9 on 89 impressions in the current 28-day window."
+          "evidence": "Average position 14.7 on 89 impressions in the current 28-day window."
         },
         {
           "type": "ctr_gap",
-          "evidence": "89 impressions at position 14.9 with 0.00% CTR."
+          "evidence": "89 impressions at position 14.7 with 0.00% CTR."
         }
       ],
       "signal_count": 3
@@ -65,22 +65,22 @@
       "confidence": "high",
       "relevance": "core20",
       "metrics": {
-        "position": 46.37,
-        "impressions": 71.0,
+        "position": 45.84,
+        "impressions": 74.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 25,
-        "position_improvement": -16.62,
-        "impressions_change_pct": 491.7
+        "observed_days": 26,
+        "position_improvement": -16.09,
+        "impressions_change_pct": 516.7
       },
-      "evidence": "Average position declined 16.6 places versus the previous 28-day window.",
+      "evidence": "Average position declined 16.1 places versus the previous 28-day window.",
       "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
       "relevance_weight": 3,
-      "score": 149.8,
+      "score": 150.0,
       "signals": [
         {
           "type": "ranking_decline",
-          "evidence": "Average position declined 16.6 places versus the previous 28-day window."
+          "evidence": "Average position declined 16.1 places versus the previous 28-day window."
         }
       ],
       "signal_count": 1
@@ -92,26 +92,26 @@
       "confidence": "high",
       "relevance": "core20",
       "metrics": {
-        "position": 13.76,
-        "impressions": 75.0,
+        "position": 12.49,
+        "impressions": 74.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 27,
-        "position_improvement": -12.76,
-        "impressions_change_pct": 2400.0
+        "position_improvement": 9.01,
+        "impressions_change_pct": 1133.3
       },
-      "evidence": "Average position 13.8 on 75 impressions in the current 28-day window. 75 impressions at position 13.8 with 0.00% CTR.",
+      "evidence": "Average position 12.5 on 74 impressions in the current 28-day window. 74 impressions at position 12.5 with 0.00% CTR.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 3,
       "score": 143.0,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 13.8 on 75 impressions in the current 28-day window."
+          "evidence": "Average position 12.5 on 74 impressions in the current 28-day window."
         },
         {
           "type": "ctr_gap",
-          "evidence": "75 impressions at position 13.8 with 0.00% CTR."
+          "evidence": "74 impressions at position 12.5 with 0.00% CTR."
         }
       ],
       "signal_count": 2
@@ -123,26 +123,26 @@
       "confidence": "high",
       "relevance": "core20",
       "metrics": {
-        "position": 10.71,
+        "position": 10.22,
         "impressions": 45.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 28,
-        "position_improvement": 19.29,
-        "impressions_change_pct": 2150.0
+        "position_improvement": 19.45,
+        "impressions_change_pct": 1400.0
       },
-      "evidence": "Average position 10.7 on 45 impressions in the current 28-day window. 45 impressions at position 10.7 with 0.00% CTR.",
+      "evidence": "Average position 10.2 on 45 impressions in the current 28-day window. 45 impressions at position 10.2 with 0.00% CTR.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 3,
       "score": 141.2,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 10.7 on 45 impressions in the current 28-day window."
+          "evidence": "Average position 10.2 on 45 impressions in the current 28-day window."
         },
         {
           "type": "ctr_gap",
-          "evidence": "45 impressions at position 10.7 with 0.00% CTR."
+          "evidence": "45 impressions at position 10.2 with 0.00% CTR."
         }
       ],
       "signal_count": 2
@@ -154,22 +154,22 @@
       "confidence": "high",
       "relevance": "core_page",
       "metrics": {
-        "position": 19.85,
-        "impressions": 34.0,
+        "position": 22.0,
+        "impressions": 35.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 11,
-        "position_improvement": -9.23,
-        "impressions_change_pct": -52.1
+        "position_improvement": -12.13,
+        "impressions_change_pct": -50.0
       },
-      "evidence": "Impressions declined 52.1% and ranking did not improve enough to offset the loss.",
+      "evidence": "Impressions declined 50.0% and ranking did not improve enough to offset the loss.",
       "recommended_action": "Review recent page changes, indexing/canonical status, internal links, and previously visible queries. Avoid creating a replacement page.",
       "relevance_weight": 3,
-      "score": 127.3,
+      "score": 127.4,
       "signals": [
         {
           "type": "page_decay",
-          "evidence": "Impressions declined 52.1% and ranking did not improve enough to offset the loss."
+          "evidence": "Impressions declined 50.0% and ranking did not improve enough to offset the loss."
         }
       ],
       "signal_count": 1
@@ -181,26 +181,26 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 9.44,
+        "position": 8.49,
         "impressions": 39.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 26,
-        "position_improvement": -5.94,
-        "impressions_change_pct": 875.0
+        "position_improvement": 3.11,
+        "impressions_change_pct": 680.0
       },
-      "evidence": "Average position 9.4 on 39 impressions in the current 28-day window. 39 impressions at position 9.4 with 0.00% CTR.",
+      "evidence": "Average position 8.5 on 39 impressions in the current 28-day window. 39 impressions at position 8.5 with 0.00% CTR.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
       "score": 125.7,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 9.4 on 39 impressions in the current 28-day window."
+          "evidence": "Average position 8.5 on 39 impressions in the current 28-day window."
         },
         {
           "type": "ctr_gap",
-          "evidence": "39 impressions at position 9.4 with 0.00% CTR."
+          "evidence": "39 impressions at position 8.5 with 0.00% CTR."
         }
       ],
       "signal_count": 2
@@ -212,57 +212,57 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 11.58,
-        "impressions": 31.0,
+        "position": 11.25,
+        "impressions": 32.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 22,
-        "position_improvement": -10.58,
-        "impressions_change_pct": 416.7
+        "observed_days": 23,
+        "position_improvement": -10.25,
+        "impressions_change_pct": 540.0
       },
-      "evidence": "Average position 11.6 on 31 impressions in the current 28-day window. 31 impressions at position 11.6 with 0.00% CTR.",
+      "evidence": "Average position 11.2 on 32 impressions in the current 28-day window. 32 impressions at position 11.2 with 0.00% CTR.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 124.9,
+      "score": 125.0,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 11.6 on 31 impressions in the current 28-day window."
+          "evidence": "Average position 11.2 on 32 impressions in the current 28-day window."
         },
         {
           "type": "ctr_gap",
-          "evidence": "31 impressions at position 11.6 with 0.00% CTR."
+          "evidence": "32 impressions at position 11.2 with 0.00% CTR."
         }
       ],
       "signal_count": 2
     },
     {
-      "type": "ranking_decline",
-      "subject": "hoa clubhouse cleaning services",
-      "priority": "medium",
+      "type": "striking_distance",
+      "subject": "commercial cleaning services near me",
+      "priority": "high",
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 19.91,
-        "impressions": 34.0,
+        "position": 11.97,
+        "impressions": 30.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 17,
-        "position_improvement": -17.11,
-        "impressions_change_pct": 240.0
+        "observed_days": 25,
+        "position_improvement": null,
+        "impressions_change_pct": null
       },
-      "evidence": "Average position declined 17.1 places versus the previous 28-day window. Average position 19.9 on 34 impressions in the current 28-day window.",
-      "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
+      "evidence": "Average position 12.0 on 30 impressions in the current 28-day window. 30 impressions at position 12.0 with 0.00% CTR.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 115.3,
+      "score": 124.8,
       "signals": [
         {
-          "type": "ranking_decline",
-          "evidence": "Average position declined 17.1 places versus the previous 28-day window."
+          "type": "striking_distance",
+          "evidence": "Average position 12.0 on 30 impressions in the current 28-day window."
         },
         {
-          "type": "striking_distance",
-          "evidence": "Average position 19.9 on 34 impressions in the current 28-day window."
+          "type": "ctr_gap",
+          "evidence": "30 impressions at position 12.0 with 0.00% CTR."
         }
       ],
       "signal_count": 2
@@ -274,53 +274,111 @@
       "confidence": "medium",
       "relevance": "strategic",
       "metrics": {
-        "position": 7.61,
+        "position": 8.11,
         "impressions": 28.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 24,
-        "position_improvement": -6.61,
+        "position_improvement": -7.11,
         "impressions_change_pct": 0.0
       },
-      "evidence": "Average position declined 6.6 places versus the previous 28-day window. Average position 7.6 on 28 impressions in the current 28-day window.",
+      "evidence": "Average position declined 7.1 places versus the previous 28-day window. Average position 8.1 on 28 impressions in the current 28-day window.",
       "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
       "relevance_weight": 2,
       "score": 114.6,
       "signals": [
         {
           "type": "ranking_decline",
-          "evidence": "Average position declined 6.6 places versus the previous 28-day window."
+          "evidence": "Average position declined 7.1 places versus the previous 28-day window."
         },
         {
           "type": "striking_distance",
-          "evidence": "Average position 7.6 on 28 impressions in the current 28-day window."
+          "evidence": "Average position 8.1 on 28 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 2
+    },
+    {
+      "type": "ctr_gap",
+      "subject": "house cleaning services",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 14.96,
+        "impressions": 54.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 27,
+        "position_improvement": 14.54,
+        "impressions_change_pct": 2600.0
+      },
+      "evidence": "54 impressions at position 15.0 with 0.00% CTR. Average position 15.0 on 54 impressions in the current 28-day window.",
+      "recommended_action": "Review search-snippet and intent alignment; improve title/meta messaging and page relevance before expanding scope.",
+      "relevance_weight": 2,
+      "score": 111.9,
+      "signals": [
+        {
+          "type": "ctr_gap",
+          "evidence": "54 impressions at position 15.0 with 0.00% CTR."
+        },
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 15.0 on 54 impressions in the current 28-day window."
         }
       ],
       "signal_count": 2
     },
     {
       "type": "ranking_decline",
-      "subject": "house cleaning services apollo beach fl",
+      "subject": "maid services apollo beach fl",
       "priority": "medium",
-      "confidence": "medium",
+      "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 41.71,
-        "impressions": 28.0,
+        "position": 34.29,
+        "impressions": 31.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 23,
-        "position_improvement": -9.83,
-        "impressions_change_pct": 75.0
+        "position_improvement": -5.72,
+        "impressions_change_pct": 47.6
       },
-      "evidence": "Average position declined 9.8 places versus the previous 28-day window.",
+      "evidence": "Average position declined 5.7 places versus the previous 28-day window.",
       "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
       "relevance_weight": 2,
-      "score": 111.6,
+      "score": 111.9,
       "signals": [
         {
           "type": "ranking_decline",
-          "evidence": "Average position declined 9.8 places versus the previous 28-day window."
+          "evidence": "Average position declined 5.7 places versus the previous 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "ranking_decline",
+      "subject": "house cleaning services apollo beach fl",
+      "priority": "medium",
+      "confidence": "high",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 38.93,
+        "impressions": 30.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 23,
+        "position_improvement": -5.43,
+        "impressions_change_pct": 87.5
+      },
+      "evidence": "Average position declined 5.4 places versus the previous 28-day window.",
+      "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
+      "relevance_weight": 2,
+      "score": 111.8,
+      "signals": [
+        {
+          "type": "ranking_decline",
+          "evidence": "Average position declined 5.4 places versus the previous 28-day window."
         }
       ],
       "signal_count": 1
@@ -332,26 +390,26 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 14.35,
-        "impressions": 43.0,
+        "position": 14.86,
+        "impressions": 44.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 19,
+        "observed_days": 20,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "43 impressions at position 14.3 with 0.00% CTR. Average position 14.3 on 43 impressions in the current 28-day window.",
+      "evidence": "44 impressions at position 14.9 with 0.00% CTR. Average position 14.9 on 44 impressions in the current 28-day window.",
       "recommended_action": "Review search-snippet and intent alignment; improve title/meta messaging and page relevance before expanding scope.",
       "relevance_weight": 2,
       "score": 111.1,
       "signals": [
         {
           "type": "ctr_gap",
-          "evidence": "43 impressions at position 14.3 with 0.00% CTR."
+          "evidence": "44 impressions at position 14.9 with 0.00% CTR."
         },
         {
           "type": "striking_distance",
-          "evidence": "Average position 14.3 on 43 impressions in the current 28-day window."
+          "evidence": "Average position 14.9 on 44 impressions in the current 28-day window."
         }
       ],
       "signal_count": 2
@@ -394,56 +452,29 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 13.1,
-        "impressions": 31.0,
+        "position": 12.72,
+        "impressions": 32.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 10,
+        "observed_days": 11,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "31 impressions at position 13.1 with 0.00% CTR. Average position 13.1 on 31 impressions in the current 28-day window.",
+      "evidence": "32 impressions at position 12.7 with 0.00% CTR. Average position 12.7 on 32 impressions in the current 28-day window.",
       "recommended_action": "Review search-snippet and intent alignment; improve title/meta messaging and page relevance before expanding scope.",
       "relevance_weight": 2,
-      "score": 109.9,
+      "score": 110.0,
       "signals": [
         {
           "type": "ctr_gap",
-          "evidence": "31 impressions at position 13.1 with 0.00% CTR."
+          "evidence": "32 impressions at position 12.7 with 0.00% CTR."
         },
         {
           "type": "striking_distance",
-          "evidence": "Average position 13.1 on 31 impressions in the current 28-day window."
+          "evidence": "Average position 12.7 on 32 impressions in the current 28-day window."
         }
       ],
       "signal_count": 2
-    },
-    {
-      "type": "ranking_momentum",
-      "subject": "airbnb cleaning service tampa",
-      "priority": "medium",
-      "confidence": "high",
-      "relevance": "core20",
-      "metrics": {
-        "position": 34.32,
-        "impressions": 44.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "observed_days": 20,
-        "position_improvement": 5.44,
-        "impressions_change_pct": -2.2
-      },
-      "evidence": "Average position improved 5.4 places versus the previous 28-day window.",
-      "recommended_action": "Protect the gain and verify the intended page is ranking.",
-      "relevance_weight": 3,
-      "score": 108.1,
-      "signals": [
-        {
-          "type": "ranking_momentum",
-          "evidence": "Average position improved 5.4 places versus the previous 28-day window."
-        }
-      ],
-      "signal_count": 1
     },
     {
       "type": "striking_distance",
@@ -452,22 +483,22 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 19.74,
-        "impressions": 92.0,
+        "position": 19.06,
+        "impressions": 96.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 23,
+        "observed_days": 24,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 19.7 on 92 impressions in the current 28-day window.",
+      "evidence": "Average position 19.1 on 96 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 105.7,
+      "score": 105.9,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 19.7 on 92 impressions in the current 28-day window."
+          "evidence": "Average position 19.1 on 96 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -479,22 +510,22 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 17.57,
-        "impressions": 58.0,
+        "position": 17.39,
+        "impressions": 59.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 25,
-        "position_improvement": 6.43,
-        "impressions_change_pct": 5700.0
+        "observed_days": 26,
+        "position_improvement": 6.61,
+        "impressions_change_pct": 5800.0
       },
-      "evidence": "Average position 17.6 on 58 impressions in the current 28-day window.",
+      "evidence": "Average position 17.4 on 59 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 104.1,
+      "score": 104.2,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 17.6 on 58 impressions in the current 28-day window."
+          "evidence": "Average position 17.4 on 59 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -533,49 +564,49 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 14.43,
-        "impressions": 54.0,
+        "position": 14.44,
+        "impressions": 55.0,
         "clicks": 1.0,
-        "ctr_percent": 1.85,
-        "observed_days": 25,
-        "position_improvement": -13.43,
-        "impressions_change_pct": 1700.0
+        "ctr_percent": 1.82,
+        "observed_days": 26,
+        "position_improvement": -13.44,
+        "impressions_change_pct": 1733.3
       },
-      "evidence": "Average position 14.4 on 54 impressions in the current 28-day window.",
+      "evidence": "Average position 14.4 on 55 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
       "score": 103.9,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 14.4 on 54 impressions in the current 28-day window."
+          "evidence": "Average position 14.4 on 55 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
     },
     {
       "type": "striking_distance",
-      "subject": "house cleaning services",
+      "subject": "home cleaning services",
       "priority": "medium",
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 15.49,
-        "impressions": 55.0,
+        "position": 15.04,
+        "impressions": 54.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 27,
+        "observed_days": 26,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 15.5 on 55 impressions in the current 28-day window.",
+      "evidence": "Average position 15.0 on 54 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
       "score": 103.9,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.5 on 55 impressions in the current 28-day window."
+          "evidence": "Average position 15.0 on 54 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -587,80 +618,53 @@
       "confidence": "medium",
       "relevance": "strategic",
       "metrics": {
-        "position": 8.22,
-        "impressions": 23.0,
+        "position": 8.09,
+        "impressions": 22.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 14,
-        "position_improvement": 25.63,
-        "impressions_change_pct": 76.9
+        "observed_days": 13,
+        "position_improvement": 24.12,
+        "impressions_change_pct": 57.1
       },
-      "evidence": "Average position 8.2 on 23 impressions in the current 28-day window. Average position improved 25.6 places versus the previous 28-day window.",
+      "evidence": "Average position 8.1 on 22 impressions in the current 28-day window. Average position improved 24.1 places versus the previous 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 103.9,
+      "score": 103.7,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 8.2 on 23 impressions in the current 28-day window."
+          "evidence": "Average position 8.1 on 22 impressions in the current 28-day window."
         },
         {
           "type": "ranking_momentum",
-          "evidence": "Average position improved 25.6 places versus the previous 28-day window."
+          "evidence": "Average position improved 24.1 places versus the previous 28-day window."
         }
       ],
       "signal_count": 2
     },
     {
       "type": "striking_distance",
-      "subject": "home cleaning services",
+      "subject": "hoa clubhouse cleaning services",
       "priority": "medium",
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 15.15,
-        "impressions": 53.0,
+        "position": 19.91,
+        "impressions": 34.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 25,
-        "position_improvement": null,
-        "impressions_change_pct": null
+        "observed_days": 17,
+        "position_improvement": -17.24,
+        "impressions_change_pct": 277.8
       },
-      "evidence": "Average position 15.2 on 53 impressions in the current 28-day window.",
+      "evidence": "Average position 19.9 on 34 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 103.8,
+      "score": 102.3,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.2 on 53 impressions in the current 28-day window."
-        }
-      ],
-      "signal_count": 1
-    },
-    {
-      "type": "striking_distance",
-      "subject": "commercial cleaning services near me",
-      "priority": "medium",
-      "confidence": "medium",
-      "relevance": "strategic",
-      "metrics": {
-        "position": 12.07,
-        "impressions": 29.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "observed_days": 24,
-        "position_improvement": null,
-        "impressions_change_pct": null
-      },
-      "evidence": "Average position 12.1 on 29 impressions in the current 28-day window.",
-      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
-      "relevance_weight": 2,
-      "score": 101.7,
-      "signals": [
-        {
-          "type": "striking_distance",
-          "evidence": "Average position 12.1 on 29 impressions in the current 28-day window."
+          "evidence": "Average position 19.9 on 34 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -669,25 +673,79 @@
       "type": "striking_distance",
       "subject": "office cleaning services",
       "priority": "medium",
-      "confidence": "medium",
+      "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 15.69,
-        "impressions": 29.0,
+        "position": 15.43,
+        "impressions": 30.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 22,
-        "position_improvement": -14.69,
-        "impressions_change_pct": 262.5
+        "position_improvement": -11.55,
+        "impressions_change_pct": 275.0
       },
-      "evidence": "Average position 15.7 on 29 impressions in the current 28-day window.",
+      "evidence": "Average position 15.4 on 30 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 101.7,
+      "score": 101.8,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.7 on 29 impressions in the current 28-day window."
+          "evidence": "Average position 15.4 on 30 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "apartment cleaning services near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 16.82,
+        "impressions": 22.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 16,
+        "position_improvement": 6.68,
+        "impressions_change_pct": 1000.0
+      },
+      "evidence": "Average position 16.8 on 22 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.7,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 16.8 on 22 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "apartment complex cleaning services",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 14.59,
+        "impressions": 22.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 20,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 14.6 on 22 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 100.7,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 14.6 on 22 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -721,81 +779,27 @@
     },
     {
       "type": "striking_distance",
-      "subject": "apartment cleaning services near me",
-      "priority": "medium",
-      "confidence": "medium",
-      "relevance": "strategic",
-      "metrics": {
-        "position": 17.48,
-        "impressions": 21.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "observed_days": 16,
-        "position_improvement": 6.52,
-        "impressions_change_pct": 2000.0
-      },
-      "evidence": "Average position 17.5 on 21 impressions in the current 28-day window.",
-      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
-      "relevance_weight": 2,
-      "score": 100.6,
-      "signals": [
-        {
-          "type": "striking_distance",
-          "evidence": "Average position 17.5 on 21 impressions in the current 28-day window."
-        }
-      ],
-      "signal_count": 1
-    },
-    {
-      "type": "striking_distance",
-      "subject": "apartment complex cleaning services",
-      "priority": "medium",
-      "confidence": "medium",
-      "relevance": "strategic",
-      "metrics": {
-        "position": 14.76,
-        "impressions": 21.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "observed_days": 19,
-        "position_improvement": null,
-        "impressions_change_pct": null
-      },
-      "evidence": "Average position 14.8 on 21 impressions in the current 28-day window.",
-      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
-      "relevance_weight": 2,
-      "score": 100.6,
-      "signals": [
-        {
-          "type": "striking_distance",
-          "evidence": "Average position 14.8 on 21 impressions in the current 28-day window."
-        }
-      ],
-      "signal_count": 1
-    },
-    {
-      "type": "striking_distance",
       "subject": "move out cleaning services",
       "priority": "medium",
       "confidence": "medium",
       "relevance": "strategic",
       "metrics": {
-        "position": 16.18,
-        "impressions": 17.0,
+        "position": 15.68,
+        "impressions": 19.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 9,
+        "observed_days": 10,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 16.2 on 17 impressions in the current 28-day window.",
+      "evidence": "Average position 15.7 on 19 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 99.8,
+      "score": 100.2,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 16.2 on 17 impressions in the current 28-day window."
+          "evidence": "Average position 15.7 on 19 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -807,22 +811,22 @@
       "confidence": "medium",
       "relevance": "strategic",
       "metrics": {
-        "position": 14.5,
-        "impressions": 16.0,
+        "position": 14.28,
+        "impressions": 18.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 11,
-        "position_improvement": -9.12,
-        "impressions_change_pct": 100.0
+        "observed_days": 12,
+        "position_improvement": -8.9,
+        "impressions_change_pct": 125.0
       },
-      "evidence": "Average position 14.5 on 16 impressions in the current 28-day window.",
+      "evidence": "Average position 14.3 on 18 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 99.6,
+      "score": 100.0,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 14.5 on 16 impressions in the current 28-day window."
+          "evidence": "Average position 14.3 on 18 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -834,22 +838,22 @@
       "confidence": "medium",
       "relevance": "strategic",
       "metrics": {
-        "position": 15.75,
-        "impressions": 16.0,
+        "position": 15.82,
+        "impressions": 17.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 16,
+        "observed_days": 17,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 15.8 on 16 impressions in the current 28-day window.",
+      "evidence": "Average position 15.8 on 17 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
-      "score": 99.6,
+      "score": 99.8,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.8 on 16 impressions in the current 28-day window."
+          "evidence": "Average position 15.8 on 17 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -915,22 +919,76 @@
       "confidence": "medium",
       "relevance": "strategic",
       "metrics": {
-        "position": 15.75,
+        "position": 15.92,
         "impressions": 12.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 10,
-        "position_improvement": null,
-        "impressions_change_pct": null
+        "position_improvement": 0.08,
+        "impressions_change_pct": 1100.0
       },
-      "evidence": "Average position 15.8 on 12 impressions in the current 28-day window.",
+      "evidence": "Average position 15.9 on 12 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 2,
       "score": 98.6,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.8 on 12 impressions in the current 28-day window."
+          "evidence": "Average position 15.9 on 12 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "commercial cleaning",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 9.91,
+        "impressions": 11.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 8,
+        "position_improvement": -8.91,
+        "impressions_change_pct": -35.3
+      },
+      "evidence": "Average position 9.9 on 11 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.3,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 9.9 on 11 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
+      "subject": "home cleaning services near me",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 18.82,
+        "impressions": 11.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 6,
+        "position_improvement": null,
+        "impressions_change_pct": null
+      },
+      "evidence": "Average position 18.8 on 11 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.3,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 18.8 on 11 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1018,6 +1076,33 @@
     },
     {
       "type": "striking_distance",
+      "subject": "medical office cleaning service",
+      "priority": "medium",
+      "confidence": "medium",
+      "relevance": "strategic",
+      "metrics": {
+        "position": 17.4,
+        "impressions": 10.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "observed_days": 6,
+        "position_improvement": 3.6,
+        "impressions_change_pct": 42.9
+      },
+      "evidence": "Average position 17.4 on 10 impressions in the current 28-day window.",
+      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
+      "relevance_weight": 2,
+      "score": 98.0,
+      "signals": [
+        {
+          "type": "striking_distance",
+          "evidence": "Average position 17.4 on 10 impressions in the current 28-day window."
+        }
+      ],
+      "signal_count": 1
+    },
+    {
+      "type": "striking_distance",
       "subject": "tampa gym cleaning",
       "priority": "medium",
       "confidence": "medium",
@@ -1050,22 +1135,22 @@
       "confidence": "medium",
       "relevance": "discovered",
       "metrics": {
-        "position": 35.16,
-        "impressions": 25.0,
+        "position": 34.85,
+        "impressions": 26.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 19,
-        "position_improvement": -33.86,
-        "impressions_change_pct": 150.0
+        "observed_days": 20,
+        "position_improvement": -33.55,
+        "impressions_change_pct": 160.0
       },
-      "evidence": "Average position declined 33.9 places versus the previous 28-day window.",
+      "evidence": "Average position declined 33.6 places versus the previous 28-day window.",
       "recommended_action": "Inspect query-to-page alignment, recent SEO events, competing pages, and snippet/content changes before a targeted correction.",
       "relevance_weight": 1,
-      "score": 96.2,
+      "score": 96.3,
       "signals": [
         {
           "type": "ranking_decline",
-          "evidence": "Average position declined 33.9 places versus the previous 28-day window."
+          "evidence": "Average position declined 33.6 places versus the previous 28-day window."
         }
       ],
       "signal_count": 1
@@ -1077,22 +1162,22 @@
       "confidence": "high",
       "relevance": "strategic",
       "metrics": {
-        "position": 27.66,
+        "position": 26.85,
         "impressions": 47.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 27,
-        "position_improvement": 20.82,
-        "impressions_change_pct": 104.3
+        "position_improvement": 20.94,
+        "impressions_change_pct": 95.8
       },
-      "evidence": "Average position improved 20.8 places versus the previous 28-day window.",
+      "evidence": "Average position improved 20.9 places versus the previous 28-day window.",
       "recommended_action": "Protect the gain and verify the intended page is ranking.",
       "relevance_weight": 2,
       "score": 93.4,
       "signals": [
         {
           "type": "ranking_momentum",
-          "evidence": "Average position improved 20.8 places versus the previous 28-day window."
+          "evidence": "Average position improved 20.9 places versus the previous 28-day window."
         }
       ],
       "signal_count": 1
@@ -1158,22 +1243,22 @@
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 15.53,
-        "impressions": 62.0,
+        "position": 14.79,
+        "impressions": 61.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 28,
-        "position_improvement": null,
-        "impressions_change_pct": null
+        "position_improvement": 11.88,
+        "impressions_change_pct": 1933.3
       },
-      "evidence": "Average position 15.5 on 62 impressions in the current 28-day window.",
+      "evidence": "Average position 14.8 on 61 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
       "score": 89.3,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.5 on 62 impressions in the current 28-day window."
+          "evidence": "Average position 14.8 on 61 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1185,22 +1270,22 @@
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 18.18,
-        "impressions": 55.0,
+        "position": 18.0,
+        "impressions": 57.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 22,
+        "observed_days": 23,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 18.2 on 55 impressions in the current 28-day window.",
+      "evidence": "Average position 18.0 on 57 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
-      "score": 88.9,
+      "score": 89.0,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 18.2 on 55 impressions in the current 28-day window."
+          "evidence": "Average position 18.0 on 57 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1212,22 +1297,22 @@
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 15.3,
-        "impressions": 53.0,
+        "position": 15.15,
+        "impressions": 54.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 26,
+        "observed_days": 27,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 15.3 on 53 impressions in the current 28-day window.",
+      "evidence": "Average position 15.2 on 54 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
-      "score": 88.8,
+      "score": 88.9,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.3 on 53 impressions in the current 28-day window."
+          "evidence": "Average position 15.2 on 54 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1240,21 +1325,21 @@
       "relevance": "discovered",
       "metrics": {
         "position": 14.96,
-        "impressions": 51.0,
+        "impressions": 52.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 25,
+        "observed_days": 26,
         "position_improvement": 31.04,
-        "impressions_change_pct": 5000.0
+        "impressions_change_pct": 5100.0
       },
-      "evidence": "Average position 15.0 on 51 impressions in the current 28-day window.",
+      "evidence": "Average position 15.0 on 52 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
       "score": 88.7,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 15.0 on 51 impressions in the current 28-day window."
+          "evidence": "Average position 15.0 on 52 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1266,49 +1351,49 @@
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 8.73,
-        "impressions": 45.0,
+        "position": 8.63,
+        "impressions": 46.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 21,
+        "observed_days": 22,
         "position_improvement": null,
         "impressions_change_pct": null
       },
-      "evidence": "Average position 8.7 on 45 impressions in the current 28-day window.",
+      "evidence": "Average position 8.6 on 46 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
-      "score": 88.2,
+      "score": 88.3,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 8.7 on 45 impressions in the current 28-day window."
+          "evidence": "Average position 8.6 on 46 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
     },
     {
       "type": "striking_distance",
-      "subject": "apartment community cleaning",
+      "subject": "apartment common area cleaning",
       "priority": "medium",
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 19.67,
-        "impressions": 42.0,
+        "position": 19.22,
+        "impressions": 45.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 23,
-        "position_improvement": null,
-        "impressions_change_pct": null
+        "position_improvement": 60.78,
+        "impressions_change_pct": 4400.0
       },
-      "evidence": "Average position 19.7 on 42 impressions in the current 28-day window.",
+      "evidence": "Average position 19.2 on 45 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
-      "score": 88.0,
+      "score": 88.2,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 19.7 on 42 impressions in the current 28-day window."
+          "evidence": "Average position 19.2 on 45 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1320,13 +1405,13 @@
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 11.87,
+        "position": 11.95,
         "impressions": 38.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
         "observed_days": 27,
-        "position_improvement": -4.87,
-        "impressions_change_pct": 3700.0
+        "position_improvement": -3.45,
+        "impressions_change_pct": 1800.0
       },
       "evidence": "Average position 11.9 on 38 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
@@ -1347,22 +1432,22 @@
       "confidence": "high",
       "relevance": "discovered",
       "metrics": {
-        "position": 14.08,
-        "impressions": 37.0,
+        "position": 14.03,
+        "impressions": 38.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "observed_days": 25,
-        "position_improvement": -9.08,
-        "impressions_change_pct": 825.0
+        "observed_days": 26,
+        "position_improvement": -7.7,
+        "impressions_change_pct": 1166.7
       },
-      "evidence": "Average position 14.1 on 37 impressions in the current 28-day window.",
+      "evidence": "Average position 14.0 on 38 impressions in the current 28-day window.",
       "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
       "relevance_weight": 1,
-      "score": 87.5,
+      "score": 87.6,
       "signals": [
         {
           "type": "striking_distance",
-          "evidence": "Average position 14.1 on 37 impressions in the current 28-day window."
+          "evidence": "Average position 14.0 on 38 impressions in the current 28-day window."
         }
       ],
       "signal_count": 1
@@ -1390,60 +1475,6 @@
         {
           "type": "striking_distance",
           "evidence": "Average position 17.7 on 31 impressions in the current 28-day window."
-        }
-      ],
-      "signal_count": 1
-    },
-    {
-      "type": "striking_distance",
-      "subject": "home cleaners near me",
-      "priority": "medium",
-      "confidence": "high",
-      "relevance": "discovered",
-      "metrics": {
-        "position": 17.03,
-        "impressions": 30.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "observed_days": 23,
-        "position_improvement": null,
-        "impressions_change_pct": null
-      },
-      "evidence": "Average position 17.0 on 30 impressions in the current 28-day window.",
-      "recommended_action": "Strengthen the existing ranking page for this intent: snippet alignment, on-page coverage, proof, and relevant internal links. Do not create an overlapping URL.",
-      "relevance_weight": 1,
-      "score": 86.8,
-      "signals": [
-        {
-          "type": "striking_distance",
-          "evidence": "Average position 17.0 on 30 impressions in the current 28-day window."
-        }
-      ],
-      "signal_count": 1
-    },
-    {
-      "type": "ranking_momentum",
-      "subject": "home cleaning apollo beach fl",
-      "priority": "medium",
-      "confidence": "high",
-      "relevance": "discovered",
-      "metrics": {
-        "position": 29.0,
-        "impressions": 30.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "observed_days": 20,
-        "position_improvement": 6.4,
-        "impressions_change_pct": 200.0
-      },
-      "evidence": "Average position improved 6.4 places versus the previous 28-day window.",
-      "recommended_action": "Protect the gain and verify the intended page is ranking.",
-      "relevance_weight": 1,
-      "score": 76.8,
-      "signals": [
-        {
-          "type": "ranking_momentum",
-          "evidence": "Average position improved 6.4 places versus the previous 28-day window."
         }
       ],
       "signal_count": 1

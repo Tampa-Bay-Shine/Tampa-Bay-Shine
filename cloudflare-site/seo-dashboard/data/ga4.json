@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-31T16:25:36+00:00",
-  "data_through": "2026-10-30",
+  "generated_at": "2026-11-01T18:12:04+00:00",
+  "data_through": "2026-10-31",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -18,22 +18,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 41,
-          "active_users": 9,
-          "engaged_sessions": 20,
-          "engagement_rate": 48.78,
-          "booking_start_rate": 2.44,
-          "primary_intent_rate": 7.32,
+          "sessions": 42,
+          "active_users": 10,
+          "engaged_sessions": 19,
+          "engagement_rate": 45.24,
+          "booking_start_rate": 2.38,
+          "primary_intent_rate": 7.14,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 29,
-          "active_users": 20,
-          "engaged_sessions": 22,
-          "engagement_rate": 75.86,
-          "booking_start_rate": 10.34,
-          "primary_intent_rate": 17.24,
+          "sessions": 32,
+          "active_users": 17,
+          "engaged_sessions": 24,
+          "engagement_rate": 75.0,
+          "booking_start_rate": 6.25,
+          "primary_intent_rate": 12.5,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -49,13 +49,13 @@
           "all_intent_actions": 3
         },
         "previous": {
-          "booknow_click": 3,
+          "booknow_click": 2,
           "phone_click": 0,
           "commercial_quote_start": 0,
           "contact_click": 2,
           "coupon_click": 0,
-          "primary_intent_actions": 5,
-          "all_intent_actions": 5
+          "primary_intent_actions": 4,
+          "all_intent_actions": 4
         }
       },
       "confirmed_bookings": {
@@ -79,22 +79,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 100,
+          "sessions": 106,
           "active_users": 48,
-          "engaged_sessions": 63,
-          "engagement_rate": 63.0,
-          "booking_start_rate": 10.0,
-          "primary_intent_rate": 15.0,
+          "engaged_sessions": 65,
+          "engagement_rate": 61.32,
+          "booking_start_rate": 9.43,
+          "primary_intent_rate": 14.15,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 6,
-          "active_users": 6,
-          "engaged_sessions": 5,
-          "engagement_rate": 83.33,
-          "booking_start_rate": 33.33,
-          "primary_intent_rate": 33.33,
+          "sessions": 7,
+          "active_users": 7,
+          "engaged_sessions": 6,
+          "engagement_rate": 85.71,
+          "booking_start_rate": 28.57,
+          "primary_intent_rate": 28.57,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 106,
-          "active_users": 54,
-          "engaged_sessions": 68,
-          "engagement_rate": 64.15,
-          "booking_start_rate": 11.32,
-          "primary_intent_rate": 16.04,
+          "sessions": 113,
+          "active_users": 55,
+          "engaged_sessions": 71,
+          "engagement_rate": 62.83,
+          "booking_start_rate": 10.62,
+          "primary_intent_rate": 15.04,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 69,
-      "active_users": 42,
-      "engaged_sessions": 53,
+      "sessions": 70,
+      "active_users": 41,
+      "engaged_sessions": 54,
       "booknow_click": 10,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,7 +204,7 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 12,
       "all_intent_actions": 12,
-      "booking_start_rate": 14.49,
+      "booking_start_rate": 14.29,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -311,6 +311,23 @@
       "booking_completion_rate": null
     },
     {
+      "landing_page": "/move-out-cleaning-tampa-bay/",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 0,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
       "landing_page": "/realtor-partners/",
       "sessions": 1,
       "active_users": 1,
@@ -342,12 +359,12 @@
     {
       "event_name": "booknow_click",
       "channel": "AI Assistant",
-      "event_count": 27
+      "event_count": 30
     },
     {
       "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 32
+      "event_count": 31
     },
     {
       "event_name": "booknow_click",
@@ -372,7 +389,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Unassigned",
-      "event_count": 4
+      "event_count": 1
     },
     {
       "event_name": "commercial_quote_start",
