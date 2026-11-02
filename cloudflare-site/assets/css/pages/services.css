@@ -1291,3 +1291,26 @@
   line-height:1.4;
 }
 /* /TBS SERVICES FUNNEL V2.1 READABILITY */
+/* TBS SERVICES HERO BALANCE V1 */
+@media (min-width: 921px) {
+  #tbs-services-funnel-v1 .f-hero-inner {
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+    gap: 36px;
+    align-items: center;
+  }
+
+  #tbs-services-funnel-v1 .f-hero-media {
+    width: 100%;
+    min-height: 310px;
+    align-self: stretch;
+  }
+
+  #tbs-services-funnel-v1 .f-hero-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 310px;
+    object-fit: cover;
+    display: block;
+  }
+}
+/* END TBS SERVICES HERO BALANCE V1 */
