@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T22:01:13+00:00",
-  "data_through": "2026-11-01",
+  "generated_at": "2026-11-03T19:54:30+00:00",
+  "data_through": "2026-11-02",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -18,22 +18,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 42,
-          "active_users": 10,
+          "sessions": 40,
+          "active_users": 11,
           "engaged_sessions": 19,
-          "engagement_rate": 45.24,
-          "booking_start_rate": 2.38,
-          "primary_intent_rate": 7.14,
+          "engagement_rate": 47.5,
+          "booking_start_rate": 2.5,
+          "primary_intent_rate": 7.5,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 34,
-          "active_users": 16,
-          "engaged_sessions": 24,
-          "engagement_rate": 70.59,
-          "booking_start_rate": 5.88,
-          "primary_intent_rate": 11.76,
+          "sessions": 36,
+          "active_users": 15,
+          "engaged_sessions": 22,
+          "engagement_rate": 61.11,
+          "booking_start_rate": 2.78,
+          "primary_intent_rate": 5.56,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -49,13 +49,13 @@
           "all_intent_actions": 3
         },
         "previous": {
-          "booknow_click": 2,
+          "booknow_click": 1,
           "phone_click": 0,
           "commercial_quote_start": 0,
-          "contact_click": 2,
+          "contact_click": 1,
           "coupon_click": 0,
-          "primary_intent_actions": 4,
-          "all_intent_actions": 4
+          "primary_intent_actions": 2,
+          "all_intent_actions": 2
         }
       },
       "confirmed_bookings": {
@@ -79,12 +79,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 110,
-          "active_users": 48,
-          "engaged_sessions": 67,
-          "engagement_rate": 60.91,
-          "booking_start_rate": 9.09,
-          "primary_intent_rate": 13.64,
+          "sessions": 114,
+          "active_users": 50,
+          "engaged_sessions": 69,
+          "engagement_rate": 60.53,
+          "booking_start_rate": 8.77,
+          "primary_intent_rate": 13.16,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 117,
-          "active_users": 55,
-          "engaged_sessions": 73,
-          "engagement_rate": 62.39,
-          "booking_start_rate": 10.26,
-          "primary_intent_rate": 14.53,
+          "sessions": 121,
+          "active_users": 57,
+          "engaged_sessions": 75,
+          "engagement_rate": 61.98,
+          "booking_start_rate": 9.92,
+          "primary_intent_rate": 14.05,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 72,
+      "sessions": 74,
       "active_users": 41,
-      "engaged_sessions": 56,
+      "engaged_sessions": 57,
       "booknow_click": 10,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,7 +204,7 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 12,
       "all_intent_actions": 12,
-      "booking_start_rate": 13.89,
+      "booking_start_rate": 13.51,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -261,9 +261,9 @@
     },
     {
       "landing_page": "/coupons/",
-      "sessions": 1,
-      "active_users": 1,
-      "engaged_sessions": 0,
+      "sessions": 2,
+      "active_users": 2,
+      "engaged_sessions": 1,
       "booknow_click": 0,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -281,6 +281,23 @@
       "sessions": 1,
       "active_users": 1,
       "engaged_sessions": 1,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
+      "landing_page": "/house-cleaning-apollo-beach/",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 0,
       "booknow_click": 0,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -364,7 +381,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 31
+      "event_count": 33
     },
     {
       "event_name": "booknow_click",
@@ -434,11 +451,6 @@
     {
       "event_name": "coupon_click",
       "channel": "AI Assistant",
-      "event_count": 1
-    },
-    {
-      "event_name": "coupon_click",
-      "channel": "Direct",
       "event_count": 1
     },
     {
