@@ -105,12 +105,34 @@ def synthetic_query_reason(query):
     return None
 
 
+def query_intent(query):
+    # Distinguish residential, commercial, generic and mixed searches.
+    import re
+    text = " ".join(str(query or "").lower().replace("-", " ").split())
+    def mentions(token):
+        return bool(re.search(r"\b" + re.escape(token) + r"\b", text))
+    commercial = ("commercial", "office", "janitorial", "facility", "medical",
+                  "dental", "clinic", "gym", "fitness", "restroom", "warehouse",
+                  "industrial", "clubhouse", "hoa", "condo association",
+                  "common area", "post construction", "construction cleanup")
+    residential = ("house", "home", "maid", "apartment", "residential",
+                   "move out", "move in", "airbnb", "vacation rental",
+                   "rental turnover", "student housing", "dorm")
+    has_commercial = any(mentions(t) for t in commercial)
+    has_residential = any(mentions(t) for t in residential)
+    if has_commercial and has_residential:
+        return "mixed"
+    if has_commercial:
+        return "commercial"
+    if has_residential:
+        return "residential"
+    if any(mentions(t) for t in ("cleaning", "cleaners", "cleaner", "housekeeping")):
+        return "broad_local"
+    return "unrelated"
+
+
 def is_commercial_query(query):
-    text = str(query or "").lower()
-    return (
-        any(term in text for term in COMMERCIAL_TERMS)
-        and any(term in text for term in SERVICE_TERMS)
-    )
+    return query_intent(query) == "commercial"
 
 
 def post_boundary_context(query, query_history, boundary=MEASUREMENT_BOUNDARY):
@@ -352,7 +374,7 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
 
         if (
             query
-            and is_commercial_query(query)
+            and query_intent(query) in ("commercial", "residential", "broad_local", "mixed")
             and position is not None
             and 4 <= position <= 20
             and impressions >= 15
@@ -366,13 +388,20 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
 
             priority = "high" if position <= 15 and impressions >= 20 else "medium"
 
+            intent = query_intent(query)
+            opportunity_type = {
+                "commercial": "commercial_striking_distance",
+                "residential": "residential_striking_distance",
+                "broad_local": "local_striking_distance",
+                "mixed": "mixed_intent_striking_distance",
+            }[intent]
             add(
-                "commercial_striking_distance",
+                opportunity_type,
                 priority,
                 query,
                 (
-                    "Commercial-intent query is already within positions 4-20 and "
-                    "has enough current impressions to justify focused optimization."
+                    f"{intent.replace('_', ' ').title()} cleaning-intent query is within positions 4-20 "
+                    "and has enough current impressions to justify focused optimization."
                 ),
                 {
                     "gsc_period": gsc.get("period"),
@@ -408,7 +437,7 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
 
         if (
             query
-            and is_commercial_query(query)
+            and query_intent(query) in ("commercial", "residential", "broad_local", "mixed")
             and impressions >= 20
             and position is not None
             and position <= 15
@@ -648,6 +677,9 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
 
         if item_type in {
             "commercial_striking_distance",
+            "residential_striking_distance",
+            "local_striking_distance",
+            "mixed_intent_striking_distance",
             "ctr_opportunity",
         }:
             query_key = str(
@@ -666,7 +698,9 @@ def build_intelligence(gsc, ga4, ai, ai_visibility, events, query_history):
 
     items = consolidated
 
-    preference = {"gsc_action": 0, "commercial_striking_distance": 1, "ctr_opportunity": 2}
+    preference = {"gsc_action": 0, "commercial_striking_distance": 1,
+                  "residential_striking_distance": 1, "local_striking_distance": 1,
+                  "mixed_intent_striking_distance": 1, "ctr_opportunity": 2}
     by_query = {}
     no_query = []
     for item in items:
