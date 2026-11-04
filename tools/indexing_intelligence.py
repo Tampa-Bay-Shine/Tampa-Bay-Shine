@@ -29,6 +29,8 @@ PAGES=[
 ("/house-cleaning-sun-city-center-fl/","Sun City Center House Cleaning"),
 ("/house-cleaning-ruskin-fl/","Ruskin House Cleaning")]
 
+STUDENT_CAMPAIGN_INSPECTION = [('/student-housing-cleaning-tampa/', 'Student Housing Hub'), ('/usf-apartment-cleaning/', 'USF Apartment Cleaning'), ('/utampa-apartment-cleaning/', 'University of Tampa'), ('/hillsborough-college-apartment-cleaning/', 'Hillsborough College'), ('/florida-college-apartment-cleaning/', 'Florida College'), ('/keiser-university-apartment-cleaning-tampa/', 'Keiser University Tampa'), ('/phsc-student-apartment-cleaning/', 'PHSC / Wesley Chapel'), ('/rasmussen-university-apartment-cleaning/', 'Rasmussen University'), ('/college-apartment-move-out-cleaning/', 'College Move-Out Cleaning'), ('/college-student-cleaning-gift-cards/', 'Student Cleaning Gift Cards')]
+
 def auth(client_secret,token):
     creds=None
     if token.exists():
@@ -96,6 +98,11 @@ def main():
         x=inspect(service,SITE.rstrip("/")+path)
         x.update({"path":path,"label":label})
         rows.append(x)
+    student_rows=[]
+    for path,label in STUDENT_CAMPAIGN_INSPECTION:
+        item=inspect(service,SITE.rstrip("/")+path)
+        item.update({"path":path,"label":label})
+        student_rows.append(item)
     indexed=sum(x["verdict"]=="PASS" and x["coverage_state"]=="Submitted and indexed" for x in rows)
     canonical_match=sum(1 for x in rows if x.get("google_canonical") and x.get("google_canonical")==x.get("user_canonical"))
     issues=[x for x in rows if not (x["verdict"]=="PASS" and x["coverage_state"]=="Submitted and indexed")]
@@ -110,7 +117,8 @@ def main():
       "property":SITE,"scope":"Fixed 15 strategic Core Pages; this is not a site-wide index coverage count.",
       "executive":{"status":status,"tracked":len(rows),"indexed":indexed,
         "not_indexed_or_nonpass":len(issues),"canonical_matches":canonical_match},
-      "changes":changes,"pages":rows}
+      "changes":changes,"pages":rows,"student_pages":student_rows,
+      "student_executive":{"tracked":len(student_rows),"indexed":sum(r.get("verdict")=="PASS" and r.get("coverage_state")=="Submitted and indexed" for r in student_rows)}}
     a.out.parent.mkdir(parents=True,exist_ok=True)
     a.out.write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
     snap={"checked_at":now,"status":status,"tracked":len(rows),"indexed":indexed,

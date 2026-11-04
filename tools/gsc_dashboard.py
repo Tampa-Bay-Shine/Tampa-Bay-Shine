@@ -1744,6 +1744,8 @@ def write_daily_query_history(
     return payload
 
 
+STUDENT_CAMPAIGN_PAGES = ['https://tampabayshine.com/student-housing-cleaning-tampa/', 'https://tampabayshine.com/usf-apartment-cleaning/', 'https://tampabayshine.com/utampa-apartment-cleaning/', 'https://tampabayshine.com/hillsborough-college-apartment-cleaning/', 'https://tampabayshine.com/florida-college-apartment-cleaning/', 'https://tampabayshine.com/keiser-university-apartment-cleaning-tampa/', 'https://tampabayshine.com/phsc-student-apartment-cleaning/', 'https://tampabayshine.com/rasmussen-university-apartment-cleaning/', 'https://tampabayshine.com/college-apartment-move-out-cleaning/', 'https://tampabayshine.com/college-student-cleaning-gift-cards/']
+
 def dashboard_required_pages(payload):
     """Collect pages that need daily trend history for dashboard rows."""
     result = set()
@@ -1764,6 +1766,7 @@ def dashboard_required_pages(payload):
         if page:
             result.add(page)
 
+    result.update(STUDENT_CAMPAIGN_PAGES)
     return result
 
 

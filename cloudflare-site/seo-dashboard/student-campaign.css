@@ -1,0 +1,25 @@
+/* Independent Student Housing SEO campaign presentation */
+#student-campaign .sh-lede{max-width:900px;line-height:1.6;color:#526175}
+#student-campaign .sh-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0}
+#student-campaign .sh-controls label{font-weight:700;font-size:.9rem}
+#student-campaign select{background:#fff;border:1px solid #b7cbe0;border-radius:7px;padding:9px;color:#173d77;min-width:180px}
+#student-campaign .sh-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+#student-campaign .sh-card{border:1px solid #dbe5f0;border-radius:10px;padding:18px;background:#fff;box-shadow:0 3px 9px rgba(20,55,90,.04)}
+#student-campaign .sh-card .sh-metric{font-size:1.8rem;font-weight:800;color:#084c99;margin-top:5px}
+#student-campaign .sh-meta,#student-campaign .sh-note{color:#657387;font-size:.84rem;line-height:1.55}
+#student-campaign .sh-note{padding:12px 15px;background:#f3f8fe;border-left:3px solid #e8ba20;margin:15px 0}
+#student-campaign .sh-table-wrap{overflow-x:auto;border:1px solid #dbe5f0;border-radius:9px}
+#student-campaign table{border-collapse:collapse;width:100%;min-width:770px;font-size:.9rem}
+#student-campaign th,#student-campaign td{padding:11px 12px;border-bottom:1px solid #e9edf4;text-align:left}
+#student-campaign thead{background:#edf5ff;color:#093f89}
+#student-campaign tbody tr:hover{background:#f8fbff}
+#student-campaign .sh-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin:24px 0}
+#student-campaign .sh-panel{background:#fff;border:1px solid #dbe5f0;border-radius:9px;padding:16px;min-width:0}
+#student-campaign .sh-panel h3{margin-top:0}
+#student-campaign .sh-panel ul{padding-left:22px;line-height:1.9}
+#student-campaign a{color:#0855ac}
+#student-campaign .sh-status{font-size:.82rem;font-weight:700}
+#student-campaign .sh-status.sh-pass{color:#087a42}
+#student-campaign .sh-status.sh-notyet{color:#855500}
+@media(max-width:850px){#student-campaign .sh-cards{grid-template-columns:repeat(2,minmax(0,1fr))}#student-campaign .sh-grid{grid-template-columns:1fr}}
+@media(max-width:520px){#student-campaign .sh-cards{grid-template-columns:1fr 1fr}#student-campaign .sh-metric{font-size:1.35rem}}
