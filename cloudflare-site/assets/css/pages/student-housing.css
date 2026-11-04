@@ -42,3 +42,66 @@
 @media(max-width:850px){.student-hero-layout{grid-template-columns:1fr}.student-photo-hero picture{min-height:210px;max-height:280px}.student-promo-band .student-offer{display:block!important}.student-promo-band .student-coupon-fixed,.student-promo-band .student-coupon-picker{margin-top:12px}.student-content-layout{width:min(100% - 28px,760px)}}
 
 /* TBS_STUDENT_PHASE21_END */
+
+/* TBS_STUDENT_PHASE22_START */
+
+/* Phase 2.2: make photo fill its grid row instead of leaving a navy gap. */
+.student-photo-hero .student-hero-layout {
+  grid-template-columns: minmax(0,1fr) minmax(0,.92fr);
+  align-items: stretch;
+  min-height: 0;
+}
+.student-photo-hero picture {
+  position:relative;
+  display:block;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  align-self:stretch;
+  overflow:hidden;
+}
+.student-photo-hero picture img {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+}
+.student-hero-copy {min-width:0}
+.student-hero-copy>p {font-size:1rem;line-height:1.7}
+.student-content-layout article {
+  width:100%;
+  max-width:850px;
+  margin-inline:auto;
+}
+.student-content-layout .student-section p,
+.student-content-layout .student-answer p,
+.student-content-layout .student-faq p {
+  font-size:1rem;
+  line-height:1.72;
+}
+.student-content-layout .student-section h2 {font-size:clamp(1.35rem,2vw,1.65rem);line-height:1.3}
+.student-content-layout .student-faq summary {font-size:1rem;line-height:1.55}
+.student-breadcrumb {font-size:.9rem}
+.student-campus-directory .student-links {gap:9px}
+.student-campus-directory .student-links a {padding:11px 13px}
+@media(max-width:850px){
+  .student-photo-hero .student-hero-layout {grid-template-columns:1fr}
+  .student-photo-hero picture {
+    width:100%;
+    height:auto;
+    aspect-ratio:16/8;
+    max-height:none;
+    min-height:0;
+  }
+  .student-content-layout article {max-width:100%}
+}
+@media(max-width:480px) {
+  .student-photo-hero picture {aspect-ratio:16/9}
+  .student-hero-copy>p,.student-content-layout .student-section p,
+  .student-content-layout .student-answer p,.student-content-layout .student-faq p {font-size:1rem}
+}
+
+/* TBS_STUDENT_PHASE22_END */
