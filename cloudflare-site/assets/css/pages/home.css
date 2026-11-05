@@ -2196,3 +2196,124 @@
     margin-top: 16px;
   }
 }
+
+/* TBS_HOMEPAGE_BOOKING_CRO_V1 */
+
+/* Streamlined homepage: retain existing brand, hero, reviews, and booking funnel. */
+#tbs-home-v2 .tbs-cro-intro{max-width:660px;margin:0 auto 20px;line-height:1.5}
+#tbs-home-v2 .tbs-cro-service-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#tbs-home-v2 .tbs-cro-service-grid .service-card{min-width:0;min-height:215px;padding:21px 18px}
+#tbs-home-v2 .tbs-cro-service-grid .service-card .cta{margin-top:auto}
+#tbs-home-v2 .tbs-cro-service-links{font-size:.88rem;margin:17px auto 0;line-height:1.7}
+#tbs-home-v2 .tbs-cro-frequency-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+#tbs-home-v2 .tbs-cro-frequency-grid a{display:flex;flex-direction:column;gap:7px;min-height:92px;align-items:center;justify-content:center;text-align:center;padding:14px 10px;background:#f4f7ff;color:#173b7c;border:1px solid #ccd9f4;border-radius:13px;text-decoration:none}
+#tbs-home-v2 .tbs-cro-frequency-grid a:hover,#tbs-home-v2 .tbs-cro-frequency-grid a:focus-visible{border-color:#1746b0;box-shadow:0 4px 15px rgba(23,70,176,.12)}
+#tbs-home-v2 .tbs-cro-frequency-grid span{font-size:.83rem}
+#tbs-home-v2 .tbs-cro-recurring-note{font-size:.84rem;line-height:1.55;color:#52637e;margin:15px auto 0;max-width:820px;text-align:center}
+#tbs-home-v2 .tbs-cro-terms{max-width:800px;margin:11px auto 0;font-size:.88rem;line-height:1.6}
+#tbs-home-v2 .tbs-cro-terms summary{cursor:pointer;color:#1746b0;font-weight:700}
+#tbs-home-v2 .tbs-cro-recurring-cta{margin-top:18px}
+#tbs-home-v2 .tbs-cro-areas{padding-top:32px;padding-bottom:32px}
+#tbs-home-v2 .tbs-cro-areas h2{font-size:clamp(1.22rem,2vw,1.55rem)}
+#tbs-home-v2 .tbs-cro-areas p{max-width:780px;margin:9px auto}
+#tbs-home-v2 #reviews{padding-top:46px;padding-bottom:46px}
+@media(max-width:920px){#tbs-home-v2 .tbs-cro-service-grid,#tbs-home-v2 .tbs-cro-frequency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){
+ #tbs-home-v2 .tbs-cro-service-grid{grid-template-columns:1fr}
+ #tbs-home-v2 .tbs-cro-service-grid .service-card{min-height:0}
+ #tbs-home-v2 .tbs-cro-frequency-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #tbs-home-v2 .tbs-cro-frequency-grid a{min-height:90px;padding:12px 8px}
+ #tbs-home-v2 .tbs-cro-areas{padding-top:25px;padding-bottom:25px}
+}
+
+/* TBS_BOOKING_FASTPATH_V2 */
+
+#tbs-home-v2 .tbs-fast-path{padding:48px 0 45px}
+#tbs-home-v2 .tbs-fast-subtitle{max-width:690px;margin:8px auto 23px}
+#tbs-home-v2 .tbs-fast-prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;max-width:880px;margin:0 auto}
+#tbs-home-v2 .tbs-fast-prices>div{background:#fff;border:1px solid #e4e7f4;border-radius:13px;padding:19px 16px;box-shadow:0 8px 18px rgba(20,29,71,.055)}
+#tbs-home-v2 .tbs-fast-prices strong{display:block;color:#121272;font-size:1rem;line-height:1.3}
+#tbs-home-v2 .tbs-fast-prices span{display:block;color:#171a84;font-size:1.2rem;font-weight:900;margin-top:8px}
+#tbs-home-v2 .tbs-fast-action{margin-top:20px}
+#tbs-home-v2 .tbs-fast-action .btn{min-width:230px;min-height:48px}
+#tbs-home-v2 .tbs-fast-hint{font-size:.88rem;color:#4e5872;margin:9px auto 0;max-width:650px}
+#tbs-home-v2 .tbs-fast-links{text-align:center;font-size:.85rem;margin:16px auto 10px;max-width:830px;line-height:1.7}
+#tbs-home-v2 .tbs-fast-one-time{max-width:780px;margin:16px auto 0;border:1px solid #e6e6f4;border-radius:12px;background:#fff;padding:13px 17px}
+#tbs-home-v2 .tbs-fast-one-time summary{cursor:pointer;color:#14146f;font-weight:800}
+#tbs-home-v2 .tbs-fast-one-time p{margin:10px 0 0;font-size:.92rem;line-height:1.65}
+#tbs-home-v2 #recurring{padding-top:34px;padding-bottom:36px}
+#tbs-home-v2 #faq .tbs-more-faqs{max-width:860px;margin:9px 0 0;padding:10px 13px;border:1px solid #e7e9f4;border-radius:10px}
+#tbs-home-v2 #faq .tbs-more-faqs>summary{cursor:pointer;font-weight:800;color:#141470}
+#tbs-home-v2 #faq .tbs-more-faqs>.faq{margin-top:10px}
+#tbs-home-v2 .tbs-cro-student-link{text-align:center;max-width:800px;margin:8px auto 26px;font-size:.87rem}
+@media(max-width:700px){
+ #tbs-home-v2 .tbs-fast-prices{grid-template-columns:1fr;gap:9px}
+ #tbs-home-v2 .tbs-fast-prices>div{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px}
+ #tbs-home-v2 .tbs-fast-prices span{margin:0;white-space:nowrap}
+ #tbs-home-v2 .tbs-fast-path{padding:35px 0}
+ #tbs-home-v2 .tbs-fast-action .btn{width:100%;min-width:0}
+}
+
+/* TBS_HOMEPAGE_FASTPATH_COMPACT_20261105 */
+
+/* Reduce excess whitespace in the homepage price-to-booking entry point. */
+#tbs-home-v2 .tbs-fast-path{padding-top:25px;padding-bottom:24px}
+#tbs-home-v2 .tbs-fast-path .eyebrow{margin-bottom:3px}
+#tbs-home-v2 .tbs-fast-subtitle{margin:5px auto 13px;max-width:650px}
+#tbs-home-v2 .tbs-fast-prices{gap:9px;max-width:800px}
+#tbs-home-v2 .tbs-fast-prices>div{padding:12px 15px}
+#tbs-home-v2 .tbs-fast-prices span{margin-top:4px}
+#tbs-home-v2 .tbs-fast-action{margin-top:12px}
+#tbs-home-v2 .tbs-fast-hint{margin-top:6px}
+#tbs-home-v2 .tbs-fast-links{margin:9px auto 5px}
+#tbs-home-v2 .tbs-fast-one-time{margin-top:8px;padding:9px 14px}
+@media(max-width:700px){
+  #tbs-home-v2 .tbs-fast-path{padding-top:21px;padding-bottom:21px}
+  #tbs-home-v2 .tbs-fast-prices>div{padding:11px 13px}
+  #tbs-home-v2 .tbs-fast-subtitle{margin-bottom:11px}
+}
+
+
+/* TBS_HOME_DENSITY_V3_20261105 */
+/* Override older section defaults: remove empty vertical corridors, not readable content. */
+#tbs-home-v2 .tbs-fast-path{padding:20px 0 18px}
+#tbs-home-v2 .tbs-fast-path .eyebrow{margin:0 0 3px}
+#tbs-home-v2 .tbs-fast-path h2{margin:0 0 12px}
+#tbs-home-v2 .tbs-fast-prices{gap:9px;max-width:820px;margin:0 auto}
+#tbs-home-v2 .tbs-fast-prices>div{padding:10px 15px;box-shadow:0 3px 10px rgba(20,29,71,.045)}
+#tbs-home-v2 .tbs-fast-prices strong{font-size:.95rem}
+#tbs-home-v2 .tbs-fast-prices span{font-size:1.08rem;margin-top:3px}
+#tbs-home-v2 .tbs-fast-action{margin-top:11px}
+#tbs-home-v2 .tbs-fast-action .btn{min-height:42px}
+#tbs-home-v2 .tbs-fast-links{margin:6px auto 2px;line-height:1.35}
+#tbs-home-v2 .tbs-fast-one-time{margin:8px auto 0;padding:8px 13px}
+#tbs-home-v2 .tbs-fast-one-time p{margin-top:6px}
+#tbs-home-v2 #recurring{padding:23px 0 20px}
+#tbs-home-v2 #recurring .tbs-cro-intro{margin:3px auto 9px;line-height:1.4}
+#tbs-home-v2 #recurring .tbs-cro-frequency-grid{margin-top:10px;gap:9px}
+#tbs-home-v2 #recurring .tbs-cro-frequency-grid a{min-height:67px;padding:8px 10px;gap:3px}
+#tbs-home-v2 #recurring .tbs-cro-recurring-note{margin-top:9px;line-height:1.4}
+#tbs-home-v2 #recurring .tbs-cro-terms{margin-top:5px}
+#tbs-home-v2 #reviews{padding-top:26px;padding-bottom:26px}
+#tbs-home-v2 #commercial{padding-top:24px;padding-bottom:24px}
+#tbs-home-v2 #commercial .commercial-panel{padding:23px 25px}
+#tbs-home-v2 #areas{padding-top:16px;padding-bottom:16px}
+#tbs-home-v2 #areas p{margin:5px auto}
+#tbs-home-v2 #faq{padding-top:25px;padding-bottom:24px}
+#tbs-home-v2 #faq .center{margin-bottom:0}
+#tbs-home-v2 #faq .faq{margin-bottom:5px}
+#tbs-home-v2 .final-cta{padding:25px 22px}
+#tbs-home-v2 .resource-links{margin-top:12px}
+#tbs-home-v2 .tbs-cro-student-link{margin:4px auto 12px}
+@media(max-width:700px){
+ #tbs-home-v2 .tbs-fast-path{padding:18px 0}
+ #tbs-home-v2 .tbs-fast-prices{gap:7px}
+ #tbs-home-v2 .tbs-fast-prices>div{padding:10px 12px}
+ #tbs-home-v2 .tbs-fast-prices span{margin:0}
+ #tbs-home-v2 #recurring{padding:21px 0}
+ #tbs-home-v2 #recurring .tbs-cro-frequency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #tbs-home-v2 #recurring .tbs-cro-frequency-grid a{min-height:72px}
+ #tbs-home-v2 #reviews{padding-top:23px;padding-bottom:23px}
+ #tbs-home-v2 #faq{padding-top:20px;padding-bottom:22px}
+ #tbs-home-v2 #commercial .commercial-panel{padding:21px 18px}
+}
