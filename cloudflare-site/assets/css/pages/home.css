@@ -2253,3 +2253,22 @@
  #tbs-home-v2 .tbs-fast-path{padding:35px 0}
  #tbs-home-v2 .tbs-fast-action .btn{width:100%;min-width:0}
 }
+
+/* TBS_HOMEPAGE_FASTPATH_COMPACT_20261105 */
+
+/* Reduce excess whitespace in the homepage price-to-booking entry point. */
+#tbs-home-v2 .tbs-fast-path{padding-top:25px;padding-bottom:24px}
+#tbs-home-v2 .tbs-fast-path .eyebrow{margin-bottom:3px}
+#tbs-home-v2 .tbs-fast-subtitle{margin:5px auto 13px;max-width:650px}
+#tbs-home-v2 .tbs-fast-prices{gap:9px;max-width:800px}
+#tbs-home-v2 .tbs-fast-prices>div{padding:12px 15px}
+#tbs-home-v2 .tbs-fast-prices span{margin-top:4px}
+#tbs-home-v2 .tbs-fast-action{margin-top:12px}
+#tbs-home-v2 .tbs-fast-hint{margin-top:6px}
+#tbs-home-v2 .tbs-fast-links{margin:9px auto 5px}
+#tbs-home-v2 .tbs-fast-one-time{margin-top:8px;padding:9px 14px}
+@media(max-width:700px){
+  #tbs-home-v2 .tbs-fast-path{padding-top:21px;padding-bottom:21px}
+  #tbs-home-v2 .tbs-fast-prices>div{padding:11px 13px}
+  #tbs-home-v2 .tbs-fast-subtitle{margin-bottom:11px}
+}
