@@ -2134,3 +2134,37 @@
 @media(max-width:820px) {
   #tbs-home-v2 .hero-side-trust { margin-top:8px; }
 }
+
+/* TBS_CORRADO_REVIEW_20261104 */
+
+#tbs-home-v2 #reviews .tbs-featured-review {
+ background:linear-gradient(135deg,#f1f7ff,#fffdf5);
+ border:1px solid #dce7f8; border-left:5px solid #f4c62a;
+ border-radius:14px; padding:20px 22px; margin:18px 0 20px;
+}
+#tbs-home-v2 #reviews .tbs-featured-review-label {
+ display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+ color:#173b7c; font-size:.76rem; font-weight:800; letter-spacing:.04em;
+ margin-bottom:10px;
+}
+#tbs-home-v2 #reviews .tbs-featured-review-label span {
+ color:#ba7800; font-size:1.12rem; letter-spacing:.1em;
+}
+#tbs-home-v2 #reviews .tbs-featured-review blockquote {
+ color:#152d55; font-size:clamp(1.07rem,1.6vw,1.28rem);
+ line-height:1.6; font-weight:700;
+}
+#tbs-home-v2 #reviews .tbs-featured-review blockquote footer {
+ font-size:.86rem; line-height:1.5;
+}
+#tbs-home-v2 #reviews .tbs-other-review-label {
+ display:block; margin-bottom:8px; color:#536781;
+ font-size:.73rem; font-weight:900; letter-spacing:.06em;
+}
+#tbs-home-v2 #reviews .tbs-other-review blockquote {
+ font-size:.94rem; line-height:1.65; color:#46546b;
+}
+@media(max-width:560px) {
+ #tbs-home-v2 #reviews .tbs-featured-review {padding:15px 16px}
+ #tbs-home-v2 #reviews .tbs-featured-review blockquote {font-size:1.05rem}
+}
