@@ -2272,3 +2272,48 @@
   #tbs-home-v2 .tbs-fast-prices>div{padding:11px 13px}
   #tbs-home-v2 .tbs-fast-subtitle{margin-bottom:11px}
 }
+
+
+/* TBS_HOME_DENSITY_V3_20261105 */
+/* Override older section defaults: remove empty vertical corridors, not readable content. */
+#tbs-home-v2 .tbs-fast-path{padding:20px 0 18px}
+#tbs-home-v2 .tbs-fast-path .eyebrow{margin:0 0 3px}
+#tbs-home-v2 .tbs-fast-path h2{margin:0 0 12px}
+#tbs-home-v2 .tbs-fast-prices{gap:9px;max-width:820px;margin:0 auto}
+#tbs-home-v2 .tbs-fast-prices>div{padding:10px 15px;box-shadow:0 3px 10px rgba(20,29,71,.045)}
+#tbs-home-v2 .tbs-fast-prices strong{font-size:.95rem}
+#tbs-home-v2 .tbs-fast-prices span{font-size:1.08rem;margin-top:3px}
+#tbs-home-v2 .tbs-fast-action{margin-top:11px}
+#tbs-home-v2 .tbs-fast-action .btn{min-height:42px}
+#tbs-home-v2 .tbs-fast-links{margin:6px auto 2px;line-height:1.35}
+#tbs-home-v2 .tbs-fast-one-time{margin:8px auto 0;padding:8px 13px}
+#tbs-home-v2 .tbs-fast-one-time p{margin-top:6px}
+#tbs-home-v2 #recurring{padding:23px 0 20px}
+#tbs-home-v2 #recurring .tbs-cro-intro{margin:3px auto 9px;line-height:1.4}
+#tbs-home-v2 #recurring .tbs-cro-frequency-grid{margin-top:10px;gap:9px}
+#tbs-home-v2 #recurring .tbs-cro-frequency-grid a{min-height:67px;padding:8px 10px;gap:3px}
+#tbs-home-v2 #recurring .tbs-cro-recurring-note{margin-top:9px;line-height:1.4}
+#tbs-home-v2 #recurring .tbs-cro-terms{margin-top:5px}
+#tbs-home-v2 #reviews{padding-top:26px;padding-bottom:26px}
+#tbs-home-v2 #commercial{padding-top:24px;padding-bottom:24px}
+#tbs-home-v2 #commercial .commercial-panel{padding:23px 25px}
+#tbs-home-v2 #areas{padding-top:16px;padding-bottom:16px}
+#tbs-home-v2 #areas p{margin:5px auto}
+#tbs-home-v2 #faq{padding-top:25px;padding-bottom:24px}
+#tbs-home-v2 #faq .center{margin-bottom:0}
+#tbs-home-v2 #faq .faq{margin-bottom:5px}
+#tbs-home-v2 .final-cta{padding:25px 22px}
+#tbs-home-v2 .resource-links{margin-top:12px}
+#tbs-home-v2 .tbs-cro-student-link{margin:4px auto 12px}
+@media(max-width:700px){
+ #tbs-home-v2 .tbs-fast-path{padding:18px 0}
+ #tbs-home-v2 .tbs-fast-prices{gap:7px}
+ #tbs-home-v2 .tbs-fast-prices>div{padding:10px 12px}
+ #tbs-home-v2 .tbs-fast-prices span{margin:0}
+ #tbs-home-v2 #recurring{padding:21px 0}
+ #tbs-home-v2 #recurring .tbs-cro-frequency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #tbs-home-v2 #recurring .tbs-cro-frequency-grid a{min-height:72px}
+ #tbs-home-v2 #reviews{padding-top:23px;padding-bottom:23px}
+ #tbs-home-v2 #faq{padding-top:20px;padding-bottom:22px}
+ #tbs-home-v2 #commercial .commercial-panel{padding:21px 18px}
+}
