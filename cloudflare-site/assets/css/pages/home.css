@@ -2168,3 +2168,31 @@
  #tbs-home-v2 #reviews .tbs-featured-review {padding:15px 16px}
  #tbs-home-v2 #reviews .tbs-featured-review blockquote {font-size:1.05rem}
 }
+
+/* TBS_MOBILE_REVIEW_PROMINENCE_V1 */
+/* Give the verified five-star quote a stronger presence on narrow screens. */
+@media (max-width: 560px) {
+  #tbs-home-v2 #reviews .tbs-featured-review {
+    padding: 22px 20px;
+    margin: 18px 0 22px;
+    border-left-width: 6px;
+    box-shadow: 0 9px 24px rgba(17, 41, 102, .10);
+  }
+  #tbs-home-v2 #reviews .tbs-featured-review blockquote {
+    font-size: 1.2rem;
+    line-height: 1.62;
+    font-weight: 750;
+  }
+  #tbs-home-v2 #reviews .tbs-featured-review-label {
+    font-size: .83rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+  #tbs-home-v2 #reviews .tbs-featured-review-label span {
+    font-size: 1.34rem;
+  }
+  #tbs-home-v2 #reviews .tbs-featured-review blockquote footer {
+    font-size: .92rem;
+    margin-top: 16px;
+  }
+}
