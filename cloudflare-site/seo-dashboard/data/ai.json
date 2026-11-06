@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T20:25:40.071617+00:00",
+  "generated_at": "2026-11-06T19:47:43.746047+00:00",
   "data_through": "yesterday",
   "property_id": "487638948",
   "definition": "Conservative classification of identifiable AI-assistant GA4 acquisition sources. Ordinary Organic Search is excluded.",
@@ -11,39 +11,93 @@
         "summary": {
           "platform": "all_ai",
           "label": "All identifiable AI referrals",
-          "sessions": 17.0,
+          "sessions": 16.0,
           "active_users": 4.0,
-          "engaged_sessions": 9.0,
-          "booknow_click": 10.0,
+          "engaged_sessions": 8.0,
+          "booknow_click": 9.0,
           "phone_click": 0.0,
-          "commercial_quote_start": 1.0,
+          "commercial_quote_start": 0.0,
           "contact_click": 0.0,
           "coupon_click": 1.0,
           "confirmed_bookings": 0.0,
-          "engagement_rate": 52.94,
-          "booking_start_rate": 58.82,
+          "engagement_rate": 50.0,
+          "booking_start_rate": 56.25,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0,
-          "primary_intent_actions": 11.0
+          "primary_intent_actions": 9.0
         },
         "platforms": [
           {
             "platform": "chatgpt",
             "label": "ChatGPT / OpenAI",
             "sessions": 16.0,
-            "active_users": 3.0,
-            "engaged_sessions": 9.0,
-            "booknow_click": 10.0,
+            "active_users": 4.0,
+            "engaged_sessions": 8.0,
+            "booknow_click": 9.0,
             "phone_click": 0,
-            "commercial_quote_start": 1.0,
+            "commercial_quote_start": 0,
             "contact_click": 0,
             "coupon_click": 1.0,
             "confirmed_bookings": 0,
-            "engagement_rate": 56.25,
-            "booking_start_rate": 62.5,
+            "engagement_rate": 50.0,
+            "booking_start_rate": 56.25,
             "confirmed_booking_rate": 0.0,
             "booking_completion_rate": 0.0,
-            "primary_intent_actions": 11.0
+            "primary_intent_actions": 9.0
+          }
+        ],
+        "sources": [
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / ai-assistant",
+            "sessions": 15.0
+          },
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / (none)",
+            "sessions": 1.0
+          }
+        ]
+      },
+      "previous": {
+        "summary": {
+          "platform": "all_ai",
+          "label": "All identifiable AI referrals",
+          "sessions": 16.0,
+          "active_users": 12.0,
+          "engaged_sessions": 9.0,
+          "booknow_click": 18.0,
+          "phone_click": 0.0,
+          "commercial_quote_start": 1.0,
+          "contact_click": 1.0,
+          "coupon_click": 0.0,
+          "confirmed_bookings": 0.0,
+          "engagement_rate": 56.25,
+          "booking_start_rate": 112.5,
+          "confirmed_booking_rate": 0.0,
+          "booking_completion_rate": 0.0,
+          "primary_intent_actions": 20.0
+        },
+        "platforms": [
+          {
+            "platform": "chatgpt",
+            "label": "ChatGPT / OpenAI",
+            "sessions": 15.0,
+            "active_users": 11.0,
+            "engaged_sessions": 9.0,
+            "booknow_click": 18.0,
+            "phone_click": 0,
+            "commercial_quote_start": 1.0,
+            "contact_click": 1.0,
+            "coupon_click": 0,
+            "confirmed_bookings": 0,
+            "engagement_rate": 60.0,
+            "booking_start_rate": 120.0,
+            "confirmed_booking_rate": 0.0,
+            "booking_completion_rate": 0.0,
+            "primary_intent_actions": 20.0
           },
           {
             "platform": "gemini",
@@ -69,61 +123,13 @@
             "platform": "chatgpt",
             "source": "chatgpt.com",
             "source_medium": "chatgpt.com / ai-assistant",
-            "sessions": 16.0
+            "sessions": 15.0
           },
           {
             "platform": "gemini",
             "source": "gemini.google.com",
             "source_medium": "gemini.google.com / ai-assistant",
             "sessions": 1.0
-          }
-        ]
-      },
-      "previous": {
-        "summary": {
-          "platform": "all_ai",
-          "label": "All identifiable AI referrals",
-          "sessions": 10.0,
-          "active_users": 9.0,
-          "engaged_sessions": 6.0,
-          "booknow_click": 17.0,
-          "phone_click": 0.0,
-          "commercial_quote_start": 0.0,
-          "contact_click": 1.0,
-          "coupon_click": 0.0,
-          "confirmed_bookings": 0.0,
-          "engagement_rate": 60.0,
-          "booking_start_rate": 170.0,
-          "confirmed_booking_rate": 0.0,
-          "booking_completion_rate": 0.0,
-          "primary_intent_actions": 18.0
-        },
-        "platforms": [
-          {
-            "platform": "chatgpt",
-            "label": "ChatGPT / OpenAI",
-            "sessions": 10.0,
-            "active_users": 9.0,
-            "engaged_sessions": 6.0,
-            "booknow_click": 17.0,
-            "phone_click": 0,
-            "commercial_quote_start": 0,
-            "contact_click": 1.0,
-            "coupon_click": 0,
-            "confirmed_bookings": 0,
-            "engagement_rate": 60.0,
-            "booking_start_rate": 170.0,
-            "confirmed_booking_rate": 0.0,
-            "booking_completion_rate": 0.0,
-            "primary_intent_actions": 18.0
-          }
-        ],
-        "sources": [
-          {
-            "platform": "chatgpt",
-            "source": "chatgpt.com",
-            "source_medium": "chatgpt.com / ai-assistant",
-            "sessions": 10.0
           }
         ]
       }
@@ -134,17 +140,17 @@
         "summary": {
           "platform": "all_ai",
           "label": "All identifiable AI referrals",
-          "sessions": 37.0,
-          "active_users": 22.0,
-          "engaged_sessions": 23.0,
+          "sessions": 42.0,
+          "active_users": 24.0,
+          "engaged_sessions": 25.0,
           "booknow_click": 31.0,
           "phone_click": 0.0,
           "commercial_quote_start": 3.0,
           "contact_click": 1.0,
           "coupon_click": 1.0,
           "confirmed_bookings": 0.0,
-          "engagement_rate": 62.16,
-          "booking_start_rate": 83.78,
+          "engagement_rate": 59.52,
+          "booking_start_rate": 73.81,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0,
           "primary_intent_actions": 35.0
@@ -153,17 +159,17 @@
           {
             "platform": "chatgpt",
             "label": "ChatGPT / OpenAI",
-            "sessions": 36.0,
-            "active_users": 21.0,
-            "engaged_sessions": 23.0,
+            "sessions": 41.0,
+            "active_users": 23.0,
+            "engaged_sessions": 25.0,
             "booknow_click": 31.0,
             "phone_click": 0,
             "commercial_quote_start": 3.0,
             "contact_click": 1.0,
             "coupon_click": 1.0,
             "confirmed_bookings": 0,
-            "engagement_rate": 63.89,
-            "booking_start_rate": 86.11,
+            "engagement_rate": 60.98,
+            "booking_start_rate": 75.61,
             "confirmed_booking_rate": 0.0,
             "booking_completion_rate": 0.0,
             "primary_intent_actions": 35.0
@@ -192,7 +198,13 @@
             "platform": "chatgpt",
             "source": "chatgpt.com",
             "source_medium": "chatgpt.com / ai-assistant",
-            "sessions": 36.0
+            "sessions": 40.0
+          },
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / (none)",
+            "sessions": 1.0
           },
           {
             "platform": "gemini",
@@ -257,18 +269,18 @@
         "summary": {
           "platform": "all_ai",
           "label": "All identifiable AI referrals",
-          "sessions": 42.0,
-          "active_users": 24.0,
-          "engaged_sessions": 25.0,
+          "sessions": 47.0,
+          "active_users": 26.0,
+          "engaged_sessions": 27.0,
           "booknow_click": 33.0,
           "phone_click": 0.0,
           "commercial_quote_start": 3.0,
           "contact_click": 1.0,
           "coupon_click": 1.0,
           "confirmed_bookings": 1.0,
-          "engagement_rate": 59.52,
-          "booking_start_rate": 78.57,
-          "confirmed_booking_rate": 2.38,
+          "engagement_rate": 57.45,
+          "booking_start_rate": 70.21,
+          "confirmed_booking_rate": 2.13,
           "booking_completion_rate": 3.03,
           "primary_intent_actions": 37.0
         },
@@ -276,18 +288,18 @@
           {
             "platform": "chatgpt",
             "label": "ChatGPT / OpenAI",
-            "sessions": 41.0,
-            "active_users": 23.0,
-            "engaged_sessions": 25.0,
+            "sessions": 46.0,
+            "active_users": 25.0,
+            "engaged_sessions": 27.0,
             "booknow_click": 33.0,
             "phone_click": 0,
             "commercial_quote_start": 3.0,
             "contact_click": 1.0,
             "coupon_click": 1.0,
             "confirmed_bookings": 1.0,
-            "engagement_rate": 60.98,
-            "booking_start_rate": 80.49,
-            "confirmed_booking_rate": 2.44,
+            "engagement_rate": 58.7,
+            "booking_start_rate": 71.74,
+            "confirmed_booking_rate": 2.17,
             "booking_completion_rate": 3.03,
             "primary_intent_actions": 37.0
           },
@@ -315,7 +327,13 @@
             "platform": "chatgpt",
             "source": "chatgpt.com",
             "source_medium": "chatgpt.com / ai-assistant",
-            "sessions": 41.0
+            "sessions": 45.0
+          },
+          {
+            "platform": "chatgpt",
+            "source": "chatgpt.com",
+            "source_medium": "chatgpt.com / (none)",
+            "sessions": 1.0
           },
           {
             "platform": "gemini",
