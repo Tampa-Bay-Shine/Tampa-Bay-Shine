@@ -69,8 +69,8 @@
         #house-cleaning-ruskin .caption{display:none;max-width:1100px;margin:0 auto;padding:0 20px 16px}
         #house-cleaning-ruskin .caption h2{color:#0f172a;margin:0 0 6px;font-size:1.25rem;line-height:1.2}
         #house-cleaning-ruskin .caption p{margin:0 0 8px;font-size:1rem;color:#334155}
-        @media (max-width:540px){
-          #house-cleaning-ruskin .overlay{display:flex}
+        @media (max-width:767.98px){
+          #house-cleaning-ruskin .overlay{display:none}
           #house-cleaning-ruskin .caption{display:block}
           #house-cleaning-ruskin .hero-media img{height:clamp(220px,42vh,360px);object-position:center 60%}
         }
