@@ -121,6 +121,58 @@ def broader_gsc_top10_line(gsc):
     )
 
 
+def broader_gsc_top_queries_table(gsc, limit=10):
+    """Top retained non-brand GSC queries by 28-day impressions."""
+    rows = []
+    for item in gsc.get("top_queries") or []:
+        if not isinstance(item, dict):
+            continue
+        query = str(item.get("query") or "").strip()
+        q = " ".join(query.lower().split())
+        if not query or "tampa bay shine" in q or "shine of tampa bay" in q or "site:" in q:
+            continue
+        operators = q.count(" or ") + q.count(" and ")
+        quotes = q.count('"') // 2
+        if (("(" in q and ")" in q and operators >= 2 and quotes >= 1)
+                or (operators >= 4 and quotes >= 2)
+                or (len(q) >= 180 and operators >= 2)):
+            continue
+        try:
+            impressions = float(item.get("current_impressions") or 0)
+            clicks = float(item.get("current_clicks") or 0)
+            position = float(item.get("current_position"))
+        except (TypeError, ValueError):
+            continue
+        if impressions <= 0 or position <= 0:
+            continue
+        rows.append((impressions, clicks, position, query))
+
+    rows.sort(key=lambda x: (-x[0], -x[1], x[3].lower()))
+    if not rows:
+        return "<p>No eligible non-brand queries in the retained GSC data.</p>"
+
+    cells = "".join(
+        "<tr><td>" + esc(query) + "</td>"
+        "<td>" + num(impressions) + "</td>"
+        "<td>" + num(clicks) + "</td>"
+        "<td>" + num(clicks / impressions * 100, 2) + "%</td>"
+        "<td>" + num(position, 2) + "</td></tr>"
+        for impressions, clicks, position, query in rows[:limit]
+    )
+    return (
+        '<table cellpadding="7" cellspacing="0" border="1" '
+        'style="border-collapse:collapse;width:100%;font-size:13px">'
+        '<tr><th>Query</th><th>Impressions</th><th>Clicks</th>'
+        '<th>CTR</th><th>Avg position</th></tr>'
+        + cells + '</table>'
+        '<p style="font-size:12px;color:#667085">'
+        'Current 28-day period, sorted by impressions. '
+        'Non-brand queries; obvious automated searches excluded. '
+        'Retained GSC queries are not necessarily exhaustive. '
+        'Separate from Core 20 and competitor SERP rankings.</p>'
+    )
+
+
 def best_core_page_growth(pages):
     """Select an evidence-supported Core Page with both growth and striking-distance visibility."""
     candidates = []
@@ -298,6 +350,8 @@ def render(args):
 {card("Management attention",management)}
 {card("Highest-priority issue",priority_issue)}
 {card("Best growth opportunity",growth_opportunity)}
+<h3>Top 10 broader GSC queries (28D)</h3>
+{broader_gsc_top_queries_table(gsc)}
 <h3>Top Decision Intelligence actions</h3>
 <table cellpadding="7" cellspacing="0" border="1" style="border-collapse:collapse;border-color:#d0d5dd;width:100%;font-size:13px">
 <tr><th>Priority</th><th>Query / Page</th><th>Signals</th><th>Position (28D)</th><th>Impr. (28D)</th><th>Change vs prior 28D</th><th>Recommended action</th></tr>{rows}</table>
