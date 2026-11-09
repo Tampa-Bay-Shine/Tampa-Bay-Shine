@@ -102,8 +102,8 @@
         #house-cleaning-apollo-beach .caption{display:none;max-width:1100px;margin:0 auto;padding:0 20px 16px}
         #house-cleaning-apollo-beach .caption h2{color:#0f172a;margin:0 0 6px;font-size:1.25rem;line-height:1.2}
         #house-cleaning-apollo-beach .caption p{margin:0 0 8px;font-size:1rem;color:#334155}
-        @media (max-width:540px){
-          #house-cleaning-apollo-beach .overlay{display:flex}
+        @media (max-width:767.98px){
+          #house-cleaning-apollo-beach .overlay{display:none}
           #house-cleaning-apollo-beach .caption{display:block}
           #house-cleaning-apollo-beach .hero-media img{height:clamp(220px,42vh,360px);object-position:center 60%}
         }
