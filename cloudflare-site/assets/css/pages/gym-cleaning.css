@@ -62,7 +62,10 @@
       #gym-cleaning-tampa .lead{font-size:clamp(.98rem,2.4vw,1.08rem);max-width:760px}
       #gym-cleaning-tampa .caption{display:none;max-width:1100px;margin:0 auto;padding:0 20px 16px}
       #gym-cleaning-tampa .caption h2{color:#0f172a;margin:0 0 6px;font-size:1.25rem}
-      @media (max-width:540px){
+      /* Keep the full hero heading, description and CTAs readable on phones.
+         The existing .caption duplicates the overlay content below the image. */
+      @media (max-width:767.98px){
+        #gym-cleaning-tampa .overlay{display:none}
         #gym-cleaning-tampa .caption{display:block}
         #gym-cleaning-tampa .hero-media img{height:clamp(220px,42vh,360px);object-position:center 60%}
       }
