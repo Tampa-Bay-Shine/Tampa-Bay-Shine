@@ -71,7 +71,7 @@
         #house-cleaning-brandon .caption h2{color:#0f172a;margin:0 0 6px;font-size:1.25rem;line-height:1.2}
         #house-cleaning-brandon .caption p{margin:0 0 8px;font-size:1rem;color:#334155}
         @media (max-width:540px){
-          #house-cleaning-brandon .overlay{display:flex}
+          #house-cleaning-brandon .overlay{display:none}
           #house-cleaning-brandon .caption{display:block}
           #house-cleaning-brandon .hero-media img{height:clamp(220px,42vh,360px);object-position:center 60%}
         }
