@@ -66,6 +66,8 @@
     summary.textContent=serviceLabels[service]+(service==='standard'?' · '+frequencyLabels[freq]:' · Details and price in the booking form');
     panel.hidden=true;
     booking.hidden=false;
+    /* SIGNATURE_BOOKING_COMPACT_V5 */
+    document.body.classList.add('is-booking');
     document.getElementById('signature-stage-service').classList.remove('is-current');
     document.getElementById('signature-stage-service').classList.add('is-complete');
     document.getElementById('signature-stage-details').classList.add('is-current');
@@ -81,6 +83,7 @@
     frame.removeAttribute('src');
     booking.hidden=true;
     panel.hidden=false;
+    document.body.classList.remove('is-booking');
     document.getElementById('signature-stage-service').classList.remove('is-complete');
     document.getElementById('signature-stage-service').classList.add('is-current');
     document.getElementById('signature-stage-details').classList.remove('is-current');

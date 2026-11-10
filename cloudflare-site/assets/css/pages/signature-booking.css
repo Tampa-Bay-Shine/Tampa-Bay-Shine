@@ -148,3 +148,58 @@ body.signature-checkout{--sb-navy:#142942;--sb-deep:#0a2037;--sb-gold:#b9985f;--
 /* Show the full, dedicated Signature still-life image rather than cropping a split photo. */
 .signature-checkout-hero-photo img { width: 100%; max-width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 @media (max-width: 670px) { .signature-checkout-hero-photo img { object-position: 48% center; } }
+
+/* SIGNATURE_BOOKING_CHECKOUT_UX_V5 */
+/* The page chrome compresses after service selection. Nothing inside BK's iframe is modified. */
+.signature-checkout.is-booking .signature-checkout-intro {
+  padding: 16px 0 14px;
+  background: linear-gradient(118deg, #fffefa, #f9f6ef);
+}
+.signature-checkout.is-booking .signature-checkout-intro::before { animation: none; opacity: .22; }
+.signature-checkout.is-booking .signature-checkout-intro-grid {
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 28px;
+}
+.signature-checkout.is-booking .signature-checkout-intro-copy { padding: 8px 0; animation: none; }
+.signature-checkout.is-booking .signature-checkout-eyebrow { margin-bottom: 8px; }
+.signature-checkout.is-booking .signature-checkout-intro h1 {
+  font-size: clamp(24px, 2.55vw, 35px);
+  max-width: 700px;
+  line-height: 1.15;
+  margin: 0;
+}
+.signature-checkout.is-booking .signature-checkout-intro-copy > p:not(.signature-checkout-eyebrow),
+.signature-checkout.is-booking .signature-checkout-assurances { display: none; }
+.signature-checkout.is-booking .signature-checkout-hero-photo {
+  height: 100px;
+  box-shadow: 0 6px 18px rgba(20,41,66,.08);
+}
+.signature-checkout.is-booking .signature-checkout-hero-photo img {
+  width: 100%; height: 100%; max-width: 100%; object-position: center 45%; animation: none;
+}
+.signature-checkout.is-booking .signature-checkout-hero-photo span { bottom: 9px; left: 12px; font-size: 9px; }
+.signature-checkout.is-booking .signature-checkout-process { padding-top: 15px; padding-bottom: 15px; }
+.signature-checkout.is-booking .signature-checkout-progress li { padding-top: 8px; }
+.signature-checkout.is-booking .signature-checkout-form-wrap { padding-bottom: 34px; }
+.signature-checkout.is-booking .signature-booking-panel { padding: clamp(20px, 3vw, 36px); animation: none; }
+.signature-checkout.is-booking .signature-booking-panel-title .signature-checkout-eyebrow { margin-bottom: 8px; }
+.signature-checkout.is-booking .signature-booking-panel-title h2 { font-size: clamp(26px, 3vw, 36px); margin-bottom: 7px; }
+.signature-checkout.is-booking .signature-booking-panel-title p:last-child { line-height: 1.5; }
+.signature-checkout.is-booking .signature-selection-summary { margin: 17px 0 12px !important; padding: 10px 14px; }
+/* A taller iframe reduces the chance of two simultaneous scroll areas, but BK ultimately owns its layout. */
+.signature-booking-container { min-height: 0; overflow: visible; }
+.signature-booking-container iframe { height: 1750px; min-height: 1750px; }
+@media(max-width: 900px) {
+  .signature-checkout.is-booking .signature-checkout-intro-grid { grid-template-columns: minmax(0,1fr) 150px; gap: 18px; }
+}
+@media(max-width: 670px) {
+  .signature-checkout.is-booking .signature-checkout-intro { padding: 14px 0 11px; }
+  .signature-checkout.is-booking .signature-checkout-intro-grid { grid-template-columns: 1fr; gap: 0; }
+  .signature-checkout.is-booking .signature-checkout-intro h1 { font-size: clamp(24px, 6vw, 31px); }
+  .signature-checkout.is-booking .signature-checkout-hero-photo { display: none; }
+  .signature-checkout.is-booking .signature-checkout-process { padding-top: 12px; padding-bottom: 12px; }
+  .signature-checkout.is-booking .signature-booking-panel { padding: 18px 13px; }
+  .signature-checkout.is-booking .signature-booking-panel-title { gap: 8px; }
+  .signature-checkout.is-booking .signature-booking-panel-title h2 { font-size: 27px; }
+  .signature-booking-container iframe { height: 2150px; min-height: 2150px; }
+}
