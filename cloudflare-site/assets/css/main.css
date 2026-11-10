@@ -486,3 +486,18 @@
 .tbs-ux-coverage-pair > .tbs-ux-coverage-item > .notice,
 .tbs-ux-coverage-pair > .tbs-ux-coverage-item > .card { box-sizing:border-box; width:100%; flex:1; margin:0; }
 @media (max-width:760px) { .tbs-ux-coverage-pair { grid-template-columns:minmax(0,1fr); } }
+
+/* TBS_UX_PHASE2D_COVERAGE_SPECIFICITY_V2 */
+/* Override earlier #city .tbs-ux-mt-16 rules on the nested second panel.
+   Keep this rule after the city spacing rules in the cascade. */
+#house-cleaning-brandon .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-riverview .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-apollo-beach .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-ruskin .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-sun-city-center .tbs-ux-coverage-pair > .tbs-ux-coverage-item {
+  margin-block-start: 0;
+  margin-top: 0;
+  padding-top: 0;
+  align-self: stretch;
+}
+/* END TBS_UX_PHASE2D_COVERAGE_SPECIFICITY_V2 */
