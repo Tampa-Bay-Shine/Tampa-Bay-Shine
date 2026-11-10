@@ -430,3 +430,74 @@
     font-size:.82rem;
   }
 }
+
+/* TBS_UX_CITY_SPACING_V1 */
+#house-cleaning-brandon .tbs-ux-mt-16,
+#house-cleaning-riverview .tbs-ux-mt-16,
+#house-cleaning-ruskin .tbs-ux-mt-16,
+#house-cleaning-sun-city-center .tbs-ux-mt-16,
+#house-cleaning-apollo-beach .tbs-ux-mt-16,
+#house-cleaning-south-tampa .tbs-ux-mt-16{margin-top:16px}
+#house-cleaning-brandon .tbs-ux-mt-20,
+#house-cleaning-riverview .tbs-ux-mt-20,
+#house-cleaning-ruskin .tbs-ux-mt-20,
+#house-cleaning-sun-city-center .tbs-ux-mt-20,
+#house-cleaning-apollo-beach .tbs-ux-mt-20,
+#house-cleaning-south-tampa .tbs-ux-mt-20{margin-top:20px}
+#house-cleaning-brandon .tbs-ux-mt-28,
+#house-cleaning-riverview .tbs-ux-mt-28,
+#house-cleaning-ruskin .tbs-ux-mt-28,
+#house-cleaning-sun-city-center .tbs-ux-mt-28,
+#house-cleaning-apollo-beach .tbs-ux-mt-28,
+#house-cleaning-south-tampa .tbs-ux-mt-28{margin-top:28px}
+/* END TBS_UX_CITY_SPACING_V1 */
+
+/* TBS_PHASE2B_RELATED_LINKS_V1 */
+/* Compact, always-visible related links; preserve every destination. */
+#house-cleaning-brandon #related-services .grid.auto,
+#house-cleaning-riverview #related-services .grid.auto {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 10px;
+}
+#house-cleaning-brandon #related-services a.card,
+#house-cleaning-riverview #related-services a.card {
+  display: block;
+  height: 100%;
+  padding: 11px 14px;
+  line-height: 1.4;
+}
+#house-cleaning-brandon #related-services a.card:focus-visible,
+#house-cleaning-riverview #related-services a.card:focus-visible {
+  outline: 3px solid var(--site-accent);
+  outline-offset: 2px;
+}
+/* END TBS_PHASE2B_RELATED_LINKS_V1 */
+
+/* TBS_UX_PHASE2C_TAMPA_SERVICE_GROUP_V1 */
+#house-cleaning-south-tampa .tbs-ux-secondary-services{margin-top:22px;padding-top:18px;border-top:1px solid #e7e9f3}
+#house-cleaning-south-tampa .tbs-ux-secondary-services-title{margin:0 0 12px;font-size:clamp(17px,2.4vw,21px);color:#0f0889}
+/* END TBS_UX_PHASE2C_TAMPA_SERVICE_GROUP_V1 */
+
+/* TBS UX Phase 2D: paired residential coverage panels */
+.tbs-ux-coverage-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:stretch; }
+/* The second panel retains its former .wrap and margin-top classes: neutralize
+   those section-level layout rules inside this grid, not elsewhere on the site. */
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item { min-width:0; width:100%; max-width:none; margin:0; padding:0; display:flex; flex-direction:column; }
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item > .notice,
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item > .card { box-sizing:border-box; width:100%; flex:1; margin:0; }
+@media (max-width:760px) { .tbs-ux-coverage-pair { grid-template-columns:minmax(0,1fr); } }
+
+/* TBS_UX_PHASE2D_COVERAGE_SPECIFICITY_V2 */
+/* Override earlier #city .tbs-ux-mt-16 rules on the nested second panel.
+   Keep this rule after the city spacing rules in the cascade. */
+#house-cleaning-brandon .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-riverview .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-apollo-beach .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-ruskin .tbs-ux-coverage-pair > .tbs-ux-coverage-item,
+#house-cleaning-sun-city-center .tbs-ux-coverage-pair > .tbs-ux-coverage-item {
+  margin-block-start: 0;
+  margin-top: 0;
+  padding-top: 0;
+  align-self: stretch;
+}
+/* END TBS_UX_PHASE2D_COVERAGE_SPECIFICITY_V2 */
