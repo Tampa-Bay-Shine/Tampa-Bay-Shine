@@ -96,3 +96,51 @@ body.signature-checkout{--sb-navy:#142942;--sb-deep:#0a2037;--sb-gold:#b9985f;--
 @media(max-width:670px){.signature-checkout-shell{width:calc(100% - 32px)}.signature-checkout-header-inner{min-height:86px;gap:12px}.signature-checkout-brand{gap:9px}.signature-checkout-brand img{width:62px}.signature-checkout-brand span{padding-left:9px}.signature-checkout-brand strong{letter-spacing:.13em;font-size:12px}.signature-checkout-brand small{letter-spacing:.08em;font-size:8px}.signature-checkout-header-links{flex-direction:column;align-items:flex-end;gap:2px;font-size:11px}.signature-checkout-header-links a:last-child{display:none}.signature-checkout-intro-grid{grid-template-columns:1fr}.signature-checkout-intro-copy{padding:12px 0 2px}.signature-checkout-intro h1{font-size:clamp(33px,9vw,45px)}.signature-checkout-intro-copy>p:not(.signature-checkout-eyebrow){font-size:15px}.signature-checkout-assurances{margin-top:24px}.signature-checkout-hero-photo{height:220px}.signature-checkout-progress{gap:6px}.signature-checkout-progress li{display:block}.signature-checkout-progress li span{display:block;margin-bottom:3px}.signature-checkout-progress li strong{font-size:10px}.signature-checkout-process{padding:22px 0}.signature-choice-panel,.signature-booking-panel{padding:24px 19px}.signature-choice-grid{grid-template-columns:1fr}.signature-choice-card-content{min-height:160px}.signature-frequency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.signature-booking-panel-title{flex-direction:column}.signature-checkout-confidence-grid{grid-template-columns:1fr;gap:28px}.signature-checkout-footer-inner{flex-direction:column;align-items:flex-start}}
 @media(max-width:380px){.signature-frequency-grid{grid-template-columns:1fr}.signature-continue-button{width:100%}}
 @media(prefers-reduced-motion:reduce){.signature-checkout *,.signature-checkout *::before,.signature-checkout *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.signature-choice-card:hover .signature-choice-card-content,.signature-continue-button:hover{transform:none}}
+
+
+/* SIGNATURE_BOOKING_REFINEMENT_V3_START — styling only; booking JS stays v2. */
+.signature-checkout{--sb-gold:#a5844c;--sb-taupe:#506174}
+.signature-checkout-header{border-top:4px solid #142942}
+.signature-checkout-header-inner{min-height:106px}
+.signature-checkout-brand img{width:101px}
+.signature-checkout-brand strong{font-size:15px;letter-spacing:.18em}
+.signature-checkout-brand small{font-size:10px;letter-spacing:.16em;color:#755b33}
+.signature-checkout-header-links{font-size:14px}
+.signature-checkout-intro{padding-top:51px;padding-bottom:28px}
+.signature-checkout-intro-grid{gap:60px}
+.signature-checkout-eyebrow{font-size:12px;color:#785b2a;letter-spacing:.17em}
+.signature-checkout-intro h1{font-size:clamp(40px,4.55vw,62px);line-height:1.12}
+.signature-checkout-intro-copy>p:not(.signature-checkout-eyebrow){font-size:18px;line-height:1.75;color:#41566a}
+.signature-checkout-assurances span{font-size:12px;color:#506175}
+.signature-checkout-hero-photo{height:390px}
+.signature-checkout-hero-photo img{width:200%;max-width:none;height:100%;object-fit:cover;object-position:left center}
+.signature-checkout-hero-photo span{font-size:12px;letter-spacing:.22em}
+.signature-checkout-progress li strong{font-size:13px;color:#5b6877}
+.signature-checkout-progress li.is-current strong{font-weight:700;color:#142942}
+.signature-choice-panel,.signature-booking-panel{padding:clamp(28px,4.2vw,58px)}
+.signature-choice-heading p:last-child,.signature-booking-panel-title p:last-child{font-size:16px;line-height:1.7;color:#44576a}
+.signature-choice-card-content{background:#faf9f6}
+.signature-choice-card-content strong{font-size:23px}
+.signature-choice-card-content small{font-size:15px;line-height:1.6;color:#42566a}
+.signature-choice-card-content em{font-size:13px;color:#6c542f}
+.signature-frequency-panel>p{font-size:15px;color:#506174}
+.signature-frequency-grid label{font-size:14px;min-height:58px}
+.signature-choice-submit>p{font-size:13px;line-height:1.6;color:#4b5b6c}
+.signature-continue-button{font-size:15px;min-height:60px}
+.signature-checkout-confidence-grid p{font-size:13px}
+.signature-checkout-confidence-grid strong{font-size:17px}
+@media(max-width:900px){.signature-checkout-intro-grid{gap:28px}}
+@media(max-width:670px){
+ .signature-checkout-header-inner{min-height:82px}.signature-checkout-brand img{width:71px}
+ .signature-checkout-brand strong{font-size:12px}.signature-checkout-brand small{font-size:9px}
+ .signature-checkout-header-links{font-size:12px}
+ .signature-checkout-intro{padding-top:32px}.signature-checkout-intro-copy{padding:8px 0 0}
+ .signature-checkout-intro h1{font-size:clamp(34px,8.7vw,46px)}
+ .signature-checkout-intro-copy>p:not(.signature-checkout-eyebrow){font-size:16px}
+ .signature-checkout-hero-photo{height:245px}
+ .signature-checkout-progress li strong{font-size:11px}
+ .signature-choice-panel,.signature-booking-panel{padding:24px 19px}
+ .signature-choice-card-content{min-height:165px}.signature-choice-card-content strong{font-size:22px}
+ .signature-choice-submit{align-items:stretch}.signature-continue-button{width:100%}
+}
+/* SIGNATURE_BOOKING_REFINEMENT_V3_END */

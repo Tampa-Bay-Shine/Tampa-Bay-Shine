@@ -160,3 +160,78 @@ body.signature-site{background:var(--sg-paper);color:var(--sg-ink);font-family:A
 @media(max-width:760px){html{scroll-padding-top:25px}.signature-shell{width:calc(100% - 36px)}.signature-header-inner{min-height:82px}.signature-brand img{width:75px;max-height:65px}.signature-brand-divider{height:27px}.signature-brand-label{font-size:.5rem}.signature-header-cta{font-size:.7rem;gap:8px;padding:10px}.signature-breadcrumb{font-size:.67rem;flex-wrap:wrap}.signature-hero-grid{grid-template-columns:1fr;min-height:auto}.signature-hero-copy{padding:56px 0 35px}.signature-eyebrow{font-size:.61rem;letter-spacing:.13em;white-space:normal}.signature-hero h1{font-size:clamp(3.1rem,10vw,5rem);line-height:1.1;margin-top:22px}.signature-hero-lede{font-size:1rem;margin-bottom:25px}.signature-hero-promise{margin-top:29px}.signature-hero-art{padding:0;min-height:340px}.signature-hero-photo-wrap{min-height:340px;height:390px}.signature-photo-note{bottom:16px;padding:13px 15px}.signature-hero-foot{font-size:.57rem}.signature-proof-grid{grid-template-columns:1fr}.signature-proof-grid>div{border-right:0;border-bottom:1px solid #eeece7;padding:18px 3px}.signature-proof-grid>div:last-child{border-bottom:0}.signature-section{padding:73px 0}.signature-intro-grid{grid-template-columns:1fr;gap:22px}.signature-site h2{font-size:clamp(2.35rem,7.7vw,3.4rem)}.signature-editorial-grid{grid-template-columns:1fr}.signature-image-card img{min-height:300px;height:355px}.signature-editorial-copy{padding:65px 20px}.signature-section-heading{display:block;margin-bottom:28px}.signature-section-heading>p{max-width:590px;margin-top:22px}.signature-service-grid{grid-template-columns:1fr}.signature-service-card{min-height:300px}.signature-service-card h3{font-size:1.7rem;margin-top:20px}.signature-service-card>p{margin-bottom:20px}.signature-statement-grid{grid-template-columns:1fr;gap:30px}.signature-statement-image img{height:335px}.signature-statement-text{padding:0}.signature-steps{grid-template-columns:1fr;gap:17px}.signature-steps li{padding-top:16px}.signature-steps h3{margin-top:10px}.signature-steps p{max-width:none;margin:0}.signature-faq-grid{grid-template-columns:1fr;gap:25px}.signature-faq-grid>div:first-child{max-width:none}.signature-quote{padding-block:60px}.signature-closing{padding-block:85px}.signature-footer-main{grid-template-columns:1fr 1fr;gap:40px 20px}.signature-footer-about{grid-column:1/-1}.signature-footer-bottom{display:block}.signature-footer-bottom>span{display:block;margin-bottom:10px}}
 @media(max-width:450px){.signature-shell{width:calc(100% - 30px)}.signature-brand{gap:8px}.signature-brand img{width:63px}.signature-brand-label{font-size:.45rem;letter-spacing:.1em}.signature-header-cta{font-size:.65rem}.signature-header-cta span{display:none}.signature-hero h1{font-size:clamp(2.75rem,11.2vw,4rem)}.signature-hero-actions{gap:23px}.signature-btn{padding:14px 18px}.signature-hero-photo-wrap{height:315px;min-height:315px}.signature-photo-note{font-size:.52rem;letter-spacing:.09em}.signature-hero-foot{letter-spacing:.08em}.signature-footer-main{grid-template-columns:1fr}.signature-footer-about{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.signature-site *,.signature-site *::before,.signature-site *::after{animation:none!important;transition:none!important;transform:none!important}.signature-motion-ready{opacity:1!important}}
+
+
+/* SIGNATURE_REFINEMENT_V3_START — visual refinements only, 2026-11-10.
+   Keep v2 URL routes, form logic, SEO tags and existing prices unchanged. */
+.signature-site{--sg-muted:#43566b;--sg-champagne:#b39662}
+.signature-header-inner{min-height:114px;gap:24px}
+.signature-brand{gap:18px}
+.signature-brand img{width:116px;max-height:91px}
+.signature-brand-label{font-size:.76rem;letter-spacing:.17em;line-height:1.58;color:#f6e8c9}
+.signature-brand-divider{height:42px}
+.signature-nav{gap:23px}
+.signature-nav a{font-size:.88rem;letter-spacing:.005em}
+.signature-header-cta{font-size:.86rem;padding:14px 19px;min-height:48px}
+.signature-breadcrumb{font-size:.8rem;padding-block:18px 9px;color:#566577}
+.signature-hero-grid{grid-template-columns:47% 53%;min-height:630px}
+.signature-hero-copy{padding-block:62px 68px}
+.signature-eyebrow,.signature-kicker{font-size:.78rem;letter-spacing:.17em;color:#856638}
+.signature-hero h1{font-size:clamp(3.15rem,4.8vw,5.65rem);line-height:1.09;letter-spacing:-.048em}
+.signature-site h1 em,.signature-site h2 em{color:#886a3d}
+.signature-hero-lede{font-size:1.12rem;line-height:1.73;color:#3d5064}
+.signature-hero-promise{font-size:.86rem;color:#536478;line-height:1.55;margin-top:33px}
+.signature-hero-art{padding-top:29px;padding-bottom:29px}
+.signature-hero-photo-wrap{min-height:535px}
+/* The existing asset is a side-by-side living room/bath composition.
+   Zooming into its left half gives this hero one serene residential focus. */
+.signature-hero-photo{width:200%;max-width:none;height:100%;object-fit:cover;object-position:left center}
+.signature-photo-note{right:0;bottom:56px;font-size:.72rem;letter-spacing:.12em}
+.signature-hero-foot{color:#786747;font-size:.73rem}
+.signature-proof-grid>div{padding-block:26px}
+.signature-proof-num{font-size:.83rem}
+.signature-proof-grid strong{font-size:.96rem}
+.signature-proof-grid div>span:last-child{font-size:.87rem;color:#526376}
+.signature-section{padding-block:96px}
+.signature-intro-main p{font-size:1.08rem;color:#425669;line-height:1.79}
+.signature-editorial p,.signature-statement-text p{font-size:1.07rem;color:#425669;line-height:1.8}
+.signature-section-heading>p{font-size:1.02rem;color:#495c70}
+.signature-service-index{font-size:.78rem}
+.signature-service-card>p{font-size:.98rem;color:#475a6d;line-height:1.7}
+.signature-service-bottom>span{font-size:.87rem;color:#4c5f72}
+.signature-service-bottom a{font-size:.94rem}
+.signature-service-details{font-size:.86rem;color:#4c5e70}
+.signature-pricing-note{font-size:.9rem;color:#506174}
+.signature-service-card-featured>p,.signature-service-card-featured .signature-service-bottom>span{color:#f0f2f5}
+.signature-faq summary{font-size:1.06rem}
+.signature-faq details p{font-size:1rem;color:#46586b}
+.signature-footer p,.signature-footer a{font-size:.93rem}
+@media(max-width:1200px){.signature-header-inner{gap:17px}.signature-nav{gap:13px}.signature-brand-label{font-size:.69rem}.signature-header-cta{padding:12px 14px;font-size:.78rem}}
+@media(max-width:1020px){.signature-header-inner{min-height:98px}.signature-brand img{width:105px}.signature-hero-grid{grid-template-columns:49% 51%}.signature-hero-photo-wrap{min-height:490px}.signature-hero h1{font-size:clamp(3rem,5.5vw,4.65rem)}}
+@media(max-width:760px){
+ .signature-header-inner{min-height:86px;gap:12px}.signature-brand{gap:10px}
+ .signature-brand img{width:78px;max-height:67px}.signature-brand-divider{height:30px}
+ .signature-brand-label{font-size:.61rem;letter-spacing:.1em}
+ .signature-header-cta{font-size:.74rem;padding:10px 12px;min-height:44px}
+ .signature-breadcrumb{font-size:.75rem}
+ .signature-hero-grid{grid-template-columns:1fr;min-height:auto}
+ .signature-hero-copy{padding:48px 0 36px}
+ .signature-hero h1{font-size:clamp(2.8rem,9.1vw,4.7rem)}
+ .signature-hero-lede{font-size:1.06rem}
+ .signature-hero-art{padding:0;min-height:330px}
+ .signature-hero-photo-wrap{height:360px;min-height:330px}
+ .signature-photo-note{bottom:15px;right:0}
+ .signature-section{padding-block:72px}
+ .signature-proof-grid>div{padding:16px 0}
+ .signature-editorial-copy{padding:56px 18px}
+ .signature-section-heading>p{font-size:1rem}
+ .signature-service-card>p{font-size:1rem}
+}
+@media(max-width:450px){
+ .signature-brand img{width:69px}.signature-brand-label{font-size:.55rem;letter-spacing:.06em}
+ .signature-header-cta{font-size:.7rem;padding:9px 11px}
+ .signature-hero h1{font-size:clamp(2.65rem,10.1vw,3.7rem)}
+ .signature-hero-photo-wrap{height:315px;min-height:315px}
+ .signature-hero-foot{font-size:.66rem}
+}
+/* SIGNATURE_REFINEMENT_V3_END */
