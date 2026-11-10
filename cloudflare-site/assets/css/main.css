@@ -451,3 +451,24 @@
 #house-cleaning-apollo-beach .tbs-ux-mt-28,
 #house-cleaning-south-tampa .tbs-ux-mt-28{margin-top:28px}
 /* END TBS_UX_CITY_SPACING_V1 */
+
+/* TBS_PHASE2B_RELATED_LINKS_V1 */
+/* Compact, always-visible related links; preserve every destination. */
+#house-cleaning-brandon #related-services .grid.auto,
+#house-cleaning-riverview #related-services .grid.auto {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 10px;
+}
+#house-cleaning-brandon #related-services a.card,
+#house-cleaning-riverview #related-services a.card {
+  display: block;
+  height: 100%;
+  padding: 11px 14px;
+  line-height: 1.4;
+}
+#house-cleaning-brandon #related-services a.card:focus-visible,
+#house-cleaning-riverview #related-services a.card:focus-visible {
+  outline: 3px solid var(--site-accent);
+  outline-offset: 2px;
+}
+/* END TBS_PHASE2B_RELATED_LINKS_V1 */
