@@ -477,3 +477,8 @@
 #house-cleaning-south-tampa .tbs-ux-secondary-services{margin-top:22px;padding-top:18px;border-top:1px solid #e7e9f3}
 #house-cleaning-south-tampa .tbs-ux-secondary-services-title{margin:0 0 12px;font-size:clamp(17px,2.4vw,21px);color:#0f0889}
 /* END TBS_UX_PHASE2C_TAMPA_SERVICE_GROUP_V1 */
+
+/* TBS UX Phase 2D: paired residential coverage panels */
+.tbs-ux-coverage-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; align-items:start; }
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item { min-width:0; }
+@media (max-width:760px) { .tbs-ux-coverage-pair { grid-template-columns:minmax(0,1fr); } }
