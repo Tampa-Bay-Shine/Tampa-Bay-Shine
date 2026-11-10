@@ -1,0 +1,98 @@
+/* Signature Booking: standalone premium styling; no changes to the standard booking page. */
+body.signature-checkout{--sb-navy:#142942;--sb-deep:#0a2037;--sb-gold:#b9985f;--sb-ivory:#f7f5f0;--sb-taupe:#6b6e72;--sb-line:#e3dfd6;background:#fffefa;color:var(--sb-navy);font:400 16px/1.65 Arial,Helvetica,sans-serif}
+.signature-checkout [hidden]{display:none!important}
+.signature-checkout *{box-sizing:border-box}
+.signature-checkout-shell{width:min(1140px,calc(100% - 56px));margin-inline:auto}
+.signature-checkout a{color:inherit;text-underline-offset:4px}
+.signature-checkout a:focus-visible,.signature-checkout button:focus-visible,.signature-checkout input:focus-visible{outline:3px solid #bf9b54;outline-offset:4px}
+.signature-checkout h1,.signature-checkout h2,.signature-checkout h3{letter-spacing:-.035em;line-height:1.11}
+.signature-checkout h1 em,.signature-checkout h2 em{color:#9c7c45;font-style:normal;font-weight:400}
+.signature-checkout-header{background:#fffefa;border-bottom:1px solid var(--sb-line)}
+.signature-checkout-header-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;min-height:112px}
+.signature-checkout-brand{display:inline-flex;gap:18px;align-items:center;color:var(--sb-navy);text-decoration:none}
+.signature-checkout-brand img{width:92px;height:auto;display:block;object-fit:contain}
+.signature-checkout-brand span{display:flex;flex-direction:column;border-left:1px solid #d2c5ad;padding-left:18px}
+.signature-checkout-brand strong{font-weight:500;letter-spacing:.24em;font-size:14px}
+.signature-checkout-brand small{letter-spacing:.2em;font-size:9px;color:#8a734d}
+.signature-checkout-header-links{display:flex;align-items:center;gap:24px;font-size:13px;letter-spacing:.015em}
+.signature-checkout-header-links a{text-decoration:none}
+.signature-checkout-header-links a:last-child{color:#806b47;border-bottom:1px solid #bca27a}
+.signature-checkout-intro{padding:64px 0 26px;background:linear-gradient(133deg,#fffefa 0%,#f7f4ed 100%);overflow:hidden;position:relative}
+.signature-checkout-intro::before{content:"";pointer-events:none;position:absolute;top:-60%;left:-18%;width:60%;height:180%;background:radial-gradient(ellipse,rgba(186,160,104,.16),transparent 67%);animation:signature-ambient 11s ease-in-out infinite alternate}
+.signature-checkout-intro-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px;position:relative}
+.signature-checkout-intro-copy{padding:30px 0 50px;animation:signature-book-intro .9s ease-out both}
+.signature-checkout-eyebrow{margin:0 0 22px;color:#876a38;letter-spacing:.2em;font-size:11px;font-weight:700}
+.signature-checkout-intro h1{font-size:clamp(39px,4.7vw,65px);font-weight:400;margin:0 0 25px;max-width:670px}
+.signature-checkout-intro-copy>p:not(.signature-checkout-eyebrow){max-width:520px;color:#526072;font-size:17px}
+.signature-checkout-assurances{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:34px}
+.signature-checkout-assurances span{font-size:11px;letter-spacing:.025em;color:#6a6672}
+.signature-checkout-assurances span::before{content:"•";color:var(--sb-gold);padding-right:8px}
+.signature-checkout-hero-photo{height:400px;position:relative;overflow:hidden;box-shadow:0 34px 65px rgba(30,35,43,.12)}
+.signature-checkout-hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(17,32,43,.52));pointer-events:none}
+.signature-checkout-hero-photo img{width:100%;height:100%;display:block;object-fit:cover;animation:signature-photo-entrance 1.6s ease-out both}
+.signature-checkout-hero-photo span{position:absolute;z-index:2;bottom:27px;left:28px;color:#fff;letter-spacing:.3em;font-size:11px}
+.signature-checkout-process{padding-top:36px;padding-bottom:35px}
+.signature-checkout-progress{padding:0;margin:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.signature-checkout-progress li{border-top:2px solid #e2ded6;padding-top:13px;display:flex;align-items:center;gap:11px;color:#93939a;transition:color .3s,border-color .3s}
+.signature-checkout-progress li span{font-size:12px;letter-spacing:.1em}
+.signature-checkout-progress li strong{font-size:12px;font-weight:500;letter-spacing:.025em}
+.signature-checkout-progress li.is-current,.signature-checkout-progress li.is-complete{border-color:#b99a60;color:var(--sb-navy)}
+.signature-checkout-progress li.is-ready{border-color:#bdbab4;color:#6c737d}
+.signature-checkout-form-wrap{padding-bottom:72px}
+.signature-choice-panel,.signature-booking-panel{background:#fff;border:1px solid #eee9e1;box-shadow:0 18px 70px rgba(18,41,61,.06);padding:clamp(26px,5vw,66px);animation:signature-book-intro .65s ease-out both}
+.signature-choice-heading{max-width:700px;margin-bottom:34px}
+.signature-choice-heading .signature-checkout-eyebrow{margin-bottom:13px}
+.signature-choice-heading h2,.signature-booking-panel-title h2{font-size:clamp(28px,3.3vw,43px);font-weight:400;margin:0 0 13px}
+.signature-choice-heading p:last-child,.signature-booking-panel-title p:last-child{color:#596476;margin:0}
+.signature-choice-panel fieldset{padding:0;border:0;margin:0 0 36px;min-width:0}
+.signature-choice-panel legend{font-size:16px;font-weight:600;margin:0 0 18px;line-height:1.4}
+.signature-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.signature-choice-card{position:relative;display:block;cursor:pointer}
+.signature-choice-card input{position:absolute;top:23px;right:24px;width:19px;height:19px;accent-color:#9c7c45;z-index:2}
+.signature-choice-card-content{display:flex;flex-direction:column;gap:12px;min-height:204px;padding:25px;background:#f9f8f5;border:1px solid #e5dfd3;transition:border-color .25s,box-shadow .25s,transform .25s}
+.signature-choice-card input:checked+.signature-choice-card-content{background:#f7f4ed;border-color:#b39154;box-shadow:inset 0 0 0 1px #b39154,0 12px 25px rgba(20,41,66,.06)}
+.signature-choice-card:hover .signature-choice-card-content{transform:translateY(-2px)}
+.signature-choice-card-content .signature-choice-index{font-size:10px;letter-spacing:.12em;color:#8e713f;font-weight:700}
+.signature-choice-card-content strong{font-size:21px;font-weight:400;letter-spacing:-.03em}
+.signature-choice-card-content small{font-size:13px;line-height:1.45;color:#687281;max-width:260px}
+.signature-choice-card-content em{font-size:12px;font-style:normal;font-weight:700;color:#746348;margin-top:auto}
+.signature-frequency-panel>p{margin:-5px 0 19px;color:#6a7280;font-size:14px}
+.signature-frequency-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.signature-frequency-grid label{display:flex;gap:9px;align-items:center;border:1px solid #e6e3dc;background:#fff;min-height:56px;padding:12px 14px;cursor:pointer;font-size:13px}
+.signature-frequency-grid label:has(input:checked){border-color:#b39154;background:#fbf8f0}
+.signature-frequency-grid input{accent-color:#947444;flex:0 0 auto;width:16px;height:16px}
+.signature-choice-submit{display:flex;align-items:center;gap:28px;padding-top:10px}
+.signature-continue-button{border:0;background:#142942;color:#fff;display:inline-flex;align-items:center;gap:24px;justify-content:center;min-height:58px;padding:16px 27px;letter-spacing:.02em;font-size:14px;font-weight:600;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .25s}
+.signature-continue-button:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,238,189,.18) 50%,transparent 65%);transform:translateX(-130%);transition:transform .9s}
+.signature-continue-button:hover:before{transform:translateX(130%)}
+.signature-continue-button:hover{box-shadow:0 12px 26px rgba(20,41,66,.2);transform:translateY(-2px)}
+.signature-choice-submit>p{font-size:12px;color:#6a7280;max-width:380px;margin:0}
+.signature-booking-panel{scroll-margin-top:20px}
+.signature-booking-panel-title{display:flex;gap:25px;justify-content:space-between;align-items:flex-start}
+.signature-booking-panel-title>div{max-width:710px}
+.signature-booking-panel-title .signature-checkout-eyebrow{margin-bottom:14px}
+.signature-edit-selection{background:none;border:1px solid #cdbd9f;color:#725a34;padding:10px 16px;cursor:pointer;font-size:13px;white-space:nowrap}
+.signature-selection-summary{margin:28px 0 20px!important;font-size:13px;color:#715834;background:#f8f6f0;border-left:3px solid #b39154;padding:13px 18px}
+.signature-booking-container{width:100%;border:1px solid #ece8df;background:#fff;min-height:1100px;overflow:hidden}
+.signature-booking-container iframe{display:block;width:100%;height:1100px;min-height:1100px;border:0}
+.signature-booking-help{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:17px;font-size:12px;color:#687281}
+.signature-booking-help p{margin:0}
+.signature-booking-help a{color:#163e68}
+.signature-checkout-confidence{background:#142942;color:#fff;padding:49px 0}
+.signature-checkout-confidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
+.signature-checkout-confidence-grid>div>span{color:#ccae7b;letter-spacing:.15em;font-size:12px}
+.signature-checkout-confidence-grid strong{display:block;margin:12px 0 5px;font-weight:500;font-size:16px}
+.signature-checkout-confidence-grid p{margin:0;color:#cbd3db;font-size:12px;line-height:1.7}
+.signature-checkout-footer{background:#101f33;color:#d6dce4;padding:30px 0}
+.signature-checkout-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.signature-checkout-footer strong{font-size:12px;letter-spacing:.15em;font-weight:500;color:#f2e7d3}
+.signature-checkout-footer p{margin:4px 0 0;font-size:12px}
+.signature-checkout-footer-inner>div:last-child{display:flex;gap:18px;font-size:12px;flex-wrap:wrap}
+.signature-nojs{margin:20px 0;border:1px solid #b89d6b;padding:15px}
+@keyframes signature-ambient{from{transform:translate3d(0,0,0);opacity:.4}to{transform:translate3d(25%,12%,0);opacity:.9}}
+@keyframes signature-book-intro{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes signature-photo-entrance{from{opacity:.65;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
+@media(max-width:900px){.signature-checkout-intro-grid{gap:30px}.signature-checkout-intro{padding-top:36px}.signature-checkout-intro h1{font-size:clamp(35px,5vw,48px)}.signature-checkout-hero-photo{height:350px}.signature-choice-submit{flex-direction:column;align-items:flex-start}.signature-choice-grid{gap:12px}}
+@media(max-width:670px){.signature-checkout-shell{width:calc(100% - 32px)}.signature-checkout-header-inner{min-height:86px;gap:12px}.signature-checkout-brand{gap:9px}.signature-checkout-brand img{width:62px}.signature-checkout-brand span{padding-left:9px}.signature-checkout-brand strong{letter-spacing:.13em;font-size:12px}.signature-checkout-brand small{letter-spacing:.08em;font-size:8px}.signature-checkout-header-links{flex-direction:column;align-items:flex-end;gap:2px;font-size:11px}.signature-checkout-header-links a:last-child{display:none}.signature-checkout-intro-grid{grid-template-columns:1fr}.signature-checkout-intro-copy{padding:12px 0 2px}.signature-checkout-intro h1{font-size:clamp(33px,9vw,45px)}.signature-checkout-intro-copy>p:not(.signature-checkout-eyebrow){font-size:15px}.signature-checkout-assurances{margin-top:24px}.signature-checkout-hero-photo{height:220px}.signature-checkout-progress{gap:6px}.signature-checkout-progress li{display:block}.signature-checkout-progress li span{display:block;margin-bottom:3px}.signature-checkout-progress li strong{font-size:10px}.signature-checkout-process{padding:22px 0}.signature-choice-panel,.signature-booking-panel{padding:24px 19px}.signature-choice-grid{grid-template-columns:1fr}.signature-choice-card-content{min-height:160px}.signature-frequency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.signature-booking-panel-title{flex-direction:column}.signature-checkout-confidence-grid{grid-template-columns:1fr;gap:28px}.signature-checkout-footer-inner{flex-direction:column;align-items:flex-start}}
+@media(max-width:380px){.signature-frequency-grid{grid-template-columns:1fr}.signature-continue-button{width:100%}}
+@media(prefers-reduced-motion:reduce){.signature-checkout *,.signature-checkout *::before,.signature-checkout *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.signature-choice-card:hover .signature-choice-card-content,.signature-continue-button:hover{transform:none}}
