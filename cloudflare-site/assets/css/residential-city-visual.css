@@ -1,0 +1,60 @@
+/* TBS_RESIDENTIAL_CITY_VISUAL_V1
+   Scoped to residential city roots; retains city-specific layouts and SEO content.
+   South Tampa comparison-table booking buttons are the reference treatment. */
+:is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) {
+  --tbs-city-royal:#0f0889;
+  --tbs-city-accent:#f4c613;
+  --tbs-city-border:#e7e9f3;
+}
+:is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) #comparison a[href^="/book/?cleaning="] {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:9px 12px;
+  border:1px solid rgba(15,8,137,.15);
+  border-radius:10px;
+  background:var(--tbs-city-royal);
+  color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.35;
+  text-align:center;
+  text-decoration:none !important;
+  white-space:normal;
+  overflow-wrap:normal;
+  box-shadow:0 4px 12px rgba(15,8,137,.15);
+  transition:background .15s ease,box-shadow .15s ease,transform .15s ease;
+}
+:is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) #comparison a[href^="/book/?cleaning="]:hover {
+  background:#1c18a6;
+  color:#fff !important;
+  box-shadow:0 6px 16px rgba(15,8,137,.22);
+  transform:translateY(-1px);
+}
+:is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) #comparison a[href^="/book/?cleaning="]:focus-visible {
+  outline:3px solid var(--tbs-city-accent);
+  outline-offset:3px;
+}
+:is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) #comparison td {
+  vertical-align:middle;
+}
+@media (max-width:640px) {
+  :is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center) #comparison {
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  :is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center) #comparison table.table {
+    min-width:680px;
+  }
+  :is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) #comparison a[href^="/book/?cleaning="] {
+    min-height:42px;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(#house-cleaning-apollo-beach,#house-cleaning-south-tampa,#house-cleaning-downtown-tampa,#house-cleaning-brandon,#house-cleaning-riverview,#house-cleaning-ruskin,#house-cleaning-sun-city-center,#house-cleaning-wesley-chapel) #comparison a[href^="/book/?cleaning="] {
+    transition:none;
+    transform:none;
+  }
+}
