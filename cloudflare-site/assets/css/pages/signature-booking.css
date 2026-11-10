@@ -144,3 +144,7 @@ body.signature-checkout{--sb-navy:#142942;--sb-deep:#0a2037;--sb-gold:#b9985f;--
  .signature-choice-submit{align-items:stretch}.signature-continue-button{width:100%}
 }
 /* SIGNATURE_BOOKING_REFINEMENT_V3_END */
+/* SIGNATURE_BOOK_PHOTO_V4 */
+/* Show the full, dedicated Signature still-life image rather than cropping a split photo. */
+.signature-checkout-hero-photo img { width: 100%; max-width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+@media (max-width: 670px) { .signature-checkout-hero-photo img { object-position: 48% center; } }
