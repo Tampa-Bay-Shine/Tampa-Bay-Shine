@@ -479,6 +479,10 @@
 /* END TBS_UX_PHASE2C_TAMPA_SERVICE_GROUP_V1 */
 
 /* TBS UX Phase 2D: paired residential coverage panels */
-.tbs-ux-coverage-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; align-items:start; }
-.tbs-ux-coverage-pair > .tbs-ux-coverage-item { min-width:0; }
+.tbs-ux-coverage-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:stretch; }
+/* The second panel retains its former .wrap and margin-top classes: neutralize
+   those section-level layout rules inside this grid, not elsewhere on the site. */
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item { min-width:0; width:100%; max-width:none; margin:0; padding:0; display:flex; flex-direction:column; }
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item > .notice,
+.tbs-ux-coverage-pair > .tbs-ux-coverage-item > .card { box-sizing:border-box; width:100%; flex:1; margin:0; }
 @media (max-width:760px) { .tbs-ux-coverage-pair { grid-template-columns:minmax(0,1fr); } }
