@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-14T18:36:19+00:00",
-  "data_through": "2026-11-13",
+  "generated_at": "2026-11-15T19:13:21+00:00",
+  "data_through": "2026-11-14",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -18,22 +18,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 30,
+          "sessions": 40,
           "active_users": 7,
-          "engaged_sessions": 16,
-          "engagement_rate": 53.33,
-          "booking_start_rate": 10.0,
-          "primary_intent_rate": 10.0,
+          "engaged_sessions": 20,
+          "engagement_rate": 50.0,
+          "booking_start_rate": 7.5,
+          "primary_intent_rate": 7.5,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 40,
+          "sessions": 36,
           "active_users": 14,
-          "engaged_sessions": 21,
-          "engagement_rate": 52.5,
-          "booking_start_rate": 10.0,
-          "primary_intent_rate": 10.0,
+          "engaged_sessions": 19,
+          "engagement_rate": 52.78,
+          "booking_start_rate": 11.11,
+          "primary_intent_rate": 11.11,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -79,44 +79,44 @@
       },
       "overview": {
         "current": {
-          "sessions": 140,
-          "active_users": 43,
-          "engaged_sessions": 79,
-          "engagement_rate": 56.43,
-          "booking_start_rate": 7.86,
-          "primary_intent_rate": 10.71,
+          "sessions": 150,
+          "active_users": 41,
+          "engaged_sessions": 82,
+          "engagement_rate": 54.67,
+          "booking_start_rate": 6.67,
+          "primary_intent_rate": 9.33,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 36,
-          "active_users": 28,
-          "engaged_sessions": 26,
-          "engagement_rate": 72.22,
-          "booking_start_rate": 22.22,
-          "primary_intent_rate": 25.0,
+          "sessions": 39,
+          "active_users": 31,
+          "engaged_sessions": 28,
+          "engagement_rate": 71.79,
+          "booking_start_rate": 23.08,
+          "primary_intent_rate": 25.64,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
       },
       "intent": {
         "current": {
-          "booknow_click": 11,
+          "booknow_click": 10,
           "phone_click": 1,
           "commercial_quote_start": 1,
           "contact_click": 2,
           "coupon_click": 0,
-          "primary_intent_actions": 15,
-          "all_intent_actions": 15
+          "primary_intent_actions": 14,
+          "all_intent_actions": 14
         },
         "previous": {
-          "booknow_click": 8,
+          "booknow_click": 9,
           "phone_click": 0,
           "commercial_quote_start": 0,
           "contact_click": 1,
           "coupon_click": 0,
-          "primary_intent_actions": 9,
-          "all_intent_actions": 9
+          "primary_intent_actions": 10,
+          "all_intent_actions": 10
         }
       },
       "confirmed_bookings": {
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 176,
-          "active_users": 69,
-          "engaged_sessions": 105,
-          "engagement_rate": 59.66,
-          "booking_start_rate": 10.8,
-          "primary_intent_rate": 13.64,
+          "sessions": 189,
+          "active_users": 70,
+          "engaged_sessions": 110,
+          "engagement_rate": 58.2,
+          "booking_start_rate": 10.05,
+          "primary_intent_rate": 12.7,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -193,18 +193,18 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 83,
-      "active_users": 32,
-      "engaged_sessions": 66,
-      "booknow_click": 7,
+      "sessions": 85,
+      "active_users": 29,
+      "engaged_sessions": 68,
+      "booknow_click": 6,
       "phone_click": 0,
       "commercial_quote_start": 0,
       "contact_click": 2,
       "coupon_click": 0,
       "confirmed_bookings": 0,
-      "primary_intent_actions": 9,
-      "all_intent_actions": 9,
-      "booking_start_rate": 8.43,
+      "primary_intent_actions": 8,
+      "all_intent_actions": 8,
+      "booking_start_rate": 7.06,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -260,6 +260,40 @@
       "booking_completion_rate": null
     },
     {
+      "landing_page": "/student-housing-cleaning-tampa/",
+      "sessions": 3,
+      "active_users": 1,
+      "engaged_sessions": 1,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
+      "landing_page": "(not set)",
+      "sessions": 2,
+      "active_users": 1,
+      "engaged_sessions": 0,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
       "landing_page": "/blog/how-to-mop-floors-without-streaks-best-practices-for-5-common-flooring-types/",
       "sessions": 2,
       "active_users": 2,
@@ -281,23 +315,6 @@
       "sessions": 2,
       "active_users": 2,
       "engaged_sessions": 1,
-      "booknow_click": 0,
-      "phone_click": 0,
-      "commercial_quote_start": 0,
-      "contact_click": 0,
-      "coupon_click": 0,
-      "confirmed_bookings": 0,
-      "primary_intent_actions": 0,
-      "all_intent_actions": 0,
-      "booking_start_rate": 0.0,
-      "confirmed_booking_rate": 0.0,
-      "booking_completion_rate": null
-    },
-    {
-      "landing_page": "(not set)",
-      "sessions": 1,
-      "active_users": 1,
-      "engaged_sessions": 0,
       "booknow_click": 0,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -360,23 +377,6 @@
       "booking_start_rate": 0.0,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": null
-    },
-    {
-      "landing_page": "/student-housing-cleaning-tampa/",
-      "sessions": 1,
-      "active_users": 0,
-      "engaged_sessions": 0,
-      "booknow_click": 0,
-      "phone_click": 0,
-      "commercial_quote_start": 0,
-      "contact_click": 0,
-      "coupon_click": 0,
-      "confirmed_bookings": 0,
-      "primary_intent_actions": 0,
-      "all_intent_actions": 0,
-      "booking_start_rate": 0.0,
-      "confirmed_booking_rate": 0.0,
-      "booking_completion_rate": null
     }
   ],
   "events_by_channel": [
@@ -388,27 +388,27 @@
     {
       "event_name": "booknow_click",
       "channel": "AI Assistant",
-      "event_count": 39
-    },
-    {
-      "event_name": "booknow_click",
-      "channel": "Direct",
       "event_count": 38
     },
     {
       "event_name": "booknow_click",
+      "channel": "Direct",
+      "event_count": 31
+    },
+    {
+      "event_name": "booknow_click",
       "channel": "Organic Search",
-      "event_count": 11
+      "event_count": 10
     },
     {
       "event_name": "booknow_click",
       "channel": "Organic Social",
-      "event_count": 6
+      "event_count": 7
     },
     {
       "event_name": "booknow_click",
       "channel": "Referral",
-      "event_count": 43
+      "event_count": 42
     },
     {
       "event_name": "booknow_click",
@@ -439,11 +439,6 @@
       "event_name": "contact_click",
       "channel": "Organic Search",
       "event_count": 2
-    },
-    {
-      "event_name": "contact_click",
-      "channel": "Organic Social",
-      "event_count": 1
     },
     {
       "event_name": "contact_click",
@@ -483,7 +478,7 @@
     "confirmed_bookings_all_channels": 7,
     "confirmed_bookings_organic_completion_session": 0,
     "confirmed_bookings_organic_first_user": 0,
-    "organic_booking_starts": 11,
+    "organic_booking_starts": 10,
     "exact_booking_origin_available": false,
     "cross_domain_client_identity_verified": false,
     "confidence": "medium",
