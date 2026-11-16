@@ -220,7 +220,28 @@
 </div>
 <div class="table-wrap" style="margin-top:20px;">
 <!-- TBS_DEEP_MOVEOUT_TABLE_V2 -->
-<table aria-label="Riverview residential cleaning comparison">
+
+<!-- TBS_MOVEOUT_COMPARISON_ALIGNMENT_V1 -->
+<style>
+/* Service comparison: visually aligned with the main cleaning checklist. */
+.tbs-moveout-compare { width:100%; border-collapse:collapse; }
+.tbs-moveout-compare thead th:not(:first-child),
+.tbs-moveout-compare tbody td { text-align:center; vertical-align:middle; }
+.tbs-moveout-compare thead th:first-child,
+.tbs-moveout-compare tbody th { text-align:left; }
+.tbs-moveout-compare tbody td { padding:10px 8px; }
+.tbs-moveout-compare tbody td span[role="img"] { display:inline-flex; align-items:center; justify-content:center; min-width:24px; min-height:24px; vertical-align:middle; }
+.tbs-moveout-compare tbody tr:nth-child(even) { background-color:#f6f8fc; }
+.tbs-moveout-compare thead th:last-child { background:#fff4ce; color:#18236c; }
+.tbs-moveout-compare tbody td:last-child { background-color:rgba(255,244,206,.28); }
+.tbs-moveout-compare tbody tr:nth-child(even) td:last-child { background-color:rgba(255,244,206,.48); }
+@media(max-width:680px) {
+  .tbs-moveout-compare { min-width:610px; }
+  .tbs-moveout-compare thead th, .tbs-moveout-compare tbody th,
+  .tbs-moveout-compare tbody td { font-size:12px; }
+}
+</style>
+<table class="tbs-moveout-compare" aria-label="Riverview residential cleaning comparison">
 <thead>
 <tr>
 <th>Cleaning Task</th>
