@@ -41,10 +41,45 @@ def main():
     if run(['git','status','--porcelain'],repo).stdout.strip(): raise SystemExit('Working tree must be clean.')
     gate=repo/'tools'/'migration_gate.py'; p=subprocess.run([sys.executable,str(gate),'--repo',str(repo),'--phase','staging'],cwd=str(repo))
     if p.returncode!=0: raise SystemExit('Staging gate is not GREEN. Promotion stopped.')
-    active=load_active(repo); run(['git','fetch','origin'],repo,True); sha=run(['git','rev-parse',f'origin/{DEV}'],repo,True).stdout.strip(); local=run(['git','show-ref','--verify','--quiet',f'refs/heads/{PROD}'],repo).returncode==0; remote=run(['git','show-ref','--verify','--quiet',f'refs/remotes/origin/{PROD}'],repo).returncode==0
-    if local: run(['git','switch',PROD],repo,True)
-    elif remote: run(['git','switch','-c',PROD,'--track',f'origin/{PROD}'],repo,True)
-    else: run(['git','switch','-c',PROD,f'origin/{DEV}'],repo,True)
+    active=load_active(repo)
+    run(['git','fetch','origin'],repo,True)
+    sha=run(['git','rev-parse',f'origin/{DEV}'],repo,True).stdout.strip()
+    local=run(['git','show-ref','--verify','--quiet',f'refs/heads/{PROD}'],repo).returncode==0
+    remote=run(['git','show-ref','--verify','--quiet',f'refs/remotes/origin/{PROD}'],repo).returncode==0
+
+    # This promoter publishes a staging snapshot, not a merge. Never overwrite
+    # production-only commits (including schema, GEO/AEO, or hotfix changes).
+    # Reconcile the histories explicitly before attempting another promotion.
+    if remote:
+        safe=run(['git','merge-base','--is-ancestor',f'origin/{PROD}',f'origin/{DEV}'],repo)
+        if safe.returncode!=0:
+            raise SystemExit(
+                'SAFE STOP: origin/cloudflare-production contains history not in '
+                'origin/cloudflare-staging. Snapshot promotion would risk '
+                'overwriting production-only changes. Reconcile the branches '
+                'and validate the resulting staging release before retrying. '
+                'No production branch or files were modified.'
+            )
+    if local and remote:
+        # Do not discard local production commits that have not been pushed.
+        local_safe=run(['git','merge-base','--is-ancestor',PROD,f'origin/{PROD}'],repo)
+        if local_safe.returncode!=0:
+            raise SystemExit(
+                'SAFE STOP: local cloudflare-production has commits not in '
+                'origin/cloudflare-production. Inspect and reconcile them first. '
+                'No production branch or files were modified.'
+            )
+        run(['git','switch',PROD],repo,True)
+        run(['git','merge','--ff-only',f'origin/{PROD}'],repo,True)
+    elif remote:
+        run(['git','switch','-c',PROD,'--track',f'origin/{PROD}'],repo,True)
+    elif local:
+        raise SystemExit(
+            'SAFE STOP: local production branch exists but remote production '
+            'does not. Verify the remote before promoting.'
+        )
+    else:
+        run(['git','switch','-c',PROD,f'origin/{DEV}'],repo,True)
     run(['git','read-tree','--reset','-u',f'origin/{DEV}'],repo,True); transform(repo,active); run(['git','add','-A'],repo,True)
     if run(['git','diff','--cached','--quiet'],repo).returncode!=0: run(['git','commit','-m',f'Promote staging {sha[:12]} to Cloudflare production'],repo,True)
     p=subprocess.run([sys.executable,str(gate),'--repo',str(repo),'--phase','production'],cwd=str(repo))
