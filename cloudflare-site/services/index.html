@@ -30,33 +30,29 @@
 <meta content="House, apartment, office, commercial, medical office, Airbnb, window, deep and move-out cleaning in Tampa, Hillsborough County and Wesley Chapel." name="twitter:description"/>
 <meta content="https://tampabayshine.com/assets/images/tampa-bay-shine-cleaning-3-640.webp" name="twitter:image"/>
 <link href="/assets/css/pages/tbs-funnel-v1.css?v=20261021-funnel-v1" rel="stylesheet"/></meta><link rel="stylesheet" href="/assets/css/pages/student-housing.css?v=20261104-v1"/><style id="tbs-moving-options-style">
-/* Single-row expandable move-out choices; scoped to the Services funnel. */
-#tbs-services-funnel-v1 #moveout-service-options{margin:0;min-width:0;border:1px solid #e2e7f0;border-radius:13px;background:#fff;overflow:hidden;box-shadow:0 3px 14px rgba(17,24,71,.04)}
-#tbs-services-funnel-v1 #moveout-service-options summary{display:flex;align-items:center;gap:14px;min-width:0;cursor:pointer;list-style:none;padding:16px 18px}
-#tbs-services-funnel-v1 #moveout-service-options summary::-webkit-details-marker{display:none}
-#tbs-services-funnel-v1 #moveout-service-options summary::marker{content:""}
-#tbs-services-funnel-v1 #moveout-service-options summary .f-action-num{flex:0 0 auto}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-summary-copy{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-summary-copy strong{color:#11108a;font-size:1.05rem;line-height:1.3}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-summary-copy small{color:#4d5c76;font-size:.84rem;line-height:1.45}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-chevron{flex:0 0 auto;color:#11108a;font-size:1.2rem;transition:transform .18s ease}
-#tbs-services-funnel-v1 #moveout-service-options[open] .tbs-move-chevron{transform:rotate(180deg)}
-#tbs-services-funnel-v1 #moveout-service-options summary:hover{background:#f9fbff}
-#tbs-services-funnel-v1 #moveout-service-options summary:focus-visible{outline:3px solid #245cdb;outline-offset:-3px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choices{padding:0 18px 14px 18px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choice{padding:16px 0;border-top:1px solid #e6eaf2}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choice-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choice-heading h3{margin:0;color:#11108a;font-size:1rem;line-height:1.35}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-price{white-space:nowrap;color:#11108a;font-weight:800;font-size:.92rem}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choice p{margin:7px 0 10px;color:#47546b;font-size:.88rem;line-height:1.55}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-actions a{font-size:.83rem;font-weight:750;text-decoration:none}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-actions .tbs-move-detail{color:#11108a;text-decoration:underline;text-underline-offset:3px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-actions .tbs-move-pricing{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 13px;border:1px solid #e6bd18;border-radius:999px;background:#fff8d9;color:#11108a}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-actions .tbs-move-pricing:hover{background:#ffe88d}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-guidance{margin:2px 0 0;padding:10px 12px;background:#f5f7fb;border-radius:8px;color:#46536a;font-size:.82rem;line-height:1.5}
-@media(max-width:600px){#tbs-services-funnel-v1 #moveout-service-options summary{padding:14px 12px;gap:10px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choices{padding:0 12px 12px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-choice-heading{align-items:flex-start;flex-direction:column;gap:2px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-actions{gap:10px}}
-@media(prefers-reduced-motion:reduce){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-chevron{transition:none}}
+/* Always-visible move-out options; matches the main service-row width and numbering. */
+#tbs-services-funnel-v1 #moveout-service-options{box-sizing:border-box;width:100%;min-width:0;margin:0;background:#fff;border:1px solid #e2e7f0;border-radius:13px;box-shadow:0 3px 14px rgba(17,24,71,.04);overflow:hidden}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{display:flex;align-items:center;gap:14px;padding:16px 18px}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header .f-action-num{flex:0 0 auto}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading{flex:1;min-width:0}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading h2{margin:3px 0 4px;color:#11108a;font-size:1.05rem;line-height:1.3}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading p{margin:0;color:#4d5c76;font-size:.84rem;line-height:1.45}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin:0 18px 0 18px;border-top:1px solid #e6eaf2}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;min-width:0}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option+.tbs-move-group-option{border-top:1px solid #e6eaf2}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy{flex:1;min-width:0}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-fit{display:block;color:#53658b;font-size:.72rem;font-weight:700;margin-bottom:4px}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3{margin:0;color:#11108a;font-size:.98rem;line-height:1.4}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3 span{display:inline-block;margin-left:8px;color:#314269;font-size:.82rem;font-weight:700;white-space:nowrap}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy p{margin:5px 0 0;color:#47546b;font-size:.84rem;line-height:1.5}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex:0 0 auto;white-space:nowrap}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions a{font-size:.79rem;font-weight:750;text-decoration:none}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-detail{color:#11108a;text-decoration:underline!important;text-underline-offset:3px}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-pricing{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 13px;border:1px solid #e6bd18;border-radius:999px;background:#fff8d9;color:#11108a}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-pricing:hover{background:#ffe88d}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{margin:0;padding:12px 18px;background:#f6f8fc;border-top:1px solid #e6eaf2;color:#46536a;font-size:.8rem;line-height:1.5}
+@media(max-width:760px){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option{align-items:stretch;flex-direction:column;gap:10px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{justify-content:flex-start;flex-wrap:wrap}}
+@media(max-width:600px){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{padding:14px 12px;gap:10px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin:0 12px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{padding:12px}}
 </style>
 </head><body><header class="site-header"><div class="site-shell header-inner"><a aria-label="Tampa Bay Shine home" class="site-brand" href="/"><img alt="Tampa Bay Shine" height="97" src="/assets/images/tampa-bay-shine-logo-1080.webp" width="126"/></a><button aria-controls="site-nav" aria-expanded="false" class="nav-toggle">Menu</button><nav aria-label="Primary" class="site-nav" id="site-nav"><div class="site-nav-primary"><a href="/services/">Services</a><a href="/locations/">Locations</a><a href="/commercial-cleaning-tampa/">Commercial</a><a href="/blog/">Guides</a><a href="/about/">About</a></div><div class="site-nav-actions"><a class="site-login" href="/login/">Customer Login</a><a class="site-book" href="/book/">See My Price</a></div></nav></div></header><main class="page-content"><div class="tbs-funnel-v1" id="tbs-services-funnel-v1">
 <nav aria-label="Breadcrumb" class="f-breadcrumb"><div class="f-shell"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Services</span></li></ol></div></nav>
@@ -76,13 +72,23 @@
 <section class="f-section" id="pick-your-clean"><div class="f-shell"><div class="f-section-head"><div><div class="f-eyebrow">Pick Your Clean</div><h2 class="f-title">Not Every Mess Needs the Same Clean.</h2></div></div><div class="f-action-list">
 <div class="f-action-wrap has-detail"><a class="f-action-row" href="/standard-cleaning-services-tampa/"><span class="f-action-num">01</span><span class="f-action-copy"><span class="f-action-tag">keep it clean &middot; from $114</span><h2>Standard Cleaning</h2><p>Routine one-time or recurring cleaning for weekly, bi-weekly, every 3 weeks, every 4 weeks, or occasional upkeep.</p></span><span aria-hidden="true" class="f-action-arrow">&#8594;</span></a><a class="f-detail" href="/book/?cleaning=standard">See Pricing</a></div>
 <div class="f-action-wrap has-detail"><a class="f-action-row" href="/deep-cleaning-services-tampa/"><span class="f-action-num">02</span><span class="f-action-copy"><span class="f-action-tag">time for a reset &middot; from $199</span><h2>Deep Cleaning</h2><p>For first cleans, seasonal resets, buildup, and homes that need more attention than routine maintenance.</p></span><span aria-hidden="true" class="f-action-arrow">&#8594;</span></a><a class="f-detail" href="/book/?cleaning=deep">See Pricing</a></div>
-<details class="tbs-move-accordion" id="moveout-service-options">
-<summary aria-label="Move-In and Move-Out Cleaning: expand to compare regular and deep options"><span class="f-action-num">03</span><span class="tbs-move-summary-copy"><span class="f-action-tag">moving cleaning · two levels</span><strong>Move-In / Move-Out Cleaning</strong><small>Regular from $259 · Deep from $379 — choose based on the home's condition</small></span><span aria-hidden="true" class="tbs-move-chevron">&#8964;</span></summary>
-<div class="tbs-move-choices">
-<div class="tbs-move-choice"><div class="tbs-move-choice-heading"><h3>Regular Move-In / Move-Out</h3><span class="tbs-move-price">From $259</span></div><p>For reasonably well-maintained vacant homes needing a thorough cleaning before the next occupant.</p><div class="tbs-move-actions"><a class="tbs-move-detail" href="/move-out-cleaning-tampa-bay/">View Details</a><a class="tbs-move-pricing" href="/book/?cleaning=move-out">See Pricing</a></div></div>
-<div class="tbs-move-choice"><div class="tbs-move-choice-heading"><h3>Deep Move-In / Move-Out</h3><span class="tbs-move-price">From $379</span></div><p>For vacant homes with heavier grease, grime, buildup, or areas that haven't been cleaned regularly and need extra attention.</p><div class="tbs-move-actions"><a class="tbs-move-detail" href="/deep-move-in-move-out-cleaning/">View Details</a><a class="tbs-move-pricing" href="/book/?cleaning=deep-moving">See Pricing</a></div></div>
-<p class="tbs-move-guidance"><strong>Which should I choose?</strong> If the home has significant buildup or hasn't been well maintained, choose Deep Move-In / Move-Out. Check the detail pages for inclusions and add-ons.</p>
-</div></details>
+<section class="tbs-move-group" id="moveout-service-options" aria-labelledby="tbs-move-group-heading">
+  <div class="tbs-move-group-header">
+    <span class="f-action-num">03</span>
+    <div class="tbs-move-group-heading"><span class="f-action-tag">moving cleaning &middot; two levels</span><h2 id="tbs-move-group-heading">Move-In / Move-Out Cleaning</h2><p>Choose the right level based on how well the vacant home has been maintained.</p></div>
+  </div>
+  <div class="tbs-move-group-options">
+    <div class="tbs-move-group-option">
+      <div class="tbs-move-group-copy"><span class="tbs-move-fit">For well-maintained homes</span><h3>Regular Move-In / Move-Out <span>From $259</span></h3><p>Thorough vacant-property cleaning for homes that have been reasonably well maintained.</p></div>
+      <div class="tbs-move-group-actions"><a class="tbs-move-detail" href="/move-out-cleaning-tampa-bay/">View Details</a><a class="tbs-move-pricing" href="/book/?cleaning=move-out">See Pricing</a></div>
+    </div>
+    <div class="tbs-move-group-option">
+      <div class="tbs-move-group-copy"><span class="tbs-move-fit">For heavier buildup or neglected areas</span><h3>Deep Move-In / Move-Out <span>From $379</span></h3><p>For vacant homes with heavier grease, grime, buildup, or areas that haven't been cleaned regularly.</p></div>
+      <div class="tbs-move-group-actions"><a class="tbs-move-detail" href="/deep-move-in-move-out-cleaning/">View Details</a><a class="tbs-move-pricing" href="/book/?cleaning=deep-moving">See Pricing</a></div>
+    </div>
+  </div>
+  <p class="tbs-move-group-guidance"><strong>Which should I choose?</strong> If the home has significant buildup or hasn't been well maintained, choose Deep Move-In / Move-Out. See each service's details for inclusions and add-ons.</p>
+</section>
 <div class="f-action-wrap has-detail"><a class="f-action-row" href="/apartment-cleaning-services/"><span class="f-action-num">04</span><span class="f-action-copy"><span class="f-action-tag">smaller space, same shine</span><h2>Apartment &amp; Condo Cleaning</h2><p>Routine, deep, recurring, and move-out cleaning for apartments, condos, renters, and residents.</p></span><span aria-hidden="true" class="f-action-arrow">&#8594;</span></a><a class="f-detail" href="/book/">See Pricing</a></div>
 <div class="f-action-wrap has-detail"><a class="f-action-row" href="/airbnb-cleaning-services/"><span class="f-action-num">05</span><span class="f-action-copy"><span class="f-action-tag">ready for the next guest</span><h2>Airbnb &amp; Short-Term Rental</h2><p>Turnover cleaning for hosts and property managers who need a dependable guest-ready reset.</p></span><span aria-hidden="true" class="f-action-arrow">&#8594;</span></a><a class="f-detail" href="/book/">See Pricing</a></div>
 <div class="f-action-wrap has-detail"><a class="f-action-row" href="/window-cleaning/"><span class="f-action-num">06</span><span class="f-action-copy"><span class="f-action-tag">let the light back in</span><h2>Window Cleaning</h2><p>Interior and exterior residential window cleaning, including tracks, sills, screens, and presentation-focused glass care.</p></span><span aria-hidden="true" class="f-action-arrow">&#8594;</span></a><a class="f-detail" href="/book/">See Pricing</a></div>
