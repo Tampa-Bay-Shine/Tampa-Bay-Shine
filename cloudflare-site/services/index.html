@@ -30,29 +30,29 @@
 <meta content="House, apartment, office, commercial, medical office, Airbnb, window, deep and move-out cleaning in Tampa, Hillsborough County and Wesley Chapel." name="twitter:description"/>
 <meta content="https://tampabayshine.com/assets/images/tampa-bay-shine-cleaning-3-640.webp" name="twitter:image"/>
 <link href="/assets/css/pages/tbs-funnel-v1.css?v=20261021-funnel-v1" rel="stylesheet"/></meta><link rel="stylesheet" href="/assets/css/pages/student-housing.css?v=20261104-v1"/><style id="tbs-moving-options-style">
-/* Always-visible move-out options; matches the main service-row width and numbering. */
-#tbs-services-funnel-v1 #moveout-service-options{box-sizing:border-box;width:100%;min-width:0;margin:0;background:#fff;border:1px solid #e2e7f0;border-radius:13px;box-shadow:0 3px 14px rgba(17,24,71,.04);overflow:hidden}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{display:flex;align-items:center;gap:14px;padding:16px 18px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header .f-action-num{flex:0 0 auto}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading{flex:1;min-width:0}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading h2{margin:3px 0 4px;color:#11108a;font-size:1.05rem;line-height:1.3}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading p{margin:0;color:#4d5c76;font-size:.84rem;line-height:1.45}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin:0 18px 0 18px;border-top:1px solid #e6eaf2}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;min-width:0}
+/* Move-out group: use the same 76px number / 20px gap / 22px inset as service rows. */
+#tbs-services-funnel-v1 #moveout-service-options{box-sizing:border-box;width:100%;min-width:0;margin:0;background:#fff;border:1px solid #e2e7f0;border-radius:14px;box-shadow:0 5px 18px rgba(15,23,42,.04);overflow:hidden}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:20px;padding:20px 22px 14px}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header .f-action-num{justify-self:start}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading{min-width:0}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading h2{margin:0 0 3px;color:#11108a;font-size:1.22rem;line-height:1.3}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-heading p{margin:0;color:#4d5c76;font-size:.88rem;line-height:1.5}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin:0 22px 0 118px;border-top:1px solid #e6eaf2}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option{display:grid;grid-template-columns:minmax(0,1fr) 184px;align-items:center;gap:20px;padding:15px 0;min-width:0}
 #tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option+.tbs-move-group-option{border-top:1px solid #e6eaf2}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy{flex:1;min-width:0}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-fit{display:block;color:#53658b;font-size:.72rem;font-weight:700;margin-bottom:4px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3{margin:0;color:#11108a;font-size:.98rem;line-height:1.4}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3 span{display:inline-block;margin-left:8px;color:#314269;font-size:.82rem;font-weight:700;white-space:nowrap}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy p{margin:5px 0 0;color:#47546b;font-size:.84rem;line-height:1.5}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex:0 0 auto;white-space:nowrap}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy{min-width:0}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-fit{display:block;color:#53658b;font-size:.73rem;font-weight:700;margin-bottom:3px}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3{margin:0;color:#11108a;font-size:1rem;line-height:1.4}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3 span{display:inline-block;margin-left:7px;color:#314269;font-size:.83rem;font-weight:700;white-space:nowrap}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy p{margin:4px 0 0;color:#47546b;font-size:.85rem;line-height:1.5}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:0;white-space:nowrap}
 #tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions a{font-size:.79rem;font-weight:750;text-decoration:none}
 #tbs-services-funnel-v1 #moveout-service-options .tbs-move-detail{color:#11108a;text-decoration:underline!important;text-underline-offset:3px}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-pricing{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 13px;border:1px solid #e6bd18;border-radius:999px;background:#fff8d9;color:#11108a}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-pricing{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 12px;border:1px solid #e6bd18;border-radius:999px;background:#fff8d9;color:#11108a}
 #tbs-services-funnel-v1 #moveout-service-options .tbs-move-pricing:hover{background:#ffe88d}
-#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{margin:0;padding:12px 18px;background:#f6f8fc;border-top:1px solid #e6eaf2;color:#46536a;font-size:.8rem;line-height:1.5}
-@media(max-width:760px){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option{align-items:stretch;flex-direction:column;gap:10px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{justify-content:flex-start;flex-wrap:wrap}}
-@media(max-width:600px){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{padding:14px 12px;gap:10px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin:0 12px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{padding:12px}}
+#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{margin:0;padding:12px 22px 12px 118px;background:#f6f8fc;border-top:1px solid #e6eaf2;color:#46536a;font-size:.82rem;line-height:1.5}
+@media(max-width:920px){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{grid-template-columns:56px minmax(0,1fr)}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin-left:98px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{padding-left:98px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-option{grid-template-columns:minmax(0,1fr);gap:8px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{justify-content:flex-start}}
+@media(max-width:620px){#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-header{grid-template-columns:42px minmax(0,1fr);gap:20px;padding:17px 17px 12px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-options{margin:0 17px 0 79px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-guidance{padding:12px 17px 12px 79px}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-actions{flex-wrap:wrap}#tbs-services-funnel-v1 #moveout-service-options .tbs-move-group-copy h3 span{margin-left:0}}
 </style>
 </head><body><header class="site-header"><div class="site-shell header-inner"><a aria-label="Tampa Bay Shine home" class="site-brand" href="/"><img alt="Tampa Bay Shine" height="97" src="/assets/images/tampa-bay-shine-logo-1080.webp" width="126"/></a><button aria-controls="site-nav" aria-expanded="false" class="nav-toggle">Menu</button><nav aria-label="Primary" class="site-nav" id="site-nav"><div class="site-nav-primary"><a href="/services/">Services</a><a href="/locations/">Locations</a><a href="/commercial-cleaning-tampa/">Commercial</a><a href="/blog/">Guides</a><a href="/about/">About</a></div><div class="site-nav-actions"><a class="site-login" href="/login/">Customer Login</a><a class="site-book" href="/book/">See My Price</a></div></nav></div></header><main class="page-content"><div class="tbs-funnel-v1" id="tbs-services-funnel-v1">
 <nav aria-label="Breadcrumb" class="f-breadcrumb"><div class="f-shell"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Services</span></li></ol></div></nav>
