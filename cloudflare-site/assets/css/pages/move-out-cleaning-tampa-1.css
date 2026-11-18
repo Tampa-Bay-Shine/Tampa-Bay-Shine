@@ -545,3 +545,34 @@
   #tbs-moveout-hub-v2 .hero { min-height:unset; }
   #tbs-moveout-hub-v2 .hero-image img { object-position:65% center; }
 }
+
+
+/* TBS_MOVEOUT_HUB_HERO_CONTRAST_V2 */
+/* Restrict contrast fixes to the image hero, leaving service cards and buttons alone. */
+#tbs-moveout-hub-v2 .hero .hero-content .hero-lede,
+#tbs-moveout-hub-v2 .hero .hero-content .hero-lede strong,
+#tbs-moveout-hub-v2 .hero .hero-content .hero-price,
+#tbs-moveout-hub-v2 .hero .hero-content .hero-price span {
+  color: #fff !important;
+  opacity: 1;
+}
+#tbs-moveout-hub-v2 .hero .hero-content a:not(.btn),
+#tbs-moveout-hub-v2 .hero .hero-content a:not(.btn):visited {
+  color: #fff !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#tbs-moveout-hub-v2 .hero .hero-content a:not(.btn):hover {
+  color: #fff3b0 !important;
+}
+#tbs-moveout-hub-v2 .hero .hero-content .hero-lede {
+  line-height: 1.65;
+  font-weight: 500;
+  text-shadow: 0 2px 3px rgba(0,0,0,.65);
+}
+#tbs-moveout-hub-v2 .hero .hero-content .hero-price strong {
+  color: #ffe35a !important;
+}
+#tbs-moveout-hub-v2 .hero .hero-content .hero-proof .proof {
+  color: #fff !important;
+}
