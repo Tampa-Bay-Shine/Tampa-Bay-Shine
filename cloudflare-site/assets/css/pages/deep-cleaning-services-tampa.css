@@ -628,3 +628,24 @@
         font-size: .84rem;
     }
 }
+
+/* TBS_SITEWIDE_HERO_CONTRAST_20261118 */
+/* Contrast guard is limited to photographic hero copy; white-background cards and buttons are unaffected. */
+#tbs-deep-v2 .hero .hero-content {
+  color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.42);
+}
+#tbs-deep-v2 .hero .hero-content p,
+#tbs-deep-v2 .hero .hero-content .hero-lede {
+  color:#fff;
+}
+#tbs-deep-v2 .hero .hero-content a:not(.btn) {
+  color:#fff;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
+#tbs-deep-v2 .hero .hero-content a:not(.btn):hover,
+#tbs-deep-v2 .hero .hero-content a:not(.btn):focus-visible {
+  color:#ffe35a;
+}

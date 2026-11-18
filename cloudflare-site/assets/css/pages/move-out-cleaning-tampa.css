@@ -523,3 +523,35 @@
             font-size:.84rem;
           }
         }
+
+/* TBS_SITEWIDE_HERO_CONTRAST_20261118 */
+/* Contrast guard is limited to photographic hero copy; white-background cards and buttons are unaffected. */
+#tbs-moveout-tampa-v2 .hero .hero-content {
+  color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.42);
+}
+#tbs-moveout-tampa-v2 .hero .hero-content p,
+#tbs-moveout-tampa-v2 .hero .hero-content .hero-lede {
+  color:#fff;
+}
+#tbs-moveout-tampa-v2 .hero .hero-content a:not(.btn) {
+  color:#fff;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
+#tbs-moveout-tampa-v2 .hero .hero-content a:not(.btn):hover,
+#tbs-moveout-tampa-v2 .hero .hero-content a:not(.btn):focus-visible {
+  color:#ffe35a;
+}
+
+#tbs-moveout-tampa-v2 .hero::after {
+  background:linear-gradient(90deg,rgba(5,5,44,.97) 0%,rgba(9,9,73,.93) 36%,rgba(12,11,80,.69) 61%,rgba(6,6,48,.22) 100%);
+}
+#tbs-moveout-tampa-v2 .hero .hero-content { max-width:660px; }
+@media (max-width:760px) {
+  #tbs-moveout-tampa-v2 .hero::after {
+    background:linear-gradient(180deg,rgba(6,5,45,.95),rgba(7,6,65,.89) 72%,rgba(8,7,65,.82));
+  }
+  #tbs-moveout-tampa-v2 .hero .hero-content { max-width:100%; }
+}
