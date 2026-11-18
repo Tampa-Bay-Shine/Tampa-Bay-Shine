@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-17T21:27:47.693881+00:00",
+  "generated_at": "2026-11-18T20:59:59.483334+00:00",
   "source": "Google Search Console URL Inspection API",
   "property": "https://tampabayshine.com/",
   "scope": "Fixed 15 strategic Core Pages; this is not a site-wide index coverage count.",
@@ -13,17 +13,52 @@
   },
   "changes": {
     "comparison_available": true,
-    "previous_checked_at": "2026-11-16T22:39:12.201662+00:00",
+    "previous_checked_at": "2026-11-17T21:27:47.693881+00:00",
     "material_change_count": 0,
     "adverse_change_count": 0,
-    "recrawl_count": 1,
+    "recrawl_count": 8,
     "status": "no_change",
     "events": [],
     "recrawls": [
       {
-        "path": "/locations/",
-        "from": "2026-11-06T05:04:06Z",
-        "to": "2026-11-15T18:04:35Z"
+        "path": "/",
+        "from": "2026-11-14T02:14:57Z",
+        "to": "2026-11-18T16:28:48Z"
+      },
+      {
+        "path": "/services/",
+        "from": "2026-11-14T01:05:52Z",
+        "to": "2026-11-18T15:21:08Z"
+      },
+      {
+        "path": "/move-out-cleaning-tampa/",
+        "from": "2026-11-16T21:19:49Z",
+        "to": "2026-11-18T13:57:53Z"
+      },
+      {
+        "path": "/office-cleaning/",
+        "from": "2026-11-15T06:14:37Z",
+        "to": "2026-11-18T15:04:56Z"
+      },
+      {
+        "path": "/commercial-cleaning-tampa/",
+        "from": "2026-11-09T19:08:28Z",
+        "to": "2026-11-18T15:04:56Z"
+      },
+      {
+        "path": "/medical-office-cleaning-tampa/",
+        "from": "2026-11-09T19:40:33Z",
+        "to": "2026-11-18T15:02:55Z"
+      },
+      {
+        "path": "/house-cleaning-brandon-fl/",
+        "from": "2026-11-13T22:35:53Z",
+        "to": "2026-11-18T15:04:56Z"
+      },
+      {
+        "path": "/house-cleaning-riverview-fl/",
+        "from": "2026-11-09T19:18:30Z",
+        "to": "2026-11-18T15:04:56Z"
       }
     ]
   },
@@ -34,12 +69,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-14T02:14:57Z",
+      "last_crawl_time": "2026-11-18T16:28:48Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/",
       "user_canonical": "https://tampabayshine.com/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=0U2uTz1c4mfp9uBIqc-7Ug&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=M7d-nhO72EKVdvilJAcr9w&utm_medium=link&utm_source=api",
       "path": "/",
       "label": "Homepage"
     },
@@ -49,12 +84,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-14T01:05:52Z",
+      "last_crawl_time": "2026-11-18T15:21:08Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/services/",
       "user_canonical": "https://tampabayshine.com/services/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=GeslvMeK5fUfqPKe0f1fVA&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=bzP0NeuMbEoj004wKnPyYg&utm_medium=link&utm_source=api",
       "path": "/services/",
       "label": "Services Hub"
     },
@@ -69,7 +104,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/standard-cleaning-services-tampa/",
       "user_canonical": "https://tampabayshine.com/standard-cleaning-services-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=QSF8XLu-nC-vvuuPmQJwEg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=D9fJd6ur8Ls9MKW1DC1hEg&utm_medium=link&utm_source=api",
       "path": "/standard-cleaning-services-tampa/",
       "label": "Standard Cleaning"
     },
@@ -84,7 +119,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/deep-cleaning-services-tampa/",
       "user_canonical": "https://tampabayshine.com/deep-cleaning-services-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=XOs0xHWP3YETBwZPkO-Klg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=2Rs99NMovZH47X0D3DPAsQ&utm_medium=link&utm_source=api",
       "path": "/deep-cleaning-services-tampa/",
       "label": "Deep Cleaning"
     },
@@ -94,12 +129,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-16T21:19:49Z",
+      "last_crawl_time": "2026-11-18T13:57:53Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/move-out-cleaning-tampa/",
       "user_canonical": "https://tampabayshine.com/move-out-cleaning-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=XAmaU4rKz0UeK3XguJXXww&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=Tc68v8Ec2T7ENcIlbhOgdA&utm_medium=link&utm_source=api",
       "path": "/move-out-cleaning-tampa/",
       "label": "Move Out / Move In Cleaning"
     },
@@ -114,7 +149,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/apartment-cleaning-tampa/",
       "user_canonical": "https://tampabayshine.com/apartment-cleaning-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=XquAF-AEksA3v1NvtOaFyg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=lBKn0YAEufYpcjbGFobkKA&utm_medium=link&utm_source=api",
       "path": "/apartment-cleaning-tampa/",
       "label": "Apartment Cleaning"
     },
@@ -129,7 +164,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/airbnb-cleaning-services/",
       "user_canonical": "https://tampabayshine.com/airbnb-cleaning-services/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=XEV3lRCRgJUj5aiKnJTPFQ&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=DkVSJjqFGGwd3pEWNqj4CQ&utm_medium=link&utm_source=api",
       "path": "/airbnb-cleaning-services/",
       "label": "Airbnb Cleaning"
     },
@@ -139,12 +174,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-15T06:14:37Z",
+      "last_crawl_time": "2026-11-18T15:04:56Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/office-cleaning/",
       "user_canonical": "https://tampabayshine.com/office-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=1wKB_5e53FDtWOQdlaRWtg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=vbtL-iNLHYla-vxijYFadQ&utm_medium=link&utm_source=api",
       "path": "/office-cleaning/",
       "label": "Office Cleaning"
     },
@@ -154,12 +189,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-09T19:08:28Z",
+      "last_crawl_time": "2026-11-18T15:04:56Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/commercial-cleaning-tampa/",
       "user_canonical": "https://tampabayshine.com/commercial-cleaning-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=mBe1SRcJkmFhjd8Isr8QXQ&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=OWVXP1yskcstNW4Ibsrzwg&utm_medium=link&utm_source=api",
       "path": "/commercial-cleaning-tampa/",
       "label": "Commercial Cleaning"
     },
@@ -169,12 +204,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-09T19:40:33Z",
+      "last_crawl_time": "2026-11-18T15:02:55Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/medical-office-cleaning-tampa/",
       "user_canonical": "https://tampabayshine.com/medical-office-cleaning-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=_NeNmri83bF7mf9EyCP6MA&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=mtHOiFafcIIJ2ZjYMqN-GQ&utm_medium=link&utm_source=api",
       "path": "/medical-office-cleaning-tampa/",
       "label": "Medical Office Cleaning"
     },
@@ -189,7 +224,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/locations/",
       "user_canonical": "https://tampabayshine.com/locations/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=UounT0kwisijUffGvlKpdA&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=mfFk_KoI1U-ghyWUKEXwHw&utm_medium=link&utm_source=api",
       "path": "/locations/",
       "label": "Locations Hub"
     },
@@ -199,12 +234,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-13T22:35:53Z",
+      "last_crawl_time": "2026-11-18T15:04:56Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/house-cleaning-brandon-fl/",
       "user_canonical": "https://tampabayshine.com/house-cleaning-brandon-fl/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=AjK6KftdX4imYVVIczzYdg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=TfiiPXthWzejwQtfOCAXXw&utm_medium=link&utm_source=api",
       "path": "/house-cleaning-brandon-fl/",
       "label": "Brandon House Cleaning"
     },
@@ -214,12 +249,12 @@
       "coverage_state": "Submitted and indexed",
       "indexing_state": "INDEXING_ALLOWED",
       "robots_txt_state": "ALLOWED",
-      "last_crawl_time": "2026-11-09T19:18:30Z",
+      "last_crawl_time": "2026-11-18T15:04:56Z",
       "page_fetch_state": "SUCCESSFUL",
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/house-cleaning-riverview-fl/",
       "user_canonical": "https://tampabayshine.com/house-cleaning-riverview-fl/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=Lgxg2Naere6DzbymJiFVKQ&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=KkG1yHsTxZuBXDefVY5AQA&utm_medium=link&utm_source=api",
       "path": "/house-cleaning-riverview-fl/",
       "label": "Riverview House Cleaning"
     },
@@ -234,7 +269,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/house-cleaning-sun-city-center-fl/",
       "user_canonical": "https://tampabayshine.com/house-cleaning-sun-city-center-fl/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=F4KcIphiHiPu8PhNPt9vGg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=EVwok26kiKx-U3T6j37zTw&utm_medium=link&utm_source=api",
       "path": "/house-cleaning-sun-city-center-fl/",
       "label": "Sun City Center House Cleaning"
     },
@@ -249,7 +284,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/house-cleaning-ruskin-fl/",
       "user_canonical": "https://tampabayshine.com/house-cleaning-ruskin-fl/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=IVN9FssrR4_KajgSpsb6qw&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=BvI_hOwxLw53J8v7uLvZXg&utm_medium=link&utm_source=api",
       "path": "/house-cleaning-ruskin-fl/",
       "label": "Ruskin House Cleaning"
     }
@@ -266,7 +301,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/student-housing-cleaning-tampa/",
       "user_canonical": "https://tampabayshine.com/student-housing-cleaning-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=S5lgwn61BOl1pytpniGbpg&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=Un2h4SHQr4R6qh8cbql4uA&utm_medium=link&utm_source=api",
       "path": "/student-housing-cleaning-tampa/",
       "label": "Student Housing Hub"
     },
@@ -281,7 +316,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/usf-apartment-cleaning/",
       "user_canonical": "https://tampabayshine.com/usf-apartment-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=nQdZePYIUgOjiAhyc8ZfcQ&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=Cr0LdrakPlfKqJuowYsryw&utm_medium=link&utm_source=api",
       "path": "/usf-apartment-cleaning/",
       "label": "USF Apartment Cleaning"
     },
@@ -296,7 +331,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/utampa-apartment-cleaning/",
       "user_canonical": "https://tampabayshine.com/utampa-apartment-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=i_ByP4Fj4Cu8WuOvLtymzA&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=uR0rtvQfGozVdUdrTnDO8g&utm_medium=link&utm_source=api",
       "path": "/utampa-apartment-cleaning/",
       "label": "University of Tampa"
     },
@@ -311,7 +346,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/hillsborough-college-apartment-cleaning/",
       "user_canonical": "https://tampabayshine.com/hillsborough-college-apartment-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=zn4_dtTzw4731oPk7JU4LA&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=pPB7sOfsY1qRUN1yksuSlQ&utm_medium=link&utm_source=api",
       "path": "/hillsborough-college-apartment-cleaning/",
       "label": "Hillsborough College"
     },
@@ -326,7 +361,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/florida-college-apartment-cleaning/",
       "user_canonical": "https://tampabayshine.com/florida-college-apartment-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=tP5BmU4Inw0_GLB0kFeuhw&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=r_mUTYjzXI9CoUoFoIukPA&utm_medium=link&utm_source=api",
       "path": "/florida-college-apartment-cleaning/",
       "label": "Florida College"
     },
@@ -341,7 +376,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/keiser-university-apartment-cleaning-tampa/",
       "user_canonical": "https://tampabayshine.com/keiser-university-apartment-cleaning-tampa/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=OV2-vH1qOyCaATD65aKr4g&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=CNUMuFlJ3lTH1suooayrFQ&utm_medium=link&utm_source=api",
       "path": "/keiser-university-apartment-cleaning-tampa/",
       "label": "Keiser University Tampa"
     },
@@ -356,7 +391,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/phsc-student-apartment-cleaning/",
       "user_canonical": "https://tampabayshine.com/phsc-student-apartment-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=O76LrwSyyw95fZR2nCGaZQ&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=DVNIOxax5xMrjQTBiYKmJA&utm_medium=link&utm_source=api",
       "path": "/phsc-student-apartment-cleaning/",
       "label": "PHSC / Wesley Chapel"
     },
@@ -371,7 +406,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/rasmussen-university-apartment-cleaning/",
       "user_canonical": "https://tampabayshine.com/rasmussen-university-apartment-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=M0CiOSzxjlA9uL5bxzB5EA&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=X4QcIG27lQRMvYAeq9vOMQ&utm_medium=link&utm_source=api",
       "path": "/rasmussen-university-apartment-cleaning/",
       "label": "Rasmussen University"
     },
@@ -386,7 +421,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/college-apartment-move-out-cleaning/",
       "user_canonical": "https://tampabayshine.com/college-apartment-move-out-cleaning/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=8i3FnDvCWzKJQRCmawHQ9g&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=_YyeDNBjpVwHHFUXyAcgjw&utm_medium=link&utm_source=api",
       "path": "/college-apartment-move-out-cleaning/",
       "label": "College Move-Out Cleaning"
     },
@@ -401,7 +436,7 @@
       "crawled_as": "MOBILE",
       "google_canonical": "https://tampabayshine.com/college-student-cleaning-gift-cards/",
       "user_canonical": "https://tampabayshine.com/college-student-cleaning-gift-cards/",
-      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=9g8Iq-d8N0BPRIkTnmwhcQ&utm_medium=link&utm_source=api",
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=https://tampabayshine.com/&id=7b9S0dJFP79sEqyefovVLw&utm_medium=link&utm_source=api",
       "path": "/college-student-cleaning-gift-cards/",
       "label": "Student Cleaning Gift Cards"
     }
