@@ -117,7 +117,7 @@ body.signature-site{background:var(--sg-paper);color:var(--sg-ink);font-family:A
 .signature-steps h3{font-size:1.7rem;font-weight:400;margin:18px 0 10px;color:var(--sg-navy)}
 .signature-steps p{color:#5b6976;line-height:1.8;font-size:.92rem;max-width:300px}
 .signature-faq{background:#fff}
-.signature-faq-grid{display:grid;grid-template-columns:38% 62%;gap:62px}
+.signature-faq-grid{display:grid;grid-template-columns:minmax(0,38fr) minmax(0,62fr);gap:62px}
 .signature-faq-grid>div:first-child{max-width:400px}
 .signature-faq h2{margin:18px 0 22px}
 .signature-faq-grid>div>p{color:#5b6976;line-height:1.8}
@@ -253,3 +253,13 @@ body.signature-site{background:var(--sg-paper);color:var(--sg-ink);font-family:A
 @media (max-width: 760px) {
   .signature-hero-photo { object-position: 55% center; }
 }
+
+/* TBS_SIGNATURE_STATEMENT_OVERFLOW_FIX_V1 */
+/* Keep the 47/53 split without adding the 70px gap on top of 100%. */
+@media (min-width:761px) {
+  .signature-statement-grid {
+    grid-template-columns: minmax(0,47fr) minmax(0,53fr);
+  }
+  .signature-statement-grid > * { min-width:0; }
+}
+/* END TBS_SIGNATURE_STATEMENT_OVERFLOW_FIX_V1 */
