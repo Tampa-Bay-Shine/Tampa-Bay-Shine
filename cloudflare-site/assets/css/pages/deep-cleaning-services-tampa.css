@@ -573,3 +573,58 @@
  #tbs-standard .pricing-grid,#tbs-standard .grid,#tbs-deep-v2 .grid{min-width:0;}
  #tbs-standard .pricing-grid > *,#tbs-standard .grid > *,#tbs-deep-v2 .grid > *{min-width:0;}
 }
+
+/* TBS UNIFIED SERVICE AREA CHIPS V4 */
+#tbs-deep-v2 .pill-row .pill,
+#tbs-deep-v2 .area-row .area-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 8px 13px;
+    border: 1px solid #b9c4eb;
+    border-radius: 999px;
+    background: #fff;
+    color: #0f0889;
+    font-size: .88rem;
+    font-weight: 800;
+    line-height: 1.25;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(15, 8, 137, .04);
+}
+
+#tbs-deep-v2 .pill-row span.pill,
+#tbs-deep-v2 .area-row span.area-pill {
+    background: #fff;
+    color: #0f0889;
+    border-color: #b9c4eb;
+    opacity: 1;
+    cursor: default;
+    box-shadow: 0 2px 5px rgba(15, 8, 137, .04);
+}
+
+#tbs-deep-v2 .pill-row a.pill,
+#tbs-deep-v2 .area-row a.area-pill {
+    cursor: pointer;
+}
+
+#tbs-deep-v2 .pill-row a.pill:hover,
+#tbs-deep-v2 .area-row a.area-pill:hover {
+    background: #f1f3ff;
+    border-color: #0f0889;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    #tbs-deep-v2 .pill-row,
+    #tbs-deep-v2 .area-row {
+        gap: 8px;
+    }
+
+    #tbs-deep-v2 .pill-row .pill,
+    #tbs-deep-v2 .area-row .area-pill {
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: .84rem;
+    }
+}
