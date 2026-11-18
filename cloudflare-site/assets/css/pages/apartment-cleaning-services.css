@@ -563,3 +563,19 @@
             font-size:.84rem;
           }
         }
+
+/* TBS_APARTMENT_HERO_LINK_CONTRAST_20261118 */
+/* Ordinary links in the dark image-backed hero must not inherit royal blue. */
+#tbs-apartment-v2 .hero .hero-lede a:not(.btn) {
+  color: #ffffff !important;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: #f4c613;
+  font-weight: 800;
+}
+#tbs-apartment-v2 .hero .hero-lede a:not(.btn):hover,
+#tbs-apartment-v2 .hero .hero-lede a:not(.btn):focus-visible {
+  color: #ffe35a !important;
+  text-decoration-color: #ffe35a;
+}
