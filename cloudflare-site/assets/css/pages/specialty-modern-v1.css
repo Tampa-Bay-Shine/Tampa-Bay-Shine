@@ -1,0 +1,593 @@
+/* TBS_SPECIALTY_MODERN_20261118_V1
+   Scoped commercial-specialty design system; does not affect other pages.
+   Works with existing header/footer and preserves all existing section IDs.
+*/
+:root { --tbs-specialty-navy: #10145c; }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) {
+  --tbs-modern-navy: #10145c;
+  --tbs-modern-blue: #0f0889;
+  --tbs-modern-gold: #f4c613;
+  --tbs-modern-ink: #17213b;
+  --tbs-modern-muted: #43516a;
+  --tbs-modern-line: #e1e7f0;
+  --tbs-modern-soft: #f3f6fc;
+  color: var(--tbs-modern-ink);
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding: 48px clamp(18px,3vw,32px);
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap.section,
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap.alt {
+  margin-block: 0;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap.soft,
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap.alt {
+  background: var(--tbs-modern-soft);
+  border-radius: 22px;
+  border: 1px solid #e9edf5;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(h2,h3) {
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) h2 {
+  color: var(--tbs-modern-navy);
+  font-size: clamp(1.55rem,2.8vw,2.15rem);
+  margin-bottom: 18px;
+  font-weight: 850;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) h3 {
+  color: var(--tbs-modern-ink);
+  font-size: clamp(1.05rem,1.4vw,1.19rem);
+  font-weight: 800;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(p,li,.muted) {
+  font-size: clamp(.94rem,1.1vw,1rem);
+  line-height: 1.68;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .muted { color: var(--tbs-modern-muted); }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid {
+  display: grid;
+  gap: 18px;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.card,.mini-card) {
+  border: 1px solid var(--tbs-modern-line);
+  border-radius: 16px;
+  padding: clamp(17px,2vw,24px);
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(14,28,76,.035);
+  height: 100%;
+  min-width: 0;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .icon-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .icon-card .icn {
+  flex: 0 0 38px;
+  font-size: 1.2rem;
+  background: #eef2fe;
+  padding: 7px;
+  border-radius: 12px;
+  text-align: center;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) a:not(.btn):focus-visible {
+  outline: 3px solid #e3b400; outline-offset: 3px;
+}
+/* New split hero: free-standing copy, never text on a busy photograph. */
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-hero {
+  display: block;
+  padding: 0;
+  overflow: visible;
+  background: linear-gradient(110deg,#0b0860 0%,#111a86 65%,#1949c5 100%);
+  border-radius: 0;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-hero-inner {
+  max-width: 1180px;
+  margin: auto;
+  padding: clamp(34px,5vw,70px) clamp(18px,3vw,32px);
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: clamp(26px,4vw,55px);
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-copy {
+  min-width: 0;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-eyebrow {
+  color: #f8d758;
+  font-size: .74rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-copy h1 {
+  margin: 14px 0 22px;
+  color: white;
+  font-size: clamp(2.3rem,4.8vw,4rem);
+  font-weight: 900;
+  letter-spacing: -.045em;
+  line-height: 1.07;
+  max-width: 740px;
+  text-shadow: none;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-copy p {
+  margin: 0;
+  color: #eef3ff;
+  font-size: clamp(1rem,1.4vw,1.1rem);
+  line-height: 1.7;
+  max-width: 64ch;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 27px 0 23px;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  font-size: .94rem;
+  font-weight: 850;
+  border-radius: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a:hover { transform: translateY(-2px); }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a:focus-visible {
+  outline: 3px solid #fff; outline-offset: 3px;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions .tbs-modern-primary {
+  background: var(--tbs-modern-gold);
+  color: #121212 !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions .tbs-modern-secondary {
+  border: 1px solid rgba(255,255,255,.7);
+  color: white !important;
+  background: rgba(255,255,255,.07);
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-trust {
+  display: flex;
+  gap: 10px 22px;
+  flex-wrap: wrap;
+  color: #f3f5ff;
+  font-size: .79rem;
+  line-height: 1.45;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-trust span:before {
+  content: '✓'; color: #ffd657; font-weight: 900; margin-right: 6px;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-figure {
+  margin: 0;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 24px 48px rgba(0,0,0,.25);
+  background: #e4e9f2;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-caption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 3px;
+  padding: 40px 18px 16px;
+  color: white;
+  background: linear-gradient(transparent,rgba(2,8,41,.83));
+  text-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-caption strong {
+  font-size: .91rem;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-caption span {
+  font-size: .76rem;
+  color: #ecf0ff;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .caption { display: none !important; }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.wrap.panel.cta-strong,.panel.cta-strong) {
+  background: linear-gradient(105deg,#0c0863,#1c37ac);
+  border-radius: 19px;
+  padding: 36px 26px;
+  color: white;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .panel.cta-strong h2 { color: white; }
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) details {
+  border: 1px solid var(--tbs-modern-line);
+  background: #fff;
+  border-radius: 12px;
+  margin-block: 8px;
+  padding: 12px 16px;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) summary {
+  font-size: .98rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+@media(max-width: 960px) {
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-hero-inner { grid-template-columns: 1fr 1fr; }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-4 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-3 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width: 700px) {
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 32px 18px 28px;
+    gap: 25px;
+  }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-copy h1 { font-size: clamp(2.05rem,9vw,3rem); }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions { flex-direction: column; }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a { width: 100%; }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-figure img { aspect-ratio: 16 / 10; }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-4,
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-3,
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .grid.cols-2 { grid-template-columns: 1fr; }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap {
+    padding: 32px 18px;
+  }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap.soft,
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .wrap.alt { border-radius: 0; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a { transition: none; }
+}
+
+/* TBS_SPECIALTY_CONSISTENCY_20261118_V2
+   Match the modern Services funnel's breadcrumb and CTA scale. Scoped to
+   modern specialty pages; legacy page content, global header/footer unaffected.
+*/
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .breadcrumbs {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border-bottom: 1px solid #e9edf5;
+}
+/* .wrap normally has generous section spacing; never apply it to a breadcrumb. */
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .breadcrumbs .wrap {
+  max-width: 1180px;
+  padding: 12px clamp(18px,3vw,32px);
+  margin: 0 auto;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .83rem;
+  line-height: 1.5;
+  color: #667085;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .breadcrumbs a {
+  color: #0f0889;
+  font-weight: 800;
+  text-decoration: none;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+/* Match primary Services CTA dimensions and emphasis. */
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.tbs-modern-actions a,.btn.accent,.btn.royal) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.tbs-modern-actions .tbs-modern-primary,.btn.accent) {
+  background: #f4c613;
+  color: #111 !important;
+  border-color: transparent;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.tbs-modern-actions .tbs-modern-primary,.btn.accent):is(:hover,:focus-visible) {
+  background: #ffdb47;
+  color: #111 !important;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.tbs-modern-actions a,.btn):focus-visible {
+  outline: 3px solid #e3b400;
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .breadcrumbs .wrap {
+    padding: 11px 18px;
+  }
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+
+/* TBS_SPECIALTY_VISUAL_V2_20261118 — scoped v3 presentation polish.
+   Keep Services-page button sizing; preserve existing content and schema. */
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a.tbs-modern-primary,
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a.tbs-modern-secondary {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:48px !important;
+  padding:12px 18px !important;
+  border-radius:9px !important;
+  font:900 16px/1.25 Arial,Helvetica,sans-serif !important;
+  letter-spacing:0 !important;
+  text-decoration:none !important;
+  text-align:center;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a.tbs-modern-primary {
+  background:#f4c613 !important;
+  color:#111 !important;
+  border:2px solid #f4c613 !important;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a.tbs-modern-primary:hover {
+  background:#ffdb47 !important;
+  border-color:#ffdb47 !important;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a.tbs-modern-secondary {
+  background:transparent !important;
+  border:2px solid rgba(255,255,255,.72) !important;
+  color:#fff !important;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a:focus-visible {
+  outline:3px solid #ffe178 !important;
+  outline-offset:3px;
+}
+/* Extra protection against the inherited .wrap section padding on breadcrumbs. */
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) nav.breadcrumbs .wrap {
+  padding:12px clamp(18px,3vw,32px) !important;
+  min-height:0;
+  margin:0 auto;
+}
+/* Locations-inspired service tiles: more deliberate grid rhythm and clearer cards. */
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .svc-card {
+  border:1px solid #e5ebf8;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 7px 22px rgba(16,32,78,.07);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .svc-card img {
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 10;
+  height:auto;
+  object-fit:cover;
+}
+@media (hover:hover) {
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .svc-card:hover {
+    transform:translateY(-3px);
+    box-shadow:0 14px 32px rgba(16,32,78,.12);
+  }
+}
+.tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) :is(.card,.mini-card) {
+  height:auto;
+}
+/* Post-event: editorial image-grid with accessible labels and useful service links. */
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-band {
+  max-width:1180px;
+  margin:0 auto;
+  padding:38px clamp(18px,3vw,32px) 28px;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-band .tbs-event-kicker {
+  margin:0 0 9px;
+  color:#1741a9;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.12em;
+  font-size:.75rem;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-band h2 {
+  margin:0 0 12px;
+  color:#10145c;
+  font-size:clamp(1.55rem,2.8vw,2.3rem);
+  line-height:1.15;
+  letter-spacing:-.03em;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-band > p {
+  margin:0 0 22px;
+  color:#44556a;
+  max-width:75ch;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-grid {
+  display:grid;
+  grid-template-columns:1.25fr 1fr 1fr;
+  gap:15px;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid #e4e9f5;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 10px 25px rgba(16,30,65,.07);
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature picture,
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature img {
+  display:block;
+  width:100%;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature img {
+  aspect-ratio:16 / 10;
+  height:auto;
+  object-fit:cover;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature:first-child img {
+  aspect-ratio:16 / 10;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-copy {padding:19px 20px 22px;flex:1;}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-copy h3 {
+  margin:0 0 7px;
+  color:#10145c;
+  font-size:1.12rem;
+  line-height:1.25;
+  font-weight:900;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-copy p {
+  margin:0 0 13px;
+  color:#4d5a70;
+  font-size:.94rem;
+  line-height:1.6;
+}
+#post-event-cleaning.tbs-specialty-modern .tbs-event-feature-copy a {
+  color:#0f0889;
+  font-weight:900;
+  text-underline-offset:3px;
+}
+@media (max-width:850px) {
+  #post-event-cleaning.tbs-specialty-modern .tbs-event-feature-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  #post-event-cleaning.tbs-specialty-modern .tbs-event-feature:first-child {grid-column:1 / -1;}
+}
+@media (max-width:650px) {
+  #post-event-cleaning.tbs-specialty-modern .tbs-event-feature-grid {grid-template-columns:1fr;}
+  #post-event-cleaning.tbs-specialty-modern .tbs-event-feature:first-child {grid-column:auto;}
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .tbs-modern-actions a {width:100%;min-height:50px!important;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .tbs-specialty-modern:is(#tbs-floor,#tbs-stripwax,#post-event-cleaning) .svc-card {transition:none;}
+}
+
+/* TBS_FLOOR_EDITORIAL_V4_20261118
+   Align floor-care experiences with Services/Locations without affecting global layouts.
+   The breadcrumb remains outside the hero and is a discreet light service trail.
+*/
+#tbs-floor.tbs-specialty-modern,
+#tbs-stripwax.tbs-specialty-modern {--floor-deep:#100a70;--floor-cobalt:#1747c0;}
+#tbs-floor.tbs-specialty-modern nav.breadcrumbs,
+#tbs-stripwax.tbs-specialty-modern nav.breadcrumbs {
+  display:block!important;background:#f3f6fc!important;border-bottom:1px solid #e4eaf5!important;
+  min-height:0!important;margin:0!important;padding:0!important;
+}
+#tbs-floor.tbs-specialty-modern nav.breadcrumbs .wrap,
+#tbs-stripwax.tbs-specialty-modern nav.breadcrumbs .wrap {
+  padding:14px clamp(20px,4vw,40px)!important;max-width:1180px!important;
+  margin-inline:auto!important;background:transparent!important;
+}
+#tbs-floor.tbs-specialty-modern nav.breadcrumbs ol,
+#tbs-stripwax.tbs-specialty-modern nav.breadcrumbs ol {
+  display:flex!important;gap:8px!important;align-items:center!important;
+  margin:0!important;padding:0!important;list-style:none!important;
+  font:500 15px/1.45 Arial,Helvetica,sans-serif!important;color:#536580!important;
+}
+#tbs-floor.tbs-specialty-modern nav.breadcrumbs a,
+#tbs-stripwax.tbs-specialty-modern nav.breadcrumbs a {color:#0f0889!important;font-weight:800!important;text-decoration:none!important;}
+#tbs-floor.tbs-specialty-modern nav.breadcrumbs .current,
+#tbs-stripwax.tbs-specialty-modern nav.breadcrumbs .current {font-weight:800!important;color:#17213b!important;}
+#tbs-floor.tbs-specialty-modern .tbs-modern-hero,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-hero {
+  background:linear-gradient(108deg,#0d0968 0%,#111989 57%,#184abf 100%)!important;
+}
+#tbs-floor.tbs-specialty-modern .tbs-modern-hero-inner,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-hero-inner {
+  gap:clamp(34px,4vw,65px)!important;padding-block:clamp(52px,6vw,82px)!important;
+}
+#tbs-floor.tbs-specialty-modern .tbs-modern-copy h1,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-copy h1 {
+  font:900 clamp(2.4rem,4.6vw,4.35rem)/1.06 Arial,Helvetica,sans-serif!important;
+  letter-spacing:-.045em!important;max-width:13ch!important;margin:15px 0 20px!important;
+}
+#tbs-floor.tbs-specialty-modern .tbs-modern-copy p,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-copy p {font-size:clamp(1rem,1.4vw,1.125rem)!important;line-height:1.65!important;max-width:60ch;}
+#tbs-floor.tbs-specialty-modern .tbs-modern-figure,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-figure {
+ border:1px solid rgba(255,255,255,.2);border-radius:20px!important;
+ box-shadow:0 24px 54px rgba(1,7,45,.26)!important;
+}
+#tbs-floor.tbs-specialty-modern .tbs-modern-figure img,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-figure img {
+  aspect-ratio:4 / 3!important;object-fit:cover!important;object-position:center 52%;
+}
+#tbs-floor.tbs-specialty-modern .tbs-modern-actions a,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-actions a,
+#tbs-floor.tbs-specialty-modern .btn.accent,
+#tbs-stripwax.tbs-specialty-modern .btn.accent {
+ font:900 16px/1.25 Arial,Helvetica,sans-serif!important;min-height:48px!important;
+ padding:12px 18px!important;border-radius:9px!important;
+}
+#tbs-floor.tbs-specialty-modern .tbs-modern-actions a.tbs-modern-primary,
+#tbs-stripwax.tbs-specialty-modern .tbs-modern-actions a.tbs-modern-primary {color:#111!important;background:#f4c613!important;}
+/* More generous section typography and rhythm, fewer cramped rectangles. */
+#tbs-floor.tbs-specialty-modern > .wrap,
+#tbs-stripwax.tbs-specialty-modern > .wrap {padding-block:clamp(40px,5.5vw,64px)!important;}
+#tbs-floor.tbs-specialty-modern > .wrap :is(h2),
+#tbs-stripwax.tbs-specialty-modern > .wrap :is(h2) {
+  font-size:clamp(1.55rem,2.7vw,2.3rem)!important;letter-spacing:-.035em!important;
+  line-height:1.15!important;margin-bottom:21px!important;
+}
+#tbs-floor.tbs-specialty-modern .grid,
+#tbs-stripwax.tbs-specialty-modern .grid {gap:18px!important;}
+#tbs-floor.tbs-specialty-modern :is(.card,.mini-card),
+#tbs-stripwax.tbs-specialty-modern :is(.card,.mini-card) {
+  border-radius:17px!important;border:1px solid #e7ecf5!important;
+  box-shadow:0 8px 24px rgba(15,26,80,.055)!important;
+  padding:clamp(18px,2vw,26px)!important;
+}
+#tbs-floor.tbs-specialty-modern .icon-card .icn,
+#tbs-stripwax.tbs-specialty-modern .icon-card .icn {background:#eaf0ff!important;min-width:42px;border-radius:11px!important;}
+/* Image-led discovery cards inspired by Locations: photography first and restrained blue cards. */
+#tbs-floor.tbs-specialty-modern .svc-card,
+#tbs-stripwax.tbs-specialty-modern .svc-card {
+  border-radius:17px!important;border:1px solid #e0e7f3!important;
+  box-shadow:0 8px 24px rgba(16,34,92,.075)!important;overflow:hidden!important;
+  transition:transform .18s ease,box-shadow .18s ease!important;
+}
+#tbs-floor.tbs-specialty-modern .svc-card img,
+#tbs-stripwax.tbs-specialty-modern .svc-card img {
+  width:100%!important;height:auto!important;aspect-ratio:16 / 9!important;object-fit:cover!important;
+}
+#tbs-floor.tbs-specialty-modern .svc-card :is(.title,strong),
+#tbs-stripwax.tbs-specialty-modern .svc-card :is(.title,strong) {font-weight:900!important;}
+@media(hover:hover){
+#tbs-floor.tbs-specialty-modern .svc-card:hover,
+#tbs-stripwax.tbs-specialty-modern .svc-card:hover {transform:translateY(-4px);box-shadow:0 15px 34px rgba(16,34,92,.14)!important;}
+}
+@media(max-width:700px){
+ #tbs-floor.tbs-specialty-modern .tbs-modern-hero-inner,
+ #tbs-stripwax.tbs-specialty-modern .tbs-modern-hero-inner {padding:40px 20px!important;grid-template-columns:1fr!important;}
+ #tbs-floor.tbs-specialty-modern .tbs-modern-copy h1,
+ #tbs-stripwax.tbs-specialty-modern .tbs-modern-copy h1 {font-size:clamp(2.25rem,10vw,3.2rem)!important;max-width:none!important;}
+ #tbs-floor.tbs-specialty-modern nav.breadcrumbs .wrap,
+ #tbs-stripwax.tbs-specialty-modern nav.breadcrumbs .wrap {padding:12px 18px!important;}
+ #tbs-floor.tbs-specialty-modern nav.breadcrumbs ol,
+ #tbs-stripwax.tbs-specialty-modern nav.breadcrumbs ol {font-size:13px!important;}
+ #tbs-floor.tbs-specialty-modern .tbs-modern-figure img,
+ #tbs-stripwax.tbs-specialty-modern .tbs-modern-figure img {aspect-ratio:16 / 10!important;}
+ #tbs-floor.tbs-specialty-modern .tbs-modern-actions a,
+ #tbs-stripwax.tbs-specialty-modern .tbs-modern-actions a {width:100%!important;min-height:50px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+#tbs-floor.tbs-specialty-modern .svc-card,
+#tbs-stripwax.tbs-specialty-modern .svc-card {transition:none!important;}
+}
