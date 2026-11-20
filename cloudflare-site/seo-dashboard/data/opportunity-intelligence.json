@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-19T21:06:33.431818+00:00",
+  "generated_at": "2026-11-20T20:52:44.658345+00:00",
   "period": {
-    "start": "2026-10-20",
-    "end": "2026-11-16",
+    "start": "2026-10-21",
+    "end": "2026-11-17",
     "days": 28
   },
   "counts": {
-    "total": 55,
+    "total": 56,
     "high": 43,
-    "medium": 11,
+    "medium": 12,
     "low": 1
   },
   "methodology": {
@@ -46,8 +46,8 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
@@ -58,7 +58,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 20,
         "impressions": 33.0,
@@ -101,25 +101,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 28.0,
+        "impressions": 29.0,
         "ctr_percent": 0.0,
-        "position": 13.25,
-        "position_change": 1.75
+        "position": 12.83,
+        "position_change": 2.17
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 26,
-        "impressions": 32.0,
+        "observed_days": 27,
+        "impressions": 33.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.59
+        "position": 13.21
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -156,25 +156,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 25.0,
         "ctr_percent": 0.0,
-        "position": 14.88,
-        "position_change": 1.15
+        "position": 14.84,
+        "position_change": 1.21
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 28,
-        "impressions": 53.0,
+        "observed_days": 29,
+        "impressions": 54.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.3
+        "position": 13.35
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -201,61 +201,6 @@
       "seo_events": []
     },
     {
-      "id": "opp-288b5649e639dcce",
-      "type": "commercial_striking_distance",
-      "priority": "high",
-      "confidence": "high",
-      "subject": "condo common area disinfection",
-      "query": "condo common area disinfection",
-      "page": null,
-      "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 30.0,
-        "ctr_percent": 0.0,
-        "position": 14.23,
-        "position_change": 11.27
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 10,
-        "impressions": 27.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 14.74
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 164.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.49,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for condo common area disinfection. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
       "id": "opp-80a74cd2edb4de33",
       "type": "commercial_striking_distance",
       "priority": "high",
@@ -266,25 +211,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 44.0,
+        "impressions": 50.0,
         "ctr_percent": 0.0,
-        "position": 10.93,
-        "position_change": 8.64
+        "position": 11.48,
+        "position_change": 7.03
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 33,
-        "impressions": 76.0,
+        "observed_days": 34,
+        "impressions": 86.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.5
+        "position": 13.42
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -311,6 +256,61 @@
       "seo_events": []
     },
     {
+      "id": "opp-d99c29ba845a9770",
+      "type": "commercial_striking_distance",
+      "priority": "high",
+      "confidence": "high",
+      "subject": "gym fitness cleaning services near me",
+      "query": "gym fitness cleaning services near me",
+      "page": null,
+      "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
+      "evidence": {
+        "gsc_period": {
+          "start": "2026-10-21",
+          "end": "2026-11-17",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 25.0,
+        "ctr_percent": 0.0,
+        "position": 9.88,
+        "position_change": -2.8
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-17",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 5,
+        "impressions": 31.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 8.68
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": null,
+        "sessions": 164.0,
+        "booking_starts": 9.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 5.49,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for gym fitness cleaning services near me. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
       "id": "opp-56bf7a20fb8179e5",
       "type": "commercial_striking_distance",
       "priority": "high",
@@ -321,25 +321,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 25.0,
+        "impressions": 27.0,
         "ctr_percent": 0.0,
-        "position": 6.76,
-        "position_change": 6.2
+        "position": 5.07,
+        "position_change": 8.73
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 25,
-        "impressions": 48.0,
+        "observed_days": 26,
+        "impressions": 53.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 10.65
+        "position": 10.26
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -376,25 +376,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 33.0,
         "ctr_percent": 0.0,
         "position": 9.58,
-        "position_change": 0.5
+        "position_change": 0.36
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 42,
-        "impressions": 57.0,
+        "observed_days": 43,
+        "impressions": 58.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 9.0
+        "position": 8.95
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -431,25 +431,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 32.0,
         "ctr_percent": 0.0,
-        "position": 8.5,
-        "position_change": 3.96
+        "position": 8.44,
+        "position_change": 3.95
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 60.0,
+        "observed_days": 44,
+        "impressions": 61.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 9.1
+        "position": 9.08
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -486,8 +486,8 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
@@ -498,7 +498,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 15,
         "impressions": 30.0,
@@ -541,25 +541,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 26.0,
+        "impressions": 27.0,
         "ctr_percent": 0.0,
-        "position": 9.38,
-        "position_change": -4.63
+        "position": 9.0,
+        "position_change": -3.0
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 20,
-        "impressions": 34.0,
+        "observed_days": 21,
+        "impressions": 36.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 9.06
+        "position": 9.0
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -596,18 +596,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.41; 68 impressions; impressions +30; position improvement +5.88.",
+        "gsc_evidence": "Position 9.84; 68 impressions; impressions +26; position improvement +6.06.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 36,
-        "impressions": 106.0,
+        "observed_days": 37,
+        "impressions": 110.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 12.52
+        "position": 12.15
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -644,18 +644,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 8.97; 33 impressions; impressions +2; position improvement +15.19.",
+        "gsc_evidence": "Position 8.33; 33 impressions; impressions +0; position improvement +15.09.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 33,
-        "impressions": 57.0,
+        "observed_days": 34,
+        "impressions": 59.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.54
+        "position": 13.14
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -692,18 +692,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
       "evidence": {
         "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 66 to 39 (-27, 41% decline); position change +6.04. Current landing page: https://tampabayshine.com/office-cleaning-brandon.",
+        "gsc_evidence": "Impressions fell from 70 to 42 (-28, 40% decline); position change +1.52. Current landing page: https://tampabayshine.com/office-cleaning-brandon.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 25,
-        "impressions": 86.0,
+        "observed_days": 26,
+        "impressions": 93.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 33.3
+        "position": 34.91
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -740,12 +740,12 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
       "evidence": {
         "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 57 to 19 (-38, 67% decline); position change +15.63. Current landing page: https://tampabayshine.com/office-cleaning-riverview.",
+        "gsc_evidence": "Impressions fell from 61 to 15 (-46, 75% decline); position change +14.83. Current landing page: https://tampabayshine.com/office-cleaning-riverview.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 16,
         "impressions": 64.0,
@@ -788,18 +788,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.22; 96 impressions; impressions +45; position improvement +12.27.",
+        "gsc_evidence": "Position 9.51; 92 impressions; impressions +35; position improvement +12.51.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 41,
-        "impressions": 147.0,
+        "observed_days": 42,
+        "impressions": 149.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.48
+        "position": 14.29
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -836,12 +836,12 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 13.14; 59 impressions; impressions +40; position improvement +18.18.",
+        "gsc_evidence": "Position 13.29; 58 impressions; impressions +38; position improvement +16.66.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 18,
         "impressions": 78.0,
@@ -884,18 +884,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 9.23; 35 impressions; impressions +19; position improvement +16.21.",
+        "gsc_evidence": "Position 8.49; 35 impressions; impressions +17; position improvement +16.29.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 28,
-        "impressions": 51.0,
+        "observed_days": 29,
+        "impressions": 53.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.31
+        "position": 14.02
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -932,18 +932,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 9.61; 224 impressions; impressions +194; position improvement +1.86.",
+        "gsc_evidence": "Position 9.91; 233 impressions; impressions +167; position improvement +1.57.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 16,
-        "impressions": 254.0,
+        "observed_days": 17,
+        "impressions": 299.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 9.83
+        "position": 10.26
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -980,18 +980,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 11.17; 52 impressions; impressions +25; position improvement +7.39.",
+        "gsc_evidence": "Position 11.00; 52 impressions; impressions +23; position improvement +7.52.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 41,
-        "impressions": 77.0,
+        "observed_days": 42,
+        "impressions": 79.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.4
+        "position": 13.41
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1067,7 +1067,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 73 to 30 (-43, 59% decline).",
+        "gsc_evidence": "Page impressions fell from 73 to 31 (-42, 58% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
@@ -1106,18 +1106,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.13; 77 impressions; impressions +4; position improvement +20.55.",
+        "gsc_evidence": "Position 10.28; 74 impressions; impressions -4; position improvement +18.89.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 37,
-        "impressions": 137.0,
+        "observed_days": 38,
+        "impressions": 139.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 18.77
+        "position": 18.62
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1154,18 +1154,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 16.40; 162 impressions; impressions +82; position improvement +17.60.",
+        "gsc_evidence": "Position 16.33; 162 impressions; impressions +75; position improvement +15.84.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 42,
-        "impressions": 219.0,
+        "observed_days": 43,
+        "impressions": 226.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 19.48
+        "position": 19.18
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1202,18 +1202,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.40; 52 impressions; impressions +31; position improvement +14.50.",
+        "gsc_evidence": "Position 10.06; 53 impressions; impressions +31; position improvement +14.99.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 38,
-        "impressions": 69.0,
+        "observed_days": 39,
+        "impressions": 71.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.17
+        "position": 14.06
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1250,18 +1250,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 16.91; 54 impressions; impressions +44; position improvement +10.89.",
+        "gsc_evidence": "Position 16.68; 56 impressions; impressions +45; position improvement +10.32.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 27,
-        "impressions": 54.0,
+        "observed_days": 28,
+        "impressions": 57.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 16.91
+        "position": 16.72
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1298,18 +1298,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 19.76; 54 impressions; impressions +19; position improvement +13.61.",
+        "gsc_evidence": "Position 19.02; 54 impressions; impressions +18; position improvement +13.87.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 41,
-        "impressions": 76.0,
+        "observed_days": 42,
+        "impressions": 78.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 21.58
+        "position": 21.45
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1320,10 +1320,10 @@
       "conversion_context": {
         "scope": "landing_page",
         "path": "/",
-        "sessions": 88.0,
+        "sessions": 86.0,
         "booking_starts": 4.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 4.55,
+        "booking_start_rate": 4.65,
         "confirmed_booking_rate": 0.0,
         "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
       },
@@ -1362,7 +1362,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 30,
         "impressions": 66.0,
@@ -1405,25 +1405,25 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 40.0,
         "ctr_percent": 0.0,
-        "position": 14.72,
-        "position_change": 0.17
+        "position": 14.78,
+        "position_change": 0.08
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 41,
-        "impressions": 78.0,
+        "observed_days": 42,
+        "impressions": 80.0,
         "clicks": 1.0,
-        "ctr_percent": 1.28,
-        "position": 14.73
+        "ctr_percent": 1.25,
+        "position": 14.74
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1460,25 +1460,25 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 56.0,
+        "impressions": 55.0,
         "ctr_percent": 0.0,
-        "position": 10.79,
-        "position_change": 4.18
+        "position": 10.87,
+        "position_change": 3.83
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 100.0,
+        "observed_days": 44,
+        "impressions": 101.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 11.86
+        "position": 11.84
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1515,25 +1515,25 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 30.0,
+        "impressions": 31.0,
         "ctr_percent": 0.0,
         "position": 4.03,
-        "position_change": 10.86
+        "position_change": 9.57
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 28,
-        "impressions": 57.0,
+        "observed_days": 29,
+        "impressions": 62.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 7.72
+        "position": 7.44
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1570,8 +1570,8 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
@@ -1582,7 +1582,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 4,
         "impressions": 39.0,
@@ -1625,8 +1625,8 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
@@ -1637,7 +1637,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 10,
         "impressions": 34.0,
@@ -1680,25 +1680,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 26.0,
+        "impressions": 27.0,
         "ctr_percent": 0.0,
-        "position": 12.0,
-        "position_change": 10.07
+        "position": 10.63,
+        "position_change": 11.09
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 28,
-        "impressions": 47.0,
+        "observed_days": 29,
+        "impressions": 50.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 17.77
+        "position": 16.88
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1735,25 +1735,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 43.0,
+        "impressions": 42.0,
         "ctr_percent": 0.0,
-        "position": 11.86,
-        "position_change": 4.64
+        "position": 11.79,
+        "position_change": 4.53
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 81.0,
+        "observed_days": 44,
+        "impressions": 82.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.53
+        "position": 13.48
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1790,19 +1790,19 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 49.0,
+        "impressions": 47.0,
         "ctr_percent": 0.0,
-        "position": 12.27,
-        "position_change": 2.81
+        "position": 12.23,
+        "position_change": 2.69
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 40,
         "impressions": 71.0,
@@ -1845,25 +1845,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 68.0,
+        "impressions": 67.0,
         "ctr_percent": 0.0,
-        "position": 13.46,
-        "position_change": 2.43
+        "position": 13.22,
+        "position_change": 2.6
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 115.0,
+        "observed_days": 44,
+        "impressions": 118.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.94
+        "position": 13.85
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1900,25 +1900,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 43.0,
         "ctr_percent": 0.0,
-        "position": 13.77,
-        "position_change": 2.96
+        "position": 13.95,
+        "position_change": 2.62
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 42,
-        "impressions": 78.0,
+        "observed_days": 43,
+        "impressions": 79.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.46
+        "position": 14.51
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1955,25 +1955,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 48.0,
+        "impressions": 45.0,
         "ctr_percent": 0.0,
-        "position": 14.12,
-        "position_change": 5.24
+        "position": 14.13,
+        "position_change": 4.67
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 40,
-        "impressions": 87.0,
+        "observed_days": 41,
+        "impressions": 88.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 16.33
+        "position": 16.26
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2010,25 +2010,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 41.0,
         "ctr_percent": 0.0,
-        "position": 13.32,
-        "position_change": 2.98
+        "position": 13.49,
+        "position_change": 2.61
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 41,
-        "impressions": 75.0,
+        "observed_days": 42,
+        "impressions": 77.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.15
+        "position": 14.18
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2065,25 +2065,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 24.0,
         "ctr_percent": 0.0,
-        "position": 11.71,
-        "position_change": 13.61
+        "position": 11.21,
+        "position_change": 13.42
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 25,
-        "impressions": 48.0,
+        "observed_days": 26,
+        "impressions": 50.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 17.67
+        "position": 17.32
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2110,35 +2110,35 @@
       "seo_events": []
     },
     {
-      "id": "opp-d99c29ba845a9770",
+      "id": "opp-e8165400982d0f3c",
       "type": "commercial_striking_distance",
       "priority": "high",
       "confidence": "medium",
-      "subject": "gym fitness cleaning services near me",
-      "query": "gym fitness cleaning services near me",
+      "subject": "gym and fitness cleaning services",
+      "query": "gym and fitness cleaning services",
       "page": null,
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 24.0,
         "ctr_percent": 0.0,
-        "position": 6.67,
-        "position_change": 3.33
+        "position": 8.92,
+        "position_change": 2.68
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 4,
-        "impressions": 24.0,
+        "observed_days": 3,
+        "impressions": 23.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 6.67
+        "position": 9.09
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2158,7 +2158,7 @@
       },
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for gym fitness cleaning services near me. Confirm that Google is still selecting the intended landing page.",
+        "30_days": "Recheck impressions, clicks, CTR, and average position for gym and fitness cleaning services. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2175,19 +2175,19 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 24.0,
         "ctr_percent": 0.0,
         "position": 7.17,
-        "position_change": 0.99
+        "position_change": -0.07
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 8,
         "impressions": 32.0,
@@ -2230,8 +2230,8 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
@@ -2242,7 +2242,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
         "observed_days": 21,
         "impressions": 32.0,
@@ -2275,6 +2275,61 @@
       "seo_events": []
     },
     {
+      "id": "opp-288b5649e639dcce",
+      "type": "commercial_striking_distance",
+      "priority": "medium",
+      "confidence": "high",
+      "subject": "condo common area disinfection",
+      "query": "condo common area disinfection",
+      "page": null,
+      "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
+      "evidence": {
+        "gsc_period": {
+          "start": "2026-10-21",
+          "end": "2026-11-17",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 32.0,
+        "ctr_percent": 0.0,
+        "position": 16.38,
+        "position_change": 2.34
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-17",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 11,
+        "impressions": 32.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 16.37
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": null,
+        "sessions": 164.0,
+        "booking_starts": 9.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 5.49,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for condo common area disinfection. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
       "id": "opp-7242879b256e3c21",
       "type": "gsc_action",
       "priority": "medium",
@@ -2285,18 +2340,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 42.46; 78 impressions; impressions +28.",
+        "gsc_evidence": "Position 40.87; 78 impressions; impressions +24.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 38,
-        "impressions": 118.0,
+        "observed_days": 39,
+        "impressions": 122.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 52.75
+        "position": 52.3
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2323,54 +2378,6 @@
       "seo_events": []
     },
     {
-      "id": "opp-561ae0b50665ba81",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "high",
-      "subject": "community clubhouse cleaning",
-      "query": "community clubhouse cleaning",
-      "page": "https://tampabayshine.com/post-event-cleaning",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as CTR watch.",
-      "evidence": {
-        "category": "CTR watch",
-        "gsc_evidence": "Position 6.63; 100 impressions; 0 clicks; CTR 0.00%.",
-        "data_level": "high"
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 38,
-        "impressions": 151.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 12.99
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/post-event-cleaning",
-        "sessions": 1.0,
-        "booking_starts": 1.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 100.0,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Review the actual search result and query intent before editing metadata. If the snippet is underperforming for the intended audience, test a clearer title or meta description without disturbing rankings that are already strong.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for community clubhouse cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
       "id": "opp-74bd3297b383ffc3",
       "type": "gsc_action",
       "priority": "medium",
@@ -2381,18 +2388,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 32.86; 36 impressions; impressions +22.",
+        "gsc_evidence": "Position 35.84; 38 impressions; impressions +23.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 33,
-        "impressions": 47.0,
+        "observed_days": 34,
+        "impressions": 50.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 36.64
+        "position": 39.0
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2429,18 +2436,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 29.24; 67 impressions; impressions +56.",
+        "gsc_evidence": "Position 29.43; 67 impressions; impressions +54.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 33,
-        "impressions": 76.0,
+        "observed_days": 34,
+        "impressions": 78.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 29.61
+        "position": 29.78
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2461,6 +2468,45 @@
       "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning brandon. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-f73fc97c253e43de",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "high",
+      "subject": "https://tampabayshine.com/apartment-cleaning-brandon",
+      "query": null,
+      "page": "https://tampabayshine.com/apartment-cleaning-brandon",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
+      "evidence": {
+        "category": "Page visibility decline",
+        "gsc_evidence": "Page impressions fell from 57 to 37 (-20, 35% decline).",
+        "data_level": "high"
+      },
+      "post_change_evidence": null,
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/apartment-cleaning-brandon",
+        "sessions": 164.0,
+        "booking_starts": 9.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 5.49,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Review the queries that previously generated visibility for this URL. Check indexing, canonical status, internal links, recent content changes, and competing pages before rewriting it.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for https://tampabayshine.com/apartment-cleaning-brandon. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2516,18 +2562,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 37.68; 84 impressions; impressions +27.",
+        "gsc_evidence": "Position 38.20; 83 impressions; impressions +22.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 36,
-        "impressions": 128.0,
+        "observed_days": 37,
+        "impressions": 131.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 43.04
+        "position": 43.34
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2564,18 +2610,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 37.21; 102 impressions; impressions +48.",
+        "gsc_evidence": "Position 36.95; 101 impressions; impressions +45.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "post_boundary_evidence_available",
-        "observed_days": 42,
-        "impressions": 140.0,
+        "observed_days": 43,
+        "impressions": 141.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 40.83
+        "position": 40.89
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2596,61 +2642,6 @@
       "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for move out cleaning tampa. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-4fefbdea9300f513",
-      "type": "commercial_striking_distance",
-      "priority": "medium",
-      "confidence": "medium",
-      "subject": "commercial window cleaning",
-      "query": "commercial window cleaning",
-      "page": null,
-      "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 24.0,
-        "ctr_percent": 0.0,
-        "position": 19.29,
-        "position_change": 0.0
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 7,
-        "impressions": 17.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 19.23
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 164.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.49,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for commercial window cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2698,6 +2689,54 @@
       "seo_events": []
     },
     {
+      "id": "opp-561ae0b50665ba81",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "medium",
+      "subject": "community clubhouse cleaning",
+      "query": "community clubhouse cleaning",
+      "page": "https://tampabayshine.com/post-event-cleaning",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as CTR watch.",
+      "evidence": {
+        "category": "CTR watch",
+        "gsc_evidence": "Position 5.85; 95 impressions; 0 clicks; CTR 0.00%.",
+        "data_level": "medium"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-17",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 39,
+        "impressions": 153.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 12.86
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/post-event-cleaning",
+        "sessions": 1.0,
+        "booking_starts": 1.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 100.0,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Review the actual search result and query intent before editing metadata. If the snippet is underperforming for the intended audience, test a clearer title or meta description without disturbing rankings that are already strong.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for community clubhouse cleaning. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
       "id": "opp-4463dd8a6caa70c7",
       "type": "commercial_striking_distance",
       "priority": "medium",
@@ -2708,25 +2747,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 30.0,
+        "impressions": 31.0,
         "ctr_percent": 0.0,
-        "position": 17.63,
-        "position_change": 0.0
+        "position": 17.9,
+        "position_change": -11.9
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "insufficient_post_boundary_volume",
-        "observed_days": 1,
-        "impressions": 6.0,
+        "observed_days": 2,
+        "impressions": 8.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.5
+        "position": 14.12
       },
       "decision_status": "awaiting_post_change_evidence",
       "business_priority": {
@@ -2763,25 +2802,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-20",
-          "end": "2026-11-16",
+          "start": "2026-10-21",
+          "end": "2026-11-17",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 27.0,
+        "impressions": 28.0,
         "ctr_percent": 0.0,
-        "position": 14.59,
-        "position_change": 9.59
+        "position": 14.64,
+        "position_change": 9.54
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-16",
+        "history_end": "2026-11-17",
         "status": "insufficient_post_boundary_volume",
-        "observed_days": 8,
-        "impressions": 13.0,
+        "observed_days": 9,
+        "impressions": 14.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.85
+        "position": 14.0
       },
       "decision_status": "awaiting_post_change_evidence",
       "business_priority": {
@@ -2818,7 +2857,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 50 to 17 (-33, 66% decline).",
+        "gsc_evidence": "Page impressions fell from 52 to 17 (-35, 67% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
