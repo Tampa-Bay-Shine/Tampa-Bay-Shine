@@ -89,3 +89,8 @@
 # TBS FIRST-PARTY TRANSACTION ROUTES
 /booknow  /book/  308
 /booknow/  /book/  308
+
+# TBS AIRBNB CANONICAL NO-TRAILING-SLASH REDIRECTS
+/airbnb-cleaning-tampa  /airbnb-cleaning-tampa/  301
+/airbnb-cleaning-brandon  /airbnb-cleaning-brandon/  301
+/airbnb-cleaning-riverview  /airbnb-cleaning-riverview/  301
