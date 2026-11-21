@@ -1,0 +1,26 @@
+/* TBS_WINDOW_GUIDE_CONVERSION_V2 - scoped to expanded editorial guide */
+.window-editorial .blog-hero{background:linear-gradient(115deg,#0a1979 0%,#0f0889 70%,#1d238b 100%)}
+.window-editorial .blog-hero h1{max-width:900px;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.09;letter-spacing:-.025em}
+.window-editorial .blog-hero p{max-width:790px;font-size:1.06rem;line-height:1.65}
+.window-editorial .window-guide-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.window-editorial .window-guide-hero-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 19px;border-radius:10px;font-weight:850;text-decoration:none}
+.window-editorial .window-guide-primary{color:#07143e;background:#f4c613;border:2px solid #f4c613}
+.window-editorial .window-guide-secondary{background:#fff;color:#0f0889;border:2px solid #fff}
+.window-editorial .blog-article{padding-top:30px}
+.window-editorial .blog-article>h2{scroll-margin-top:124px;margin-top:38px}
+.window-editorial .blog-article p,.window-editorial .blog-article li{line-height:1.78}
+.window-editorial .window-guide-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:20px 0}
+.window-editorial .window-guide-cards>div{border:1px solid #dce4f5;border-radius:14px;background:#f8faff;padding:19px}
+.window-editorial .window-guide-cards h3{color:#0f0889;font-size:1.02rem;margin:0 0 8px}
+.window-editorial .window-guide-cards p{margin:0;font-size:.96rem}
+.window-editorial .window-guide-tip{padding:22px;border:1px solid #edd991;border-radius:15px;background:#fff9e6;margin:26px 0}
+.window-editorial .window-guide-tip a{display:inline-flex;padding:10px 16px;border-radius:9px;background:#0f0889;color:#fff;text-decoration:none;font-weight:850}
+.window-editorial .window-guide-faq details{border:1px solid #dbe3f2;border-radius:12px;margin:10px 0;padding:15px 17px}
+.window-editorial .window-guide-faq summary{cursor:pointer;font-weight:800;color:#0f0889}
+.window-editorial .window-guide-faq details p{margin:10px 0 0}
+.window-editorial .window-guide-conversion{background:#0f0889;border-radius:18px;color:white;padding:28px;margin-top:34px}
+.window-editorial .window-guide-conversion>span{color:#ffda42;font-size:.75rem;letter-spacing:.1em;font-weight:900}
+.window-editorial .window-guide-conversion h2{color:#fff;font-size:clamp(1.3rem,2.7vw,1.85rem);line-height:1.25;margin:10px 0}
+.window-editorial .window-guide-conversion p{color:#fff}
+.window-editorial .window-guide-conversion .window-guide-secondary{border-color:#fff;color:#0f0889}
+@media(max-width:760px){.window-editorial .window-guide-cards{grid-template-columns:1fr}.window-editorial .window-guide-hero-actions{flex-direction:column}.window-editorial .window-guide-hero-actions a{width:100%;text-align:center}.window-editorial .window-guide-conversion{padding:22px}}
