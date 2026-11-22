@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-21T19:54:41.086475+00:00",
+  "generated_at": "2026-11-22T20:04:21.193178+00:00",
   "period": {
-    "start": "2026-10-22",
-    "end": "2026-11-18",
+    "start": "2026-10-23",
+    "end": "2026-11-19",
     "days": 28
   },
   "counts": {
-    "total": 57,
-    "high": 44,
-    "medium": 12,
+    "total": 58,
+    "high": 42,
+    "medium": 15,
     "low": 1
   },
   "methodology": {
@@ -46,19 +46,19 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 34.0,
+        "impressions": 32.0,
         "ctr_percent": 0.0,
-        "position": 11.76,
-        "position_change": -4.1
+        "position": 12.12,
+        "position_change": -3.98
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 21,
         "impressions": 37.0,
@@ -75,10 +75,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -101,25 +101,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 28.0,
+        "impressions": 27.0,
         "ctr_percent": 0.0,
-        "position": 12.75,
-        "position_change": 2.25
+        "position": 12.04,
+        "position_change": 3.34
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 27,
-        "impressions": 33.0,
+        "observed_days": 28,
+        "impressions": 34.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.21
+        "position": 12.85
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -130,10 +130,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -146,35 +146,35 @@
       "seo_events": []
     },
     {
-      "id": "opp-80a74cd2edb4de33",
+      "id": "opp-e047bf1252f5536c",
       "type": "commercial_striking_distance",
       "priority": "high",
       "confidence": "high",
-      "subject": "gym cleaning services",
-      "query": "gym cleaning services",
+      "subject": "fitness center cleaning services",
+      "query": "fitness center cleaning services",
       "page": null,
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 49.0,
+        "impressions": 26.0,
         "ctr_percent": 0.0,
-        "position": 11.29,
-        "position_change": 6.88
+        "position": 10.31,
+        "position_change": 12.92
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 35,
-        "impressions": 87.0,
+        "observed_days": 28,
+        "impressions": 57.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.28
+        "position": 16.47
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -185,16 +185,16 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for gym cleaning services. Confirm that Google is still selecting the intended landing page.",
+        "30_days": "Recheck impressions, clicks, CTR, and average position for fitness center cleaning services. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -211,8 +211,8 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
@@ -223,7 +223,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 5,
         "impressions": 31.0,
@@ -240,10 +240,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -266,25 +266,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 35.0,
+        "impressions": 34.0,
         "ctr_percent": 0.0,
-        "position": 7.4,
-        "position_change": 16.9
+        "position": 6.06,
+        "position_change": 17.46
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 30,
-        "impressions": 55.0,
+        "observed_days": 31,
+        "impressions": 57.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.55
+        "position": 13.11
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -295,10 +295,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -321,25 +321,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 27.0,
+        "impressions": 30.0,
         "ctr_percent": 0.0,
-        "position": 4.93,
-        "position_change": 8.38
+        "position": 11.23,
+        "position_change": 1.6
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 27,
-        "impressions": 55.0,
+        "observed_days": 28,
+        "impressions": 60.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 10.02
+        "position": 12.75
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -350,10 +350,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -376,25 +376,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 75.0,
         "ctr_percent": 0.0,
-        "position": 10.39,
-        "position_change": 17.75
+        "position": 11.97,
+        "position_change": 14.68
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 39,
-        "impressions": 144.0,
+        "observed_days": 40,
+        "impressions": 152.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 18.32
+        "position": 18.57
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -405,10 +405,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -431,25 +431,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 33.0,
+        "impressions": 32.0,
         "ctr_percent": 0.0,
-        "position": 9.36,
-        "position_change": 0.67
+        "position": 9.47,
+        "position_change": 0.44
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 44,
-        "impressions": 59.0,
+        "observed_days": 45,
+        "impressions": 60.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 8.9
+        "position": 8.92
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -460,10 +460,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -486,25 +486,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 31.0,
+        "impressions": 30.0,
         "ctr_percent": 0.0,
-        "position": 8.42,
-        "position_change": 3.76
+        "position": 8.4,
+        "position_change": 3.6
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 45,
-        "impressions": 62.0,
+        "observed_days": 46,
+        "impressions": 63.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 9.06
+        "position": 9.05
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -515,16 +515,71 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for office cleaning service near me. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-aa0361b958ef2bde",
+      "type": "commercial_striking_distance",
+      "priority": "high",
+      "confidence": "high",
+      "subject": "post construction cleaning",
+      "query": "post construction cleaning",
+      "page": null,
+      "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
+      "evidence": {
+        "gsc_period": {
+          "start": "2026-10-23",
+          "end": "2026-11-19",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 26.0,
+        "ctr_percent": 0.0,
+        "position": 13.5,
+        "position_change": 10.8
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 16,
+        "impressions": 32.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 14.5
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": null,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 6.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for post construction cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -541,25 +596,25 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 29.0,
+        "impressions": 31.0,
         "ctr_percent": 0.0,
-        "position": 8.9,
-        "position_change": -2.54
+        "position": 8.87,
+        "position_change": -2.1
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 22,
-        "impressions": 38.0,
+        "observed_days": 23,
+        "impressions": 40.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 8.92
+        "position": 8.9
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -570,10 +625,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -596,18 +651,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 9.09; 70 impressions; impressions +23; position improvement +6.23.",
+        "gsc_evidence": "Position 12.58; 81 impressions; impressions +29; position improvement +2.59.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 38,
-        "impressions": 117.0,
+        "observed_days": 39,
+        "impressions": 133.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 11.59
+        "position": 13.59
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -618,64 +673,16 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/common-area-cleaning",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for amenity center cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-cdecd9973bef7160",
-      "type": "gsc_action",
-      "priority": "high",
-      "confidence": "high",
-      "subject": "apartment common area cleaning",
-      "query": "apartment common area cleaning",
-      "page": "https://tampabayshine.com/common-area-cleaning",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
-      "evidence": {
-        "category": "Striking distance",
-        "gsc_evidence": "Position 9.86; 36 impressions; impressions +2; position improvement +13.20.",
-        "data_level": "high"
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 35,
-        "impressions": 63.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 13.75
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": "/common-area-cleaning",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for apartment common area cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -692,18 +699,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 8.69; 29 impressions; impressions -3; position improvement +12.75.",
+        "gsc_evidence": "Position 11.49; 35 impressions; impressions +1; position improvement +9.57.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 30,
-        "impressions": 55.0,
+        "observed_days": 31,
+        "impressions": 63.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 15.73
+        "position": 16.59
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -714,10 +721,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/apartment-cleaning-brandon",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -740,18 +747,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
       "evidence": {
         "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 74 to 44 (-30, 41% decline); position change -2.00. Current landing page: https://tampabayshine.com/office-cleaning-brandon.",
+        "gsc_evidence": "Impressions fell from 78 to 45 (-33, 42% decline); position change -3.45. Current landing page: https://tampabayshine.com/office-cleaning-brandon.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 27,
-        "impressions": 99.0,
+        "observed_days": 28,
+        "impressions": 104.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 36.05
+        "position": 36.22
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -762,10 +769,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-brandon",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -788,12 +795,12 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
       "evidence": {
         "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 65 to 11 (-54, 83% decline); position change +13.87. Current landing page: https://tampabayshine.com/office-cleaning-riverview.",
+        "gsc_evidence": "Impressions fell from 69 to 7 (-62, 90% decline); position change +13.29. Current landing page: https://tampabayshine.com/office-cleaning-riverview.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 16,
         "impressions": 64.0,
@@ -810,10 +817,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/office-cleaning-riverview",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -836,18 +843,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.01; 92 impressions; impressions +29; position improvement +12.48.",
+        "gsc_evidence": "Position 14.05; 100 impressions; impressions +33; position improvement +8.07.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 155.0,
+        "observed_days": 44,
+        "impressions": 167.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 15.08
+        "position": 17.29
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -858,10 +865,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/common-area-cleaning",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -889,7 +896,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 18,
         "impressions": 78.0,
@@ -906,8 +913,8 @@
       "conversion_context": {
         "scope": "landing_page",
         "path": "/deep-cleaning-services-tampa",
-        "sessions": 2.0,
-        "booking_starts": 2.0,
+        "sessions": 3.0,
+        "booking_starts": 3.0,
         "confirmed_bookings": 0.0,
         "booking_start_rate": 100.0,
         "confirmed_booking_rate": 0.0,
@@ -916,6 +923,54 @@
       "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for deep cleaning. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-3ddad29e68536abd",
+      "type": "gsc_action",
+      "priority": "high",
+      "confidence": "high",
+      "subject": "gym cleaning services",
+      "query": "gym cleaning services",
+      "page": "https://tampabayshine.com/gym-cleaning",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
+      "evidence": {
+        "category": "Striking distance",
+        "gsc_evidence": "Position 11.10; 49 impressions; impressions +4; position improvement +6.72.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 36,
+        "impressions": 89.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 13.11
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": "/gym-cleaning",
+        "sessions": 158.0,
+        "booking_starts": 10.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 6.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for gym cleaning services. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -937,7 +992,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 17,
         "impressions": 299.0,
@@ -954,10 +1009,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/blog/hoa-common-area-cleaning-tampa-bay-guide",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -980,18 +1035,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.76; 51 impressions; impressions +20; position improvement +7.56.",
+        "gsc_evidence": "Position 10.71; 51 impressions; impressions +19; position improvement +7.38.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 80.0,
+        "observed_days": 44,
+        "impressions": 81.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.34
+        "position": 13.27
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1002,10 +1057,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-ruskin-fl",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1028,7 +1083,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 80 to 17 (-63, 79% decline).",
+        "gsc_evidence": "Page impressions fell from 82 to 15 (-67, 82% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
@@ -1041,10 +1096,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/blog/airbnb-turnover-cleaning-tampa-bay-guide",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1067,7 +1122,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 209 to 124 (-85, 41% decline).",
+        "gsc_evidence": "Page impressions fell from 207 to 125 (-82, 40% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
@@ -1080,10 +1135,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-south-tampa-fl",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1106,7 +1161,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 73 to 36 (-37, 51% decline).",
+        "gsc_evidence": "Page impressions fell from 73 to 39 (-34, 47% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
@@ -1119,10 +1174,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/standard-cleaning-services-tampa",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1145,18 +1200,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 16.52; 162 impressions; impressions +71; position improvement +15.13.",
+        "gsc_evidence": "Position 18.91; 170 impressions; impressions +71; position improvement +11.87.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 44,
-        "impressions": 230.0,
+        "observed_days": 45,
+        "impressions": 246.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 19.33
+        "position": 20.94
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1167,10 +1222,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/blog/medical-office-cleaning-tampa-guide",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1193,18 +1248,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 10.02; 56 impressions; impressions +33; position improvement +14.59.",
+        "gsc_evidence": "Position 9.76; 59 impressions; impressions +35; position improvement +14.57.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 40,
-        "impressions": 75.0,
+        "observed_days": 41,
+        "impressions": 79.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.88
+        "position": 13.6
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1215,10 +1270,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/move-out-cleaning-wesley-chapel",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1241,18 +1296,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 16.38; 58 impressions; impressions +46; position improvement +10.37.",
+        "gsc_evidence": "Position 16.39; 59 impressions; impressions +46; position improvement +9.23.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 29,
-        "impressions": 60.0,
+        "observed_days": 30,
+        "impressions": 62.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 16.55
+        "position": 16.48
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1263,10 +1318,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/move-out-cleaning-wesley-chapel",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1279,65 +1334,6 @@
       "seo_events": []
     },
     {
-      "id": "opp-09bac2d3c84767d1",
-      "type": "gsc_action",
-      "priority": "high",
-      "confidence": "high",
-      "subject": "tampa bay cleaning services",
-      "query": "tampa bay cleaning services",
-      "page": "https://tampabayshine.com/",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
-      "evidence": {
-        "category": "Striking distance",
-        "gsc_evidence": "Position 18.25; 53 impressions; impressions +15; position improvement +14.09.",
-        "data_level": "high"
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 80.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 21.43
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "landing_page",
-        "path": "/",
-        "sessions": 80.0,
-        "booking_starts": 4.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.0,
-        "confirmed_booking_rate": 0.0,
-        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
-      },
-      "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for tampa bay cleaning services. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": [
-        {
-          "date": "2026-10-06",
-          "category": "Internal linking",
-          "title": "Opportunity implemented: move out cleaning tampa"
-        },
-        {
-          "date": "2026-10-07",
-          "category": "Content",
-          "title": "Opportunity implemented: tampa bay cleaning services"
-        }
-      ]
-    },
-    {
       "id": "opp-c85cdf98fe1c3f31",
       "type": "gsc_action",
       "priority": "high",
@@ -1348,18 +1344,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Striking distance.",
       "evidence": {
         "category": "Striking distance",
-        "gsc_evidence": "Position 8.10; 51 impressions; impressions +27; position improvement +13.94.",
+        "gsc_evidence": "Position 8.06; 50 impressions; impressions +24; position improvement +13.06.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 31,
-        "impressions": 69.0,
+        "observed_days": 32,
+        "impressions": 70.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 12.44
+        "position": 12.4
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1370,71 +1366,16 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/airbnb-cleaning-tampa",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Review the ranking landing page for search-intent alignment. Strengthen relevant internal links and improve the section that most directly answers this query while preserving content already earning visibility.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for vacation rental turnover cleaning. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-cb41c651d80674ed",
-      "type": "local_striking_distance",
-      "priority": "high",
-      "confidence": "high",
-      "subject": "cleaning services",
-      "query": "cleaning services",
-      "page": null,
-      "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 38.0,
-        "ctr_percent": 0.0,
-        "position": 14.92,
-        "position_change": -0.2
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 42,
-        "impressions": 80.0,
-        "clicks": 1.0,
-        "ctr_percent": 1.25,
-        "position": 14.74
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for cleaning services. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -1451,25 +1392,25 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 52.0,
+        "impressions": 53.0,
         "ctr_percent": 0.0,
-        "position": 10.77,
-        "position_change": 3.73
+        "position": 11.0,
+        "position_change": 3.35
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 45,
-        "impressions": 102.0,
+        "observed_days": 46,
+        "impressions": 105.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 11.81
+        "position": 11.89
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1480,10 +1421,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1506,19 +1447,19 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 27.0,
+        "impressions": 25.0,
         "ctr_percent": 0.0,
-        "position": 4.07,
-        "position_change": 8.47
+        "position": 4.12,
+        "position_change": 7.96
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 29,
         "impressions": 62.0,
@@ -1535,10 +1476,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1561,8 +1502,8 @@
       "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
@@ -1573,7 +1514,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 4,
         "impressions": 39.0,
@@ -1590,10 +1531,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1616,8 +1557,8 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
@@ -1628,7 +1569,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 10,
         "impressions": 34.0,
@@ -1645,10 +1586,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1671,25 +1612,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 41.0,
+        "impressions": 40.0,
         "ctr_percent": 0.0,
-        "position": 11.59,
-        "position_change": 4.63
+        "position": 11.5,
+        "position_change": 4.56
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 45,
-        "impressions": 83.0,
+        "observed_days": 46,
+        "impressions": 84.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.41
+        "position": 13.36
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1700,10 +1641,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1726,19 +1667,19 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 45.0,
+        "impressions": 44.0,
         "ctr_percent": 0.0,
-        "position": 12.38,
-        "position_change": 2.12
+        "position": 12.32,
+        "position_change": 2.2
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 41,
         "impressions": 72.0,
@@ -1755,10 +1696,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1781,25 +1722,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 66.0,
+        "impressions": 64.0,
         "ctr_percent": 0.0,
-        "position": 13.03,
-        "position_change": 2.69
+        "position": 12.84,
+        "position_change": 2.82
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 45,
-        "impressions": 121.0,
+        "observed_days": 46,
+        "impressions": 123.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 13.75
+        "position": 13.7
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1810,10 +1751,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1836,25 +1777,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 43.0,
         "ctr_percent": 0.0,
-        "position": 14.12,
-        "position_change": 2.29
+        "position": 14.35,
+        "position_change": 1.87
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 44,
-        "impressions": 81.0,
+        "observed_days": 45,
+        "impressions": 83.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.56
+        "position": 14.61
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1865,10 +1806,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1891,25 +1832,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 45.0,
+        "impressions": 44.0,
         "ctr_percent": 0.0,
-        "position": 14.0,
-        "position_change": 4.76
+        "position": 13.95,
+        "position_change": 4.59
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 42,
-        "impressions": 89.0,
+        "observed_days": 43,
+        "impressions": 90.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 16.2
+        "position": 16.14
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1920,10 +1861,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -1946,25 +1887,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 30.0,
+        "impressions": 31.0,
         "ctr_percent": 0.0,
-        "position": 14.6,
-        "position_change": 9.59
+        "position": 14.61,
+        "position_change": 9.57
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 10,
-        "impressions": 16.0,
+        "observed_days": 11,
+        "impressions": 17.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.0
+        "position": 14.06
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -1975,16 +1916,71 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for move in cleaning service. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-aebb7566ed3a8c0f",
+      "type": "residential_striking_distance",
+      "priority": "high",
+      "confidence": "high",
+      "subject": "move out cleaning services near me",
+      "query": "move out cleaning services near me",
+      "page": null,
+      "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
+      "evidence": {
+        "gsc_period": {
+          "start": "2026-10-23",
+          "end": "2026-11-19",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 25.0,
+        "ctr_percent": 0.0,
+        "position": 14.64,
+        "position_change": 1.06
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 24,
+        "impressions": 30.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 14.57
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": null,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 6.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for move out cleaning services near me. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2001,25 +1997,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 40.0,
         "ctr_percent": 0.0,
-        "position": 13.5,
-        "position_change": 2.45
+        "position": 13.65,
+        "position_change": 2.13
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 43,
-        "impressions": 78.0,
+        "observed_days": 44,
+        "impressions": 80.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 14.17
+        "position": 14.19
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2030,10 +2026,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2056,8 +2052,8 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
@@ -2068,7 +2064,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 3,
         "impressions": 23.0,
@@ -2085,71 +2081,16 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for gym and fitness cleaning services. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-aa0361b958ef2bde",
-      "type": "commercial_striking_distance",
-      "priority": "high",
-      "confidence": "medium",
-      "subject": "post construction cleaning",
-      "query": "post construction cleaning",
-      "page": null,
-      "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 24.0,
-        "ctr_percent": 0.0,
-        "position": 12.96,
-        "position_change": 11.34
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 15,
-        "impressions": 30.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 14.13
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for post construction cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2166,8 +2107,8 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
@@ -2178,7 +2119,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 8,
         "impressions": 32.0,
@@ -2195,10 +2136,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2221,25 +2162,25 @@
       "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
         "impressions": 24.0,
         "ctr_percent": 0.0,
         "position": 6.08,
-        "position_change": 5.35
+        "position_change": 4.98
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 22,
-        "impressions": 33.0,
+        "observed_days": 23,
+        "impressions": 34.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 7.21
+        "position": 7.18
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2250,71 +2191,16 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for airbnb turnover service. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-aebb7566ed3a8c0f",
-      "type": "residential_striking_distance",
-      "priority": "high",
-      "confidence": "medium",
-      "subject": "move out cleaning services near me",
-      "query": "move out cleaning services near me",
-      "page": null,
-      "why_flagged": "Residential cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
-      "evidence": {
-        "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
-          "days": 28
-        },
-        "clicks": 0.0,
-        "impressions": 24.0,
-        "ctr_percent": 0.0,
-        "position": 14.88,
-        "position_change": 0.82
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 23,
-        "impressions": 29.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 14.76
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for move out cleaning services near me. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2331,19 +2217,19 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
-        "impressions": 33.0,
+        "impressions": 32.0,
         "ctr_percent": 0.0,
-        "position": 16.45,
-        "position_change": 2.26
+        "position": 16.56,
+        "position_change": 1.44
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
         "observed_days": 12,
         "impressions": 33.0,
@@ -2360,10 +2246,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2386,18 +2272,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 40.73; 80 impressions; impressions +23.",
+        "gsc_evidence": "Position 40.08; 79 impressions; impressions +18.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 40,
-        "impressions": 127.0,
+        "observed_days": 41,
+        "impressions": 130.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 52.79
+        "position": 52.85
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2408,10 +2294,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/services",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2434,18 +2320,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 37.65; 40 impressions; impressions +24.",
+        "gsc_evidence": "Position 37.65; 40 impressions; impressions +23.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 35,
-        "impressions": 53.0,
+        "observed_days": 36,
+        "impressions": 54.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 40.43
+        "position": 40.61
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2456,10 +2342,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-south-tampa-fl",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2482,18 +2368,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 29.12; 69 impressions; impressions +54.",
+        "gsc_evidence": "Position 28.61; 67 impressions; impressions +48.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 35,
-        "impressions": 82.0,
+        "observed_days": 36,
+        "impressions": 84.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 29.57
+        "position": 29.41
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2504,16 +2390,64 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/house-cleaning-brandon-fl",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning brandon. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-4e35e2e78df1d527",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "high",
+      "subject": "house cleaning services apollo beach fl",
+      "query": "house cleaning services apollo beach fl",
+      "page": "https://tampabayshine.com/house-cleaning-apollo-beach",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
+      "evidence": {
+        "category": "Emerging opportunity",
+        "gsc_evidence": "Position 31.23; 35 impressions; impressions +15.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 37,
+        "impressions": 50.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 31.78
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/house-cleaning-apollo-beach",
+        "sessions": 1.0,
+        "booking_starts": 0.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 0.0,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for house cleaning services apollo beach fl. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2530,7 +2464,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 62 to 37 (-25, 40% decline).",
+        "gsc_evidence": "Page impressions fell from 66 to 41 (-25, 38% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
@@ -2543,10 +2477,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/apartment-cleaning-brandon",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2582,64 +2516,16 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/medical-office-cleaning-brandon",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Review the queries that previously generated visibility for this URL. Check indexing, canonical status, internal links, recent content changes, and competing pages before rewriting it.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for https://tampabayshine.com/medical-office-cleaning-brandon. Confirm that Google is still selecting the intended landing page.",
-        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
-        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
-      },
-      "seo_events": []
-    },
-    {
-      "id": "opp-e9bb4bb1e0135ee8",
-      "type": "gsc_action",
-      "priority": "medium",
-      "confidence": "high",
-      "subject": "janitorial services brandon fl",
-      "query": "janitorial services brandon fl",
-      "page": "https://tampabayshine.com/office-cleaning-brandon",
-      "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
-      "evidence": {
-        "category": "Emerging opportunity",
-        "gsc_evidence": "Position 39.24; 82 impressions; impressions +17.",
-        "data_level": "high"
-      },
-      "post_change_evidence": {
-        "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
-        "status": "post_boundary_evidence_available",
-        "observed_days": 38,
-        "impressions": 134.0,
-        "clicks": 0.0,
-        "ctr_percent": 0.0,
-        "position": 43.96
-      },
-      "decision_status": "actionable",
-      "business_priority": {
-        "status": "active",
-        "matched_term": null,
-        "reason": null
-      },
-      "conversion_context": {
-        "scope": "organic_sitewide",
-        "path": "/office-cleaning-brandon",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
-        "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
-        "confirmed_booking_rate": 0.0,
-        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
-      },
-      "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
-      "measurement": {
-        "30_days": "Recheck impressions, clicks, CTR, and average position for janitorial services brandon fl. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2656,18 +2542,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Visibility decline.",
       "evidence": {
         "category": "Visibility decline",
-        "gsc_evidence": "Impressions fell from 36 to 15 (-21, 58% decline); position change +11.84. Current landing page: https://tampabayshine.com/medical-office-cleaning-tampa.",
+        "gsc_evidence": "Impressions fell from 37 to 16 (-21, 57% decline); position change +10.03. Current landing page: https://tampabayshine.com/medical-office-cleaning-tampa.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 24,
-        "impressions": 42.0,
+        "observed_days": 25,
+        "impressions": 44.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 27.26
+        "position": 27.27
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2678,10 +2564,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/medical-office-cleaning-tampa",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2704,18 +2590,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
       "evidence": {
         "category": "Emerging opportunity",
-        "gsc_evidence": "Position 36.93; 102 impressions; impressions +44.",
+        "gsc_evidence": "Position 36.83; 104 impressions; impressions +45.",
         "data_level": "high"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 44,
-        "impressions": 144.0,
+        "observed_days": 45,
+        "impressions": 148.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 41.08
+        "position": 41.15
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2726,16 +2612,185 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": "/move-out-cleaning-tampa",
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
       "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
       "measurement": {
         "30_days": "Recheck impressions, clicks, CTR, and average position for move out cleaning tampa. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-09bac2d3c84767d1",
+      "type": "gsc_action",
+      "priority": "medium",
+      "confidence": "high",
+      "subject": "tampa bay cleaning services",
+      "query": "tampa bay cleaning services",
+      "page": "https://tampabayshine.com/",
+      "why_flagged": "The existing deterministic GSC Action Center classified this as Emerging opportunity.",
+      "evidence": {
+        "category": "Emerging opportunity",
+        "gsc_evidence": "Position 20.53; 55 impressions; impressions +15.",
+        "data_level": "high"
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 44,
+        "impressions": 84.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 23.11
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "landing_page",
+        "path": "/",
+        "sessions": 77.0,
+        "booking_starts": 4.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 5.19,
+        "confirmed_booking_rate": 0.0,
+        "note": "GA4 Organic Search landing-page evidence for the ranking URL. Event counts are not unique-user probabilities."
+      },
+      "recommended_action": "Confirm that the best existing service or location page targets this search intent. Strengthen relevant supporting content and internal links. Create a new page only if the search intent is materially different from existing coverage.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for tampa bay cleaning services. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": [
+        {
+          "date": "2026-10-06",
+          "category": "Internal linking",
+          "title": "Opportunity implemented: move out cleaning tampa"
+        },
+        {
+          "date": "2026-10-07",
+          "category": "Content",
+          "title": "Opportunity implemented: tampa bay cleaning services"
+        }
+      ]
+    },
+    {
+      "id": "opp-cb41c651d80674ed",
+      "type": "local_striking_distance",
+      "priority": "medium",
+      "confidence": "high",
+      "subject": "cleaning services",
+      "query": "cleaning services",
+      "page": null,
+      "why_flagged": "Broad Local cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
+      "evidence": {
+        "gsc_period": {
+          "start": "2026-10-23",
+          "end": "2026-11-19",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 37.0,
+        "ctr_percent": 0.0,
+        "position": 15.05,
+        "position_change": -0.43
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 43,
+        "impressions": 81.0,
+        "clicks": 1.0,
+        "ctr_percent": 1.23,
+        "position": 14.74
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": null,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 6.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for cleaning services. Confirm that Google is still selecting the intended landing page.",
+        "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
+        "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
+      },
+      "seo_events": []
+    },
+    {
+      "id": "opp-48ac6d42f2a4d4c3",
+      "type": "mixed_intent_striking_distance",
+      "priority": "medium",
+      "confidence": "high",
+      "subject": "apartment common area cleaning",
+      "query": "apartment common area cleaning",
+      "page": null,
+      "why_flagged": "Mixed cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
+      "evidence": {
+        "gsc_period": {
+          "start": "2026-10-23",
+          "end": "2026-11-19",
+          "days": 28
+        },
+        "clicks": 0.0,
+        "impressions": 41.0,
+        "ctr_percent": 0.0,
+        "position": 17.22,
+        "position_change": 5.25
+      },
+      "post_change_evidence": {
+        "boundary": "2026-10-05",
+        "history_end": "2026-11-19",
+        "status": "post_boundary_evidence_available",
+        "observed_days": 36,
+        "impressions": 70.0,
+        "clicks": 0.0,
+        "ctr_percent": 0.0,
+        "position": 17.74
+      },
+      "decision_status": "actionable",
+      "business_priority": {
+        "status": "active",
+        "matched_term": null,
+        "reason": null
+      },
+      "conversion_context": {
+        "scope": "organic_sitewide",
+        "path": null,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
+        "confirmed_bookings": 0.0,
+        "booking_start_rate": 6.33,
+        "confirmed_booking_rate": 0.0,
+        "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
+      },
+      "recommended_action": "Inspect the ranking page for exact intent coverage, title/snippet alignment, service proof, and relevant internal links. Strengthen the existing page before creating another URL for the same intent.",
+      "measurement": {
+        "30_days": "Recheck impressions, clicks, CTR, and average position for apartment common area cleaning. Confirm that Google is still selecting the intended landing page.",
         "60_days": "Compare the next 28-day period with the prior period. Review Organic Search landing-page sessions and booking-start intent without treating a small sample as proof of causation.",
         "90_days": "Evaluate sustained search visibility plus Organic Search booking starts and confirmed bookings. Keep, refine, or reverse the change based on the combined evidence."
       },
@@ -2751,10 +2806,10 @@
       "page": null,
       "why_flagged": "Organic Search generated booking-start intent during the current 28-day GA4 window, but no confirmed Organic Search booking was recorded.",
       "evidence": {
-        "organic_sessions": 157.0,
-        "booking_starts": 9.0,
+        "organic_sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0
       },
       "post_change_evidence": null,
@@ -2767,10 +2822,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2793,18 +2848,18 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as CTR watch.",
       "evidence": {
         "category": "CTR watch",
-        "gsc_evidence": "Position 5.51; 90 impressions; 0 clicks; CTR 0.00%.",
+        "gsc_evidence": "Position 7.10; 93 impressions; 0 clicks; CTR 0.00%.",
         "data_level": "medium"
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "post_boundary_evidence_available",
-        "observed_days": 40,
-        "impressions": 154.0,
+        "observed_days": 41,
+        "impressions": 161.0,
         "clicks": 0.0,
         "ctr_percent": 0.0,
-        "position": 12.79
+        "position": 13.67
       },
       "decision_status": "actionable",
       "business_priority": {
@@ -2841,8 +2896,8 @@
       "why_flagged": "Commercial cleaning-intent query is within positions 4-20 and has enough current impressions to justify focused optimization.",
       "evidence": {
         "gsc_period": {
-          "start": "2026-10-22",
-          "end": "2026-11-18",
+          "start": "2026-10-23",
+          "end": "2026-11-19",
           "days": 28
         },
         "clicks": 0.0,
@@ -2853,7 +2908,7 @@
       },
       "post_change_evidence": {
         "boundary": "2026-10-05",
-        "history_end": "2026-11-18",
+        "history_end": "2026-11-19",
         "status": "insufficient_post_boundary_volume",
         "observed_days": 2,
         "impressions": 8.0,
@@ -2870,10 +2925,10 @@
       "conversion_context": {
         "scope": "organic_sitewide",
         "path": null,
-        "sessions": 157.0,
-        "booking_starts": 9.0,
+        "sessions": 158.0,
+        "booking_starts": 10.0,
         "confirmed_bookings": 0.0,
-        "booking_start_rate": 5.73,
+        "booking_start_rate": 6.33,
         "confirmed_booking_rate": 0.0,
         "note": "No matching GA4 Organic Search landing-page row was available, so this is sitewide Organic Search context rather than page attribution."
       },
@@ -2896,7 +2951,7 @@
       "why_flagged": "The existing deterministic GSC Action Center classified this as Page visibility decline.",
       "evidence": {
         "category": "Page visibility decline",
-        "gsc_evidence": "Page impressions fell from 52 to 20 (-32, 62% decline).",
+        "gsc_evidence": "Page impressions fell from 52 to 30 (-22, 42% decline).",
         "data_level": "high"
       },
       "post_change_evidence": null,
