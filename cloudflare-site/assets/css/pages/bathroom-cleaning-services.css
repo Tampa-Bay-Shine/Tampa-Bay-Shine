@@ -71,3 +71,14 @@
 @media(max-width:760px){#tbs-restroom .restroom-hero{padding:39px 0}#tbs-restroom .restroom-hero-grid,#tbs-restroom .restroom-split{grid-template-columns:1fr}#tbs-restroom .restroom-hero-image{max-width:650px}#tbs-restroom .restroom-grid-3{grid-template-columns:1fr}#tbs-restroom .restroom-section{padding:44px 0}#tbs-restroom .restroom-bottom{padding-top:0}#tbs-restroom .restroom-quote{padding:24px}#tbs-restroom .restroom-actions{flex-direction:column;align-items:stretch}#tbs-restroom .restroom-btn{width:100%}}
 @media(max-width:520px){#tbs-restroom .restroom-container{width:calc(100% - 30px)}#tbs-restroom .restroom-grid-4{grid-template-columns:1fr}#tbs-restroom .restroom-card,#tbs-restroom .restroom-scope-card{padding:21px}#tbs-restroom h1{font-size:clamp(2rem,9vw,2.7rem)}}
 @media(prefers-reduced-motion:reduce){#tbs-restroom .restroom-btn{transition:none}#tbs-restroom .restroom-btn:hover{transform:none}}
+
+/* TBS_RESTROOM_GALLERY_V3 - page imagery; service cards align with Services design */
+#tbs-restroom .restroom-hero-image img{aspect-ratio:16/9;object-fit:cover;object-position:center}
+#tbs-restroom .restroom-card{min-width:0;overflow:hidden}
+#tbs-restroom .restroom-card-figure{margin:-26px -23px 18px;overflow:hidden;background:#e9edf6;border-radius:14px 14px 0 0}
+#tbs-restroom .restroom-card-figure img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .28s ease}
+#tbs-restroom .restroom-card:hover .restroom-card-figure img{transform:scale(1.025)}
+#tbs-restroom .restroom-visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:820px){#tbs-restroom .restroom-hero-image img{aspect-ratio:16/10}}
+@media(prefers-reduced-motion:reduce){#tbs-restroom .restroom-card-figure img{transition:none}#tbs-restroom .restroom-card:hover .restroom-card-figure img{transform:none}}
+/* /TBS_RESTROOM_GALLERY_V3 */
