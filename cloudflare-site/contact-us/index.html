@@ -24,6 +24,7 @@
 <meta name="twitter:description" content="Contact Tampa Bay Shine for residential or commercial cleaning questions, appointment help, custom cleaning needs, pricing and booking assistance."/>
 <meta name="twitter:image" content="https://tampabayshine.com/assets/images/tampa-bay-shine-cleaning-1-800.webp"/>
 <link href="/assets/css/pages/contact-experience.css?v=20261019-contact-v1" rel="stylesheet"/>
+<link href="/assets/css/pages/contact-commercial-inquiry-v1.css?v=20261123-phase7b-v1" rel="stylesheet"/>
 <link href="/assets/css/main.css?v=20260928-cache-reset" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","@id":"https://tampabayshine.com/contact-us/#webpage","url":"https://tampabayshine.com/contact-us/","name":"Contact Tampa Bay Shine | Cleaning Service Questions","description":"Contact Tampa Bay Shine for residential or commercial cleaning questions, appointment help, custom cleaning needs, pricing and booking assistance.","inLanguage":"en-US","dateModified":"2026-10-21","isPartOf":{"@id":"https://tampabayshine.com/#website"},"about":{"@id":"https://tampabayshine.com/#organization"},"publisher":{"@id":"https://tampabayshine.com/#organization"}}</script>
 <!-- TBS_GOOGLE_TAG_START -->
@@ -109,7 +110,24 @@
 
   </section>
 
-  <section class="contact-form-section">
+  <!-- TBS_COMMERCIAL_INQUIRY_PHASE7B_V1 -->
+  <section class="commercial-inquiry-context" id="commercial-inquiry" aria-labelledby="commercial-inquiry-title" hidden>
+    <div class="commercial-inquiry-inner">
+      <div>
+        <span class="commercial-inquiry-eyebrow">Commercial cleaning inquiry</span>
+        <h2 id="commercial-inquiry-title">Request a Commercial Cleaning Walkthrough</h2>
+        <p id="commercial-inquiry-lead">Tell us about your business or facility so we can discuss an appropriate cleaning scope and quote.</p>
+        <p class="commercial-inquiry-detail"><strong>Helpful details:</strong> facility address, approximate size, areas to clean, frequency, and preferred start date. Add these in the message form below.</p>
+      </div>
+      <div class="commercial-inquiry-actions">
+        <a class="commercial-inquiry-form-link" href="#contact-form">Go to Contact Form</a>
+        <a class="commercial-inquiry-call-link" href="tel:+17273511779">Call 727.351.1779</a>
+      </div>
+    </div>
+  </section>
+  <!-- /TBS_COMMERCIAL_INQUIRY_PHASE7B_V1 -->
+
+  <section class="contact-form-section" id="contact-form">
 
     <div class="contact-shell">
 
@@ -186,6 +204,30 @@
 
   </section>
 
+  <!-- TBS_COMMERCIAL_INQUIRY_ROUTING_PHASE7B_V1 -->
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('inquiry') !== 'commercial') return;
+    var section = document.getElementById('commercial-inquiry');
+    if (!section) return;
+    var sources = {
+      'office-cleaning': 'Tell us about your office, cleaning frequency, and preferred walkthrough time.',
+      'commercial-cleaning-tampa': 'Tell us about your facility, service areas, cleaning schedule, and preferred walkthrough time.',
+      'tbs-office-cleaning': 'Ask about eligibility for the first commercial cleaning offer. Offer conditions are reviewed during the quote process.'
+    };
+    var source = params.get('source');
+    var lead = document.getElementById('commercial-inquiry-lead');
+    if (lead && Object.prototype.hasOwnProperty.call(sources, source)) {
+      lead.textContent = sources[source];
+    }
+    section.hidden = false;
+    if (window.location.hash === '#commercial-inquiry') {
+      window.requestAnimationFrame(function () { section.scrollIntoView({ block: 'start' }); });
+    }
+  }());
+  </script>
+  <!-- /TBS_COMMERCIAL_INQUIRY_ROUTING_PHASE7B_V1 -->
 </main>
 <footer class="site-footer"><div class="site-shell site-footer-grid"><div class="site-footer-brand"><strong>Tampa Bay Shine</strong><p>Professional residential and commercial cleaning across Tampa Bay.</p><p><a href="tel:+17273511779">727.351.1779</a><br/><a href="mailto:sales@tampabayshine.com">sales@tampabayshine.com</a></p></div><div class="site-footer-links"><strong>Explore</strong><a href="/services/">Services</a><a href="/locations/">Locations</a><a href="/blog/">Cleaning Guides</a><a href="/coupons/">Coupons</a></div><div class="site-footer-links"><strong>Company</strong><a href="/about/">About</a><a href="/contact-us/">Contact Us</a><a href="/careers/">Careers</a><a href="/realtor-partners/">Realtor Partners</a></div><div class="site-footer-links"><strong>Customer</strong><a href="/book/">See My Price</a><a href="/login/">Customer Login</a><a href="/gift-card/">Gift Cards</a></div></div><div class="site-shell site-footer-bottom"><span>&copy; Tampa Bay Shine, LLC</span><div class="site-footer-legal"><a href="/privacy-policy/">Privacy</a><a href="/terms/">Terms</a><a href="/sms-opt-in/">SMS Preferences</a></div></div></footer>
 <script defer src="/assets/js/main.js?v=20261118-funnel-tracking"></script>

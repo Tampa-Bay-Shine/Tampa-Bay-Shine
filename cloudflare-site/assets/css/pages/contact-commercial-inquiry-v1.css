@@ -1,0 +1,49 @@
+/* Phase 7B: scoped commercial-inquiry context; regular contact route unchanged. */
+#tbs-contact-experience .commercial-inquiry-context[hidden]{display:none!important}
+#tbs-contact-experience .commercial-inquiry-context{
+  background:#f4f7ff;
+  border-top:1px solid #dbe4f3;
+  border-bottom:1px solid #dbe4f3;
+  padding:22px 18px;
+  scroll-margin-top:100px;
+}
+#tbs-contact-experience .commercial-inquiry-inner{
+  width:min(1080px,100%);margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;gap:18px;
+}
+#tbs-contact-experience .commercial-inquiry-eyebrow{
+  display:block;color:#0f0889;font-size:.74rem;font-weight:900;
+  letter-spacing:.09em;text-transform:uppercase;margin:0 0 5px;
+}
+#tbs-contact-experience .commercial-inquiry-context h2{
+  color:#0f0889;font-size:clamp(1.35rem,2.5vw,1.85rem);
+  line-height:1.15;margin:0 0 8px;
+}
+#tbs-contact-experience .commercial-inquiry-context p{
+  color:#35425c;line-height:1.55;margin:0 0 8px;
+}
+#tbs-contact-experience .commercial-inquiry-context .commercial-inquiry-detail{
+  font-size:.91rem;margin-bottom:0;
+}
+#tbs-contact-experience .commercial-inquiry-actions{display:flex;flex-wrap:wrap;gap:9px}
+#tbs-contact-experience .commercial-inquiry-actions a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;padding:11px 15px;border-radius:10px;
+  text-decoration:none;font-size:.9rem;font-weight:850;
+}
+#tbs-contact-experience .commercial-inquiry-form-link{background:#f4c613;color:#171717}
+#tbs-contact-experience .commercial-inquiry-call-link{background:#fff;color:#0f0889;border:1px solid #0f0889}
+#tbs-contact-experience .commercial-inquiry-actions a:focus-visible{
+  outline:3px solid #0f0889;outline-offset:3px;
+}
+@media(max-width:800px){
+  #tbs-contact-experience .commercial-inquiry-inner{grid-template-columns:1fr}
+  #tbs-contact-experience .commercial-inquiry-actions{width:100%}
+  #tbs-contact-experience .commercial-inquiry-actions a{flex:1 1 190px}
+}
+@media(max-width:430px){
+  #tbs-contact-experience .commercial-inquiry-context{padding:20px 12px}
+  #tbs-contact-experience .commercial-inquiry-actions{flex-direction:column}
+  #tbs-contact-experience .commercial-inquiry-actions a{width:100%;flex:auto}
+}
