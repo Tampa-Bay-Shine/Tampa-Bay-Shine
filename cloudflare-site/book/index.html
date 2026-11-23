@@ -220,7 +220,7 @@
     </div>
     <!-- /TBS GUIDED BOOKING FUNNEL v2.1 -->
     <div class="booking-frame-card" id="tbs-booking-workspace">
-      <iframe id="tbs-booking-frame" title="Tampa Bay Shine online booking form" src="https://tampabayshine.bookingkoala.com/booknow?embed=true" style="border:none;height:1000px" width="100%" scrolling="no"></iframe>
+      <iframe id="tbs-booking-frame" title="Tampa Bay Shine online booking form" data-booking-base-url="https://tampabayshine.bookingkoala.com/booknow?embed=true" style="border:none;height:1000px" width="100%" scrolling="no"></iframe>
             <script>
       (function () {
 
@@ -377,8 +377,13 @@
         }
 
 
+        /* TBS_BOOKING_PHASE7A_SINGLE_LOAD_V1
+         * Keep the external fallback current while the guided form is hidden.
+         * The iframe is loaded only when the customer proceeds.
+         */
         function updateBookingTarget(
-          frequencyId
+          frequencyId,
+          deferFrameLoad
         ) {
 
           var bookingUrl =
@@ -386,7 +391,7 @@
               frequencyId
             );
 
-          if (frame) {
+          if (frame && !deferFrameLoad) {
 
             frame.src =
               bookingUrl.toString();
@@ -507,6 +512,9 @@
 
         if (!selection) {
 
+          // Generic /book/ loads the full booking form immediately.
+          updateBookingTarget(null);
+
           if (workspace) {
 
             workspace.classList.add(
@@ -578,8 +586,10 @@
 
         }
 
+        // Pre-populate the fallback URL, but avoid loading a hidden form.
         updateBookingTarget(
-          initialFrequencyId
+          initialFrequencyId,
+          true
         );
 
         track(
