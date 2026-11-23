@@ -1,0 +1,44 @@
+/* TBS POST-CONSTRUCTION UX PHASE 4 V1 — scoped to specialty page only */
+#post-construction-cleaning.postcon-modern-v1{--royal:#0f0889;--accent:#f4c613;--ink:#0f172a;--muted:#56657b;--border:#e3e9f4;background:#fff;overflow-x:clip}
+#post-construction-cleaning.postcon-modern-v1 .breadcrumbs .wrap{max-width:1160px;padding:14px 20px}
+#post-construction-cleaning.postcon-modern-v1 .breadcrumbs a{font-weight:800}
+#post-construction-cleaning.postcon-modern-v1 .hero.postcon-modern-hero{max-width:1160px;margin:22px auto 0;padding:34px;display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);gap:30px;align-items:stretch;background:radial-gradient(circle at 86% 16%,rgba(88,125,250,.30),transparent 36%),linear-gradient(120deg,#08043e,#0f0889 63%,#1735d1);border-radius:18px;box-shadow:0 14px 38px rgba(15,23,42,.11);color:#fff;overflow:hidden}
+#post-construction-cleaning.postcon-modern-v1 .postcon-hero-copy{min-width:0;align-self:center;padding:14px 3px}
+#post-construction-cleaning.postcon-modern-v1 .postcon-kicker{color:#ffd83b;margin:0 0 12px;font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;font-weight:900}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero h1{color:#fff!important;font-size:clamp(2rem,3.55vw,3.2rem);line-height:1.09;letter-spacing:-.035em;margin:0 0 18px;text-shadow:none}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .lead{color:#f1f4ff!important;font-size:1.08rem;line-height:1.62;margin:0 0 14px;max-width:620px;text-shadow:none}
+#post-construction-cleaning.postcon-modern-v1 .postcon-hero-detail{color:#dce5ff;font-size:.95rem;line-height:1.55;margin:0 0 17px}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .hero-media{padding:0;margin:0;position:relative;min-width:0;width:100%;height:100%;min-height:305px;display:flex;align-items:stretch}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .frame{position:relative;width:100%;height:100%;min-height:305px;border-radius:17px;overflow:hidden;border:1px solid rgba(255,255,255,.27);box-shadow:0 14px 30px rgba(0,0,0,.18)}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%;border-radius:0}
+#post-construction-cleaning.postcon-modern-v1 .btn{min-height:49px;border-radius:12px;padding:12px 18px;font-weight:900;font-size:.96rem;line-height:1.32;box-shadow:none}
+#post-construction-cleaning.postcon-modern-v1 .btn-secondary{background:#f4c613;color:#161616!important;border:1px solid #f4c613;box-shadow:0 7px 18px rgba(244,198,19,.16)}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .btn-primary{background:rgba(255,255,255,.10);color:#fff!important;border:2px solid rgba(255,255,255,.53)}
+#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .btn-primary:hover{background:rgba(255,255,255,.20)}
+#post-construction-cleaning.postcon-modern-v1 .postcon-trust-row{max-width:1160px;margin:0 auto 14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#e4eaf3;border:1px solid #e4eaf3;border-radius:0 0 16px 16px;overflow:hidden}
+#post-construction-cleaning.postcon-modern-v1 .postcon-trust-row span{background:#f5f8fd;text-align:center;color:#172650;font-weight:800;line-height:1.42;font-size:.86rem;padding:17px 10px}
+#post-construction-cleaning.postcon-modern-v1 .hero-intro{max-width:1160px;padding:0 20px 5px}
+#post-construction-cleaning.postcon-modern-v1 .hero-intro .panel{background:#f5f8ff;border-color:#e5eaf5;margin-top:18px}
+#post-construction-cleaning.postcon-modern-v1 .wrap{max-width:1160px;padding:25px 20px}
+#post-construction-cleaning.postcon-modern-v1 .panel{padding:clamp(22px,3vw,31px);border:1px solid var(--border);border-radius:17px;box-shadow:0 5px 18px rgba(15,23,42,.045);margin:20px auto}
+#post-construction-cleaning.postcon-modern-v1 .panel.accent{background:#f5f8ff;border-color:#e5eaf5}
+#post-construction-cleaning.postcon-modern-v1 h2{font-size:clamp(1.45rem,2.6vw,2rem);letter-spacing:-.02em;line-height:1.2;margin:0 0 18px}
+#post-construction-cleaning.postcon-modern-v1 h3{font-size:1.12rem;line-height:1.32}
+#post-construction-cleaning.postcon-modern-v1 p,#post-construction-cleaning.postcon-modern-v1 li{line-height:1.62}
+#post-construction-cleaning.postcon-modern-v1 .grid{gap:16px}
+#post-construction-cleaning.postcon-modern-v1 .cols-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+#post-construction-cleaning.postcon-modern-v1 .cols-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+#post-construction-cleaning.postcon-modern-v1 .card{background:#fff;border:1px solid #e1e8f2;border-radius:15px;padding:21px;box-shadow:0 5px 17px rgba(15,23,42,.045)}
+#post-construction-cleaning.postcon-modern-v1 .card strong{font-weight:900;color:#101d43}
+#post-construction-cleaning.postcon-modern-v1 .note{border-left:4px solid #f4c613;background:#fffbea;border-top:1px solid #f1e6be;border-right:1px solid #f1e6be;border-bottom:1px solid #f1e6be}
+#post-construction-cleaning.postcon-modern-v1 .svc-grid{gap:16px}
+#post-construction-cleaning.postcon-modern-v1 .svc-card{border-color:#e1e8f2;border-radius:15px;box-shadow:0 5px 16px rgba(15,23,42,.035)}
+#post-construction-cleaning.postcon-modern-v1 .svc-card .body{padding:17px}
+#post-construction-cleaning.postcon-modern-v1 details{border-color:#e1e8f2;padding:16px 19px;border-radius:12px}
+#post-construction-cleaning.postcon-modern-v1 .cta-strong{background:linear-gradient(115deg,#08043e,#0f0889 83%);border-color:#0f0889!important;padding:clamp(26px,4vw,42px)}
+#post-construction-cleaning.postcon-modern-v1 .cta-strong h2,#post-construction-cleaning.postcon-modern-v1 .cta-strong p{color:#fff!important}
+#post-construction-cleaning.postcon-modern-v1 .cta-strong .btn-primary{background:#fff;color:#0f0889!important;border:2px solid #fff}
+#post-construction-cleaning.postcon-modern-v1 a:focus-visible,#post-construction-cleaning.postcon-modern-v1 summary:focus-visible{outline:3px solid #f4c613;outline-offset:3px}
+@media(max-width:900px){#post-construction-cleaning.postcon-modern-v1 .hero.postcon-modern-hero{grid-template-columns:1fr;gap:16px;padding:28px}#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .hero-media,#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .frame{min-height:285px}#post-construction-cleaning.postcon-modern-v1 .postcon-trust-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#post-construction-cleaning.postcon-modern-v1 .hero.postcon-modern-hero{padding:22px;border-radius:13px;margin-top:8px}#post-construction-cleaning.postcon-modern-v1 .postcon-hero-copy{padding:0}#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero h1{font-size:clamp(1.95rem,7vw,2.5rem)}#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .hero-media,#post-construction-cleaning.postcon-modern-v1 .postcon-modern-hero .frame{min-height:230px}#post-construction-cleaning.postcon-modern-v1 .postcon-trust-row span{font-size:.79rem;padding:13px 8px}#post-construction-cleaning.postcon-modern-v1 .wrap{padding:20px 16px}#post-construction-cleaning.postcon-modern-v1 .panel{padding:20px;margin:14px auto}#post-construction-cleaning.postcon-modern-v1 .cta-row{flex-direction:column;align-items:stretch}#post-construction-cleaning.postcon-modern-v1 .cta-row .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){#post-construction-cleaning.postcon-modern-v1 *{transition:none!important}}
