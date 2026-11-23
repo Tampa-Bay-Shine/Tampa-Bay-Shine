@@ -1,0 +1,53 @@
+/* TBS PROPERTY MANAGEMENT UX PHASE3 V1
+   Scoped overrides; original property-management content is preserved.
+   Design follows Services, Office Cleaning and HOA Common Areas. */
+#common-area-cleaning.pm-modern-v1{--pm-royal:#0f0889;--pm-ink:#0f172a;--pm-muted:#56657b;--pm-line:#e3e9f4;--pm-gold:#f4c613;background:#fff;color:var(--pm-ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6;overflow:clip}
+#common-area-cleaning.pm-modern-v1 *{box-sizing:border-box}
+#common-area-cleaning.pm-modern-v1 .wrap{width:min(1160px,calc(100% - 40px));max-width:1160px;margin-inline:auto;padding:0}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs{border-bottom:1px solid #e9eef6;background:#fff}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs .wrap{padding-block:14px}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs ol{display:flex;flex-wrap:wrap;align-items:center;gap:8px;list-style:none;margin:0;padding:0;font-size:.84rem}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs li{display:flex;align-items:center;gap:8px}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs li+li:before{content:'/';color:#98a2b3}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs a{color:var(--pm-royal);font-weight:800;text-decoration:none}
+#common-area-cleaning.pm-modern-v1 .breadcrumbs .current{color:#526177;font-weight:700}
+#common-area-cleaning.pm-modern-v1 .panel{border:1px solid var(--pm-line);border-radius:17px;padding:clamp(22px,3vw,31px);margin:22px 0;background:#fff;box-shadow:0 5px 19px rgba(15,23,42,.04)}
+#common-area-cleaning.pm-modern-v1 .panel.accent{background:#f5f8ff;border-color:#e4eaf5}
+#common-area-cleaning.pm-modern-v1 #hero{margin-top:20px;border:0;padding:32px;overflow:hidden;background:radial-gradient(circle at 85% 16%,rgba(92,130,255,.28),transparent 33%),linear-gradient(120deg,#08043e,#0f0889 62%,#1735d1);box-shadow:0 16px 40px rgba(11,15,55,.1);color:#fff}
+#common-area-cleaning.pm-modern-v1 #hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);align-items:center;gap:31px}
+#common-area-cleaning.pm-modern-v1 #hero .hero-grid>div:first-child{min-width:0}
+#common-area-cleaning.pm-modern-v1 #hero .eyebrow{display:block;margin-bottom:14px;color:#ffdb3c;font-weight:900;letter-spacing:.13em;font-size:.76rem;text-transform:uppercase}
+#common-area-cleaning.pm-modern-v1 #hero h1{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:900;line-height:1.07;letter-spacing:-.035em;color:#fff;margin:0 0 20px}
+#common-area-cleaning.pm-modern-v1 #hero p{color:#eef1ff;font-size:1.04rem;line-height:1.65;margin:0 0 15px}
+#common-area-cleaning.pm-modern-v1 #hero p.muted{color:#e0e7ff}
+#common-area-cleaning.pm-modern-v1 #hero .hero-image{position:relative;overflow:hidden;border-radius:17px;min-height:345px;border:1px solid rgba(255,255,255,.28);box-shadow:0 16px 38px rgba(0,0,0,.17)}
+#common-area-cleaning.pm-modern-v1 #hero .hero-image img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+#common-area-cleaning.pm-modern-v1 #hero .hero-badge{position:absolute;left:0;bottom:0;right:0;padding:20px 17px 16px;background:linear-gradient(transparent,rgba(6,5,55,.87));color:#fff;font-weight:800;line-height:1.42;font-size:.89rem}
+#common-area-cleaning.pm-modern-v1 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:19px}
+#common-area-cleaning.pm-modern-v1 .btn{display:inline-flex;justify-content:center;align-items:center;min-height:50px;padding:12px 18px;border-radius:12px;font-size:.94rem;font-weight:900;line-height:1.3;text-decoration:none!important;border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease}
+#common-area-cleaning.pm-modern-v1 .btn:hover{transform:translateY(-1px)}
+#common-area-cleaning.pm-modern-v1 .btn-accent{background:var(--pm-gold);color:#151515!important;border-color:var(--pm-gold);box-shadow:0 7px 20px rgba(244,198,19,.12)}
+#common-area-cleaning.pm-modern-v1 .btn-primary{background:var(--pm-royal);color:#fff!important}
+#common-area-cleaning.pm-modern-v1 #hero .btn-primary{background:rgba(255,255,255,.09);color:#fff!important;border-color:rgba(255,255,255,.55)}
+#common-area-cleaning.pm-modern-v1 #hero .btn-primary:hover{background:rgba(255,255,255,.18)}
+#common-area-cleaning.pm-modern-v1 .btn-outline{background:#fff;color:var(--pm-royal)!important;border-color:#fff}
+#common-area-cleaning.pm-modern-v1 .pm-trust-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;border:1px solid var(--pm-line);border-radius:0 0 16px 16px;overflow:hidden;background:var(--pm-line);margin-top:-22px;margin-bottom:25px}
+#common-area-cleaning.pm-modern-v1 .pm-trust-row span{text-align:center;background:#f6f8fd;padding:17px 11px;font-size:.85rem;font-weight:800;line-height:1.4;color:#162650}
+#common-area-cleaning.pm-modern-v1 h2{color:var(--pm-royal);font-size:clamp(1.5rem,2.65vw,2.2rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin:0 0 16px}
+#common-area-cleaning.pm-modern-v1 h3{color:#162450;font-size:1.1rem;font-weight:900;line-height:1.35;margin:0 0 10px}
+#common-area-cleaning.pm-modern-v1 p{line-height:1.67}
+#common-area-cleaning.pm-modern-v1 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+#common-area-cleaning.pm-modern-v1 .card{padding:23px;background:#fff;border:1px solid var(--pm-line);border-radius:15px;box-shadow:0 5px 18px rgba(15,23,42,.045);min-width:0}
+#common-area-cleaning.pm-modern-v1 .card p{color:#56657b}
+#common-area-cleaning.pm-modern-v1 .card a{font-weight:900;text-underline-offset:3px}
+#common-area-cleaning.pm-modern-v1 .panel .muted{color:var(--pm-muted)}
+#common-area-cleaning.pm-modern-v1 details{background:#fff;padding:15px 18px;border:1px solid #e1e8f2;border-radius:12px;margin:0 0 11px}
+#common-area-cleaning.pm-modern-v1 summary{cursor:pointer;font-weight:900;color:#15234e}
+#common-area-cleaning.pm-modern-v1 .cta-strong{background:linear-gradient(115deg,#08043e,#0f0889 84%);border-color:#0f0889;text-align:center;padding:40px 26px}
+#common-area-cleaning.pm-modern-v1 .cta-strong h2,#common-area-cleaning.pm-modern-v1 .cta-strong p{color:#fff}
+#common-area-cleaning.pm-modern-v1 .cta-strong .actions{justify-content:center}
+#common-area-cleaning.pm-modern-v1 .tbs-answer-block{margin:22px 0;border-radius:15px}
+#common-area-cleaning.pm-modern-v1 a:focus-visible,#common-area-cleaning.pm-modern-v1 summary:focus-visible{outline:3px solid var(--pm-gold);outline-offset:3px}
+@media(max-width:880px){#common-area-cleaning.pm-modern-v1 #hero .hero-grid{grid-template-columns:1fr;gap:20px}#common-area-cleaning.pm-modern-v1 #hero .hero-image{min-height:270px;height:300px}#common-area-cleaning.pm-modern-v1 .pm-trust-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){#common-area-cleaning.pm-modern-v1 .wrap{width:calc(100% - 32px)}#common-area-cleaning.pm-modern-v1 #hero{padding:22px;margin-top:12px}#common-area-cleaning.pm-modern-v1 #hero h1{font-size:clamp(1.85rem,7vw,2.48rem)}#common-area-cleaning.pm-modern-v1 #hero p{font-size:.98rem}#common-area-cleaning.pm-modern-v1 #hero .hero-image{min-height:220px;height:230px}#common-area-cleaning.pm-modern-v1 .pm-trust-row{margin-top:-22px}#common-area-cleaning.pm-modern-v1 .pm-trust-row span{padding:13px 8px;font-size:.78rem}#common-area-cleaning.pm-modern-v1 .panel{padding:20px;margin:17px 0}#common-area-cleaning.pm-modern-v1 .actions{flex-direction:column;align-items:stretch}#common-area-cleaning.pm-modern-v1 .actions .btn{width:100%}#common-area-cleaning.pm-modern-v1 .cta-strong{padding:31px 20px}}
+@media(prefers-reduced-motion:reduce){#common-area-cleaning.pm-modern-v1 *{transition:none!important;scroll-behavior:auto!important}}
