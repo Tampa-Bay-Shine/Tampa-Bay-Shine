@@ -1,0 +1,19 @@
+/* Independent SEO decision review — scoped to its panel. */
+#tbs-decision-review{border:1px solid #c5d8eb;background:#fff;border-radius:14px;padding:18px;margin:20px 0 26px;box-shadow:0 4px 16px rgba(20,55,90,.05)}
+#tbs-decision-review h2{margin:0 0 6px;color:#073b78;font-size:1.4rem}
+#tbs-decision-review h3{margin:0 0 12px;color:#084c99;font-size:1.05rem}
+#tbs-decision-review h4{margin:12px 0 8px;color:#084c99}
+.tbs-dr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.tbs-dr-block{padding:14px;border:1px solid #dbe5f0;border-radius:11px;background:#f8fbff;min-width:0}
+.tbs-dr-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tbs-dr-metrics>div{background:white;border:1px solid #dfebf5;border-radius:8px;padding:10px}
+.tbs-dr-metrics strong{display:block;color:#063878;font-size:1.4rem;line-height:1.2}
+.tbs-dr-metrics span{display:block;color:#475569;font-size:.78rem;margin-top:3px}
+.tbs-dr-note{font-size:.83rem;line-height:1.55;color:#485c76;margin:11px 0 0}
+.tbs-dr-list{margin:12px 0 0;padding-left:21px}
+.tbs-dr-list li{margin-bottom:13px;line-height:1.45}
+.tbs-dr-list p{margin:4px 0;font-size:.84rem}
+.tbs-dr-list small{color:#475569;display:block}
+#tbs-decision-review a{color:#084c99}
+@media(max-width:1100px){.tbs-dr-grid{grid-template-columns:1fr}}
+@media(max-width:550px){#tbs-decision-review{padding:13px}.tbs-dr-metrics{gap:7px}.tbs-dr-metrics>div{padding:8px}.tbs-dr-metrics strong{font-size:1.2rem}}
