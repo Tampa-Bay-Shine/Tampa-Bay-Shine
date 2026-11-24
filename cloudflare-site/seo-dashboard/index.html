@@ -1874,7 +1874,8 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 </div>
 <h1>Tampa Bay Shine SEO Dashboard</h1>
 <!-- TBS_DECISION_REVIEW_20261124 -->
-<link rel="stylesheet" href="./decision-review.css?v=20261124-v2">
+<!-- TBS_DASHBOARD_UX_V3_20261124 -->
+<link rel="stylesheet" href="./decision-review.css?v=20261124-v3">
 <section id="tbs-decision-review" aria-label="SEO decision review">
   <h2>SEO Decision Review</h2>
   <p class="muted">Subscription-independent priorities: site inventory, five focused SEO actions, and conversion attribution.</p>
@@ -1885,7 +1886,7 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
   <div class="tbs-dr-block tbs-dr-actions-panel"><h3>Five actions to review</h3><div id="tbs-dr-actions">Loading opportunities...</div></div>
   <p id="tbs-dr-status" class="tbs-dr-note" role="status">Loading existing dashboard data...</p>
 </section>
-<script defer src="./decision-review.js?v=20261124-v2"></script>
+<script defer src="./decision-review.js?v=20261124-v3"></script>
 <!-- END TBS_DECISION_REVIEW_20261124 -->
 <div class="muted" id="period">Google Search Console</div>
 <div class="period-selector" id="period-selector">
@@ -2060,6 +2061,8 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
     <button class="intelligence-workflow-filter" data-workflow-filter="closed">Closed</button>
   </div>
 
+  <details class="tbs-intel-archive">
+    <summary>Detailed SEO investigation queue — expand to review all findings</summary>
   <div class="intelligence-group">
     <h3>Act first</h3>
     <p class="intelligence-group-description">
@@ -2077,9 +2080,10 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
     </p>
     <div class="intelligence-list" id="intelligence-medium-list"></div>
   </div>
+  </details>
 </section>
 
-<section id="actions" class="tab active">
+<section id="actions" class="tab">
 <h2>SEO Action Center</h2>
 <p class="muted">Prioritized recommendations from the current 28-day Google Search Console period compared with the previous 28 days. Review the evidence before making site changes. During the Oct. 5 migration measurement phase, historical signals remain visible but are not promoted to High Priority until the full current comparison window is post-boundary.</p>
 
@@ -2110,6 +2114,7 @@ table tbody tr.tbs-highlight>td:first-child{box-shadow:inset 4px 0 0 #d99a00}
 </div>
 
 <div id="action-list" class="action-list"></div>
+<button type="button" id="tbs-action-show-all" class="tbs-diagnostic-button" hidden>Show more diagnostics</button>
 </section>
 
 
@@ -4731,7 +4736,10 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
    </article>`;
  };
 
+ let actionExpanded=false;
+ let activeActionFilter="all";
  const renderActions=filter=>{
+   activeActionFilter=filter;
    const visible=actionItems.filter(x=>{
      if(filter==="all") return true;
      if(filter==="high"||filter==="medium"||filter==="low"){
@@ -4741,8 +4749,10 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
    });
 
    document.querySelector("#action-list").innerHTML=visible.length
-     ? visible.map(actionCard).join("")
+     ? visible.slice(0, actionExpanded?visible.length:12).map(actionCard).join("")
      : `<div class="action-empty">No Action Center items match this filter.</div>`;
+   const more=document.getElementById("tbs-action-show-all");
+   if(more){more.hidden=visible.length<=12;more.textContent=actionExpanded?"Show first 12 diagnostics":`Show all ${visible.length} diagnostics`;}
  };
 
  document.querySelectorAll("#action-filters .action-filter").forEach(btn=>{
@@ -4750,10 +4760,13 @@ fetch("./data/gsc.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
      document.querySelectorAll("#action-filters .action-filter")
        .forEach(x=>x.classList.remove("active"));
      btn.classList.add("active");
+     actionExpanded=false;
      renderActions(btn.dataset.actionFilter);
    });
  });
 
+ const moreActions=document.getElementById("tbs-action-show-all");
+ if(moreActions)moreActions.addEventListener("click",()=>{actionExpanded=!actionExpanded;renderActions(activeActionFilter)});
  renderActions("all");
 
  const moverRows=(items,key)=>{

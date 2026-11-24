@@ -7,6 +7,21 @@ const num=x=>Number.isFinite(Number(x))?Number(x):0;
 const fmt=x=>num(x).toLocaleString('en-US');
 const normalize=x=>{try{const u=new URL(x,'https://tampabayshine.com');return u.origin+u.pathname.replace(/\/$/,'')+'/'}catch{return String(x||'')}};
 const readable=x=>{if(!x)return 'unknown';const d=new Date(x);return Number.isFinite(d.getTime())?d.toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric'}):String(x)};
+// Open the existing SEO Intelligence tab and expand source detail, without duplicating data.
+root.addEventListener('click',event=>{
+ const button=event.target.closest('[data-tbs-evidence-id]');if(!button)return;
+ const id=button.getAttribute('data-tbs-evidence-id')||'';
+ const tab=document.querySelector('#executive-nav [data-tab="intelligence"]');
+ if(tab)tab.click();
+ const archive=document.querySelector('#intelligence .tbs-intel-archive');if(archive)archive.open=true;
+ const allFilter=document.querySelector('#intelligence .intelligence-workflow-filter[data-workflow-filter="all"]');
+ if(allFilter)allFilter.click();
+ // Opportunity Intelligence may load after the page. Fall back to its header if exact evidence is absent.
+ const card=[...document.querySelectorAll('#intelligence .intelligence-card[data-opportunity-id]')].find(el=>id&&el.getAttribute('data-opportunity-id')===id);
+ const target=card||document.getElementById('intelligence-note')||document.getElementById('intelligence');
+ if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+ if(card){card.classList.add('tbs-evidence-focus');setTimeout(()=>card.classList.remove('tbs-evidence-focus'),3500);}
+});
 const sourceFiles=['./data/site-inventory.json','./data/indexing-intelligence.json','./data/opportunity-intelligence.json','./data/ga4.json','./data/gsc.json'];
 Promise.all(sourceFiles.map(x=>fetch(x,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(x+' HTTP '+r.status);return r.json()}))).then(([inventory,indexing,opp,ga4,gsc])=>{
  const sitemap=inventory.urls||[];const checked=[...(indexing.pages||[]),...(indexing.student_pages||[])];
@@ -27,7 +42,7 @@ Promise.all(sourceFiles.map(x=>fetch(x,{cache:'no-store'}).then(r=>{if(!r.ok)thr
  const canonicalTopic=x=>{const q=String(x.query||x.subject||'').toLowerCase();const stripped=q.replace(/\b(tampa|fl|florida|near me|in|best|services?|company|companies|professional|local)\b/g,' ').replace(/[^a-z0-9]+/g,' ').trim();return stripped.replace(/\b(cleaning|cleaners)\b/g,'clean').replace(/\s+/g,' ').trim()||q};
  valid.sort((a,b)=>{const priority=x=>num(x.evidence?.impressions)*(1+Math.min(1,num(x.evidence?.clicks)/5))*(num(x.evidence?.position)<=15?1.2:1);return priority(b)-priority(a)});
  for(const item of valid){const topic=canonicalTopic(item);if(used.has(topic))continue;used.add(topic);focused.push(item);if(focused.length===5)break}
- $('tbs-dr-actions').innerHTML=`<p class="tbs-dr-note">${fmt(valid.length)} observations meet the review threshold (40+ impressions, positions 4–25, high confidence); showing up to five distinct query themes. These are <b>candidates</b>, not promises of more traffic.</p>${focused.length?`<ol class="tbs-dr-action-list">${focused.map((x,i)=>`<li><div class="tbs-dr-rank">Review ${i+1} · ${fmt(x.evidence?.impressions)} impressions · position ${esc(x.evidence?.position??'—')}</div><strong>${esc(x.subject||x.query||x.page||'SEO opportunity')}</strong><p>${fmt(x.evidence?.clicks)} clicks in the current 28-day period. ${esc(x.why_flagged||'Search visibility merits investigation.')}</p><details><summary>Recommended check and measurement</summary><p>${esc(x.recommended_action||'Confirm the ranking URL and intent before editing.')}</p><p>${esc(x.measurement?.['30_days']||'Compare subsequent performance after changes.')}</p></details></li>`).join('')}</ol>`:'<p class="tbs-dr-note">No actions meet the current evidence threshold. Use the full Opportunity Intelligence view for research.</p>'}`;
+ $('tbs-dr-actions').innerHTML=`<p class="tbs-dr-note">${fmt(valid.length)} observations meet the review threshold (40+ impressions, positions 4–25, high confidence); showing up to five distinct query themes. These are <b>candidates</b>, not promises of more traffic.</p>${focused.length?`<ol class="tbs-dr-action-list">${focused.map((x,i)=>`<li><div class="tbs-dr-rank">Review ${i+1} · ${fmt(x.evidence?.impressions)} impressions · position ${esc(x.evidence?.position??'—')}</div><strong>${esc(x.subject||x.query||x.page||'SEO opportunity')}</strong><p>${fmt(x.evidence?.clicks)} clicks in the current 28-day period. ${esc(x.why_flagged||'Search visibility merits investigation.')}</p><details><summary>Recommended check and measurement</summary><p>${esc(x.recommended_action||'Confirm the ranking URL and intent before editing.')}</p><p>${esc(x.measurement?.['30_days']||'Compare subsequent performance after changes.')}</p></details><button type="button" class="tbs-dr-evidence" data-tbs-evidence-id="${esc(x.id||'')}">View supporting evidence</button></li>`).join('')}</ol>`:'<p class="tbs-dr-note">No actions meet the current evidence threshold. Use the full Opportunity Intelligence view for research.</p>'}`;
  $('tbs-dr-status').textContent='GSC, GA4, and existing inspection data — independent of GSC Wizard.';
 }).catch(err=>{$('tbs-dr-status').textContent='Decision review could not load: '+err.message;});
 })();
