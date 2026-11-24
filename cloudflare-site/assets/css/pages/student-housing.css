@@ -105,3 +105,41 @@
 }
 
 /* TBS_STUDENT_PHASE22_END */
+
+/* TBS_STUDENT_BREADCRUMB_TOP_V1 */
+/* This breadcrumb is the first element of <main>, above the student hero. */
+.student-page > .student-breadcrumb-top {
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  margin:0;
+  padding:12px max(20px, calc((100vw - 1150px) / 2));
+  background:#f3f7fc;
+  border-bottom:1px solid #dbe6f3;
+  color:#234264;
+  font-size:.88rem;
+  line-height:1.55;
+  overflow-wrap:break-word;
+}
+.student-page > .student-breadcrumb-top a {
+  color:#0950a4;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.student-page > .student-breadcrumb-top a:focus-visible {
+  outline:3px solid #f4c613;
+  outline-offset:3px;
+}
+@media (max-width:850px) {
+  .student-page > .student-breadcrumb-top {
+    padding:10px 20px;
+    font-size:.83rem;
+  }
+}
+@media (max-width:480px) {
+  .student-page > .student-breadcrumb-top {
+    padding:10px 14px;
+    line-height:1.5;
+  }
+}
+/* END TBS_STUDENT_BREADCRUMB_TOP_V1 */
