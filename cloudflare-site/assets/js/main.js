@@ -14,7 +14,9 @@ if(frame)frame.addEventListener('load',()=>{if(started&&started.value==='yes')sh
 (()=>{const classify=(a)=>{const h=a.getAttribute('href')||'',p=location.pathname;if(h.startsWith('tel:'))return'phone_click';let u;try{u=new URL(h,location.href)}catch(_){u=null}const path=u?u.pathname:h.split(/[?#]/)[0];if(u&&/^(?:tampabayshine\.bookingkoala\.com|booking\.tampabayshine\.com)$/i.test(u.hostname)){if(path==='/booknow'||path==='/booknow/')return'booking_external_fallback_click';if(path==='/contact-us'||path==='/contact-us/')return'contact_external_fallback_click';}if(path==='/booknow'||path==='/booknow/'||path==='/book'||path==='/book/')return'booknow_click';if(path==='/coupons'||path==='/coupons/')return'coupon_click';if(/google\.com\/search\?q=.*reviews|google\.com\/maps/i.test(h))return'review_click';if(path==='/contact-us'||path==='/contact-us/')return /office-cleaning|commercial-cleaning|medical-office|common-area|floor-|gym-cleaning|post-construction|post-event/.test(p)?'commercial_quote_start':'contact_click';return''};document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;const event=classify(a);if(!event)return;const detail={event,event_name:event,page_path:location.pathname,link_url:a.href,link_text:(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,120)};window.dispatchEvent(new CustomEvent('tbs:conversion',{detail}));if(Array.isArray(window.dataLayer))window.dataLayer.push(detail);if(typeof window.gtag==='function')window.gtag('event',event,{send_to:'G-XK4CTL9KWM',page_path:detail.page_path,link_url:detail.link_url,link_text:detail.link_text})})})();
 
 /* TBS_MOBILE_CTA_SITEWIDE_20261124 */
+/* TBS_MOBILE_CTA_INIT_V2 */
 (()=>{
+  const init=()=>{
   const path=location.pathname.toLowerCase();
   // Avoid conversion/checkout/contact forms and unrelated utility pages.
   if (/^\/(?:book|booknow|login|contact-us|signature\/book|privacy-policy|terms|sms-opt-in|careers|gift-card|404)(?:\/|$)/.test(path)) return;
@@ -62,4 +64,7 @@ if(frame)frame.addEventListener('load',()=>{if(started&&started.value==='yes')sh
   bar.append(copy,action);
   document.body.append(bar);
   document.body.classList.add('has-tbs-mobile-sticky-cta');
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
