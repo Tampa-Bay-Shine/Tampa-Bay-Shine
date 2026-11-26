@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-25T22:04:58+00:00",
-  "data_through": "2026-11-24",
+  "generated_at": "2026-11-26T22:02:42+00:00",
+  "data_through": "2026-11-25",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -18,37 +18,28 @@
       },
       "overview": {
         "current": {
-          "sessions": 26,
-          "active_users": 12,
-          "engaged_sessions": 16,
-          "engagement_rate": 61.54,
-          "booking_start_rate": 15.38,
-          "primary_intent_rate": 15.38,
+          "sessions": 20,
+          "active_users": 9,
+          "engaged_sessions": 12,
+          "engagement_rate": 60.0,
+          "booking_start_rate": 15.0,
+          "primary_intent_rate": 15.0,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 42,
-          "active_users": 8,
-          "engaged_sessions": 20,
-          "engagement_rate": 47.62,
-          "booking_start_rate": 7.14,
-          "primary_intent_rate": 7.14,
+          "sessions": 43,
+          "active_users": 10,
+          "engaged_sessions": 22,
+          "engagement_rate": 51.16,
+          "booking_start_rate": 9.3,
+          "primary_intent_rate": 9.3,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
       },
       "intent": {
         "current": {
-          "booknow_click": 4,
-          "phone_click": 0,
-          "commercial_quote_start": 0,
-          "contact_click": 0,
-          "coupon_click": 0,
-          "primary_intent_actions": 4,
-          "all_intent_actions": 4
-        },
-        "previous": {
           "booknow_click": 3,
           "phone_click": 0,
           "commercial_quote_start": 0,
@@ -56,6 +47,15 @@
           "coupon_click": 0,
           "primary_intent_actions": 3,
           "all_intent_actions": 3
+        },
+        "previous": {
+          "booknow_click": 4,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 4,
+          "all_intent_actions": 4
         }
       },
       "confirmed_bookings": {
@@ -79,22 +79,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 148,
-          "active_users": 37,
-          "engaged_sessions": 79,
-          "engagement_rate": 53.38,
-          "booking_start_rate": 8.11,
-          "primary_intent_rate": 9.46,
+          "sessions": 144,
+          "active_users": 36,
+          "engaged_sessions": 77,
+          "engagement_rate": 53.47,
+          "booking_start_rate": 8.33,
+          "primary_intent_rate": 9.72,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 86,
+          "sessions": 89,
           "active_users": 50,
-          "engaged_sessions": 57,
-          "engagement_rate": 66.28,
-          "booking_start_rate": 11.63,
-          "primary_intent_rate": 15.12,
+          "engaged_sessions": 59,
+          "engagement_rate": 66.29,
+          "booking_start_rate": 11.24,
+          "primary_intent_rate": 14.61,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 70,
+      "sessions": 68,
       "active_users": 19,
-      "engaged_sessions": 54,
+      "engaged_sessions": 52,
       "booknow_click": 4,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,7 +204,7 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 4,
       "all_intent_actions": 4,
-      "booking_start_rate": 5.71,
+      "booking_start_rate": 5.88,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -328,23 +328,6 @@
       "booking_completion_rate": null
     },
     {
-      "landing_page": "/coupons/",
-      "sessions": 2,
-      "active_users": 2,
-      "engaged_sessions": 1,
-      "booknow_click": 0,
-      "phone_click": 0,
-      "commercial_quote_start": 0,
-      "contact_click": 0,
-      "coupon_click": 0,
-      "confirmed_bookings": 0,
-      "primary_intent_actions": 0,
-      "all_intent_actions": 0,
-      "booking_start_rate": 0.0,
-      "confirmed_booking_rate": 0.0,
-      "booking_completion_rate": null
-    },
-    {
       "landing_page": "(not set)",
       "sessions": 1,
       "active_users": 0,
@@ -396,6 +379,23 @@
       "booking_completion_rate": null
     },
     {
+      "landing_page": "/coupons/",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 1,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
       "landing_page": "/house-cleaning-apollo-beach/",
       "sessions": 1,
       "active_users": 1,
@@ -434,17 +434,17 @@
     {
       "event_name": "BookingByCustomer",
       "channel": "Direct",
-      "event_count": 9
+      "event_count": 8
     },
     {
       "event_name": "booknow_click",
       "channel": "AI Assistant",
-      "event_count": 63
+      "event_count": 48
     },
     {
       "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 31
+      "event_count": 28
     },
     {
       "event_name": "booknow_click",
@@ -459,7 +459,7 @@
     {
       "event_name": "booknow_click",
       "channel": "Referral",
-      "event_count": 8
+      "event_count": 2
     },
     {
       "event_name": "booknow_click",
@@ -479,7 +479,7 @@
     {
       "event_name": "contact_click",
       "channel": "AI Assistant",
-      "event_count": 3
+      "event_count": 2
     },
     {
       "event_name": "contact_click",
@@ -499,7 +499,7 @@
     {
       "event_name": "phone_click",
       "channel": "Direct",
-      "event_count": 2
+      "event_count": 1
     },
     {
       "event_name": "phone_click",
@@ -511,12 +511,12 @@
     {
       "completion_session_channel": "Direct",
       "first_user_channel": "Direct",
-      "confirmed_bookings": 9
+      "confirmed_bookings": 8
     }
   ],
   "attribution_quality": {
     "status": "measured_not_exact_joined",
-    "confirmed_bookings_all_channels": 9,
+    "confirmed_bookings_all_channels": 8,
     "confirmed_bookings_organic_completion_session": 0,
     "confirmed_bookings_organic_first_user": 0,
     "organic_booking_starts": 12,
