@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-26T22:02:42+00:00",
-  "data_through": "2026-11-25",
+  "generated_at": "2026-11-27T21:45:52+00:00",
+  "data_through": "2026-11-26",
   "property_id": "487638948",
   "property_name": "tampabayshine.com",
   "channel": "Organic Search",
@@ -19,36 +19,27 @@
       "overview": {
         "current": {
           "sessions": 20,
-          "active_users": 9,
+          "active_users": 11,
           "engaged_sessions": 12,
           "engagement_rate": 60.0,
-          "booking_start_rate": 15.0,
-          "primary_intent_rate": 15.0,
+          "booking_start_rate": 20.0,
+          "primary_intent_rate": 20.0,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 43,
-          "active_users": 10,
+          "sessions": 42,
+          "active_users": 9,
           "engaged_sessions": 22,
-          "engagement_rate": 51.16,
-          "booking_start_rate": 9.3,
-          "primary_intent_rate": 9.3,
+          "engagement_rate": 52.38,
+          "booking_start_rate": 7.14,
+          "primary_intent_rate": 7.14,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
       },
       "intent": {
         "current": {
-          "booknow_click": 3,
-          "phone_click": 0,
-          "commercial_quote_start": 0,
-          "contact_click": 0,
-          "coupon_click": 0,
-          "primary_intent_actions": 3,
-          "all_intent_actions": 3
-        },
-        "previous": {
           "booknow_click": 4,
           "phone_click": 0,
           "commercial_quote_start": 0,
@@ -56,6 +47,15 @@
           "coupon_click": 0,
           "primary_intent_actions": 4,
           "all_intent_actions": 4
+        },
+        "previous": {
+          "booknow_click": 3,
+          "phone_click": 0,
+          "commercial_quote_start": 0,
+          "contact_click": 0,
+          "coupon_click": 0,
+          "primary_intent_actions": 3,
+          "all_intent_actions": 3
         }
       },
       "confirmed_bookings": {
@@ -79,22 +79,22 @@
       },
       "overview": {
         "current": {
-          "sessions": 144,
-          "active_users": 36,
-          "engaged_sessions": 77,
-          "engagement_rate": 53.47,
-          "booking_start_rate": 8.33,
-          "primary_intent_rate": 9.72,
+          "sessions": 138,
+          "active_users": 37,
+          "engaged_sessions": 74,
+          "engagement_rate": 53.62,
+          "booking_start_rate": 8.7,
+          "primary_intent_rate": 10.14,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
         "previous": {
-          "sessions": 89,
+          "sessions": 98,
           "active_users": 50,
-          "engaged_sessions": 59,
-          "engagement_rate": 66.29,
-          "booking_start_rate": 11.24,
-          "primary_intent_rate": 14.61,
+          "engaged_sessions": 63,
+          "engagement_rate": 64.29,
+          "booking_start_rate": 10.2,
+          "primary_intent_rate": 13.27,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         }
@@ -140,12 +140,12 @@
       },
       "overview": {
         "current": {
-          "sessions": 235,
-          "active_users": 84,
-          "engaged_sessions": 137,
-          "engagement_rate": 58.3,
-          "booking_start_rate": 9.79,
-          "primary_intent_rate": 11.91,
+          "sessions": 239,
+          "active_users": 86,
+          "engaged_sessions": 139,
+          "engagement_rate": 58.16,
+          "booking_start_rate": 10.04,
+          "primary_intent_rate": 12.13,
           "confirmed_booking_rate": 0.0,
           "booking_completion_rate": 0.0
         },
@@ -162,13 +162,13 @@
       },
       "intent": {
         "current": {
-          "booknow_click": 23,
+          "booknow_click": 24,
           "phone_click": 1,
           "commercial_quote_start": 1,
           "contact_click": 3,
           "coupon_click": 0,
-          "primary_intent_actions": 28,
-          "all_intent_actions": 28
+          "primary_intent_actions": 29,
+          "all_intent_actions": 29
         },
         "previous": {
           "booknow_click": 0,
@@ -193,9 +193,9 @@
   "landing_pages": [
     {
       "landing_page": "/",
-      "sessions": 68,
+      "sessions": 66,
       "active_users": 19,
-      "engaged_sessions": 52,
+      "engaged_sessions": 49,
       "booknow_click": 4,
       "phone_click": 0,
       "commercial_quote_start": 0,
@@ -204,7 +204,7 @@
       "confirmed_bookings": 0,
       "primary_intent_actions": 4,
       "all_intent_actions": 4,
-      "booking_start_rate": 5.88,
+      "booking_start_rate": 6.06,
       "confirmed_booking_rate": 0.0,
       "booking_completion_rate": 0.0
     },
@@ -362,6 +362,23 @@
       "booking_completion_rate": null
     },
     {
+      "landing_page": "/book/",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 0,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
       "landing_page": "/checklist/",
       "sessions": 1,
       "active_users": 0,
@@ -380,6 +397,23 @@
     },
     {
       "landing_page": "/coupons/",
+      "sessions": 1,
+      "active_users": 1,
+      "engaged_sessions": 1,
+      "booknow_click": 0,
+      "phone_click": 0,
+      "commercial_quote_start": 0,
+      "contact_click": 0,
+      "coupon_click": 0,
+      "confirmed_bookings": 0,
+      "primary_intent_actions": 0,
+      "all_intent_actions": 0,
+      "booking_start_rate": 0.0,
+      "confirmed_booking_rate": 0.0,
+      "booking_completion_rate": null
+    },
+    {
+      "landing_page": "/gym-cleaning/",
       "sessions": 1,
       "active_users": 1,
       "engaged_sessions": 1,
@@ -434,17 +468,17 @@
     {
       "event_name": "BookingByCustomer",
       "channel": "Direct",
-      "event_count": 8
+      "event_count": 7
     },
     {
       "event_name": "booknow_click",
       "channel": "AI Assistant",
-      "event_count": 48
+      "event_count": 47
     },
     {
       "event_name": "booknow_click",
       "channel": "Direct",
-      "event_count": 28
+      "event_count": 25
     },
     {
       "event_name": "booknow_click",
@@ -469,7 +503,7 @@
     {
       "event_name": "commercial_quote_start",
       "channel": "AI Assistant",
-      "event_count": 5
+      "event_count": 4
     },
     {
       "event_name": "commercial_quote_start",
@@ -511,12 +545,12 @@
     {
       "completion_session_channel": "Direct",
       "first_user_channel": "Direct",
-      "confirmed_bookings": 8
+      "confirmed_bookings": 7
     }
   ],
   "attribution_quality": {
     "status": "measured_not_exact_joined",
-    "confirmed_bookings_all_channels": 8,
+    "confirmed_bookings_all_channels": 7,
     "confirmed_bookings_organic_completion_session": 0,
     "confirmed_bookings_organic_first_user": 0,
     "organic_booking_starts": 12,
